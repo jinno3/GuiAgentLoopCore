@@ -1,203 +1,298 @@
 {
-  "timestamp": "2026-02-02T07:41:00Z",
-  "overall_score": 91,
-  "concept_alignment_score": 96,
+  "timestamp": "2026-02-02T07:55:41.355309",
+  "overall_score": 85,
+  "concept_alignment_score": 77,
   "max_score": 100,
-  "improvement_from_before": {
-    "overall_score": {
-      "before": 88,
-      "after": 91,
-      "delta": "+3"
-    },
-    "concept_alignment_score": {
-      "before": 90,
-      "after": 96,
-      "delta": "+6"
-    }
-  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
-        "canonical_term_usage": 95,
-        "synonym_usage": 5,
+        "score": 100,
+        "synonym_usage_count": 0,
         "issues": []
       },
-      "changes_made": "timestamp_updated",
-      "strengths": [
-        "Core concepts well explained",
-        "Invariants properly documented",
-        "AUTO decisions comprehensive",
-        "Clear links to GLOSSARY.md and AGENTS.md"
-      ],
-      "remaining_issues": [
-        "Some sections incomplete (Prerequisites, Installation, Usage)"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 98,
-        "synonym_usage": 2,
-        "issues": []
+        "score": 0,
+        "synonym_usage_count": 32,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 15,
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 15,
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 16,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 16,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 16,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "line": 16,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "TaskAgent",
+            "should_be": "Agent",
+            "line": 16,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "AgentImage",
+            "should_be": "Agent",
+            "line": 16,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "line": 17,
+            "context": "| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト |"
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "line": 17,
+            "context": "| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト |"
+          }
+        ]
       },
-      "changes_made": "timestamp_updated",
-      "strengths": [
-        "Excellent terminology normalization table",
-        "All hard invariants documented",
-        "AUTO decisions clearly listed",
-        "Clear behavioral guidelines"
-      ],
-      "remaining_issues": []
+      "issues": [
+        "No code examples"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 97,
-        "canonical_term_usage": 96,
-        "synonym_usage": 4,
-        "issues": []
+        "score": 80,
+        "synonym_usage_count": 4,
+        "issues": [
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 46,
+            "context": "if interpreter.state == InterpreterState.STATE_INIT:"
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 47,
+            "context": "interpreter.state = InterpreterState.STATE_RUNNING"
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 55,
+            "context": "interpreter.state = InterpreterState.STATE_INIT"
+          },
+          {
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "line": 79,
+            "context": "#### 自動チャット（AutoChat）"
+          }
+        ]
       },
-      "changes_made": "timestamp_updated",
-      "strengths": [
-        "Comprehensive AUTO decision documentation",
-        "Claude-specific recommendations detailed",
-        "Code examples follow invariants",
-        "Strong emphasis on state monotonicity"
-      ],
-      "remaining_issues": []
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 90,
+        "synonym_usage_count": 2,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 86,
+            "context": "from gui_agent_loop_core.schema.agent.schema import AgentType"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 91,
+            "context": "type: AgentType  # 実装タイプ（役割とは独立）"
+          }
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 90,
+        "synonym_usage_count": 2,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 87,
+            "context": "from gui_agent_loop_core.schema.agent.schema import AgentType"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 92,
+            "context": "type: AgentType  # 実装タイプ（役割とは独立）"
+          }
+        ]
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 100,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 15,
+        "synonym_usage_count": 17,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 19,
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 19,
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "TaskAgent",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "AgentImage",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "line": 53,
+            "context": "- **同義語**: ChatSession, 会話セッション, JWT"
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "line": 53,
+            "context": "- **同義語**: ChatSession, 会話セッション, JWT"
+          }
+        ]
       },
-      "changes_made": "term_count_updated,timestamp_updated",
-      "strengths": [
-        "All 11 terms from ontology.yml v0.3 documented",
-        "Term counts accurate",
-        "Timestamp current",
-        "Term normalization map complete",
-        "AUTO decisions properly cited"
-      ],
-      "remaining_issues": []
+      "issues": [
+        "No code examples"
+      ]
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 90,
-        "canonical_term_usage": 90,
-        "synonym_usage": 10,
+        "score": 100,
+        "synonym_usage_count": 0,
         "issues": []
       },
-      "changes_made": "none",
-      "strengths": [
-        "Invariants well documented"
-      ],
-      "remaining_issues": [
-        "Could better reference invariants.yml"
-      ]
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
       "clarity_score": 85,
       "concept_alignment": {
-        "score": 92,
-        "canonical_term_usage": 92,
-        "synonym_usage": 8,
+        "score": 100,
+        "synonym_usage_count": 0,
         "issues": []
       },
-      "changes_made": "none",
-      "strengths": [
-        "Aligns with intent.yml mission"
-      ],
-      "remaining_issues": [
-        "Periodic review against intent.yml recommended"
+      "issues": [
+        "No code examples"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 78,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 88,
-        "canonical_term_usage": 88,
-        "synonym_usage": 12,
+        "score": 100,
+        "synonym_usage_count": 0,
         "issues": []
       },
-      "changes_made": "none",
-      "strengths": [],
-      "remaining_issues": [
-        "Should include terminology guidelines",
-        "Should reference ontology.yml"
-      ]
+      "issues": []
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 82,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 90,
-        "canonical_term_usage": 90,
-        "synonym_usage": 10,
+        "score": 100,
+        "synonym_usage_count": 0,
         "issues": []
       },
-      "changes_made": "none",
-      "strengths": [
-        "Architectural diagrams present"
-      ],
-      "remaining_issues": [
-        "Should align with mappings.yml"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 88,
-        "canonical_term_usage": 88,
-        "synonym_usage": 12,
-        "issues": []
-      },
-      "changes_made": "none",
-      "strengths": [
-        "Follows CLAUDE.md structure"
-      ],
-      "remaining_issues": [
-        "Needs ontology-specific guidance"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 88,
-        "canonical_term_usage": 88,
-        "synonym_usage": 12,
-        "issues": []
-      },
-      "changes_made": "none",
-      "strengths": [],
-      "remaining_issues": [
-        "Needs ontology-specific guidance"
+      "issues": [
+        "No code examples"
       ]
     }
   ]
