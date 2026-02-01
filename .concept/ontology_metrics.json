@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-01T13:33:40Z",
+  "last_updated": "2026-02-01T13:47:06Z",
   "total_terms": 9,
   "terms_by_layer": {
     "core": 5,
@@ -16,12 +16,12 @@
   "total_ambiguities": 4,
   "total_conflicts": 0,
   "queue_size": 4,
-  "queue_pending": 4,
+  "queue_pending": 0,
   "claims_count": 39,
   "mappings_count": 9,
   "decisions_active": 9,
   "decisions_expired": 0,
-  "tombstones_count": 0,
+  "tombstones_count": 4,
   "budget_status": "within_limits",
   "budget_details": {
     "total_terms_max": 80,
@@ -30,28 +30,27 @@
     "draft_ratio_current": 0.11,
     "within_draft_limit": true,
     "queue_pending_max": 30,
-    "queue_pending_current": 4,
+    "queue_pending_current": 0,
     "within_queue_limit": true
   },
   "gc_actions": {
-    "merged": 0,
-    "deleted": 0,
+    "merged": 3,
+    "deleted": 1,
     "deprecated": 0,
-    "reason": "All metrics within budget, no GC needed"
+    "reason": "Processed term_queue: merged AgentType, AgentDefinition, TaskAgent into Agent; rejected OpenGuiConnector (insufficient evidence)"
   },
   "this_run_summary": {
     "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
-    "queue_entries_added": 0,
+    "queue_processed": 4,
+    "queue_merged": 3,
+    "queue_rejected": 1,
     "conflicts_resolved": 0,
     "files_analyzed": [
-      "README.md",
-      "GLOSSARY.md",
-      ".concept/ontology.yml",
-      ".concept/invariants.yml",
-      ".concept/ambiguities.yml",
-      ".concept/mappings.yml"
+      ".concept/term_queue.yml",
+      ".concept/tombstones.yml",
+      ".concept/ontology.yml"
     ]
   }
 }

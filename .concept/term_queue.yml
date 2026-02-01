@@ -1,4 +1,4 @@
-updated_at: "2026-02-01T13:05:48Z"
+updated_at: "2026-02-01T13:47:06Z"
 queue:
   - id: "TP-000001"
     proposed_canonical: "AgentType"
@@ -11,9 +11,10 @@ queue:
     auto_merge_candidates:
       - term: "Agent"
         similarity: 0.72
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T13:05:48Z"
+    decision: "merged"
+    merged_into: "Agent"
+    merge_reason: "AgentType is an implementation property of Agent, not a separate concept (similarity 0.72 < 0.78 threshold)"
+    decided_run: "2026-02-01T13:47:06Z"
 
   - id: "TP-000002"
     proposed_canonical: "AgentDefinition"
@@ -26,9 +27,10 @@ queue:
     auto_merge_candidates:
       - term: "Agent"
         similarity: 0.65
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T13:05:48Z"
+    decision: "merged"
+    merged_into: "Agent"
+    merge_reason: "AgentDefinition is a configuration model for Agent, not a separate canonical term"
+    decided_run: "2026-02-01T13:47:06Z"
 
   - id: "TP-000003"
     proposed_canonical: "TaskAgent"
@@ -41,9 +43,10 @@ queue:
     auto_merge_candidates:
       - term: "Agent"
         similarity: 0.70
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T13:05:48Z"
+    decision: "merged"
+    merged_into: "Agent"
+    merge_reason: "TaskAgent describes a specialized role of Agent, not a separate canonical term"
+    decided_run: "2026-02-01T13:47:06Z"
 
   - id: "TP-000004"
     proposed_canonical: "OpenGuiConnector"
@@ -54,6 +57,6 @@ queue:
       - source: "README.md"
         quote: "OpenGuiConnector(OpenGuiConnector<br>- Event handling<br>- I/O conversion<br>- Multimodal support)"
     auto_merge_candidates: []
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T13:05:48Z"
+    decision: "rejected"
+    rejection_reason: "Insufficient evidence - only appears in README architecture diagram, no implementation found in codebase"
+    decided_run: "2026-02-01T13:47:06Z"
