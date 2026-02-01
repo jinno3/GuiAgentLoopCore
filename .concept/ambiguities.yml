@@ -1,0 +1,87 @@
+updated_at: "2026-02-01T21:56:12Z"
+ambiguities:
+  - id: "AMB-MEM-001"
+    term: "Memory"
+    topic: "会話メモリのウィンドウサイズと最大長"
+    severity: "low"
+    uncertainty: 0.40
+    candidates:
+      - "ウィンドウサイズk=10、最大長100"
+      - "ウィンドウサイズと最大長は同じ"
+      - "最大長のみ適用、ウィンドウなし"
+    missing_info:
+      - "k=10は最大長か、rolling windowか？"
+      - "100はハードリミットか、soft limitか？"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:Memory.specs:provisional"
+      chosen: "ウィンドウサイズk=10（rolling）、最大長100（hard limit）"
+      policy: "safety + reversibility"
+      confidence_auto: 0.50
+      decided_at_run: "2026-02-01T21:56:12Z"
+      expires_after_runs: 20
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "test_failure"
+    last_touched_run: "2026-02-01T21:56:12Z"
+    evidence:
+      - source: "exploration findings"
+        quote: "Conversation buffer with window size (k=10) and Maximum message length (100)"
+
+  - id: "AMB-AUTO-001"
+    term: "AutoChat"
+    topic: "AUTO_CHAT_PROMPTのデフォルト値"
+    severity: "low"
+    uncertainty: 0.50
+    candidates:
+      - "環境変数必須（未設定時はエラー）"
+      - "デフォルト値あり（継続プロンプト自動生成）"
+      - "未設定時はAutoChat無効"
+    missing_info:
+      - "デフォルトの継続プロンプト文字列は？"
+      - "環境変数なし時の挙動"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:AutoChat.prompt:default_continue"
+      chosen: "未設定時はデフォルト継続プロンプト使用（安全側）"
+      policy: "safety + reversibility"
+      confidence_auto: 0.55
+      decided_at_run: "2026-02-01T21:56:12Z"
+      expires_after_runs: 20
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "security_risk"
+    last_touched_run: "2026-02-01T21:56:12Z"
+    evidence:
+      - source: "exploration findings"
+        quote: "Can be overridden via AUTO_CHAT_PROMPT environment variable"
+
+  - id: "AMB-BE-001"
+    term: "Backend"
+    topic: "Streamsyncサポートの有無と優先度"
+    severity: "low"
+    uncertainty: 0.60
+    candidates:
+      - "Gradioが主要、Streamsyncは実験中"
+      - "GradioとStreamsyncは同等の優先度"
+      - "Streamsyncは将来サポート（未実装）"
+    missing_info:
+      - "Streamsync実装の完了度"
+      - "どちらを推奨するか"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:Backend.primary:gradio"
+      chosen: "Gradioが主要バックエンド（暫定）"
+      policy: "industry_convention"
+      confidence_auto: 0.70
+      decided_at_run: "2026-02-01T21:56:12Z"
+      expires_after_runs: 20
+      revert_triggers:
+        - "primary_evidence_contradiction"
+    last_touched_run: "2026-02-01T21:56:12Z"
+    evidence:
+      - source: "gui_agent_loop_core/backend/"
+        quote: "Gradio implementation found, Streamsync mentioned"

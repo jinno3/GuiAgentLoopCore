@@ -1,0 +1,187 @@
+version: "0.3"
+updated_at: "2026-02-01T21:56:12Z"
+
+canonical_terms:
+  Interpreter:
+    id: "TERM-INTERPRETER"
+    layer: "core"
+    status: "stable"
+    definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    synonyms: ["GuiAgentInterpreter", "会話インタープリタ"]
+    boundaries:
+      includes: ["状態管理", "セッション管理", "メッセージルーティング"]
+      excludes: ["UI描画", "LLM直接実行"]
+    lifecycle: ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"]
+    related_terms: ["Agent", "Session", "Message", "State"]
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "class InterpreterManager: Manages chat sessions and state handling"
+
+  Agent:
+    id: "TERM-AGENT"
+    layer: "core"
+    status: "stable"
+    definition: "特定の役割を持つ専門化AIエンティティ"
+    synonyms: ["AIエージェント", "専門エージェント"]
+    boundaries:
+      includes: ["役割定義", "タスク実行", "LLM呼び出し"]
+      excludes: ["セッション管理", "UI描画"]
+    lifecycle: []
+    related_terms: ["Interpreter", "AgentName", "Message"]
+    assumptions:
+      - id: "ASM-AGENT-001"
+        text: "AUTO: Agentはロールベースで分類される"
+        decision_key: "AUTO:Agent.role:classification"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "class AgentName(str, Enum): AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
+
+  Session:
+    id: "TERM-SESSION"
+    layer: "core"
+    status: "stable"
+    definition: "一意のIDで管理される会話コンテキスト"
+    synonyms: ["ChatSession", "会話セッション"]
+    boundaries:
+      includes: ["メッセージ履歴", "セッションID", "認証トークン"]
+      excludes: ["UI状態", "インタープリタ状態"]
+    lifecycle: ["created", "active", "terminated"]
+    related_terms: ["Interpreter", "Message", "ChatManager"]
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "ChatSession: Individual conversation session with message history"
+
+  Message:
+    id: "TERM-MESSAGE"
+    layer: "core"
+    status: "stable"
+    definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+    synonyms: ["メッセージ", "ChatMessage"]
+    boundaries:
+      includes: ["コンテンツ", "役割", "タイプ", "メタデータ"]
+      excludes: ["セッション状態", "UIイベント"]
+    lifecycle: ["created", "processed", "streamed"]
+    related_terms: ["Interpreter", "Agent", "Session"]
+    assumptions:
+      - id: "ASM-MSG-001"
+        text: "AUTO: メッセージは再帰的にフラット化可能"
+        decision_key: "AUTO:Message.structure:flat"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/schema/message/schema.py"
+        quote: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+
+  State:
+    id: "TERM-STATE"
+    layer: "core"
+    status: "stable"
+    definition: "インタープリタの実行状態を表す列挙型"
+    synonyms: ["InterpreterState", "インタープリタ状態"]
+    boundaries:
+      includes: ["状態遷移", "状態チェック", "状態変更イベント"]
+      excludes: ["セッションライフサイクル", "UI状態"]
+    lifecycle: ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"]
+    related_terms: ["Interpreter", "AutoChat"]
+    assumptions:
+      - id: "ASM-STATE-001"
+        text: "AUTO: 状態は単調遷移する（INIT → RUNNING → STOP）"
+        decision_key: "AUTO:State.lifecycle:monotonic"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "class InterpreterState(str, Enum): STATE_INIT, STATE_RUNNING, STATE_STOP"
+
+  AutoChat:
+    id: "TERM-AUTOCHAT"
+    layer: "domain"
+    status: "stable"
+    definition: "STATE_STOP時に自動的に会話を継続する機能"
+    synonyms: ["自動チャット", "自動継続"]
+    boundaries:
+      includes: ["自動入力生成", "状態チェック", "継続トリガー"]
+      excludes: ["手動チャット", "UIイベントハンドリング"]
+    lifecycle: ["triggered", "executed", "completed"]
+    related_terms: ["Interpreter", "State", "Message"]
+    assumptions:
+      - id: "ASM-AUTO-001"
+        text: "AUTO: AutoChatはSTATE_STOP時のみ発火"
+        decision_key: "AUTO:AutoChat.trigger:stop_only"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "auto_chat(): Only triggers when state is STATE_STOP"
+
+  StreamWrapper:
+    id: "TERM-STREAMWRAPPER"
+    layer: "domain"
+    status: "stable"
+    definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+    synonyms: ["GuiAgentStreamWrapper", "ストリームラッパー"]
+    boundaries:
+      includes: ["ストリーム処理", "同期/非同期変換"]
+      excludes: ["メッセージ変換", "状態管理"]
+    lifecycle: ["created", "streaming", "completed"]
+    related_terms: ["Message", "Interpreter"]
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/util/gui_agent_stream_wrapper.py"
+        quote: "GuiAgentStreamWrapper: Utility for handling both sync and async streaming responses"
+
+  Backend:
+    id: "TERM-BACKEND"
+    layer: "domain"
+    status: "stable"
+    definition: "GUIフレームワーク実装（Gradio等）"
+    synonyms: ["GUIバックエンド", "UIフレームワーク"]
+    boundaries:
+      includes: ["UI描画", "イベントハンドリング", "コンポーネント管理"]
+      excludes: ["会話ロジック", "エージェント管理"]
+    lifecycle: []
+    related_terms: ["Interpreter", "Session"]
+    assumptions:
+      - id: "ASM-BE-001"
+        text: "AUTO: Gradioが主要バックエンド（暫定）"
+        decision_key: "AUTO:Backend.primary:gradio"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "Gradio implementation of the server interface"
+
+  Converter:
+    id: "TERM-CONVERTER"
+    layer: "aux"
+    status: "draft"
+    definition: "データ構造変換を行うユーティリティ"
+    synonyms: ["変換器", "マッパー"]
+    boundaries:
+      includes: ["リクエスト変換", "辞書フラット化"]
+      excludes: ["メッセージ処理", "状態管理"]
+    lifecycle: []
+    related_terms: ["Message"]
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/converter/"
+        quote: "Request conversion and dictionary flattening components"
+
+  Memory:
+    id: "TERM-MEMORY"
+    layer: "domain"
+    status: "draft"
+    definition: "会話履歴を保持するバッファ機構"
+    synonyms: ["会話メモリ", "ConversationBuffer"]
+    boundaries:
+      includes: ["メッセージ履歴", "ウィンドウサイズ"]
+      excludes: ["セッション管理", "状態保持"]
+    lifecycle: []
+    related_terms: ["Session", "Message"]
+    assumptions:
+      - id: "ASM-MEM-001"
+        text: "AUTO: メモリウィンドウサイズはk=10（暫定）"
+        decision_key: "AUTO:Memory.window:k10"
+        expires_after_runs: 20
+    evidence:
+      - source: "exploration findings"
+        quote: "Conversation buffer with window size (k=10)"

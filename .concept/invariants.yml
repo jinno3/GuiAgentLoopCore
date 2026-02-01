@@ -1,0 +1,117 @@
+updated_at: "2026-02-01T21:56:12Z"
+invariants:
+  - id: "INV-STATE-001"
+    related_terms: ["Interpreter", "State"]
+    status: "stable"
+    strength: "hard"
+    statement: "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+    rationale: "状態遷移の一貫性を保証し、不整合な動作を防ぐ"
+    assumptions:
+      - id: "ASM-INV-001"
+        text: "AUTO: 状態遷移は前方のみ（逆行不可）"
+        decision_key: "AUTO:State.transition:forward_only"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "InterpreterState: STATE_INIT, STATE_RUNNING, STATE_STOP"
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "State transition logic with change_state_running()"
+    checks:
+      - type: "test"
+        target: "tests/test_state_transitions.py"
+
+  - id: "INV-SESSION-001"
+    related_terms: ["Session"]
+    status: "stable"
+    strength: "hard"
+    statement: "セッションは一意のUUIDで識別される"
+    rationale: "セッションの衝突を防ぎ、正しい認証を実現する"
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "Each session has a unique UUID"
+    checks:
+      - type: "test"
+        target: "tests/test_session_uniqueness.py"
+
+  - id: "INV-MSG-001"
+    related_terms: ["Message"]
+    status: "stable"
+    strength: "hard"
+    statement: "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+    rationale: "タイプ安全性を保証し、予期しないメッセージを防ぐ"
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/schema/message/schema.py"
+        quote: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+    checks:
+      - type: "test"
+        target: "tests/test_message_types.py"
+
+  - id: "INV-AGENT-001"
+    related_terms: ["Agent"]
+    status: "stable"
+    strength: "soft"
+    statement: "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER"
+    rationale: "役割ベースのアクセス制御と責任分離"
+    assumptions:
+      - id: "ASM-INV-AGENT-001"
+        text: "AUTO: OTHERはデフォルト/不明のエージェント"
+        decision_key: "AUTO:Agent.role:other_default"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "AgentName: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER"
+    checks:
+      - type: "test"
+        target: "tests/test_agent_roles.py"
+
+  - id: "INV-AUTO-001"
+    related_terms: ["AutoChat", "State"]
+    status: "stable"
+    strength: "hard"
+    statement: "AutoChatはSTATE_STOP時のみトリガーされる"
+    rationale: "実行中の自動干渉を防ぎ、ユーザーコントロールを維持する"
+    assumptions:
+      - id: "ASM-INV-AUTO-001"
+        text: "AUTO: 状態チェックはトリガー前に行われる"
+        decision_key: "AUTO:AutoChat.check:before_trigger"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "auto_chat(): Only triggers when state is STATE_STOP"
+    checks:
+      - type: "test"
+        target: "tests/test_auto_chat_trigger.py"
+
+  - id: "INV-MEM-001"
+    related_terms: ["Memory", "Session"]
+    status: "draft"
+    strength: "soft"
+    statement: "会話メモリは最大100メッセージまで保持する"
+    rationale: "メモリ使用量を制限し、パフォーマンスを維持する"
+    assumptions:
+      - id: "ASM-INV-MEM-001"
+        text: "AUTO: 100は安全上限（暫定）"
+        decision_key: "AUTO:Memory.limit:100"
+        expires_after_runs: 20
+    evidence:
+      - source: "exploration findings"
+        quote: "Maximum message length (100) enforced"
+    checks:
+      - type: "test"
+        target: "tests/test_memory_limits.py"
+
+  - id: "INV-STREAM-001"
+    related_terms: ["StreamWrapper", "Message"]
+    status: "stable"
+    strength: "hard"
+    statement: "ストリームラッパーは同期・非同期の両方をサポートする"
+    rationale: "柔軟な統合を可能にする"
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/util/gui_agent_stream_wrapper.py"
+        quote: "GuiAgentStreamWrapper: handles both sync and async streaming"
+    checks:
+      - type: "test"
+        target: "tests/test_stream_wrapper.py"
