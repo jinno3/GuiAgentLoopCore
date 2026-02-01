@@ -1,4 +1,4 @@
-updated_at: "2026-02-01T16:49:30Z"
+updated_at: "2026-02-02T02:24:29Z"
 queue:
   - id: "TP-000005"
     proposed_canonical: "GuiComponent"
@@ -11,10 +11,10 @@ queue:
     auto_merge_candidates:
       - term: "Backend"
         similarity: 0.68
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T16:35:33Z"
-    notes: "Keeping pending - similarity 0.68 < 0.78 threshold, but Backend already includes GuiComponent in boundaries"
+    decision: "merged"
+    merged_into: "Backend"
+    merge_reason: "GuiComponent is a sub-concept of Backend (UI components are part of the GUI backend). Similarity 0.68 < 0.78 threshold, and Backend already includes GuiComponent concepts in its boundaries."
+    decided_run: "2026-02-02T02:24:29Z"
 
   - id: "TP-000006"
     proposed_canonical: "Timer"

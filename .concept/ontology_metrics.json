@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-01T17:13:28Z",
+  "last_updated": "2026-02-02T02:24:29Z",
   "total_terms": 10,
   "terms_by_layer": {
     "core": 5,
@@ -16,15 +16,15 @@
   "total_ambiguities": 4,
   "total_conflicts": 0,
   "queue_size": 7,
-  "queue_pending": 1,
-  "queue_merged": 4,
+  "queue_pending": 0,
+  "queue_merged": 5,
   "queue_rejected": 2,
   "claims_count": 104,
   "mappings_count": 10,
   "decisions_active": 13,
   "decisions_expired": 0,
   "decisions_md_lines": 106,
-  "tombstones_count": 4,
+  "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
     "total_terms_max": 80,
@@ -33,47 +33,45 @@
     "draft_ratio_current": 0.1,
     "within_draft_limit": true,
     "queue_pending_max": 30,
-    "queue_pending_current": 1,
+    "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
     "decisions_md_lines_current": 106,
     "within_decisions_limit": true
   },
   "gc_actions": {
-    "merged": 0,
+    "merged": 1,
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "No bloat detected - all metrics within limits"
+    "reason": "Merged GuiComponent into Backend"
   },
   "this_run_summary": {
-    "run_id": "2026-02-01T17:13:28Z",
-    "previous_run_id": "2026-02-01T17:01:53Z",
-    "run_count": 20,
-    "claims_added": 9,
+    "run_id": "2026-02-02T02:24:29Z",
+    "previous_run_id": "2026-02-01T17:13:28Z",
+    "run_count": 21,
+    "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
     "auto_decisions_expired": 0,
-    "queue_processed": 0,
+    "queue_processed": 1,
     "conflicts_resolved": 0,
-    "files_analyzed": [
-      ".audit/config/intent.yml",
-      ".audit/bootstrap/runs/current/changes/CHANGES_SUMMARY.md"
-    ],
+    "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Extracted 9 new claims from intent.yml",
-      "Verified all claims align with existing ontology",
+      "Processed TP-000005 (GuiComponent) - merged into Backend",
+      "Updated Backend synonym to include GuiComponent",
+      "Added tombstone for GuiComponent",
       "No new ambiguities or conflicts detected",
       "All AUTO decisions remain valid (none expired)",
-      "Updated run_state to run #20",
+      "Updated run_state to run #21",
       "All metrics within budget - ontology healthy"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
     "decisions_cache_health": "healthy (106/200 lines)",
-    "queue_health": "healthy (1 pending, 4 merged, 2 rejected)",
+    "queue_health": "healthy (0 pending, 5 merged, 2 rejected)",
     "conflict_health": "healthy (0 conflicts)"
   }
 }
