@@ -1,7 +1,9 @@
 {
-  "timestamp": "2026-02-02T08:08:57.573112",
+  "timestamp": "2026-02-02T08:20:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
+  "updated_at": "2026-02-02T05:38:12Z",
+
   "statistics": {
     "total_terms": 11,
     "by_layer": {
@@ -14,103 +16,121 @@
       "draft": 1
     }
   },
+
+  "layer_distribution": {
+    "core": [
+      "Interpreter",
+      "Agent",
+      "Session",
+      "Message",
+      "State"
+    ],
+    "domain": [
+      "AutoChat",
+      "StreamWrapper",
+      "Backend",
+      "Connector",
+      "Memory (draft)"
+    ],
+    "aux": [
+      "Converter"
+    ]
+  },
+
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
       "layer": "core",
+      "status": "stable",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": [
-        "GuiAgentInterpreter",
-        "会話インタープリタ"
-      ]
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "related_invariants": ["INV-STATE-001", "INV-STATE-002"]
     },
     {
       "canonical": "Agent",
       "layer": "core",
+      "status": "stable",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": [
-        "AIエージェント",
-        "専門エージェント",
-        "AgentType",
-        "AgentDefinition",
-        "TaskAgent",
-        "AgentImage"
-      ]
+      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "related_invariants": ["INV-AGENT-001"]
     },
     {
       "canonical": "Session",
       "layer": "core",
+      "status": "stable",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
-      "synonyms": [
-        "ChatSession",
-        "会話セッション",
-        "JWT"
-      ]
+      "synonyms": ["ChatSession", "会話セッション", "JWT"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "related_invariants": ["INV-SESSION-001", "INV-SESSION-002"]
     },
     {
       "canonical": "Message",
       "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
-      "synonyms": [
-        "メッセージ",
-        "ChatMessage"
-      ]
+      "status": "stable",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "synonyms": ["メッセージ", "ChatMessage"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "related_invariants": ["INV-MSG-001", "INV-MESSAGE-001"]
     },
     {
       "canonical": "State",
       "layer": "core",
+      "status": "stable",
       "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": [
-        "InterpreterState",
-        "インタープリタ状態"
-      ]
+      "synonyms": ["InterpreterState", "インタープリタ状態"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "related_invariants": ["INV-STATE-001", "INV-STATE-002"]
     },
     {
       "canonical": "AutoChat",
       "layer": "domain",
+      "status": "stable",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
-      "synonyms": [
-        "自動チャット",
-        "自動継続"
-      ]
-    },
-    {
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": [
-        "GuiAgentStreamWrapper",
-        "ストリームラッパー"
-      ]
-    },
-    {
-      "canonical": "Backend",
-      "layer": "domain",
-      "definition": "GUIフレームワーク実装（Gradio等）",
-      "synonyms": [
-        "GUIバックエンド",
-        "UIフレームワーク",
-        "GuiBackend",
-        "GuiComponent"
-      ]
-    },
-    {
-      "canonical": "Converter",
-      "layer": "aux",
-      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
-      "synonyms": [
-        "変換器",
-        "マッパー"
-      ]
+      "synonyms": ["自動チャット", "自動継続"],
+      "should_use_in": ["README.md", "AGENTS.md"],
+      "related_invariants": ["INV-AUTO-001"]
     },
     {
       "canonical": "Memory",
       "layer": "domain",
+      "status": "draft",
       "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": [
-        "会話メモリ",
-        "ConversationBuffer"
-      ]
+      "synonyms": ["会話メモリ", "ConversationBuffer"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "related_invariants": ["INV-MEM-001"],
+      "note": "Draft status - AUTO decisions apply"
     }
-  ]
+  ],
+
+  "synonym_mapping": {
+    "GuiAgentInterpreter": "Interpreter",
+    "会話インタープリタ": "Interpreter",
+    "AIエージェント": "Agent",
+    "専門エージェント": "Agent",
+    "AgentType": "Agent",
+    "AgentDefinition": "Agent",
+    "TaskAgent": "Agent",
+    "AgentImage": "Agent",
+    "ChatSession": "Session",
+    "会話セッション": "Session",
+    "JWT": "Session",
+    "メッセージ": "Message",
+    "ChatMessage": "Message",
+    "InterpreterState": "State",
+    "インタープリタ状態": "State",
+    "自動チャット": "AutoChat",
+    "自動継続": "AutoChat",
+    "GuiAgentStreamWrapper": "StreamWrapper",
+    "ストリームラッパー": "StreamWrapper",
+    "GUIバックエンド": "Backend",
+    "UIフレームワーク": "Backend",
+    "会話メモリ": "Memory",
+    "ConversationBuffer": "Memory"
+  },
+
+  "auto_decisions_count": 9,
+  "invariants_count": 13,
+  "hard_invariants_count": 12
 }

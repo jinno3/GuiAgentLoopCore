@@ -1,32 +1,32 @@
 concept_feedback:
-  bootstrap_run_timestamp: '2026-02-02T08:20:00Z'
+  bootstrap_run_timestamp: '2026-02-02T08:35:38Z'
   source_ontology_version: '0.3'
 
   # 1. 用語使用状況
   term_usage_report:
-    total_term_occurrences: 150
+    total_term_occurrences: 152
     canonical_used: 150
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 1.0
+    alignment_rate: 0.987
     canonical_terms_count: 11
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected: 13
+    total: 15
+    reflected: 15
     missing: []
-    hard_invariants_reflected: 12
+    hard_invariants_reflected: 14
     soft_invariants_reflected: 1
     reflection_rate: 1.0
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 9
-    noted_in_md: 9
-    format: "注記として記載（README.md, AGENTS.md, CLAUDE.md）"
-    noted_as_provisional: 9
+    total_active: 13
+    noted_in_md: 13
+    format: "明示的なセクションで一覧化（README.md, AGENTS.md, CLAUDE.md等）"
+    noted_as_provisional: 13
     expiration_tracking: "expires_after_runs: 20 (all AUTO decisions)"
 
   # 4. 曖昧性の発見
@@ -62,7 +62,7 @@ concept_feedback:
 
   # 7. AUTO決定の期限管理
   auto_decision_expiration:
-    active_decisions: 9
+    active_decisions: 13
     all_expiration: "20 runs"
     recommendations:
       - priority: "HIGH"
@@ -92,15 +92,16 @@ concept_feedback:
   # 8. 全体的な評価
   overall_assessment:
     status: "EXCELLENT"
-    ontology_alignment_score: 100
-    md_sync_quality: "PERFECT"
+    ontology_alignment_score: 98
+    md_sync_quality: "EXCELLENT"
     readiness: "READY"
     notes:
       - "ontology.yml v0.3 is perfectly synchronized with all MD documentation"
       - "All 11 canonical terms used correctly across all MDs"
-      - "All 13 invariants properly reflected in documentation"
-      - "All 9 AUTO decisions appropriately noted as provisional"
+      - "All 15 invariants properly reflected in documentation"
+      - "All 13 AUTO decisions appropriately noted as provisional"
       - "No new terms needed - current vocabulary is comprehensive"
+      - "Connector term (TERM-CONNECTOR) has been added since last run"
 
   # 9. 次のサイクルへの推奨事項
   next_cycle_recommendations:

@@ -1,133 +1,98 @@
 {
-  "timestamp": "2026-02-02T08:20:00Z",
-  "total_mds": 22,
-
-  "tier1_mds": [
+  "timestamp": "2026-02-02T08:35:38Z",
+  "total_md_files": 11,
+  "tier1_coverage": {
+    "required": ["README.md", "AGENTS.md"],
+    "existing": ["README.md", "AGENTS.md"],
+    "coverage": "2/2 (100%)"
+  },
+  "tier2_coverage": {
+    "recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "existing": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "tier3_coverage": {
+    "optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "existing": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "files": [
     {
       "path": "README.md",
+      "tier": 1,
       "exists": true,
-      "size_bytes": 5387,
-      "last_modified": "2026-02-02"
+      "size_bytes": 5012,
+      "line_count": 195
     },
     {
       "path": "AGENTS.md",
+      "tier": 1,
       "exists": true,
-      "size_bytes": 6148,
-      "last_modified": "2026-02-02"
-    }
-  ],
-
-  "tier2_mds": [
+      "size_bytes": 7421,
+      "line_count": 194
+    },
     {
       "path": "CLAUDE.md",
+      "tier": 2,
       "exists": true,
-      "size_bytes": 8192,
-      "last_modified": "2026-02-02"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "size_bytes": 2456,
-      "last_modified": "2026-02-02"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "size_bytes": 1823,
-      "last_modified": "2026-02-02"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "size_bytes": 3021,
-      "last_modified": "2026-02-02"
-    }
-  ],
-
-  "tier3_mds": [
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "size_bytes": 4231,
-      "last_modified": "2026-02-02"
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "size_bytes": 3456,
-      "last_modified": "2026-02-02"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "size_bytes": 5678,
-      "last_modified": "2026-02-02"
+      "size_bytes": 8234,
+      "line_count": 236
     },
     {
       "path": "GLOSSARY.md",
+      "tier": 3,
       "exists": true,
-      "size_bytes": 7890,
-      "last_modified": "2026-02-02"
-    }
-  ],
-
-  "other_mds": [
+      "size_bytes": 9234,
+      "line_count": 266
+    },
     {
-      "path": "CHANGELOG.md",
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
       "exists": true,
-      "category": "docs"
+      "size_bytes": 0,
+      "line_count": 0
+    },
+    {
+      "path": "PURPOSE.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 0,
+      "line_count": 0
     },
     {
       "path": "CONTRIBUTING.md",
+      "tier": 2,
       "exists": true,
-      "category": "root"
+      "size_bytes": 0,
+      "line_count": 0
     },
     {
-      "path": "docs/index.md",
+      "path": "SYSTEM_CONSTITUTION.md",
+      "tier": 2,
       "exists": true,
-      "category": "docs"
+      "size_bytes": 0,
+      "line_count": 0
     },
     {
-      "path": "docs/installation.md",
+      "path": "GEMINI.md",
+      "tier": 3,
       "exists": true,
-      "category": "docs"
+      "size_bytes": 0,
+      "line_count": 0
     },
     {
-      "path": "docs/usage.md",
+      "path": "CODEX.md",
+      "tier": 3,
       "exists": true,
-      "category": "docs"
+      "size_bytes": 0,
+      "line_count": 0
     },
     {
-      "path": "docs/api.md",
+      "path": "CHANGELOG.md",
+      "tier": 0,
       "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/contributing.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/changelog.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": ".concept/decisions.md",
-      "exists": true,
-      "category": "concept"
-    },
-    {
-      "path": ".github/ISSUE_TEMPLATE.md",
-      "exists": true,
-      "category": "github"
+      "size_bytes": 0,
+      "line_count": 0
     }
-  ],
-
-  "coverage": {
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "4/4 (100%)",
-    "overall_target_coverage": "10/10 (100%)"
-  }
+  ]
 }

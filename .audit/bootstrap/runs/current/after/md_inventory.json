@@ -1,113 +1,98 @@
 {
-  "timestamp": "2026-02-02T08:20:00Z",
-  "total_mds": 22,
-  "changes_from_before": {
-    "files_created": 0,
-    "files_updated": 0,
-    "files_verified": 10
+  "timestamp": "2026-02-02T08:35:38Z",
+  "total_md_files": 11,
+  "tier1_coverage": {
+    "required": ["README.md", "AGENTS.md"],
+    "existing": ["README.md", "AGENTS.md"],
+    "coverage": "2/2 (100%)"
   },
-
-  "tier1_mds": [
+  "tier2_coverage": {
+    "recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "existing": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "tier3_coverage": {
+    "optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "existing": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "files": [
     {
       "path": "README.md",
+      "tier": 1,
       "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 90,
-      "concept_alignment_score": 100
+      "size_bytes": 5012,
+      "line_count": 195
     },
     {
       "path": "AGENTS.md",
+      "tier": 1,
       "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 95,
-      "concept_alignment_score": 100
-    }
-  ],
-
-  "tier2_mds": [
+      "size_bytes": 7421,
+      "line_count": 194
+    },
     {
       "path": "CLAUDE.md",
+      "tier": 2,
       "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 90,
-      "concept_alignment_score": 100
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 85,
-      "concept_alignment_score": 100
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 80,
-      "concept_alignment_score": 100
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 75,
-      "concept_alignment_score": 100
-    }
-  ],
-
-  "tier3_mds": [
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 85,
-      "concept_alignment_score": 100
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 85,
-      "concept_alignment_score": 100
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 85,
-      "concept_alignment_score": 100
+      "size_bytes": 8234,
+      "line_count": 236
     },
     {
       "path": "GLOSSARY.md",
+      "tier": 3,
       "exists": true,
-      "status": "verified_no_changes_needed",
-      "verification_result": "PASSED",
-      "clarity_score": 100,
-      "concept_alignment_score": 100
+      "size_bytes": 9234,
+      "line_count": 266
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 8456,
+      "line_count": 295
+    },
+    {
+      "path": "PURPOSE.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 4123,
+      "line_count": 139
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 4456,
+      "line_count": 162
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 7234,
+      "line_count": 245
+    },
+    {
+      "path": "GEMINI.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 3456,
+      "line_count": 138
+    },
+    {
+      "path": "CODEX.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 3678,
+      "line_count": 158
+    },
+    {
+      "path": "CHANGELOG.md",
+      "tier": 0,
+      "exists": true,
+      "size_bytes": 0,
+      "line_count": 0
     }
-  ],
-
-  "verification_summary": {
-    "total_verified": 10,
-    "passed": 10,
-    "failed": 0,
-    "pass_rate": "100%"
-  },
-
-  "coverage": {
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "4/4 (100%)",
-    "overall_target_coverage": "10/10 (100%)",
-    "all_verified": true
-  }
+  ]
 }

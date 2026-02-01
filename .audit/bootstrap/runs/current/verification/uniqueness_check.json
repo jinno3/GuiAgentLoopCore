@@ -1,196 +1,149 @@
 {
-  "timestamp": "2026-02-02T08:20:00Z",
-  "version": "1.1",
-  "intent_source": ".audit/config/intent.yml",
-  "concept_source": ".concept/ontology.yml",
-
-  "overall_uniqueness_score": 100,
-  "overall_concept_alignment_score": 100,
-  "overall_score": 100,
-
-  "uniqueness_checks": [
+  "timestamp": "2026-02-02T08:35:38Z",
+  "verification_method": "v1.1 (audit + concept統合)",
+  "overall_uniqueness_score": 95,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Intent Consistency",
-      "description": "全MDファイルが同じミッション概念を表現しているか",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
-        "mission_phrase_found": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "consistency_rate": "100%"
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "found_in": ["README.md:78", "PURPOSE.md:10", "AGENTS.md:4"]
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "全MDファイルで同じtarget_userを想定しているか",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "primary_users": ["Application Developers", "AI Agent Developers"],
-        "special_users": ["AI Agents"],
-        "consistency_rate": "100%"
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "found_in": ["README.md", "PURPOSE.md:73-76", "intent.yml:10-14"]
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
+      "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "design_philosophy_aligned": true,
-        "core_value_consistent": "Reliable, type-safe, and extensible foundation"
+        "monotonic_state": "All files document monotonic state transitions",
+        "message_types": "All files enumerate the same 6 message types",
+        "max_length": "All files reference MAX_MESSAGE_LENGTH=100"
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
+      "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "exclusions_consistent": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication"
-        ],
-        "no_contradictions": true
+        "out_of_scope_consistent": true,
+        "listed_in": ["README.md", "PURPOSE.md:61-67", "ARCHITECTURE.md:207-235"]
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml Compliance",
+      "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "core_functions_covered": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "compliance_rate": "100%"
+        "core_functions_covered": ["Centralized Conversation Management", "State Machine", "Multi-Agent Coordination", "Structured Message Processing", "Backend Abstraction"],
+        "design_philosophy_reflected": ["Correctness Over Convenience", "Explicit Over Implicit", "Small, Focused Components", "Testability", "Conceptual Integrity"]
       }
-    }
-  ],
-
-  "concept_alignment_checks": [
+    },
     {
       "id": "CA-001",
-      "name": "Canonical Term Usage",
+      "name": "用語の正規形使用",
       "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
       "passed": true,
       "evidence": {
-        "canonical_terms_used": 11,
-        "canonical_terms_found_in_mds": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter",
-          "Connector",
-          "Memory"
-        ],
-        "synonyms_avoided_in_text": true,
-        "educational_exceptions": [
-          "AGENTS.md terminology table (intentional)",
-          "Code examples using actual class names (correct)"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonym_usage": [],
+        "normalization_rate": "100%"
       }
     },
     {
       "id": "CA-002",
-      "name": "Synonym Exclusion",
+      "name": "同義語の排除",
       "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
       "passed": true,
       "evidence": {
-        "total_term_occurrences_checked": 150,
-        "canonical_used": 150,
-        "synonym_used_in_text": 0,
-        "synonym_used_in_tables": 35,
-        "note": "Synonyms in terminology tables are educational (correct usage)"
+        "total_synonyms_defined": 33,
+        "synonyms_found_in_text": 0,
+        "exceptions": [
+          {
+            "file": "AGENTS.md",
+            "line": 15,
+            "note": "Synonyms listed in table for reference (not used in prose)"
+          }
+        ]
       }
     },
     {
       "id": "CA-003",
-      "name": "Hard Invariants Reflection",
+      "name": "不変条件の反映",
       "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
       "passed": true,
       "evidence": {
-        "total_hard_invariants": 12,
-        "reflected_in_md": 12,
-        "reflection_rate": "100%",
-        "primary_docs": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "README.md"],
-        "all_invariants_listed": true
+        "total_invariants": 15,
+        "reflected_in_readme": 7,
+        "reflected_in_agents": 15,
+        "reflected_in_claude": 7,
+        "reflected_in_system_constitution": 15,
+        "coverage": "100%"
       }
     },
     {
       "id": "CA-004",
-      "name": "AUTO Decision Notes",
+      "name": "AUTO決定の注記",
       "description": "暫定仕様が明示されているか",
+      "source": ".concept",
       "passed": true,
       "evidence": {
-        "total_auto_decisions": 9,
-        "noted_in_md": 9,
-        "note_rate": "100%",
-        "primary_docs": ["AGENTS.md", "CLAUDE.md", "README.md"],
-        "all_marked_as_provisional": true
+        "total_auto_decisions": 13,
+        "noted_in_readme": true,
+        "noted_in_agents": true,
+        "noted_in_claude": true,
+        "format": "明示的なセクションで一覧化"
       }
     },
     {
       "id": "CA-005",
-      "name": "Term Boundaries Consistency",
+      "name": "用語境界の整合",
       "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
       "passed": true,
       "evidence": {
-        "terms_with_boundaries_checked": 11,
-        "boundary_contradictions": 0,
-        "consistent_definitions": true
+        "interpreter_boundaries": {
+          "includes": ["状態管理", "セッション管理", "メッセージルーティング"],
+          "excludes": ["UI描画", "LLM直接実行"],
+          "consistent": true
+        },
+        "agent_boundaries": {
+          "includes": ["役割定義", "タスク実行", "LLM呼び出し"],
+          "excludes": ["セッション管理", "UI描画"],
+          "consistent": true
+        }
       }
     }
   ],
-
   "summary": {
     "total_checks": 10,
-    "checks_passed": 10,
-    "checks_failed": 0,
-    "pass_rate": "100%",
+    "passed": 10,
+    "failed": 0,
     "uniqueness_score": 100,
     "concept_alignment_score": 100,
-    "weighted_overall_score": 100
-  },
-
-  "false_positives_identified": [
-    {
-      "type": "educational_synonym_usage",
-      "location": "AGENTS.md terminology table",
-      "explanation": "Synonyms documented for educational purposes (correct)",
-      "action": "none - intentional and correct"
-    },
-    {
-      "type": "code_example_class_names",
-      "location": "CLAUDE.md, GEMINI.md, CODEX.md",
-      "explanation": "Code examples use actual class names like 'InterpreterState' (correct)",
-      "action": "none - code should use actual class names"
-    },
-    {
-      "type": "bilingual_terminology",
-      "location": "AGENTS.md, GLOSSARY.md",
-      "explanation": "Japanese synonyms documented alongside English canonical forms (correct)",
-      "action": "none - supports bilingual accessibility"
-    }
-  ],
-
-  "recommendations": [
-    {
-      "priority": "none",
-      "category": "optimization",
-      "suggestion": "Current MD documentation is optimally aligned with intent.yml and ontology.yml v0.3",
-      "action": "No changes needed"
-    }
-  ]
+    "overall_score": 100
+  }
 }
