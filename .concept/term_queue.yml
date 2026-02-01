@@ -1,2 +1,59 @@
-updated_at: "2026-02-01T21:56:12Z"
-queue: []
+updated_at: "2026-02-01T13:05:48Z"
+queue:
+  - id: "TP-000001"
+    proposed_canonical: "AgentType"
+    proposed_layer: "core"
+    term_raw_examples: ["TOOL_CALLING", "STRUCTURED_CHAT"]
+    reason: "New enum defining agent implementation types found in agent schema"
+    evidence:
+      - source: "gui_agent_loop_core/schema/agent/schema.py"
+        quote: "class AgentType(str, enum.Enum): TOOL_CALLING = 'tool_calling', STRUCTURED_CHAT = 'structured_chat'"
+    auto_merge_candidates:
+      - term: "Agent"
+        similarity: 0.72
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T13:05:48Z"
+
+  - id: "TP-000002"
+    proposed_canonical: "AgentDefinition"
+    proposed_layer: "aux"
+    term_raw_examples: ["AgentDefinition", "エージェント定義"]
+    reason: "Pydantic model for agent configuration - likely auxiliary structure"
+    evidence:
+      - source: "gui_agent_loop_core/schema/agent/schema.py"
+        quote: "class AgentDefinition(BaseModel): agent_name, agent_type, agent_role, agent_tools, agent_executor, prompt"
+    auto_merge_candidates:
+      - term: "Agent"
+        similarity: 0.65
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T13:05:48Z"
+
+  - id: "TP-000003"
+    proposed_canonical: "TaskAgent"
+    proposed_layer: "domain"
+    term_raw_examples: ["TaskAgent", "タスクエージェント"]
+    reason: "Mentioned in README architecture as task decomposition layer"
+    evidence:
+      - source: "README.md"
+        quote: "TaskAgent(TaskAgent<br>- Task decomposition<br>- Subtask prioritization<br>- Agent assignment)"
+    auto_merge_candidates:
+      - term: "Agent"
+        similarity: 0.70
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T13:05:48Z"
+
+  - id: "TP-000004"
+    proposed_canonical: "OpenGuiConnector"
+    proposed_layer: "domain"
+    term_raw_examples: ["OpenGuiConnector", "GUIコネクタ"]
+    reason: "Mentioned in README architecture as event handling/I/O conversion layer"
+    evidence:
+      - source: "README.md"
+        quote: "OpenGuiConnector(OpenGuiConnector<br>- Event handling<br>- I/O conversion<br>- Multimodal support)"
+    auto_merge_candidates: []
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T13:05:48Z"

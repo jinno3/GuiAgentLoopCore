@@ -1,5 +1,13 @@
 # Active AUTO Decisions (cache) — safe to delete
 
+## AUTO:Agent.type:implementation_property
+- Status: ACTIVE
+- Chosen: AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）
+- Policy: separation_of_concerns
+- Expires After Runs: 20
+- Linked: AMB-AGT-001 / ASM-AGENT-002
+- Revert Triggers: primary_evidence_contradiction, test_failure
+
 ## AUTO:State.lifecycle:monotonic
 - Status: ACTIVE
 - Chosen: 状態は単調遷移する（INIT → RUNNING → STOP）

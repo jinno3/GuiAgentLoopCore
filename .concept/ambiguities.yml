@@ -1,5 +1,34 @@
-updated_at: "2026-02-01T21:56:12Z"
+updated_at: "2026-02-01T13:05:48Z"
 ambiguities:
+  - id: "AMB-AGT-001"
+    term: "Agent"
+    topic: "AgentとAgentTypeの関係"
+    severity: "low"
+    uncertainty: 0.30
+    candidates:
+      - "AgentTypeはAgentの実装タイプ別プロパティ"
+      - "AgentTypeはAgentの役割とは独立"
+      - "AgentTypeはAgentNameの一部"
+    missing_info:
+      - "TOOL_CALLINGとSTRUCTURED_CHATの使い分け基準は？"
+      - "AgentName（AGENT_EXECUTOR等）とAgentTypeの関係は？"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:Agent.type:implementation_property"
+      chosen: "AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）"
+      policy: "separation_of_concerns"
+      confidence_auto: 0.70
+      decided_at_run: "2026-02-01T13:05:48Z"
+      expires_after_runs: 20
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "test_failure"
+    last_touched_run: "2026-02-01T13:05:48Z"
+    evidence:
+      - source: "gui_agent_loop_core/schema/agent/schema.py"
+        quote: "class AgentType(str, enum.Enum): TOOL_CALLING, STRUCTURED_CHAT (separate from AgentName)"
+
   - id: "AMB-MEM-001"
     term: "Memory"
     topic: "会話メモリのウィンドウサイズと最大長"
