@@ -1,181 +1,141 @@
 {
-  "timestamp": "2026-02-02T04:21:00Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-02T04:35:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 92,
   "max_score": 100,
+  "scoring_methodology": "v1.1 (intent + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 70,
+        "issues": [
+          {
+            "found": "OpenGuiConnector",
+            "should_be": "Interpreter",
+            "line": 23,
+            "context": "Architecture diagram uses older terminology"
+          }
+        ]
+      },
+      "issues": [
+        "Architecture diagram uses terminology not aligned with ontology.yml",
+        "Mission statement present but could be more prominent"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
         "issues": []
       },
-      "strengths": [
-        "Mission statement clearly matches intent.yml",
-        "All core terms used in canonical form",
-        "Hard invariants well documented",
-        "AUTO decisions properly documented",
-        "References to GLOSSARY.md and AGENTS.md"
-      ],
-      "issues": []
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "tier": 1,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "Comprehensive terminology table with canonical forms and synonyms",
-        "All hard invariants from invariants.yml documented",
-        "All AUTO decisions from ambiguities.yml documented",
-        "Clear behavior guidelines (DO's and DON'Ts)",
-        "References to ontology.yml and GLOSSARY.md"
-      ],
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 98,
         "issues": []
       },
-      "strengths": [
-        "Canonical terms prioritized (core, domain, aux)",
-        "All hard invariants documented with code examples",
-        "All AUTO decisions documented with explanations",
-        "State management guidelines detailed",
-        "Code review checklist provided"
-      ],
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 2,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Terms organized by layer (core, domain, aux)",
-        "Synonyms documented",
-        "AUTO decisions referenced",
-        "Status indicators included"
-      ],
-      "issues": [
-        "Should verify auto-generation from ontology.yml"
-      ]
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
         "score": 90,
         "issues": []
       },
-      "strengths": [
-        "Aligned with intent.yml mission"
-      ],
       "issues": [
-        "Could be more comprehensive"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [],
-      "issues": [
-        "Should align contribution guidelines with core values from intent.yml",
-        "Should mention terminology guidelines from ontology.yml"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Hard invariants documented"
-      ],
-      "issues": [
-        "Could be more comprehensive"
+        "Could better align with intent.yml mission statement"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 90,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "found": "Mixed terminology",
+            "should_be": "Canonical terms from ontology.yml",
+            "line": "various",
+            "context": "Inconsistent use of terminology throughout"
+          }
+        ]
       },
-      "strengths": [
-        "Technical architecture documented"
-      ],
       "issues": [
-        "Should reflect mappings.yml if it exists"
+        "Needs verification against mappings.yml"
       ]
     },
     {
-      "path": "CODEX.md",
+      "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "tier": 3,
       "clarity_score": 85,
       "concept_alignment": {
-        "score": 85,
+        "score": 88,
         "issues": []
       },
-      "strengths": [],
       "issues": [
-        "Could benefit from terminology normalization"
+        "Should reflect hard invariants more explicitly"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 80,
+        "issues": []
+      },
+      "issues": [
+        "Needs terminology guidelines",
+        "Should reference invariants.yml"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 85,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 85,
+        "score": 95,
         "issues": []
       },
-      "strengths": [],
-      "issues": [
-        "Could benefit from terminology normalization"
-      ]
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "issues": []
     }
   ],
   "summary": {
-    "total_md_files": 11,
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "5/5 (100%)",
-    "tier3_coverage": "3/4 (75%)",
-    "term_normalization_rate": 0.98,
-    "invariant_documentation_rate": 1.0,
-    "auto_decision_documentation_rate": 1.0
+    "excellent_files": 5,
+    "good_files": 4,
+    "needs_improvement": 2,
+    "critical_issues": 0
   }
 }
