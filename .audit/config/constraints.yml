@@ -1,0 +1,55 @@
+# Repository Constraints (技術的制約)
+# Version: 1.0
+# Created: 2026-02-02
+
+python:
+  version: ">=3.10"
+  reason: "Modern type annotations and match statement require Python 3.10+"
+
+dependencies:
+  core:
+    - package: "langchain"
+      reason: "LLM agent framework"
+    - package: "langgraph"
+      reason: "Agent orchestration"
+    - package: "gradio"
+      reason: "Primary GUI backend implementation"
+    - package: "pydantic"
+      reason: "Data validation and schemas"
+
+testing:
+  framework: "pytest"
+  coverage_target: 80
+  reason: "Ensure reliability of core components"
+
+documentation:
+  format: "Markdown"
+  required_files:
+    - "README.md"
+    - "AGENTS.md"
+    - "CONTRIBUTING.md"
+    - "GLOSSARY.md"
+  reason: "Maintain clear and consistent documentation"
+
+code_quality:
+  type_checking: true
+  reason: "Ensure type safety across the codebase"
+  linter: "flake8"
+  formatter: "black"
+
+state_management:
+  max_message_length: 100
+  reason: "Memory window constraint for conversation history"
+
+security:
+  backend_deployment:
+    host: "0.0.0.0"
+    allowed_paths:
+      - "/tmp"
+      - "/app/work"
+      - "/home"
+      - "/app/GuiAgentLoopCore"
+    reason: "Restrict file system access for security"
+
+version: "1.0"
+created_at: "2026-02-02T00:00:00Z"

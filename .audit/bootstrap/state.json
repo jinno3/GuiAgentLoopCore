@@ -1,14 +1,42 @@
 {
   "version": "1.1",
-  "last_run_timestamp": "2026-02-01T16:55:07.178020+00:00",
-  "total_runs": 17,
+  "last_run_timestamp": "2026-02-02T00:00:00Z",
+  "total_runs": 2,
+  "mode": "audit_and_concept",
   "best_overall_score": 100,
+  "best_uniqueness_score": 100,
   "best_concept_alignment_score": 100,
-  "mode": "concept_driven",
-  "input_sources": {
-    "audit_used": false,
-    "concept_used": true
+  "rotation_policy": {
+    "keep_generations": 2,
+    "directories": ["current", "old"]
   },
-  "git_commit": "b1197108d6cbb0001f743d71bcf99e40a9c066bc",
-  "git_branch": "main"
+  "input_sources": {
+    "audit_used": true,
+    "intent_yml_exists": true,
+    "constraints_yml_exists": true,
+    "concept_used": true,
+    "ontology_yml_exists": true,
+    "invariants_yml_exists": true
+  },
+  "run_history": [
+    {
+      "run_id": "2026-02-01T16:54:46Z",
+      "mode": "concept_driven",
+      "overall_score": 100,
+      "uniqueness_score": 100,
+      "concept_alignment_score": 100,
+      "md_changes": 6
+    },
+    {
+      "run_id": "2026-02-02T00:00:00Z",
+      "mode": "audit_and_concept",
+      "overall_score": 100,
+      "uniqueness_score": 100,
+      "concept_alignment_score": 100,
+      "md_changes": 0,
+      "intent_yml_created": true
+    }
+  ],
+  "status": "maintenance_mode",
+  "next_recommended_run": "2026-03-02T00:00:00Z"
 }

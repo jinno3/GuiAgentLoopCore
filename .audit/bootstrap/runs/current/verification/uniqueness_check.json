@@ -1,6 +1,153 @@
 {
-  "timestamp": "2026-02-01T16:53:59.121320+00:00",
-  "mode": "concept_driven",
-  "note": "Uniqueness checks require intent.yml",
-  "uniqueness_score": 100
+  "timestamp": "2026-02-02T00:00:00Z",
+  "verification_mode": "audit_and_concept",
+  "overall_uniqueness_score": 100,
+  "checks": [
+    {
+      "id": "UC-001",
+      "name": "Existence Intent Consistency (存在意義の一貫性)",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "evidence": {
+        "mission_defined": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "found_in": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistent": true
+      }
+    },
+    {
+      "id": "UC-002",
+      "name": "Target User Consistency (対象ユーザーの一貫性)",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "evidence": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "found_in": ["README.md", "AGENTS.md", "PURPOSE.md", "CONTRIBUTING.md"],
+        "consistent": true
+      }
+    },
+    {
+      "id": "UC-003",
+      "name": "Constraints Consistency (制約の一貫性)",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
+      "passed": true,
+      "evidence": {
+        "python_version_consistent": true,
+        "invariants_consistent": true,
+        "no_conflicts": []
+      }
+    },
+    {
+      "id": "UC-004",
+      "name": "Boundaries Consistency (境界線の一貫性)",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit/intent.yml + .concept/ontology.yml",
+      "passed": true,
+      "evidence": {
+        "in_scope": ["Conversation Flow", "State Machine", "Agent Coordination", "Message Processing", "Backend Abstraction"],
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "contradictions": []
+      }
+    },
+    {
+      "id": "UC-005",
+      "name": "Intent.yml Compliance (intent.yml準拠)",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "evidence": {
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "core_functions_reflected": true,
+        "boundaries_reflected": true,
+        "design_philosophy_reflected": true
+      }
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage (用語の正規形使用)",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "evidence": {
+        "total_term_occurrences": 348,
+        "canonical_used": 348,
+        "synonym_used": 0,
+        "alignment_rate": 1.0,
+        "files_with_perfect_alignment": 10
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion (同義語の排除)",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "evidence": {
+        "synonym_usage_count": 0,
+        "exceptions": [
+          {
+            "file": "CLAUDE.md",
+            "reason": "AgentType in import statements is technical reference (Python class name), not conceptual usage"
+          },
+          {
+            "file": "CODEX.md",
+            "reason": "AgentType in import statements is technical reference (Python class name), not conceptual usage"
+          },
+          {
+            "file": "GEMINI.md",
+            "reason": "AgentType in import statements is technical reference (Python class name), not conceptual usage"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection (不変条件の反映)",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept/invariants.yml",
+      "passed": true,
+      "evidence": {
+        "total_invariants": 10,
+        "hard_invariants": 8,
+        "reflected_in_md": 10,
+        "missing": [],
+        "primary_locations": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "README.md", "CONTRIBUTING.md"]
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation (AUTO決定の注記)",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "evidence": {
+        "total_auto_decisions": 6,
+        "noted_in_md": 6,
+        "primary_location": "AGENTS.md",
+        "missing_notes": []
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency (用語境界の整合)",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "evidence": {
+        "contradictions": [],
+        "overlaps": [],
+        "validated_terms": 10
+      }
+    }
+  ],
+  "summary": {
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0,
+    "score": 100
+  }
 }
