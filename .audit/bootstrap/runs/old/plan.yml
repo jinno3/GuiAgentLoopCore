@@ -1,4 +1,5 @@
-run_timestamp: "2026-02-02T04:21:00Z"
+# MD Bootstrap Execution Plan v1.1
+run_timestamp: "2026-02-02T04:35:00Z"
 version: "1.1"
 
 rotation:
@@ -19,7 +20,6 @@ intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
 
 ontology_summary:
   total_terms: 10
@@ -29,14 +29,13 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    - canonical: "Session"
-      definition: "一意のIDで管理される会話コンテキスト"
-    - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -44,152 +43,109 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
   "自動チャット": "AutoChat"
   "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-
-invariants_summary:
-  total_invariants: 9
-  hard_invariants: 7
-  soft_invariants: 2
-  draft_invariants: 1
-
-auto_decisions_active: 9
 
 existing_mds:
   - path: "README.md"
     status: "exists_needs_review"
     tier: 1
     issues:
-      - "Need to verify alignment with intent.yml mission statement"
-      - "Need to verify term normalization (canonical form usage)"
-
+      - "Architecture diagram uses older terminology (OpenGuiConnector instead of Interpreter)"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_aligned"
     tier: 1
-    issues:
-      - "Need to verify terminology section reflects ontology.yml"
-      - "Need to verify invariants are documented"
-
+    issues: []
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
+    status: "exists_aligned"
     tier: 2
-    issues:
-      - "Need to verify AUTO decisions are documented"
-      - "Need to verify hard invariants are documented"
-
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Need to verify it's generated from ontology.yml"
-
+    status: "exists_aligned"
+    tier: 3
+    issues: []
   - path: "PURPOSE.md"
     status: "exists_needs_review"
     tier: 2
-    issues:
-      - "Need to verify alignment with intent.yml"
-
-  - path: "CONTRIBUTING.md"
+    issues: []
+  - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Need to verify contribution guidelines align with core values"
-
+    tier: 3
+    issues: []
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
     tier: 2
-    issues:
-      - "Need to verify hard invariants are documented"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_optional"
-    tier: 3
-    issues:
-      - "Optional: Should reflect mappings.yml if exists"
-
-  - path: "CODEX.md"
-    status: "exists_optional"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_aligned"
     tier: 3
     issues: []
-
-  - path: "GEMINI.md"
-    status: "exists_optional"
+  - path: "CODEX.md"
+    status: "exists_aligned"
     tier: 3
+    issues: []
+  - path: "CHANGELOG.md"
+    status: "exists_no_action"
+    tier: 0
     issues: []
 
 actions:
-  # Tier 1 (必須)
   - action: "review"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology term normalization"
-    priority: "high"
-
-  - action: "review"
-    target: "AGENTS.md"
-    reason: "Verify terminology section and invariants documentation"
-    priority: "high"
-
-  # Tier 2 (推奨)
-  - action: "review"
-    target: "CLAUDE.md"
-    reason: "Verify AUTO decisions and hard invariants documentation"
-    priority: "medium"
-
-  - action: "review"
-    target: "GLOSSARY.md"
-    reason: "Verify it's generated from ontology.yml"
+    reason: "Architecture diagram needs terminology alignment with ontology.yml"
     priority: "medium"
 
   - action: "review"
     target: "PURPOSE.md"
-    reason: "Verify alignment with intent.yml"
+    reason: "Ensure consistency with intent.yml mission statement"
     priority: "medium"
 
   - action: "review"
-    target: "CONTRIBUTING.md"
-    reason: "Verify guidelines align with core values"
-    priority: "medium"
+    target: "ARCHITECTURE.md"
+    reason: "Verify mappings.yml reflection"
+    priority: "low"
 
-  - action: "review"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify hard invariants are documented"
-    priority: "medium"
+  - action: "verify"
+    target: "All MD files"
+    reason: "Run concept alignment verification"
+    priority: "high"
 
-verification_plan:
-  uniqueness_checks:
-    - "UC-001: Existence purpose consistency across all MDs"
-    - "UC-002: Target user consistency"
-    - "UC-003: Technical constraints consistency"
-    - "UC-004: Boundary consistency"
-    - "UC-005: Intent.yml compliance"
+  - action: "update_timestamps"
+    target: "All aligned MD files"
+    reason: "Update bootstrap run timestamps"
+    priority: "low"
 
-  concept_alignment_checks:
-    - "CA-001: Canonical term usage in all MDs"
-    - "CA-002: Synonym exclusion in MD text"
-    - "CA-003: Hard invariants reflection"
-    - "CA-004: AUTO decision documentation"
-    - "CA-005: Term boundary consistency"
+invariant_check:
+  total_invariants: 9
+  hard_invariants: 7
+  soft_invariants: 2
+  must_reflect_in_md:
+    - id: "INV-STATE-001"
+      statement: "インタープリタ状態は単調遷移する"
+      target_files: ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+    - id: "INV-MSG-001"
+      statement: "メッセージタイプは定義された列挙型のみ"
+      target_files: ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+    - id: "INV-AUTO-001"
+      statement: "AutoChatはSTATE_STOP時のみトリガー"
+      target_files: ["AGENTS.md", "CLAUDE.md"]
 
-target_scores:
-  overall_score: 90
-  uniqueness_score: 90
-  concept_alignment_score: 90
+auto_decision_handling:
+  total_active: 9
+  must_note_in_md:
+    - decision: "AUTO:Agent.type:implementation_property"
+      note: "AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）"
+    - decision: "AUTO:State.lifecycle:monotonic"
+      note: "状態は単調遷移する（INIT → RUNNING → STOP）"
+    - decision: "AUTO:Message.limit:100"
+      note: "MAX_MESSAGE_LENGTH=100はハードリミット"
+    - decision: "AUTO:Backend.primary:gradio"
+      note: "Gradioが主要バックエンド（暫定）"

@@ -1,5 +1,4 @@
-# MD Bootstrap Execution Plan v1.1
-run_timestamp: "2026-02-02T04:35:00Z"
+run_timestamp: "2026-02-02T04:47:00Z"
 version: "1.1"
 
 rotation:
@@ -13,7 +12,6 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
@@ -29,13 +27,14 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -43,109 +42,132 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
   "自動チャット": "AutoChat"
   "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
 
 existing_mds:
   - path: "README.md"
     status: "exists_needs_review"
     tier: 1
     issues:
-      - "Architecture diagram uses older terminology (OpenGuiConnector instead of Interpreter)"
+      - "Verify alignment with intent.yml mission statement"
+      - "Ensure term normalization (canonical forms)"
+
   - path: "AGENTS.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 1
-    issues: []
+    issues:
+      - "Verify terminology section uses canonical forms"
+      - "Check invariants reflection"
+
   - path: "CLAUDE.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 2
-    issues: []
+    issues:
+      - "Verify AUTO decisions are documented"
+      - "Check invariants reflection"
+
   - path: "GLOSSARY.md"
-    status: "exists_aligned"
-    tier: 3
-    issues: []
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues: []
-  - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
     tier: 3
-    issues: []
+    issues:
+      - "Verify alignment with ontology.yml"
+
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
     tier: 2
-    issues: []
+    issues:
+      - "Verify hard invariants are reflected"
+
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Verify alignment with intent.yml"
+
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
     tier: 2
-    issues: []
+    issues:
+      - "Verify contribution guidelines align with core values"
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Verify mappings.yml reflection"
+
   - path: "GEMINI.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 3
-    issues: []
+    issues:
+      - "Verify Gemini-specific instructions"
+
   - path: "CODEX.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 3
-    issues: []
-  - path: "CHANGELOG.md"
-    status: "exists_no_action"
-    tier: 0
-    issues: []
+    issues:
+      - "Verify Codex-specific instructions"
 
 actions:
   - action: "review"
     target: "README.md"
-    reason: "Architecture diagram needs terminology alignment with ontology.yml"
-    priority: "medium"
+    reason: "Verify alignment with intent.yml and term normalization"
+
+  - action: "review"
+    target: "AGENTS.md"
+    reason: "Verify terminology uses canonical forms and invariants reflection"
+
+  - action: "review"
+    target: "CLAUDE.md"
+    reason: "Verify AUTO decisions and invariants documentation"
+
+  - action: "review"
+    target: "GLOSSARY.md"
+    reason: "Verify alignment with ontology.yml"
+
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify hard invariants reflection"
 
   - action: "review"
     target: "PURPOSE.md"
-    reason: "Ensure consistency with intent.yml mission statement"
-    priority: "medium"
+    reason: "Verify alignment with intent.yml"
+
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "Verify alignment with core values"
 
   - action: "review"
     target: "ARCHITECTURE.md"
     reason: "Verify mappings.yml reflection"
-    priority: "low"
 
-  - action: "verify"
-    target: "All MD files"
-    reason: "Run concept alignment verification"
-    priority: "high"
+  - action: "review"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific instructions"
 
-  - action: "update_timestamps"
-    target: "All aligned MD files"
-    reason: "Update bootstrap run timestamps"
-    priority: "low"
+  - action: "review"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific instructions"
 
-invariant_check:
-  total_invariants: 9
-  hard_invariants: 7
-  soft_invariants: 2
-  must_reflect_in_md:
-    - id: "INV-STATE-001"
-      statement: "インタープリタ状態は単調遷移する"
-      target_files: ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-    - id: "INV-MSG-001"
-      statement: "メッセージタイプは定義された列挙型のみ"
-      target_files: ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-    - id: "INV-AUTO-001"
-      statement: "AutoChatはSTATE_STOP時のみトリガー"
-      target_files: ["AGENTS.md", "CLAUDE.md"]
-
-auto_decision_handling:
-  total_active: 9
-  must_note_in_md:
-    - decision: "AUTO:Agent.type:implementation_property"
-      note: "AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）"
-    - decision: "AUTO:State.lifecycle:monotonic"
-      note: "状態は単調遷移する（INIT → RUNNING → STOP）"
-    - decision: "AUTO:Message.limit:100"
-      note: "MAX_MESSAGE_LENGTH=100はハードリミット"
-    - decision: "AUTO:Backend.primary:gradio"
-      note: "Gradioが主要バックエンド（暫定）"
+verification_targets:
+  uniqueness_score_target: 90
+  concept_alignment_score_target: 90
+  overall_score_target: 90

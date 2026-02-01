@@ -1,187 +1,134 @@
 {
-  "timestamp": "2026-02-02T04:21:00Z",
-  "concept_source": ".concept/ontology.yml (v0.3)",
-  "overall_alignment_score": 98,
+  "timestamp": "2026-02-02T04:35:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 92,
+  "verification_method": "v1.1 (ontology-based term usage analysis)",
 
   "term_usage_check": {
-    "total_term_occurrences": 95,
-    "canonical_used": 95,
-    "synonym_used": 0,
+    "total_term_occurrences": 85,
+    "canonical_used": 82,
+    "synonym_used": 3,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.965
   },
 
-  "canonical_term_compliance": {
-    "Interpreter": {
-      "expected_canonical": "Interpreter",
-      "synonyms_to_avoid": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "usage_in_files": {
-        "README.md": "Uses 'Interpreter' consistently",
-        "AGENTS.md": "Uses 'Interpreter' in terminology table",
-        "CLAUDE.md": "Uses 'Interpreter' in code examples",
-        "GLOSSARY.md": "Canonical entry"
-      },
-      "compliance": "100%"
-    },
-    "Agent": {
-      "expected_canonical": "Agent",
-      "synonyms_to_avoid": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "usage_in_files": {
-        "README.md": "Uses 'Agent' and 'Agent System' consistently",
-        "AGENTS.md": "Uses 'Agent' in terminology table, notes 'AgentType' as implementation property",
-        "CLAUDE.md": "Uses 'Agent' with clear distinction between name and type",
-        "GLOSSARY.md": "Canonical entry with AUTO decisions documented"
-      },
-      "compliance": "100%"
-    },
-    "Message": {
-      "expected_canonical": "Message",
-      "synonyms_to_avoid": ["メッセージ", "ChatMessage"],
-      "usage_in_files": {
-        "README.md": "Uses 'Message' and 'Message Types' consistently",
-        "AGENTS.md": "Uses 'Message' in invariants section",
-        "CLAUDE.md": "Uses 'Message' with MAX_MESSAGE_LENGTH documented",
-        "GLOSSARY.md": "Canonical entry with AUTO decisions"
-      },
-      "compliance": "100%"
-    },
-    "State": {
-      "expected_canonical": "State",
-      "synonyms_to_avoid": ["InterpreterState", "インタープリタ状態"],
-      "usage_in_files": {
-        "README.md": "Uses 'State' in context of state machine",
-        "AGENTS.md": "Uses 'State' in invariants with STATE_* constants",
-        "CLAUDE.md": "Uses 'State' in management guidelines",
-        "GLOSSARY.md": "Canonical entry with AUTO decisions"
-      },
-      "compliance": "100%"
-    },
-    "Backend": {
-      "expected_canonical": "Backend",
-      "synonyms_to_avoid": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "usage_in_files": {
-        "README.md": "Uses 'Backend' and 'Backend Support'",
-        "ARCHITECTURE.md": "Uses 'Backend' appropriately",
-        "GLOSSARY.md": "Canonical entry"
-      },
-      "compliance": "100%"
-    }
-  },
-
-  "invariant_check": {
-    "total_invariants": 9,
-    "reflected_in_md": 9,
-    "missing": [],
-    "coverage_by_file": {
-      "README.md": {
-        "hard_invariants_covered": ["INV-STATE-001", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001", "INV-STREAM-001", "INV-SESSION-001"],
-        "coverage_rate": "6/9 (67%)"
-      },
-      "AGENTS.md": {
-        "hard_invariants_covered": ["INV-STATE-001", "INV-STATE-002", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001", "INV-STREAM-001", "INV-SESSION-001"],
-        "coverage_rate": "7/9 (78%)"
-      },
-      "CLAUDE.md": {
-        "hard_invariants_covered": ["INV-STATE-001", "INV-STATE-002", "INV-MSG-001", "INV-MESSAGE-001", "INV-SESSION-001", "INV-AGENT-001", "INV-AUTO-001", "INV-STREAM-001", "INV-BACKEND-001"],
-        "coverage_rate": "9/9 (100%)"
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "hard_invariants_covered": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-AUTO-001", "INV-STREAM-001"],
-        "coverage_rate": "5/9 (56%)"
-      }
-    }
-  },
-
-  "auto_decision_check": {
-    "total_active": 9,
-    "documented_in_md": 9,
-    "missing_documentation": [],
-    "coverage_by_file": {
-      "README.md": {
-        "auto_decisions_covered": 8,
-        "listed_sections": ["State Management", "Message Handling", "Agent System", "AutoChat", "Backend", "Memory"]
-      },
-      "AGENTS.md": {
-        "auto_decisions_covered": 9,
-        "listed_sections": ["Agent関連", "State関連", "Message関連", "AutoChat関連", "Backend関連", "Memory関連"]
-      },
-      "CLAUDE.md": {
-        "auto_decisions_covered": 9,
-        "listed_sections": ["Agent関連のAUTO決定", "Message関連のAUTO決定", "State関連のAUTO決定", "AutoChat関連のAUTO決定", "Backend関連のAUTO決定", "Memory関連のAUTO決定"]
-      }
-    }
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "format": "Documented as AUTO decisions with 'provisional' status",
-    "missing_notes": 0
-  },
-
-  "per_file_alignment": [
+  "synonym_usage_found": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "issues": [],
-      "strengths": [
-        "All canonical terms used correctly",
-        "Hard invariants documented",
-        "AUTO decisions documented",
-        "References to GLOSSARY.md and AGENTS.md"
+      "line": 23,
+      "found": "OpenGuiConnector",
+      "expected": "Interpreter",
+      "status": "documented_for_review",
+      "note": "Legacy terminology in architecture diagram"
+    }
+  ],
+
+  "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "legacy_terminology",
+          "found": "OpenGuiConnector",
+          "expected": "Interpreter",
+          "severity": "low",
+          "action": "review"
+        }
       ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
       "issues": [],
-      "strengths": [
-        "Perfect terminology table with canonical forms and synonyms",
-        "All hard invariants documented",
-        "All AUTO decisions documented",
-        "Clear DO's and DON'Ts"
-      ]
+      "notes": ["Excellent term normalization table", "All AUTO decisions properly noted"]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
       "issues": [],
-      "strengths": [
-        "Canonical terms prioritized by layer",
-        "All hard invariants with code examples",
-        "All AUTO decisions explained",
-        "State management detailed"
-      ]
+      "notes": ["Invariant violations well-documented", "AUTO decisions properly tracked"]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
       "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All terms documented with evidence",
-        "AUTO decisions referenced",
-        "Normalization map provided"
-      ]
+      "notes": ["Auto-generated from ontology.yml", "Perfect alignment"]
     },
     {
-      "file": "CONTRIBUTING.md",
+      "file": "GEMINI.md",
       "alignment_score": 95,
-      "issues": [],
-      "strengths": [
-        "Terminology guidelines documented",
-        "Hard invariants listed",
-        "AUTO decisions mentioned"
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 95,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 90,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "inconsistent_terminology",
+          "severity": "low",
+          "note": "Some mixed terminology use"
+        }
       ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
-      "issues": [],
-      "strengths": [
-        "Hard invariants documented with constitutional status",
-        "Principles aligned with invariants"
+      "alignment_score": 88,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 80,
+      "issues": [
+        {
+          "type": "missing_guidelines",
+          "severity": "medium",
+          "note": "Should include terminology guidelines"
+        }
       ]
     }
-  ]
+  ],
+
+  "invariant_check": {
+    "total_invariants": 9,
+    "hard_invariants": 7,
+    "reflected_in_md": 7,
+    "missing": [],
+    "coverage": "100%"
+  },
+
+  "auto_decision_handling": {
+    "total_active": 9,
+    "noted_in_md": 9,
+    "missing_notes": [],
+    "coverage": "100%"
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0
+  },
+
+  "summary": {
+    "status": "excellent",
+    "critical_issues": 0,
+    "medium_issues": 1,
+    "low_issues": 2,
+    "recommendations": [
+      "Update README.md architecture diagram to use canonical term 'Interpreter'",
+      "Add terminology guidelines to CONTRIBUTING.md",
+      "Review ARCHITECTURE.md for consistent terminology use"
+    ]
+  }
 }

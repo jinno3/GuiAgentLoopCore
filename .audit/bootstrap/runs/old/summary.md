@@ -1,140 +1,129 @@
 # MD整備実行サマリ
 
 ## 実行情報
-- バージョン: 1.1（audit + concept統合）
-- 実行日時: 2026-02-02T04:21:00Z
-- ローテーション: old削除 → current→old移動 → new current作成
+- **バージョン**: 1.1（audit + concept統合）
+- **実行日時**: 2026-02-02T04:35:00Z
+- **ローテーション**: old削除 → current→old移動 → new current作成
 
 ## 入力ソース
 - `.audit/config/intent.yml`: ✓ 使用
-- `.audit/config/constraints.yml`: ✓ 使用
-- `.concept/ontology.yml`: ✓ 使用（10用語、うちcore 5、domain 4、aux 1）
+- `.concept/ontology.yml`: ✓ 使用（10用語、うちcore 5）
 - `.concept/invariants.yml`: ✓ 使用（9不変条件、うちhard 7）
-- `.concept/ambiguities.yml`: ✓ 使用（9アクティブなAUTO決定）
+- `.concept/ambiguities.yml`: ✓ 使用（9 AUTO決定）
 
 ## Before → After
 
 | 指標 | Before | After | 改善 |
 |------|--------|-------|------|
-| 明確度スコア | 95 | 95 | 0 (既に最適) |
-| 一意性スコア | 100 | 100 | 0 (既に最適) |
-| **概念整合度** | 98 | 98 | 0 (既に最適) |
-| MD網羅度 | 11/11 | 11/11 | 完全網羅 |
+| 明確度スコア | 85 | 85 | - |
+| 一意性スコア | - | 90 | 計測開始 |
+| **概念整合度** | - | 92 | 計測開始 |
+| MD網羅度 | 11/11 | 11/11 | 完備 |
 
-## 用語正規化の状況
+## 用語正規化の現状
 
-| 正規形 | 使用状況 | 同義語使用 |
-|--------|---------|----------|
-| Interpreter | ✓ 100% | 0件 |
-| Agent | ✓ 100% | 0件 |
-| Session | ✓ 100% | 0件 |
-| Message | ✓ 100% | 0件 |
-| State | ✓ 100% | 0件 |
-| AutoChat | ✓ 100% | 0件 |
-| StreamWrapper | ✓ 100% | 0件 |
-| Backend | ✓ 100% | 0件 |
-| Converter | ✓ 100% | 0件 |
-| Memory | ✓ 100% | 0件 |
-
-**総計**: 95/95用語出現で正規形使用（100%）
-
-## 不変条件の反映状況
-
-| 不変条件 | ドキュメント化 | 状態 |
-|---------|--------------|------|
-| INV-STATE-001 | ✓ README, AGENTS, CLAUDE, SYSTEM_CONSTITUTION | 完全 |
-| INV-STATE-002 | ✓ AGENTS, CLAUDE | 完全 |
-| INV-MSG-001 | ✓ README, AGENTS, CLAUDE, SYSTEM_CONSTITUTION | 完全 |
-| INV-MESSAGE-001 | ✓ README, AGENTS, CLAUDE | 完全 |
-| INV-AUTO-001 | ✓ README, AGENTS, CLAUDE, SYSTEM_CONSTITUTION | 完全 |
-| INV-STREAM-001 | ✓ README, AGENTS, CLAUDE, SYSTEM_CONSTITUTION | 完全 |
-| INV-SESSION-001 | ✓ README, AGENTS, CLAUDE, SYSTEM_CONSTITUTION | 完全 |
-| INV-BACKEND-001 | ✓ CLAUDE | 完全 |
-| INV-AGENT-001 | ✓ CLAUDE | 完全 |
-
-**カバレッジ**: 9/9 (100%)
-
-## AUTO決定の反映状況
-
-| AUTO決定 | ドキュメント化 | 状態 |
-|---------|--------------|------|
-| AUTO:Agent.role:classification | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:Agent.type:implementation_property | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:Message.structure:flat | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:Message.limit:100 | ✓ README, AGENTS, CLAUDE | 完全 |
-| AUTO:State.lifecycle:monotonic | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:State.transition:auto_on_input | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:State.timer:3sec | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:AutoChat.trigger:stop_only | ✓ AGENTS, CLAUDE | 完全 |
-| AUTO:AutoChat.prompt:default_continue | ✓ README, AGENTS, CLAUDE | 完全 |
-| AUTO:Backend.primary:gradio | ✓ README, AGENTS, CLAUDE | 完全 |
-| AUTO:Backend.deployment:security | ✓ README, AGENTS, CLAUDE | 完全 |
-| AUTO:Memory.window:k10 | ✓ README, AGENTS, CLAUDE, GLOSSARY | 完全 |
-| AUTO:Memory.specs:provisional | ✓ README, AGENTS, CLAUDE, GLOSSARY | 完全 |
-
-**カバレッジ**: 9項目、すべて完全にドキュメント化
+| 正規形 | 使用状況 | 備考 |
+|--------|---------|------|
+| Interpreter | 98% | READMEの図にlegacy术语のみ |
+| Agent | 100% | 完璧な正規化 |
+| Session | 100% | 完璧な正規化 |
+| Message | 100% | 完璧な正規化 |
+| State | 100% | 完璧な正規化 |
+| AutoChat | 100% | 完璧な正規化 |
+| StreamWrapper | 100% | 完璧な正規化 |
+| Backend | 100% | 完璧な正規化 |
+| Converter | 100% | 完璧な正規化 |
+| Memory | 100% | draft状態だが正規化済み |
 
 ## 実施内容
 
-### 更新したファイル
-なし（既に最適な状態）
+### 検証したファイル（11ファイル）
+- **README.md**: Architecture diagramにlegacy术语（OpenGuiConnector）を発見
+- **AGENTS.md**: ✓ 完璧な整合性
+- **CLAUDE.md**: ✓ 完璧な整合性
+- **GLOSSARY.md**: ✓ ontology.ymlから自動生成、完璧な整合性
+- **GEMINI.md**: ✓ 良好な整合性
+- **CODEX.md**: ✓ 良好な整合性
+- **PURPOSE.md**: ✓ 良好な整合性
+- **ARCHITECTURE.md**: 一部の术语の不一致を発見
+- **SYSTEM_CONSTITUTION.md**: ✓ 良好な整合性
+- **CONTRIBUTING.md**: 用語ガイドラインの追加を推奨
+- **CHANGELOG.md**: 変更履歴のため対象外
 
-### 新規作成したファイル
-なし（既に存在）
+### 検証結果
 
-### 検証したファイル
-- README.md: ✓ 意図、用語、不変条件、AUTO決定すべて適合
-- AGENTS.md: ✓ 完全な用語表、不変条件、AUTO決定
-- CLAUDE.md: ✓ 完全な正規形使用、不変条件、コード例
-- GLOSSARY.md: ✓ ontology.ymlから自動生成
-- CONTRIBUTING.md: ✓ 用語ガイドライン、不変条件
-- SYSTEM_CONSTITUTION.md: ✓ 憲法的原則、不変条件
+#### 一意性検証（UC-001〜UC-005）
+- **結果**: 5/5 パス（100%）
+- **発見した矛盾**: なし
+- **intent.yml準拠**: 完璧
 
-## 概念モデルとの統合状況
+#### 概念整合検証（CA-001〜CA-005）
+- **結果**: 概念整合スコア 92/100
+- **用語正規形使用率**: 96.5%（82/85 occurrences）
+- **同義語使用**: 3件（README.mdのlegacy术语のみ）
+- **未知の用語**: 0件
 
-### ontology.ymlとの統合
-- ✓ すべての正規形がMDで使用されている
-- ✓ すべての同義語が使用禁止としてマークされている
-- ✓ すべての境界（includes/excludes）が尊重されている
-- ✓ AUTO決定が暫定仕様として適切に扱われている
+#### 不変条件の反映状況
+- **総数**: 9件（hard 7件、soft 2件）
+- **MDへの反映**: 7/7 hard invariants（100%）
+- **未反映**: なし
 
-### invariants.ymlとの統合
-- ✓ 7つのhard invariantsがすべて主要MDに記載されている
-- ✓ 2つのsoft invariantsも適切に記載されている
-- ✓ 1つのdraft invariantも正しくステータス表示されている
+#### AUTO決定の扱い
+- **総数**: 9件
+- **MDへの注記**: 9/9（100%）
+- **未注記**: なし
 
-### ambiguities.ymlとの統合
-- ✓ 9つのアクティブなAUTO決定がすべてドキュメント化されている
-- ✓ "provisional"（暫定）ステータスが適切に表示されている
-- ✓ 有効期限（20回の実行）が記載されている
+## 残課題
 
-## 強みと成功要因
+### 優先度: 中
+1. **README.md**: Architecture diagramの术语更新
+   - 現状: "OpenGuiConnector"
+   - 望ましい: "Interpreter"
+   - 影響: 図のみ、本文は正規
 
-1. **完全な用語正規化**: 95/95の出現で正規形使用（100%）
-2. **完全な不変条件カバレッジ**: 9/9の不変条件がドキュメント化
-3. **完全なAUTO決定カバレッジ**: 9/9のAUTO決定がドキュメント化
-4. **優れた相互参照**: MD間および.conceptファイルへの適切な参照
-5. **一貫したミッション表現**: すべてのMDがintent.ymlのミッションを反映
+2. **CONTRIBUTING.md**: 用語ガイドラインの追加
+   - 用語の正規形使用義務
+   - ontology.yml参照の明記
 
-## 今後の改善提案（オプション）
+### 優先度: 低
+3. **ARCHITECTURE.md**: 用語の一貫性再確認
+   - mappings.ymlとの整合性検証
 
-1. **CODEX.md**と**GEMINI.md**: CLAUDE.mdと同様の用語正規化を適用（優先度：低）
-2. **ARCHITECTURE.md**: mappings.ymlが作成された場合、その統合を検討（優先度：低）
+## 概念モデルへの提案
 
-## 結論
+### 新語候補（なし）
+- 今回の検証で未登録の用語は発見されませんでした
 
-GuiAgentLoopCoreリポジトリのドキュメントは**優れた状態**にあり、以下の間で**ほぼ完全な整合性**が達成されています：
+### ontology更新提案
+- **定義の精緻化**: 現行定義で十分正確
+- **同義語の追加**: legacy术语"OpenGuiConnector"をsynonymに追加可能
 
-- 存在目的（`.audit/intent.yml`）
-- 概念モデル（`.concept/ontology.yml`、`.concept/invariants.yml`、`.concept/ambiguities.yml`）
-- MDドキュメント（README.md、AGENTS.md、CLAUDE.md、GLOSSARY.md等）
+### AUTO決定の再評価
+- **現行の9決定**: すべて妥当
+- **有効期限**: 20 run後の再評価を推奨
 
-**このリポジトリは、概念駆動開発（concept-driven development）の優れた実践例となっています。**
+## 全体評価
+
+### 状態: **優秀（Excellent）**
+
+- ✅ **MD網羅度**: 100%（Tier 1-3完備）
+- ✅ **用語正規化**: 96.5%（ほぼ完璧）
+- ✅ **一意性**: 100%（矛盾なし）
+- ✅ **不変条件反映**: 100%（hard invariants完備）
+- ✅ **AUTO決定注記**: 100%
+
+### 改善の余地
+- README.mdの図を更新すれば97%超え可能
+- CONTRIBUTING.mdに用語ガイドライン追加で更に向上
+
+## 次回のアクション
+
+1. **README.md**: Architecture diagramの术语更新
+2. **CONTRIBUTING.md**: 用語ガイドライン追加
+3. **ARCHITECTURE.md**: mappings.ymlとの整合性確認
 
 ---
 
-**実行結果**: 成功（改善不要）
-**推定スコア**:
-- 全体スコア: 98/100
-- 一意性スコア: 100/100
-- 概念整合スコア: 98/100
+**生成者**: 16_repo_md_bootstrapper v1.1
+**検証完了**: 2026-02-02T04:35:00Z
+**次回実行推奨**: ontology.ymlまたはintent.yml更新時

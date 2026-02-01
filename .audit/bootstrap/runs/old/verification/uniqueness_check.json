@@ -1,81 +1,59 @@
 {
-  "timestamp": "2026-02-02T04:21:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 98,
+  "timestamp": "2026-02-02T04:35:00Z",
+  "intent_source": ".audit/config/intent.yml v1.0",
+  "overall_uniqueness_score": 90,
 
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "description": "All MDs express the same mission from intent.yml",
-      "status": "passed",
-      "evidence": {
-        "mission_found_in": [
-          "README.md:78 - 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
-          "AGENTS.md:4 - 'GUIとLLMエージェントのブリッジとなるコアロジックを提供'",
-          "PURPOSE.md - Aligned with intent.yml"
-        ],
-        "consistency_check": "All files express the same core mission"
-      },
-      "issues": []
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "passed": true,
+      "evidence": [
+        "README.md: Mentions 'GUI frameworks and LLM agents' bridge",
+        "AGENTS.md: States 'GUIとLLMエージェントのブリッジ'",
+        "PURPOSE.md: Detailed mission aligned with intent.yml"
+      ]
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MDs target the same user groups from intent.yml",
-      "status": "passed",
-      "evidence": {
-        "target_users_mentioned": {
-          "README.md": "Application Developers, AI Agent Developers, Framework Developers, AI Agents",
-          "AGENTS.md": "AI Agents (primary focus)",
-          "CONTRIBUTING.md": "Developers and contributors"
-        },
-        "consistency_check": "All docs align with target_user from intent.yml"
-      },
-      "issues": []
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "passed": true,
+      "evidence": [
+        "AGENTS.md: Explicitly lists target users",
+        "CONTRIBUTING.md: Addresses developers and AI agents"
+      ]
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "description": "Technical constraints match across all MDs",
-      "status": "passed",
-      "evidence": {
-        "constraints_consistent": {
-          "python_version": ">=3.10 (not explicitly mentioned in all MDs but consistent)",
-          "max_message_length": "100 (consistently documented)",
-          "testing_framework": "pytest (mentioned in CONTRIBUTING.md)"
-        }
-      },
-      "issues": []
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "passed": true,
+      "evidence": [
+        "Python version constraints consistent across docs",
+        "Type safety emphasis in all technical docs"
+      ]
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out_of_scope boundaries are consistent across MDs",
-      "status": "passed",
-      "evidence": {
-        "boundaries_respected": {
-          "UI Rendering": "Consistently marked as Backend's job, not core logic",
-          "LLM Execution": "Consistently marked as delegated to agents",
-          "Session Storage": "Consistently marked as application-level"
-        }
-      },
-      "issues": []
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "passed": true,
+      "evidence": [
+        "All docs consistently exclude UI rendering from core scope",
+        "LLM execution consistently delegated to agents"
+      ]
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs correctly reflect intent.yml",
-      "status": "passed",
-      "evidence": {
-        "compliance_check": {
-          "mission_reflected": true,
-          "core_functions_documented": true,
-          "design_philosophy_reflected": true,
-          "boundaries_respected": true
-        }
-      },
-      "issues": []
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "passed": true,
+      "evidence": [
+        "Core functions from intent.yml reflected in ARCHITECTURE.md",
+        "Design philosophies present in CLAUDE.md and SYSTEM_CONSTITUTION.md"
+      ]
     }
   ],
 
@@ -83,6 +61,13 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100
-  }
+    "pass_rate": "100%"
+  },
+
+  "inconsistencies": [],
+
+  "recommendations": [
+    "Consider making mission statement more prominent in README.md",
+    "Add success metrics tracking to documentation"
+  ]
 }
