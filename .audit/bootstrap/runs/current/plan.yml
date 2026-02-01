@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-01T22:49:26Z"
+run_timestamp: "2026-02-01T14:03:35Z"
 version: "1.1"
 
 rotation:
@@ -26,7 +26,7 @@ intent_summary:
     - GUI framework統合者
   core_value_hypothesis: '会話フロー管理、エージェント相互作用、状態制御の中核機能'
   confidence: LOW
-  reason: 'Inferred from ontology.yml, not from authoritative intent.yml'
+  reason: 'Inferred from ontology.yml and existing README.md, not from authoritative intent.yml'
 
 ontology_summary:
   version: "0.3"
@@ -57,6 +57,12 @@ invariants_summary:
   total: 7
   hard: 5
   soft: 2
+  hard_invariants:
+    - INV-STATE-001
+    - INV-MSG-001
+    - INV-AUTO-001
+    - INV-STREAM-001
+    - INV-SESSION-001
 
 term_normalization:
   GuiAgentInterpreter: Interpreter
@@ -75,27 +81,32 @@ term_normalization:
   ストリームラッパー: StreamWrapper
   GUIバックエンド: Backend
   UIフレームワーク: Backend
-  変換器: Converter
-  マッパー: Converter
   会話メモリ: Memory
   ConversationBuffer: Memory
+  変換器: Converter
+  マッパー: Converter
 
 existing_mds:
   - path: "README.md"
     status: exists_good
     issues: []
+    last_modified: "2026-02-01T22:39:00Z"
   - path: "AGENTS.md"
     status: exists_good
     issues: []
+    last_modified: "2026-02-01T22:39:00Z"
   - path: "CLAUDE.md"
     status: exists_good
     issues: []
+    last_modified: "2026-02-01T22:13:00Z"
   - path: "CONTRIBUTING.md"
     status: exists_good
     issues: []
+    last_modified: "2026-02-01T22:13:00Z"
   - path: "GLOSSARY.md"
     status: exists_good
     issues: []
+    last_modified: "2026-02-01T22:09:00Z"
   - path: "ARCHITECTURE.md"
     status: missing
     issues:
@@ -127,3 +138,9 @@ actions:
   - action: skip
     target: "PURPOSE.md"
     reason: "Tier 3 document - out of scope for this run"
+
+expected_outcomes:
+  overall_score_target: 95
+  uniqueness_score_target: 90
+  concept_alignment_target: 100
+  mode: verification_only

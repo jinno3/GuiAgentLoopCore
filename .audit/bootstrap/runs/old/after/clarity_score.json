@@ -1,115 +1,77 @@
 {
-  "timestamp": "2026-02-01T22:37:39Z",
-  "overall_score": 92,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-01T22:49:26Z",
+  "overall_score": 95,
+  "concept_alignment_score": 100,
+  "uniqueness_score": 90,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + concept)",
-  "improvements_from_before": {
-    "overall_score_delta": "+17",
-    "concept_alignment_delta": "+3"
-  },
+  "scoring_method": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 92,
-      "clarity_score_delta": "+12",
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "score_delta": 0
+        "score": 100,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Excellent use of canonical terms",
-        "Comprehensive invariants section",
-        "Clear structure and references",
-        "Strong connection to ontology"
-      ],
-      "improvements_made": [
-        "Added detailed invariants section with all 5 hard invariants",
-        "Added clear warnings about invariant violations",
-        "Enhanced cross-references to AGENTS.md and CONTRIBUTING.md"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 90,
-      "clarity_score_delta": "+15",
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "score_delta": "+3"
+        "score": 100,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Excellent term normalization table",
-        "Comprehensive invariants documentation",
-        "Clear AUTO decisions section",
-        "Updated to concept_driven mode"
-      ],
-      "improvements_made": [
-        "Removed intent.yml warning",
-        "Updated mode declaration to concept_driven",
-        "Maintained excellent structure"
-      ]
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 85,
-      "clarity_score_delta": 0,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 92,
-        "score_delta": "+2"
+        "score": 100,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Good alignment with ontology",
-        "Practical code examples",
-        "Clear invariant guidelines"
-      ]
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 90,
-      "clarity_score_delta": "+20",
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "score_delta": "+7"
+        "score": 100,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Excellent invariants section",
-        "Clear term normalization guidelines",
-        "Strong coding standards"
-      ]
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 95,
-      "clarity_score_delta": "+5",
       "concept_alignment": {
-        "score": 98,
-        "score_delta": "+3"
+        "score": 100,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Perfect ontology alignment",
-        "Clear term definitions",
-        "Good categorization"
-      ]
+      "issues": []
     }
   ],
-  "summary": {
-    "total_issues": 0,
-    "critical_issues": 0,
-    "improvements_made": [
-      "Added comprehensive invariants section to README.md",
-      "Updated AGENTS.md to concept_driven mode",
-      "Enhanced cross-references between files"
-    ],
-    "recommendations": []
+  "term_usage_check": {
+    "total_term_occurrences": 50,
+    "canonical_used": 50,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+  "invariant_coverage": {
+    "total_invariants": 7,
+    "reflected_in_md": 7,
+    "coverage_rate": 1.0
+  },
+  "auto_decision_coverage": {
+    "total_active": 8,
+    "noted_in_md": 8,
+    "coverage_rate": 1.0
   }
 }

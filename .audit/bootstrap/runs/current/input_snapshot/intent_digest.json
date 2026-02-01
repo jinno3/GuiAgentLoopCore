@@ -1,24 +1,38 @@
 {
-  "timestamp": "2026-02-01T22:49:26Z",
-  "source": ".audit/config/intent.yml",
-  "status": "MISSING",
-  "error": "File not found",
-  "note": "14_repo_genesis_auditor has not been run yet",
-  "fallback": "Using .concept/ontology.yml to infer project purpose",
-  "inferred_purpose": {
-    "mission_hypothesis": "GUIとLLMエージェントのブリッジとなるコアロジックを提供",
-    "core_components": [
-      "Interpreter: 会話フロー管理",
-      "Agent: 専門化AIエンティティ",
-      "Session: 会話コンテキスト管理",
-      "Message: 構造化通信",
-      "State: 状態遷移管理"
-    ],
-    "target_users_hypothesis": [
-      "AIアプリケーション開発者",
-      "GUI framework統合者"
-    ],
-    "confidence": "LOW",
-    "reason": "Inferred from ontology.yml, not from authoritative intent.yml"
-  }
+  "timestamp": "2026-02-01T14:03:35Z",
+  "source": "HYPOTHETICAL - inferred from existing documentation",
+  "status": "MISSING_AUTHORITATIVE_SOURCE",
+  "note": "intent.yml does not exist. This digest is inferred from README.md and ontology.yml.",
+  "inference_confidence": "LOW",
+  "inferred_mission": "GUIとLLMエージェントのブリッジとなるコアロジックを提供",
+  "inferred_target_users": [
+    "AIアプリケーション開発者",
+    "GUI framework統合者"
+  ],
+  "inferred_core_value": "会話フロー管理、エージェント相互作用、状態制御の中核機能",
+  "inferred_core_functions": [
+    {
+      "name": "会話フロー管理",
+      "description": "Interpreterを通じて会話の状態遷移とメッセージルーティングを管理"
+    },
+    {
+      "name": "エージェント相互作用",
+      "description": "複数のAgent（役割ベース）の調整と実行"
+    },
+    {
+      "name": "状態制御",
+      "description": "単調的な状態遷移（INIT → RUNNING → STOP）の保証"
+    }
+  ],
+  "inferred_boundaries": [
+    {
+      "category": "out_of_scope",
+      "description": "UI描画はBackend（Gradio等）の責任"
+    },
+    {
+      "category": "out_of_scope",
+      "description": "LLM直接実行はAgentの責任、Interpreterは調整のみ"
+    }
+  ],
+  "recommendation": "Run 14_repo_genesis_auditor to create authoritative intent.yml"
 }

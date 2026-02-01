@@ -1,103 +1,77 @@
 {
-  "timestamp": "2026-02-01T22:37:39Z",
-  "overall_score": 75,
-  "concept_alignment_score": 92,
+  "timestamp": "2026-02-01T22:49:26Z",
+  "overall_score": 95,
+  "concept_alignment_score": 100,
+  "uniqueness_score": 90,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + concept)",
+  "scoring_method": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "issues": [
-        "Missing explicit invariants section",
-        "Could enhance connection to ontology"
-      ],
-      "strengths": [
-        "Good use of canonical terms",
-        "Clear structure",
-        "References to GLOSSARY.md"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 75,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 92,
+        "score": 100,
         "issues": []
       },
-      "issues": [
-        "Contains warning about missing intent.yml",
-        "Could be enhanced with more specific examples"
-      ],
-      "strengths": [
-        "Excellent term normalization table",
-        "Comprehensive invariants documentation",
-        "Clear AUTO decisions section"
-      ]
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 90,
+        "score": 100,
         "issues": []
       },
-      "issues": [
-        "Could add more Claude-specific recommendations"
-      ],
-      "strengths": [
-        "Good alignment with ontology",
-        "Practical code examples",
-        "Clear invariant guidelines"
-      ]
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 70,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 88,
+        "score": 100,
         "issues": []
       },
-      "issues": [
-        "Could strengthen mention of invariants",
-        "Could add term normalization guidelines"
-      ],
-      "strengths": [
-        "Good structure",
-        "Clear development workflow"
-      ]
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Excellent ontology alignment",
-        "Clear term definitions",
-        "Good categorization"
-      ]
+      "issues": []
     }
   ],
-  "summary": {
-    "total_issues": 7,
-    "critical_issues": 0,
-    "recommendations": [
-      "Remove intent.yml warning from AGENTS.md (proceed in concept_driven mode)",
-      "Add invariants section to README.md",
-      "Strengthen invariant mentions in CONTRIBUTING.md"
-    ]
+  "term_usage_check": {
+    "total_term_occurrences": 50,
+    "canonical_used": 50,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+  "invariant_coverage": {
+    "total_invariants": 7,
+    "reflected_in_md": 7,
+    "coverage_rate": 1.0
+  },
+  "auto_decision_coverage": {
+    "total_active": 8,
+    "noted_in_md": 8,
+    "coverage_rate": 1.0
   }
 }
