@@ -103,7 +103,7 @@ The following invariants have constitutional status and CANNOT be violated:
 - Tests MUST verify this invariant is maintained
 
 
-### INV-STREAM-001: ストリームラッパーは同期・非同期の両方をサポートする
+### INV-STREAM-001: `StreamWrapper`は同期・非同期の両方をサポートする
 
 **Strength**: HARD (Constitutional)
 **Status**: stable

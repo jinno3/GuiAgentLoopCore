@@ -149,7 +149,7 @@ message_type = "TEXT"  # ❌ 悪い（列挙型に含まれない）
 
 **最終更新**: 2026-02-02
 **関連ドキュメント**:
-- [AGENTS.md](AGENTS.md) - 全AIエージェント向け指示
+- [AGENTS.md](AGENTS.md) - 全`Agent`向け指示
 - [CLAUDE.md](CLAUDE.md) - Claude向け特化指示
 - [GEMINI.md](GEMINI.md) - Gemini向け特化指示
 - [GLOSSARY.md](GLOSSARY.md) - 用語集

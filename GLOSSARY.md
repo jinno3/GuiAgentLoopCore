@@ -17,7 +17,7 @@
 
 - **定義**: 会話フローとエージェント相互作用を管理する中核コンポーネント
 - **同義語**: Interpreter, Interpreter（使用禁止）
-- **含む**: 状態管理, セッション管理, Messageルーティング
+- **含む**: 状態管理, セッション管理, `Message`ルーティング
 - **含まない**: UI描画, LLM直接実行
 - **ライフサイクル**: STATE_INIT, STATE_RUNNING, STATE_STOP
 - **関連用語**: Agent, Session, Message, State
@@ -125,7 +125,7 @@
 - **定義**: 同期・非同期ストリーミング応答を統一的に扱うユーティリティ
 - **同義語**: StreamWrapper, StreamWrapper（使用禁止）
 - **含む**: ストリーム処理, 同期/非同期変換
-- **含まない**: メッセージ変換, 状態管理
+- **含まない**: `Message`変換, 状態管理
 - **ライフサイクル**: created, streaming, completed
 - **関連用語**: Message, Interpreter
 - **ステータス**: stable
@@ -137,8 +137,8 @@
 
 ### Backend
 
-- **定義**: GUIフレームワーク実装（Gradio等）
-- **同義語**: Backend, Backend（使用禁止）
+- **定義**: GUI `Backend`実装（Gradio等）
+- **同義語**: GUI`Backend`, UI `Backend`（使用禁止）
 - **含む**: UI描画, イベントハンドリング, コンポーネント管理
 - **含まない**: 会話ロジック, エージェント管理
 - **関連用語**: Interpreter, Session
@@ -156,7 +156,7 @@
 
 - **定義**: 会話履歴を保持するバッファ機構
 - **同義語**: Memory, Memory（使用禁止）
-- **含む**: メッセージ履歴, ウィンドウサイズ
+- **含む**: `Message`履歴, ウィンドウサイズ
 - **含まない**: セッション管理, 状態保持
 - **関連用語**: Session, Message
 - **ステータス**: draft
@@ -178,7 +178,7 @@
 - **定義**: データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ
 - **同義語**: Converter, Converter（使用禁止）
 - **含む**: リクエスト変換, 辞書フラット化, コードコンテンツ処理, format/languageフィールド抽出
-- **含まない**: メッセージ処理, 状態管理
+- **含まない**: `Message`処理, 状態管理
 - **ライフサイクル**: created, converting, flattened
 - **関連用語**: Message
 - **ステータス**: stable

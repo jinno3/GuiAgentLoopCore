@@ -19,7 +19,7 @@
 | `State` | State, State | インタープリタの実行状態を表す列挙型 |
 | `AutoChat` | AutoChat, AutoChat | STATE_STOP時に自動的に会話を継続する機能 |
 | `StreamWrapper` | StreamWrapper, StreamWrapper | 同期・非同期ストリーミング応答を統一的に扱うユーティリティ |
-| `Backend` | Backend, Backend | GUIフレームワーク実装（Gradio等） |
+| `Backend` | Backend, Backend | GUI `Backend`実装（Gradio等） |
 | `Memory` | Memory, Memory | 会話履歴を保持するバッファ機構 |
 | `Converter` | Converter, Converter | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
 
@@ -42,7 +42,7 @@
 ### 🔒 Messageタイプの制約
 - **INV-MSG-001**: `Message`タイプは定義された列挙型のみ使用可：`MESSAGE`, `CODE`, `CONFIRMATION`, `CONSOLE`, `IMAGE`, `FUNCTION`
   - タイプ安全性を保証するため、`MessageTypeEnum`以外の値を使用しないこと
-  - 予期しないMessageを処理しようとしてはいけない
+  - 予期しない`Message`を処理しようとしてはいけない
 
 ### 🔒 AutoChatの発火条件
 - **INV-AUTO-001**: `AutoChat`は`STATE_STOP`時のみトリガーされる
@@ -76,7 +76,7 @@
 - **AUTO:AutoChat.prompt:default_continue**: 未設定時はデフォルト継続プロンプト使用（安全側）（有効期限：20回の実行）
 
 ### Backend関連
-- **AUTO:Backend.primary:gradio**: Gradioが主要バックエンド（暫定）（有効期限：20回の実行）
+- **AUTO:Backend.primary:gradio**: Gradioが主要`Backend`（暫定）（有効期限：20回の実行）
 
 ### Memory関連
 - **AUTO:Memory.window:k10**: メモリウィンドウサイズはk=10（暫定）（有効期限：20回の実行）
@@ -88,12 +88,12 @@
 ### このリポジトリでやるべきこと
 
 1. **用語の正規形を使用する**
-   - コード、ドキュメント、コミットメッセージで常に正規形を使用すること
+   - コード、ドキュメント、コミット`Message`で常に正規形を使用すること
    - 新しい用語を導入する際は、`.concept/term_queue.yml`を通じて申請すること
 
 2. **不変条件を遵守する**
    - 上記のhard invariantsを理解し、違反するコードを書かないこと
-   - 状態遷移、メッセージタイプ、セッション管理に関しては特に注意すること
+   - 状態遷移、`Message`タイプ、セッション管理に関しては特に注意すること
 
 3. **AUTO決定を尊重する**
    - AUTO決定が適用されている箇所を変更する際は、`.concept/ambiguities.yml`を確認すること
@@ -105,13 +105,13 @@
 
 5. **テストを重視する**
    - 不変条件を検証するテストを書くこと
-   - 状態遷移、メッセージ処理、セッション管理に関するテストカバレッジを維持すること
+   - 状態遷移、`Message`処理、セッション管理に関するテストカバレッジを維持すること
 
 ### このリポジトリでやってはいけないこと
 
 1. ❌ **同義語の使用**: 正規形ではなく同義語を使用すること
 2. ❌ **状態遷移の逆行**: `STATE_RUNNING`から`STATE_INIT`へ戻るような状態遷移
-3. ❌ **メッセージタイプの無制限追加**: `MessageTypeEnum`に定義されていないタイプを使用すること
+3. ❌ **`Message`タイプの無制限追加**: `MessageTypeEnum`に定義されていないタイプを使用すること
 4. ❌ **AutoChatの実行中発火**: `STATE_RUNNING`時にAutoChatをトリガーすること
 5. ❌ **セッションIDの重複**: UUID以外の方法でセッションを識別すること
 6. ❌ **AUTO決定の無視**: 暫定仕様であることを理解せずに変更すること
@@ -146,7 +146,7 @@
 - `gui_agent_loop_core/core/interpreter_manager.py`: Interpreterの実装
 - `gui_agent_loop_core/schema/`: データスキーマ定義
 - `gui_agent_loop_core/converter/`: データ変換ロジック
-- `gui_agent_loop_core/backend/`: GUIバックエンド実装
+- `gui_agent_loop_core/backend/`: GUI `Backend`実装
 
 ---
 

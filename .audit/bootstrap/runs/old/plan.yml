@@ -1,160 +1,122 @@
-run_timestamp: "2026-02-02T00:20:00Z"
-version: "1.1"
-
+run_timestamp: '2026-02-02T00:45:19.430376'
+version: '1.1'
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
 input_sources:
   audit:
     intent_yml: null
     constraints_yml: null
     has_audit: false
   concept:
-    ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
+    ontology_yml: .concept/ontology.yml
+    invariants_yml: .concept/invariants.yml
+    ambiguities_yml: .concept/ambiguities.yml
     has_concept: true
-    ontology_version: "0.3"
-
+    ontology_version: '0.3'
 mode: concept_driven
-
 ontology_summary:
-  total_terms: 9
-  core_terms: 5
-  domain_terms: 3
-  aux_terms: 1
-  key_terms:
-    - canonical: "Interpreter"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
-    - canonical: "Agent"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
-    - canonical: "Session"
-      definition: "一意のIDで管理される会話コンテキスト"
-      layer: "core"
-    - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
-    - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
-
+  total_terms: 10
+  by_layer:
+    core: 5
+    domain: 4
+    aux: 1
+  by_status:
+    stable: 9
+    draft: 1
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-
+  GuiAgentInterpreter: Interpreter
+  会話インタープリタ: Interpreter
+  AIエージェント: Agent
+  専門エージェント: Agent
+  ChatSession: Session
+  会話セッション: Session
+  メッセージ: Message
+  ChatMessage: Message
+  InterpreterState: State
+  インタープリタ状態: State
+  自動チャット: AutoChat
+  自動継続: AutoChat
+  GuiAgentStreamWrapper: StreamWrapper
+  ストリームラッパー: StreamWrapper
+  GUIバックエンド: Backend
+  UIフレームワーク: Backend
+  変換器: Converter
+  マッパー: Converter
+  会話メモリ: Memory
+  ConversationBuffer: Memory
 existing_mds:
-  - path: "README.md"
-    status: "verify"
-    tier: 1
-    issues: []
-
-  - path: "AGENTS.md"
-    status: "verify"
-    tier: 1
-    issues: []
-
-  - path: "CLAUDE.md"
-    status: "verify"
-    tier: 2
-    issues: []
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "verify"
-    tier: 2
-    issues: []
-
-  - path: "PURPOSE.md"
-    status: "verify"
-    tier: 2
-    issues: []
-
-  - path: "CONTRIBUTING.md"
-    status: "verify"
-    tier: 2
-    issues: []
-
-  - path: "GLOSSARY.md"
-    status: "verify"
-    tier: 3
-    issues: []
-
-  - path: "GEMINI.md"
-    status: "verify"
-    tier: 3
-    issues: []
-
-  - path: "CODEX.md"
-    status: "verify"
-    tier: 3
-    issues: []
-
-  - path: "ARCHITECTURE.md"
-    status: "verify"
-    tier: 3
-    issues: []
-
+- path: README.md
+  status: verify
+  tier: 1
+  issues: []
+- path: AGENTS.md
+  status: verify
+  tier: 1
+  issues: []
+- path: CLAUDE.md
+  status: verify
+  tier: 2
+  issues: []
+- path: SYSTEM_CONSTITUTION.md
+  status: verify
+  tier: 2
+  issues: []
+- path: PURPOSE.md
+  status: verify
+  tier: 2
+  issues: []
+- path: CONTRIBUTING.md
+  status: verify
+  tier: 2
+  issues: []
+- path: GLOSSARY.md
+  status: verify
+  tier: 3
+  issues: []
+- path: GEMINI.md
+  status: verify
+  tier: 3
+  issues: []
+- path: CODEX.md
+  status: verify
+  tier: 3
+  issues: []
+- path: ARCHITECTURE.md
+  status: verify
+  tier: 3
+  issues: []
 actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "Verify concept alignment with ontology v0.3"
-
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Verify terminology and invariant consistency"
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify Claude-specific guidelines alignment"
-
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify constitutional invariants match .concept/invariants.yml"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify purpose aligns with concept definitions"
-
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines respect terminology"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify glossary matches ontology.yml v0.3"
-
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify Gemini-specific guidelines alignment"
-
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify Codex-specific guidelines alignment"
-
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify architecture uses canonical terminology"
-
+- action: verify
+  target: README.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: AGENTS.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: CLAUDE.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: SYSTEM_CONSTITUTION.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: PURPOSE.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: CONTRIBUTING.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: GLOSSARY.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: GEMINI.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: CODEX.md
+  reason: Verify concept alignment with ontology v0.3
+- action: verify
+  target: ARCHITECTURE.md
+  reason: Verify concept alignment with ontology v0.3
 target_overall_score: 95
 target_concept_alignment_score: 100
 max_iterations: 3

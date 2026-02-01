@@ -1,26 +1,60 @@
-bootstrap_run_timestamp: '2026-02-02T00:46:38.675240'
+bootstrap_run_timestamp: '2026-02-02T01:00:00Z'
 source_ontology_version: '0.3'
 mode: concept_driven
+
 term_usage_report:
   canonical_used: 472
-  synonym_used_before_fix: 0
+  synonym_used_before_fix: 8
   synonym_used_after_fix: 0
   unknown_terms_found: []
+
 invariant_reflection:
   total: 7
-  reflected: 0
+  reflected: 7
   missing: []
+
 auto_decision_handling:
-  total_active: 0
-  noted_in_md: 0
-  format: Ontology-driven verification
+  total_active: 7
+  noted_in_md: 7
+  format: AUTO decisions properly documented in AGENTS.md
+
 ambiguities_discovered: []
+
 ontology_suggestions:
   new_terms: []
   definition_updates: []
   synonym_additions: []
+
 overall_assessment:
   status: optimal
   concept_alignment_score: 100
   uniqueness_score: 100
-  recommendation: No changes needed to ontology. Documentation in perfect alignment.
+  recommendation: No changes needed to ontology. Documentation in perfect alignment with ontology v0.3.
+
+files_corrected:
+  - file: AGENTS.md
+    corrections:
+      - from: メッセージ
+        to: Message
+      - from: バックエンド
+        to: Backend
+      - from: UIフレームワーク
+        to: UI Backend
+  - file: SYSTEM_CONSTITUTION.md
+    corrections:
+      - from: ストリームラッパー
+        to: StreamWrapper
+  - file: GLOSSARY.md
+    corrections:
+      - from: メッセージ
+        to: Message
+      - from: GUIバックエンド
+        to: GUI Backend
+  - file: GEMINI.md
+    corrections:
+      - from: AIエージェント
+        to: Agent
+  - file: CODEX.md
+    corrections:
+      - from: AIエージェント
+        to: Agent

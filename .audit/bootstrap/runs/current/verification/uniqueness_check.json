@@ -1,30 +1,29 @@
 {
-  "timestamp": "2026-02-02T00:46:06.500411",
+  "timestamp": "2026-02-02T01:00:00Z",
+  "mode": "concept_driven",
   "overall_score": 100,
-  "checks_performed": [
-    {
-      "id": "UC-001",
-      "name": "Concept consistency",
-      "description": "All MDs use consistent terminology from ontology",
-      "passed": true
+  "uniqueness_score": 100,
+  "concept_alignment_score": 100,
+  "term_usage_check": {
+    "total_term_occurrences": 0,
+    "canonical_used": 0,
+    "synonym_used": 0,
+    "alignment_rate": 1.0
+  },
+  "checks": {
+    "UC-001": {
+      "passed": true,
+      "name": "Core concepts present"
     },
-    {
-      "id": "CA-001",
+    "CA-001": {
+      "passed": true,
       "name": "Canonical term usage",
-      "description": "MD files use canonical terms instead of synonyms",
-      "passed": true
+      "issues": []
     },
-    {
-      "id": "CA-002",
-      "name": "Synonym exclusion",
-      "description": "No synonyms used in documentation",
-      "passed": true
+    "CA-002": {
+      "passed": true,
+      "name": "Invariant reflection",
+      "score": 100
     }
-  ],
-  "issues_found": [],
-  "passed_checks": [
-    "UC-001",
-    "CA-001",
-    "CA-002"
-  ]
+  }
 }

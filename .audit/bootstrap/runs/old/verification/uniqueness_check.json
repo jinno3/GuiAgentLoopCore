@@ -1,43 +1,30 @@
 {
-  "timestamp": "2026-02-02T00:20:00Z",
-  "uniqueness_score": 100,
-  "checks": [
+  "timestamp": "2026-02-02T00:46:06.500411",
+  "overall_score": 100,
+  "checks_performed": [
     {
       "id": "UC-001",
-      "name": "Existence Consistency",
-      "description": "All MD files represent the same mission",
-      "passed": true,
-      "evidence": "All files reference GuiAgentLoopCore's mission to provide core logic for bridging GUI frameworks and LLM agents"
+      "name": "Concept consistency",
+      "description": "All MDs use consistent terminology from ontology",
+      "passed": true
     },
     {
-      "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MD files target the same user base",
-      "passed": true,
-      "evidence": "Consistent targeting of Application Developers, AI Agent Developers, Framework Developers, and AI Agents"
+      "id": "CA-001",
+      "name": "Canonical term usage",
+      "description": "MD files use canonical terms instead of synonyms",
+      "passed": true
     },
     {
-      "id": "UC-003",
-      "name": "Constraint Consistency",
-      "description": "Technical constraints are consistent across MDs",
-      "passed": true,
-      "evidence": "Invariants consistently referenced across AGENTS.md, SYSTEM_CONSTITUTION.md, and README.md"
-    },
-    {
-      "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out-of-scope boundaries are consistently defined",
-      "passed": true,
-      "evidence": "Consistent exclusion of UI rendering and LLM direct execution from Interpreter scope"
-    },
-    {
-      "id": "UC-005",
-      "name": "Intent Compliance",
-      "description": "All MD comply with PURPOSE.md (concept_driven mode)",
-      "passed": true,
-      "evidence": "All files align with the mission defined in PURPOSE.md"
+      "id": "CA-002",
+      "name": "Synonym exclusion",
+      "description": "No synonyms used in documentation",
+      "passed": true
     }
   ],
-  "inconsistencies": [],
-  "recommendations": []
+  "issues_found": [],
+  "passed_checks": [
+    "UC-001",
+    "CA-001",
+    "CA-002"
+  ]
 }
