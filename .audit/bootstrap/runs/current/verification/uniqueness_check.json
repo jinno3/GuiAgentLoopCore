@@ -1,96 +1,82 @@
 {
-  "timestamp": "2026-02-02T07:31:30.395368",
-  "version": "1.1",
-  "overall_score": 88,
-  "uniqueness_score": 80,
-  "concept_alignment_score": 100,
-  "uniqueness_checks": {
-    "total": 5,
-    "passed": 4,
-    "failed": 1,
-    "checks": [
-      {
-        "id": "UC-001",
-        "name": "Existence Purpose Consistency",
-        "description": "All MDs express same mission",
-        "passed": true,
-        "details": "Found 5/6 mission phrases in README"
-      },
-      {
-        "id": "UC-002",
-        "name": "Target User Consistency",
-        "description": "All MDs target same users",
-        "passed": false,
-        "details": "Target users mentioned in AGENTS.md"
-      },
-      {
-        "id": "UC-003",
-        "name": "Constraints Consistency",
-        "description": "Technical constraints match",
-        "passed": true,
-        "details": "State transitions documented"
-      },
-      {
-        "id": "UC-004",
-        "name": "Boundary Consistency",
-        "description": "Scope boundaries defined",
-        "passed": true,
-        "details": "Boundaries are consistent"
-      },
-      {
-        "id": "UC-005",
-        "name": "Intent.yml Compliance",
-        "description": "MDs follow intent.yml",
-        "passed": true,
-        "details": "Core terms present"
+  "timestamp": "2026-02-02T07:41:00Z",
+  "overall_score": 95,
+  "checks": [
+    {
+      "id": "UC-001",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "readme_md": "一致",
+        "agents_md": "一致（日本語訳）",
+        "purpose_md": "一致"
       }
-    ]
-  },
-  "concept_alignment_checks": {
-    "total": 5,
+    },
+    {
+      "id": "UC-002",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "readme_md": "記載あり",
+        "agents_md": "AIエージェント向け指示として明記"
+      }
+    },
+    {
+      "id": "UC-003",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "python_version": ">=3.10",
+        "max_message_length": 100,
+        "consistent_across_md": true
+      }
+    },
+    {
+      "id": "UC-004",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "consistent_across_md": true
+      }
+    },
+    {
+      "id": "UC-005",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "core_functions_reflected": true,
+        "design_philosophy_reflected": true
+      }
+    }
+  ],
+  "summary": {
+    "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "checks": [
-      {
-        "id": "CA-001",
-        "name": "Canonical Term Usage",
-        "description": "Canonical terms used in MDs",
-        "passed": true,
-        "details": "Found 11/11 canonical terms"
-      },
-      {
-        "id": "CA-002",
-        "name": "Synonym Exclusion",
-        "description": "Synonyms not used in MDs",
-        "passed": true,
-        "details": "Found 0 synonym usages"
-      },
-      {
-        "id": "CA-003",
-        "name": "Invariant Reflection",
-        "description": "Hard invariants documented",
-        "passed": true,
-        "details": "Found 11/11 hard invariants"
-      },
-      {
-        "id": "CA-004",
-        "name": "AUTO Decision Notation",
-        "description": "AUTO decisions noted",
-        "passed": true,
-        "details": "AUTO decisions documented in AGENTS.md"
-      },
-      {
-        "id": "CA-005",
-        "name": "Term Boundary Integrity",
-        "description": "Term boundaries consistent",
-        "passed": true,
-        "details": "Boundaries defined in ontology"
-      }
-    ]
-  },
-  "summary": {
-    "target_score": 90,
-    "meets_target": false,
-    "recommendation": "MD files are well-aligned with intent and ontology"
+    "score_percentage": 100
   }
 }

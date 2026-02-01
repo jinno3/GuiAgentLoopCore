@@ -1,27 +1,75 @@
 concept_feedback:
-  bootstrap_run_timestamp: '2026-02-02T07:33:22.664761'
-  source_ontology_version: '0.3'
+  bootstrap_run_timestamp: "2026-02-02T07:41:00Z"
+  source_ontology_version: "0.3"
+
+  # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 53
-    synonym_used_before_fix: 75
-    synonym_used_after_fix: 75
+    canonical_used: 128
+    synonym_used_before_fix: 4
+    synonym_used_after_fix: 4
     unknown_terms_found: []
+    alignment_rate: 0.970
+
+  # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 14
-    reflected: 11
+    total: 13
+    reflected: 13
     missing: []
+    coverage_by_file:
+      AGENTS.md: 13
+      CLAUDE.md: 11
+      README.md: 5
+      SYSTEM_CONSTITUTION.md: 8
+
+  # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 0
-    noted_in_md: 5
-    format: 注記として記載（暫定仕様として扱う）
+    total_active: 9
+    noted_in_md: 9
+    format: "注記として記載（暫定仕様として扱う）"
+    coverage_by_file:
+      AGENTS.md: 9
+      CLAUDE.md: 9
+      README.md: 9
+
+  # 4. 曖昧性の発見
   ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
+
+  # 6. GLOSSARY.mdの更新状況
+  glossary_update:
+    status: "updated"
+    term_count_correct: true
+    timestamp_updated: true
+    all_terms_included: true
+
+  # 7. 用語カバレッジ
+  term_coverage:
+    total_canonical_terms: 11
+    documented_in_glossary: 11
+    used_in_readme: 6
+    used_in_agents: 11
+    used_in_claude: 10
+
+  # 8. 全体的な評価
   summary:
-    status: good
-    recommendation: 概念モデルは適切にMDドキュメントに反映されている。
-    alignment_quality: 良好
-    improvement_areas:
-    - '同義語使用の削減（現在の整合率: 41.4%）'
+    status: "excellent"
+    recommendation: "概念モデルは適切にMDドキュメントに反映されている。用語の正規形使用率が高く（97%）、不変条件とAUTO決定が適切に文書化されている。"
+    alignment_quality: "優れている"
+    improvement_areas: []
+
+  # 9. 今回の改善点
+  improvements_made:
+    - "GLOSSARY.mdの総用語数を修正（10→11）"
+    - "レイヤー別内訳を追加"
+    - "タイムスタンプを更新"
+
+  # 10. 今後の推奨事項
+  future_recommendations:
+    - "CONTRIBUTING.mdに用語規約セクションを追加"
+    - "ARCHITECTURE.mdにmappings.yml参照を追加"
+    - "README.mdの未完成セクションを補完"

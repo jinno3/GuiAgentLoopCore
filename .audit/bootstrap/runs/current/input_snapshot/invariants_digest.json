@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-02-02T07:41:00Z",
+  "source": ".concept/invariants.yml",
+  "total_invariants": 13,
+  "hard_invariants": 11,
+  "soft_invariants": 2,
+  "by_term": {
+    "Interpreter": 1,
+    "State": 3,
+    "Message": 2,
+    "Session": 2,
+    "Agent": 1,
+    "AutoChat": 1,
+    "StreamWrapper": 1,
+    "Memory": 1,
+    "Backend": 2,
+    "Connector": 1,
+    "Converter": 1
+  },
+  "critical_invariants": [
+    {
+      "id": "INV-STATE-001",
+      "term": "State",
+      "strength": "hard",
+      "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+    },
+    {
+      "id": "INV-MESSAGE-001",
+      "term": "Message",
+      "strength": "hard",
+      "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+    },
+    {
+      "id": "INV-AUTO-001",
+      "term": "AutoChat",
+      "strength": "hard",
+      "statement": "AutoChatはSTATE_STOP時のみトリガーされる"
+    },
+    {
+      "id": "INV-SESSION-001",
+      "term": "Session",
+      "strength": "hard",
+      "statement": "セッションは一意のUUIDで識別される"
+    },
+    {
+      "id": "INV-MSG-001",
+      "term": "Message",
+      "strength": "hard",
+      "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+    }
+  ]
+}

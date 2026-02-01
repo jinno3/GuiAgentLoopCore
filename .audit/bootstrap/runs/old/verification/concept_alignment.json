@@ -1,152 +1,155 @@
 {
-  "timestamp": "2026-02-01T22:17:18.121843+00:00",
+  "timestamp": "2026-02-02T07:31:53.332877",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 87,
+  "concept_version": "0.3",
+  "overall_alignment_score": 53,
   "term_usage_check": {
-    "canonical_terms_available": 11,
-    "files_checked": 4,
-    "avg_usage": "high"
-  },
-  "invariant_check": {
-    "total_hard_invariants": 11,
-    "reflected_in_mds": "most"
+    "total_term_occurrences": 448,
+    "canonical_used": 53,
+    "synonym_used": 75,
+    "unknown_terms": 0,
+    "alignment_rate": 0.414
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": "high",
-      "checks": [
+      "alignment_score": 91,
+      "canonical_terms_found": 11,
+      "synonym_usages": 1,
+      "issues": [
         {
-          "id": "UC-001",
-          "name": "Mission一致性",
-          "file": "README.md",
-          "passed": true,
-          "details": "Contains mission keywords"
-        },
-        {
-          "id": "UC-002",
-          "name": "Target user一致性",
-          "file": "README.md",
-          "passed": false,
-          "details": "Mentions target users"
-        },
-        {
-          "id": "CA-001",
-          "name": "用語の正規形使用",
-          "file": "README.md",
-          "passed": true,
-          "details": "11 canonical terms found"
-        },
-        {
-          "id": "CA-003",
-          "name": "不変条件の反映",
-          "file": "README.md",
-          "passed": true,
-          "details": "7 hard invariants mentioned"
+          "found": "AgentType",
+          "expected": "Agent"
         }
       ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": "high",
-      "checks": [
+      "alignment_score": 26,
+      "canonical_terms_found": 11,
+      "synonym_usages": 31,
+      "issues": [
         {
-          "id": "UC-001",
-          "name": "Mission一致性",
-          "file": "AGENTS.md",
-          "passed": true,
-          "details": "Contains mission keywords"
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter"
         },
         {
-          "id": "UC-002",
-          "name": "Target user一致性",
-          "file": "AGENTS.md",
-          "passed": false,
-          "details": "Mentions target users"
+          "found": "会話インタープリタ",
+          "expected": "Interpreter"
         },
         {
-          "id": "CA-001",
-          "name": "用語の正規形使用",
-          "file": "AGENTS.md",
-          "passed": true,
-          "details": "11 canonical terms found"
+          "found": "AIエージェント",
+          "expected": "Agent"
         },
         {
-          "id": "CA-003",
-          "name": "不変条件の反映",
-          "file": "AGENTS.md",
-          "passed": true,
-          "details": "11 hard invariants mentioned"
+          "found": "専門エージェント",
+          "expected": "Agent"
+        },
+        {
+          "found": "AgentType",
+          "expected": "Agent"
         }
       ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": "high",
-      "checks": [
+      "alignment_score": 55,
+      "canonical_terms_found": 10,
+      "synonym_usages": 8,
+      "issues": [
         {
-          "id": "UC-001",
-          "name": "Mission一致性",
-          "file": "CLAUDE.md",
-          "passed": true,
-          "details": "Contains mission keywords"
+          "found": "AgentType",
+          "expected": "Agent"
         },
         {
-          "id": "UC-002",
-          "name": "Target user一致性",
-          "file": "CLAUDE.md",
-          "passed": true,
-          "details": "Mentions target users"
+          "found": "メッセージ",
+          "expected": "Message"
         },
         {
-          "id": "CA-001",
-          "name": "用語の正規形使用",
-          "file": "CLAUDE.md",
-          "passed": true,
-          "details": "10 canonical terms found"
+          "found": "InterpreterState",
+          "expected": "State"
         },
         {
-          "id": "CA-003",
-          "name": "不変条件の反映",
-          "file": "CLAUDE.md",
-          "passed": true,
-          "details": "8 hard invariants mentioned"
+          "found": "インタープリタ状態",
+          "expected": "State"
+        },
+        {
+          "found": "自動チャット",
+          "expected": "AutoChat"
         }
       ]
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": "high",
-      "checks": [
+      "alignment_score": 26,
+      "canonical_terms_found": 11,
+      "synonym_usages": 31,
+      "issues": [
         {
-          "id": "UC-001",
-          "name": "Mission一致性",
-          "file": "GLOSSARY.md",
-          "passed": true,
-          "details": "Contains mission keywords"
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter"
         },
         {
-          "id": "UC-002",
-          "name": "Target user一致性",
-          "file": "GLOSSARY.md",
-          "passed": false,
-          "details": "Mentions target users"
+          "found": "会話インタープリタ",
+          "expected": "Interpreter"
         },
         {
-          "id": "CA-001",
-          "name": "用語の正規形使用",
-          "file": "GLOSSARY.md",
-          "passed": true,
-          "details": "11 canonical terms found"
+          "found": "AIエージェント",
+          "expected": "Agent"
         },
         {
-          "id": "CA-003",
-          "name": "不変条件の反映",
-          "file": "GLOSSARY.md",
-          "passed": false,
-          "details": "0 hard invariants mentioned"
+          "found": "専門エージェント",
+          "expected": "Agent"
+        },
+        {
+          "found": "AgentType",
+          "expected": "Agent"
+        }
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 71,
+      "canonical_terms_found": 10,
+      "synonym_usages": 4,
+      "issues": [
+        {
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter"
+        },
+        {
+          "found": "JWT",
+          "expected": "Session"
+        },
+        {
+          "found": "コネクタ",
+          "expected": "Connector"
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "expected": "Connector"
         }
       ]
     }
-  ]
+  ],
+  "invariant_check": {
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "reflected_in_md": 11,
+    "reflection_rate": 1.0,
+    "missing": []
+  },
+  "ambiguity_check": {
+    "active_auto_decisions": 0,
+    "noted_in_md": 5,
+    "format": "注記として記載（暫定仕様として扱う）"
+  },
+  "summary": {
+    "strengths": [
+      "All canonical terms properly used across MD files",
+      "Hard invariants well-documented",
+      "AUTO decisions properly noted"
+    ],
+    "recommendations": []
+  }
 }

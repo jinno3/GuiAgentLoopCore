@@ -1,68 +1,96 @@
 {
-  "timestamp": "2026-02-01T22:17:18.121843+00:00",
-  "overall_score": 72,
-  "uniqueness_score": 62,
-  "uc_checks": [
-    {
-      "id": "UC-001",
-      "name": "Mission一致性",
-      "file": "README.md",
-      "passed": true,
-      "details": "Contains mission keywords"
-    },
-    {
-      "id": "UC-001",
-      "name": "Mission一致性",
-      "file": "AGENTS.md",
-      "passed": true,
-      "details": "Contains mission keywords"
-    },
-    {
-      "id": "UC-001",
-      "name": "Mission一致性",
-      "file": "CLAUDE.md",
-      "passed": true,
-      "details": "Contains mission keywords"
-    },
-    {
-      "id": "UC-001",
-      "name": "Mission一致性",
-      "file": "GLOSSARY.md",
-      "passed": true,
-      "details": "Contains mission keywords"
-    },
-    {
-      "id": "UC-002",
-      "name": "Target user一致性",
-      "file": "README.md",
-      "passed": false,
-      "details": "Mentions target users"
-    },
-    {
-      "id": "UC-002",
-      "name": "Target user一致性",
-      "file": "AGENTS.md",
-      "passed": false,
-      "details": "Mentions target users"
-    },
-    {
-      "id": "UC-002",
-      "name": "Target user一致性",
-      "file": "CLAUDE.md",
-      "passed": true,
-      "details": "Mentions target users"
-    },
-    {
-      "id": "UC-002",
-      "name": "Target user一致性",
-      "file": "GLOSSARY.md",
-      "passed": false,
-      "details": "Mentions target users"
-    }
-  ],
-  "summary": {
-    "total": 8,
+  "timestamp": "2026-02-02T07:31:30.395368",
+  "version": "1.1",
+  "overall_score": 88,
+  "uniqueness_score": 80,
+  "concept_alignment_score": 100,
+  "uniqueness_checks": {
+    "total": 5,
+    "passed": 4,
+    "failed": 1,
+    "checks": [
+      {
+        "id": "UC-001",
+        "name": "Existence Purpose Consistency",
+        "description": "All MDs express same mission",
+        "passed": true,
+        "details": "Found 5/6 mission phrases in README"
+      },
+      {
+        "id": "UC-002",
+        "name": "Target User Consistency",
+        "description": "All MDs target same users",
+        "passed": false,
+        "details": "Target users mentioned in AGENTS.md"
+      },
+      {
+        "id": "UC-003",
+        "name": "Constraints Consistency",
+        "description": "Technical constraints match",
+        "passed": true,
+        "details": "State transitions documented"
+      },
+      {
+        "id": "UC-004",
+        "name": "Boundary Consistency",
+        "description": "Scope boundaries defined",
+        "passed": true,
+        "details": "Boundaries are consistent"
+      },
+      {
+        "id": "UC-005",
+        "name": "Intent.yml Compliance",
+        "description": "MDs follow intent.yml",
+        "passed": true,
+        "details": "Core terms present"
+      }
+    ]
+  },
+  "concept_alignment_checks": {
+    "total": 5,
     "passed": 5,
-    "rate": "5/8"
+    "failed": 0,
+    "checks": [
+      {
+        "id": "CA-001",
+        "name": "Canonical Term Usage",
+        "description": "Canonical terms used in MDs",
+        "passed": true,
+        "details": "Found 11/11 canonical terms"
+      },
+      {
+        "id": "CA-002",
+        "name": "Synonym Exclusion",
+        "description": "Synonyms not used in MDs",
+        "passed": true,
+        "details": "Found 0 synonym usages"
+      },
+      {
+        "id": "CA-003",
+        "name": "Invariant Reflection",
+        "description": "Hard invariants documented",
+        "passed": true,
+        "details": "Found 11/11 hard invariants"
+      },
+      {
+        "id": "CA-004",
+        "name": "AUTO Decision Notation",
+        "description": "AUTO decisions noted",
+        "passed": true,
+        "details": "AUTO decisions documented in AGENTS.md"
+      },
+      {
+        "id": "CA-005",
+        "name": "Term Boundary Integrity",
+        "description": "Term boundaries consistent",
+        "passed": true,
+        "details": "Boundaries defined in ontology"
+      }
+    ]
+  },
+  "summary": {
+    "target_score": 90,
+    "meets_target": false,
+    "recommendation": "MD files are well-aligned with intent and ontology"
   }
 }

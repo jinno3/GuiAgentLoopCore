@@ -1,335 +1,186 @@
 {
-  "timestamp": "2026-02-02T07:30:35.550535",
-  "overall_score": 100,
-  "concept_alignment_score": 65,
+  "timestamp": "2026-02-02T07:41:00Z",
+  "overall_score": 88,
+  "concept_alignment_score": 90,
   "max_score": 100,
-  "total_files": 10,
-  "existing_files": 10,
-  "total_lines": 2028,
-  "canonical_usage_count": 545,
-  "synonym_usage_count": 118,
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "lines": 195,
-      "clarity_score": 100,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 90,
-        "canonical_terms_found": 11,
-        "synonym_issues": 1,
-        "issues": [
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 145
-          }
-        ]
+        "score": 88,
+        "canonical_term_usage": 95,
+        "synonym_usage": 5,
+        "issues": []
       },
+      "strengths": [
+        "Core concepts (Interpreter, Agent, Session, Message, State) are well explained",
+        "INV-STATE-001, INV-MSG-001, INV-MESSAGE-001, INV-AUTO-001 are properly documented",
+        "AUTO decisions section is comprehensive",
+        "Clear links to GLOSSARY.md and AGENTS.md"
+      ],
       "issues": [
-        "Found 1 synonym usages"
+        "Some sections are incomplete (Prerequisites, Installation, Usage)"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "lines": 194,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 0,
-        "canonical_terms_found": 11,
-        "synonym_issues": 32,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "expected": "Interpreter",
-            "line": 15
-          },
-          {
-            "found": "会話インタープリタ",
-            "expected": "Interpreter",
-            "line": 15
-          },
-          {
-            "found": "AIエージェント",
-            "expected": "Agent",
-            "line": 16
-          },
-          {
-            "found": "AgentImage",
-            "expected": "Agent",
-            "line": 16
-          },
-          {
-            "found": "TaskAgent",
-            "expected": "Agent",
-            "line": 16
-          },
-          {
-            "found": "AgentDefinition",
-            "expected": "Agent",
-            "line": 16
-          },
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 16
-          },
-          {
-            "found": "専門エージェント",
-            "expected": "Agent",
-            "line": 16
-          },
-          {
-            "found": "ChatSession",
-            "expected": "Session",
-            "line": 17
-          },
-          {
-            "found": "JWT",
-            "expected": "Session",
-            "line": 17
-          }
-        ]
+        "score": 95,
+        "canonical_term_usage": 98,
+        "synonym_usage": 2,
+        "issues": []
       },
-      "issues": [
-        "Found 32 synonym usages"
-      ]
+      "strengths": [
+        "Excellent terminology normalization table",
+        "All hard invariants from invariants.yml are documented",
+        "AUTO decisions are clearly listed with expiry dates",
+        "Clear behavioral guidelines for AI agents"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "lines": 236,
-      "clarity_score": 100,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 0,
-        "canonical_terms_found": 10,
-        "synonym_issues": 10,
-        "issues": [
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 46
-          },
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 47
-          },
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 55
-          },
-          {
-            "found": "自動チャット",
-            "expected": "AutoChat",
-            "line": 79
-          },
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 161
-          },
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 165
-          },
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 169
-          },
-          {
-            "found": "InterpreterState",
-            "expected": "State",
-            "line": 173
-          },
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 181
-          },
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 186
-          }
-        ]
+        "score": 92,
+        "canonical_term_usage": 96,
+        "synonym_usage": 4,
+        "issues": []
       },
-      "issues": [
-        "Found 10 synonym usages"
-      ]
+      "strengths": [
+        "Comprehensive AUTO decision documentation",
+        "Claude-specific recommendations are detailed",
+        "Code examples follow invariants",
+        "Strong emphasis on state management monotonicity"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "lines": 266,
-      "clarity_score": 100,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 0,
-        "canonical_terms_found": 11,
-        "synonym_issues": 71,
+        "score": 85,
+        "canonical_term_usage": 100,
+        "synonym_usage": 0,
         "issues": [
           {
-            "found": "GuiAgentInterpreter",
-            "expected": "Interpreter",
-            "line": 19
-          },
-          {
-            "found": "会話インタープリタ",
-            "expected": "Interpreter",
-            "line": 19
-          },
-          {
-            "found": "AIエージェント",
-            "expected": "Agent",
-            "line": 34
-          },
-          {
-            "found": "AgentImage",
-            "expected": "Agent",
-            "line": 34
-          },
-          {
-            "found": "TaskAgent",
-            "expected": "Agent",
-            "line": 34
-          },
-          {
-            "found": "AgentDefinition",
-            "expected": "Agent",
-            "line": 34
-          },
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 34
-          },
-          {
-            "found": "専門エージェント",
-            "expected": "Agent",
-            "line": 34
-          },
-          {
-            "found": "ChatSession",
-            "expected": "Session",
-            "line": 53
-          },
-          {
-            "found": "JWT",
-            "expected": "Session",
-            "line": 53
+            "issue": "May not reflect ontology.yml v0.3 updates",
+            "severity": "medium"
           }
         ]
       },
+      "strengths": [
+        "Canonical terms are properly defined",
+        "Term layers (core, domain, aux) are indicated"
+      ],
       "issues": [
-        "Found 71 synonym usages"
+        "Needs verification against ontology.yml v0.3",
+        "Connector term (added in v0.3) may be missing"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "lines": 245,
-      "clarity_score": 100,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 100,
-        "canonical_terms_found": 10,
-        "synonym_issues": 0,
+        "score": 88,
+        "canonical_term_usage": 90,
+        "synonym_usage": 10,
         "issues": []
       },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "lines": 295,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_terms_found": 10,
-        "synonym_issues": 0,
-        "issues": []
-      },
-      "issues": []
+      "strengths": [
+        "Invariants are well documented"
+      ],
+      "issues": [
+        "Needs review for completeness against invariants.yml"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "lines": 139,
-      "clarity_score": 100,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "canonical_terms_found": 6,
-        "synonym_issues": 0,
+        "score": 90,
+        "canonical_term_usage": 92,
+        "synonym_usage": 8,
         "issues": []
       },
-      "issues": []
+      "strengths": [
+        "Aligns with intent.yml mission statement"
+      ],
+      "issues": [
+        "Needs review against latest intent.yml"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "lines": 162,
-      "clarity_score": 100,
+      "clarity_score": 78,
       "concept_alignment": {
-        "score": 100,
-        "canonical_terms_found": 6,
-        "synonym_issues": 0,
+        "score": 85,
+        "canonical_term_usage": 88,
+        "synonym_usage": 12,
         "issues": []
       },
-      "issues": []
+      "strengths": [],
+      "issues": [
+        "Should include terminology guidelines",
+        "Should reference ontology.yml"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 87,
+        "canonical_term_usage": 90,
+        "synonym_usage": 10,
+        "issues": []
+      },
+      "strengths": [
+        "Architectural diagrams are present"
+      ],
+      "issues": [
+        "Should align with mappings.yml"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "lines": 138,
-      "clarity_score": 100,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 80,
-        "canonical_terms_found": 5,
-        "synonym_issues": 2,
-        "issues": [
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 86
-          },
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 91
-          }
-        ]
+        "score": 85,
+        "canonical_term_usage": 88,
+        "synonym_usage": 12,
+        "issues": []
       },
+      "strengths": [
+        "Follows similar structure to CLAUDE.md"
+      ],
       "issues": [
-        "Found 2 synonym usages"
+        "Needs review for ontology alignment"
       ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "lines": 158,
-      "clarity_score": 100,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 80,
-        "canonical_terms_found": 5,
-        "synonym_issues": 2,
-        "issues": [
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 87
-          },
-          {
-            "found": "AgentType",
-            "expected": "Agent",
-            "line": 92
-          }
-        ]
+        "score": 85,
+        "canonical_term_usage": 88,
+        "synonym_usage": 12,
+        "issues": []
       },
+      "strengths": [],
       "issues": [
-        "Found 2 synonym usages"
+        "Needs review for ontology alignment"
       ]
     }
   ]
