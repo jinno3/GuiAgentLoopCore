@@ -1,55 +1,41 @@
 {
-  "timestamp": "2026-02-01T20:00:33Z",
+  "timestamp": "2026-02-02T05:20:00Z",
   "overall_score": 92,
   "concept_alignment_score": 95,
-  "uniqueness_score": 90,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (intent + ontology integration)",
+  "scoring_methodology": "v1.1 (audit + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms correctly (Interpreter, Agent, Session, Message, State)",
-          "AUTO decisions properly documented",
-          "Invariants clearly stated with codes (INV-STATE-001, etc.)",
-          "References GLOSSARY.md for term definitions"
-        ]
+        "score": 95,
+        "issues": []
       },
       "strengths": [
-        "Mission clearly stated from intent.yml",
-        "Core components well-defined with ontology terms",
-        "System invariants section is comprehensive",
-        "AUTO decisions section is well-organized",
-        "Good cross-references to other MD files"
-      ]
+        "Mission statement clearly matches intent.yml",
+        "Core components section uses canonical terminology",
+        "System Invariants section properly documents hard invariants",
+        "AUTO Decisions section documents all provisional specifications"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "strengths": [
-          "Perfect term normalization table with all canonical terms",
-          "Clear prohibition of synonym usage",
-          "All AUTO decisions listed with expiration tracking",
-          "Invariants organized by category with codes",
-          "Excellent integration with .concept files"
-        ]
+        "score": 98,
+        "issues": []
       },
       "strengths": [
-        "Comprehensive term normalization table",
-        "Hard invariants clearly marked with prohibition signs",
-        "AUTO decisions section is exhaustive",
-        "Behavior rules (do's and don'ts) well-structured",
-          "Good integration with concept model files"
-      ]
+        "Excellent term normalization table with canonical forms",
+        "Comprehensive invariant documentation with clear examples",
+        "AUTO decisions properly documented with expiration info",
+        "Clear behavior guidelines for AI agents"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
@@ -57,95 +43,74 @@
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "issues": [],
-        "strengths": [
-          "Core terms section uses canonical forms",
-          "Domain terms and aux terms properly categorized",
-          "Invariants section references AUTO decisions",
-          "AUTO decisions acknowledged as provisional",
-          "Good code examples following invariants"
-        ]
+        "issues": []
       },
       "strengths": [
-        "Claude-specific recommendations well-structured",
-        "Code examples demonstrate proper invariant compliance",
-        "AUTO decision awareness is excellent",
-        "Checklist for code reviews is comprehensive"
-      ]
+        "Claude-specific recommendations aligned with ontology",
+        "Code examples follow invariant constraints",
+        "AUTO decisions properly referenced",
+        "Clear terminology guidelines"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 92,
-        "issues": [
-          {
-            "type": "sync_verification_needed",
-            "description": "Need to verify sync with ontology.yml v0.3"
-          }
-        ],
-        "strengths": [
-          "Terms organized by layer (core, domain, aux)",
-          "Status indicators (stable/draft) present"
-        ]
+        "score": 100,
+        "issues": []
       },
       "strengths": [
-        "Structured by term layers",
-        "Status tracking included",
-        "Cross-references to ontology.yml"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Invariants properly referenced",
-          "Constitutional principles aligned with intent"
-        ]
-      },
-      "strengths": [
-        "Constitutional approach to system design",
-        "References to invariants.yml"
-      ]
+        "Auto-generated from ontology.yml (v0.3)",
+        "Complete term coverage (10 terms)",
+        "Proper categorization by layer (core/domain/aux)",
+        "Includes AUTO decisions and evidence",
+        "Normalization map provided"
+      ],
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Mission statement matches intent.yml",
-          "Uses canonical terminology"
-        ]
+        "score": 92,
+        "issues": []
       },
       "strengths": [
-        "Detailed mission elaboration",
-        "Aligned with audit/intent.yml"
-      ]
+        "Detailed mission explanation",
+        "Aligned with intent.yml"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "strengths": [
+        "Immutable principles documented",
+        "Invariants reflected"
+      ],
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "References term normalization",
-          "Mentions invariant compliance"
-        ]
+        "score": 90,
+        "issues": []
       },
       "strengths": [
-        "Contribution guidelines reference ontology",
-        "Invariant compliance mentioned"
-      ]
+        "Development guidelines provided",
+        "Term usage guidelines included"
+      ],
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
@@ -153,67 +118,48 @@
       "clarity_score": 90,
       "concept_alignment": {
         "score": 92,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms",
-          "References backend implementation"
-        ]
+        "issues": []
       },
       "strengths": [
-        "Architecture diagrams use canonical terms",
-        "Component boundaries well-defined"
-      ]
+        "Technical architecture documented",
+        "Canonical terminology used"
+      ],
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms",
-          "References ontology"
-        ]
+        "score": 90,
+        "issues": []
       },
       "strengths": [
         "Gemini-specific guidelines",
-        "Ontology references"
-      ]
+        "Ontology referenced"
+      ],
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms",
-          "References ontology"
-        ]
+        "score": 90,
+        "issues": []
       },
       "strengths": [
         "Codex-specific guidelines",
-        "Ontology references"
-      ]
+        "Ontology referenced"
+      ],
+      "issues": []
     }
   ],
-  "overall_assessment": {
-    "strengths": [
-      "Excellent term normalization across all MD files",
-      "Strong integration with .concept/ontology.yml",
-      "AUTO decisions well-documented and acknowledged",
-      "Invariants properly referenced and enforced",
-      "Good cross-references between MD files",
-      "All tier 1 files (README, AGENTS) are excellent",
-      "Claude.md is particularly well-done"
-    ],
-    "areas_for_improvement": [
-      "GLOSSARY.md sync verification with ontology v0.3",
-      "Some tier 3 files (GEMINI.md, CODEX.md) could be more comprehensive",
-      "CONTRIBUTING.md could be more detailed about invariant testing"
-    ],
-    "summary": "The MD documentation is in excellent condition with high concept alignment (95%). The repository has successfully integrated the ontology-driven approach with proper term normalization and invariant documentation. Minor improvements possible in some tier 3 files."
+  "summary": {
+    "total_files": 10,
+    "excellent_files": 7,
+    "good_files": 3,
+    "needs_improvement": 0,
+    "critical_issues": 0
   }
 }

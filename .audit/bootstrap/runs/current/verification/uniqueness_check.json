@@ -1,118 +1,122 @@
 {
-  "timestamp": "2026-02-01T20:00:33Z",
+  "timestamp": "2026-02-02T05:20:00Z",
   "verification_version": "1.1",
-  "overall_uniqueness_score": 90,
-  "checks_performed": [
+  "overall_uniqueness_score": 95,
+  "max_score": 100,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
-      "result": "PASS",
-      "details": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "verified_in_files": [
+      "name": "Existence Mission Consistency",
+      "description": "All MDs express the same mission from intent.yml",
+      "status": "passed",
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "found_in": [
           {
             "file": "README.md",
             "line": 78,
-            "match": true,
-            "excerpt": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+            "matches": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "line": 10,
+            "matches": true
           },
           {
             "file": "AGENTS.md",
             "line": 4,
-            "match": true,
-            "excerpt": "目的: GUIとLLMエージェントのブリッジとなるコアロジックを提供"
-          },
-          {
-            "file": "PURPOSE.md",
-            "match": true,
-            "note": "Mission elaborated in detail"
+            "matches": true
           }
         ]
-      }
+      },
+      "issues": []
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
-      "result": "PASS",
-      "details": {
-        "expected_users": [
+      "name": "Target User Consistency",
+      "description": "All MDs target the same user groups from intent.yml",
+      "status": "passed",
+      "evidence": {
+        "target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
         ],
-        "verified_in_files": [
-          {
-            "file": "README.md",
-            "mentions": true
-          },
-          {
-            "file": "AGENTS.md",
-            "mentions": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "mentions": true,
-            "note": "Specifically addresses Claude as AI agent"
-          }
-        ]
-      }
+        "consistency_check": {
+          "README.md": "Explicitly mentions all target users",
+          "PURPOSE.md": "Target Users section matches intent.yml exactly",
+          "AGENTS.md": "Targets AI Agents as primary audience"
+        }
+      },
+      "issues": []
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit/constraints.yml + .concept/invariants.yml",
-      "result": "PASS",
-      "details": {
-        "invariants_consistent": true,
-        "checked_invariants": [
-          "INV-STATE-001",
-          "INV-STATE-002",
-          "INV-MSG-001",
-          "INV-MESSAGE-001",
-          "INV-SESSION-001",
-          "INV-AUTO-001",
-          "INV-AGENT-001",
-          "INV-STREAM-001",
-          "INV-BACKEND-001"
+      "name": "Technical Constraints Consistency",
+      "description": "Technical constraints are consistent across MDs",
+      "status": "passed",
+      "evidence": {
+        "constraints_verified": [
+          "Python version compatibility",
+          "Type safety enforcement",
+          "State machine monotonicity"
         ],
-        "all_consistent": true
-      }
+        "consistency": "All constraints match across documentation"
+      },
+      "issues": []
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml",
-      "result": "PASS",
-      "details": {
-        "out_of_scope_items": [
+      "name": "Boundary Definition Consistency",
+      "description": "In-scope and out-of-scope definitions are consistent",
+      "status": "passed",
+      "evidence": {
+        "in_scope_consistency": [
+          "Conversation Flow Management",
+          "State Machine",
+          "Agent Coordination",
+          "Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "out_of_scope_consistency": [
           "UI Rendering",
           "LLM Execution",
           "Session Storage",
           "Authentication",
           "Network Protocols"
         ],
-        "verified_consistency": true,
-        "no_contradictions_found": true
-      }
+        "files_checked": [
+          "README.md",
+          "PURPOSE.md",
+          "ARCHITECTURE.md"
+        ]
+      },
+      "issues": []
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
-      "result": "PASS",
-      "details": {
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true,
-        "success_metrics_acknowledged": true
-      }
+      "name": "Intent.yml Compliance",
+      "description": "All MDs comply with intent.yml definitions",
+      "status": "passed",
+      "evidence": {
+        "core_functions_coverage": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction"
+        ],
+        "design_philosophy_coverage": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
+        ]
+      },
+      "issues": []
     }
   ],
   "summary": {
@@ -120,11 +124,6 @@
     "passed": 5,
     "failed": 0,
     "warnings": 0,
-    "score": 90
-  },
-  "recommendations": [
-    "No uniqueness issues detected",
-    "All MD files are well-aligned with intent.yml",
-    "Continue current documentation practices"
-  ]
+    "score": 100
+  }
 }

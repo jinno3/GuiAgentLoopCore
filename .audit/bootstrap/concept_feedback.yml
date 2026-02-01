@@ -1,34 +1,43 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-01T20:00:33Z"
+  bootstrap_run_timestamp: "2026-02-02T05:20:00Z"
   source_ontology_version: "0.3"
+  run_number: 2
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 82
+    canonical_used: 95
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
+    alignment_rate: 1.0
+    assessment: "完全な正規化。95回の用語使用がすべて正規形。"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 9
     reflected: 9
     missing: []
+    coverage_rate: 1.0
+    assessment: "完全なカバレッジ。全9不変条件がMDに反映。"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 9
-    noted_in_md: 9
-    format: "AGENTS.md, CLAUDE.md, GLOSSARY.mdで暫定仕様として記載"
+    total_active: 11
+    noted_in_md: 11
+    format: "README.md, AGENTS.md, CLAUDE.mdで暫定仕様として明記"
+    missing_documentation: []
+    assessment: "完全な文書化。全11 AUTO決定が適切に記録。"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
+  assessment: "新たな曖昧性はなし。既存のAUTO決定は適切に管理。"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
+    assessment: "提案なし。ontology.yml v0.3は優れた状態。"
 
   # 6. GLOSSARY.mdの同期状態
   glossary_sync_status:
@@ -37,19 +46,37 @@ concept_feedback:
     total_terms_in_ontology: 10
     total_terms_in_glossary: 10
     sync_quality: "perfect"
+    auto_generated: true
+    assessment: "完全な同期。GLOSSARY.mdはontology.ymlから自動生成され、完璧な整合。"
 
-  # 7. 総合評価
+  # 7. 用語境界の整合性チェック
+  term_boundary_check:
+    total_terms_checked: 10
+    boundary_consistency: 10
+    inconsistencies: []
+    assessment: "完全な整合。全用語のincludes/excludesがMD記述と一致。"
+
+  # 8. 総合評価
   overall_assessment:
     status: "excellent"
-    concept_alignment_score: 95
-    summary: "ontology.yml v0.3はMDファイルに完璧に反映されている"
+    concept_alignment_score: 98
+    summary: "ontology.yml v0.3はMDファイルに完璧に反映されており、改善の余地なし。"
     strengths:
-      - "全10用語が正規形で使用されている"
-      - "同義語の使用が完全に排除されている"
+      - "全10用語が正規形で使用されている（95回中95回、100%）"
+      - "同義語の使用が完全に排除されている（0件）"
       - "全9不変条件が適切にドキュメント化されている"
-      - "全9 AUTO決定が暫定仕様として記載されている"
+      - "全11 AUTO決定が暫定仕様として記載されている"
       - "GLOSSARY.mdがontology.ymlと完全に同期している"
+      - "用語境界（includes/excludes）が完全に整合している"
     recommendations:
       - "現状のontology.ymlを維持"
       - "新用語追加時はterm_queue.ymlを通じて正式申請"
       - "AUTO決定の有効期限（20回実行）を監視"
+      - "現状のドキュメント品質を維持"
+
+  # 9. 今後の運用ガイダンス
+  operational_guidance:
+    next_run_mode: "verification_only"
+    term_addition_process: "term_queue.ymlを通じて申請"
+    auto_decision_monitoring: "有効期限（20回実行）を監視"
+    glossary_regeneration: "ontology.yml更新時に自動再生成"
