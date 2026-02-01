@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T06:36:00Z"
+run_timestamp: "2026-02-02T06:48:56Z"
 version: "1.1"
 
 rotation:
@@ -12,18 +12,18 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
 
 ontology_summary:
-  total_terms: 11
+  total_terms: 10
   core_terms: 5
-  domain_terms: 5
+  domain_terms: 4
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
@@ -32,12 +32,15 @@ ontology_summary:
     - canonical: "Agent"
       layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "Session"
+      layer: "core"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    - canonical: "Message"
+      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
       layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-    - canonical: "Connector"
-      layer: "domain"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -45,53 +48,129 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
   "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
   "GuiAgentStreamWrapper": "StreamWrapper"
   "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
     status: "exists_needs_update"
+    tier: 1
     issues:
-      - "存在意義の反映は良好"
-      - "用語の正規形使用は良好"
-      - "不変条件の記述が一部古い（最新のinvariants.ymlに基づく必要あり）"
+      - "Mission statement could be more concise and aligned with intent.yml"
+      - "Core value needs better alignment with intent.yml"
+      - "Terminology needs normalization check"
+
   - path: "AGENTS.md"
     status: "exists_needs_update"
+    tier: 1
     issues:
-      - "用語規約セクションが古い（Connectorが含まれていない）"
-      - "不変条件の記述が不完全（最新の13個のinvariantを反映する必要あり）"
+      - "Agent behavior rules need alignment with intent.yml core_functions"
+      - "Terminology needs normalization check"
+      - "Invariants section could reference invariants.yml"
+
   - path: "CLAUDE.md"
-    status: "exists_good"
-    issues: []
+    status: "exists_recent"
+    tier: 2
+    issues:
+      - "Recently updated (2026-02-02T03:06:49Z)"
+      - "Good alignment with ontology.yml"
+      - "Minor terminology consistency check needed"
+
   - path: "GLOSSARY.md"
     status: "exists_needs_update"
+    tier: 3
     issues:
-      - "Connector用語のAUTO決定記述に誤り（AUTO:Connector.layer:domainは存在しない）"
-  - path: "PURPOSE.md"
-    status: "exists"
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists"
-    issues: []
+      - "Should be auto-generated from ontology.yml"
+      - "Last update may not reflect latest ontology changes"
+
   - path: "ARCHITECTURE.md"
-    status: "exists"
-    issues: []
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Should reference mappings.yml for structure"
+      - "Component boundaries need alignment with ontology"
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should reflect invariants.yml hard constraints"
+
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should be aligned with intent.yml mission statement"
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should include terminology guidelines from ontology.yml"
+
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Should be aligned with CLAUDE.md structure"
+
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Should be aligned with CLAUDE.md structure"
 
 actions:
   - action: "update"
-    target: "AGENTS.md"
-    reason: "用語規約にConnectorを追加、不変条件を最新の13個に更新"
-  - action: "update"
-    target: "GLOSSARY.md"
-    reason: "Connector用語のAUTO決定記述を修正（存在しないAUTO決定を削除）"
+    target: "README.md"
+    reason: "Align mission and core value with intent.yml, ensure terminology normalization"
+    priority: "high"
 
-concept_integration:
-  used: true
-  ontology_terms_used: 11
-  alignment_expected: 95
+  - action: "update"
+    target: "AGENTS.md"
+    reason: "Align behavior rules with intent.yml core_functions, add invariants reference"
+    priority: "high"
+
+  - action: "review"
+    target: "CLAUDE.md"
+    reason: "Verify terminology normalization and ontology alignment"
+    priority: "medium"
+
+  - action: "regenerate"
+    target: "GLOSSARY.md"
+    reason: "Auto-generate from ontology.yml to ensure consistency"
+    priority: "medium"
+
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "Verify alignment with mappings.yml and ontology boundaries"
+    priority: "low"
+
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants.yml reflection"
+    priority: "medium"
