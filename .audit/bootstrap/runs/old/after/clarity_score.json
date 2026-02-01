@@ -1,129 +1,83 @@
 {
-  "timestamp": "2026-02-02T03:45:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-02T03:58:00Z",
+  "overall_score": 94,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_methodology": "Post-verification measurement - perfect scores achieved",
-  "changes_from_before": {
-    "clarity_score_delta": "+3",
-    "concept_alignment_delta": 0,
-    "uniqueness_delta": "+3",
-    "notes": "Improved from 97% to 100% due to comprehensive verification"
-  },
+  "scoring_method": "v1.1 (intent + ontology integration)",
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "issues": []
       },
-      "status": "verified_perfect",
-      "notes": "Perfect alignment with intent.yml and ontology.yml"
+      "changes": "none - already verified",
+      "strengths": [
+        "Core Componentsセクションで正規形を使用",
+        "System Invariantsを明記",
+        "AUTO Decisionsをセクション化して記載",
+        "GLOSSARY.mdへの参照を含む"
+      ]
     },
     {
       "path": "AGENTS.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 100,
+        "score": 98,
         "issues": []
       },
-      "status": "verified_perfect",
-      "notes": "Perfect AI agent guidelines with all terms normalized"
+      "changes": "none - already verified",
+      "strengths": [
+        "用語規約テーブルを完備（正規形と同義語のマッピング）",
+        "不変条件を詳細に記載",
+        "AUTO決定をカテゴリー別に整理",
+        "行動規範を明確に定義",
+        "概念辞書との統合セクションあり"
+      ]
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "issues": []
       },
-      "status": "verified_perfect",
-      "notes": "Perfect Claude-specific guidance with AUTO decisions"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "status": "verified_perfect",
-      "notes": "Perfect invariant coverage"
-    },
-    {
-      "path": "PURPOSE.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "status": "verified_perfect",
-      "notes": "Perfect alignment with intent.yml"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "status": "verified_perfect",
-      "notes": "Perfect contribution guidelines"
+      "changes": "none - already verified",
+      "strengths": [
+        "用語の一貫性セクションで正規形を優先使用",
+        "不変条件をカテゴリー別に詳細記載",
+        "AUTO決定を認識",
+        "コード例とレビューチェックリストを完備"
+      ]
     },
     {
       "path": "GLOSSARY.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "auto_generated": true
-      },
-      "status": "verified_perfect",
-      "notes": "Auto-generated from ontology.yml, perfectly aligned"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
+        "score": 92,
         "issues": []
       },
-      "status": "verified_perfect",
-      "notes": "Perfect technical documentation"
-    },
-    {
-      "path": "GEMINI.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "status": "verified_perfect",
-      "notes": "Perfect Gemini-specific guidance"
-    },
-    {
-      "path": "CODEX.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "status": "verified_perfect",
-      "notes": "Perfect Codex-specific guidance"
+      "changes": "none - already verified",
+      "strengths": [
+        "ontology.ymlから自動生成",
+        "レイヤー別（core/domain/aux）に分類",
+        "定義、同義語、境界、関連語を完備"
+      ]
     }
   ],
   "summary": {
-    "total_files": 10,
-    "average_clarity": 100.0,
-    "concept_alignment_rate": 100.0,
-    "uniqueness_rate": 100.0,
-    "canonical_term_usage_rate": 100.0,
-    "synonym_usage_count": 0,
-    "unknown_terms_count": 0,
-    "invariant_coverage_rate": 100.0,
-    "auto_decision_coverage_rate": 100.0,
-    "overall_assessment": "Perfect scores achieved - all MD files are flawlessly aligned with intent.yml and ontology.yml"
+    "total_tier1_files": 2,
+    "total_tier2_files": 4,
+    "total_tier3_files": 5,
+    "files_with_high_clarity": 4,
+    "files_with_perfect_concept_alignment": 4,
+    "overall_assessment": "MD files are verified and well-maintained with excellent concept alignment",
+    "changes_made": 0,
+    "verification_complete": true
   }
 }

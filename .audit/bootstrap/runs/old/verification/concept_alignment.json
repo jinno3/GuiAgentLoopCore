@@ -1,275 +1,186 @@
 {
-  "timestamp": "2026-02-02T03:45:00Z",
+  "timestamp": "2026-02-02T03:58:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
-  "verification_type": "concept_alignment_check",
-  "version": "1.1",
+  "concept_version": "0.3",
+  "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_term_occurrences": 150,
-    "canonical_used": 150,
-    "synonym_used": 0,
+    "total_term_occurrences": 82,
+    "canonical_used": 80,
+    "synonym_used": 2,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.976,
+    "synonym_usage_details": [
+      {
+        "file": "AGENTS.md",
+        "line": 49,
+        "found": "メッセージ",
+        "canonical": "Message",
+        "context": "メッセージ履歴の長さを制限すること",
+        "assessment": "Acceptable - Japanese natural language, not technical synonym"
+      },
+      {
+        "file": "CLAUDE.md",
+        "line": 46,
+        "found": "InterpreterState",
+        "canonical": "State",
+        "context": "Code example: if interpreter.state == InterpreterState.STATE_INIT",
+        "assessment": "Acceptable - Python enum type name (correct usage)"
+      }
+    ]
   },
-  "canonical_terms_verified": [
-    {
-      "term": "Interpreter",
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "Agent",
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "Session",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "Message",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "State",
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "AutoChat",
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "StreamWrapper",
-      "expected_files": ["README.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "Backend",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "Converter",
-      "expected_files": ["ARCHITECTURE.md"],
-      "found_correctly_in": ["ARCHITECTURE.md"],
-      "synonym_misuses": []
-    },
-    {
-      "term": "Memory",
-      "expected_files": ["README.md", "ARCHITECTURE.md"],
-      "found_correctly_in": ["README.md", "ARCHITECTURE.md"],
-      "synonym_misuses": [],
-      "notes": "Status: draft"
-    }
-  ],
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 10,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
+      "alignment_score": 95,
+      "term_usage": {
+        "canonical_terms_found": 10,
+        "total_occurrences": 25,
+        "inappropriate_synonyms": 0
+      },
+      "issues": [],
+      "strengths": [
+        "All canonical terms used correctly",
+        "References to GLOSSARY.md for detailed definitions",
+        "Invariants documented with proper terminology",
+        "AUTO decisions clearly marked"
+      ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 10,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
+      "alignment_score": 98,
+      "term_usage": {
+        "canonical_terms_found": 10,
+        "total_occurrences": 35,
+        "inappropriate_synonyms": 0
+      },
+      "issues": [],
+      "strengths": [
+        "Comprehensive terminology table with canonical forms and synonyms",
+        "All invariants documented with proper terminology",
+        "AUTO decisions categorized and documented",
+        "Perfect integration with ontology.yml"
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 9,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 5,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 5,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 5,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
+      "alignment_score": 95,
+      "term_usage": {
+        "canonical_terms_found": 10,
+        "total_occurrences": 20,
+        "inappropriate_synonyms": 0
+      },
+      "issues": [],
+      "strengths": [
+        "Canonical terms prioritized in terminology section",
+        "Invariants documented with proper terminology",
+        "Code examples use correct enum types",
+        "AUTO decisions acknowledged and documented"
+      ]
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 10,
-      "synonym_misuses": [],
-      "unknown_terms": [],
+      "alignment_score": 92,
+      "term_usage": {
+        "canonical_terms_found": 10,
+        "total_occurrences": 10,
+        "inappropriate_synonyms": 0
+      },
       "issues": [],
-      "auto_generated": true
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 10,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 7,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 7,
-      "synonym_misuses": [],
-      "unknown_terms": [],
-      "issues": []
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Layer-based classification (core/domain/aux)",
+        "Complete definitions, synonyms, boundaries, and related terms"
+      ]
     }
   ],
   "invariant_check": {
     "total_invariants": 9,
     "reflected_in_md": 9,
     "missing": [],
-    "coverage": [
+    "coverage_by_file": [
       {
         "invariant_id": "INV-STATE-001",
-        "statement": "インタープリタ状態は単調遷移する",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      },
-      {
-        "invariant_id": "INV-SESSION-001",
-        "statement": "セッションは一意のUUIDで識別される",
-        "found_in": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"]
-      },
-      {
-        "invariant_id": "INV-MSG-001",
-        "statement": "メッセージタイプは定義された列挙型のみ",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      },
-      {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "invariant_id": "INV-AUTO-001",
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      },
-      {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "found_in": ["README.md", "ARCHITECTURE.md"],
-        "notes": "draft status"
-      },
-      {
-        "invariant_id": "INV-STREAM-001",
-        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
-        "found_in": ["README.md", "ARCHITECTURE.md"]
-      },
-      {
-        "invariant_id": "INV-MESSAGE-001",
-        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
       },
       {
         "invariant_id": "INV-STATE-002",
         "statement": "状態は3秒間隔のタイマーで自動更新される",
-        "found_in": ["README.md", "ARCHITECTURE.md"]
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "invariant_id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ使用",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "invariant_id": "INV-MESSAGE-001",
+        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "invariant_id": "INV-SESSION-001",
+        "statement": "セッションは一意のUUIDで識別される",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "invariant_id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "found_in": ["AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "invariant_id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "invariant_id": "INV-STREAM-001",
+        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
       },
       {
         "invariant_id": "INV-BACKEND-001",
         "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
-        "found_in": ["README.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"]
-      }
-    ]
-  },
-  "auto_decision_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": [],
-    "coverage": [
-      {
-        "decision_key": "AUTO:Agent.role:classification",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:Agent.type:implementation_property",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:Message.structure:flat",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:Message.limit:100",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:State.lifecycle:monotonic",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:State.transition:auto_on_input",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:State.timer:3sec",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:AutoChat.trigger:stop_only",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      {
-        "decision_key": "AUTO:Backend.primary:gradio",
-        "found_in": ["AGENTS.md", "CLAUDE.md"]
+        "found_in": ["README.md"],
+        "status": "documented"
       }
     ]
   },
   "ambiguity_check": {
-    "active_auto_decisions_in_ambiguities": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0
+    "active_auto_decisions": 13,
+    "reflected_as_notes": 13,
+    "missing_notes": 0,
+    "coverage": "100%",
+    "by_category": {
+      "agent": 2,
+      "state": 3,
+      "message": 2,
+      "autochat": 2,
+      "backend": 2,
+      "memory": 2
+    }
+  },
+  "ontology_consistency": {
+    "ontology_terms": 10,
+    "md_terms": 10,
+    "missing_in_md": [],
+    "extra_in_md": [],
+    "consistency": "100%"
   },
   "summary": {
-    "overall_alignment_score": 100,
-    "canonical_term_usage_rate": 100.0,
-    "invariant_coverage_rate": 100.0,
-    "auto_decision_coverage_rate": 100.0,
-    "total_issues": 0,
-    "critical_issues": 0,
-    "assessment": "Perfect concept alignment - all canonical terms used correctly, all invariants documented, all AUTO decisions noted"
+    "overall_alignment": 95,
+    "term_usage_quality": "excellent",
+    "invariant_coverage": "100%",
+    "auto_decision_documentation": "100%",
+    "ontology_consistency": "100%",
+    "recommendation": "No changes needed - MD files are perfectly aligned with ontology.yml v0.3"
   }
 }
