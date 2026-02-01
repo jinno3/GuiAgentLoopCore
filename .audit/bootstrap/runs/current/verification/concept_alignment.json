@@ -1,260 +1,122 @@
 {
-  "timestamp": "2026-02-02T00:00:00Z",
-  "concept_source": ".concept/ontology.yml (v0.3)",
+  "timestamp": "2026-02-02T00:20:00Z",
+  "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 100,
-
   "term_usage_check": {
-    "total_term_occurrences": 87,
-    "canonical_used": 87,
+    "total_term_occurrences": 82,
+    "canonical_used": 82,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-
-  "canonical_term_verification": [
-    {
-      "term": "Interpreter",
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md", "GEMINI.md", "CODEX.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "Agent",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md", "GEMINI.md", "CODEX.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "Session",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md", "GEMINI.md", "CODEX.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "Message",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md", "GEMINI.md", "CODEX.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "State",
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md", "GEMINI.md", "CODEX.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "AutoChat",
-      "expected_files": ["README.md", "AGENTS.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "StreamWrapper",
-      "expected_files": ["README.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "Backend",
-      "expected_files": ["README.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "Converter",
-      "expected_files": ["README.md"],
-      "found_in": ["README.md", "AGENTS.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    },
-    {
-      "term": "Memory",
-      "expected_files": ["README.md", "AGENTS.md"],
-      "found_in": ["README.md", "AGENTS.md", "GLOSSARY.md"],
-      "synonyms_found": [],
-      "alignment": "perfect"
-    }
-  ],
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_count": 9,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_count": 10,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_count": 5,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "canonical_terms_count": 7,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "PURPOSE.md",
       "alignment_score": 100,
-      "canonical_terms_count": 7,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
       "alignment_score": 100,
-      "canonical_terms_count": 5,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_count": 10,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 100,
-      "canonical_terms_count": 5,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "CODEX.md",
       "alignment_score": 100,
-      "canonical_terms_count": 5,
-      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 100,
-      "canonical_terms_count": 8,
-      "synonyms_found": [],
       "issues": []
     }
   ],
-
   "invariant_check": {
-    "total_invariants": 6,
-    "reflected_in_md": 6,
-    "missing": [],
-    "invariant_coverage": {
-      "INV-STATE-001": {
-        "statement": "Interpreter state transitions are monotonic",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md", "GEMINI.md", "CODEX.md"],
-        "coverage": "excellent"
-      },
-      "INV-MSG-001": {
-        "statement": "Message types must be from enumerated set",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md", "GEMINI.md", "CODEX.md"],
-        "coverage": "excellent"
-      },
-      "INV-AUTO-001": {
-        "statement": "AutoChat triggers only when in STATE_STOP",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
-        "coverage": "excellent"
-      },
-      "INV-STREAM-001": {
-        "statement": "StreamWrapper must support both sync and async",
-        "found_in": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"],
-        "coverage": "good"
-      },
-      "INV-SESSION-001": {
-        "statement": "Sessions must be identified by unique UUIDs",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
-        "coverage": "excellent"
-      },
-      "INV-MEM-001": {
-        "statement": "Conversation memory max 100 messages",
-        "found_in": ["AGENTS.md", "GLOSSARY.md"],
-        "coverage": "good",
-        "note": "Soft invariant, appropriately documented"
-      }
-    }
+    "total_invariants": 7,
+    "reflected_in_md": 7,
+    "missing": []
   },
-
-  "auto_decision_handling": {
-    "total_active": 8,
-    "reflected_as_notes": 8,
-    "missing_notes": 0,
-    "auto_decisions": [
-      {
-        "key": "AUTO:Agent.role:classification",
-        "noted_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      {
-        "key": "AUTO:Agent.type:implementation_property",
-        "noted_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      },
-      {
-        "key": "AUTO:State.lifecycle:monotonic",
-        "noted_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      {
-        "key": "AUTO:AutoChat.trigger:stop_only",
-        "noted_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      {
-        "key": "AUTO:AutoChat.prompt:default_continue",
-        "noted_in": ["AGENTS.md"]
-      },
-      {
-        "key": "AUTO:Backend.primary:gradio",
-        "noted_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      {
-        "key": "AUTO:Memory.window:k10",
-        "noted_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      {
-        "key": "AUTO:Message.structure:flat",
-        "noted_in": ["GLOSSARY.md"]
-      }
-    ]
-  },
-
   "ambiguity_check": {
     "active_auto_decisions": 8,
-    "reflected_as_notes": 8,
-    "missing_notes": 0,
-    "format": "Noted as AUTO decisions with expiration (20 runs)"
+    "noted_in_md": 8,
+    "missing_notes": 0
   },
-
+  "uniqueness_checks": {
+    "UC-001_existence_consistency": {
+      "passed": true,
+      "description": "All MD files represent the same mission"
+    },
+    "UC-002_target_user_consistency": {
+      "passed": true,
+      "description": "All MD files target the same user base"
+    },
+    "UC-003_constraint_consistency": {
+      "passed": true,
+      "description": "Technical constraints are consistent across MDs"
+    },
+    "UC-004_boundary_consistency": {
+      "passed": true,
+      "description": "Out-of-scope boundaries are consistently defined"
+    },
+    "UC-005_intent_compliance": {
+      "passed": true,
+      "description": "All MD comply with PURPOSE.md (concept_driven mode)"
+    },
+    "CA-001_canonical_terms": {
+      "passed": true,
+      "description": "All MD use canonical terminology"
+    },
+    "CA-002_no_synonyms": {
+      "passed": true,
+      "description": "No synonyms used in MD text"
+    },
+    "CA-003_invariants_reflected": {
+      "passed": true,
+      "description": "Hard invariants are documented in MD"
+    },
+    "CA-004_auto_noted": {
+      "passed": true,
+      "description": "AUTO decisions are noted in AGENTS.md"
+    },
+    "CA-005_term_boundaries": {
+      "passed": true,
+      "description": "Term boundaries are consistent"
+    }
+  },
   "summary": {
-    "overall_score": 100,
-    "term_alignment": "perfect",
-    "invariant_coverage": "complete",
-    "auto_decision_documentation": "complete",
-    "critical_issues": 0,
-    "recommendations": [
-      "All canonical terms used correctly",
-      "All hard invariants properly documented",
-      "All AUTO decisions appropriately noted",
-      "No synonym usage detected",
-      "Perfect concept alignment achieved"
-    ]
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0,
+    "score": 100
   }
 }

@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-02-02T00:20:00Z",
+  "source": ".concept/ontology.yml",
+  "version": "0.3",
+  "statistics": {
+    "total_terms": 9,
+    "by_layer": {
+      "core": 5,
+      "domain": 3,
+      "aux": 1
+    },
+    "by_status": {
+      "stable": 8,
+      "draft": 1
+    }
+  },
+  "key_terms_for_md": [
+    {
+      "canonical": "Interpreter",
+      "layer": "core",
+      "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+    },
+    {
+      "canonical": "Agent",
+      "layer": "core",
+      "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
+      "synonyms": ["AIエージェント", "専門エージェント"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+    },
+    {
+      "canonical": "Session",
+      "layer": "core",
+      "definition": "一意のIDで管理される会話コンテキスト",
+      "synonyms": ["ChatSession", "会話セッション"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+    },
+    {
+      "canonical": "Message",
+      "layer": "core",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "synonyms": ["メッセージ", "ChatMessage"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+    },
+    {
+      "canonical": "State",
+      "layer": "core",
+      "definition": "インタープリタの実行状態を表す列挙型",
+      "synonyms": ["InterpreterState", "インタープリタ状態"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"]
+    }
+  ],
+  "invariants_count": 7,
+  "hard_invariants": 5,
+  "soft_invariants": 2
+}

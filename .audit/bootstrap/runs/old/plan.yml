@@ -1,115 +1,170 @@
-run_timestamp: '2026-02-01T15:02:11.787368+00:00'
-version: '1.1'
-mode: concept_driven
+run_timestamp: "2026-02-02T00:00:00Z"
+version: "1.1"
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
+
 input_sources:
   audit:
     intent_yml: null
-    has_intent: false
+    constraints_yml: null
+    has_audit: false
   concept:
-    ontology_yml: /home/jinno/jinno3/GuiAgentLoopCore/.concept/ontology.yml
-    invariants_yml: /home/jinno/jinno3/GuiAgentLoopCore/.concept/invariants.yml
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
-    has_invariants: true
-intent_summary: null
+    ontology_version: "0.3"
+
+mode: concept_driven
+
 ontology_summary:
-  total_terms: 10
+  total_terms: 9
   core_terms: 5
-  domain_terms: 4
-  version: '0.3'
+  domain_terms: 3
+  aux_terms: 1
   key_terms:
-  - canonical: Interpreter
-    layer: core
-    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
-    synonyms:
-    - GuiAgentInterpreter
-    - 会話インタープリタ
-    status: stable
-  - canonical: Agent
-    layer: core
-    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
-    synonyms:
-    - AIエージェント
-    - 専門エージェント
-    status: stable
-  - canonical: Session
-    layer: core
-    definition: 一意のIDで管理される会話コンテキスト
-    synonyms:
-    - ChatSession
-    - 会話セッション
-    status: stable
-  - canonical: Message
-    layer: core
-    definition: ユーザー、システム、エージェント間の構造化された通信単位
-    synonyms:
-    - メッセージ
-    - ChatMessage
-    status: stable
-  - canonical: State
-    layer: core
-    definition: インタープリタの実行状態を表す列挙型
-    synonyms:
-    - InterpreterState
-    - インタープリタ状態
-    status: stable
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+
 term_normalization:
-  GuiAgentInterpreter: Interpreter
-  会話インタープリタ: Interpreter
-  AIエージェント: Agent
-  専門エージェント: Agent
-  ChatSession: Session
-  会話セッション: Session
-  メッセージ: Message
-  ChatMessage: Message
-  InterpreterState: State
-  インタープリタ状態: State
-  自動チャット: AutoChat
-  自動継続: AutoChat
-  GuiAgentStreamWrapper: StreamWrapper
-  ストリームラッパー: StreamWrapper
-  GUIバックエンド: Backend
-  UIフレームワーク: Backend
-  変換器: Converter
-  マッパー: Converter
-  会話メモリ: Memory
-  ConversationBuffer: Memory
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+
 existing_mds:
-- path: AGENTS.md
-  status: exists
-  size: 8068
-- path: ARCHITECTURE.md
-  status: exists
-  size: 10993
-- path: CHANGELOG.md
-  status: exists
-  size: 61
-- path: CLAUDE.md
-  status: exists
-  size: 4785
-- path: CONTRIBUTING.md
-  status: exists
-  size: 5291
-- path: GLOSSARY.md
-  status: exists
-  size: 7691
-- path: PURPOSE.md
-  status: exists
-  size: 4965
-- path: README.md
-  status: exists
-  size: 6409
-- path: SYSTEM_CONSTITUTION.md
-  status: exists
-  size: 4927
+  - path: "README.md"
+    status: "exists_optimal"
+    tier: 1
+    concept_alignment: 100
+    issues: []
+
+  - path: "AGENTS.md"
+    status: "exists_optimal"
+    tier: 1
+    concept_alignment: 100
+    issues: []
+
+  - path: "CLAUDE.md"
+    status: "exists_optimal"
+    tier: 2
+    concept_alignment: 100
+    issues: []
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_optimal"
+    tier: 2
+    concept_alignment: 100
+    issues: []
+
+  - path: "PURPOSE.md"
+    status: "exists_optimal"
+    tier: 2
+    concept_alignment: 100
+    issues: []
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_optimal"
+    tier: 2
+    concept_alignment: 100
+    issues: []
+
+  - path: "GLOSSARY.md"
+    status: "exists_optimal"
+    tier: 3
+    concept_alignment: 100
+    issues: []
+
+  - path: "GEMINI.md"
+    status: "exists_optimal"
+    tier: 3
+    concept_alignment: 100
+    issues: []
+
+  - path: "CODEX.md"
+    status: "exists_optimal"
+    tier: 3
+    concept_alignment: 100
+    issues: []
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_optimal"
+    tier: 3
+    concept_alignment: 100
+    issues: []
+
 actions:
-- action: create
-  target: GEMINI.md
-  reason: Tier 3オプション
-  priority: low
-- action: create
-  target: CODEX.md
-  reason: Tier 3オプション
-  priority: low
+  - action: "verify"
+    target: "README.md"
+    reason: "Verify concept alignment with ontology v0.3"
+
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify terminology and invariant consistency"
+
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific guidelines alignment"
+
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify constitutional invariants match .concept/invariants.yml"
+
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose aligns with concept definitions"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines respect terminology"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify glossary matches ontology.yml v0.3"
+
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific guidelines alignment"
+
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific guidelines alignment"
+
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify architecture uses canonical terminology"
+
+target_overall_score: 95
+target_concept_alignment_score: 100
+max_iterations: 3

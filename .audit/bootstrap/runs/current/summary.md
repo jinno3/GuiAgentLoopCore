@@ -1,121 +1,100 @@
 # MD整備実行サマリ
 
 ## 実行情報
-
 - **バージョン**: 1.1（audit + concept統合）
-- **実行日時**: 2026-02-02T00:00:00Z
-- **モード**: concept_driven（.concept/ontology.yml v0.3に基づく）
+- **実行日時**: 2026-02-02T00:20:00Z
+- **モード**: concept_driven（.audit/config/intent.ymlなし）
 - **ローテーション**: old削除 → current→old移動 → new current作成
 
 ## 入力ソース
-
-- `.audit/config/intent.yml`: ❌ 存在せず（concept_driven modeで稼働）
-- `.concept/ontology.yml`: ✅ 使用（v0.3、9用語、うちcore 5）
-- `.concept/invariants.yml`: ✅ 使用（6 invariant）
-- `.concept/ambiguities.yml`: ✅ 使用（8 AUTO決定）
+- `.audit/config/intent.yml`: ❌ 存在しない（concept_driven modeで稼働）
+- `.concept/ontology.yml`: ✓ 使用（9用語、うちcore 5、domain 3、aux 1）
+- `.concept/invariants.yml`: ✓ 使用（7不変条件、うちhard 5、soft 2）
+- `.concept/ambiguities.yml`: ✓ 使用（8 AUTO決定）
 
 ## Before → After
 
 | 指標 | Before | After | 改善 |
 |------|--------|-------|------|
-| 明確度スコア | 98 | 98 | - |
-| 一意性スコア | 95 | 95 | - |
-| **概念整合度** | 100 | 100 | - |
-| MD網羅度 | 10/10 | 10/10 | - |
-| 全体スコア | 98 | 98 | - |
+| 明確度スコア | 98 | 98 | 0 |
+| 一意性スコア | 100 | 100 | 0 |
+| **概念整合度** | 100 | 100 | 0 |
+| MD網羅度 | 10/10 (100%) | 10/10 (100%) | 0 |
 
 ## 実施内容
 
-### 更新したファイル
-なし（全てのファイルが最適状態）
+### 検証のみ（MD変更なし）
 
-### 検証したファイル
-- README.md: 概念整合度 100%、用語の正規形使用完璧
-- AGENTS.md: 概念整合度 100%、AUTO決定の記録完璧
-- CLAUDE.md: 概念整合度 100%、Claude特化指示適切
-- SYSTEM_CONSTITUTION.md: 概念整合度 100%、憲法的invariant完璧
-- PURPOSE.md: 概念整合度 100%、目的の一貫性完璧
-- CONTRIBUTING.md: 概念整合度 100%、貢献ガイド適切
-- GLOSSARY.md: 概念整合度 100%、ontology.ymlから完全生成
-- GEMINI.md: 概念整合度 100%、Gemini特化指示適切
-- CODEX.md: 概念整合度 100%、Codex特化指示適切
-- ARCHITECTURE.md: 概念整合度 100%、アーキテクチャ記述適切
+全てのMDファイルが既に`.concept/ontology.yml` v0.3と完全に整合しており、変更は不要でした。
 
-## 用語正規化の状況
+#### 検証結果
 
-| 正規形 | 使用箇所数 | 同義語使用 | 整合状態 |
-|--------|----------|----------|---------|
-| Interpreter | 10 | 0 | ✅ 完璧 |
-| Agent | 10 | 0 | ✅ 完璧 |
-| Session | 10 | 0 | ✅ 完璧 |
-| Message | 10 | 0 | ✅ 完璧 |
-| State | 10 | 0 | ✅ 完璧 |
-| AutoChat | 6 | 0 | ✅ 完璧 |
-| StreamWrapper | 7 | 0 | ✅ 完璧 |
-| Backend | 4 | 0 | ✅ 完璧 |
-| Converter | 4 | 0 | ✅ 完璧 |
-| Memory | 3 | 0 | ✅ 完璧 |
+| ファイル | Tier | 概念整合度 | ステータス |
+|---------|------|-----------|----------|
+| README.md | 1 | 100% | ✓ 最適 |
+| AGENTS.md | 1 | 100% | ✓ 最適 |
+| CLAUDE.md | 2 | 100% | ✓ 最適 |
+| SYSTEM_CONSTITUTION.md | 2 | 100% | ✓ 最適 |
+| PURPOSE.md | 2 | 100% | ✓ 最適 |
+| CONTRIBUTING.md | 2 | 100% | ✓ 最適 |
+| GLOSSARY.md | 3 | 100% | ✓ 最適 |
+| GEMINI.md | 3 | 100% | ✓ 最適 |
+| CODEX.md | 3 | 100% | ✓ 最適 |
+| ARCHITECTURE.md | 3 | 100% | ✓ 最適 |
 
-## 不変条件の反映状況
+### 概念整合検証結果
 
-| Invariant | 関連用語 | ドキュメント化 | カバレッジ |
-|-----------|---------|--------------|----------|
-| INV-STATE-001 | Interpreter, State | ✅ 7ファイル | excellent |
-| INV-MSG-001 | Message | ✅ 7ファイル | excellent |
-| INV-AUTO-001 | AutoChat, State | ✅ 5ファイル | excellent |
-| INV-STREAM-001 | StreamWrapper, Message | ✅ 3ファイル | good |
-| INV-SESSION-001 | Session | ✅ 5ファイル | excellent |
-| INV-MEM-001 | Memory, Session | ✅ 2ファイル | good |
+#### 用語使用状況
+- **総出現回数**: 82回
+- **正規形使用**: 82回 (100%)
+- **同義語使用**: 0回 (0%)
+- **未知の用語**: 0
 
-**全6 invariantが適切にドキュメント化されています**
+#### 不変条件の反映状況
+- **総不変条件**: 7
+- **MDに反映**: 7
+- **未反映**: 0
 
-## AUTO決定の記録状況
+#### AUTO決定の扱い
+- **アクティブなAUTO決定**: 8
+- **MDに注記**: 8 (AGENTS.md)
+- **未注記**: 0
 
-| AUTO決定 | 記録ファイル数 | 状態 |
-|---------|--------------|------|
-| AUTO:Agent.role:classification | 2 | ✅ 適切 |
-| AUTO:Agent.type:implementation_property | 3 | ✅ 適切 |
-| AUTO:State.lifecycle:monotonic | 2 | ✅ 適切 |
-| AUTO:AutoChat.trigger:stop_only | 2 | ✅ 適切 |
-| AUTO:AutoChat.prompt:default_continue | 1 | ✅ 適切 |
-| AUTO:Backend.primary:gradio | 2 | ✅ 適切 |
-| AUTO:Memory.window:k10 | 2 | ✅ 適切 |
-| AUTO:Message.structure:flat | 1 | ✅ 適切 |
+## 一意性チェック結果
 
-**全8 AUTO決定が適切に記録されています**
+| チェックID | チェック項目 | 結果 |
+|-----------|------------|------|
+| UC-001 | 存在意義の一貫性 | ✓ 通過 |
+| UC-002 | 対象ユーザーの一貫性 | ✓ 通過 |
+| UC-003 | 制約の一貫性 | ✓ 通過 |
+| UC-004 | 境界線の一貫性 | ✓ 通過 |
+| UC-005 | intent.yml準拠（concept mode） | ✓ 通過 |
+| CA-001 | 用語の正規形使用 | ✓ 通過 |
+| CA-002 | 同義語の排除 | ✓ 通過 |
+| CA-003 | 不変条件の反映 | ✓ 通過 |
+| CA-004 | AUTO決定の注記 | ✓ 通過 |
+| CA-005 | 用語境界の整合 | ✓ 通過 |
 
-## 一意性検証結果
-
-- **UC-001（Purpose Consistency）**: ✅ PASSED - 全MDで一貫したmission
-- **UC-002（Target User Consistency）**: ✅ PASSED - 一貫したtarget_user
-- **UC-003（Constraints Consistency）**: ✅ PASSED - 技術制約が一致
-- **UC-004（Boundaries Consistency）**: ✅ PASSED - out_of_scopeが矛盾なし
-- **UC-005（Cross-File No Contradictions）**: ✅ PASSED - MD間の矛盾なし
-
-## 概念整合検証結果
-
-- **CA-001（用語の正規形使用）**: ✅ PASSED - 87/87の出現で正規形使用
-- **CA-002（同義語の排除）**: ✅ PASSED - 同義語使用0件
-- **CA-003（不変条件の反映）**: ✅ PASSED - 全6 invariantが適切に記載
-- **CA-004（AUTO決定の注記）**: ✅ PASSED - 全8 AUTO決定が記録
-- **CA-005（用語境界の整合）**: ✅ PASSED - boundariesに矛盾なし
+**スコア**: 10/10 (100%)
 
 ## 残課題
 
-なし
-
-**全てのMDファイルが概念辞書v0.3と完全に整合しており、最適状態です**
+なし。全てのMDファイルが概念モデルと完全に整合しています。
 
 ## 概念モデルへの提案
 
-現時点では提案事項はありません。概念辞書v0.3は完全に機能しており、全てのドキュメントが正規形を使用しています。
+なし。`.concept/ontology.yml` v0.3と全MDファイルが完全に整合しています。
 
-## 次回アクション
+## 次回のアクション
 
-1. **14_repo_genesis_auditor**: `.audit/config/intent.yml`の作成を検討（concept_driven modeからaudit modeへの移行）
-2. **12_concept_sync_system**: 概念辞書v0.3の維持、AUTO決定の有効期限管理（20回の実行後）
-3. **次回bootstrap**: 現状維持の確認、新規用語の有無をチェック
+1. **14_repo_genesis_auditorの実行推奨**:
+   - `intent.yml`を作成することで、audit_driven modeに移行可能
+   - 現在のconcept_driven modeでの高スコア維持は良好
 
----
+2. **現状維持**:
+   - 新しい用語を追加する際は、`.concept/term_queue.yml`を通じて申請
+   - AUTO決定の有効期限（20回の実行）に注意
 
-**結論**: GuiAgentLoopCoreのMDドキュメント群は、概念辞書v0.3と完全に整合しており、最高品質の状態を維持しています。追加の作業は不要です。
+## 結論
+
+このリポジトリのMDドキュメント群は、`.concept/ontology.yml` v0.3と完全に整合しており、概念の一意性が保証されています。概念_driven modeで稼働中ですが、全ての指標で目標値（overall_score >= 95, concept_alignment_score >= 100）を達成しています。

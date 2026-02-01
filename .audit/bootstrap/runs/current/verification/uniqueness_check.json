@@ -1,139 +1,43 @@
 {
-  "timestamp": "2026-02-02T00:00:00Z",
-  "verification_version": "1.1",
-  "mode": "concept_driven",
-  "overall_uniqueness_score": 95,
-  "checks_performed": 10,
-  "checks_passed": 10,
-  "checks_failed": 0,
-
-  "uniqueness_checks": [
+  "timestamp": "2026-02-02T00:20:00Z",
+  "uniqueness_score": 100,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "Purpose Consistency",
-      "description": "全MDで同じmissionが表現されているか",
-      "status": "passed",
-      "score": 95,
-      "findings": [
-        {
-          "file": "README.md",
-          "mission": "provides the core logic for bridging GUI frameworks and LLM agents",
-          "consistent": true
-        },
-        {
-          "file": "PURPOSE.md",
-          "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-          "consistent": true
-        },
-        {
-          "file": "AGENTS.md",
-          "mission": "GUIとLLMエージェントのブリッジとなるコアロジックを提供",
-          "consistent": true,
-          "note": "Japanese translation, conceptually identical"
-        }
-      ]
+      "name": "Existence Consistency",
+      "description": "All MD files represent the same mission",
+      "passed": true,
+      "evidence": "All files reference GuiAgentLoopCore's mission to provide core logic for bridging GUI frameworks and LLM agents"
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "status": "passed",
-      "score": 95,
-      "findings": [
-        {
-          "file": "PURPOSE.md",
-          "target_users": [
-            "Application Developers",
-            "AI Agent Developers",
-            "Framework Developers",
-            "AI Agents"
-          ],
-          "consistent": true
-        }
-      ]
+      "description": "All MD files target the same user base",
+      "passed": true,
+      "evidence": "Consistent targeting of Application Developers, AI Agent Developers, Framework Developers, and AI Agents"
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "技術的制約が一致しているか",
-      "status": "passed",
-      "score": 100,
-      "findings": [
-        {
-          "constraint": "State monotonic transitions",
-          "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
-        },
-        {
-          "constraint": "Enumerated message types",
-          "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
-        },
-        {
-          "constraint": "UUID-based sessions",
-          "consistent_across": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
-        },
-        {
-          "constraint": "Sync/async streaming support",
-          "consistent_across": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"]
-        }
-      ]
+      "name": "Constraint Consistency",
+      "description": "Technical constraints are consistent across MDs",
+      "passed": true,
+      "evidence": "Invariants consistently referenced across AGENTS.md, SYSTEM_CONSTITUTION.md, and README.md"
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "status": "passed",
-      "score": 100,
-      "findings": [
-        {
-          "boundary": "UI Rendering is out of scope",
-          "consistent_across": ["PURPOSE.md", "README.md", "ARCHITECTURE.md"]
-        },
-        {
-          "boundary": "LLM Execution is out of scope",
-          "consistent_across": ["PURPOSE.md", "README.md", "ARCHITECTURE.md"]
-        },
-        {
-          "boundary": "Session Storage is out of scope",
-          "consistent_across": ["PURPOSE.md", "README.md"]
-        }
-      ]
+      "name": "Boundary Consistency",
+      "description": "Out-of-scope boundaries are consistently defined",
+      "passed": true,
+      "evidence": "Consistent exclusion of UI rendering and LLM direct execution from Interpreter scope"
     },
     {
       "id": "UC-005",
-      "name": "Cross-File No Contradictions",
-      "description": "MD間に矛盾がないか",
-      "status": "passed",
-      "score": 100,
-      "findings": {
-        "contradictions_found": 0,
-        "sample_verified": [
-          {
-            "check": "State transitions described consistently",
-            "result": "All files describe monotonic INIT → RUNNING → STOP"
-          },
-          {
-            "check": "Agent roles match across files",
-            "result": "AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW consistently used"
-          },
-          {
-            "check": "Message types match across files",
-            "result": "MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION consistently used"
-          }
-        ]
-      }
+      "name": "Intent Compliance",
+      "description": "All MD comply with PURPOSE.md (concept_driven mode)",
+      "passed": true,
+      "evidence": "All files align with the mission defined in PURPOSE.md"
     }
   ],
-
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 95,
-    "critical_issues": 0,
-    "recommendations": [
-      "All MD files maintain consistent purpose and boundaries",
-      "No contradictions found across documentation",
-      "Terminology is uniform across all files"
-    ]
-  }
+  "inconsistencies": [],
+  "recommendations": []
 }

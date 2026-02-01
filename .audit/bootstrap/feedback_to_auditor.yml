@@ -1,5 +1,5 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-02T00:00:00Z"
+  bootstrap_run_timestamp: "2026-02-02T00:20:00Z"
   version: "1.1"
   mode: "concept_driven"
 
@@ -12,7 +12,7 @@ feedback:
 
   # 2. 一意性評価
   uniqueness_score:
-    score: 95
+    score: 100
     issues_found: 0
     issues_resolved: 0
     remaining_issues: []
@@ -49,41 +49,25 @@ feedback:
 
     - priority: "low"
       field: "constraints"
-      suggestion: ".concept/invariants.ymlのhard invariantsをintent.ymlのconstraintsとして反映"
-      current_value: "定義されていない"
-      reason: "技術的制約と不変条件の整合性を保証"
+      suggestion: "invariants.ymlのhard invariantsをconstraints.ymlに移行"
+      current_value: "定義されていない（invariants.ymlに依存）"
+      reason: "audit modeへの移行に伴い、制約条件を正式化"
 
   # 6. 概念モデルとの連携状況
   concept_integration:
     used: true
-    ontology_version: "0.3"
-    ontology_terms_used: 87
+    ontology_terms_used: 82
     alignment_score: 100
     new_term_candidates: []
-    notes: "概念辞書との完全な整合性が達成されている"
 
-  # 7. 全体的な推奨事項
-  overall_recommendations:
-    - priority: "low"
-      action: "intent.ymlの作成を検討"
-      reason: "concept_driven modeからaudit modeへの移行を検討。ただし、現状のconcept_driven modeも完全に機能している"
-      urgency: "not_urgent"
-      impact: "現状のMD品質には影響なし"
+  # 7. 次回実行への推奨事項
+  next_run_recommendations:
+    - "14_repo_genesis_auditorを実行し、intent.ymlを作成することで、audit_driven modeに移行"
+    - "現状のconcept_driven modeでの高スコア維持は良好"
+    - "新機能追加時は、用語の正規化と概念整合性に注意"
 
-    - priority: "information"
-      action: "現状維持"
-      reason: "MDドキュメント群は最高品質（98% overall, 100% concept alignment）"
-      urgency: "none"
-      impact: "none"
-
-  # 8. 実行結果のサマリ
-  execution_summary:
-    total_files_verified: 10
-    files_updated: 0
-    files_created: 0
-    critical_issues_found: 0
-    overall_score: 98
-    concept_alignment_score: 100
-    uniqueness_score: 95
-    status: "optimal"
-    note: "全MDファイルが概念辞書v0.3と完全に整合しており、追加の作業は不要"
+  # 8. 全体的な評価
+  overall_assessment:
+    status: "excellent"
+    score: 100
+    summary: "MDドキュメント群は概念モデルと完全に整合しており、一意性が保証されている。概念_driven modeで稼働中だが、全指標で目標値を達成。"

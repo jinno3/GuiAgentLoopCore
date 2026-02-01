@@ -1,6 +1,55 @@
 {
-  "timestamp": "2026-02-01T15:02:11.785987+00:00",
-  "source": null,
-  "exists": false,
-  "note": "intent.yml not found - running in concept_driven mode"
+  "timestamp": "2026-02-02T00:00:00Z",
+  "source": "concept_driven_mode",
+  "status": "no_intent_yml",
+  "note": "Working in concept_driven mode using .concept/ontology.yml as source of truth",
+  "derived_purpose": {
+    "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+    "target_user": [
+      "Application Developers building LLM-powered applications with GUI interfaces",
+      "AI Agent Developers creating specialized agents",
+      "Framework Developers building GUI backend implementations",
+      "AI Agents (Claude, Gemini, Codex, etc.) working with this codebase"
+    ],
+    "core_value": "Seamless GUI-LLM integration with consistent state management, type safety, and clear semantics",
+    "core_functions": [
+      {
+        "name": "Centralized Conversation Management",
+        "description": "Interpreter component centralizes conversation flow, state management, and agent coordination"
+      },
+      {
+        "name": "State Consistency",
+        "description": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
+      },
+      {
+        "name": "Multi-Agent Support",
+        "description": "Role-based agent system with clear boundaries (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.)"
+      },
+      {
+        "name": "Type Safety",
+        "description": "Enumerated message types (MESSAGE, CODE, CONFIRMATION, etc.) with strict validation"
+      },
+      {
+        "name": "Flexible Integration",
+        "description": "Abstract backend interface with pluggable implementations (Gradio, future frameworks)"
+      }
+    ],
+    "boundaries": {
+      "in_scope": [
+        "Conversation Flow Management",
+        "State Machine with monotonic guarantees",
+        "Agent Coordination",
+        "Message Processing",
+        "Backend Abstraction",
+        "Streaming Support (sync/async)"
+      ],
+      "out_of_scope": [
+        "UI Rendering (handled by backend)",
+        "LLM Execution (delegated to agents)",
+        "Session Storage to databases (application-level)",
+        "User Authentication (only ensure session uniqueness)",
+        "Network Protocols (backend-specific)"
+      ]
+    }
+  }
 }
