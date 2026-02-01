@@ -1,65 +1,13 @@
 diff --git a/GLOSSARY.md b/GLOSSARY.md
-index 1eb8aaf..ece5f84 100644
+index ece5f84..395cab0 100644
 --- a/GLOSSARY.md
 +++ b/GLOSSARY.md
-@@ -3,9 +3,9 @@
+@@ -3,7 +3,7 @@
  > このドキュメントは`.concept/ontology.yml`から自動生成されています。
  > 用語の追加・変更は`.concept/term_queue.yml`を通じて行ってください。
  
--**最終更新**: 2026-02-02T02:42:00Z
-+**最終更新**: 2026-02-02T05:50:00Z
+-**最終更新**: 2026-02-02T05:50:00Z
++**最終更新**: 2026-02-02T06:00:00Z
  **Ontologyバージョン**: 0.3
--**総用語数**: 10
-+**総用語数**: 11
+ **総用語数**: 11
  
- ---
- 
-@@ -172,12 +172,33 @@
- 
- **AUTO決定**:
- - AUTO:Memory.window:k10 - メモリウィンドウサイズはk=10（暫定）
-+- AUTO:Memory.specs:provisional - ウィンドウサイズk=10（rolling）、最大長100（hard limit）（暫定）
- 
- **証拠**:
- - exploration findings: "Conversation buffer with window size (k=10)"
- 
- ---
- 
-+### Connector
-+
-+- **定義**: 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ
-+- **同義語**: コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter
-+- **含む**: GuiAgentInterpreterABCインターフェースの実装, エージェント固有のブリッジロジック, I/O変換
-+- **含まない**: UI描画, LLM直接実行, セッション管理
-+- **ライフサイクル**: initialized, connected, executing, disconnected
-+- **関連用語**: Interpreter, Agent
-+- **ステータス**: stable
-+
-+**AUTO決定**:
-+- AUTO:Connector.layer:domain - Connectorは正規概念（domain層）
-+
-+**証拠**:
-+- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py`: "class ConnectorImplCodeinterpreterApi(GuiAgentInterpreterABC)"
-+- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py`: "class ConnectorImplOpenInterpreter(GuiAgentInterpreterABC)"
-+- `gui_agent_loop_core/schema/core/schema.py`: "class GuiAgentInterpreterABC(ABC): Abstract interface for agent connectors"
-+
-+---
-+
- ## 補助用語（Auxiliary Terms）
- 
- ユーティリティやサポート機能の用語。
-@@ -229,9 +250,13 @@
- | ConversationBuffer | Memory |
- | 変換器 | Converter |
- | マッパー | Converter |
-+| コネクタ | Connector |
-+| GuiAgentInterpreterABC | Connector |
-+| ConnectorImplCodeinterpreterApi | Connector |
-+| ConnectorImplOpenInterpreter | Connector |
- 
- ---
- 
- **生成元**: `.concept/ontology.yml` (v0.3)
--**生成日時**: 2026-02-02T02:42:00Z
-+**生成日時**: 2026-02-02T05:50:00Z
- **担当**: 16_repo_md_bootstrapper v1.1

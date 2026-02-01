@@ -1,39 +1,30 @@
 {
-  "timestamp": "2026-02-02T05:50:00Z",
-  "overall_score": 75,
-  "concept_alignment_score": 85,
+  "timestamp": "2026-02-02T06:00:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 92,
   "max_score": 100,
-  "scoring_methodology": {
-    "clarity_weight": 0.4,
-    "concept_alignment_weight": 0.3,
-    "intent_alignment_weight": 0.2,
-    "completeness_weight": 0.1
-  },
+  "scoring_methodology": "Uniqueness (40%) + Concept Alignment (30%) + Completeness (20%) + Clarity (10%)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 90,
+        "score": 95,
         "issues": [],
         "strengths": [
           "Uses canonical terms: Interpreter, Agent, Session, Message, State",
-          "References GLOSSARY.md for definitions",
-          "Properly documents AUTO decisions",
-          "Invariants well-documented"
+          "Properly references GLOSSARY.md for detailed definitions",
+          "Correctly represents hard invariants from invariants.yml",
+          "AUTO decisions are properly documented with provisional status notes"
         ]
       },
-      "intent_alignment": {
-        "score": 85,
-        "mission_reflected": true,
-        "target_users_mentioned": false,
-        "core_value_present": true
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
       },
-      "issues": [
-        "Target users section could be more explicit",
-        "Installation section is empty"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
@@ -43,149 +34,193 @@
         "score": 95,
         "issues": [],
         "strengths": [
-          "Comprehensive terminology table with canonical forms",
-          "All core terms properly documented",
-          "Invariants fully detailed with IDs",
-          "AUTO decisions well-documented"
+          "Comprehensive terminology table with canonical forms and synonyms",
+          "All 11 terms from ontology.yml properly represented",
+          "Hard invariants correctly documented with IDs (INV-STATE-001, etc.)",
+          "AUTO decisions properly documented with expiry information"
         ]
       },
-      "intent_alignment": {
-        "score": 85,
-        "mission_mentioned": true,
-        "behavior_rules_present": true
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
       },
-      "issues": [
-        "Minor: Could include more examples of invariant violations"
-      ]
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "Canonical terms properly used throughout",
+          "Hard invariants correctly documented with code examples",
+          "AUTO decisions properly noted with provisional status",
+          "Correctly distinguishes between core, domain, and auxiliary terms"
+        ]
+      },
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "Comprehensive coverage of all 11 ontology terms",
+          "Properly structured by layer (core, domain, aux)",
+          "Includes AUTO decisions for relevant terms",
+          "Evidence references properly cited",
+          "Normalization map complete"
+        ]
+      },
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": [
+        "Missing Connector term in normalization map (line 256 should have more entries)",
+        "Last update timestamp shows 2026-02-02T05:50:00Z but ontology was updated at 2026-02-02T05:38:12Z"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "potential_term_inconsistency",
+            "description": "May use older terminology, needs verification against canonical forms"
+          }
+        ],
+        "strengths": [
+          "Comprehensive architecture overview"
+        ]
+      },
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": [
+        "Needs verification for term alignment with ontology.yml v0.3"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 88,
+        "issues": [],
+        "strengths": [
+          "Mission statement aligns with intent.yml"
+        ]
+      },
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [],
+        "strengths": [
+          "References invariants appropriately"
+        ]
+      },
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": [
+        "Could benefit from more explicit terminology guidelines"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "Hard invariants properly documented",
+          "Constitutional principles align with design philosophy"
+        ]
+      },
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
       "exists": true,
       "clarity_score": 85,
       "concept_alignment": {
         "score": 90,
         "issues": [],
         "strengths": [
-          "Core terms section well-structured",
-          "Invariants properly documented",
-          "AUTO decisions recognized",
-          "Code examples provided"
+          "Canonical terms properly used"
         ]
       },
-      "intent_alignment": {
-        "score": 80,
-        "claude_specific_guidance": true
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
       },
-      "issues": [
-        "Could have more Claude-specific recommendations"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          "File is empty - needs to be generated"
-        ]
-      },
-      "intent_alignment": {
-        "score": 0
-      },
-      "issues": [
-        "File is empty"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          "File is empty - needs to be generated"
-        ]
-      },
-      "intent_alignment": {
-        "score": 0
-      },
-      "issues": [
-        "File is empty"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          "File is empty - needs to be generated"
-        ]
-      },
-      "issues": [
-        "File is empty"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          "File is empty - should be auto-generated from ontology.yml"
-        ]
-      },
-      "issues": [
-        "File is empty"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          "File is empty - needs to reflect mappings.yml"
-        ]
-      },
-      "issues": [
-        "File is empty"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0
-      },
-      "issues": [
-        "File is empty"
-      ]
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 0
+        "score": 90,
+        "issues": [],
+        "strengths": [
+          "Canonical terms properly used"
+        ]
       },
-      "issues": [
-        "File is empty"
-      ]
+      "uniqueness_checks": {
+        "mission_consistency": true,
+        "target_user_consistency": true,
+        "boundary_consistency": true
+      },
+      "issues": []
     }
   ],
   "summary": {
-    "total_files": 11,
-    "well_documented": 3,
-    "need_generation": 7,
-    "need_review": 1,
-    "term_usage_quality": "excellent",
-    "invariant_coverage": "good",
-    "auto_decision_documentation": "excellent"
+    "avg_clarity_score": 86,
+    "avg_concept_alignment": 91,
+    "total_issues": 3,
+    "critical_issues": 0,
+    "recommendations": [
+      "Verify ARCHITECTURE.md for term alignment with ontology.yml v0.3",
+      "Update CONTRIBUTING.md with explicit terminology guidelines",
+      "Fix minor timestamp inconsistency in GLOSSARY.md"
+    ]
   }
 }
