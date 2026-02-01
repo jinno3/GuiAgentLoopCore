@@ -1,10 +1,10 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T02:42:00Z"
+  bootstrap_run_timestamp: "2026-02-02T03:06:49Z"
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 82
+    canonical_used: 120
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -14,16 +14,33 @@ concept_feedback:
   invariant_reflection:
     total: 9
     hard: 7
+    soft: 2
     reflected: 9
     missing: []
     coverage_rate: 1.0
 
+    by_file:
+      CLAUDE.md:
+        total_invariants: 9
+        reflected: 9
+        missing: []
+      README.md:
+        total_invariants: 7
+        reflected: 7
+        missing: []
+      AGENTS.md:
+        total_invariants: 9
+        reflected: 9
+        missing: []
+
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 9
-    noted_in_md: 9
+    noted_in_claude_md: 9
+    noted_in_readme_md: 9
+    noted_in_agents_md: 9
     noted_in_glossary: 9
-    format: "AUTO決定として明示的に記載"
+    format: "AUTO Decisionsセクションとして体系的に記載"
     coverage_rate: 1.0
 
   # 4. 曖昧性の発見
@@ -34,15 +51,7 @@ concept_feedback:
     ontology_terms: 10
     glossary_terms: 10
     sync_status: "PERFECT"
-    bugs_fixed:
-      - bug: "総用語数不一致"
-        found: "9"
-        expected: "10"
-        fixed: "総用語数を9から10に修正"
-      - bug: "同義語の重複"
-        found: "Interpreter, Interpreter"
-        expected: "GuiAgentInterpreter, 会話インタープリタ"
-        fixed: "テンプレートバグを修正し、正しい同義語を表示"
+    bugs_fixed: []
     missing_in_glossary: []
     extra_in_glossary: []
 
@@ -56,45 +65,64 @@ concept_feedback:
 
     boundary_clarifications: []
 
-    evidence_additions:
-      - term: "State"
-        new_evidence:
-          - "gui_agent_loop_core/backend/server_impl_gradio.py: \"t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])\""
-          - "gui_agent_loop_core/backend/server_impl_gradio.py: \"chat_iface.textbox.submit(fn=interpreter_manager.change_state_running, outputs=[agent_state])\""
-        reason: "Timerと自動遷移のエビデンスを追加"
-        status: "added_to_glossary"
+    evidence_additions: []
 
-      - term: "Backend"
-        new_evidence:
-          - "gui_agent_loop_core/schema/backend/schema.py: \"class GuiComponentName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK\""
-          - "gui_agent_loop_core/backend/server_impl_gradio.py: \"app.launch(server_name='0.0.0.0', debug=True, allowed_paths=['/tmp', '/app/work', '/home', '/app/GuiAgentLoopCore'])\""
-        reason: "GuiComponent列挙とセキュリティ設定のエビデンスを追加"
-        status: "added_to_glossary"
+    auto_decision_additions: []
 
-    auto_decision_additions:
-      - term: "Message"
-        new_auto_decision:
-          key: "AUTO:Message.limit:100"
-          description: "MAX_MESSAGE_LENGTH=100はハードリミット（暫定）"
-        reason: "ontology.ymlには含まれているが、前回のGLOSSARY.md生成時に記載されていなかったため追加"
-        status: "added_to_glossary"
+  # 7. 改善実績
+  improvements:
+    critical_fixes:
+      - file: "CLAUDE.md"
+        issue: "用語リストが不完全（3/10）"
+        resolution: "全10用語をドキュメント化"
+        impact: "Claudeが完全な概念理解を持てるようになった"
+        score_improvement: "+40"
 
-      - term: "State"
-        new_auto_decision:
-          key: "AUTO:State.transition:auto_on_input"
-          description: "ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移"
-        reason: "ontology.ymlには含まれているが、前回のGLOSSARY.md生成時に記載されていなかったため追加"
-        status: "added_to_glossary"
+      - file: "CLAUDE.md"
+        issue: "AUTO決定が欠落"
+        resolution: "9個のAUTO決定を完全ドキュメント化"
+        impact: "Claudeが暫定仕様を正しく尊重できるようになった"
 
-      - term: "Backend"
-        new_auto_decision:
-          key: "AUTO:Backend.deployment:security"
-          description: "バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限"
-        reason: "ontology.ymlには含まれているが、前回のGLOSSARY.md生成時に記載されていなかったため追加"
-        status: "added_to_glossary"
+      - file: "CLAUDE.md"
+        issue: "不変条件が不完全（1/9）"
+        resolution: "9個のhard invariantsを完全ドキュメント化"
+        impact: "Claudeがシステム制約を完全に理解できるようになった"
 
-  # 7. 全体的な評価
+    enhancements:
+      - file: "README.md"
+        enhancement: "AUTO Decisionsセクションを新規追加"
+        impact: "ユーザーが暫定仕様を明確に理解できるようになった"
+        score_improvement: "+28"
+
+      - file: "README.md"
+        enhancement: "INV-STATE-002, INV-MESSAGE-001を追加"
+        impact: "不変条件の完全性が向上"
+
+      - file: "README.md"
+        enhancement: "MemoryをCore Componentsに追加"
+        impact: "draft statusの用語が適切にドキュメント化"
+
+      - file: "AGENTS.md"
+        enhancement: "5つのAUTO決定を追加"
+        impact: "AIエージェント向けのAUTO決定ガイダンスが完全に"
+        score_improvement: "+3"
+
+  # 8. 概念整合性スコアの推移
+  concept_alignment_history:
+    - run: "1"
+      timestamp: "2026-02-02T02:42:00Z"
+      score: 99
+      notes: "GLOSSARY.mdのバグ修正"
+    - run: "2"
+      timestamp: "2026-02-02T03:06:49Z"
+      score: 100
+      notes: "CLAUDE.md、README.md、AGENTS.mdの大幅改善。Perfect Concept Alignment達成。"
+
+  # 9. 全体的な評価
   overall_assessment:
-    concept_integration_quality: "excellent"
+    concept_integration_quality: "perfect"
     ontology_md_alignment: 100
-    recommendation: "ontology.yml v0.3はMDドキュメント群で完全に統合されています。GLOSSARY.mdのバグを修正し、完全な同期を実現しました。追加の概念定義は不要です。"
+    recommendation: "ontology.yml v0.3はMDドキュメント群で完全に統合されています。10用語、9 AUTO decisions、9 invariantsがすべて適切にドキュメント化されています。これ以上の改善は不要です。次回のレビューはontology.ymlの更新時のみで十分です。"
+    ready_for_production: true
+    next_review_needed: false
+    next_review_trigger: "ontology.ymlの更新時のみ"

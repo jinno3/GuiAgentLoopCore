@@ -1,26 +1,28 @@
 {
-  "timestamp": "2026-02-02T02:30:00Z",
-  "overall_score": 92,
-  "concept_alignment_score": 96,
+  "timestamp": "2026-02-02T02:42:00Z",
+  "overall_score": 97,
+  "concept_alignment_score": 99,
   "max_score": 100,
   "scoring_methodology": "Based on intent.yml alignment, ontology.yml term consistency, and documentation completeness",
   "improvements_from_before": {
-    "overall_score_delta": "+7",
-    "concept_alignment_delta": "+6",
-    "fixed_files": 2,
-    "fixed_issues": 2
+    "overall_score_delta": "+5",
+    "concept_alignment_delta": "+5",
+    "fixed_files": 1,
+    "fixed_issues": 3
   },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "issues": [],
+        "found_terms": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter"],
+        "synonyms_used": []
       },
       "intent_alignment": {
-        "score": 90,
+        "score": 92,
         "mission_reflected": true,
         "core_value_reflected": true,
         "target_user_reflected": true
@@ -36,10 +38,8 @@
       "concept_alignment": {
         "score": 99,
         "issues": [],
-        "fixes_applied": [
-          "Synonym table now correctly lists actual synonyms from ontology.yml",
-          "No more duplicate placeholder values"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
+        "synonyms_used": []
       },
       "intent_alignment": {
         "score": 95,
@@ -50,35 +50,39 @@
       "issues": []
     },
     {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "fixes_applied": [
+          "Fixed: 総用語数 now correctly shows 10 (was 9)",
+          "Fixed: Synonyms now show actual synonyms from ontology.yml (e.g., 'GuiAgentInterpreter, 会話インタープリタ' instead of 'Interpreter, Interpreter')",
+          "Added: Missing AUTO decisions for Message, State, Backend",
+          "Added: Missing evidence references for State and Backend terms",
+          "Verified: All 10 terms from ontology.yml are present and correctly formatted"
+        ]
+      },
+      "intent_alignment": {
+        "score": 95,
+        "definitions_from_ontology": true,
+        "ontology_sync": "perfect"
+      },
+      "issues": []
+    },
+    {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
         "score": 95,
-        "issues": [],
-        "fixes_applied": [
-          "Removed redundant phrasing in term usage section",
-          "Definitions are now clear and non-repetitive"
-        ]
+        "issues": []
       },
       "intent_alignment": {
         "score": 88,
         "claude_specific_guidelines": true,
         "code_examples_provided": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 99,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 90,
-        "definitions_from_ontology": true
       },
       "issues": []
     },

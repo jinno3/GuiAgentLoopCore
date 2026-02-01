@@ -38,11 +38,15 @@
 - **INV-STATE-001**: `Interpreter`の状態は単調遷移する：`STATE_INIT` → `STATE_RUNNING` → `STATE_STOP`
   - 状態を逆行させてはいけない（例：`STATE_RUNNING`から`STATE_INIT`へ）
   - 状態遷移の一貫性を保つため、`change_state_running()`等の専用メソッドを使用すること
+- **INV-STATE-002**: `State`は3秒間隔のタイマーで自動更新される
+  - UI同期と監視を実現するため、`t3 = gr.Timer(3)`で定期更新を行う
 
 ### 🔒 Messageタイプの制約
 - **INV-MSG-001**: `Message`タイプは定義された列挙型のみ使用可：`MESSAGE`, `CODE`, `CONFIRMATION`, `CONSOLE`, `IMAGE`, `FUNCTION`
   - タイプ安全性を保証するため、`MessageTypeEnum`以外の値を使用しないこと
   - 予期しない`Message`を処理しようとしてはいけない
+- **INV-MESSAGE-001**: `Message`は最大100長（MAX_MESSAGE_LENGTH）
+  - メモリ使用量を制限し、パフォーマンスを維持するため、メッセージ履歴の長さを制限すること
 
 ### 🔒 AutoChatの発火条件
 - **INV-AUTO-001**: `AutoChat`は`STATE_STOP`時のみトリガーされる
@@ -70,6 +74,12 @@
 
 ### State関連
 - **AUTO:State.lifecycle:monotonic**: 状態は単調遷移する（INIT → RUNNING → STOP）（有効期限：20回の実行）
+- **AUTO:State.transition:auto_on_input**: ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移（有効期限：20回の実行）
+- **AUTO:State.timer:3sec**: t3タイマーは3秒間隔（有効期限：20回の実行）
+
+### Message関連
+- **AUTO:Message.structure:flat**: メッセージは再帰的にフラット化可能（有効期限：20回の実行）
+- **AUTO:Message.limit:100**: MAX_MESSAGE_LENGTH=100はハードリミット（有効期限：20回の実行）
 
 ### AutoChat関連
 - **AUTO:AutoChat.trigger:stop_only**: AutoChatはSTATE_STOP時のみ発火（有効期限：20回の実行）
@@ -77,9 +87,11 @@
 
 ### Backend関連
 - **AUTO:Backend.primary:gradio**: Gradioが主要`Backend`（暫定）（有効期限：20回の実行）
+- **AUTO:Backend.deployment:security**: バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限（有効期限：20回の実行）
 
 ### Memory関連
 - **AUTO:Memory.window:k10**: メモリウィンドウサイズはk=10（暫定）（有効期限：20回の実行）
+- **AUTO:Memory.specs:provisional**: ウィンドウサイズk=10（rolling）、最大長100（hard limit）（暫定）（有効期限：20回の実行）
 
 ---
 

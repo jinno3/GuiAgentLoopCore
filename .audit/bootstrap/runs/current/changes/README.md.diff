@@ -1,0 +1,67 @@
+diff --git a/README.md b/README.md
+index 5200820..f4c9dd2 100644
+--- a/README.md
++++ b/README.md
+@@ -86,6 +86,7 @@ This project is built around the following key concepts (see [GLOSSARY.md](GLOSS
+ - **Session**: Unique conversation contexts with message history
+ - **Message**: Structured communication between users, systems, and agents
+ - **State**: Represents interpreter execution state (STATE_INIT → STATE_RUNNING → STATE_STOP)
++- **Memory**: Conversation history buffer (status: draft - AUTO decisions apply)
+ 
+ ### Key Features
+ 
+@@ -104,10 +105,14 @@ This project enforces strict invariants to ensure system safety and consistency.
+ - **INV-STATE-001**: `Interpreter` state transitions are monotonic: `STATE_INIT` → `STATE_RUNNING` → `STATE_STOP`
+   - State regression is prohibited (e.g., `STATE_RUNNING` → `STATE_INIT`)
+   - Use dedicated methods like `change_state_running()` for transitions
++  - State is auto-updated every 3 seconds via timer (INV-STATE-002)
+ 
+ - **INV-MSG-001**: `Message` types must be from enumerated set only: `MESSAGE`, `CODE`, `CONFIRMATION`, `CONSOLE`, `IMAGE`, `FUNCTION`
+   - Ensures type safety and prevents unexpected message processing
+ 
++- **INV-MESSAGE-001**: `Message` history is limited to MAX_MESSAGE_LENGTH=100
++  - Prevents memory overflow and ensures consistent performance
++
+ - **INV-AUTO-001**: `AutoChat` triggers only when in `STATE_STOP`
+   - Prevents automatic interference during execution
+   - Maintains user control over the conversation flow
+@@ -120,6 +125,39 @@ This project enforces strict invariants to ensure system safety and consistency.
+ 
+ > **Note**: These invariants are enforced through code review and automated tests. Contributors must ensure their changes respect these constraints. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+ 
++## AUTO Decisions (Provisional Specifications)
++
++This project uses AUTO decisions to resolve ambiguities and establish provisional specifications. These decisions are tracked in `.concept/ambiguities.yml` and may evolve as the project matures.
++
++### Critical AUTO Decisions
++
++#### State Management
++- **AUTO:State.lifecycle:monotonic** - State transitions are forward-only (no regression)
++- **AUTO:State.transition:auto_on_input** - User input (textbox.submit) automatically transitions to RUNNING
++- **AUTO:State.timer:3sec** - State is auto-updated every 3 seconds via Gradio timer
++
++#### Message Handling
++- **AUTO:Message.structure:flat** - Messages are recursively flattenable to nested dictionaries
++- **AUTO:Message.limit:100** - MAX_MESSAGE_LENGTH=100 is a hard limit (provisional)
++
++#### Agent System
++- **AUTO:Agent.role:classification** - Agents are classified by role (AGENT_EXECUTOR, LLM_PLANNER, etc.)
++- **AUTO:Agent.type:implementation_property** - AgentType (TOOL_CALLING, STRUCTURED_CHAT) is an implementation property, independent from role
++
++#### AutoChat
++- **AUTO:AutoChat.trigger:stop_only** - AutoChat triggers only when in STATE_STOP
++- **AUTO:AutoChat.prompt:default_continue** - If AUTO_CHAT_PROMPT env var is not set, uses safe default continuation prompt
++
++#### Backend
++- **AUTO:Backend.primary:gradio** - Gradio is the primary backend (provisional)
++- **AUTO:Backend.deployment:security** - Backend launches on 0.0.0.0 with allowed_paths security restrictions
++
++#### Memory (Draft Status)
++- **AUTO:Memory.window:k10** - Conversation memory uses rolling window of size k=10 (provisional)
++- **AUTO:Memory.specs:provisional** - Window size k=10 (rolling) + max length 100 (hard limit) (provisional)
++
++> **Note**: AUTO decisions are marked as "provisional" and may be refined based on further evidence or testing. See [CLAUDE.md](CLAUDE.md) for AI agent-specific guidelines on respecting these decisions.
++
+ ## Getting Started
+ 
+ 
