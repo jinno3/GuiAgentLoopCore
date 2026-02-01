@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T05:30:00Z"
+run_timestamp: "2026-02-02T05:45:00Z"
 version: "1.1"
 
 rotation:
@@ -8,27 +8,21 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
+    constraints_yml: null
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
 
 ontology_summary:
-  total_terms: 10
+  total_terms: 11
   core_terms: 5
-  domain_terms: 4
+  domain_terms: 5
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
@@ -46,6 +40,24 @@ ontology_summary:
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -71,102 +83,73 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_update"
+    status: "exists_needs_review"
     tier: 1
-    issues:
-      - "用語の正規化が必要（synonymsが使用されている可能性）"
   - path: "AGENTS.md"
-    status: "exists_needs_update"
+    status: "exists_needs_review"
     tier: 1
-    issues:
-      - "用語規約セクションの強化"
-      - "AUTO決定の明記"
   - path: "CLAUDE.md"
-    status: "exists_needs_update"
+    status: "exists_needs_review"
     tier: 2
-    issues:
-      - "AUTO決定の最新化"
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_update"
+    status: "exists_needs_review"
     tier: 2
-    issues:
-      - "invariants.ymlの反映"
   - path: "PURPOSE.md"
     status: "exists_needs_review"
     tier: 2
-    issues:
-      - "intent.ymlとの整合性確認"
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
     tier: 2
-    issues:
-      - "用語ガイドラインの追加"
-  - path: "GLOSSARY.md"
-    status: "exists_needs_update"
-    tier: 3
-    issues:
-      - "ontology.ymlからの自動生成（最新版）"
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "mappings.ymlの反映"
   - path: "GEMINI.md"
     status: "exists_needs_review"
     tier: 3
-    issues:
-      - "CLAUDE.mdと同等の情報"
   - path: "CODEX.md"
     status: "exists_needs_review"
     tier: 3
-    issues:
-      - "CLAUDE.mdと同等の情報"
-  - path: "CHANGELOG.md"
-    status: "skip"
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
     tier: 3
-    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    tier: 3
 
 actions:
-  - action: "update"
+  - action: "review"
     target: "README.md"
-    reason: "用語の正規化（synonyms→canonical）"
-
-  - action: "update"
+    reason: "Tier 1: Verify intent alignment and term normalization"
+  - action: "review"
     target: "AGENTS.md"
-    reason: "用語規約セクションの強化、AUTO決定の明記"
-
-  - action: "update"
+    reason: "Tier 1: Verify AI agent guidelines reflect invariants"
+  - action: "review"
     target: "CLAUDE.md"
-    reason: "AUTO決定の最新化、概念整合性の向上"
-
-  - action: "update"
+    reason: "Tier 2: Verify Claude-specific instructions"
+  - action: "review"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "invariants.ymlの反映（hard invariantsの明記）"
-
-  - action: "update"
-    target: "GLOSSARY.md"
-    reason: "ontology.ymlから再生成（最新版）"
-
+    reason: "Tier 2: Verify hard invariants are reflected"
   - action: "review"
     target: "PURPOSE.md"
-    reason: "intent.ymlとの整合性確認"
-
+    reason: "Tier 2: Verify purpose aligns with intent.yml"
   - action: "review"
     target: "CONTRIBUTING.md"
-    reason: "用語ガイドラインの追加検討"
-
+    reason: "Tier 2: Verify contribution guidelines reflect invariants"
+  - action: "review"
+    target: "GEMINI.md"
+    reason: "Tier 3: Verify Gemini-specific instructions"
+  - action: "review"
+    target: "CODEX.md"
+    reason: "Tier 3: Verify Codex-specific instructions"
   - action: "review"
     target: "ARCHITECTURE.md"
-    reason: "mappings.ymlの反映検討"
-
-  - action: "skip"
-    target: "CHANGELOG.md"
-    reason: "変更履歴はbootstrapperの管轄外"
-
-target_score: 90
-max_iterations: 3
+    reason: "Tier 3: Verify architecture reflects ontology mappings"
+  - action: "review"
+    target: "GLOSSARY.md"
+    reason: "Tier 3: Verify glossary matches ontology.yml"

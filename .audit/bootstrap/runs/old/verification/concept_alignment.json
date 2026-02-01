@@ -1,277 +1,261 @@
 {
-  "timestamp": "2026-02-02T05:20:00Z",
-  "concept_source": ".concept/ontology.yml (v0.3)",
-  "overall_alignment_score": 98,
+  "timestamp": "2026-02-02T05:30:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 92,
+
   "term_usage_check": {
-    "total_term_occurrences": 95,
-    "canonical_used": 95,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "total_term_occurrences": 85,
+    "canonical_used": 82,
+    "synonym_used_in_tables": 3,
+    "unknown_terms": 1,
+    "alignment_rate": 0.965
   },
+
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory"
+      "alignment_score": 90,
+      "term_occurrences": 35,
+      "canonical_used": 33,
+      "synonym_used": 0,
+      "unknown_terms": 2,
+      "issues": [
+        {
+          "line": 20,
+          "found": "OpenGuiConnector",
+          "expected": "Connector",
+          "status": "term_gap",
+          "priority": "medium"
+        },
+        {
+          "line": 53,
+          "found": "OpenGuiConnector",
+          "expected": "Connector",
+          "status": "term_gap",
+          "priority": "medium"
+        }
       ],
-      "synonyms_found": [],
-      "highlights": [
-        "Core Components section uses all canonical terms correctly",
-        "System Invariants section properly references INV-* IDs",
-        "AUTO Decisions section documents all 11 AUTO decisions"
+      "strengths": [
+        "Core Componentsセクションでcanonical termsを適切に使用",
+        "System Invariantsセクションでhard invariantsを適切に記述",
+        "AUTO Decisionsセクションで暫定仕様を明記"
       ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
+      "term_occurrences": 25,
+      "canonical_used": 25,
+      "synonym_used": 0,
+      "unknown_terms": 0,
       "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Perfect term normalization table with all synonyms",
-        "All 10 canonical terms used correctly",
-        "Invariant documentation matches invariants.yml exactly",
-        "AUTO decisions match ambiguities.yml exactly"
+      "strengths": [
+        "用語規約テーブルでsynonymsを適切に列挙（説明用として使用）",
+        "本文で全てcanonical termsを使用",
+        "AUTO決定を網羅的に記載"
       ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
+      "alignment_score": 95,
+      "term_occurrences": 18,
+      "canonical_used": 18,
+      "synonym_used": 0,
+      "unknown_terms": 0,
       "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Claude-specific recommendations aligned with ontology",
-        "Code examples follow invariant constraints",
-        "AUTO decisions properly documented"
+      "strengths": [
+        "コア用語、ドメイン用語、補助用語を適切に分類",
+        "コード例でcanonical termsを使用",
+        "AUTO決定をカテゴリ別に整理"
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 95,
+      "term_occurrences": 12,
+      "canonical_used": 12,
+      "synonym_used": 0,
+      "unknown_terms": 0,
+      "issues": [],
+      "strengths": [
+        "hard invariantsを全て反映",
+        "各invariantでrelated_termsを適切に記載",
+        "AUTO決定を明記"
       ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "term_occurrences": 30,
+      "canonical_used": 30,
+      "synonym_used": 0,
+      "unknown_terms": 0,
       "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Auto-generated from ontology.yml",
-        "Perfect alignment with ontology structure",
-        "All evidence quotes included",
-        "AUTO decisions properly documented"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 98,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Mission statement matches intent.yml",
-        "Core objectives use canonical terminology",
-        "Design philosophy aligns with ontology"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Constitutional invariants match invariants.yml",
-        "All hard invariants documented with proper IDs",
-        "Term usage is perfectly canonical"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 98,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Component descriptions use canonical terms",
-        "Invariant references match invariants.yml",
-        "Layer boundaries align with ontology"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Term usage guidelines emphasize canonical forms",
-        "References to ontology.yml provided"
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Gemini-specific guidelines use canonical terms"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_found": [
-        "Interpreter",
-        "Agent",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "highlights": [
-        "Codex-specific guidelines use canonical terms"
+      "strengths": [
+        "ontology.ymlから自動生成",
+        "全てのcanonical termsを網羅",
+        "synonymsを適切に記載"
       ]
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 9,
-    "reflected_in_md": 9,
-    "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": {
-        "covered": 9,
-        "missing": []
+    "total_invariants": 15,
+    "hard_invariants": 10,
+    "soft_invariants": 5,
+    "reflected_in_md": {
+      "SYSTEM_CONSTITUTION.md": 10,
+      "AGENTS.md": 10,
+      "README.md": 8,
+      "CLAUDE.md": 9
+    },
+    "missing": [
+      {
+        "invariant_id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "strength": "soft",
+        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
+        "status": "acceptable",
+        "reason": "soft invariantのためconstitutionには不要。AGENTS.mdには記載済み"
       },
-      "README.md": {
-        "covered": 6,
-        "missing": []
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "covered": 5,
-        "missing": []
-      },
-      "CLAUDE.md": {
-        "covered": 9,
-        "missing": []
-      },
-      "ARCHITECTURE.md": {
-        "covered": 7,
-        "missing": []
+      {
+        "invariant_id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "strength": "soft",
+        "status": "draft",
+        "should_appear_in": [],
+        "reason": "draft statusのため。README.mdには記載済み"
       }
-    }
+    ],
+    "newly_added": [
+      {
+        "invariant_id": "INV-MESSAGE-001",
+        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
+        "added_to": "SYSTEM_CONSTITUTION.md",
+        "previous_status": "missing",
+        "current_status": "reflected"
+      },
+      {
+        "invariant_id": "INV-STATE-002",
+        "statement": "状態は3秒間隔のタイマーで自動更新される",
+        "added_to": "SYSTEM_CONSTITUTION.md",
+        "previous_status": "missing",
+        "current_status": "reflected"
+      },
+      {
+        "invariant_id": "INV-BACKEND-001",
+        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+        "added_to": "SYSTEM_CONSTITUTION.md",
+        "previous_status": "missing",
+        "current_status": "reflected"
+      },
+      {
+        "invariant_id": "INV-SESSION-002",
+        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
+        "added_to": "SYSTEM_CONSTITUTION.md",
+        "previous_status": "missing",
+        "current_status": "reflected"
+      },
+      {
+        "invariant_id": "INV-CONNECTOR-001",
+        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+        "added_to": "SYSTEM_CONSTITUTION.md",
+        "previous_status": "missing",
+        "current_status": "reflected"
+      },
+      {
+        "invariant_id": "INV-CONVERTER-001",
+        "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
+        "added_to": "SYSTEM_CONSTITUTION.md",
+        "previous_status": "missing",
+        "current_status": "reflected"
+      }
+    ]
   },
-  "auto_decision_check": {
-    "total_auto_decisions": 11,
-    "documented_in_md": 11,
-    "missing_documentation": [],
+
+  "ambiguity_check": {
+    "active_auto_decisions": 13,
+    "reflected_as_notes": 13,
+    "missing_notes": 0,
+    "format": "注記として記載（暫定仕様として扱う）",
     "coverage_by_file": {
       "README.md": {
-        "covered": 11,
+        "AUTO_decisions_covered": 13,
         "section": "AUTO Decisions (Provisional Specifications)"
       },
       "AGENTS.md": {
-        "covered": 11,
+        "AUTO_decisions_covered": 13,
         "section": "AUTO決定（暫定仕様）"
       },
       "CLAUDE.md": {
-        "covered": 11,
+        "AUTO_decisions_covered": 13,
         "section": "AUTO決定の認識"
       }
     }
   },
-  "ambiguity_check": {
-    "active_auto_decisions": 11,
-    "reflected_as_notes": 11,
-    "missing_notes": 0,
-    "format": "Clearly documented as AUTO decisions with expiration info"
+
+  "ontology_coverage": {
+    "total_canonical_terms": 10,
+    "terms_used_in_md": 10,
+    "coverage_percentage": 100,
+    "terms_by_layer": {
+      "core": {
+        "total": 5,
+        "used": 5,
+        "terms": ["Interpreter", "Agent", "Session", "Message", "State"]
+      },
+      "domain": {
+        "total": 4,
+        "used": 4,
+        "terms": ["AutoChat", "StreamWrapper", "Backend", "Memory"]
+      },
+      "aux": {
+        "total": 1,
+        "used": 1,
+        "terms": ["Converter"]
+      }
+    }
   },
-  "summary": {
-    "excellent_alignment": true,
-    "critical_issues": 0,
-    "recommendations": [
-      "No changes needed - documentation is in excellent state",
-      "All MD files properly use canonical terminology",
-      "All invariants are properly documented",
-      "All AUTO decisions are documented with provisional status"
+
+  "synonym_usage_analysis": {
+    "total_synonyms": 38,
+    "synonyms_in_tables": 3,
+    "synonyms_in_body_text": 0,
+    "intentional_synonym_usage": [
+      {
+        "file": "AGENTS.md",
+        "context": "用語規約テーブル（同義語使用禁止の説明用）",
+        "synonyms_listed": 38,
+        "purpose": "educational",
+        "acceptable": true
+      }
+    ],
+    "unintentional_synonym_usage": []
+  },
+
+  "improvement_recommendations": {
+    "high_priority": [],
+    "medium_priority": [
+      {
+        "issue": "OpenGuiConnector用語がontology.ymlに未登録",
+        "recommendation": "term_queue.ymlへの追加を検討。またはConnector用語との統合を検討",
+        "affected_files": ["README.md"],
+        "action": "review_term_gap"
+      }
+    ],
+    "low_priority": [
+      {
+        "issue": "GEMINI.mdとCODEX.mdの内容が不足",
+        "recommendation": "CLAUDE.mdをベースにAIモデル固有の調整を追加",
+        "affected_files": ["GEMINI.md", "CODEX.md"],
+        "action": "enhance_content"
+      },
+      {
+        "issue": "CONTRIBUTING.mdの用語ガイドライン不足",
+        "recommendation": "AGENTS.mdの用語規約セクションを参考にガイドラインを追加",
+        "affected_files": ["CONTRIBUTING.md"],
+        "action": "enhance_content"
+      }
     ]
   }
 }
