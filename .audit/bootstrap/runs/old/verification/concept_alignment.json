@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-01T22:49:26Z",
-  "concept_source": ".concept/ontology.yml",
+  "timestamp": "2026-02-01T14:03:35Z",
+  "concept_source": ".concept/ontology.yml v0.3",
   "overall_alignment_score": 100,
   "term_usage_check": {
-    "total_term_occurrences": 50,
-    "canonical_used": 50,
+    "total_term_occurrences": 52,
+    "canonical_used": 52,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -13,76 +13,179 @@
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Converter",
+        "Backend"
+      ],
+      "synonyms_found": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Converter"
+      ],
+      "synonyms_found": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "synonyms_found": []
     },
     {
       "file": "CONTRIBUTING.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "synonyms_found": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "auto_generated": true,
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Converter"
+      ],
+      "synonyms_found": []
     }
   ],
   "invariant_check": {
     "total_invariants": 7,
     "reflected_in_md": 7,
     "missing": [],
-    "coverage_rate": 1.0,
-    "details": [
+    "coverage": "100%",
+    "by_invariant": [
       {
-        "invariant_id": "INV-STATE-001",
-        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "covered"
+        "id": "INV-STATE-001",
+        "statement": "インタープリタ状態は単調遷移する",
+        "reflected_in": ["AGENTS.md", "README.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "documented"
       },
       {
-        "invariant_id": "INV-MSG-001",
-        "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "covered"
+        "id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ",
+        "reflected_in": ["AGENTS.md", "README.md"],
+        "status": "documented"
       },
       {
-        "invariant_id": "INV-AUTO-001",
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "covered"
+        "id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガー",
+        "reflected_in": ["AGENTS.md", "README.md"],
+        "status": "documented"
       },
       {
-        "invariant_id": "INV-STREAM-001",
-        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "covered"
+        "id": "INV-STREAM-001",
+        "statement": "ストリームラッパーは同期・非同期の両方をサポート",
+        "reflected_in": ["AGENTS.md", "README.md"],
+        "status": "documented"
       },
       {
-        "invariant_id": "INV-SESSION-001",
+        "id": "INV-SESSION-001",
         "statement": "セッションは一意のUUIDで識別される",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "covered"
+        "reflected_in": ["AGENTS.md", "README.md"],
+        "status": "documented"
       },
       {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER",
-        "reflected_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "covered"
+        "id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "reflected_in": ["AGENTS.md", "README.md"],
+        "status": "documented"
       },
       {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
+        "id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持",
+        "reflected_in": ["GLOSSARY.md"],
+        "status": "documented"
+      }
+    ]
+  },
+  "auto_decision_check": {
+    "total_active_auto_decisions": 7,
+    "reflected_as_notes": 7,
+    "missing_notes": [],
+    "coverage": "100%",
+    "by_decision": [
+      {
+        "key": "AUTO:Agent.role:classification",
+        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:Agent.type:implementation_property",
+        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:State.lifecycle:monotonic",
+        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:Message.structure:flat",
+        "reflected_in": ["GLOSSARY.md"],
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:AutoChat.trigger:stop_only",
+        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:AutoChat.prompt:default_continue",
         "reflected_in": ["AGENTS.md"],
-        "status": "covered"
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:Backend.primary:gradio",
+        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
+        "status": "documented"
+      },
+      {
+        "key": "AUTO:Memory.window:k10",
+        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
+        "status": "documented"
       }
     ]
   },
@@ -90,49 +193,13 @@
     "active_auto_decisions": 8,
     "reflected_as_notes": 8,
     "missing_notes": 0,
-    "coverage_rate": 1.0,
-    "details": [
-      {
-        "decision_key": "AUTO:Agent.role:classification",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:Agent.type:implementation_property",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:State.lifecycle:monotonic",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:AutoChat.trigger:stop_only",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:AutoChat.prompt:default_continue",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:Backend.primary:gradio",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:Memory.window:k10",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      },
-      {
-        "decision_key": "AUTO:Message.structure:flat",
-        "reflected_in": ["AGENTS.md"],
-        "status": "covered"
-      }
-    ]
+    "all_ambiguities_resolved": true
   },
-  "synonym_usage_detected": []
+  "summary": {
+    "overall_alignment": "PERFECT",
+    "term_usage": "100% canonical",
+    "invariant_coverage": "100%",
+    "auto_decision_coverage": "100%",
+    "recommendation": "No changes needed - all MD files are optimally aligned with ontology"
+  }
 }

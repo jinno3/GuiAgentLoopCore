@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-02-01T14:03:35Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "overall_alignment_score": 100,
+  "timestamp": "2026-02-01T14:23:17.839180+00:00",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 36,
   "term_usage_check": {
-    "total_term_occurrences": 52,
-    "canonical_used": 52,
-    "synonym_used": 0,
+    "total_term_occurrences": 37,
+    "canonical_used": 37,
+    "synonym_used": 76,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.3274336283185841
   },
   "per_file": [
     {
@@ -22,15 +22,136 @@
         "State",
         "AutoChat",
         "StreamWrapper",
-        "Converter",
-        "Backend"
+        "Backend",
+        "Converter"
       ],
       "synonyms_found": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": [],
+      "alignment_score": 0,
+      "issues": [
+        {
+          "line": 15,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 15,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 16,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 16,
+          "found": "専門エージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 17,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 17,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "メッセージ",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "ChatMessage",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 19,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 19,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 20,
+          "found": "自動チャット",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 20,
+          "found": "自動継続",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 21,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 21,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 22,
+          "found": "GUIバックエンド",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 22,
+          "found": "UIフレームワーク",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 24,
+          "found": "変換器",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 24,
+          "found": "マッパー",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 23,
+          "found": "会話メモリ",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 23,
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "status": "detected"
+        }
+      ],
       "canonical_terms_found": [
         "Interpreter",
         "Agent",
@@ -40,42 +161,573 @@
         "AutoChat",
         "StreamWrapper",
         "Backend",
-        "Memory",
-        "Converter"
+        "Converter",
+        "Memory"
       ],
-      "synonyms_found": []
+      "synonyms_found": [
+        {
+          "line": 15,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 15,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 16,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 16,
+          "found": "専門エージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 17,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 17,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "メッセージ",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "ChatMessage",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 19,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 19,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 20,
+          "found": "自動チャット",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 20,
+          "found": "自動継続",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 21,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 21,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 22,
+          "found": "GUIバックエンド",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 22,
+          "found": "UIフレームワーク",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 24,
+          "found": "変換器",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 24,
+          "found": "マッパー",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 23,
+          "found": "会話メモリ",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 23,
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "status": "detected"
+        }
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": [],
+      "alignment_score": 0,
+      "issues": [
+        {
+          "line": 16,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 17,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 29,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 30,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 38,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 73,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 77,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 81,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 85,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        }
+      ],
       "canonical_terms_found": [
         "Interpreter",
         "Agent",
         "Session",
-        "Message",
-        "State"
+        "Message"
       ],
-      "synonyms_found": []
+      "synonyms_found": [
+        {
+          "line": 16,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 17,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 29,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 30,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 38,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 73,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 77,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 81,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 85,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        }
+      ]
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": [],
+      "alignment_score": 80,
+      "issues": [
+        {
+          "line": 18,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        }
+      ],
       "canonical_terms_found": [
         "Interpreter",
-        "Agent",
-        "Session",
         "Message",
-        "State"
+        "AutoChat",
+        "StreamWrapper"
       ],
-      "synonyms_found": []
+      "synonyms_found": [
+        {
+          "line": 18,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 18,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        }
+      ]
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": [],
-      "auto_generated": true,
+      "alignment_score": 0,
+      "issues": [
+        {
+          "line": 19,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 197,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 19,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 198,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 34,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 199,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 34,
+          "found": "専門エージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 200,
+          "found": "専門エージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 53,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 61,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 201,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 53,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 202,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 68,
+          "found": "メッセージ",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 203,
+          "found": "メッセージ",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 68,
+          "found": "ChatMessage",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 204,
+          "found": "ChatMessage",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 86,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 97,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 205,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 55,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 86,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 206,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 108,
+          "found": "自動チャット",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 207,
+          "found": "自動チャット",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 108,
+          "found": "自動継続",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 208,
+          "found": "自動継続",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 126,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 134,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 209,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 126,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 210,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 141,
+          "found": "GUIバックエンド",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 211,
+          "found": "GUIバックエンド",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 141,
+          "found": "UIフレームワーク",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 212,
+          "found": "UIフレームワーク",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 179,
+          "found": "変換器",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 215,
+          "found": "変換器",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 179,
+          "found": "マッパー",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 216,
+          "found": "マッパー",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 158,
+          "found": "会話メモリ",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 213,
+          "found": "会話メモリ",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 158,
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 214,
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "status": "detected"
+        }
+      ],
       "canonical_terms_found": [
         "Interpreter",
         "Agent",
@@ -85,121 +737,304 @@
         "AutoChat",
         "StreamWrapper",
         "Backend",
-        "Memory",
-        "Converter"
+        "Converter",
+        "Memory"
       ],
-      "synonyms_found": []
+      "synonyms_found": [
+        {
+          "line": 19,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 197,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 19,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 198,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "detected"
+        },
+        {
+          "line": 34,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 199,
+          "found": "AIエージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 34,
+          "found": "専門エージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 200,
+          "found": "専門エージェント",
+          "expected": "Agent",
+          "status": "detected"
+        },
+        {
+          "line": 53,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 61,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 201,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 53,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 202,
+          "found": "会話セッション",
+          "expected": "Session",
+          "status": "detected"
+        },
+        {
+          "line": 68,
+          "found": "メッセージ",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 203,
+          "found": "メッセージ",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 68,
+          "found": "ChatMessage",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 204,
+          "found": "ChatMessage",
+          "expected": "Message",
+          "status": "detected"
+        },
+        {
+          "line": 86,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 97,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 205,
+          "found": "InterpreterState",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 55,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 86,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 206,
+          "found": "インタープリタ状態",
+          "expected": "State",
+          "status": "detected"
+        },
+        {
+          "line": 108,
+          "found": "自動チャット",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 207,
+          "found": "自動チャット",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 108,
+          "found": "自動継続",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 208,
+          "found": "自動継続",
+          "expected": "AutoChat",
+          "status": "detected"
+        },
+        {
+          "line": 126,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 134,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 209,
+          "found": "GuiAgentStreamWrapper",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 126,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 210,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper",
+          "status": "detected"
+        },
+        {
+          "line": 141,
+          "found": "GUIバックエンド",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 211,
+          "found": "GUIバックエンド",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 141,
+          "found": "UIフレームワーク",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 212,
+          "found": "UIフレームワーク",
+          "expected": "Backend",
+          "status": "detected"
+        },
+        {
+          "line": 179,
+          "found": "変換器",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 215,
+          "found": "変換器",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 179,
+          "found": "マッパー",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 216,
+          "found": "マッパー",
+          "expected": "Converter",
+          "status": "detected"
+        },
+        {
+          "line": 158,
+          "found": "会話メモリ",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 213,
+          "found": "会話メモリ",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 158,
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "status": "detected"
+        },
+        {
+          "line": 214,
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "status": "detected"
+        }
+      ]
     }
   ],
   "invariant_check": {
-    "total_invariants": 7,
-    "reflected_in_md": 7,
-    "missing": [],
-    "coverage": "100%",
-    "by_invariant": [
-      {
-        "id": "INV-STATE-001",
-        "statement": "インタープリタ状態は単調遷移する",
-        "reflected_in": ["AGENTS.md", "README.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "documented"
-      },
-      {
-        "id": "INV-MSG-001",
-        "statement": "メッセージタイプは定義された列挙型のみ",
-        "reflected_in": ["AGENTS.md", "README.md"],
-        "status": "documented"
-      },
-      {
-        "id": "INV-AUTO-001",
-        "statement": "AutoChatはSTATE_STOP時のみトリガー",
-        "reflected_in": ["AGENTS.md", "README.md"],
-        "status": "documented"
-      },
-      {
-        "id": "INV-STREAM-001",
-        "statement": "ストリームラッパーは同期・非同期の両方をサポート",
-        "reflected_in": ["AGENTS.md", "README.md"],
-        "status": "documented"
-      },
-      {
-        "id": "INV-SESSION-001",
-        "statement": "セッションは一意のUUIDで識別される",
-        "reflected_in": ["AGENTS.md", "README.md"],
-        "status": "documented"
-      },
+    "total": 7,
+    "reflected_in_md": 5,
+    "missing": [
       {
         "id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ",
-        "reflected_in": ["AGENTS.md", "README.md"],
-        "status": "documented"
+        "statement": "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER",
+        "target_files": [
+          "AGENTS.md",
+          "CONTRIBUTING.md"
+        ],
+        "status": "pending"
       },
       {
         "id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持",
-        "reflected_in": ["GLOSSARY.md"],
-        "status": "documented"
-      }
-    ]
-  },
-  "auto_decision_check": {
-    "total_active_auto_decisions": 7,
-    "reflected_as_notes": 7,
-    "missing_notes": [],
-    "coverage": "100%",
-    "by_decision": [
-      {
-        "key": "AUTO:Agent.role:classification",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:Agent.type:implementation_property",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:State.lifecycle:monotonic",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:Message.structure:flat",
-        "reflected_in": ["GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:AutoChat.trigger:stop_only",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:AutoChat.prompt:default_continue",
-        "reflected_in": ["AGENTS.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:Backend.primary:gradio",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "key": "AUTO:Memory.window:k10",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "target_files": [
+          "AGENTS.md",
+          "CONTRIBUTING.md"
+        ],
+        "status": "pending"
       }
     ]
   },
   "ambiguity_check": {
-    "active_auto_decisions": 8,
-    "reflected_as_notes": 8,
-    "missing_notes": 0,
-    "all_ambiguities_resolved": true
-  },
-  "summary": {
-    "overall_alignment": "PERFECT",
-    "term_usage": "100% canonical",
-    "invariant_coverage": "100%",
-    "auto_decision_coverage": "100%",
-    "recommendation": "No changes needed - all MD files are optimally aligned with ontology"
+    "active_auto_decisions": 0,
+    "noted_in_md": 0,
+    "format": "注記として記載（暫定仕様として扱う）"
   }
 }

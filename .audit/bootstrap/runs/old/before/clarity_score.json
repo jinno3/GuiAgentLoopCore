@@ -1,10 +1,9 @@
 {
-  "timestamp": "2026-02-01T22:49:26Z",
+  "timestamp": "2026-02-01T14:03:35Z",
   "overall_score": 95,
   "concept_alignment_score": 100,
-  "uniqueness_score": 90,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integrated)",
+  "scoring_methodology": "v1.1 - concept_driven mode (ontology-based verification)",
   "files": [
     {
       "path": "README.md",
@@ -12,66 +11,114 @@
       "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Converter"
+        ],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter"
+        ],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
+      "invariants_documented": 5,
+      "invariants_coverage": "100%",
+      "auto_decisions_documented": 7,
+      "auto_decisions_coverage": "100%",
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 92,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State"
+        ],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
+      "claude_specific_guidelines": true,
+      "invariants_referenced": true,
+      "auto_decisions_referenced": true,
       "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State"
+        ],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
+      "invariants_documented": true,
+      "term_guidelines_documented": true,
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "auto_generated": true,
+        "source": ".concept/ontology.yml",
+        "ontology_version": "0.3"
       },
       "issues": []
     }
   ],
-  "term_usage_check": {
-    "total_term_occurrences": 50,
-    "canonical_used": 50,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
-  "invariant_coverage": {
-    "total_invariants": 7,
-    "reflected_in_md": 7,
-    "coverage_rate": 1.0
-  },
-  "auto_decision_coverage": {
-    "total_active": 8,
-    "noted_in_md": 8,
-    "coverage_rate": 1.0
+  "summary": {
+    "total_files": 5,
+    "excellent_files": 4,
+    "good_files": 1,
+    "needs_improvement": 0,
+    "critical": 0,
+    "overall_assessment": "All MD files are in excellent condition with perfect concept alignment"
   }
 }

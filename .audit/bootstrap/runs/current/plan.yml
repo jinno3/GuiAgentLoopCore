@@ -1,69 +1,64 @@
-run_timestamp: "2026-02-01T14:03:35Z"
-version: "1.1"
-
+run_timestamp: '2026-02-01T14:21:57.175253+00:00'
+version: '1.1'
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
 input_sources:
   audit:
     intent_yml: null
     constraints_yml: null
     status: MISSING
-    note: '14_repo_genesis_auditor has not been run yet. Proceeding in concept_driven mode.'
+    note: 14_repo_genesis_auditor has not been run yet. Proceeding in concept_driven
+      mode.
   concept:
     ontology_yml: /home/jinno/jinno3/GuiAgentLoopCore/.concept/ontology.yml
     invariants_yml: /home/jinno/jinno3/GuiAgentLoopCore/.concept/invariants.yml
     ambiguities_yml: /home/jinno/jinno3/GuiAgentLoopCore/.concept/ambiguities.yml
     has_concept: true
-
 mode: concept_driven
-
 intent_summary:
-  mission_hypothesis: 'GUIとLLMエージェントのブリッジとなるコアロジックを提供'
+  mission_hypothesis: GUIとLLMエージェントのブリッジとなるコアロジックを提供
   target_users_hypothesis:
-    - AIアプリケーション開発者
-    - GUI framework統合者
-  core_value_hypothesis: '会話フロー管理、エージェント相互作用、状態制御の中核機能'
+  - AIアプリケーション開発者
+  - GUI framework統合者
+  core_value_hypothesis: 会話フロー管理、エージェント相互作用、状態制御の中核機能
   confidence: LOW
-  reason: 'Inferred from ontology.yml and existing README.md, not from authoritative intent.yml'
-
+  reason: Inferred from ontology.yml and existing README.md, not from authoritative
+    intent.yml
 ontology_summary:
-  version: "0.3"
-  updated_at: "2026-02-01T13:05:48Z"
+  version: '0.3'
+  updated_at: '2026-02-01T13:05:48Z'
   total_terms: 10
   by_layer:
     core: 5
     domain: 4
     aux: 1
   key_terms:
-    - canonical: "Interpreter"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
-    - canonical: "Agent"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
-    - canonical: "Session"
-      definition: "一意のIDで管理される会話コンテキスト"
-      layer: "core"
-    - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
-    - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
-
+  - canonical: Interpreter
+    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
+    layer: core
+  - canonical: Agent
+    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
+    layer: core
+  - canonical: Session
+    definition: 一意のIDで管理される会話コンテキスト
+    layer: core
+  - canonical: Message
+    definition: ユーザー、システム、エージェント間の構造化された通信単位
+    layer: core
+  - canonical: State
+    definition: インタープリタの実行状態を表す列挙型
+    layer: core
 invariants_summary:
   total: 7
   hard: 5
   soft: 2
   hard_invariants:
-    - INV-STATE-001
-    - INV-MSG-001
-    - INV-AUTO-001
-    - INV-STREAM-001
-    - INV-SESSION-001
-
+  - INV-STATE-001
+  - INV-SESSION-001
+  - INV-MSG-001
+  - INV-AUTO-001
+  - INV-STREAM-001
 term_normalization:
   GuiAgentInterpreter: Interpreter
   会話インタープリタ: Interpreter
@@ -81,66 +76,59 @@ term_normalization:
   ストリームラッパー: StreamWrapper
   GUIバックエンド: Backend
   UIフレームワーク: Backend
-  会話メモリ: Memory
-  ConversationBuffer: Memory
   変換器: Converter
   マッパー: Converter
-
+  会話メモリ: Memory
+  ConversationBuffer: Memory
 existing_mds:
-  - path: "README.md"
-    status: exists_good
-    issues: []
-    last_modified: "2026-02-01T22:39:00Z"
-  - path: "AGENTS.md"
-    status: exists_good
-    issues: []
-    last_modified: "2026-02-01T22:39:00Z"
-  - path: "CLAUDE.md"
-    status: exists_good
-    issues: []
-    last_modified: "2026-02-01T22:13:00Z"
-  - path: "CONTRIBUTING.md"
-    status: exists_good
-    issues: []
-    last_modified: "2026-02-01T22:13:00Z"
-  - path: "GLOSSARY.md"
-    status: exists_good
-    issues: []
-    last_modified: "2026-02-01T22:09:00Z"
-  - path: "ARCHITECTURE.md"
-    status: missing
-    issues:
-      - "Missing: Architecture documentation showing component relationships"
-  - path: "PURPOSE.md"
-    status: missing
-    issues:
-      - "Missing: Detailed purpose documentation"
-
+- path: README.md
+  status: exists
+  last_modified: '2026-02-01T13:39:55.508747+00:00'
+- path: AGENTS.md
+  status: exists
+  last_modified: '2026-02-01T13:39:49.547570+00:00'
+- path: CLAUDE.md
+  status: exists
+  last_modified: '2026-02-01T13:13:34.963763+00:00'
+- path: CONTRIBUTING.md
+  status: exists
+  last_modified: '2026-02-01T13:13:10.187855+00:00'
+- path: GLOSSARY.md
+  status: exists
+  last_modified: '2026-02-01T13:12:35.545961+00:00'
+- path: ARCHITECTURE.md
+  status: missing
+- path: PURPOSE.md
+  status: missing
+- path: SYSTEM_CONSTITUTION.md
+  status: missing
 actions:
-  - action: verify
-    target: "README.md"
-    reason: "Verify ontology terms are properly reflected and invariants are documented"
-  - action: verify
-    target: "AGENTS.md"
-    reason: "Verify term normalization, invariants, and AUTO decisions are documented"
-  - action: verify
-    target: "CLAUDE.md"
-    reason: "Verify Claude-specific guidelines align with ontology and invariants"
-  - action: verify
-    target: "CONTRIBUTING.md"
-    reason: "Verify contributing guidelines mention invariants and term normalization"
-  - action: verify
-    target: "GLOSSARY.md"
-    reason: "Verify glossary matches ontology.yml v0.3 (auto-generated)"
-  - action: skip
-    target: "ARCHITECTURE.md"
-    reason: "Tier 3 document - out of scope for this run"
-  - action: skip
-    target: "PURPOSE.md"
-    reason: "Tier 3 document - out of scope for this run"
-
+- action: verify
+  target: README.md
+  reason: Verify ontology terms are properly reflected
+- action: verify
+  target: AGENTS.md
+  reason: Verify ontology terms are properly reflected
+- action: verify
+  target: CLAUDE.md
+  reason: Verify concept alignment
+- action: verify
+  target: CONTRIBUTING.md
+  reason: Verify concept alignment
+- action: verify
+  target: GLOSSARY.md
+  reason: Verify concept alignment
+- action: skip
+  target: ARCHITECTURE.md
+  reason: Tier 3 document - out of scope for this run
+- action: skip
+  target: PURPOSE.md
+  reason: Tier 3 document - out of scope for this run
+- action: skip
+  target: SYSTEM_CONSTITUTION.md
+  reason: Tier 3 document - out of scope for this run
 expected_outcomes:
   overall_score_target: 95
   uniqueness_score_target: 90
   concept_alignment_target: 100
-  mode: verification_only
+  mode: verification_and_update
