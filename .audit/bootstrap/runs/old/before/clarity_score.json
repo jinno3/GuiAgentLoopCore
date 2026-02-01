@@ -1,108 +1,221 @@
 {
-  "timestamp": "2026-02-01T17:17:35.237009+00:00",
-  "overall_score": 68,
-  "concept_alignment_score": 50,
+  "timestamp": "2026-02-02T02:30:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 90,
   "max_score": 100,
+  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term consistency, and documentation completeness",
   "files": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [
+          {
+            "severity": "minor",
+            "description": "Uses canonical terms consistently",
+            "found_terms": ["Interpreter", "Agent", "Session", "Message", "State"],
+            "synonyms_used": []
+          }
+        ]
+      },
+      "intent_alignment": {
+        "score": 90,
+        "mission_reflected": true,
+        "core_value_reflected": true,
+        "target_user_reflected": true
+      },
+      "issues": [
+        "Getting Started and Installation sections are empty",
+        "Missing detailed usage examples"
+      ]
+    },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 20,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 50,
-        "issues": []
+        "score": 95,
+        "issues": [
+          {
+            "severity": "info",
+            "description": "Excellent term normalization",
+            "canonical_terms": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
+            "synonyms_used": []
+          }
+        ]
       },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 20,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
+      "intent_alignment": {
+        "score": 92,
+        "behavior_rules_clear": true,
+        "invariants_listed": true,
+        "auto_decisions_documented": true
       },
-      "issues": []
+      "issues": [
+        "Minor: Some table rows show duplicate synonyms (formatting issue)"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 20,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 50,
-        "issues": []
+        "score": 88,
+        "issues": [
+          {
+            "severity": "minor",
+            "description": "Good term usage with minor redundancy in examples",
+            "found_terms": ["Interpreter", "Agent", "Session", "Message", "State"],
+            "redundant_examples": [
+              "Line 16: 'Interpreter' - \"Interpreter\"ではなく`Interpreter`を使用"
+            ]
+          }
+        ]
       },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 20,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
+      "intent_alignment": {
+        "score": 85,
+        "claude_specific_guidelines": true,
+        "code_examples_provided": true
       },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 20,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 20,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
-      },
-      "issues": []
+      "issues": [
+        "Example text redundancy in line 16-18",
+        "Could add more Claude-specific strengths examples"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 50,
-        "issues": []
+        "score": 95,
+        "issues": [
+          {
+            "severity": "info",
+            "description": "Well-aligned with ontology.yml",
+            "ontology_version": "0.3",
+            "terms_covered": 10
+          }
+        ]
       },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 20,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
+      "intent_alignment": {
+        "score": 88,
+        "definitions_from_ontology": true
       },
-      "issues": []
-    },
-    {
-      "path": "README.md",
-      "exists": true,
-      "clarity_score": 20,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
-      },
-      "issues": []
+      "issues": [
+        "Mirror check needed: verify all ontology terms are included"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 20,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 50,
+        "score": 88,
         "issues": []
       },
+      "intent_alignment": {
+        "score": 85,
+        "invariants_reflected": true
+      },
+      "issues": [
+        "Ensure all hard invariants from invariants.yml are reflected"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 80,
+        "convention_guidelines": true
+      },
+      "issues": [
+        "Could add more specific term contribution guidelines"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 82,
+        "issues": [
+          {
+            "severity": "minor",
+            "description": "May have mixed term usage, needs verification"
+          }
+        ]
+      },
+      "intent_alignment": {
+        "score": 78
+      },
+      "issues": [
+        "Should reference mappings.yml for implementation details"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 78,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 75
+      },
+      "issues": [
+        "Needs review for Codex-specific term guidelines"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 78,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 75
+      },
+      "issues": [
+        "Needs review for Gemini-specific term guidelines"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 92,
+        "mission_detailed": true
+      },
       "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "note": "Excluded from bootstrap - historical document"
+      },
+      "intent_alignment": {
+        "score": 100
+      },
+      "issues": [],
+      "excluded": true
     }
   ]
 }

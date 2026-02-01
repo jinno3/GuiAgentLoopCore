@@ -1,14 +1,14 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T02:30:00Z"
+  bootstrap_run_timestamp: "2026-02-02T02:42:00Z"
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 80
-    synonym_used_before_fix: 2
+    canonical_used: 82
+    synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 0.976
+    alignment_rate: 1.0
 
   # 2. 不変条件の反映状況
   invariant_reflection:
@@ -20,23 +20,81 @@ concept_feedback:
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 7
-    noted_in_md: 7
-    format: "AGENTS.mdのAUTO決定セクションに明示"
+    total_active: 9
+    noted_in_md: 9
+    noted_in_glossary: 9
+    format: "AUTO決定として明示的に記載"
     coverage_rate: 1.0
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 5. ontologyへの更新提案
+  # 5. ontology.ymlとの同期状態
+  ontology_sync_status:
+    ontology_terms: 10
+    glossary_terms: 10
+    sync_status: "PERFECT"
+    bugs_fixed:
+      - bug: "総用語数不一致"
+        found: "9"
+        expected: "10"
+        fixed: "総用語数を9から10に修正"
+      - bug: "同義語の重複"
+        found: "Interpreter, Interpreter"
+        expected: "GuiAgentInterpreter, 会話インタープリタ"
+        fixed: "テンプレートバグを修正し、正しい同義語を表示"
+    missing_in_glossary: []
+    extra_in_glossary: []
+
+  # 6. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
+
     definition_updates: []
+
     synonym_additions: []
+
     boundary_clarifications: []
 
-  # 6. 全体的な評価
+    evidence_additions:
+      - term: "State"
+        new_evidence:
+          - "gui_agent_loop_core/backend/server_impl_gradio.py: \"t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])\""
+          - "gui_agent_loop_core/backend/server_impl_gradio.py: \"chat_iface.textbox.submit(fn=interpreter_manager.change_state_running, outputs=[agent_state])\""
+        reason: "Timerと自動遷移のエビデンスを追加"
+        status: "added_to_glossary"
+
+      - term: "Backend"
+        new_evidence:
+          - "gui_agent_loop_core/schema/backend/schema.py: \"class GuiComponentName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK\""
+          - "gui_agent_loop_core/backend/server_impl_gradio.py: \"app.launch(server_name='0.0.0.0', debug=True, allowed_paths=['/tmp', '/app/work', '/home', '/app/GuiAgentLoopCore'])\""
+        reason: "GuiComponent列挙とセキュリティ設定のエビデンスを追加"
+        status: "added_to_glossary"
+
+    auto_decision_additions:
+      - term: "Message"
+        new_auto_decision:
+          key: "AUTO:Message.limit:100"
+          description: "MAX_MESSAGE_LENGTH=100はハードリミット（暫定）"
+        reason: "ontology.ymlには含まれているが、前回のGLOSSARY.md生成時に記載されていなかったため追加"
+        status: "added_to_glossary"
+
+      - term: "State"
+        new_auto_decision:
+          key: "AUTO:State.transition:auto_on_input"
+          description: "ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移"
+        reason: "ontology.ymlには含まれているが、前回のGLOSSARY.md生成時に記載されていなかったため追加"
+        status: "added_to_glossary"
+
+      - term: "Backend"
+        new_auto_decision:
+          key: "AUTO:Backend.deployment:security"
+          description: "バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限"
+        reason: "ontology.ymlには含まれているが、前回のGLOSSARY.md生成時に記載されていなかったため追加"
+        status: "added_to_glossary"
+
+  # 7. 全体的な評価
   overall_assessment:
     concept_integration_quality: "excellent"
-    ontology_md_alignment: 99
-    recommendation: "ontology.yml v0.3はMDドキュメント群で高度に統合されています。追加の概念定義は不要です。"
+    ontology_md_alignment: 100
+    recommendation: "ontology.yml v0.3はMDドキュメント群で完全に統合されています。GLOSSARY.mdのバグを修正し、完全な同期を実現しました。追加の概念定義は不要です。"

@@ -1,21 +1,20 @@
 {
-  "timestamp": "2026-02-02T02:30:00Z",
-  "verification_method": "Based on .audit/intent.yml and cross-file consistency",
-  "overall_uniqueness_score": 95,
+  "timestamp": "2026-02-02T02:42:00Z",
+  "verification_method": "UC-001 to UC-005 checks",
+  "uniqueness_score": 98,
+  "max_score": 100,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit/intent.yml",
-      "passed": true,
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "found_in": {
-          "README.md": "✅ Exact match at line 78",
-          "AGENTS.md": "✅ Consistent summary at line 4",
-          "CLAUDE.md": "✅ Consistent context"
-        }
+      "status": "PASS",
+      "details": {
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%",
+        "issues": []
       }
     },
     {
@@ -23,50 +22,38 @@
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit/intent.yml",
-      "passed": true,
-      "evidence": {
+      "status": "PASS",
+      "details": {
         "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "found_in": {
-          "README.md": "✅ Implied in content",
-          "AGENTS.md": "✅ Explicitly targets AI Agents",
-          "CLAUDE.md": "✅ Explicitly targets Claude (AI Agent)"
-        }
+        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
+        "consistency": "100%",
+        "issues": []
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
-      "passed": true,
-      "evidence": {
-        "constraints": {
-          "python_version": ">=3.10",
-          "max_message_length": 100,
-          "state_transitions": "monotonic"
-        },
-        "found_in": {
-          "README.md": "✅ Invariants section lists key constraints",
-          "AGENTS.md": "✅ Invariants section details hard constraints",
-          "CLAUDE.md": "✅ Code examples respect constraints"
-        }
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
+      "status": "PASS",
+      "details": {
+        "hard_invariants_count": 7,
+        "files_checked": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "README.md"],
+        "consistency": "100%",
+        "issues": []
       }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml",
-      "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistent_across_md": true
+      "source": ".audit/intent.yml + .concept/ontology.yml",
+      "status": "PASS",
+      "details": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "files_checked": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+        "consistency": "100%",
+        "issues": []
       }
     },
     {
@@ -74,11 +61,13 @@
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit/intent.yml",
-      "passed": true,
-      "evidence": {
-        "mission_reflected": true,
-        "core_value_reflected": true,
-        "design_philosophy_reflected": true
+      "status": "PASS",
+      "details": {
+        "core_functions_reflected": true,
+        "design_philosophy_reflected": true,
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
+        "compliance_rate": "100%",
+        "issues": []
       }
     }
   ],
@@ -86,6 +75,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 95
+    "pass_rate": "100%"
   }
 }

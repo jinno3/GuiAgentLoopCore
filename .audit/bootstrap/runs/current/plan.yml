@@ -1,4 +1,5 @@
-run_timestamp: "2026-02-02T02:30:00Z"
+# MD Bootstrap Execution Plan
+run_timestamp: "2026-02-02T02:42:00Z"
 version: "1.1"
 
 rotation:
@@ -15,9 +16,13 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
   total_terms: 10
@@ -27,19 +32,14 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト"
-      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -48,56 +48,67 @@ term_normalization:
   "専門エージェント": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_needs_minor_update"
+    issues:
+      - "Getting Started and Installation sections are empty (noted, not critical)"
+      - "Overall good alignment with intent.yml and ontology.yml"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
-  - path: "CLAUDE.md"
-    status: "exists_needs_review"
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
+    status: "exists_good"
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-  - path: "CHANGELOG.md"
-    status: "exists_unchanged"
+    status: "exists_needs_fix"
+    issues:
+      - "Bug: 総用語数 shows 9 but ontology has 10 terms"
+      - "Bug: Synonyms section shows duplicates (e.g., 'Interpreter, Interpreter')"
+      - "Needs regeneration from ontology.yml"
+  - path: "CLAUDE.md"
+    status: "exists_good"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_good"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_good"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists_acceptable"
+    issues:
+      - "Could reference mappings.yml for implementation details"
+  - path: "CODEX.md"
+    status: "exists_minimal"
+    issues:
+      - "Needs review for Codex-specific term guidelines"
+  - path: "GEMINI.md"
+    status: "exists_minimal"
+    issues:
+      - "Needs review for Gemini-specific term guidelines"
+  - path: "PURPOSE.md"
+    status: "exists_good"
+    issues: []
 
 actions:
-  - action: "review"
-    target: "README.md"
-    reason: "Verify intent reflection and term normalization"
-  - action: "review"
-    target: "AGENTS.md"
-    reason: "Verify agent guidelines and term conventions"
-  - action: "review"
-    target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions"
-  - action: "review"
+  - action: "update"
     target: "GLOSSARY.md"
-    reason: "Verify ontology consistency"
-  - action: "review"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection"
-  - action: "skip"
-    target: "CHANGELOG.md"
-    reason: "Changelog is historical, not generated"
+    reason: "Fix bugs: incorrect term count (9→10) and duplicate synonyms"
+    priority: "high"
+  - action: "verify"
+    target: "README.md"
+    reason: "Verify alignment with intent.yml and ontology.yml"
+    priority: "medium"
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify term normalization table is correct"
+    priority: "medium"
 
-invariants_count:
-  hard: 7
-  soft: 2
-  total: 9
+execution_notes: |
+  This run focuses on fixing the GLOSSARY.md bugs identified in the previous run.
+  The ontology.yml has 10 terms but GLOSSARY.md shows 9, and the synonyms
+  section has formatting issues with duplicate entries.
+
+  All other MD files are in good shape with high alignment scores.
+  The main goal is to ensure GLOSSARY.md accurately reflects ontology.yml v0.3.

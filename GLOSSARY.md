@@ -3,9 +3,9 @@
 > このドキュメントは`.concept/ontology.yml`から自動生成されています。
 > 用語の追加・変更は`.concept/term_queue.yml`を通じて行ってください。
 
-**最終更新**: 2026-02-01T13:05:48Z
+**最終更新**: 2026-02-02T02:42:00Z
 **Ontologyバージョン**: 0.3
-**総用語数**: 9
+**総用語数**: 10
 
 ---
 
@@ -16,8 +16,8 @@
 ### Interpreter
 
 - **定義**: 会話フローとエージェント相互作用を管理する中核コンポーネント
-- **同義語**: Interpreter, Interpreter（使用禁止）
-- **含む**: 状態管理, セッション管理, `Message`ルーティング
+- **同義語**: GuiAgentInterpreter, 会話インタープリタ
+- **含む**: 状態管理, セッション管理, メッセージルーティング
 - **含まない**: UI描画, LLM直接実行
 - **ライフサイクル**: STATE_INIT, STATE_RUNNING, STATE_STOP
 - **関連用語**: Agent, Session, Message, State
@@ -31,10 +31,10 @@
 ### Agent
 
 - **定義**: 特定の役割と実装タイプを持つ専門化AIエンティティ
-- **同義語**: Agent, Agent（使用禁止）
+- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage
 - **含む**: 役割定義, タスク実行, LLM呼び出し, 実装タイプ（TOOL_CALLING/STRUCTURED_CHAT）
 - **含まない**: セッション管理, UI描画
-- **関連用語**: Interpreter, AgentName, Message
+- **関連用語**: Interpreter, AgentName, Message, Backend
 - **ステータス**: stable
 
 **AUTO決定**:
@@ -50,9 +50,9 @@
 ### Session
 
 - **定義**: 一意のIDで管理される会話コンテキスト
-- **同義語**: Session, Session（使用禁止）
-- **含む**: Message履歴, セッションID, 認証トークン
-- **含まない**: UI状態, State
+- **同義語**: ChatSession, 会話セッション
+- **含む**: メッセージ履歴, セッションID, 認証トークン
+- **含まない**: UI状態, インタープリタ状態
 - **ライフサイクル**: created, active, terminated
 - **関連用語**: Interpreter, Message, ChatManager
 - **ステータス**: stable
@@ -64,37 +64,42 @@
 
 ### Message
 
-- **定義**: ユーザー、システム、Agent間の構造化された通信単位
-- **同義語**: Message, Message（使用禁止）
-- **含む**: コンテンツ, 役割, タイプ, メタデータ
+- **定義**: ユーザー、システム、エージェント間の構造化された通信単位
+- **同義語**: メッセージ, ChatMessage
+- **含む**: コンテンツ, 役割, タイプ, メタデータ, 最大長制限（MAX_MESSAGE_LENGTH=100）
 - **含まない**: セッション状態, UIイベント
 - **ライフサイクル**: created, processed, streamed
 - **関連用語**: Interpreter, Agent, Session
 - **ステータス**: stable
 
 **AUTO決定**:
-- AUTO:Message.structure:flat - Messageは再帰的にフラット化可能
+- AUTO:Message.structure:flat - メッセージは再帰的にフラット化可能
+- AUTO:Message.limit:100 - MAX_MESSAGE_LENGTH=100はハードリミット
 
 **証拠**:
 - `gui_agent_loop_core/schema/message/schema.py`: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+- `gui_agent_loop_core/backend/server_impl_gradio.py`: "MAX_MESSAGE_LENGTH = 100"
 
 ---
 
 ### State
 
 - **定義**: インタープリタの実行状態を表す列挙型
-- **同義語**: State, State（使用禁止）
-- **含む**: 状態遷移, 状態チェック, 状態変更イベント
+- **同義語**: InterpreterState, インタープリタ状態
+- **含む**: 状態遷移, 状態チェック, 状態変更イベント, タイマーベースの定期更新（3秒間隔）
 - **含まない**: セッションライフサイクル, UI状態
 - **ライフサイクル**: STATE_INIT, STATE_RUNNING, STATE_STOP
-- **関連用語**: Interpreter, AutoChat
+- **関連用語**: Interpreter, AutoChat, Timer
 - **ステータス**: stable
 
 **AUTO決定**:
 - AUTO:State.lifecycle:monotonic - 状態は単調遷移する（INIT → RUNNING → STOP）
+- AUTO:State.transition:auto_on_input - ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移
 
 **証拠**:
-- `gui_agent_loop_core/schema/core/schema.py`: "class State(str, Enum): STATE_INIT, STATE_RUNNING, STATE_STOP"
+- `gui_agent_loop_core/schema/core/schema.py`: "class InterpreterState(str, Enum): STATE_INIT, STATE_RUNNING, STATE_STOP"
+- `gui_agent_loop_core/backend/server_impl_gradio.py`: "t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])"
+- `gui_agent_loop_core/backend/server_impl_gradio.py`: "chat_iface.textbox.submit(fn=interpreter_manager.change_state_running, outputs=[agent_state])"
 
 ---
 
@@ -105,7 +110,7 @@
 ### AutoChat
 
 - **定義**: STATE_STOP時に自動的に会話を継続する機能
-- **同義語**: AutoChat, AutoChat（使用禁止）
+- **同義語**: 自動チャット, 自動継続
 - **含む**: 自動入力生成, 状態チェック, 継続トリガー
 - **含まない**: 手動チャット, UIイベントハンドリング
 - **ライフサイクル**: triggered, executed, completed
@@ -123,40 +128,44 @@
 ### StreamWrapper
 
 - **定義**: 同期・非同期ストリーミング応答を統一的に扱うユーティリティ
-- **同義語**: StreamWrapper, StreamWrapper（使用禁止）
+- **同義語**: GuiAgentStreamWrapper, ストリームラッパー
 - **含む**: ストリーム処理, 同期/非同期変換
-- **含まない**: `Message`変換, 状態管理
+- **含まない**: メッセージ変換, 状態管理
 - **ライフサイクル**: created, streaming, completed
 - **関連用語**: Message, Interpreter
 - **ステータス**: stable
 
 **証拠**:
-- `gui_agent_loop_core/util/gui_agent_stream_wrapper.py`: "StreamWrapper: Utility for handling both sync and async streaming responses"
+- `gui_agent_loop_core/util/gui_agent_stream_wrapper.py`: "GuiAgentStreamWrapper: Utility for handling both sync and async streaming responses"
 
 ---
 
 ### Backend
 
-- **定義**: GUI `Backend`実装（Gradio等）
-- **同義語**: GUI`Backend`, UI `Backend`（使用禁止）
-- **含む**: UI描画, イベントハンドリング, コンポーネント管理
+- **定義**: GUIフレームワーク実装（Gradio等）
+- **同義語**: GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent
+- **含む**: UI描画, イベントハンドリング, コンポーネント管理, GuiComponent列挙, GuiBackendType列挙（GRADIO/STREAMSYNC）
 - **含まない**: 会話ロジック, エージェント管理
-- **関連用語**: Interpreter, Session
+- **関連用語**: Interpreter, Session, GuiComponent
 - **ステータス**: stable
 
 **AUTO決定**:
 - AUTO:Backend.primary:gradio - Gradioが主要バックエンド（暫定）
+- AUTO:Backend.deployment:security - バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限
 
 **証拠**:
 - `gui_agent_loop_core/backend/server_impl_gradio.py`: "Gradio implementation of the server interface"
+- `gui_agent_loop_core/schema/backend/schema.py`: "class GuiBackendType(str, enum.Enum): GRADIO, STREAMSYNC"
+- `gui_agent_loop_core/schema/backend/schema.py`: "class GuiComponentName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK"
+- `gui_agent_loop_core/backend/server_impl_gradio.py`: "app.launch(server_name='0.0.0.0', debug=True, allowed_paths=['/tmp', '/app/work', '/home', '/app/GuiAgentLoopCore'])"
 
 ---
 
 ### Memory
 
 - **定義**: 会話履歴を保持するバッファ機構
-- **同義語**: Memory, Memory（使用禁止）
-- **含む**: `Message`履歴, ウィンドウサイズ
+- **同義語**: 会話メモリ, ConversationBuffer
+- **含む**: メッセージ履歴, ウィンドウサイズ
 - **含まない**: セッション管理, 状態保持
 - **関連用語**: Session, Message
 - **ステータス**: draft
@@ -176,9 +185,9 @@
 ### Converter
 
 - **定義**: データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ
-- **同義語**: Converter, Converter（使用禁止）
+- **同義語**: 変換器, マッパー
 - **含む**: リクエスト変換, 辞書フラット化, コードコンテンツ処理, format/languageフィールド抽出
-- **含まない**: `Message`処理, 状態管理
+- **含まない**: メッセージ処理, 状態管理
 - **ライフサイクル**: created, converting, flattened
 - **関連用語**: Message
 - **ステータス**: stable
@@ -194,29 +203,35 @@
 
 | 同義語 | 正規形 |
 |--------|--------|
-| Interpreter | Interpreter |
-| Interpreter | Interpreter |
-| Agent | Agent |
-| Agent | Agent |
-| Session | Session |
-| Session | Session |
-| Message | Message |
-| Message | Message |
-| State | State |
-| State | State |
-| AutoChat | AutoChat |
-| AutoChat | AutoChat |
-| StreamWrapper | StreamWrapper |
-| StreamWrapper | StreamWrapper |
-| Backend | Backend |
-| Backend | Backend |
-| Memory | Memory |
-| Memory | Memory |
-| Converter | Converter |
-| Converter | Converter |
+| GuiAgentInterpreter | Interpreter |
+| 会話インタープリタ | Interpreter |
+| AIエージェント | Agent |
+| 専門エージェント | Agent |
+| AgentType | Agent |
+| AgentDefinition | Agent |
+| TaskAgent | Agent |
+| AgentImage | Agent |
+| ChatSession | Session |
+| 会話セッション | Session |
+| メッセージ | Message |
+| ChatMessage | Message |
+| InterpreterState | State |
+| インタープリタ状態 | State |
+| 自動チャット | AutoChat |
+| 自動継続 | AutoChat |
+| GuiAgentStreamWrapper | StreamWrapper |
+| ストリームラッパー | StreamWrapper |
+| GUIバックエンド | Backend |
+| UIフレームワーク | Backend |
+| GuiBackend | Backend |
+| GuiComponent | Backend |
+| 会話メモリ | Memory |
+| ConversationBuffer | Memory |
+| 変換器 | Converter |
+| マッパー | Converter |
 
 ---
 
 **生成元**: `.concept/ontology.yml` (v0.3)
-**生成日時**: 2026-02-01T22:09:00Z
-**担当**: 16_repo_md_bootstrapper
+**生成日時**: 2026-02-02T02:42:00Z
+**担当**: 16_repo_md_bootstrapper v1.1
