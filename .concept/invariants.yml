@@ -1,4 +1,4 @@
-updated_at: "2026-02-01T21:56:12Z"
+updated_at: "2026-02-02T05:23:14Z"
 invariants:
   - id: "INV-STATE-001"
     related_terms: ["Interpreter", "State"]
@@ -169,3 +169,71 @@ invariants:
     checks:
       - type: "test"
         target: "tests/test_backend_security.py"
+
+  - id: "INV-SESSION-002"
+    related_terms: ["Session"]
+    status: "stable"
+    strength: "hard"
+    statement: "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+    rationale: "セキュアなセッション識別と検証を保証する"
+    assumptions:
+      - id: "ASM-INV-SESSION-002"
+        text: "AUTO: HS256は十分に安全（暫定）"
+        decision_key: "AUTO:Session.jwt:algorithm_hs256"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "jwt.encode(session_id, self.secret_key, algorithm='HS256')"
+    checks:
+      - type: "test"
+        target: "tests/test_jwt_encoding.py"
+
+  - id: "INV-CONNECTOR-001"
+    related_terms: ["Connector"]
+    status: "stable"
+    strength: "hard"
+    statement: "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+    rationale: "異なる実装間でのインターフェースの一貫性を保証する"
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "class GuiAgentInterpreterABC(ABC): Abstract interface for agent connectors"
+      - source: "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py"
+        quote: "class ConnectorImplCodeinterpreterApi(GuiAgentInterpreterABC)"
+      - source: "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py"
+        quote: "class ConnectorImplOpenInterpreter(GuiAgentInterpreterABC)"
+    checks:
+      - type: "test"
+        target: "tests/test_connector_interface.py"
+
+  - id: "INV-CONVERTER-001"
+    related_terms: ["Converter"]
+    status: "stable"
+    strength: "hard"
+    statement: "コンバータは構造化変換のためにMappingRuleを使用する"
+    rationale: "一貫したデータ変換パターンを保証する"
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/converter/dict_flattener/mapping_rule.py"
+        quote: "class MappingRule: old_key, new_key, required_keys, required_keys_upper"
+    checks:
+      - type: "test"
+        target: "tests/test_mapping_rules.py"
+
+  - id: "INV-BACKEND-002"
+    related_terms: ["Backend", "State"]
+    status: "stable"
+    strength: "soft"
+    statement: "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
+    rationale: "UIと状態の同期メカニズムを保証する"
+    assumptions:
+      - id: "ASM-INV-BACKEND-002"
+        text: "AUTO: 3秒タイマーは妥当な更新頻度（暫定）"
+        decision_key: "AUTO:Backend.timer:3sec_interval"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "t3 = gr.Timer(3, active=False); t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])"
+    checks:
+      - type: "test"
+        target: "tests/test_timer_updates.py"

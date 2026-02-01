@@ -1,4 +1,4 @@
-updated_at: "2026-02-02T02:24:29Z"
+updated_at: "2026-02-02T05:23:14Z"
 queue:
   - id: "TP-000005"
     proposed_canonical: "GuiComponent"
@@ -109,3 +109,86 @@ queue:
     decision: "rejected"
     rejection_reason: "Insufficient evidence - only appears in README architecture diagram, no implementation found in codebase"
     decided_run: "2026-02-01T13:47:06Z"
+
+  - id: "TP-000008"
+    proposed_canonical: "Connector"
+    proposed_layer: "domain"
+    term_raw_examples: ["Connector", "コネクタ", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter"]
+    reason: "Implementation-specific adapters that bridge the core interpreter with different agent implementations"
+    evidence:
+      - source: "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py"
+        quote: "class ConnectorImplCodeinterpreterApi(GuiAgentInterpreterABC)"
+      - source: "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py"
+        quote: "class ConnectorImplOpenInterpreter(GuiAgentInterpreterABC)"
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "class GuiAgentInterpreterABC(ABC): Abstract interface for agent connectors"
+    auto_merge_candidates:
+      - term: "Interpreter"
+        similarity: 0.62
+      - term: "Agent"
+        similarity: 0.58
+    decision: "pending"
+    created_run: "2026-02-02T05:23:14Z"
+    expires_after_runs: 10
+
+  - id: "TP-000009"
+    proposed_canonical: "MappingRule"
+    proposed_layer: "aux"
+    term_raw_examples: ["MappingRule", "マッピングルール"]
+    reason: "Rules for transforming data structures during conversion processes"
+    evidence:
+      - source: "gui_agent_loop_core/converter/dict_flattener/mapping_rule.py"
+        quote: "class MappingRule: old_key, new_key, required_keys, required_keys_upper"
+    auto_merge_candidates:
+      - term: "Converter"
+        similarity: 0.72
+    decision: "merged"
+    merged_into: "Converter"
+    merge_reason: "MappingRule is a component used by Converter for data transformation (similarity 0.72 < 0.78 threshold). It's an implementation detail of the conversion process."
+    decided_run: "2026-02-02T05:23:14Z"
+
+  - id: "TP-000010"
+    proposed_canonical: "TemplateEngine"
+    proposed_layer: "aux"
+    term_raw_examples: ["TemplateEngine", "テンプレートエンジン"]
+    reason: "Jinja2-based template rendering utility"
+    evidence:
+      - source: "gui_agent_loop_core/util/template_engine.py"
+        quote: "class TemplateEngine: Jinja2 template rendering"
+    auto_merge_candidates:
+      - term: "Converter"
+        similarity: 0.45
+    decision: "rejected"
+    rejection_reason: "TemplateEngine is a utility class with limited usage (aux layer). Low similarity to existing terms and single-purpose use case don't justify canonical term status."
+    decided_run: "2026-02-02T05:23:14Z"
+
+  - id: "TP-000011"
+    proposed_canonical: "GuiAgentLoopCore"
+    proposed_layer: "aux"
+    term_raw_examples: ["GuiAgentLoopCore", "メインアプリケーション"]
+    reason: "Main application class that orchestrates the entire system"
+    evidence:
+      - source: "gui_agent_loop_core/gui_agent_loop_core.py"
+        quote: "class GuiAgentLoopCore: Main application orchestrator"
+    auto_merge_candidates:
+      - term: "Interpreter"
+        similarity: 0.52
+    decision: "rejected"
+    rejection_reason: "GuiAgentLoopCore is a thin wrapper/orchestrator class with minimal logic. The core concepts are already captured by Interpreter and Backend. This is more of an application bootstrap detail than a conceptual entity."
+    decided_run: "2026-02-02T05:23:14Z"
+
+  - id: "TP-000012"
+    proposed_canonical: "JWT"
+    proposed_layer: "aux"
+    term_raw_examples: ["JWT", "JSON Web Token", "セッショントークン"]
+    reason: "Authentication mechanism for session management using JWT tokens"
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "jwt.encode(session_id, self.secret_key, algorithm='HS256')"
+    auto_merge_candidates:
+      - term: "Session"
+        similarity: 0.68
+    decision: "merged"
+    merged_into: "Session"
+    merge_reason: "JWT is the authentication mechanism used by Session (similarity 0.68 < 0.78 threshold). It's an implementation detail of session management, not a separate domain concept."
+    decided_run: "2026-02-02T05:23:14Z"

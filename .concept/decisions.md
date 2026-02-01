@@ -103,3 +103,43 @@
 - Expires After Runs: 20
 - Linked: ASM-BE-002 / INV-BACKEND-001
 - Revert Triggers: security_risk, primary_evidence_contradiction
+
+## AUTO:Session.jwt:algorithm_hs256
+- Status: ACTIVE
+- Chosen: JWTはHS256アルゴリズム使用（暫定）
+- Policy: safety + industry_convention
+- Expires After Runs: 20
+- Linked: ASM-SESSION-001 / INV-SESSION-002
+- Revert Triggers: primary_evidence_contradiction, security_risk
+
+## AUTO:Message.roles:tool_function_separation
+- Status: ACTIVE
+- Chosen: TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）
+- Policy: safety + flexibility
+- Expires After Runs: 20
+- Linked: ASM-MSG-003 / AMB-MSG-001
+- Revert Triggers: primary_evidence_contradiction, framework_integration_issue
+
+## AUTO:Memory.implementation:dual_provisional
+- Status: ACTIVE
+- Chosen: 両者は暫定的に共存（移行期間中とみなす）
+- Policy: reversibility + caution
+- Expires After Runs: 20
+- Linked: AMB-MEM-002
+- Revert Triggers: primary_evidence_contradiction, performance_issue, maintenance_burden
+
+## AUTO:Security.secret_key:env_var_required
+- Status: ACTIVE
+- Chosen: ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）
+- Policy: security_first
+- Expires After Runs: 10
+- Linked: AMB-SEC-001
+- Revert Triggers: primary_evidence_contradiction, security_risk_escalation
+
+## AUTO:Backend.timer:3sec_interval
+- Status: ACTIVE
+- Chosen: 3秒タイマーは妥当な更新頻度（暫定）
+- Policy: monitoring + user_experience
+- Expires After Runs: 20
+- Linked: ASM-INV-BACKEND-002 / INV-BACKEND-002
+- Revert Triggers: primary_evidence_contradiction, performance_issue

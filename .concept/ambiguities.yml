@@ -1,4 +1,4 @@
-updated_at: "2026-02-01T13:05:48Z"
+updated_at: "2026-02-02T05:23:14Z"
 ambiguities:
   - id: "AMB-AGT-001"
     term: "Agent"
@@ -114,3 +114,120 @@ ambiguities:
     evidence:
       - source: "gui_agent_loop_core/backend/"
         quote: "Gradio implementation found, Streamsync mentioned"
+
+  - id: "AMB-MSG-001"
+    term: "Message"
+    topic: "Message Role types - TOOL vs FUNCTIONの意味論的違い"
+    severity: "medium"
+    uncertainty: 0.40
+    candidates:
+      - "TOOLはツール呼び出し結果、FUNCTIONは関数返り値"
+      - "TOOLとFUNCTIONは同じ意味（重複）"
+      - "TOOLはLangChain特有、FUNCTIONはOpenAI特有"
+    missing_info:
+      - "TOOLとFUNCTIONの明確な使い分け基準"
+      - "両者が同じコンテキストで使われることはあるか？"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:Message.roles:tool_function_separation"
+      chosen: "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）"
+      policy: "safety + flexibility"
+      confidence_auto: 0.60
+      decided_at_run: "2026-02-02T05:23:14Z"
+      expires_after_runs: 20
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "framework_integration_issue"
+    last_touched_run: "2026-02-02T05:23:14Z"
+    evidence:
+      - source: "gui_agent_loop_core/schema/message/schema.py"
+        quote: "class MessageRoleEnum(str, Enum): TOOL, FUNCTION"
+
+  - id: "AMB-MEM-002"
+    term: "Memory"
+    topic: "デュアルメモリ実装 - LangChain vs カスタム"
+    severity: "medium"
+    uncertainty: 0.50
+    candidates:
+      - "LangChainメモリが主要、カスタムはレガシー"
+      - "カスタムメモリが主要、LangChainは廃止予定"
+      - "両者は異なる目的で使用（役割分担あり）"
+    missing_info:
+      - "LangChain ConversationBufferWindowMemoryとChatSessionの関係"
+      - "将来的にどちらを推奨するか"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:Memory.implementation:dual_provisional"
+      chosen: "両者は暫定的に共存（移行期間中とみなす）"
+      policy: "reversibility + caution"
+      confidence_auto: 0.50
+      decided_at_run: "2026-02-02T05:23:14Z"
+      expires_after_runs: 20
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "performance_issue"
+        - "maintenance_burden"
+    last_touched_run: "2026-02-02T05:23:14Z"
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "Both ConversationBufferWindowMemory (LangChain) and ChatSession (custom) exist"
+
+  - id: "AMB-SEC-001"
+    term: "Security"
+    topic: "ハードコードされたシークレットキー vs 環境変数"
+    severity: "high"
+    uncertainty: 0.70
+    candidates:
+      - "環境変数のみ使用すべき（セキュリティベストプラクティス）"
+      - "開発用にハードコードを許容、本番は環境変数"
+      - "シークレット管理サービス（Vault等）を使用"
+    missing_info:
+      - "シークレットキー管理のセキュリティポリシー"
+      - "開発環境 vs 本番環境の使い分け"
+    linked_conflicts: []
+    auto_decision:
+      status: "applied"
+      decision_key: "AUTO:Security.secret_key:env_var_required"
+      chosen: "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）"
+      policy: "security_first"
+      confidence_auto: 0.85
+      decided_at_run: "2026-02-02T05:23:14Z"
+      expires_after_runs: 10
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "security_risk_escalation"
+    last_touched_run: "2026-02-02T05:23:14Z"
+    evidence:
+      - source: "gui_agent_loop_core/core/interpreter_manager.py"
+        quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern)"
+
+  - id: "AMB-CON-001"
+    term: "Connector"
+    topic: "コネクタの正規名と抽象度"
+    severity: "low"
+    uncertainty: 0.30
+    candidates:
+      - "Connectorは正規概念（domain層）"
+      - "Connectorは実装詳細（aux層）"
+      - "ConnectorはAgentの一部として統合"
+    missing_info:
+      - "コネクタの役割は実装パターンかドメイン概念か"
+      - "将来的にコネクタが増える場合の設計意図"
+    linked_conflicts: []
+    auto_decision:
+      status: "pending"
+      decision_key: "AUTO:Connector.status:pending_review"
+      chosen: "term_queueで審査待ち（現時点では判断保留）"
+      policy: "caution"
+      confidence_auto: 0.40
+      decided_at_run: "2026-02-02T05:23:14Z"
+      expires_after_runs: 10
+      revert_triggers:
+        - "primary_evidence_contradiction"
+        - "architectural_clarification"
+    last_touched_run: "2026-02-02T05:23:14Z"
+    evidence:
+      - source: "gui_agent_loop_core/connector_impl/"
+        quote: "ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter found"

@@ -1,5 +1,5 @@
 version: "0.3"
-updated_at: "2026-02-02T02:24:29Z"
+updated_at: "2026-02-02T05:23:14Z"
 
 canonical_terms:
   Interpreter:
@@ -50,26 +50,30 @@ canonical_terms:
     id: "TERM-SESSION"
     layer: "core"
     status: "stable"
-    definition: "一意のIDで管理される会話コンテキスト"
-    synonyms: ["ChatSession", "会話セッション"]
+    definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    synonyms: ["ChatSession", "会話セッション", "JWT"]
     boundaries:
-      includes: ["メッセージ履歴", "セッションID", "認証トークン"]
+      includes: ["メッセージ履歴", "セッションID（UUID）", "JWTトークン（HS256アルゴリズム）"]
       excludes: ["UI状態", "インタープリタ状態"]
     lifecycle: ["created", "active", "terminated"]
-    related_terms: ["Interpreter", "Message", "ChatManager"]
-    assumptions: []
+    related_terms: ["Interpreter", "Message", "Agent"]
+    assumptions:
+      - id: "ASM-SESSION-001"
+        text: "AUTO: JWTはHS256アルゴリズム使用（暫定）"
+        decision_key: "AUTO:Session.jwt:algorithm_hs256"
+        expires_after_runs: 20
     evidence:
       - source: "gui_agent_loop_core/core/interpreter_manager.py"
-        quote: "ChatSession: Individual conversation session with message history"
+        quote: "ChatSession: Individual conversation session with message history; jwt.encode(session_id, self.secret_key, algorithm='HS256')"
 
   Message:
     id: "TERM-MESSAGE"
     layer: "core"
     status: "stable"
-    definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+    definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
     synonyms: ["メッセージ", "ChatMessage"]
     boundaries:
-      includes: ["コンテンツ", "役割", "タイプ", "メタデータ", "最大長制限（MAX_MESSAGE_LENGTH=100）"]
+      includes: ["コンテンツ", "役割（USER/SYSTEM/ASSISTANT/COMPUTER/TOOL/FUNCTION）", "タイプ", "メタデータ", "最大長制限（MAX_MESSAGE_LENGTH=100）"]
       excludes: ["セッション状態", "UIイベント"]
     lifecycle: ["created", "processed", "streamed"]
     related_terms: ["Interpreter", "Agent", "Session"]
@@ -82,9 +86,13 @@ canonical_terms:
         text: "AUTO: MAX_MESSAGE_LENGTH=100はハードリミット"
         decision_key: "AUTO:Message.limit:100"
         expires_after_runs: 20
+      - id: "ASM-MSG-003"
+        text: "AUTO: TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）"
+        decision_key: "AUTO:Message.roles:tool_function_separation"
+        expires_after_runs: 20
     evidence:
       - source: "gui_agent_loop_core/schema/message/schema.py"
-        quote: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+        quote: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION; MessageRoleEnum: USER, SYSTEM, ASSISTANT, COMPUTER, TOOL, FUNCTION"
       - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
         quote: "MAX_MESSAGE_LENGTH = 100"
 
