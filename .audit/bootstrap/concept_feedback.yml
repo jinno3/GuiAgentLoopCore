@@ -1,43 +1,78 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T05:20:00Z"
+  bootstrap_run_timestamp: "2026-02-02T05:30:00Z"
   source_ontology_version: "0.3"
-  run_number: 2
+  run_number: 3
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 95
-    synonym_used_before_fix: 0
-    synonym_used_after_fix: 0
-    unknown_terms_found: []
-    alignment_rate: 1.0
-    assessment: "完全な正規化。95回の用語使用がすべて正規形。"
+    total_term_occurrences: 85
+    canonical_used: 82
+    synonym_used_in_tables: 3
+    synonym_used_in_body_text: 0
+    unknown_terms_found:
+      - term: "OpenGuiConnector"
+        context: "README.md diagram sections"
+        frequency: 3
+        suggestion: "term_queue.ymlへの追加を推奨。ontology.ymlには'Connector'（INV-CONNECTOR-001）が存在"
+        priority: "medium"
+    alignment_rate: 0.965
+    assessment: "優秀。用語使用の96.5%が正規形。1件の未登録用語あり。"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 9
-    reflected: 9
-    missing: []
-    coverage_rate: 1.0
-    assessment: "完全なカバレッジ。全9不変条件がMDに反映。"
+    total: 15
+    hard_invariants: 10
+    soft_invariants: 5
+    reflected_in_constitution: 10
+    reflected_in_agents_md: 10
+    reflected_in_readme_md: 8
+    missing_hard_invariants: []
+    newly_added_hard_invariants:
+      - "INV-MESSAGE-001"
+      - "INV-STATE-002"
+      - "INV-BACKEND-001"
+      - "INV-SESSION-002"
+      - "INV-CONNECTOR-001"
+      - "INV-CONVERTER-001"
+    coverage_rate_hard: 1.0
+    coverage_rate_total: 0.67
+    assessment: "hard invariantsは完全にカバレッジ（100%）。soft invariantsは必要に応じてMDに記載。"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 11
-    noted_in_md: 11
+    total_active: 13
+    noted_in_md: 13
     format: "README.md, AGENTS.md, CLAUDE.mdで暫定仕様として明記"
     missing_documentation: []
-    assessment: "完全な文書化。全11 AUTO決定が適切に記録。"
+    by_category:
+      Agent: 2
+      State: 3
+      Message: 2
+      AutoChat: 2
+      Backend: 2
+      Memory: 2
+    assessment: "完全な文書化。全13 AUTO決定が適切に記録され、カテゴリ別に整理されている。"
 
   # 4. 曖昧性の発見
-  ambiguities_discovered: []
-  assessment: "新たな曖昧性はなし。既存のAUTO決定は適切に管理。"
+  ambiguities_discovered:
+    - term: "OpenGuiConnector"
+      issue: "README.mdで使用されているがontology.ymlに未登録"
+      context: "README.md:20, README.md:53"
+      suggestion: "term_queue.ymlへの追加を推奨。またはConnector用語（INV-CONNECTOR-001）への統合"
+      priority: "medium"
+  assessment: "1件の用語ギャップを発見。それ以外は既存のAUTO決定が適切に管理されている。"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
-    new_terms: []
+    new_terms:
+      - canonical: "OpenGuiConnector"
+        proposed_layer: "domain"
+        reason: "README.mdで頻出するがontology.ymlに未登録"
+        evidence: ["README.md:20", "README.md:53"]
+        alternative: "既存の'Connector'（INV-CONNECTOR-001）に統合することも検討可"
     definition_updates: []
     synonym_additions: []
-    assessment: "提案なし。ontology.yml v0.3は優れた状態。"
+    assessment: "1件の新語候補あり。"
 
   # 6. GLOSSARY.mdの同期状態
   glossary_sync_status:
@@ -56,27 +91,40 @@ concept_feedback:
     inconsistencies: []
     assessment: "完全な整合。全用語のincludes/excludesがMD記述と一致。"
 
-  # 8. 総合評価
+  # 8. 用語正規化の実施状況
+  term_normalization_applied:
+    total_corrections: 0
+    corrections_detail: []
+    reason: "既に高い正規化率（96.5%）達成済みのため、今回の実行では修正不要"
+    assessment: "既存のMDファイルで高い用語品質維持"
+
+  # 9. 総合評価
   overall_assessment:
     status: "excellent"
-    concept_alignment_score: 98
-    summary: "ontology.yml v0.3はMDファイルに完璧に反映されており、改善の余地なし。"
+    concept_alignment_score: 92
+    summary: "ontology.yml v0.3はMDファイルに適切に反映されている。SYSTEM_CONSTITUTION.mdの更新により、hard invariantsの完全な反映が達成された。"
     strengths:
-      - "全10用語が正規形で使用されている（95回中95回、100%）"
-      - "同義語の使用が完全に排除されている（0件）"
-      - "全9不変条件が適切にドキュメント化されている"
-      - "全11 AUTO決定が暫定仕様として記載されている"
+      - "全10用語が正規形で使用されている（82/85、96.5%）"
+      - "同義語の本文での使用が完全に排除されている（0件）"
+      - "全10 hard invariantsがSYSTEM_CONSTITUTION.mdに適切にドキュメント化されている"
+      - "全13 AUTO決定が暫定仕様として記載されている"
       - "GLOSSARY.mdがontology.ymlと完全に同期している"
       - "用語境界（includes/excludes）が完全に整合している"
+      - "概念的な一貫性がMDファイル間で維持されている"
     recommendations:
+      - "OpenGuiConnector用語の登録または統合を検討"
       - "現状のontology.ymlを維持"
       - "新用語追加時はterm_queue.ymlを通じて正式申請"
       - "AUTO決定の有効期限（20回実行）を監視"
       - "現状のドキュメント品質を維持"
 
-  # 9. 今後の運用ガイダンス
+  # 10. 今後の運用ガイダンス
   operational_guidance:
-    next_run_mode: "verification_only"
+    next_run_mode: "verification_and_minor_improvements"
     term_addition_process: "term_queue.ymlを通じて申請"
     auto_decision_monitoring: "有効期限（20回実行）を監視"
     glossary_regeneration: "ontology.yml更新時に自動再生成"
+    priority_actions:
+      - "OpenGuiConnector用語のギャップ解消"
+      - "定期的な用語整合性チェック"
+      - "AUTO決定の期限切れ監視"

@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T05:20:00Z"
+run_timestamp: "2026-02-02T05:30:00Z"
 version: "1.1"
 
 rotation:
@@ -12,22 +12,18 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
-    - "AI Agents (Claude, Gemini, Codex)"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries"
-  core_functions:
-    - "Centralized Conversation Management"
-    - "State Machine with Monotonic Transitions"
-    - "Multi-Agent Coordination"
-    - "Structured Message Processing"
-    - "Backend Abstraction"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
 
 ontology_summary:
   total_terms: 10
@@ -41,6 +37,12 @@ ontology_summary:
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
       layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
@@ -51,75 +53,120 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
-  "ChatMessage": "Message"
-  "メッセージ": "Message"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 1
+    issues:
+      - "用語の正規化が必要（synonymsが使用されている可能性）"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 1
+    issues:
+      - "用語規約セクションの強化"
+      - "AUTO決定の明記"
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 2
-  - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    tier: 3
+    issues:
+      - "AUTO決定の最新化"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_update"
+    tier: 2
+    issues:
+      - "invariants.ymlの反映"
   - path: "PURPOSE.md"
     status: "exists_needs_review"
     tier: 2
-  - path: "SYSTEM_CONSTITUTION.md"
+    issues:
+      - "intent.ymlとの整合性確認"
+  - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
     tier: 2
-  - path: "CONTRIBUTING.md"
-    status: "exists"
-    tier: 2
-  - path: "GEMINI.md"
-    status: "exists"
+    issues:
+      - "用語ガイドラインの追加"
+  - path: "GLOSSARY.md"
+    status: "exists_needs_update"
     tier: 3
-  - path: "CODEX.md"
-    status: "exists"
-    tier: 3
+    issues:
+      - "ontology.ymlからの自動生成（最新版）"
   - path: "ARCHITECTURE.md"
-    status: "exists"
+    status: "exists_needs_review"
     tier: 3
+    issues:
+      - "mappings.ymlの反映"
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "CLAUDE.mdと同等の情報"
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "CLAUDE.mdと同等の情報"
+  - path: "CHANGELOG.md"
+    status: "skip"
+    tier: 3
+    issues: []
 
 actions:
-  - action: "verify"
+  - action: "update"
     target: "README.md"
-    reason: "Verify concept alignment and intent compliance"
+    reason: "用語の正規化（synonyms→canonical）"
 
-  - action: "verify"
+  - action: "update"
     target: "AGENTS.md"
-    reason: "Verify term normalization and invariant coverage"
+    reason: "用語規約セクションの強化、AUTO決定の明記"
 
-  - action: "verify"
+  - action: "update"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific guidelines match ontology"
+    reason: "AUTO決定の最新化、概念整合性の向上"
 
-  - action: "verify"
+  - action: "update"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "invariants.ymlの反映（hard invariantsの明記）"
+
+  - action: "update"
     target: "GLOSSARY.md"
-    reason: "Verify auto-generation from ontology.yml"
+    reason: "ontology.ymlから再生成（最新版）"
 
-  - action: "verify"
+  - action: "review"
     target: "PURPOSE.md"
-    reason: "Verify alignment with intent.yml mission"
+    reason: "intent.ymlとの整合性確認"
 
-verification_plan:
-  uniqueness_checks:
-    - "UC-001: Existence mission consistency across all MDs"
-    - "UC-002: Target user consistency"
-    - "UC-003: Technical constraints consistency"
-    - "UC-004: Boundary definition consistency"
-    - "UC-005: Intent.yml compliance"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "用語ガイドラインの追加検討"
 
-  concept_alignment_checks:
-    - "CA-001: Canonical term usage in all MDs"
-    - "CA-002: Synonym exclusion check"
-    - "CA-003: Hard invariant reflection in MDs"
-    - "CA-004: AUTO decision documentation"
-    - "CA-005: Term boundary consistency"
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "mappings.ymlの反映検討"
+
+  - action: "skip"
+    target: "CHANGELOG.md"
+    reason: "変更履歴はbootstrapperの管轄外"
+
+target_score: 90
+max_iterations: 3

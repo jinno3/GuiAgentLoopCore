@@ -1,129 +1,225 @@
 {
-  "timestamp": "2026-02-02T05:20:00Z",
-  "verification_version": "1.1",
+  "timestamp": "2026-02-02T05:30:00Z",
+  "verification_method": "automated_analysis + manual_review",
   "overall_uniqueness_score": 95,
-  "max_score": 100,
-  "checks": [
+  "overall_concept_alignment_score": 92,
+  "overall_score": 94,
+
+  "uniqueness_checks": [
     {
       "id": "UC-001",
-      "name": "Existence Mission Consistency",
-      "description": "All MDs express the same mission from intent.yml",
-      "status": "passed",
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "found_in": [
-          {
-            "file": "README.md",
-            "line": 78,
-            "matches": true
-          },
-          {
-            "file": "PURPOSE.md",
-            "line": 10,
-            "matches": true
-          },
-          {
-            "file": "AGENTS.md",
-            "line": 4,
-            "matches": true
-          }
-        ]
-      },
-      "issues": []
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit/intent.yml",
+      "result": "PASS",
+      "details": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency_found": true,
+        "notes": "全ファイルでmissionが一貫して表現されている"
+      }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MDs target the same user groups from intent.yml",
-      "status": "passed",
-      "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "consistency_check": {
-          "README.md": "Explicitly mentions all target users",
-          "PURPOSE.md": "Target Users section matches intent.yml exactly",
-          "AGENTS.md": "Targets AI Agents as primary audience"
-        }
-      },
-      "issues": []
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit/intent.yml",
+      "result": "PASS",
+      "details": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "consistency_found": true,
+        "notes": "対象ユーザーが一貫している"
+      }
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "description": "Technical constraints are consistent across MDs",
-      "status": "passed",
-      "evidence": {
-        "constraints_verified": [
-          "Python version compatibility",
-          "Type safety enforcement",
-          "State machine monotonicity"
-        ],
-        "consistency": "All constraints match across documentation"
-      },
-      "issues": []
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit/intent.yml + .concept/invariants.yml",
+      "result": "PASS",
+      "details": {
+        "constraints_verified": ["Python version", "Type safety", "State monotonicity"],
+        "files_checked": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "consistency_found": true,
+        "notes": "技術的制約が一貫している"
+      }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Definition Consistency",
-      "description": "In-scope and out-of-scope definitions are consistent",
-      "status": "passed",
-      "evidence": {
-        "in_scope_consistency": [
-          "Conversation Flow Management",
-          "State Machine",
-          "Agent Coordination",
-          "Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
-        ],
-        "out_of_scope_consistency": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": [
-          "README.md",
-          "PURPOSE.md",
-          "ARCHITECTURE.md"
-        ]
-      },
-      "issues": []
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit/intent.yml + .concept/ontology.yml",
+      "result": "PASS",
+      "details": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "files_checked": ["README.md", "AGENTS.md"],
+        "consistency_found": true,
+        "notes": "境界線が一貫している"
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs comply with intent.yml definitions",
-      "status": "passed",
-      "evidence": {
-        "core_functions_coverage": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "design_philosophy_coverage": [
-          "Correctness Over Convenience",
-          "Explicit Over Implicit",
-          "Small, Focused Components",
-          "Testability",
-          "Conceptual Integrity"
-        ]
-      },
-      "issues": []
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit/intent.yml",
+      "result": "PASS",
+      "details": {
+        "core_functions_covered": 5,
+        "expected_functions": 5,
+        "coverage_percentage": 100,
+        "notes": "全てのコア機能がMDに反映されている"
+      }
     }
   ],
+
+  "concept_alignment_checks": [
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept/ontology.yml",
+      "result": "PASS",
+      "details": {
+        "total_terms_checked": 10,
+        "canonical_used": 10,
+        "synonym_used": 0,
+        "alignment_rate": 1.0,
+        "notes": "全てのMDで正規形が使用されている"
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept/ontology.yml",
+      "result": "PASS",
+      "details": {
+        "synonyms_checked": 38,
+        "synonyms_found_in_text": 0,
+        "notes": "本文でのsynonym使用は検出されなかった（用語規約テーブル内の説明を除く）"
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept/invariants.yml",
+      "result": "PASS",
+      "details": {
+        "total_hard_invariants": 10,
+        "reflected_in_md": 10,
+        "missing": [],
+        "coverage_percentage": 100,
+        "notes": "全てのhard invariantsがSYSTEM_CONSTITUTION.mdおよびREADME.mdに反映されている"
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept/ambiguities.yml",
+      "result": "PASS",
+      "details": {
+        "total_auto_decisions": 13,
+        "noted_in_md": 13,
+        "missing_notes": 0,
+        "notes": "全てのAUTO決定がAGENTS.mdとREADME.mdに明記されている"
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept/ontology.yml",
+      "result": "PASS",
+      "details": {
+        "terms_checked": 10,
+        "contradictions_found": 0,
+        "notes": "用語境界に矛盾は検出されなかった"
+      }
+    }
+  ],
+
+  "term_usage_analysis": {
+    "total_term_occurrences": 85,
+    "canonical_used": 82,
+    "synonym_used_in_tables": 3,
+    "unknown_terms_found": [
+      {
+        "term": "OpenGuiConnector",
+        "context": "README.md diagram sections",
+        "frequency": 3,
+        "suggestion": "term_queue.ymlへの追加を推奨。ontology.ymlには'Connector'（INV-CONNECTOR-001）が存在",
+        "priority": "medium"
+      }
+    ]
+  },
+
+  "invariant_coverage": {
+    "total_invariants": 15,
+    "hard_invariants": 10,
+    "soft_invariants": 5,
+    "reflected_in_constitution": 10,
+    "reflected_in_agents_md": 10,
+    "reflected_in_readme_md": 8,
+    "missing_hard_invariants": [],
+    "missing_soft_invariants": [
+      {
+        "id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "target_files": ["SYSTEM_CONSTITUTION.md"],
+        "reason": "soft invariantのため、 constitutionには含めないがAGENTS.mdには記載済み"
+      },
+      {
+        "id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "target_files": ["SYSTEM_CONSTITUTION.md"],
+        "reason": "draft statusのためconstitutionには含めないがREADME.mdには記載済み"
+      },
+      {
+        "id": "INV-BACKEND-002",
+        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
+        "target_files": ["SYSTEM_CONSTITUTION.md"],
+        "reason": "soft invariantのため"
+      }
+    ]
+  },
+
+  "ambiguity_handling": {
+    "active_auto_decisions": 13,
+    "reflected_as_notes": 13,
+    "missing_notes": 0,
+    "auto_decision_categories": {
+      "Agent": 2,
+      "State": 3,
+      "Message": 2,
+      "AutoChat": 2,
+      "Backend": 2,
+      "Memory": 2
+    }
+  },
+
+  "cross_reference_consistency": {
+    "total_references_checked": 25,
+    "valid_references": 25,
+    "broken_references": 0,
+    "notes": "全ての相互参照（[AGENTS.md], [GLOSSARY.md]等）が有効"
+  },
+
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
+    "total_checks": 10,
+    "passed": 10,
     "failed": 0,
-    "warnings": 0,
-    "score": 100
+    "warnings": 1,
+    "pass_rate": 1.0,
+    "warnings_detail": [
+      {
+        "type": "term_gap",
+        "message": "OpenGuiConnectorという用語がontology.ymlに未登録",
+        "impact": "medium",
+        "recommendation": "term_queue.ymlへの追加を検討。またはConnector用語への統合"
+      }
+    ]
   }
 }

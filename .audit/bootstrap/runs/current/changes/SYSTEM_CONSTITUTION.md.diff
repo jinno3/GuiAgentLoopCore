@@ -1,0 +1,116 @@
+diff --git a/SYSTEM_CONSTITUTION.md b/SYSTEM_CONSTITUTION.md
+index 67a62a4..5d4a301 100644
+--- a/SYSTEM_CONSTITUTION.md
++++ b/SYSTEM_CONSTITUTION.md
+@@ -1,8 +1,8 @@
+ # System Constitution
+ 
+ > **GuiAgentLoopCore System Constitution**
+-> **Version**: 1.0
+-> **Last Updated**: 2026-02-01T14:53:54.014978+00:00
++> **Version**: 1.1
++> **Last Updated**: 2026-02-02T05:30:00Z (bootstrap run v1.1 - invariants.yml reflected)
+ 
+ This document defines the constitutional principles and invariants that govern the GuiAgentLoopCore system. These principles MUST NEVER be violated.
+ 
+@@ -111,7 +111,99 @@ The following invariants have constitutional status and CANNOT be violated:
+ 
+ **Rationale**: 柔軟な統合を可能にする
+ 
+-**Constitutional Impact**: 
++**Constitutional Impact**:
++- Violating this invariant compromises system safety
++- Changes require constitutional amendment (consensus from maintainers)
++- Tests MUST verify this invariant is maintained
++
++
++### INV-MESSAGE-001: `Message`は最大100長（MAX_MESSAGE_LENGTH）
++
++**Strength**: HARD (Constitutional)
++**Status**: stable
++**Related Terms**: Message
++
++**Rationale**: メモリ使用量を制限し、パフォーマンスを維持する
++
++**AUTO Decision**: AUTO:Message.limit:100（暫定仕様）
++
++**Constitutional Impact**:
++- Violating this invariant compromises system safety
++- Changes require constitutional amendment (consensus from maintainers)
++- Tests MUST verify this invariant is maintained
++
++
++### INV-STATE-002: 状態は3秒間隔のタイマーで自動更新される
++
++**Strength**: HARD (Constitutional)
++**Status**: stable
++**Related Terms**: State, Timer
++
++**Rationale**: UI同期と監視を実現する
++
++**AUTO Decision**: AUTO:State.timer:3sec（暫定仕様）
++
++**Constitutional Impact**:
++- Violating this invariant compromises system safety
++- Changes require constitutional amendment (consensus from maintainers)
++- Tests MUST verify this invariant is maintained
++
++
++### INV-BACKEND-001: バックエンドサーバーはallowed_pathsでセキュリティ制限される
++
++**Strength**: HARD (Constitutional)
++**Status**: stable
++**Related Terms**: Backend
++
++**Rationale**: ファイルアクセスを制限し、セキュリティを強化する
++
++**AUTO Decision**: AUTO:Backend.deployment:security（暫定仕様）
++
++**Constitutional Impact**:
++- Violating this invariant compromises system safety
++- Changes require constitutional amendment (consensus from maintainers)
++- Tests MUST verify this invariant is maintained
++
++
++### INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
++
++**Strength**: HARD (Constitutional)
++**Status**: stable
++**Related Terms**: Session
++
++**Rationale**: セキュアなセッション識別と検証を保証する
++
++**AUTO Decision**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）
++
++**Constitutional Impact**:
++- Violating this invariant compromises system safety
++- Changes require constitutional amendment (consensus from maintainers)
++- Tests MUST verify this invariant is maintained
++
++
++### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
++
++**Strength**: HARD (Constitutional)
++**Status**: stable
++**Related Terms**: Connector
++
++**Rationale**: 異なる実装間でのインターフェースの一貫性を保証する
++
++**Constitutional Impact**:
++- Violating this invariant compromises system safety
++- Changes require constitutional amendment (consensus from maintainers)
++- Tests MUST verify this invariant is maintained
++
++
++### INV-CONVERTER-001: コンバータは構造化変換のためにMappingRuleを使用する
++
++**Strength**: HARD (Constitutional)
++**Status**: stable
++**Related Terms**: Converter
++
++**Rationale**: 一貫したデータ変換パターンを保証する
++
++**Constitutional Impact**:
+ - Violating this invariant compromises system safety
+ - Changes require constitutional amendment (consensus from maintainers)
+ - Tests MUST verify this invariant is maintained

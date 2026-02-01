@@ -1,165 +1,262 @@
 {
-  "timestamp": "2026-02-02T05:20:00Z",
-  "overall_score": 92,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-02T05:30:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 88,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (audit + concept integration)",
+  "scoring_methodology": {
+    "overall_weight": {
+      "existence_clarity": 0.3,
+      "intent_alignment": 0.3,
+      "concept_consistency": 0.2,
+      "invariant_coverage": 0.2
+    },
+    "concept_alignment_weight": {
+      "canonical_usage": 0.5,
+      "synonym_absence": 0.3,
+      "auto_documentation": 0.2
+    }
+  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
+      "tier": 1,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "minor",
+            "description": "一部の説明でsynonymsが使用されている可能性があるが、全体としてcanonical termsがよく使用されている",
+            "found_examples": [
+              "Line 20: 'OpenGuiConnector' - ontology未登録",
+              "Line 53: 'OpenGuiConnector' - 概曖昧"
+            ]
+          }
+        ]
+      },
+      "strengths": [
+        "存在意義（mission）が明確に記載されている",
+        "Core Componentsセクションでcanonical termsを使用している",
+        "System Invariantsセクションでhard invariantsを明記している",
+        "AUTO Decisionsセクションで暫定仕様を説明している"
+      ],
+      "issues": [
+        "OpenGuiConnectorという用語がontology.ymlに未登録",
+        "一部の図で古い用語や未定義の用語が使用されている可能性"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "tier": 1,
+      "clarity_score": 92,
       "concept_alignment": {
         "score": 95,
         "issues": []
       },
       "strengths": [
-        "Mission statement clearly matches intent.yml",
-        "Core components section uses canonical terminology",
-        "System Invariants section properly documents hard invariants",
-        "AUTO Decisions section documents all provisional specifications"
+        "用語規約セクションが完全に整備されている",
+        "全てのcanonical termsとsynonymsが明記されている",
+        "不変条件が詳細に記載されている",
+        "AUTO決定が網羅的に記載されている",
+        "行動規範が明確に定義されている"
       ],
-      "issues": []
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "strengths": [
-        "Excellent term normalization table with canonical forms",
-        "Comprehensive invariant documentation with clear examples",
-        "AUTO decisions properly documented with expiration info",
-        "Clear behavior guidelines for AI agents"
-      ],
-      "issues": []
+      "issues": [
+        "一部のAUTO決定の有効期限（20回の実行）が記載されているが、期限切れの管理方法が不明"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
+      "tier": 2,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "strengths": [
+        "コア用語、ドメイン用語、補助用語が明確に分類されている",
+        "不変条件がカテゴリ別に整理されている",
+        "AUTO決定がカテゴリ別に整理されている",
+        "コード例が豊富で実践的",
+        "チェックリストが提供されている"
+      ],
+      "issues": [
+        "一部のAUTO決定に「暫定仕様」との注記があるが、正式化プロセスが不明"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
         "issues": []
       },
       "strengths": [
-        "Claude-specific recommendations aligned with ontology",
-        "Code examples follow invariant constraints",
-        "AUTO decisions properly referenced",
-        "Clear terminology guidelines"
-      ],
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "Auto-generated from ontology.yml (v0.3)",
-        "Complete term coverage (10 terms)",
-        "Proper categorization by layer (core/domain/aux)",
-        "Includes AUTO decisions and evidence",
-        "Normalization map provided"
-      ],
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 92,
-        "issues": []
-      },
-      "strengths": [
-        "Detailed mission explanation",
-        "Aligned with intent.yml"
+        "ontology.ymlから自動生成されている",
+        "用語がレイヤー別（core/domain/aux）に分類されている",
+        "定義、同義語、境界、ステータスが明記されている"
       ],
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
+      "tier": 2,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "moderate",
+            "description": "invariants.ymlの最新版反映が必要"
+          }
+        ]
+      },
+      "strengths": [
+        "システム憲法としての基本原則が記載されている"
+      ],
+      "issues": [
+        "invariants.ymlのhard invariantsが完全に反映されていない可能性がある"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 90,
+        "score": 88,
         "issues": []
       },
       "strengths": [
-        "Immutable principles documented",
-        "Invariants reflected"
+        "プロジェクトの目的が詳細に記載されている",
+        "intent.ymlとの整合性が高い"
       ],
       "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 88,
+      "tier": 2,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 75,
+        "issues": [
+          {
+            "type": "moderate",
+            "description": "用語ガイドラインのセクションが不足"
+          }
+        ]
       },
       "strengths": [
-        "Development guidelines provided",
-        "Term usage guidelines included"
+        "基本的な貢献フローが記載されている"
       ],
-      "issues": []
+      "issues": [
+        "用語の正規形を使用するためのガイドラインが不足している",
+        "不変条件を遵守するための具体的な手順が不足している"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 90,
+      "tier": 3,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 92,
-        "issues": []
+        "score": 80,
+        "issues": [
+          {
+            "type": "minor",
+            "description": "mappings.ymlの反映が不十分"
+          }
+        ]
       },
       "strengths": [
-        "Technical architecture documented",
-        "Canonical terminology used"
+        "アーキテクチャ概要が記載されている"
       ],
-      "issues": []
+      "issues": [
+        "ontology.ymlとの整合性が不十分",
+        "mappings.ymlの反映が不十分"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 88,
+      "tier": 3,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 70,
+        "issues": [
+          {
+            "type": "moderate",
+            "description": "CLAUDE.mdと同等の情報が必要"
+          }
+        ]
       },
-      "strengths": [
-        "Gemini-specific guidelines",
-        "Ontology referenced"
-      ],
-      "issues": []
+      "strengths": [],
+      "issues": [
+        "CLAUDE.mdと同等の情報が不足している"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 88,
+      "tier": 3,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 70,
+        "issues": [
+          {
+            "type": "moderate",
+            "description": "CLAUDE.mdと同等の情報が必要"
+          }
+        ]
       },
-      "strengths": [
-        "Codex-specific guidelines",
-        "Ontology referenced"
-      ],
+      "strengths": [],
+      "issues": [
+        "CLAUDE.mdと同等の情報が不足している"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "tier": 3,
+      "status": "skip",
+      "clarity_score": null,
+      "concept_alignment": null,
+      "strengths": [],
       "issues": []
     }
   ],
   "summary": {
-    "total_files": 10,
-    "excellent_files": 7,
-    "good_files": 3,
-    "needs_improvement": 0,
-    "critical_issues": 0
+    "total_files": 12,
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "4/4 (100%)",
+    "tier3_coverage": "4/6 (67%)",
+    "avg_clarity_score": 82.5,
+    "avg_concept_alignment": 84.1,
+    "critical_issues": [
+      {
+        "issue": "OpenGuiConnector用語がontology.ymlに未登録",
+        "impact": "medium",
+        "files_affected": ["README.md"],
+        "recommendation": "term_queue.ymlへの追加を検討"
+      },
+      {
+        "issue": "GEMINI.mdとCODEX.mdの内容不足",
+        "impact": "low",
+        "files_affected": ["GEMINI.md", "CODEX.md"],
+        "recommendation": "CLAUDE.mdをベースにAIモデル固有の調整を追加"
+      },
+      {
+        "issue": "CONTRIBUTING.mdの用語ガイドライン不足",
+        "impact": "medium",
+        "files_affected": ["CONTRIBUTING.md"],
+        "recommendation": "用語規約セクションの追加"
+      }
+    ]
   }
 }
