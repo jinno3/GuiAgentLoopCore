@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-02T04:08:00Z",
+  "timestamp": "2026-02-02T04:21:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
   "updated_at": "2026-02-02T02:24:29Z",
@@ -17,111 +17,92 @@
     }
   },
 
-  "canonical_terms": [
-    {
-      "id": "TERM-INTERPRETER",
-      "canonical": "Interpreter",
-      "layer": "core",
-      "status": "stable",
-      "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "lifecycle": ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"],
-      "related_terms": ["Agent", "Session", "Message", "State"]
-    },
-    {
-      "id": "TERM-AGENT",
-      "canonical": "Agent",
-      "layer": "core",
-      "status": "stable",
-      "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "related_terms": ["Interpreter", "AgentName", "Message", "Backend"],
-      "auto_decisions": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property"]
-    },
-    {
-      "id": "TERM-SESSION",
-      "canonical": "Session",
-      "layer": "core",
-      "status": "stable",
-      "definition": "一意のIDで管理される会話コンテキスト",
-      "synonyms": ["ChatSession", "会話セッション"],
-      "lifecycle": ["created", "active", "terminated"],
-      "related_terms": ["Interpreter", "Message", "ChatManager"]
-    },
-    {
-      "id": "TERM-MESSAGE",
-      "canonical": "Message",
-      "layer": "core",
-      "status": "stable",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
-      "synonyms": ["メッセージ", "ChatMessage"],
-      "lifecycle": ["created", "processed", "streamed"],
-      "related_terms": ["Interpreter", "Agent", "Session"],
-      "auto_decisions": ["AUTO:Message.structure:flat", "AUTO:Message.limit:100"]
-    },
-    {
-      "id": "TERM-STATE",
-      "canonical": "State",
-      "layer": "core",
-      "status": "stable",
-      "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "lifecycle": ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"],
-      "related_terms": ["Interpreter", "AutoChat", "Timer"],
-      "auto_decisions": ["AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input"]
-    },
-    {
-      "id": "TERM-AUTOCHAT",
-      "canonical": "AutoChat",
-      "layer": "domain",
-      "status": "stable",
-      "definition": "STATE_STOP時に自動的に会話を継続する機能",
-      "synonyms": ["自動チャット", "自動継続"],
-      "lifecycle": ["triggered", "executed", "completed"],
-      "related_terms": ["Interpreter", "State", "Message"],
-      "auto_decisions": ["AUTO:AutoChat.trigger:stop_only"]
-    },
-    {
-      "id": "TERM-STREAMWRAPPER",
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "status": "stable",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "lifecycle": ["created", "streaming", "completed"],
-      "related_terms": ["Message", "Interpreter"]
-    },
-    {
-      "id": "TERM-BACKEND",
-      "canonical": "Backend",
-      "layer": "domain",
-      "status": "stable",
-      "definition": "GUIフレームワーク実装（Gradio等）",
-      "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "related_terms": ["Interpreter", "Session", "GuiComponent"],
-      "auto_decisions": ["AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security"]
-    },
-    {
-      "id": "TERM-CONVERTER",
-      "canonical": "Converter",
-      "layer": "aux",
-      "status": "stable",
-      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
-      "synonyms": ["変換器", "マッパー"],
-      "lifecycle": ["created", "converting", "flattened"],
-      "related_terms": ["Message"]
-    },
-    {
-      "id": "TERM-MEMORY",
-      "canonical": "Memory",
-      "layer": "domain",
-      "status": "draft",
-      "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": ["会話メモリ", "ConversationBuffer"],
-      "related_terms": ["Session", "Message"],
-      "auto_decisions": ["AUTO:Memory.window:k10"]
+  "layer_breakdown": {
+    "core": [
+      {
+        "canonical": "Interpreter",
+        "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
+        "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+        "status": "stable"
+      },
+      {
+        "canonical": "Agent",
+        "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
+        "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
+        "status": "stable",
+        "auto_decisions": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property"]
+      },
+      {
+        "canonical": "Session",
+        "definition": "一意のIDで管理される会話コンテキスト",
+        "synonyms": ["ChatSession", "会話セッション"],
+        "status": "stable"
+      },
+      {
+        "canonical": "Message",
+        "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+        "synonyms": ["メッセージ", "ChatMessage"],
+        "status": "stable",
+        "auto_decisions": ["AUTO:Message.structure:flat", "AUTO:Message.limit:100"]
+      },
+      {
+        "canonical": "State",
+        "definition": "インタープリタの実行状態を表す列挙型",
+        "synonyms": ["InterpreterState", "インタープリタ状態"],
+        "status": "stable",
+        "auto_decisions": ["AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input"]
+      }
+    ],
+    "domain": [
+      {
+        "canonical": "AutoChat",
+        "definition": "STATE_STOP時に自動的に会話を継続する機能",
+        "synonyms": ["自動チャット", "自動継続"],
+        "status": "stable",
+        "auto_decisions": ["AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue"]
+      },
+      {
+        "canonical": "StreamWrapper",
+        "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+        "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
+        "status": "stable"
+      },
+      {
+        "canonical": "Backend",
+        "definition": "GUIフレームワーク実装（Gradio等）",
+        "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
+        "status": "stable",
+        "auto_decisions": ["AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security"]
+      },
+      {
+        "canonical": "Memory",
+        "definition": "会話履歴を保持するバッファ機構",
+        "synonyms": ["会話メモリ", "ConversationBuffer"],
+        "status": "draft",
+        "auto_decisions": ["AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional"]
+      }
+    ],
+    "aux": [
+      {
+        "canonical": "Converter",
+        "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+        "synonyms": ["変換器", "マッパー"],
+        "status": "stable"
+      }
+    ]
+  },
+
+  "auto_decisions": {
+    "total_active": 9,
+    "by_term": {
+      "Agent": 2,
+      "Message": 2,
+      "State": 2,
+      "AutoChat": 2,
+      "Backend": 2,
+      "Memory": 2
     }
-  ],
+  },
 
   "key_terms_for_md": [
     {
@@ -143,10 +124,21 @@
       "layer": "core",
       "definition": "インタープリタの実行状態を表す列挙型",
       "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+    },
+    {
+      "canonical": "Message",
+      "layer": "core",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "synonyms": ["メッセージ", "ChatMessage"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+    },
+    {
+      "canonical": "Backend",
+      "layer": "domain",
+      "definition": "GUIフレームワーク実装（Gradio等）",
+      "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
+      "should_use_in": ["README.md", "ARCHITECTURE.md"]
     }
-  ],
-
-  "total_synonyms": 24,
-  "auto_decisions_count": 9
+  ]
 }

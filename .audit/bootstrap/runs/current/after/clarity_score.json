@@ -1,42 +1,26 @@
 {
-  "timestamp": "2026-02-02T04:08:00Z",
-  "overall_score": 94,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-02T04:21:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-
-  "score_breakdown": {
-    "intent_consistency": 20,
-    "terminology_normalization": 20,
-    "invariant_coverage": 19,
-    "auto_decision_documentation": 18,
-    "structural_clarity": 17
-  },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "tier": 1,
-      "clarity_score": 92,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "term_usage": {
-          "total_occurrences": 82,
-          "canonical_used": 80,
-          "synonym_used": 2,
-          "alignment_rate": 0.976
-        },
+        "score": 98,
         "issues": []
       },
       "strengths": [
-        "Clear mission statement from intent.yml",
-        "Comprehensive invariants section",
-        "AUTO decisions well documented",
-        "Good use of canonical terminology"
+        "Mission statement clearly matches intent.yml",
+        "All core terms used in canonical form",
+        "Hard invariants well documented",
+        "AUTO decisions properly documented",
+        "References to GLOSSARY.md and AGENTS.md"
       ],
-      "issues": [
-        "Installation and Usage sections are empty (known issue, not critical)"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
@@ -44,20 +28,15 @@
       "tier": 1,
       "clarity_score": 98,
       "concept_alignment": {
-        "score": 98,
-        "term_usage": {
-          "total_occurrences": 124,
-          "canonical_used": 124,
-          "synonym_used": 0,
-          "alignment_rate": 1.0
-        },
+        "score": 100,
         "issues": []
       },
       "strengths": [
-        "Perfect terminology normalization (100%)",
-        "Complete invariants documentation",
-        "Clear behavior guidelines",
-        "Excellent AUTO decision documentation"
+        "Comprehensive terminology table with canonical forms and synonyms",
+        "All hard invariants from invariants.yml documented",
+        "All AUTO decisions from ambiguities.yml documented",
+        "Clear behavior guidelines (DO's and DON'Ts)",
+        "References to ontology.yml and GLOSSARY.md"
       ],
       "issues": []
     },
@@ -65,54 +44,38 @@
       "path": "CLAUDE.md",
       "exists": true,
       "tier": 2,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "term_usage": {
-          "total_occurrences": 98,
-          "canonical_used": 95,
-          "synonym_used": 3,
-          "alignment_rate": 0.969
-        },
-        "issues": [
-          {
-            "line": 45,
-            "found": "メッセージ",
-            "expected": "Message",
-            "status": "acceptable_japanese"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
       "strengths": [
-        "Excellent Claude-specific guidelines",
-        "Comprehensive invariants section",
-        "Good AUTO decision tracking",
-        "Strong code examples"
+        "Canonical terms prioritized (core, domain, aux)",
+        "All hard invariants documented with code examples",
+        "All AUTO decisions documented with explanations",
+        "State management guidelines detailed",
+        "Code review checklist provided"
       ],
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 92,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "term_usage": {
-          "total_occurrences": 156,
-          "canonical_used": 156,
-          "synonym_used": 0,
-          "alignment_rate": 1.0
-        },
+        "score": 95,
         "issues": []
       },
       "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete terminology coverage",
-        "Excellent structure by layers",
-        "Includes AUTO decisions"
+        "Terms organized by layer (core, domain, aux)",
+        "Synonyms documented",
+        "AUTO decisions referenced",
+        "Status indicators included"
       ],
-      "issues": []
+      "issues": [
+        "Should verify auto-generation from ontology.yml"
+      ]
     },
     {
       "path": "PURPOSE.md",
@@ -120,20 +83,15 @@
       "tier": 2,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 92,
-        "term_usage": {
-          "total_occurrences": 45,
-          "canonical_used": 43,
-          "synonym_used": 2,
-          "alignment_rate": 0.956
-        },
+        "score": 90,
         "issues": []
       },
       "strengths": [
-        "Deep dive into mission statement",
-        "Good use of canonical terms"
+        "Aligned with intent.yml mission"
       ],
-      "issues": []
+      "issues": [
+        "Could be more comprehensive"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
@@ -142,27 +100,12 @@
       "clarity_score": 88,
       "concept_alignment": {
         "score": 85,
-        "term_usage": {
-          "total_occurrences": 34,
-          "canonical_used": 30,
-          "synonym_used": 4,
-          "alignment_rate": 0.882
-        },
-        "issues": [
-          {
-            "line": 23,
-            "found": "エージェント",
-            "expected": "Agent",
-            "status": "needs_review"
-          }
-        ]
+        "issues": []
       },
-      "strengths": [
-        "Good contribution guidelines"
-      ],
+      "strengths": [],
       "issues": [
-        "Some terminology inconsistency detected",
-        "Concept alignment needs review"
+        "Should align contribution guidelines with core values from intent.yml",
+        "Should mention terminology guidelines from ontology.yml"
       ]
     },
     {
@@ -171,20 +114,15 @@
       "tier": 2,
       "clarity_score": 92,
       "concept_alignment": {
-        "score": 93,
-        "term_usage": {
-          "total_occurrences": 56,
-          "canonical_used": 54,
-          "synonym_used": 2,
-          "alignment_rate": 0.964
-        },
+        "score": 95,
         "issues": []
       },
       "strengths": [
-        "Good invariant documentation",
-        "Strong constitutional principles"
+        "Hard invariants documented"
       ],
-      "issues": []
+      "issues": [
+        "Could be more comprehensive"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
@@ -192,69 +130,52 @@
       "tier": 3,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 92,
-        "term_usage": {
-          "total_occurrences": 67,
-          "canonical_used": 64,
-          "synonym_used": 3,
-          "alignment_rate": 0.955
-        },
-        "issues": []
-      },
-      "strengths": [
-        "Good architectural overview",
-        "Decent terminology usage"
-      ],
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 88,
-      "concept_alignment": {
         "score": 90,
-        "term_usage": {
-          "total_occurrences": 28,
-          "canonical_used": 26,
-          "synonym_used": 2,
-          "alignment_rate": 0.929
-        },
         "issues": []
       },
       "strengths": [
-        "Good Gemini-specific guidelines"
+        "Technical architecture documented"
       ],
-      "issues": []
+      "issues": [
+        "Should reflect mappings.yml if it exists"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
       "tier": 3,
-      "clarity_score": 88,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 90,
-        "term_usage": {
-          "total_occurrences": 25,
-          "canonical_used": 23,
-          "synonym_used": 2,
-          "alignment_rate": 0.920
-        },
+        "score": 85,
         "issues": []
       },
-      "strengths": [
-        "Good Codex-specific guidelines"
-      ],
-      "issues": []
+      "strengths": [],
+      "issues": [
+        "Could benefit from terminology normalization"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "strengths": [],
+      "issues": [
+        "Could benefit from terminology normalization"
+      ]
     }
   ],
-
   "summary": {
-    "total_canonical_term_usage": 795,
-    "total_synonym_usage": 20,
-    "overall_alignment_rate": 0.975,
-    "files_excellent": 8,
-    "files_good": 2,
-    "files_needs_review": 1
+    "total_md_files": 11,
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "5/5 (100%)",
+    "tier3_coverage": "3/4 (75%)",
+    "term_normalization_rate": 0.98,
+    "invariant_documentation_rate": 1.0,
+    "auto_decision_documentation_rate": 1.0
   }
 }

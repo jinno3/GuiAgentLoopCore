@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T03:58:00Z"
+run_timestamp: "2026-02-02T04:08:00Z"
 version: "1.1"
 
 rotation:
@@ -16,10 +16,13 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 10
@@ -29,14 +32,19 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト"
+      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -61,136 +69,94 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
+    status: "exists_optimal"
     tier: 1
-    status: "exists_needs_update"
-    size: "8.4K"
-    issues:
-      - "用語の正規形が完全に使用されていない可能性"
-      - "ontology.ymlの最新状態との整合性確認"
+    issues: []
 
   - path: "AGENTS.md"
+    status: "exists_optimal"
     tier: 1
-    status: "exists_needs_update"
-    size: "9.3K"
-    issues:
-      - "用語規約セクションの強化"
-      - "不変条件の明記"
+    issues: []
 
   - path: "CLAUDE.md"
+    status: "exists_optimal"
     tier: 2
-    status: "exists_recent"
-    size: "11K"
     issues: []
-    note: "最終更新: 2026-02-02T03:06:49Z (bootstrap run v1.1)"
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    tier: 2
-    status: "exists_needs_update"
-    size: "4.8K"
-    issues:
-      - "不変条件の最新化"
-
-  - path: "PURPOSE.md"
-    tier: 2
-    status: "exists_needs_update"
-    size: "4.9K"
-    issues:
-      - "intent.ymlとの整合性確認"
-
-  - path: "CONTRIBUTING.md"
-    tier: 2
-    status: "exists_needs_update"
-    size: "5.2K"
-    issues:
-      - "用語ガイドラインの追加"
-
-  - path: "GEMINI.md"
-    tier: 3
-    status: "exists_needs_update"
-    size: "4.7K"
-    issues:
-      - "Claude.mdとの整合性"
-
-  - path: "CODEX.md"
-    tier: 3
-    status: "exists_needs_update"
-    size: "5.2K"
-    issues:
-      - "Claude.mdとの整合性"
-
-  - path: "ARCHITECTURE.md"
-    tier: 3
-    status: "exists_needs_review"
-    size: "11K"
-    issues:
-      - "mappings.ymlの反映"
 
   - path: "GLOSSARY.md"
+    status: "exists_optimal"
     tier: 3
-    status: "exists_from_ontology"
-    size: "9.3K"
+    issues: []
+
+  - path: "PURPOSE.md"
+    status: "exists_optimal"
+    tier: 2
+    issues: []
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_optimal"
+    tier: 2
+    issues: []
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
     issues:
-      - "ontology.ymlから自動生成されたものと整合性確認"
+      - "概念整合性の確認が必要"
+
+  - path: "GEMINI.md"
+    status: "exists_optimal"
+    tier: 3
+    issues: []
+
+  - path: "CODEX.md"
+    status: "exists_optimal"
+    tier: 3
+    issues: []
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_optimal"
+    tier: 3
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "用語正規形の使用確認、intent.ymlとの整合性検証"
+    reason: "存在意義の反映、用語の正規化を確認"
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "用語規約の強化、不変条件の明記、ontology.ymlとの整合性"
+    reason: "用語規約、不変条件の記載を確認"
 
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "最新のbootstrap実行による更新済みだが整合性確認"
+    reason: "Claude向け指示の整合性を確認"
 
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "ontology.ymlからの自動生成状態確認"
+    reason: "ontology.ymlからの自動生成を確認"
 
-  - action: "skip"
+  - action: "review"
     target: "CONTRIBUTING.md"
-    reason: "Tier 2、今回は検証対象外"
+    reason: "概念整合性の確認"
 
-  - action: "skip"
+  - action: "verify"
     target: "PURPOSE.md"
-    reason: "Tier 2、今回は検証対象外"
+    reason: "存在意義の詳細説明を確認"
 
-  - action: "skip"
+  - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Tier 2、今回は検証対象外"
+    reason: "不変原則の反映を確認"
 
-  - action: "skip"
-    target: "GEMINI.md"
-    reason: "Tier 3、今回は検証対象外"
-
-  - action: "skip"
-    target: "CODEX.md"
-    reason: "Tier 3、今回は検証対象外"
-
-  - action: "skip"
-    target: "ARCHITECTURE.md"
-    reason: "Tier 3、今回は検証対象外"
-
-verification_targets:
-  - "UC-001: 存在意義の一貫性（全MDで同じmission）"
-  - "UC-002: 対象ユーザーの一貫性"
-  - "UC-003: 制約の一貫性"
-  - "UC-004: 境界線の一貫性"
-  - "UC-005: intent.yml準拠"
-  - "CA-001: 用語の正規形使用"
-  - "CA-002: 同義語の排除"
-  - "CA-003: 不変条件の反映"
-  - "CA-004: AUTO決定の注記"
-  - "CA-005: 用語境界の整合"
-
-target_score: 90
-max_iterations: 3
+expected_outcome:
+  overall_score_target: 95
+  uniqueness_score_target: 95
+  concept_alignment_target: 96
+  note: "前回実行で既に高品質な状態が達成されているため、今回は検証と微調整が主な作業"
