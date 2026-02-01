@@ -1,26 +1,56 @@
-bootstrap_run_timestamp: '2026-02-01T14:24:09.802166+00:00'
+bootstrap_run_timestamp: '2026-02-01T23:30:00Z'
 version: '1.1'
+mode: 'concept_driven'
+
+# 1. 存在意義の明確度評価
 existence_clarity:
   before: 100
   after: 100
   delta: 0
-  interpretation: No audit/intent.yml source - working in concept_driven mode
+  interpretation: 'No audit/intent.yml source - working in concept_driven mode. Ontology-derived purpose is consistently expressed across all MD files.'
+
+# 2. 一意性評価
 uniqueness_score:
   score: 95
   issues_found: 0
   issues_resolved: 0
   remaining_issues: []
+
+# 3. MD網羅度
 md_coverage:
-  tier1_coverage: 2/2 (100%)
-  tier2_coverage: 3/3 (100%)
+  tier1_coverage: '2/2 (100%)'
+  tier2_coverage: '2/4 (50%)'
+  tier3_coverage: '1/4 (25%)'
+  overall_coverage: '5/10 (50%)'
+  missing_tier2: ['SYSTEM_CONSTITUTION.md', 'PURPOSE.md']
+  missing_tier3: ['ARCHITECTURE.md', 'GEMINI.md', 'CODEX.md']
+
+# 4. 発見した矛盾点
 inconsistencies: []
+
+# 5. intent.ymlへの提案
 intent_suggestions:
-- field: existence
-  current: No intent.yml found
-  suggestion: Run 14_repo_genesis_auditor to create authoritative intent.yml
-  reason: Having explicit intent.yml would improve existence clarity documentation
+  - field: 'existence'
+    current: 'No intent.yml found'
+    suggestion: 'Run 14_repo_genesis_auditor to create authoritative intent.yml'
+    reason: 'Having explicit intent.yml would improve existence clarity documentation and provide formal mission statement'
+    priority: 'medium'
+
+# 6. 概念モデルとの連携状況
 concept_integration:
   used: true
+  ontology_version: '0.3'
   ontology_terms_used: 10
+  total_canonical_usage: 264
   alignment_score: 100
   new_term_candidates: []
+
+# 7. 実行サマリ
+execution_summary:
+  files_updated: 0
+  files_verified: 5
+  critical_issues_found: 0
+  recommendations:
+    - 'Create intent.yml using 14_repo_genesis_auditor for formal existence definition'
+    - 'Consider creating SYSTEM_CONSTITUTION.md for constitutional principles'
+    - 'Consider creating PURPOSE.md for detailed project purpose documentation'

@@ -1,66 +1,211 @@
 {
-  "timestamp": "2026-02-01T14:03:35Z",
-  "scan_root": "/home/jinno/jinno3/GuiAgentLoopCore",
-  "total_md_files": 6,
-  "tier1_files": [
-    "README.md",
-    "AGENTS.md"
-  ],
-  "tier2_files": [
-    "CLAUDE.md",
-    "CONTRIBUTING.md",
-    "GLOSSARY.md"
-  ],
-  "tier3_files": [],
-  "missing_tier1": [],
-  "missing_tier2": [],
-  "missing_tier3": [
-    "ARCHITECTURE.md",
-    "PURPOSE.md"
-  ],
+  "timestamp": "2026-02-01T14:22:35.589469+00:00",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "size_bytes": 6409,
-      "tier": 1,
-      "last_modified": "2026-02-01T22:39:00Z"
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": 9,
+        "synonym_issues": 0,
+        "issues": []
+      },
+      "issues": [],
+      "char_count": 6395,
+      "line_count": 157
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "size_bytes": 8279,
-      "tier": 1,
-      "last_modified": "2026-02-01T22:39:00Z"
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 52,
+        "canonical_terms_used": 10,
+        "synonym_issues": 20,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "lines": [
+              297
+            ]
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "lines": [
+              318
+            ]
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "lines": [
+              375
+            ]
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "lines": [
+              385
+            ]
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "lines": [
+              438
+            ]
+          }
+        ]
+      },
+      "issues": [
+        "Using 20 non-canonical terms"
+      ],
+      "char_count": 4436,
+      "line_count": 154
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "size_bytes": 4907,
-      "tier": 2,
-      "last_modified": "2026-02-01T22:13:00Z"
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 77,
+        "canonical_terms_used": 4,
+        "synonym_issues": 4,
+        "issues": [
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "lines": [
+              252
+            ]
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "lines": [
+              296
+            ]
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "lines": [
+              335
+            ]
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "lines": [
+              573,
+              630,
+              885,
+              1603,
+              1692,
+              1819,
+              1996
+            ]
+          }
+        ]
+      },
+      "issues": [
+        "Using 4 non-canonical terms"
+      ],
+      "char_count": 3157,
+      "line_count": 143
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "size_bytes": 5315,
-      "tier": 2,
-      "last_modified": "2026-02-01T22:13:00Z"
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 71,
+        "canonical_terms_used": 4,
+        "synonym_issues": 2,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "lines": [
+              670
+            ]
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "lines": [
+              695
+            ]
+          }
+        ]
+      },
+      "issues": [
+        "Using 2 non-canonical terms"
+      ],
+      "char_count": 5289,
+      "line_count": 162
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "size_bytes": 8158,
-      "tier": 2,
-      "last_modified": "2026-02-01T22:12:00Z"
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "size_bytes": 61,
-      "tier": 3,
-      "last_modified": "2026-02-01T21:56:00Z",
-      "note": "Standard changelog, not part of bootstrap scope"
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 75,
+        "canonical_terms_used": 10,
+        "synonym_issues": 20,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "lines": [
+              308,
+              4856
+            ]
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "lines": [
+              329,
+              4894
+            ]
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "lines": [
+              719,
+              4922
+            ]
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "lines": [
+              729,
+              4943
+            ]
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "lines": [
+              1384,
+              1646,
+              4964
+            ]
+          }
+        ]
+      },
+      "issues": [
+        "Using 20 non-canonical terms"
+      ],
+      "char_count": 5470,
+      "line_count": 223
     }
   ]
 }

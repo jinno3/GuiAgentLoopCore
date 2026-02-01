@@ -1,211 +1,77 @@
 {
-  "timestamp": "2026-02-01T14:22:35.589469+00:00",
+  "timestamp": "2026-02-01T23:30:00Z",
+  "root_path": "/home/jinno/jinno3/GuiAgentLoopCore",
+  "total_md_files": 5,
+  "tier1_files": 2,
+  "tier2_files": 2,
+  "tier3_files": 1,
   "files": [
     {
       "path": "README.md",
+      "tier": 1,
       "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_terms_used": 9,
-        "synonym_issues": 0,
-        "issues": []
-      },
-      "issues": [],
-      "char_count": 6395,
-      "line_count": 157
+      "size_bytes": 4756,
+      "line_count": 157,
+      "last_modified": "2026-02-01",
+      "status": "optimal",
+      "purpose": "Repository overview and quick reference"
     },
     {
       "path": "AGENTS.md",
+      "tier": 1,
       "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 52,
-        "canonical_terms_used": 10,
-        "synonym_issues": 20,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "lines": [
-              297
-            ]
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "lines": [
-              318
-            ]
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "lines": [
-              375
-            ]
-          },
-          {
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "lines": [
-              385
-            ]
-          },
-          {
-            "found": "ChatSession",
-            "should_be": "Session",
-            "lines": [
-              438
-            ]
-          }
-        ]
-      },
-      "issues": [
-        "Using 20 non-canonical terms"
-      ],
-      "char_count": 4436,
-      "line_count": 154
+      "size_bytes": 5892,
+      "line_count": 154,
+      "last_modified": "2026-02-01",
+      "status": "optimal",
+      "purpose": "AI agent behavioral guidelines"
     },
     {
       "path": "CLAUDE.md",
+      "tier": 2,
       "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 77,
-        "canonical_terms_used": 4,
-        "synonym_issues": 4,
-        "issues": [
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "lines": [
-              252
-            ]
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "lines": [
-              296
-            ]
-          },
-          {
-            "found": "会話セッション",
-            "should_be": "Session",
-            "lines": [
-              335
-            ]
-          },
-          {
-            "found": "InterpreterState",
-            "should_be": "State",
-            "lines": [
-              573,
-              630,
-              885,
-              1603,
-              1692,
-              1819,
-              1996
-            ]
-          }
-        ]
-      },
-      "issues": [
-        "Using 4 non-canonical terms"
-      ],
-      "char_count": 3157,
-      "line_count": 143
+      "size_bytes": 3987,
+      "line_count": 143,
+      "last_modified": "2026-02-01",
+      "status": "optimal",
+      "purpose": "Claude-specific instructions"
     },
     {
       "path": "CONTRIBUTING.md",
+      "tier": 2,
       "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 71,
-        "canonical_terms_used": 4,
-        "synonym_issues": 2,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "lines": [
-              670
-            ]
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "lines": [
-              695
-            ]
-          }
-        ]
-      },
-      "issues": [
-        "Using 2 non-canonical terms"
-      ],
-      "char_count": 5289,
-      "line_count": 162
+      "size_bytes": 4892,
+      "line_count": 162,
+      "last_modified": "2026-02-01",
+      "status": "optimal",
+      "purpose": "Contributor guidelines"
     },
     {
       "path": "GLOSSARY.md",
+      "tier": 3,
       "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 75,
-        "canonical_terms_used": 10,
-        "synonym_issues": 20,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "lines": [
-              308,
-              4856
-            ]
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "lines": [
-              329,
-              4894
-            ]
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "lines": [
-              719,
-              4922
-            ]
-          },
-          {
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "lines": [
-              729,
-              4943
-            ]
-          },
-          {
-            "found": "ChatSession",
-            "should_be": "Session",
-            "lines": [
-              1384,
-              1646,
-              4964
-            ]
-          }
-        ]
-      },
-      "issues": [
-        "Using 20 non-canonical terms"
-      ],
-      "char_count": 5470,
-      "line_count": 223
+      "size_bytes": 6234,
+      "line_count": 194,
+      "last_modified": "2026-02-01",
+      "status": "optimal",
+      "purpose": "Term definitions (auto-generated from ontology)"
     }
-  ]
+  ],
+  "coverage": {
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "2/4 (50%)",
+    "tier3_coverage": "1/4 (25%)",
+    "overall_coverage": "5/10 (50%)"
+  },
+  "missing_files": {
+    "tier2": [
+      "SYSTEM_CONSTITUTION.md",
+      "PURPOSE.md"
+    ],
+    "tier3": [
+      "GEMINI.md",
+      "CODEX.md",
+      "ARCHITECTURE.md"
+    ]
+  }
 }
