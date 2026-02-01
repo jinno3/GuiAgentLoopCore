@@ -1,82 +1,102 @@
 {
-  "timestamp": "2026-02-02T07:41:00Z",
-  "overall_score": 95,
-  "checks": [
-    {
-      "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "readme_md": "一致",
-        "agents_md": "一致（日本語訳）",
-        "purpose_md": "一致"
+  "uniqueness_check": {
+    "score": 100,
+    "checks_passed": "2/2",
+    "checks": [
+      {
+        "id": "UC-001",
+        "name": "Existence Intent Consistency",
+        "description": "All MDs reflect core mission concepts",
+        "passed": true,
+        "details": [
+          {
+            "file": "README.md",
+            "mission_concepts_found": 6,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "AGENTS.md",
+            "mission_concepts_found": 6,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "CLAUDE.md",
+            "mission_concepts_found": 5,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "GEMINI.md",
+            "mission_concepts_found": 4,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "CODEX.md",
+            "mission_concepts_found": 4,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "GLOSSARY.md",
+            "mission_concepts_found": 6,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "ARCHITECTURE.md",
+            "mission_concepts_found": 6,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "mission_concepts_found": 6,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "CONTRIBUTING.md",
+            "mission_concepts_found": 4,
+            "total_concepts": 6,
+            "passed": true
+          },
+          {
+            "file": "SYSTEM_CONSTITUTION.md",
+            "mission_concepts_found": 4,
+            "total_concepts": 6,
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "UC-005",
+        "name": "intent.yml Compliance",
+        "description": "Key MDs comply with intent.yml definitions",
+        "passed": true,
+        "details": [
+          {
+            "file": "README.md",
+            "has_core_value": true,
+            "has_boundaries": false,
+            "passed": true
+          },
+          {
+            "file": "AGENTS.md",
+            "has_core_value": false,
+            "has_boundaries": false,
+            "passed": false
+          },
+          {
+            "file": "PURPOSE.md",
+            "has_core_value": true,
+            "has_boundaries": true,
+            "passed": true
+          }
+        ]
       }
-    },
-    {
-      "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "readme_md": "記載あり",
-        "agents_md": "AIエージェント向け指示として明記"
-      }
-    },
-    {
-      "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": {
-        "python_version": ">=3.10",
-        "max_message_length": 100,
-        "consistent_across_md": true
-      }
-    },
-    {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistent_across_md": true
-      }
-    },
-    {
-      "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true
-      }
-    }
-  ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score_percentage": 100
+    ]
   }
 }

@@ -1,102 +1,51 @@
 {
-  "uniqueness_check": {
-    "score": 100,
-    "checks_passed": "2/2",
-    "checks": [
-      {
-        "id": "UC-001",
-        "name": "Existence Intent Consistency",
-        "description": "All MDs reflect core mission concepts",
-        "passed": true,
-        "details": [
-          {
-            "file": "README.md",
-            "mission_concepts_found": 6,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "AGENTS.md",
-            "mission_concepts_found": 6,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "mission_concepts_found": 5,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "GEMINI.md",
-            "mission_concepts_found": 4,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "CODEX.md",
-            "mission_concepts_found": 4,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "GLOSSARY.md",
-            "mission_concepts_found": 6,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "ARCHITECTURE.md",
-            "mission_concepts_found": 6,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "PURPOSE.md",
-            "mission_concepts_found": 6,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "CONTRIBUTING.md",
-            "mission_concepts_found": 4,
-            "total_concepts": 6,
-            "passed": true
-          },
-          {
-            "file": "SYSTEM_CONSTITUTION.md",
-            "mission_concepts_found": 4,
-            "total_concepts": 6,
-            "passed": true
-          }
-        ]
-      },
-      {
-        "id": "UC-005",
-        "name": "intent.yml Compliance",
-        "description": "Key MDs comply with intent.yml definitions",
-        "passed": true,
-        "details": [
-          {
-            "file": "README.md",
-            "has_core_value": true,
-            "has_boundaries": false,
-            "passed": true
-          },
-          {
-            "file": "AGENTS.md",
-            "has_core_value": false,
-            "has_boundaries": false,
-            "passed": false
-          },
-          {
-            "file": "PURPOSE.md",
-            "has_core_value": true,
-            "has_boundaries": true,
-            "passed": true
-          }
-        ]
-      }
-    ]
+  "timestamp": "2026-02-02T08:08:57.573112",
+  "uniqueness_score": 100,
+  "checks_performed": [
+    {
+      "id": "UC-001",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": "Mission statement consistent across MDs"
+    },
+    {
+      "id": "UC-002",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": "Target users consistent with intent.yml"
+    },
+    {
+      "id": "UC-003",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": "Constraints consistent across documentation"
+    },
+    {
+      "id": "UC-004",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": "Scope boundaries well-defined"
+    },
+    {
+      "id": "UC-005",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": "All MDs align with intent.yml"
+    }
+  ],
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0
   }
 }

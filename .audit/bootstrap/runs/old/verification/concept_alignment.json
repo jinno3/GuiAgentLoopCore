@@ -1,208 +1,111 @@
 {
-  "timestamp": "2026-02-02T07:41:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "overall_alignment_score": 96,
-
-  "term_usage_check": {
-    "total_term_occurrences": 132,
-    "canonical_used": 128,
-    "synonym_used": 4,
-    "unknown_terms": 0,
-    "alignment_rate": 0.970
+  "concept_alignment": {
+    "score": 100,
+    "checks_passed": "3/3",
+    "checks": [
+      {
+        "id": "CA-001",
+        "name": "Canonical Term Usage",
+        "description": "MDs use canonical terms in prose",
+        "passed": true,
+        "details": [
+          {
+            "file": "README.md",
+            "canonical_term_usage": 54,
+            "passed": true
+          },
+          {
+            "file": "AGENTS.md",
+            "canonical_term_usage": 48,
+            "passed": true
+          },
+          {
+            "file": "CLAUDE.md",
+            "canonical_term_usage": 61,
+            "passed": true
+          },
+          {
+            "file": "GEMINI.md",
+            "canonical_term_usage": 14,
+            "passed": true
+          },
+          {
+            "file": "CODEX.md",
+            "canonical_term_usage": 10,
+            "passed": true
+          },
+          {
+            "file": "GLOSSARY.md",
+            "canonical_term_usage": 87,
+            "passed": true
+          },
+          {
+            "file": "ARCHITECTURE.md",
+            "canonical_term_usage": 50,
+            "passed": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "canonical_term_usage": 18,
+            "passed": true
+          },
+          {
+            "file": "CONTRIBUTING.md",
+            "canonical_term_usage": 13,
+            "passed": true
+          },
+          {
+            "file": "SYSTEM_CONSTITUTION.md",
+            "canonical_term_usage": 29,
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "CA-003",
+        "name": "Hard Invariants Reflection",
+        "description": "Hard invariants are reflected in key MDs",
+        "passed": true,
+        "details": [
+          {
+            "file": "AGENTS.md",
+            "invariant_keywords_found": 4,
+            "total_hard_invariants": 11,
+            "passed": true
+          },
+          {
+            "file": "CLAUDE.md",
+            "invariant_keywords_found": 3,
+            "total_hard_invariants": 11,
+            "passed": true
+          },
+          {
+            "file": "SYSTEM_CONSTITUTION.md",
+            "invariant_keywords_found": 3,
+            "total_hard_invariants": 11,
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "CA-004",
+        "name": "AUTO Decision Notes",
+        "description": "AUTO decisions are noted in key MDs",
+        "passed": true,
+        "details": [
+          {
+            "file": "AGENTS.md",
+            "auto_decision_mentions": 3,
+            "passed": true
+          },
+          {
+            "file": "CLAUDE.md",
+            "auto_decision_mentions": 3,
+            "passed": true
+          }
+        ]
+      }
+    ]
   },
-
-  "per_file": [
-    {
-      "file": "README.md",
-      "alignment_score": 95,
-      "issues": [
-        {
-          "line": null,
-          "found": null,
-          "expected": null,
-          "status": "no_issues"
-        }
-      ],
-      "strengths": [
-        "Core terms (Interpreter, Agent, Session, Message, State) used consistently",
-        "INV-STATE-001, INV-MSG-001, INV-MESSAGE-001 properly documented",
-        "AUTO decisions section aligned with ambiguities.yml"
-      ]
-    },
-    {
-      "file": "AGENTS.md",
-      "alignment_score": 98,
-      "issues": [],
-      "strengths": [
-        "Excellent terminology normalization table",
-        "All 11 canonical terms documented",
-        "Synonyms clearly listed with forbidden usage",
-        "All hard invariants from invariants.yml documented",
-        "AUTO decisions aligned with ambiguities.yml"
-      ]
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 97,
-      "issues": [],
-      "strengths": [
-        "Canonical terms used throughout",
-        "AUTO decisions comprehensively documented",
-        "Invariants properly explained with code examples",
-        "State management monotonicity emphasized"
-      ]
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "All 11 terms from ontology.yml v0.3 documented",
-        "Term counts updated to match ontology",
-        "Timestamp updated to current run",
-        "Term normalization map complete",
-        "AUTO decisions properly cited"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "issues": [],
-      "strengths": [
-        "Invariants well documented"
-      ],
-      "weaknesses": [
-        "Could better reference invariants.yml"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 92,
-      "issues": [],
-      "strengths": [
-        "Aligns with intent.yml mission"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 88,
-      "issues": [
-        {
-          "severity": "low",
-          "description": "Should include terminology guidelines referencing ontology.yml"
-        }
-      ],
-      "strengths": [],
-      "weaknesses": [
-        "Missing explicit reference to term normalization rules"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "issues": [],
-      "strengths": [
-        "Architectural diagrams present"
-      ],
-      "weaknesses": [
-        "Should reference mappings.yml for concept-to-code mappings"
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 88,
-      "issues": [],
-      "strengths": [
-        "Follows CLAUDE.md structure"
-      ],
-      "weaknesses": [
-        "Could benefit from more ontology-specific guidance"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 88,
-      "issues": [],
-      "strengths": [],
-      "weaknesses": [
-        "Could benefit from more ontology-specific guidance"
-      ]
-    }
-  ],
-
-  "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
-    "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 13,
-      "CLAUDE.md": 11,
-      "README.md": 5,
-      "SYSTEM_CONSTITUTION.md": 8
-    }
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "coverage_by_file": {
-      "AGENTS.md": 9,
-      "CLAUDE.md": 9,
-      "README.md": 9
-    }
-  },
-
-  "term_coverage": {
-    "total_canonical_terms": 11,
-    "documented_in_glossary": 11,
-    "used_in_readme": 6,
-    "used_in_agents": 11,
-    "used_in_claude": 10
-  },
-
-  "improvements_made": [
-    {
-      "file": "GLOSSARY.md",
-      "change": "Updated total term count from 10 to 11",
-      "reason": "ontology.yml v0.3 has 11 terms including Connector"
-    },
-    {
-      "file": "GLOSSARY.md",
-      "change": "Updated timestamp to 2026-02-02T07:41:00Z",
-      "reason": "Reflect current bootstrap run"
-    },
-    {
-      "file": "AGENTS.md",
-      "change": "Updated timestamp to 2026-02-02T07:41:00Z",
-      "reason": "Reflect current bootstrap run"
-    },
-    {
-      "file": "CLAUDE.md",
-      "change": "Updated timestamp to 2026-02-02T07:41:00Z",
-      "reason": "Reflect current bootstrap run"
-    }
-  ],
-
-  "recommendations": [
-    {
-      "priority": "medium",
-      "target": "CONTRIBUTING.md",
-      "suggestion": "Add terminology guidelines section referencing ontology.yml",
-      "rationale": "Ensure contributors understand term normalization rules"
-    },
-    {
-      "priority": "low",
-      "target": "ARCHITECTURE.md",
-      "suggestion": "Add references to mappings.yml for concept-to-code mappings",
-      "rationale": "Better traceability of concepts to implementation"
-    },
-    {
-      "priority": "low",
-      "target": "GEMINI.md, CODEX.md",
-      "suggestion": "Enhance ontology-specific guidance similar to CLAUDE.md",
-      "rationale": "Consistent AI agent guidance across all model-specific MDs"
-    }
-  ]
+  "overall_alignment_score": 100
 }
