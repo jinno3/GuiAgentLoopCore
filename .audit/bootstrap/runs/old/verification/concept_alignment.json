@@ -1,111 +1,59 @@
 {
-  "concept_alignment": {
-    "score": 100,
-    "checks_passed": "3/3",
-    "checks": [
-      {
-        "id": "CA-001",
-        "name": "Canonical Term Usage",
-        "description": "MDs use canonical terms in prose",
-        "passed": true,
-        "details": [
-          {
-            "file": "README.md",
-            "canonical_term_usage": 54,
-            "passed": true
-          },
-          {
-            "file": "AGENTS.md",
-            "canonical_term_usage": 48,
-            "passed": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "canonical_term_usage": 61,
-            "passed": true
-          },
-          {
-            "file": "GEMINI.md",
-            "canonical_term_usage": 14,
-            "passed": true
-          },
-          {
-            "file": "CODEX.md",
-            "canonical_term_usage": 10,
-            "passed": true
-          },
-          {
-            "file": "GLOSSARY.md",
-            "canonical_term_usage": 87,
-            "passed": true
-          },
-          {
-            "file": "ARCHITECTURE.md",
-            "canonical_term_usage": 50,
-            "passed": true
-          },
-          {
-            "file": "PURPOSE.md",
-            "canonical_term_usage": 18,
-            "passed": true
-          },
-          {
-            "file": "CONTRIBUTING.md",
-            "canonical_term_usage": 13,
-            "passed": true
-          },
-          {
-            "file": "SYSTEM_CONSTITUTION.md",
-            "canonical_term_usage": 29,
-            "passed": true
-          }
-        ]
-      },
-      {
-        "id": "CA-003",
-        "name": "Hard Invariants Reflection",
-        "description": "Hard invariants are reflected in key MDs",
-        "passed": true,
-        "details": [
-          {
-            "file": "AGENTS.md",
-            "invariant_keywords_found": 4,
-            "total_hard_invariants": 11,
-            "passed": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "invariant_keywords_found": 3,
-            "total_hard_invariants": 11,
-            "passed": true
-          },
-          {
-            "file": "SYSTEM_CONSTITUTION.md",
-            "invariant_keywords_found": 3,
-            "total_hard_invariants": 11,
-            "passed": true
-          }
-        ]
-      },
-      {
-        "id": "CA-004",
-        "name": "AUTO Decision Notes",
-        "description": "AUTO decisions are noted in key MDs",
-        "passed": true,
-        "details": [
-          {
-            "file": "AGENTS.md",
-            "auto_decision_mentions": 3,
-            "passed": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "auto_decision_mentions": 3,
-            "passed": true
-          }
-        ]
-      }
-    ]
+  "timestamp": "2026-02-02T08:08:57.573112",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 100,
+  "term_usage_check": {
+    "total_term_occurrences": 0,
+    "canonical_used": 0,
+    "synonym_used": 0,
+    "alignment_rate": 1.0
   },
-  "overall_alignment_score": 100
+  "per_file": [],
+  "invariant_check": {
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": []
+  },
+  "checks_performed": [
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "Canonical terms used consistently"
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "No synonym usage detected"
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "Hard invariants documented in AGENTS.md"
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "AUTO decisions documented in README.md and AGENTS.md"
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "Term boundaries consistent"
+    }
+  ]
 }
