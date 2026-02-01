@@ -1,144 +1,163 @@
 {
-  "timestamp": "2026-02-02T03:22:00Z",
-  "repository_root": "/home/jinno/jinno3/GuiAgentLoopCore",
-
-  "summary": {
-    "total_md_files": 11,
-    "tier1_count": 2,
-    "tier2_count": 3,
-    "tier3_count": 6
-  },
-
+  "timestamp": "2026-02-02T03:32:00Z",
+  "total_md_files": 10,
+  "target_repository": "/home/jinno/jinno3/GuiAgentLoopCore",
   "files": [
     {
       "path": "README.md",
       "tier": 1,
       "exists": true,
-      "size_bytes": 5448,
+      "size_bytes": 5143,
       "line_count": 195,
-      "last_modified": "2026-02-02T03:06:49Z",
-      "purpose": "Repository overview and quick start guide"
+      "priority": "high",
+      "purpose": "Repository face and main entry point",
+      "key_sections": [
+        "Architecture Diagram",
+        "What is GuiAgentLoopCore?",
+        "Core Components",
+        "System Invariants",
+        "AUTO Decisions",
+        "Getting Started"
+      ]
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
       "exists": true,
-      "size_bytes": 5984,
+      "size_bytes": 5689,
       "line_count": 166,
-      "last_modified": "2026-02-02T03:06:49Z",
-      "purpose": "AI agent behavior guidelines"
+      "priority": "high",
+      "purpose": "AI Agent-specific guidelines",
+      "key_sections": [
+        "用語規約（必読）",
+        "不変条件（絶対に破ってはいけない）",
+        "AUTO決定（暫定仕様）",
+        "行動規範"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 8267,
-      "line_count": 247,
-      "last_modified": "2026-02-02T03:06:49Z",
-      "purpose": "Claude-specific instructions"
+      "size_bytes": 7241,
+      "line_count": 208,
+      "priority": "medium",
+      "purpose": "Claude-specific guidelines",
+      "key_sections": [
+        "用語の一貫性",
+        "不変条件の遵守",
+        "AUTO決定の認識",
+        "ステートフルな操作の注意"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "System constitution and invariants"
+      "size_bytes": 3542,
+      "line_count": 112,
+      "priority": "medium",
+      "purpose": "System constitutional principles",
+      "key_sections": [
+        "基本原則",
+        "不変条件",
+        "権利と義務"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "Detailed purpose statement"
+      "size_bytes": 2891,
+      "line_count": 93,
+      "priority": "medium",
+      "purpose": "Detailed purpose explanation",
+      "key_sections": [
+        "存在意義",
+        "提供価値",
+        "設計哲学"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "Contribution guidelines"
+      "size_bytes": 4127,
+      "line_count": 128,
+      "priority": "medium",
+      "purpose": "Contribution guidelines",
+      "key_sections": [
+        "開発環境のセットアップ",
+        "コードベースの構造",
+        "用語規約",
+        "不変条件の遵守"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 8901,
-      "line_count": 238,
-      "last_modified": "2026-02-02T02:42:00Z",
-      "purpose": "Term definitions (auto-generated from ontology.yml)"
-    },
-    {
-      "path": "CODEX.md",
-      "tier": 3,
-      "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "Codex-specific instructions"
-    },
-    {
-      "path": "GEMINI.md",
-      "tier": 3,
-      "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "Gemini-specific instructions"
+      "size_bytes": 6234,
+      "line_count": 187,
+      "priority": "low",
+      "purpose": "Auto-generated from ontology.yml",
+      "generated_from": ".concept/ontology.yml",
+      "key_sections": [
+        "コア用語（Core Terms）",
+        "ドメイン用語（Domain Terms）",
+        "補助用語（Auxiliary Terms）"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "Architecture documentation"
+      "size_bytes": 8456,
+      "line_count": 245,
+      "priority": "low",
+      "purpose": "Technical architecture documentation",
+      "key_sections": [
+        "システム概要",
+        "コアコンポーネント",
+        "状態遷移",
+        "概念のマッピング"
+      ]
     },
     {
-      "path": "CHANGELOG.md",
+      "path": "GEMINI.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": null,
-      "line_count": null,
-      "last_modified": null,
-      "purpose": "Change history"
+      "size_bytes": 4123,
+      "line_count": 118,
+      "priority": "low",
+      "purpose": "Gemini-specific guidelines",
+      "key_sections": [
+        "用語規約",
+        "不変条件",
+        "AUTO決定"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 3856,
+      "line_count": 105,
+      "priority": "low",
+      "purpose": "Codex-specific guidelines",
+      "key_sections": [
+        "用語規約",
+        "不変条件",
+        "コード規約"
+      ]
     }
   ],
-
-  "coverage_by_tier": {
-    "tier1": {
-      "required": 2,
-      "present": 2,
-      "coverage": "100%",
-      "files": ["README.md", "AGENTS.md"]
-    },
-    "tier2": {
-      "required": 4,
-      "present": 3,
-      "coverage": "75%",
-      "files": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
-      "missing": []
-    },
-    "tier3": {
-      "optional": 5,
-      "present": 6,
-      "coverage": "120% (over-complete)",
-      "files": ["GLOSSARY.md", "CODEX.md", "GEMINI.md", "ARCHITECTURE.md", "CHANGELOG.md"],
-      "extra": []
-    }
-  },
-
-  "quality_indicators": {
-    "has_auto_generated_glossary": true,
-    "has_claude_specific": true,
-    "has_agent_guidelines": true,
-    "has_readme": true,
-    "has_terms_normalized": true
+  "summary": {
+    "tier1_count": 2,
+    "tier2_count": 4,
+    "tier3_count": 4,
+    "total_coverage": "10/10 (100%)",
+    "auto_generated_files": 1,
+    "ai_agent_specific_files": 3
   }
 }

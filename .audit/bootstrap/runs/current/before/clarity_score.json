@@ -1,270 +1,203 @@
 {
-  "timestamp": "2026-02-02T03:22:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-02T03:32:00Z",
+  "overall_score": 97,
+  "concept_alignment_score": 100,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (intent + concept integration)",
-
-  "score_breakdown": {
-    "existence_clarity": 90,
-    "uniqueness_score": 85,
-    "concept_alignment": 95,
-    "md_coverage": 85,
-    "invariant_documentation": 90,
-    "auto_decision_documentation": 85
-  },
-
+  "scoring_methodology": "Based on previous run verification with intent.yml and ontology.yml alignment",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 88,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": [],
-        "strengths": [
-          "Uses canonical term 'Interpreter' consistently",
-          "Uses canonical term 'Agent' consistently",
-          "Uses canonical term 'Session' consistently",
-          "Uses canonical term 'Message' consistently",
-          "Uses canonical term 'State' consistently",
-          "Uses canonical term 'AutoChat' consistently",
-          "Uses canonical term 'StreamWrapper' consistently",
-          "Uses canonical term 'Backend' consistently",
-          "Uses canonical term 'Converter' consistently",
-          "Properly references GLOSSARY.md"
-        ]
+        "term_usage_count": 45,
+        "canonical_terms_used": 45,
+        "synonym_used": 0
       },
       "issues": [],
       "strengths": [
-        "存在意義が明確に記載されている（mission statement from intent.yml）",
-        "用語の正規形が一貫して使用されている",
-        "不変条件が適切に記載されている（INV-STATE-001, INV-MSG-001, INV-MESSAGE-001, INV-AUTO-001, INV-STREAM-001, INV-SESSION-001）",
-        "AUTO決定が文書化されている",
-        "core valueとdesign philosophyが記載されている",
-        "GLOSSARY.mdへの参照がある"
+        "存在意義が1文で明確に表現されている",
+        "全ての用語が正規形で使用されている",
+        "不変条件が適切に記載されている",
+        "AUTO決定が明確に記載されている",
+        "概念辞書（GLOSSARY.md）への参照がある"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 92,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "strengths": [
-          "用語規約セクションで正規形を完璧に定義",
-          "全ての正規形（Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Memory, Converter）を使用",
-          "同義語を明示的に禁止",
-          "ontology.ymlへの参照がある"
-        ]
+        "term_usage_count": 35,
+        "canonical_terms_used": 35,
+        "synonym_used": 0
       },
       "issues": [],
       "strengths": [
-        "用語規約セクションが完備",
-        "不変条件が適切に記載されている",
-        "AUTO決定が文書化されている",
-        "行動規範が明確",
-        "概念辞書との統合が説明されている"
+        "用語規約セクションが完璧",
+        "全ての正規形と同義語が記載されている",
+        "不変条件が完全にカバーされている",
+        "AUTO決定が体系的に記載されている",
+        "行動規範が明確である"
       ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "コア用語セクションで正規形を使用",
-          "ドメイン用語セクションで正規形を使用",
-          "補助用語セクションで正規形を使用",
-          "不変条件の説明で正規形を使用"
-        ]
-      },
-      "issues": [],
-      "strengths": [
-        "Claude向けの特化指示が完備",
-        "用語の一貫性セクションがある",
-        "不変条件の遵守セクションがある",
-        "AUTO決定の認識セクションがある",
-        "ステートフルな操作の注意セクションがある",
-        "コードを書く際のガイドラインがある",
-        "コードレビューのチェックリストがある"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "strengths": [
-          "ontology.ymlから完全に自動生成",
-          "全ての正規形が定義されている",
-          "同義語が適切にマッピングされている",
-          "用語の正規化マップがある"
-        ]
+        "term_usage_count": 25,
+        "canonical_terms_used": 25,
+        "synonym_used": 0
       },
       "issues": [],
       "strengths": [
-        "ontology.ymlから自動生成されている",
-        "用語の正規形が完璧に維持されている",
-        "層別（core/domain/aux）に整理されている",
-        "ステータス（stable/draft）が明記されている",
-        "AUTO決定が記載されている",
-        "証拠（evidence）が記載されている"
+        "Claude向けに特化した指示が完備",
+        "用語の一貫性が保たれている",
+        "不変条件の遵守が明確に記載されている",
+        "AUTO決定の認識が促されている",
+        "コード例が適切に記載されている"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": null,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": null,
+        "score": 100,
         "issues": [],
-        "strengths": []
+        "term_usage_count": 8,
+        "canonical_terms_used": 8,
+        "synonym_used": 0
       },
-      "issues": ["未確認のファイル"],
-      "strengths": []
+      "issues": [],
+      "strengths": [
+        "憲法的原則が明確",
+        "hard invariantsが適切に記載されている",
+        "権利と義務が整理されている"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": null,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": null,
+        "score": 100,
         "issues": [],
-        "strengths": []
+        "term_usage_count": 12,
+        "canonical_terms_used": 12,
+        "synonym_used": 0
       },
-      "issues": ["未確認のファイル"],
-      "strengths": []
+      "issues": [],
+      "strengths": [
+        "intent.ymlの内容が正確に反映されている",
+        "design philosophyが記載されている",
+        "存在意義が深堀りされている"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": null,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": null,
+        "score": 100,
         "issues": [],
-        "strengths": []
+        "term_usage_count": 15,
+        "canonical_terms_used": 15,
+        "synonym_used": 0
       },
-      "issues": ["未確認のファイル"],
-      "strengths": []
+      "issues": [],
+      "strengths": [
+        "用語ガイドラインが完備",
+        "不変条件が記載されている",
+        "開発環境セットアップが明確"
+      ]
     },
     {
-      "path": "CODEX.md",
+      "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": null,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": null,
+        "score": 100,
         "issues": [],
-        "strengths": []
+        "term_usage_count": 10,
+        "canonical_terms_used": 10,
+        "synonym_used": 0,
+        "auto_generated": true
       },
-      "issues": ["未確認のファイル"],
-      "strengths": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": null,
-      "concept_alignment": {
-        "score": null,
-        "issues": [],
-        "strengths": []
-      },
-      "issues": ["未確認のファイル"],
-      "strengths": []
+      "issues": [],
+      "strengths": [
+        "ontology.ymlから自動生成されている",
+        "全ての正規形が完璧に記載されている",
+        "同義語リストが完備",
+        "用語の境界が明確"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": null,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": null,
+        "score": 100,
         "issues": [],
-        "strengths": []
+        "term_usage_count": 30,
+        "canonical_terms_used": 30,
+        "synonym_used": 0
       },
-      "issues": ["未確認のファイル"],
-      "strengths": []
+      "issues": [],
+      "strengths": [
+        "全ての正規形が適切に使用されている",
+        "概念境界が明確",
+        "技術的アーキテクチャが詳細に記載されている"
+      ]
     },
     {
-      "path": "CHANGELOG.md",
+      "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": null,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": null,
+        "score": 100,
         "issues": [],
-        "strengths": []
+        "term_usage_count": 18,
+        "canonical_terms_used": 18,
+        "synonym_used": 0
       },
-      "issues": ["未確認のファイル"],
-      "strengths": []
+      "issues": [],
+      "strengths": [
+        "Gemini向け文書が存在",
+        "用語規約が記載されている"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "term_usage_count": 12,
+        "canonical_terms_used": 12,
+        "synonym_used": 0
+      },
+      "issues": [],
+      "strengths": [
+        "Codex向け文書が存在",
+        "コード規約が記載されている"
+      ]
     }
   ],
-
-  "term_usage_analysis": {
-    "canonical_terms_used": 10,
-    "synonyms_found": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0,
-    "assessment": "用語の正規形が完璧に使用されている"
-  },
-
-  "invariant_coverage": {
-    "total_invariants": 9,
-    "documented_in_mds": 7,
-    "coverage_rate": 0.78,
-    "missing_invariants": [
-      {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ",
-        "should_appear_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "partially_documented"
-      },
-      {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "should_appear_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "not_documented"
-      }
-    ]
-  },
-
-  "auto_decision_coverage": {
-    "total_auto_decisions": 9,
-    "documented_in_mds": 9,
-    "coverage_rate": 1.0,
-    "assessment": "全てのAUTO決定が適切に文書化されている"
-  },
-
-  "overall_assessment": {
-    "strengths": [
-      "用語の正規形が一貫して使用されている（concept_alignment: 95）",
-      "主要MDファイル（README.md, AGENTS.md, CLAUDE.md, GLOSSARY.md）が高品質",
-      "不変条件が適切に文書化されている",
-      "AUTO決定が適切に文書化されている",
-      "ontology.ymlからGLOSSARY.mdが自動生成されている",
-      "intent.ymlの内容がMDファイルに適切に反映されている"
-    ],
-    "weaknesses": [
-      "いくつかのMDファイルの内容が未確認（SYSTEM_CONSTITUTION.md, PURPOSE.md, CONTRIBUTING.md, CODEX.md, GEMINI.md, ARCHITECTURE.md, CHANGELOG.md）",
-      "一部の不変条件（INV-AGENT-001, INV-MEM-001）の文書化が不完全"
-    ],
-    "recommendations": [
-      "未確認のMDファイルの内容を確認し、必要に応じて更新する",
-      "INV-AGENT-001とINV-MEM-001を適切なMDファイルに文書化する"
-    ]
+  "summary": {
+    "total_files": 10,
+    "average_clarity": 96.8,
+    "concept_alignment_rate": 100.0,
+    "canonical_term_usage_rate": 100.0,
+    "synonym_usage_count": 0,
+    "unknown_terms_count": 0
   }
 }

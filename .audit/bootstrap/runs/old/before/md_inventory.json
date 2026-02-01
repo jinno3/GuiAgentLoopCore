@@ -1,89 +1,144 @@
 {
-  "timestamp": "2026-02-02T03:06:49Z",
-  "root_directory": "/home/jinno/jinno3/GuiAgentLoopCore",
-  "total_md_files": 11,
-  "tier1_count": 2,
-  "tier2_count": 4,
-  "tier3_count": 5,
+  "timestamp": "2026-02-02T03:22:00Z",
+  "repository_root": "/home/jinno/jinno3/GuiAgentLoopCore",
+
+  "summary": {
+    "total_md_files": 11,
+    "tier1_count": 2,
+    "tier2_count": 3,
+    "tier3_count": 6
+  },
+
   "files": [
     {
       "path": "README.md",
       "tier": 1,
-      "size_bytes": 4321,
       "exists": true,
-      "last_modified": "2026-02-02T01:53:00Z"
+      "size_bytes": 5448,
+      "line_count": 195,
+      "last_modified": "2026-02-02T03:06:49Z",
+      "purpose": "Repository overview and quick start guide"
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
-      "size_bytes": 8280,
       "exists": true,
-      "last_modified": "2026-02-02T02:30:00Z"
+      "size_bytes": 5984,
+      "line_count": 166,
+      "last_modified": "2026-02-02T03:06:49Z",
+      "purpose": "AI agent behavior guidelines"
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
-      "size_bytes": 4858,
       "exists": true,
-      "last_modified": "2026-02-02T01:53:00Z"
+      "size_bytes": 8267,
+      "line_count": 247,
+      "last_modified": "2026-02-02T03:06:49Z",
+      "purpose": "Claude-specific instructions"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
-      "size_bytes": 4877,
       "exists": true,
-      "last_modified": "2026-02-02T00:56:00Z"
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "System constitution and invariants"
     },
     {
       "path": "PURPOSE.md",
       "tier": 2,
-      "size_bytes": 4965,
       "exists": true,
-      "last_modified": "2026-02-01T23:53:00Z"
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "Detailed purpose statement"
     },
     {
       "path": "CONTRIBUTING.md",
       "tier": 2,
-      "size_bytes": 5291,
       "exists": true,
-      "last_modified": "2026-02-01T23:53:00Z"
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "Contribution guidelines"
     },
     {
       "path": "GLOSSARY.md",
       "tier": 3,
-      "size_bytes": 9505,
       "exists": true,
-      "last_modified": "2026-02-02T02:45:00Z"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "tier": 3,
-      "size_bytes": 10982,
-      "exists": true,
-      "last_modified": "2026-02-02T01:53:00Z"
+      "size_bytes": 8901,
+      "line_count": 238,
+      "last_modified": "2026-02-02T02:42:00Z",
+      "purpose": "Term definitions (auto-generated from ontology.yml)"
     },
     {
       "path": "CODEX.md",
       "tier": 3,
-      "size_bytes": 5224,
       "exists": true,
-      "last_modified": "2026-02-02T00:57:00Z"
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "Codex-specific instructions"
     },
     {
       "path": "GEMINI.md",
       "tier": 3,
-      "size_bytes": 4744,
       "exists": true,
-      "last_modified": "2026-02-02T00:57:00Z"
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "Gemini-specific instructions"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "Architecture documentation"
     },
     {
       "path": "CHANGELOG.md",
       "tier": 3,
-      "size_bytes": 61,
       "exists": true,
-      "last_modified": "2026-02-01T21:56:00Z",
-      "excluded": true,
-      "reason": "Historical document"
+      "size_bytes": null,
+      "line_count": null,
+      "last_modified": null,
+      "purpose": "Change history"
     }
-  ]
+  ],
+
+  "coverage_by_tier": {
+    "tier1": {
+      "required": 2,
+      "present": 2,
+      "coverage": "100%",
+      "files": ["README.md", "AGENTS.md"]
+    },
+    "tier2": {
+      "required": 4,
+      "present": 3,
+      "coverage": "75%",
+      "files": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+      "missing": []
+    },
+    "tier3": {
+      "optional": 5,
+      "present": 6,
+      "coverage": "120% (over-complete)",
+      "files": ["GLOSSARY.md", "CODEX.md", "GEMINI.md", "ARCHITECTURE.md", "CHANGELOG.md"],
+      "extra": []
+    }
+  },
+
+  "quality_indicators": {
+    "has_auto_generated_glossary": true,
+    "has_claude_specific": true,
+    "has_agent_guidelines": true,
+    "has_readme": true,
+    "has_terms_normalized": true
+  }
 }
