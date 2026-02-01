@@ -1,120 +1,87 @@
 {
-  "timestamp": "2026-02-02T03:45:00Z",
-  "overall_score": 97,
-  "concept_alignment_score": 100,
+  "timestamp": "2026-02-02T03:58:00Z",
+  "overall_score": 92,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_methodology": "Baseline measurement - carrying forward from previous bootstrap run",
-  "baseline_source": "previous run after state (2026-02-02T03:32:00Z)",
+  "scoring_method": "v1.1 (intent + ontology integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 97,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "issues": []
       },
-      "notes": "Well-aligned with intent.yml, all canonical terms used correctly"
+      "issues": [],
+      "strengths": [
+        "Core Componentsセクションで正規形を使用",
+        "System Invariantsを明記",
+        "AUTO Decisionsをセクション化して記載",
+        "GLOSSARY.mdへの参照を含む"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 98,
         "issues": []
       },
-      "notes": "Perfect AI agent guidelines with term normalization"
+      "issues": [],
+      "strengths": [
+        "用語規約テーブルを完備（正規形と同義語のマッピング）",
+        "不変条件を詳細に記載",
+        "AUTO決定をカテゴリー別に整理",
+        "行動規範を明確に定義",
+        "概念辞書との統合セクションあり"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "notes": "Excellent Claude-specific guidance with AUTO decisions noted"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 96,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "notes": "Strong invariant coverage"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 97,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "notes": "Well-aligned with intent.yml mission"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "issues": []
       },
-      "notes": "Good contribution guidelines"
+      "issues": [],
+      "strengths": [
+        "用語の一貫性セクションで正規形を優先使用",
+        "不変条件をカテゴリー別に詳細記載",
+        "AUTO決定を認識",
+        "コード例とレビューチェックリストを完備"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "auto_generated": true
-      },
-      "notes": "Auto-generated from ontology.yml, perfectly aligned"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 96,
-      "concept_alignment": {
-        "score": 100,
+        "score": 92,
         "issues": []
       },
-      "notes": "Good technical documentation"
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "notes": "Good Gemini-specific guidance"
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "notes": "Good Codex-specific guidance"
+      "issues": [],
+      "strengths": [
+        "ontology.ymlから自動生成",
+        "レイヤー別（core/domain/aux）に分類",
+        "定義、同義語、境界、関連語を完備"
+      ]
     }
   ],
   "summary": {
-    "total_files": 10,
-    "average_clarity": 96.8,
-    "concept_alignment_rate": 100.0,
-    "canonical_term_usage_rate": 100.0,
-    "synonym_usage_count": 0,
-    "unknown_terms_count": 0,
-    "overall_assessment": "Excellent baseline - all MD files are well-aligned with intent.yml and ontology.yml"
+    "total_tier1_files": 2,
+    "total_tier2_files": 4,
+    "total_tier3_files": 5,
+    "files_with_high_clarity": 4,
+    "files_with_perfect_concept_alignment": 3,
+    "overall_assessment": "MD files are well-maintained with high concept alignment",
+    "recommendations": [
+      "README.md: インストールと使用方法セクションの空白を埋める",
+      "AGENTS.md: 既に最適化済み",
+      "CLAUDE.md: 既に最適化済み",
+      "GLOSSARY.md: ontology.ymlと整合性を確認"
+    ]
   }
 }

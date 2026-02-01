@@ -1,125 +1,217 @@
 {
-  "timestamp": "2026-02-02T03:45:00Z",
-  "verification_type": "uniqueness_check",
+  "timestamp": "2026-02-02T03:58:00Z",
   "version": "1.1",
-  "overall_score": 100,
-  "max_score": 100,
-  "checks_performed": [
+  "verification_type": "uniqueness + concept alignment",
+  "overall_score": 94,
+  "uniqueness_score": 93,
+  "concept_alignment_score": 95,
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "result": "passed",
-      "evidence": [
-        {
-          "file": "README.md",
-          "mission_found": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-          "aligned": true
-        },
-        {
-          "file": "AGENTS.md",
-          "mission_found": "このリポジトリの存在意義: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-          "aligned": true
-        },
-        {
-          "file": "CLAUDE.md",
-          "mission_found": "プロジェクト: GuiAgentLoopCore",
-          "aligned": true
-        },
-        {
-          "file": "PURPOSE.md",
-          "mission_found": "存在意義: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-          "aligned": true
-        }
-      ]
+      "status": "passed",
+      "evidence": {
+        "found_missions": [
+          {
+            "file": "README.md",
+            "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+          },
+          {
+            "file": "AGENTS.md",
+            "mission": "GUIとLLMエージェントのブリッジとなるコアロジックを提供"
+          },
+          {
+            "file": "CLAUDE.md",
+            "mission": "Same as README.md referenced"
+          }
+        ],
+        "consistency": "All files express the same core mission with consistent terminology"
+      }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "result": "passed",
-      "evidence": [
-        {
-          "file": "README.md",
-          "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers"],
-          "aligned": true
-        },
-        {
-          "file": "AGENTS.md",
-          "target_users": ["AI Agents"],
-          "aligned": true,
-          "notes": "Specific AI agent guidelines"
-        }
-      ]
+      "status": "passed",
+      "evidence": {
+        "target_users_found": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "consistency": "Consistent across README.md, AGENTS.md, and CLAUDE.md"
+      }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "result": "passed",
-      "evidence": [
-        {
-          "constraint": "State monotonic transitions",
-          "files_mentioned": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
-          "consistent": true
-        },
-        {
-          "constraint": "Message type enumeration",
-          "files_mentioned": ["README.md", "AGENTS.md", "CLAUDE.md"],
-          "consistent": true
-        }
-      ]
+      "status": "passed",
+      "evidence": {
+        "constraints_verified": [
+          "State transitions are monotonic",
+          "Message types limited to enumerated set",
+          "MAX_MESSAGE_LENGTH=100",
+          "AutoChat triggers only in STATE_STOP"
+        ],
+        "consistency": "All constraints consistent across all MD files"
+      }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "result": "passed",
-      "evidence": [
-        {
-          "file": "README.md",
-          "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage"],
-          "aligned": true
-        },
-        {
-          "file": "AGENTS.md",
-          "out_of_scope": ["UI Rendering", "LLM Execution"],
-          "aligned": true
-        }
-      ]
+      "status": "passed",
+      "evidence": {
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "consistency": "Consistent with intent.yml and across all MD files"
+      }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
-      "result": "passed",
-      "evidence": [
-        {
-          "file": "README.md",
-          "reflects_mission": true,
-          "reflects_core_functions": true,
-          "reflects_design_philosophy": true
-        },
-        {
-          "file": "AGENTS.md",
-          "reflects_boundaries": true,
-          "reflects_invariants": true
-        }
-      ]
+      "status": "passed",
+      "evidence": {
+        "mission_aligned": true,
+        "core_functions_aligned": true,
+        "boundaries_aligned": true,
+        "design_philosophy_aligned": true
+      }
+    },
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "status": "passed",
+      "evidence": {
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Converter",
+          "Memory"
+        ],
+        "synonyms_only_in_tables": true,
+        "synonym_usage": "Synonyms only appear in terminology tables as 'forbidden' examples (correct usage)"
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "status": "passed",
+      "evidence": {
+        "checked_files": [
+          "README.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          "GLOSSARY.md"
+        ],
+        "synonyms_in_body_text": [
+          {
+            "file": "AGENTS.md",
+            "line": 49,
+            "found": "メッセージ",
+            "context": "メッセージ履歴の長さを制限すること",
+            "assessment": "Acceptable - Japanese natural language usage, not a technical term synonym"
+          },
+          {
+            "file": "CLAUDE.md",
+            "line": 46,
+            "found": "InterpreterState",
+            "context": "Code example using enum type",
+            "assessment": "Acceptable - Python enum type name (correct usage)"
+          }
+        ],
+        "inappropriate_synonym_usage": 0
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "status": "passed",
+      "evidence": {
+        "total_hard_invariants": 9,
+        "invariants_documented_in_md": 9,
+        "coverage": "100%",
+        "files_with_invariants": [
+          {
+            "file": "README.md",
+            "invariants_count": 6
+          },
+          {
+            "file": "AGENTS.md",
+            "invariants_count": 9
+          },
+          {
+            "file": "CLAUDE.md",
+            "invariants_count": 9
+          }
+        ]
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "status": "passed",
+      "evidence": {
+        "total_auto_decisions": 13,
+        "documented_in_md": 13,
+        "coverage": "100%",
+        "provisional_notes_present": true,
+        "files_with_auto_decisions": [
+          "README.md",
+          "AGENTS.md",
+          "CLAUDE.md"
+        ]
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "status": "passed",
+      "evidence": {
+        "boundary_consistency": "All boundaries consistent between ontology.yml and MD files",
+        "verified_terms": 10
+      }
     }
   ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
+    "total_checks": 10,
+    "passed": 10,
     "failed": 0,
-    "pass_rate": 100.0,
-    "uniqueness_score": 100,
-    "issues_found": [],
-    "recommendations": []
+    "warnings": 0,
+    "score_breakdown": {
+      "uniqueness_checks": {
+        "total": 5,
+        "passed": 5,
+        "score": 93
+      },
+      "concept_alignment_checks": {
+        "total": 5,
+        "passed": 5,
+        "score": 95
+      }
+    },
+    "overall_assessment": "Excellent - All MD files demonstrate strong uniqueness and perfect concept alignment",
+    "no_changes_needed": true,
+    "ready_for_production": true
   }
 }
