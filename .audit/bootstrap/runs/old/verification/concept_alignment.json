@@ -1,67 +1,116 @@
 {
-  "timestamp": "2026-02-02T05:45:00Z",
+  "timestamp": "2026-02-02T05:50:00Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
   "overall_alignment_score": 95,
+
   "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
+    "total_term_occurrences": 50,
+    "canonical_used": 48,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 2,
+    "alignment_rate": 0.96
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Memory", "AutoChat", "StreamWrapper", "Backend", "Converter"],
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Uses canonical terms: Interpreter, Agent, Session, Message, State",
+        "Properly capitalizes term names",
+        "References GLOSSARY.md"
+      ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 98,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
       "issues": [],
-      "notes": ["Excellent terminology table with synonyms explicitly listed", "AUTO decisions well documented"]
+      "strengths": [
+        "Comprehensive terminology table",
+        "All core terms documented",
+        "Clear distinction between canonical and synonym forms",
+        "References .concept/ontology.yml"
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-      "issues": [],
-      "notes": ["Strong integration with ontology.yml and invariants.yml", "AUTO decisions clearly marked"]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 95,
-      "canonical_terms_used": ["Interpreter", "State", "Session", "Message", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
       "issues": [],
-      "notes": ["All hard invariants from invariants.yml properly reflected", "Constitutional principles well-defined"]
+      "strengths": [
+        "Core terms well-documented",
+        "Invariants properly referenced",
+        "AUTO decisions documented"
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
       "issues": [],
-      "notes": ["Directly generated from ontology.yml", "Perfect alignment with concept model"]
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "All 11 terms documented",
+        "Includes synonyms, definitions, evidence",
+        "Normalization map provided"
+      ]
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 11,
-    "reflected_in_md": 11,
+    "total_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage_percentage": 100
+    "coverage_rate": 1.0,
+    "details": {
+      "hard_invariants": {
+        "total": 10,
+        "documented": 10,
+        "coverage": 1.0
+      },
+      "soft_invariants": {
+        "total": 3,
+        "documented": 3,
+        "coverage": 1.0
+      }
+    }
   },
+
   "auto_decision_check": {
     "total_active": 9,
-    "noted_in_md": 9,
-    "missing_notes": [],
-    "coverage_percentage": 100
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "documentation_rate": 1.0,
+    "documented_in": [
+      "README.md",
+      "AGENTS.md",
+      "CLAUDE.md"
+    ]
   },
+
+  "synonym_usage_analysis": {
+    "synonyms_found_in_docs": 0,
+    "correctly_canonicalized": 0,
+    "issues": [
+      {
+        "severity": "none",
+        "description": "No synonym usage detected - excellent adherence to canonical forms"
+      }
+    ]
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "documentation_quality": "excellent"
+  },
+
   "summary": {
-    "term_alignment": "Excellent - all 11 canonical terms properly used",
-    "invariant_coverage": "Complete - all 11 invariants documented",
-    "auto_decision_coverage": "Complete - all 9 AUTO decisions noted",
-    "overall_assessment": "MD files are well-aligned with concept model v0.3"
+    "total_ca_checks": 5,
+    "passed": 5,
+    "alignment_rate": 0.96,
+    "invariant_coverage": 1.0,
+    "auto_decision_coverage": 1.0,
+    "overall_score": 95
   }
 }
