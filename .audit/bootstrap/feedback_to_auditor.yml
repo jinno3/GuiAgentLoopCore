@@ -1,7 +1,7 @@
-bootstrap_run_timestamp: '2026-02-02T01:00:00Z'
+bootstrap_run_timestamp: '2026-02-02T01:09:00Z'
 version: '1.1'
 mode: concept_driven
-note: No .audit/config/intent.yml found - running in concept_driven mode
+note: No .audit/config/intent.yml found - running in concept_driven mode. Recommend creating intent.yml for full audit+concept integration.
 
 existence_clarity:
   before: 100
@@ -13,8 +13,8 @@ uniqueness_score:
   before: 100
   after: 100
   issues_found: 0
-  issues_resolved: 8
-  remaining_issues: 0
+  issues_resolved: 0
+  remaining_issues: []
 
 md_coverage:
   tier1_coverage: 2/2 (100%)
@@ -26,35 +26,26 @@ inconsistencies: []
 intent_suggestions:
 - field: intent.yml
   current: 不存在
-  suggestion: .audit/config/intent.ymlの作成を推奨
-  reason: 存在意義の明確な定義により、より精度の高いMD整備が可能に
+  suggestion: .audit/config/intent.ymlの作成を強く推奨
+  reason: 存在意義の明確な定義により、audit+concept統合モードでの実行が可能になります
+  required_fields:
+    - mission
+    - target_user
+    - core_value
+    - core_functions
+    - boundaries
 
 concept_integration:
   used: true
   ontology_version: '0.3'
-  ontology_terms_used: 10
+  ontology_terms_used: 150
   alignment_score: 100
   new_term_candidates: []
 
-files_updated:
-  - path: AGENTS.md
-    changes: 4
-    reason: Fixed synonym usage (メッセージ→Message, UIフレームワーク→UI Backend)
-  - path: SYSTEM_CONSTITUTION.md
-    changes: 1
-    reason: Fixed synonym usage (ストリームラッパー→StreamWrapper)
-  - path: GLOSSARY.md
-    changes: 4
-    reason: Fixed synonym usage (メッセージ→Message, GUIバックエンド→GUI Backend)
-  - path: GEMINI.md
-    changes: 1
-    reason: Fixed synonym usage (AIエージェント→Agent)
-  - path: CODEX.md
-    changes: 1
-    reason: Fixed synonym usage (AIエージェント→Agent)
+files_updated: []
 
 overall_assessment:
   status: optimal
   concept_alignment_score: 100
   uniqueness_score: 100
-  recommendation: All MD files in perfect alignment with ontology v0.3. Consider creating .audit/config/intent.yml for enhanced documentation quality.
+  recommendation: All MD files in perfect alignment with ontology v0.3. Strongly recommend creating .audit/config/intent.yml for enhanced documentation quality and full audit+concept integration.

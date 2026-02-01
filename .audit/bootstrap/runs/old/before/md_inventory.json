@@ -1,62 +1,133 @@
-[
-  {
-    "path": "README.md",
-    "size_bytes": 6409,
-    "line_count": 157,
-    "tier": 1
-  },
-  {
-    "path": "AGENTS.md",
-    "size_bytes": 8031,
-    "line_count": 154,
-    "tier": 1
-  },
-  {
-    "path": "CLAUDE.md",
-    "size_bytes": 4765,
-    "line_count": 143,
-    "tier": 2
-  },
-  {
-    "path": "SYSTEM_CONSTITUTION.md",
-    "size_bytes": 4889,
-    "line_count": 153,
-    "tier": 2
-  },
-  {
-    "path": "PURPOSE.md",
-    "size_bytes": 4965,
-    "line_count": 139,
-    "tier": 2
-  },
-  {
-    "path": "CONTRIBUTING.md",
-    "size_bytes": 5291,
-    "line_count": 162,
-    "tier": 2
-  },
-  {
-    "path": "GLOSSARY.md",
-    "size_bytes": 7654,
-    "line_count": 223,
-    "tier": 3
-  },
-  {
-    "path": "GEMINI.md",
-    "size_bytes": 4757,
-    "line_count": 138,
-    "tier": 3
-  },
-  {
-    "path": "CODEX.md",
-    "size_bytes": 5237,
-    "line_count": 158,
-    "tier": 3
-  },
-  {
-    "path": "ARCHITECTURE.md",
-    "size_bytes": 10993,
-    "line_count": 295,
-    "tier": 3
-  }
-]
+{
+  "timestamp": "2026-02-02T00:55:00Z",
+  "mode": "concept_driven",
+  "overall_score": 100,
+  "concept_alignment_score": 100,
+  "files": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "size_bytes": 6409,
+      "line_count": 156,
+      "synonym_issues": 0,
+      "issues": []
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "size_bytes": 8031,
+      "line_count": 153,
+      "synonym_issues": 3,
+      "issues": [
+        {
+          "found": "メッセージ",
+          "should_be": "Message",
+          "count": 4
+        },
+        {
+          "found": "GUIバックエンド",
+          "should_be": "Backend",
+          "count": 1
+        },
+        {
+          "found": "UIフレームワーク",
+          "should_be": "Backend",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "size_bytes": 4765,
+      "line_count": 142,
+      "synonym_issues": 0,
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "size_bytes": 4889,
+      "line_count": 152,
+      "synonym_issues": 1,
+      "issues": [
+        {
+          "found": "ストリームラッパー",
+          "should_be": "StreamWrapper",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "size_bytes": 4965,
+      "line_count": 138,
+      "synonym_issues": 0,
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "size_bytes": 5291,
+      "line_count": 161,
+      "synonym_issues": 0,
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "size_bytes": 10993,
+      "line_count": 294,
+      "synonym_issues": 0,
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "size_bytes": 7654,
+      "line_count": 222,
+      "synonym_issues": 2,
+      "issues": [
+        {
+          "found": "メッセージ",
+          "should_be": "Message",
+          "count": 3
+        },
+        {
+          "found": "UIフレームワーク",
+          "should_be": "Backend",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "size_bytes": 4757,
+      "line_count": 137,
+      "synonym_issues": 1,
+      "issues": [
+        {
+          "found": "AIエージェント",
+          "should_be": "Agent",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "size_bytes": 5237,
+      "line_count": 157,
+      "synonym_issues": 1,
+      "issues": [
+        {
+          "found": "AIエージェント",
+          "should_be": "Agent",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

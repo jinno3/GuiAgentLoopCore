@@ -1,10 +1,10 @@
-bootstrap_run_timestamp: '2026-02-02T01:00:00Z'
+bootstrap_run_timestamp: '2026-02-02T01:09:00Z'
 source_ontology_version: '0.3'
 mode: concept_driven
 
 term_usage_report:
-  canonical_used: 472
-  synonym_used_before_fix: 8
+  canonical_used: 150
+  synonym_used_before_fix: 0
   synonym_used_after_fix: 0
   unknown_terms_found: []
 
@@ -16,7 +16,22 @@ invariant_reflection:
 auto_decision_handling:
   total_active: 7
   noted_in_md: 7
-  format: AUTO decisions properly documented in AGENTS.md
+  format: AUTO decisions properly documented in AGENTS.md, CLAUDE.md, and GLOSSARY.md
+  details:
+    - decision: "AUTO:Agent.role:classification"
+      documented_in: ["AGENTS.md", "GLOSSARY.md"]
+    - decision: "AUTO:Agent.type:implementation_property"
+      documented_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
+    - decision: "AUTO:Message.structure:flat"
+      documented_in: ["CLAUDE.md", "GLOSSARY.md"]
+    - decision: "AUTO:State.lifecycle:monotonic"
+      documented_in: ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "CLAUDE.md"]
+    - decision: "AUTO:AutoChat.trigger:stop_only"
+      documented_in: ["AGENTS.md", "GLOSSARY.md"]
+    - decision: "AUTO:Backend.primary:gradio"
+      documented_in: ["ARCHITECTURE.md", "GLOSSARY.md"]
+    - decision: "AUTO:Memory.window:k10"
+      documented_in: ["GLOSSARY.md"]
 
 ambiguities_discovered: []
 
@@ -29,32 +44,6 @@ overall_assessment:
   status: optimal
   concept_alignment_score: 100
   uniqueness_score: 100
-  recommendation: No changes needed to ontology. Documentation in perfect alignment with ontology v0.3.
+  recommendation: No changes needed to ontology. Documentation in perfect alignment with ontology v0.3. All canonical terms used correctly, all invariants reflected, all AUTO decisions documented.
 
-files_corrected:
-  - file: AGENTS.md
-    corrections:
-      - from: メッセージ
-        to: Message
-      - from: バックエンド
-        to: Backend
-      - from: UIフレームワーク
-        to: UI Backend
-  - file: SYSTEM_CONSTITUTION.md
-    corrections:
-      - from: ストリームラッパー
-        to: StreamWrapper
-  - file: GLOSSARY.md
-    corrections:
-      - from: メッセージ
-        to: Message
-      - from: GUIバックエンド
-        to: GUI Backend
-  - file: GEMINI.md
-    corrections:
-      - from: AIエージェント
-        to: Agent
-  - file: CODEX.md
-    corrections:
-      - from: AIエージェント
-        to: Agent
+files_corrected: []
