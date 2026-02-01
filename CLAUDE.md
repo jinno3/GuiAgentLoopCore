@@ -13,9 +13,9 @@
 
 Claudeは、このリポジトリの`.concept/ontology.yml`で定義された正規形を優先的に使用します。
 
-- `Interpreter` - "Interpreter"ではなく`Interpreter`を使用
-- `Agent` - "Agent"ではなく`Agent`を使用
-- `Session` - "Session"ではなく`Session`を使用
+- `Interpreter` - 会話フローとエージェント相互作用を管理する中核コンポーネント
+- `Agent` - 特定の役割と実装タイプを持つ専門化AIエンティティ
+- `Session` - 一意のIDで管理される会話コンテキスト
 
 用語の完全なリストは[GLOSSARY.md](GLOSSARY.md)を参照してください。
 
@@ -134,7 +134,7 @@ message_type = "TEXT"  # ❌ 悪い（列挙型に含まれない）
 
 ---
 
-**最終更新**: 2026-02-01
+**最終更新**: 2026-02-02
 **関連ドキュメント**:
 - [AGENTS.md](AGENTS.md) - 全AI Agent向け指示
 - [GLOSSARY.md](GLOSSARY.md) - 用語集

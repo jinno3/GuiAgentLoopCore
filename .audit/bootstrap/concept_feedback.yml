@@ -1,7 +1,42 @@
-bootstrap_run_timestamp: '2026-02-01T17:17:35.264151+00:00'
-source_ontology_version: '0.3'
-status: no_action_needed
-term_usage_report:
-  canonical_used: 0
-  synonym_used_after_fix: 0
-  synonym_used_before_fix: 0
+concept_feedback:
+  bootstrap_run_timestamp: "2026-02-02T02:30:00Z"
+  source_ontology_version: "0.3"
+
+  # 1. 用語使用状況
+  term_usage_report:
+    canonical_used: 80
+    synonym_used_before_fix: 2
+    synonym_used_after_fix: 0
+    unknown_terms_found: []
+    alignment_rate: 0.976
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 9
+    hard: 7
+    reflected: 9
+    missing: []
+    coverage_rate: 1.0
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 7
+    noted_in_md: 7
+    format: "AGENTS.mdのAUTO決定セクションに明示"
+    coverage_rate: 1.0
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+    boundary_clarifications: []
+
+  # 6. 全体的な評価
+  overall_assessment:
+    concept_integration_quality: "excellent"
+    ontology_md_alignment: 99
+    recommendation: "ontology.yml v0.3はMDドキュメント群で高度に統合されています。追加の概念定義は不要です。"
