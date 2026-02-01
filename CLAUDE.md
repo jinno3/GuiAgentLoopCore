@@ -52,7 +52,7 @@ Claudeは、以下のステートフルな操作で特に注意を払います�
 
 - **State管理**: 状態遷移は常に単調的（INIT → RUNNING → STOP）
 - **Session管理**: セッションIDはUUIDで一意に
-- **Message処理**: メッセージタイプは列挙型のみ使用
+- **Message処理**: Messageタイプは列挙型のみ使用
 
 ### 5. Claude特有の強みを活かす
 
@@ -136,7 +136,7 @@ message_type = "TEXT"  # ❌ 悪い（列挙型に含まれない）
 
 **最終更新**: 2026-02-01
 **関連ドキュメント**:
-- [AGENTS.md](AGENTS.md) - 全AIエージェント向け指示
+- [AGENTS.md](AGENTS.md) - 全AI Agent向け指示
 - [GLOSSARY.md](GLOSSARY.md) - 用語集
 - `.concept/ontology.yml` - 概念辞書
 - `.concept/invariants.yml` - 不変条件

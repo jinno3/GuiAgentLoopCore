@@ -1,133 +1,246 @@
 {
-  "timestamp": "2026-02-01T23:30:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
-  "uniqueness_score": 95,
+  "timestamp": "2026-02-01T14:52:30.778503+00:00",
+  "overall_score": 84,
+  "concept_alignment_score": 73,
   "max_score": 100,
-  "scoring_method": "concept_driven v1.1",
   "files": [
     {
       "path": "README.md",
-      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_term_usage": {
-          "Interpreter": { "found": 12, "canonical": 12, "synonym": 0, "rate": 1.0 },
-          "Agent": { "found": 8, "canonical": 8, "synonym": 0, "rate": 1.0 },
-          "Session": { "found": 5, "canonical": 5, "synonym": 0, "rate": 1.0 },
-          "Message": { "found": 7, "canonical": 7, "synonym": 0, "rate": 1.0 },
-          "State": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "AutoChat": { "found": 3, "canonical": 3, "synonym": 0, "rate": 1.0 },
-          "StreamWrapper": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 },
-          "Converter": { "found": 1, "canonical": 1, "synonym": 0, "rate": 1.0 },
-          "Backend": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 }
-        },
-        "total_canonical_usage": 50,
-        "total_synonym_usage": 0,
-        "alignment_rate": 1.0
+        "canonical_uses": 23,
+        "synonym_issues": 0,
+        "issues": []
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_term_usage": {
-          "Interpreter": { "found": 15, "canonical": 15, "synonym": 0, "rate": 1.0 },
-          "Agent": { "found": 20, "canonical": 20, "synonym": 0, "rate": 1.0 },
-          "Session": { "found": 8, "canonical": 8, "synonym": 0, "rate": 1.0 },
-          "Message": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "State": { "found": 12, "canonical": 12, "synonym": 0, "rate": 1.0 },
-          "AutoChat": { "found": 5, "canonical": 5, "synonym": 0, "rate": 1.0 },
-          "StreamWrapper": { "found": 3, "canonical": 3, "synonym": 0, "rate": 1.0 },
-          "Memory": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 },
-          "Converter": { "found": 1, "canonical": 1, "synonym": 0, "rate": 1.0 },
-          "Backend": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 }
-        },
-        "total_canonical_usage": 78,
-        "total_synonym_usage": 0,
-        "alignment_rate": 1.0
+        "score": 52,
+        "canonical_uses": 22,
+        "synonym_issues": 20,
+        "issues": [
+          {
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "line": 19
+          },
+          {
+            "found": "ConversationBuffer",
+            "should_be": "Memory",
+            "line": 23
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 16
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 16
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "line": 17
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "line": 17
+          },
+          {
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper",
+            "line": 21
+          },
+          {
+            "found": "自動継続",
+            "should_be": "AutoChat",
+            "line": 20
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 18
+          },
+          {
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "line": 20
+          }
+        ]
       },
-      "issues": []
+      "issues": [
+        "20 synonym(s) used instead of canonical form"
+      ]
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_term_usage": {
-          "Interpreter": { "found": 8, "canonical": 8, "synonym": 0, "rate": 1.0 },
-          "Agent": { "found": 6, "canonical": 6, "synonym": 0, "rate": 1.0 },
-          "Session": { "found": 3, "canonical": 3, "synonym": 0, "rate": 1.0 },
-          "Message": { "found": 4, "canonical": 4, "synonym": 0, "rate": 1.0 },
-          "State": { "found": 6, "canonical": 6, "synonym": 0, "rate": 1.0 }
-        },
-        "total_canonical_usage": 27,
-        "total_synonym_usage": 0,
-        "alignment_rate": 1.0
+        "score": 58,
+        "canonical_uses": 14,
+        "synonym_issues": 10,
+        "issues": [
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 17
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "line": 18
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 16
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 29
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 30
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 38
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 73
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 77
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 81
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "line": 85
+          }
+        ]
       },
-      "issues": []
+      "issues": [
+        "10 synonym(s) used instead of canonical form"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_term_usage": {
-          "Interpreter": { "found": 3, "canonical": 3, "synonym": 0, "rate": 1.0 },
-          "Agent": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 },
-          "Message": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 },
-          "State": { "found": 2, "canonical": 2, "synonym": 0, "rate": 1.0 }
-        },
-        "total_canonical_usage": 9,
-        "total_synonym_usage": 0,
-        "alignment_rate": 1.0
+        "score": 71,
+        "canonical_uses": 5,
+        "synonym_issues": 2,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 18
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 18
+          }
+        ]
       },
-      "issues": []
+      "issues": [
+        "2 synonym(s) used instead of canonical form"
+      ]
     },
     {
       "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 57,
+        "canonical_uses": 60,
+        "synonym_issues": 44,
+        "issues": [
+          {
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "line": 55
+          },
+          {
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "line": 86
+          },
+          {
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "line": 206
+          },
+          {
+            "found": "ConversationBuffer",
+            "should_be": "Memory",
+            "line": 158
+          },
+          {
+            "found": "ConversationBuffer",
+            "should_be": "Memory",
+            "line": 214
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 34
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 200
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 34
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 199
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "line": 53
+          }
+        ]
+      },
+      "issues": [
+        "44 synonym(s) used instead of canonical form"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "clarity_score": 65,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "note": "GLOSSARY.mdは用語集として同義語を列挙しているが、これは期待される動作",
-        "canonical_term_usage": {
-          "Interpreter": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "Agent": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "Session": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "Message": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "State": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "AutoChat": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "StreamWrapper": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "Backend": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "Converter": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 },
-          "Memory": { "found": 10, "canonical": 10, "synonym": 0, "rate": 1.0 }
-        },
-        "total_canonical_usage": 100,
-        "total_synonym_usage": 0,
-        "alignment_rate": 1.0
+        "canonical_uses": 0,
+        "synonym_issues": 0,
+        "issues": []
       },
       "issues": []
     }
-  ],
-  "summary": {
-    "total_canonical_term_usage": 264,
-    "total_synonym_usage": 0,
-    "overall_alignment_rate": 1.0,
-    "invariants_documented": 7,
-    "invariants_coverage": "100%",
-    "auto_decisions_documented": 7,
-    "auto_decisions_coverage": "100%"
-  }
+  ]
 }

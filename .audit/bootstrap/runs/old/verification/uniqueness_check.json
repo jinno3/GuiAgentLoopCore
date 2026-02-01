@@ -1,74 +1,42 @@
 {
-  "timestamp": "2026-02-01T23:30:00Z",
-  "version": "1.1",
-  "mode": "concept_driven",
-  "overall_score": 95,
+  "timestamp": "2026-02-01T14:54:58.330686+00:00",
+  "uniqueness_score": 80,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "passed": true,
-      "note": "intent.yml不在のため、ontologyから推測される存在意義が一貫して表現されている",
-      "evidence": [
-        "README.md: 'provides the core logic for bridging GUI frameworks and LLM agents'",
-        "AGENTS.md: 'GUIとLLMエージェントのブリッジとなるコアロジックを提供'",
-        "CLAUDE.md: 一貫した目的説明"
-      ]
+      "status": "N/A",
+      "details": "Ontology-derived purpose is consistent across MDs"
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "passed": true,
-      "note": "開発者、AIエージェント、貢献者を対象として一貫",
-      "evidence": [
-        "README.md: 開発者向けドキュメント",
-        "AGENTS.md: AIエージェント向け指示",
-        "CONTRIBUTING.md: 貢献者向けガイド"
-      ]
+      "status": "PASSED",
+      "details": "Consistent: developers, AI agents, contributors"
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "note": "Pythonバージョン、依存関係が一貫",
-      "evidence": []
+      "status": "PASSED",
+      "details": "Technical constraints match invariants"
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "note": "ontology.boundariesが反映されている",
-      "evidence": [
-        "Interpreter: includes=['状態管理', 'セッション管理'], excludes=['UI描画', 'LLM直接実行']",
-        "Agent: includes=['役割定義', 'タスク実行'], excludes=['セッション管理', 'UI描画']"
-      ]
+      "status": "PASSED",
+      "details": "Boundaries defined in ontology are reflected"
     },
     {
       "id": "UC-005",
       "name": "ontology準拠",
-      "description": "全MDがontology.ymlを正しく反映しているか",
-      "source": ".concept",
-      "passed": true,
-      "note": "用語の正規形、定義、境界が正しく反映",
-      "evidence": [
-        "全MDファイルで正規形100%使用",
-        "用語定義がontology.ymlと一致"
-      ]
+      "status": "PASSED",
+      "details": "Terms, definitions, boundaries properly reflected"
     }
   ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
+    "total": 5,
+    "passed": 4,
     "failed": 0,
-    "skipped": 0,
-    "pass_rate": 1.0
+    "na": 1
   }
 }

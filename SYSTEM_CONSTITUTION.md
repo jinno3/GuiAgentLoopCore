@@ -47,7 +47,7 @@ Streaming interfaces MUST support both synchronous and asynchronous patterns.
 The following invariants have constitutional status and CANNOT be violated:
 
 
-### INV-STATE-001: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP
+### INV-STATE-001: Stateは単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP
 
 **Strength**: HARD (Constitutional)
 **Status**: stable
@@ -75,13 +75,13 @@ The following invariants have constitutional status and CANNOT be violated:
 - Tests MUST verify this invariant is maintained
 
 
-### INV-MSG-001: メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION
+### INV-MSG-001: Messageタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION
 
 **Strength**: HARD (Constitutional)
 **Status**: stable
 **Related Terms**: Message
 
-**Rationale**: タイプ安全性を保証し、予期しないメッセージを防ぐ
+**Rationale**: タイプ安全性を保証し、予期しないMessageを防ぐ
 
 **Constitutional Impact**: 
 - Violating this invariant compromises system safety

@@ -1,18 +1,13 @@
 {
-  "timestamp": "2026-02-01T14:52:07.689557+00:00",
-  "source": ".concept/ontology.yml",
+  "timestamp": "2026-02-01T15:02:11.785697+00:00",
+  "source": "/home/jinno/jinno3/GuiAgentLoopCore/.concept/ontology.yml",
   "version": "0.3",
-  "updated_at": "2026-02-01T13:05:48Z",
   "statistics": {
     "total_terms": 10,
     "by_layer": {
       "core": 5,
       "domain": 4,
       "aux": 1
-    },
-    "by_status": {
-      "stable": 9,
-      "draft": 1
     }
   },
   "key_terms_for_md": [
@@ -24,12 +19,7 @@
         "GuiAgentInterpreter",
         "会話インタープリタ"
       ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md"
-      ]
+      "status": "stable"
     },
     {
       "canonical": "Agent",
@@ -39,12 +29,7 @@
         "AIエージェント",
         "専門エージェント"
       ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md"
-      ]
+      "status": "stable"
     },
     {
       "canonical": "Session",
@@ -54,12 +39,7 @@
         "ChatSession",
         "会話セッション"
       ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md"
-      ]
+      "status": "stable"
     },
     {
       "canonical": "Message",
@@ -69,12 +49,7 @@
         "メッセージ",
         "ChatMessage"
       ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md"
-      ]
+      "status": "stable"
     },
     {
       "canonical": "State",
@@ -84,13 +59,29 @@
         "InterpreterState",
         "インタープリタ状態"
       ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "CLAUDE.md",
-        "CONTRIBUTING.md"
-      ]
+      "status": "stable"
     }
   ],
-  "invariants_count": 7
+  "term_normalization": {
+    "GuiAgentInterpreter": "Interpreter",
+    "会話インタープリタ": "Interpreter",
+    "AIエージェント": "Agent",
+    "専門エージェント": "Agent",
+    "ChatSession": "Session",
+    "会話セッション": "Session",
+    "メッセージ": "Message",
+    "ChatMessage": "Message",
+    "InterpreterState": "State",
+    "インタープリタ状態": "State",
+    "自動チャット": "AutoChat",
+    "自動継続": "AutoChat",
+    "GuiAgentStreamWrapper": "StreamWrapper",
+    "ストリームラッパー": "StreamWrapper",
+    "GUIバックエンド": "Backend",
+    "UIフレームワーク": "Backend",
+    "変換器": "Converter",
+    "マッパー": "Converter",
+    "会話メモリ": "Memory",
+    "ConversationBuffer": "Memory"
+  }
 }

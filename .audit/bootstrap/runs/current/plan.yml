@@ -1,4 +1,4 @@
-run_timestamp: '2026-02-01T14:51:47.270324+00:00'
+run_timestamp: '2026-02-01T15:02:11.787368+00:00'
 version: '1.1'
 mode: concept_driven
 rotation:
@@ -21,30 +21,40 @@ ontology_summary:
   version: '0.3'
   key_terms:
   - canonical: Interpreter
+    layer: core
     definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
     synonyms:
     - GuiAgentInterpreter
     - 会話インタープリタ
+    status: stable
   - canonical: Agent
+    layer: core
     definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
     synonyms:
     - AIエージェント
     - 専門エージェント
+    status: stable
   - canonical: Session
+    layer: core
     definition: 一意のIDで管理される会話コンテキスト
     synonyms:
     - ChatSession
     - 会話セッション
+    status: stable
   - canonical: Message
+    layer: core
     definition: ユーザー、システム、エージェント間の構造化された通信単位
     synonyms:
     - メッセージ
     - ChatMessage
+    status: stable
   - canonical: State
+    layer: core
     definition: インタープリタの実行状態を表す列挙型
     synonyms:
     - InterpreterState
     - インタープリタ状態
+    status: stable
 term_normalization:
   GuiAgentInterpreter: Interpreter
   会話インタープリタ: Interpreter
@@ -67,52 +77,39 @@ term_normalization:
   会話メモリ: Memory
   ConversationBuffer: Memory
 existing_mds:
-- path: README.md
-  status: exists
-  size: 6409
 - path: AGENTS.md
   status: exists
-  size: 8279
-- path: CLAUDE.md
+  size: 8068
+- path: ARCHITECTURE.md
   status: exists
-  size: 4907
-- path: CONTRIBUTING.md
-  status: exists
-  size: 5315
-- path: GLOSSARY.md
-  status: exists
-  size: 8158
+  size: 10993
 - path: CHANGELOG.md
   status: exists
   size: 61
-- path: SYSTEM_CONSTITUTION.md
-  status: missing
+- path: CLAUDE.md
+  status: exists
+  size: 4785
+- path: CONTRIBUTING.md
+  status: exists
+  size: 5291
+- path: GLOSSARY.md
+  status: exists
+  size: 7691
 - path: PURPOSE.md
-  status: missing
-- path: ARCHITECTURE.md
-  status: missing
-- path: GEMINI.md
-  status: missing
-- path: CODEX.md
-  status: missing
+  status: exists
+  size: 4965
+- path: README.md
+  status: exists
+  size: 6409
+- path: SYSTEM_CONSTITUTION.md
+  status: exists
+  size: 4927
 actions:
 - action: create
-  target: SYSTEM_CONSTITUTION.md
-  reason: 'Tier 2推奨ファイル: システム憲法'
-  priority: medium
-- action: create
-  target: PURPOSE.md
-  reason: 'Tier 2推奨ファイル: 目的の詳細説明'
-  priority: medium
-- action: create
-  target: ARCHITECTURE.md
-  reason: 'Tier 3オプション: アーキテクチャ説明'
-  priority: low
-- action: create
   target: GEMINI.md
-  reason: 'Tier 3オプション: Gemini向け特化指示'
+  reason: Tier 3オプション
   priority: low
 - action: create
   target: CODEX.md
-  reason: 'Tier 3オプション: Codex向け特化指示'
+  reason: Tier 3オプション
   priority: low

@@ -17,7 +17,7 @@
 
 - **定義**: 会話フローとエージェント相互作用を管理する中核コンポーネント
 - **同義語**: Interpreter, Interpreter（使用禁止）
-- **含む**: 状態管理, セッション管理, メッセージルーティング
+- **含む**: 状態管理, セッション管理, Messageルーティング
 - **含まない**: UI描画, LLM直接実行
 - **ライフサイクル**: STATE_INIT, STATE_RUNNING, STATE_STOP
 - **関連用語**: Agent, Session, Message, State
@@ -51,7 +51,7 @@
 
 - **定義**: 一意のIDで管理される会話コンテキスト
 - **同義語**: Session, Session（使用禁止）
-- **含む**: メッセージ履歴, セッションID, 認証トークン
+- **含む**: Message履歴, セッションID, 認証トークン
 - **含まない**: UI状態, State
 - **ライフサイクル**: created, active, terminated
 - **関連用語**: Interpreter, Message, ChatManager
@@ -64,7 +64,7 @@
 
 ### Message
 
-- **定義**: ユーザー、システム、エージェント間の構造化された通信単位
+- **定義**: ユーザー、システム、Agent間の構造化された通信単位
 - **同義語**: Message, Message（使用禁止）
 - **含む**: コンテンツ, 役割, タイプ, メタデータ
 - **含まない**: セッション状態, UIイベント
@@ -73,7 +73,7 @@
 - **ステータス**: stable
 
 **AUTO決定**:
-- AUTO:Message.structure:flat - メッセージは再帰的にフラット化可能
+- AUTO:Message.structure:flat - Messageは再帰的にフラット化可能
 
 **証拠**:
 - `gui_agent_loop_core/schema/message/schema.py`: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"

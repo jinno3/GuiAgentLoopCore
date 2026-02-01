@@ -1,12 +1,13 @@
 {
-  "timestamp": "2026-02-01T14:54:58.330937+00:00",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
+  "timestamp": "2026-02-01T15:03:50.966870+00:00",
+  "concept_source": "/home/jinno/jinno3/GuiAgentLoopCore/.concept/ontology.yml",
+  "overall_alignment_score": 96,
   "term_usage_check": {
-    "total_term_occurrences": 285,
-    "canonical_used": 285,
-    "synonym_used": 0,
-    "alignment_rate": 1.0
+    "total_term_occurrences": 493,
+    "canonical_used": 476,
+    "synonym_used": 17,
+    "unknown_terms": 0,
+    "alignment_rate": 0.966
   },
   "per_file": [
     {
@@ -16,8 +17,24 @@
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": []
+      "alignment_score": 91,
+      "issues": [
+        {
+          "line": 91,
+          "found": "メッセージ",
+          "expected": "Message"
+        },
+        {
+          "line": 149,
+          "found": "GUIバックエンド",
+          "expected": "Backend"
+        },
+        {
+          "line": 22,
+          "found": "UIフレームワーク",
+          "expected": "Backend"
+        }
+      ]
     },
     {
       "file": "CLAUDE.md",
@@ -31,18 +48,35 @@
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": []
+      "alignment_score": 96,
+      "issues": [
+        {
+          "line": 128,
+          "found": "メッセージ",
+          "expected": "Message"
+        },
+        {
+          "line": 140,
+          "found": "UIフレームワーク",
+          "expected": "Backend"
+        }
+      ]
     },
     {
-      "file": "CHANGELOG.md",
+      "file": "ARCHITECTURE.md",
       "alignment_score": 100,
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
+      "alignment_score": 93,
+      "issues": [
+        {
+          "line": 106,
+          "found": "ストリームラッパー",
+          "expected": "StreamWrapper"
+        }
+      ]
     },
     {
       "file": "PURPOSE.md",
@@ -50,56 +84,41 @@
       "issues": []
     },
     {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": []
+      "file": "GEMINI.md",
+      "alignment_score": 88,
+      "issues": [
+        {
+          "line": 16,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter"
+        },
+        {
+          "line": 17,
+          "found": "AIエージェント",
+          "expected": "Agent"
+        },
+        {
+          "line": 18,
+          "found": "会話セッション",
+          "expected": "Session"
+        },
+        {
+          "line": 19,
+          "found": "メッセージ",
+          "expected": "Message"
+        }
+      ]
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 97,
+      "issues": [
+        {
+          "line": 152,
+          "found": "AIエージェント",
+          "expected": "Agent"
+        }
+      ]
     }
-  ],
-  "invariant_check": {
-    "total_invariants": 5,
-    "reflected_in_md": 0,
-    "files_with_invariants": []
-  },
-  "auto_decision_check": {
-    "total_active": 4,
-    "noted_in_md": 8
-  },
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "status": "PASSED",
-      "details": "285 canonical uses, 0 synonym uses"
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "status": "PASSED",
-      "details": "0 inappropriate uses found"
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "status": "PARTIAL",
-      "details": "0 files document invariants"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "status": "PASSED",
-      "details": "8 files note AUTO decisions, 4 total AUTO decisions"
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "status": "PASSED",
-      "details": "Boundaries from ontology are consistent"
-    }
-  ],
-  "summary": {
-    "total": 5,
-    "passed": 4,
-    "partial": 1,
-    "failed": 0
-  }
+  ]
 }

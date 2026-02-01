@@ -1,4 +1,4 @@
-# AGENTS.md - AIエージェント向け指示
+# AGENTS.md - AI Agent向け指示
 
 > **プロジェクト**: GuiAgentLoopCore
 > **目的**: GUIとLLMエージェントのブリッジとなるコアロジックを提供
@@ -39,10 +39,10 @@
   - 状態を逆行させてはいけない（例：`STATE_RUNNING`から`STATE_INIT`へ）
   - 状態遷移の一貫性を保つため、`change_state_running()`等の専用メソッドを使用すること
 
-### 🔒 メッセージタイプの制約
+### 🔒 Messageタイプの制約
 - **INV-MSG-001**: `Message`タイプは定義された列挙型のみ使用可：`MESSAGE`, `CODE`, `CONFIRMATION`, `CONSOLE`, `IMAGE`, `FUNCTION`
   - タイプ安全性を保証するため、`MessageTypeEnum`以外の値を使用しないこと
-  - 予期しないメッセージタイプを処理しようとしてはいけない
+  - 予期しないMessageを処理しようとしてはいけない
 
 ### 🔒 AutoChatの発火条件
 - **INV-AUTO-001**: `AutoChat`は`STATE_STOP`時のみトリガーされる
