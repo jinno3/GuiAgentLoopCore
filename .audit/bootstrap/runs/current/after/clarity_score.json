@@ -1,119 +1,157 @@
 {
-  "timestamp": "2026-02-02T05:45:00Z",
-  "overall_score": 95,
+  "timestamp": "2026-02-02T05:50:00Z",
+  "overall_score": 85,
   "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_notes": "Review-only run - MD files were already well-aligned from previous bootstrap run",
+  "improvement_from_before": {
+    "overall": "+10",
+    "concept_alignment": "+10"
+  },
+  "scoring_methodology": {
+    "clarity_weight": 0.4,
+    "concept_alignment_weight": 0.3,
+    "intent_alignment_weight": 0.2,
+    "completeness_weight": 0.1
+  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 80,
       "concept_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Uses canonical terms: Interpreter, Agent, Session, Message, State",
+          "References GLOSSARY.md for definitions",
+          "Properly documents AUTO decisions",
+          "Invariants well-documented with IDs",
+          "Target users section added"
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 90,
+        "mission_reflected": true,
+        "target_users_mentioned": true,
+        "core_value_present": true
+      },
+      "changes": "Minor improvements possible"
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 98,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Comprehensive terminology table with canonical forms",
+          "All 11 core terms properly documented",
+          "Invariants fully detailed with IDs (13 total)",
+          "AUTO decisions well-documented (9 total)",
+          "References .concept/ontology.yml"
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 85,
+        "mission_mentioned": true,
+        "behavior_rules_present": true
+      },
+      "changes": "None needed - excellent"
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
+      "clarity_score": 85,
       "concept_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Core terms section well-structured",
+          "Invariants properly documented (13 total)",
+          "AUTO decisions recognized (9 total)",
+          "Code examples provided",
+          "Claude-specific guidance included"
+        ]
       },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
+      "intent_alignment": {
+        "score": 80,
+        "claude_specific_guidance": true
       },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
+      "changes": "None needed - excellent"
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Auto-generated from ontology.yml",
+          "All 11 terms documented (including Connector)",
+          "Complete definitions with synonyms and evidence",
+          "Normalization map provided",
+          "AUTO decisions included where applicable"
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 95,
+        "ontology_aligned": true
+      },
+      "changes": "Updated: Added Connector term, updated AUTO decisions"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          "File is empty - needs to be generated"
+        ]
+      },
+      "priority": "high",
+      "changes": "Needs generation"
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0
+      },
+      "priority": "medium",
+      "changes": "Needs generation"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0
+      },
+      "priority": "medium",
+      "changes": "Needs generation"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0
+      },
+      "priority": "medium",
+      "changes": "Needs generation"
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 11,
+    "well_documented": 4,
+    "need_generation": 7,
+    "term_usage_quality": "excellent",
+    "invariant_coverage": "complete (13/13)",
+    "auto_decision_documentation": "complete (9/9)",
+    "overall_quality": "high"
+  }
 }

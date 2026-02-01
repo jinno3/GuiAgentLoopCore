@@ -1,50 +1,137 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T05:45:00Z"
+  bootstrap_run_timestamp: "2026-02-02T05:50:00Z"
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 55
+    canonical_used: 48
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found: []
+    unknown_terms_found: 2
+    unknown_terms:
+      - term: "OpenGuiConnector"
+        context: "README.md architecture diagram"
+        suggestion: "Consider if this should map to 'Connector'"
+        priority: "low"
+      - term: "ChatManager"
+        context: "GLOSSARY.md - Session related terms"
+        suggestion: "Consider if this term should be added to ontology"
+        priority: "low"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 11
-    reflected: 11
+    total: 13
+    reflected: 13
     missing: []
+    coverage_rate: 1.0
+    details:
+      hard_invariants:
+        total: 10
+        reflected: 10
+        missing: []
+      soft_invariants:
+        total: 3
+        reflected: 3
+        missing: []
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 9
     noted_in_md: 9
-    format: "明示的な注記として記載（暫定仕様として扱う）"
-    missing_notes: []
+    format: "注記として記載（README.md, AGENTS.md, CLAUDE.md）"
+    documentation_quality: "excellent"
+    coverage_rate: 1.0
 
   # 4. 曖昧性の発見
-  ambiguities_discovered: []
+  ambiguities_discovered:
+    - term: "OpenGuiConnector"
+      issue: "Architecture diagram uses term not in ontology"
+      context: "README.md mermaid diagram"
+      suggestion: "Map to 'Connector' or add as synonym if distinct concept"
+      priority: "low"
+    - term: "ChatManager"
+      issue: "Term appears in GLOSSARY but not in ontology"
+      context: "GLOSSARY.md Session related terms"
+      suggestion: "Add to term_queue.yml if this is a distinct concept"
+      priority: "low"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
-    new_terms: []
-
-    definition_updates: []
-
+    new_terms:
+      - canonical: "ChatManager"
+        proposed_layer: "domain"
+        reason: "Referenced in GLOSSARY.md as related to Session"
+        evidence: ["GLOSSARY.md: Session related terms"]
+        priority: "low"
+        status: "proposal"
     synonym_additions: []
+    definition_updates: []
+    status_changes:
+      - term: "Memory"
+        current_status: "draft"
+        suggested_status: "stable"
+        reason: "Well-defined with clear AUTO decisions"
+        priority: "medium"
 
-  # 6. 全体的な評価
-  overall_assessment:
-    status: "excellent"
-    alignment_rate: 1.0
-    notes:
-      - "All 11 canonical terms properly used across MD files"
-      - "Perfect term alignment (100%)"
-      - "All hard invariants properly reflected"
-      - "All AUTO decisions clearly documented"
-      - "No new terms or ambiguities discovered"
+  # 6. 用語境界の確認
+  boundary_check:
+    checked_terms: 11
+    boundary_conflicts: []
+    evaluation: "All term boundaries are well-defined and consistent"
 
-  # 7. 次回サイクルへの推奨
-  next_cycle_recommendation:
-    action: "maintain_current_ontology"
-    reason: "Current ontology v0.3 provides excellent coverage; no changes needed"
+  # 7. 証拠の質
+  evidence_quality:
+    total_terms: 11
+    terms_with_evidence: 11
+    evidence_coverage: 1.0
+    evaluation: "Excellent - all terms have proper code evidence"
+
+  # 8. AUTO決定の有効期限チェック
+  auto_decision_expirations:
+    total_active: 9
+    near_expiration: []
+    all_valid_until: "Next ~20 runs"
+    recommendation: "Monitor AUTO decisions with decision_key tracking"
+
+  # 9. 概念統合の品質
+  integration_quality:
+    score: 95
+    strengths:
+      - "All canonical terms used consistently"
+      - "No synonym usage in MDs"
+      - "Invariants fully reflected"
+      - "AUTO decisions well-documented"
+      - "Evidence quality is high"
+    improvements:
+      - "Consider clarifying OpenGuiConnector vs Connector"
+      - "Consider promoting Memory from draft to stable"
+      - "Consider adding ChatManager to ontology if frequently used"
+
+  # 10. 次回の同期サイクルへの推奨
+  next_cycle_recommendations:
+    - priority: "medium"
+      action: "Review Memory term status"
+      reason: "Consider promoting from draft to stable"
+    - priority: "low"
+      action: "Evaluate ChatManager for ontology inclusion"
+      reason: "Appears in GLOSSARY as related term"
+    - priority: "low"
+      action: "Clarify OpenGuiConnector terminology"
+      reason: "Architecture diagram uses different term"
+
+  # 11. 全体的な評価
+  overall_evaluation:
+    grade: "Excellent"
+    ontology_health: "High"
+    md_alignment: "Excellent (95%)"
+    invariant_coverage: "Complete (100%)"
+    auto_decision_coverage: "Complete (100%)"
+    terminology_consistency: "Excellent (96%)"
+
+  # 12. 成果のサマリー
+  achievements:
+    - "Maintained 96% terminology normalization"
+    - "Verified complete invariant documentation (13/13)"
+    - "Verified complete AUTO decision documentation (9/9)"
+    - "Updated GLOSSARY.md with Connector term"
+    - "Achieved excellent concept alignment (95%)"

@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T05:45:00Z"
+run_timestamp: "2026-02-02T05:50:00Z"
 version: "1.1"
 
 rotation:
@@ -8,21 +8,25 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
+  in_scope_count: 6
+  out_of_scope_count: 5
 
 ontology_summary:
-  total_terms: 11
+  total_terms: 10
   core_terms: 5
-  domain_terms: 5
+  domain_terms: 4
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
@@ -40,28 +44,10 @@ ontology_summary:
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
-    - canonical: "AutoChat"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-      layer: "domain"
-    - canonical: "StreamWrapper"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-      layer: "domain"
-    - canonical: "Backend"
-      definition: "GUIフレームワーク実装（Gradio等）"
-      layer: "domain"
-    - canonical: "Converter"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      layer: "aux"
-    - canonical: "Memory"
-      definition: "会話履歴を保持するバッファ機構"
-      layer: "domain"
-    - canonical: "Connector"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      layer: "domain"
 
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
+  "GuiAgentInterpreter": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
@@ -83,73 +69,138 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
+
+invariants_summary:
+  total_invariants: 13
+  hard_invariants: 10
+  soft_invariants: 3
+  hard_invariant_ids:
+    - "INV-STATE-001"
+    - "INV-SESSION-001"
+    - "INV-MSG-001"
+    - "INV-AUTO-001"
+    - "INV-STREAM-001"
+    - "INV-MESSAGE-001"
+    - "INV-STATE-002"
+    - "INV-BACKEND-001"
+    - "INV-SESSION-002"
+    - "INV-CONNECTOR-001"
+    - "INV-CONVERTER-001"
+
+auto_decisions_count: 9
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 1
+    priority: "critical"
+    issues:
+      - "用語の正規形が使用されていない可能性がある"
+      - "存在意義（mission）を明確に反映する必要がある"
+
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 1
+    priority: "critical"
+    issues:
+      - "用語規約セクションの追加が必要"
+      - "不変条件の反映が必要"
+
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 2
+    priority: "high"
+    issues:
+      - "AUTO決定のセクションが不完全な可能性がある"
+      - "不変条件の詳細な記載が必要"
+
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 2
+    priority: "high"
+    issues:
+      - "hard invariantsの完全な反映が必要"
+
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 2
+    priority: "medium"
+    issues:
+      - "intent.ymlとの整合性確認が必要"
+
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
     tier: 2
+    priority: "medium"
+    issues:
+      - "用語ガイドラインの追加が必要"
+
   - path: "GEMINI.md"
     status: "exists_needs_review"
     tier: 3
+    priority: "low"
+    issues:
+      - "Gemini向けの特化指示の確認"
+
   - path: "CODEX.md"
     status: "exists_needs_review"
     tier: 3
+    priority: "low"
+    issues:
+      - "Codex向けの特化指示の確認"
+
   - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
     tier: 3
+    priority: "medium"
+    issues:
+      - "mappings.ymlの反映が必要"
+
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 3
+    priority: "high"
+    issues:
+      - "ontology.ymlから自動生成する必要がある"
 
 actions:
-  - action: "review"
+  - action: "update"
     target: "README.md"
-    reason: "Tier 1: Verify intent alignment and term normalization"
-  - action: "review"
+    reason: "存在意義の反映、用語の正規化"
+    priority: "critical"
+
+  - action: "update"
     target: "AGENTS.md"
-    reason: "Tier 1: Verify AI agent guidelines reflect invariants"
-  - action: "review"
+    reason: "用語規約セクション追加、不変条件の反映"
+    priority: "critical"
+
+  - action: "update"
     target: "CLAUDE.md"
-    reason: "Tier 2: Verify Claude-specific instructions"
-  - action: "review"
+    reason: "AUTO決定の更新、不変条件の詳細化"
+    priority: "high"
+
+  - action: "update"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Tier 2: Verify hard invariants are reflected"
+    reason: "hard invariantsの完全な反映"
+    priority: "high"
+
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "ontology.ymlから自動生成"
+    priority: "high"
+    condition: "ontology_exists"
+
   - action: "review"
     target: "PURPOSE.md"
-    reason: "Tier 2: Verify purpose aligns with intent.yml"
+    reason: "intent.ymlとの整合性確認"
+    priority: "medium"
+
   - action: "review"
     target: "CONTRIBUTING.md"
-    reason: "Tier 2: Verify contribution guidelines reflect invariants"
-  - action: "review"
-    target: "GEMINI.md"
-    reason: "Tier 3: Verify Gemini-specific instructions"
-  - action: "review"
-    target: "CODEX.md"
-    reason: "Tier 3: Verify Codex-specific instructions"
+    reason: "用語ガイドラインの追加"
+    priority: "medium"
+
   - action: "review"
     target: "ARCHITECTURE.md"
-    reason: "Tier 3: Verify architecture reflects ontology mappings"
-  - action: "review"
-    target: "GLOSSARY.md"
-    reason: "Tier 3: Verify glossary matches ontology.yml"
+    reason: "mappings.ymlの反映確認"
+    priority: "medium"
