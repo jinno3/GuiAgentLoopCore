@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-01T15:42:13Z",
+  "last_updated": "2026-02-02T00:52:28Z",
   "total_terms": 10,
   "terms_by_layer": {
     "core": 5,
@@ -19,7 +19,7 @@
   "queue_pending": 0,
   "queue_merged": 3,
   "queue_rejected": 1,
-  "claims_count": 69,
+  "claims_count": 78,
   "mappings_count": 10,
   "decisions_active": 8,
   "decisions_expired": 0,
@@ -46,26 +46,29 @@
     "reason": "No bloat detected - all within budget limits"
   },
   "this_run_summary": {
-    "run_id": "2026-02-01T15:42:13Z",
-    "previous_run_id": "2026-02-02T00:29:08Z",
-    "run_count": 13,
-    "claims_added": 8,
+    "run_id": "2026-02-02T00:52:28Z",
+    "previous_run_id": "2026-02-01T15:42:13Z",
+    "run_count": 14,
+    "claims_added": 9,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
     "auto_decisions_expired": 0,
-    "queue_processed": 2,
+    "queue_processed": 0,
     "conflicts_resolved": 0,
     "files_analyzed": [
-      "SYSTEM_CONSTITUTION.md",
-      "CODEX.md"
+      "gui_agent_loop_core/backend/server_impl_common.py",
+      "gui_agent_loop_core/converter/request_converter_str.py",
+      "gui_agent_loop_core/converter/dict_flattener/mapping_rule.py",
+      "gui_agent_loop_core/converter/dict_flattener/dict_flattener.py",
+      "gui_agent_loop_core/converter/dict_flattener/dict_flatten_converter.py",
+      "gui_agent_loop_core/converter/base_converter.py"
     ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Extracted 8 new claims from SYSTEM_CONSTITUTION.md",
-      "Verified constitutional principles entail existing invariants",
+      "Extracted 9 new claims from converter and backend components",
+      "Analyzed converter hierarchy and mapping rule system",
       "No contradictions detected",
       "No new ambiguities requiring AUTO decisions",
-      "Rejected 2 unmapped terms (meta-concepts, not domain-specific)",
       "Updated run state and metrics",
       "System health confirmed - all metrics within acceptable ranges"
     ]
