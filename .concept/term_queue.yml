@@ -1,5 +1,52 @@
-updated_at: "2026-02-01T13:47:06Z"
+updated_at: "2026-02-01T16:35:33Z"
 queue:
+  - id: "TP-000005"
+    proposed_canonical: "GuiComponent"
+    proposed_layer: "domain"
+    term_raw_examples: ["GuiComponent", "GUIコンポーネント"]
+    reason: "GuiComponentName列挙型でUIコンポーネントを定義"
+    evidence:
+      - source: "gui_agent_loop_core/schema/backend/schema.py"
+        quote: "class GuiComponentName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK"
+    auto_merge_candidates:
+      - term: "Backend"
+        similarity: 0.68
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T16:35:33Z"
+
+  - id: "TP-000006"
+    proposed_canonical: "Timer"
+    proposed_layer: "aux"
+    term_raw_examples: ["Timer", "タイマー"]
+    reason: "定期的な状態更新とAutoChatトリガーに使用"
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "t60 = gr.Timer(60, active=False); t3 = gr.Timer(3, active=False)"
+    auto_merge_candidates:
+      - term: "AutoChat"
+        similarity: 0.62
+      - term: "State"
+        similarity: 0.55
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T16:35:33Z"
+
+  - id: "TP-000007"
+    proposed_canonical: "AgentImage"
+    proposed_layer: "aux"
+    term_raw_examples: ["AgentImage", "エージェントアイコン"]
+    reason: "エージェント名に応じたアイコンファイルパスのマッピング"
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_common.py"
+        quote: "get_agent_image_path(agent_name): agent_image_filename mapping based on AgentName"
+    auto_merge_candidates:
+      - term: "Agent"
+        similarity: 0.75
+    decision: "pending"
+    expires_after_runs: 10
+    created_run: "2026-02-01T16:35:33Z"
+
   - id: "TP-000001"
     proposed_canonical: "AgentType"
     proposed_layer: "core"

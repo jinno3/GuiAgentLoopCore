@@ -67,7 +67,7 @@ canonical_terms:
     definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     synonyms: ["メッセージ", "ChatMessage"]
     boundaries:
-      includes: ["コンテンツ", "役割", "タイプ", "メタデータ"]
+      includes: ["コンテンツ", "役割", "タイプ", "メタデータ", "最大長制限（MAX_MESSAGE_LENGTH=100）"]
       excludes: ["セッション状態", "UIイベント"]
     lifecycle: ["created", "processed", "streamed"]
     related_terms: ["Interpreter", "Agent", "Session"]
@@ -76,9 +76,15 @@ canonical_terms:
         text: "AUTO: メッセージは再帰的にフラット化可能"
         decision_key: "AUTO:Message.structure:flat"
         expires_after_runs: 20
+      - id: "ASM-MSG-002"
+        text: "AUTO: MAX_MESSAGE_LENGTH=100はハードリミット"
+        decision_key: "AUTO:Message.limit:100"
+        expires_after_runs: 20
     evidence:
       - source: "gui_agent_loop_core/schema/message/schema.py"
         quote: "MessageTypeEnum: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "MAX_MESSAGE_LENGTH = 100"
 
   State:
     id: "TERM-STATE"
@@ -87,18 +93,26 @@ canonical_terms:
     definition: "インタープリタの実行状態を表す列挙型"
     synonyms: ["InterpreterState", "インタープリタ状態"]
     boundaries:
-      includes: ["状態遷移", "状態チェック", "状態変更イベント"]
+      includes: ["状態遷移", "状態チェック", "状態変更イベント", "タイマーベースの定期更新（3秒間隔）"]
       excludes: ["セッションライフサイクル", "UI状態"]
     lifecycle: ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"]
-    related_terms: ["Interpreter", "AutoChat"]
+    related_terms: ["Interpreter", "AutoChat", "Timer"]
     assumptions:
       - id: "ASM-STATE-001"
         text: "AUTO: 状態は単調遷移する（INIT → RUNNING → STOP）"
         decision_key: "AUTO:State.lifecycle:monotonic"
         expires_after_runs: 20
+      - id: "ASM-STATE-002"
+        text: "AUTO: ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移"
+        decision_key: "AUTO:State.transition:auto_on_input"
+        expires_after_runs: 20
     evidence:
       - source: "gui_agent_loop_core/schema/core/schema.py"
         quote: "class InterpreterState(str, Enum): STATE_INIT, STATE_RUNNING, STATE_STOP"
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])"
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "chat_iface.textbox.submit(fn=interpreter_manager.change_state_running, outputs=[agent_state])"
 
   AutoChat:
     id: "TERM-AUTOCHAT"
@@ -141,20 +155,30 @@ canonical_terms:
     layer: "domain"
     status: "stable"
     definition: "GUIフレームワーク実装（Gradio等）"
-    synonyms: ["GUIバックエンド", "UIフレームワーク"]
+    synonyms: ["GUIバックエンド", "UIフレームワーク", "GuiBackend"]
     boundaries:
-      includes: ["UI描画", "イベントハンドリング", "コンポーネント管理"]
+      includes: ["UI描画", "イベントハンドリング", "コンポーネント管理", "GuiComponent列挙", "GuiBackendType列挙（GRADIO/STREAMSYNC）"]
       excludes: ["会話ロジック", "エージェント管理"]
     lifecycle: []
-    related_terms: ["Interpreter", "Session"]
+    related_terms: ["Interpreter", "Session", "GuiComponent"]
     assumptions:
       - id: "ASM-BE-001"
         text: "AUTO: Gradioが主要バックエンド（暫定）"
         decision_key: "AUTO:Backend.primary:gradio"
         expires_after_runs: 20
+      - id: "ASM-BE-002"
+        text: "AUTO: バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限"
+        decision_key: "AUTO:Backend.deployment:security"
+        expires_after_runs: 20
     evidence:
       - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
         quote: "Gradio implementation of the server interface"
+      - source: "gui_agent_loop_core/schema/backend/schema.py"
+        quote: "class GuiBackendType(str, enum.Enum): GRADIO, STREAMSYNC"
+      - source: "gui_agent_loop_core/schema/backend/schema.py"
+        quote: "class GuiComponentName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK"
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "app.launch(server_name='0.0.0.0', debug=True, allowed_paths=['/tmp', '/app/work', '/home', '/app/GuiAgentLoopCore'])"
 
   Converter:
     id: "TERM-CONVERTER"

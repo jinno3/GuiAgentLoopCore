@@ -71,3 +71,35 @@
 - Expires After Runs: 20
 - Linked: ASM-INV-AGENT-001
 - Revert Triggers: primary_evidence_contradiction
+
+## AUTO:Message.limit:100
+- Status: ACTIVE
+- Chosen: MAX_MESSAGE_LENGTH=100はハードリミット
+- Policy: safety + reversibility
+- Expires After Runs: 20
+- Linked: ASM-MSG-002 / INV-MESSAGE-001
+- Revert Triggers: primary_evidence_contradiction, test_failure
+
+## AUTO:State.transition:auto_on_input
+- Status: ACTIVE
+- Chosen: ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移
+- Policy: user_experience
+- Expires After Runs: 20
+- Linked: ASM-STATE-002
+- Revert Triggers: primary_evidence_contradiction
+
+## AUTO:State.timer:3sec
+- Status: ACTIVE
+- Chosen: 状態は3秒間隔のタイマーで自動更新（t3）
+- Policy: monitoring
+- Expires After Runs: 20
+- Linked: ASM-INV-STATE-002 / INV-STATE-002
+- Revert Triggers: primary_evidence_contradiction, performance_issue
+
+## AUTO:Backend.deployment:paths
+- Status: ACTIVE
+- Chosen: allowed_paths=[/tmp, /app/work, /home, /app/GuiAgentLoopCore]でセキュリティ制限
+- Policy: safety + security
+- Expires After Runs: 20
+- Linked: ASM-BE-002 / INV-BACKEND-001
+- Revert Triggers: security_risk, primary_evidence_contradiction

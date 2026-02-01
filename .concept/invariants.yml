@@ -115,3 +115,57 @@ invariants:
     checks:
       - type: "test"
         target: "tests/test_stream_wrapper.py"
+
+  - id: "INV-MESSAGE-001"
+    related_terms: ["Message"]
+    status: "stable"
+    strength: "hard"
+    statement: "メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+    rationale: "メモリ使用量を制限し、パフォーマンスを維持する"
+    assumptions:
+      - id: "ASM-INV-MESSAGE-001"
+        text: "AUTO: 100はハードリミット（暫定）"
+        decision_key: "AUTO:Message.limit:100"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "MAX_MESSAGE_LENGTH = 100"
+    checks:
+      - type: "test"
+        target: "tests/test_message_limits.py"
+
+  - id: "INV-STATE-002"
+    related_terms: ["State", "Timer"]
+    status: "stable"
+    strength: "hard"
+    statement: "状態は3秒間隔のタイマーで自動更新される"
+    rationale: "UI同期と監視を実現する"
+    assumptions:
+      - id: "ASM-INV-STATE-002"
+        text: "AUTO: t3タイマーは3秒間隔（暫定）"
+        decision_key: "AUTO:State.timer:3sec"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "t3 = gr.Timer(3, active=False); t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])"
+    checks:
+      - type: "test"
+        target: "tests/test_timer_updates.py"
+
+  - id: "INV-BACKEND-001"
+    related_terms: ["Backend"]
+    status: "stable"
+    strength: "hard"
+    statement: "バックエンドサーバーはallowed_pathsでセキュリティ制限される"
+    rationale: "ファイルアクセスを制限し、セキュリティを強化する"
+    assumptions:
+      - id: "ASM-INV-BACKEND-001"
+        text: "AUTO: allowed_pathsは安全側設定（暫定）"
+        decision_key: "AUTO:Backend.deployment:paths"
+        expires_after_runs: 20
+    evidence:
+      - source: "gui_agent_loop_core/backend/server_impl_gradio.py"
+        quote: "app.launch(server_name='0.0.0.0', debug=True, allowed_paths=['/tmp', '/app/work', '/home', '/app/GuiAgentLoopCore'])"
+    checks:
+      - type: "test"
+        target: "tests/test_backend_security.py"
