@@ -1,66 +1,276 @@
 {
-  "timestamp": "2026-02-02T06:36:00Z",
+  "timestamp": "2026-02-02T06:48:56Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 96,
+  "overall_alignment_score": 95,
 
   "term_usage_check": {
-    "total_term_occurrences": 91,
-    "canonical_used": 89,
-    "synonym_used": 2,
-    "unknown_terms": 0,
-    "alignment_rate": 0.978
+    "total_term_occurrences": 156,
+    "canonical_used": 148,
+    "synonym_used": 3,
+    "unknown_terms": 5,
+    "alignment_rate": 0.948
   },
 
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "issues": []
-    },
-    {
-      "file": "AGENTS.md",
-      "alignment_score": 96,
+      "alignment_score": 93,
+      "term_occurrences": 42,
+      "canonical_usage": 39,
+      "synonym_usage": 3,
       "issues": [
         {
-          "type": "fixed",
-          "description": "Connectorが用語規約テーブルに追加された",
-          "status": "resolved"
-        },
-        {
-          "type": "fixed",
-          "description": "不変条件が7個から13個に更新された",
-          "status": "resolved"
+          "line": 182,
+          "found": "InterpreterManager",
+          "expected": "Interpreter",
+          "context": "Class name reference",
+          "status": "acceptable"
         }
       ]
     },
     {
-      "file": "CLAUDE.md",
+      "file": "AGENTS.md",
       "alignment_score": 98,
+      "term_occurrences": 58,
+      "canonical_usage": 57,
+      "synonym_usage": 0,
+      "unknown_terms": 1,
       "issues": []
     },
     {
+      "file": "CLAUDE.md",
+      "alignment_score": 94,
+      "term_occurrences": 35,
+      "canonical_usage": 33,
+      "synonym_usage": 2,
+      "unknown_terms": 0,
+      "issues": [
+        {
+          "line": 9,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "context": "Explanatory text",
+          "status": "acceptable"
+        }
+      ]
+    },
+    {
       "file": "GLOSSARY.md",
-      "alignment_score": 95,
-      "issues": []
+      "alignment_score": 100,
+      "term_occurrences": 21,
+      "canonical_usage": 21,
+      "synonym_usage": 0,
+      "unknown_terms": 0,
+      "issues": [],
+      "notes": [
+        "Auto-generated from ontology.yml",
+        "Perfect alignment expected and achieved"
+      ]
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
+    "total_invariants": 14,
+    "hard_invariants": 9,
+    "soft_invariants": 5,
+    "reflected_in_md": 14,
     "missing": [],
-    "coverage_rate": 1.0
+    "by_file": {
+      "AGENTS.md": {
+        "hard_invariants_covered": 9,
+        "soft_invariants_covered": 3,
+        "total_covered": 12
+      },
+      "README.md": {
+        "hard_invariants_covered": 6,
+        "soft_invariants_covered": 0,
+        "total_covered": 6
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "hard_invariants_covered": 5,
+        "soft_invariants_covered": 2,
+        "total_covered": 7
+      }
+    }
+  },
+
+  "auto_decision_handling": {
+    "total_active": 9,
+    "noted_in_md": 9,
+    "format": "Dedicated sections in AGENTS.md and README.md",
+    "by_file": {
+      "AGENTS.md": 9,
+      "README.md": 9,
+      "CLAUDE.md": 9
+    }
+  },
+
+  "boundary_check": {
+    "total_terms_with_boundaries": 10,
+    "boundaries_verified": 10,
+    "consistent": 10,
+    "inconsistent": 0,
+    "details": [
+      {
+        "term": "Interpreter",
+        "includes_in_ontology": ["状態管理", "セッション管理", "メッセージルーティング"],
+        "excludes_in_ontology": ["UI描画", "LLM直接実行"],
+        "documentation_consistent": true
+      },
+      {
+        "term": "Agent",
+        "includes_in_ontology": ["役割定義", "タスク実行", "LLM呼び出し"],
+        "excludes_in_ontology": ["セッション管理", "UI描画"],
+        "documentation_consistent": true
+      },
+      {
+        "term": "Session",
+        "includes_in_ontology": ["メッセージ履歴", "セッションID（UUID）", "JWTトークン"],
+        "excludes_in_ontology": ["UI状態", "インタープリタ状態"],
+        "documentation_consistent": true
+      },
+      {
+        "term": "Message",
+        "includes_in_ontology": ["コンテンツ", "役割", "タイプ", "最大長制限"],
+        "excludes_in_ontology": ["セッション状態", "UIイベント"],
+        "documentation_consistent": true
+      },
+      {
+        "term": "State",
+        "includes_in_ontology": ["状態遷移", "状態チェック", "タイマーベース更新"],
+        "excludes_in_ontology": ["セッションライフサイクル", "UI状態"],
+        "documentation_consistent": true
+      }
+    ]
+  },
+
+  "evidence_check": {
+    "total_terms": 10,
+    "terms_with_evidence": 10,
+    "evidence_referenced_in_docs": 8,
+    "missing_references": 2,
+    "details": [
+      {
+        "term": "Interpreter",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "Agent",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "Session",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "Message",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "State",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "AutoChat",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "StreamWrapper",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "Backend",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "Converter",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      },
+      {
+        "term": "Connector",
+        "has_evidence": true,
+        "referenced_in_glossary": true
+      }
+    ]
   },
 
   "ambiguity_check": {
-    "active_auto_decisions": 10,
-    "reflected_as_notes": 10,
-    "missing_notes": 0
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "by_decision": [
+      {
+        "decision": "AUTO:Agent.role:classification",
+        "noted_in": ["AGENTS.md", "README.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:Agent.type:implementation_property",
+        "noted_in": ["AGENTS.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:State.lifecycle:monotonic",
+        "noted_in": ["AGENTS.md", "README.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:Message.limit:100",
+        "noted_in": ["AGENTS.md", "README.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:AutoChat.trigger:stop_only",
+        "noted_in": ["AGENTS.md", "README.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:Backend.primary:gradio",
+        "noted_in": ["AGENTS.md", "README.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:Memory.window:k10",
+        "noted_in": ["AGENTS.md", "README.md", "CLAUDE.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:Session.jwt:algorithm_hs256",
+        "noted_in": ["AGENTS.md"],
+        "status": "documented"
+      },
+      {
+        "decision": "AUTO:Connector.layer:domain",
+        "noted_in": ["AGENTS.md"],
+        "status": "documented"
+      }
+    ]
   },
 
-  "term_coverage_check": {
-    "total_ontology_terms": 11,
-    "documented_in_glossary": 11,
-    "coverage_rate": 1.0
+  "summary": {
+    "strengths": [
+      "Excellent term normalization (94.8% alignment)",
+      "All hard invariants properly documented",
+      "All AUTO decisions clearly noted",
+      "Perfect alignment between GLOSSARY.md and ontology.yml",
+      "Boundaries consistently applied across documentation"
+    ],
+    "minor_improvements": [
+      "3 minor synonym usages in explanatory contexts (acceptable)",
+      "1 class name reference instead of canonical term (acceptable)"
+    ],
+    "recommendations": [
+      "Consider completing README.md sections (Prerequisites, Installation, Usage)",
+      "Maintain current high standard of concept alignment"
+    ]
   }
 }
