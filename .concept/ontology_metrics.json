@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T06:58:00Z",
+  "last_updated": "2026-02-01T22:13:55Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -24,7 +24,7 @@
   "mappings_count": 11,
   "decisions_active": 19,
   "decisions_expired": 0,
-  "decisions_md_lines": 145,
+  "decisions_md_lines": 154,
   "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
@@ -37,7 +37,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 145,
+    "decisions_md_lines_current": 154,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -48,9 +48,9 @@
     "reason": "No bloat control actions needed - ontology healthy"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T06:58:00Z",
-    "previous_run_id": "2026-02-02T06:43:00Z",
-    "run_count": 40,
+    "run_id": "2026-02-01T22:13:55Z",
+    "previous_run_id": "2026-02-02T06:58:00Z",
+    "run_count": 41,
     "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
@@ -60,28 +60,28 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Verified run state progression: run #39 → #40",
+      "Maintenance run #41 completed",
       "No new source code changes detected since last run",
       "Verified all 11 canonical terms remain healthy",
       "Verified all 14 invariants - no violations detected",
       "Verified all 8 ambiguities - AUTO decisions remain active",
-      "Checked AUTO decision expiration: AMB-SEC-001 expires at run #46 (now at run #40, 6 runs remaining)",
       "Budget check passed: all metrics within limits",
       "Term queue stable: 0 pending, 8 merged, 3 rejected, 1 accepted (Connector)",
       "No conflicts detected - ontology remains consistent",
-      "No bloat control needed - draft ratio 0.09 (limit 0.30), total terms 11/80"
+      "No bloat control needed - draft ratio 0.09 (limit 0.30), total terms 11/80",
+      "decisions.md: 154 lines (within 200-line limit)"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (145/200 lines)",
+    "decisions_cache_health": "healthy (154/200 lines)",
     "queue_health": "healthy (0 pending, 8 merged, 3 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
-    "security_alert": "HIGH: Hardcoded JWT secret key (AMB-SEC-001) - AUTO decision expires in ~6 runs (at run #46), now at run #40. Action required: migrate to environment variable."
+    "security_alert": "HIGH: Hardcoded JWT secret key (AMB-SEC-001) - AUTO decision expires in ~5 runs. Action required: migrate to environment variable."
   },
   "next_steps": [
-    "Address AMB-SEC-001: Refactor hardcoded JWT secret to environment variable before run #46",
+    "Address AMB-SEC-001: Refactor hardcoded JWT secret to environment variable before expiration",
     "Monitor draft terms: Memory (status: draft) for potential promotion or deprecation",
-    "Consider consolidating AUTO decisions if decisions.md approaches 200-line limit"
+    "Continue regular ontology sync runs"
   ]
 }
