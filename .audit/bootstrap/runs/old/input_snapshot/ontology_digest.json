@@ -1,15 +1,18 @@
 {
-  "timestamp": "2026-02-01T13:22:25.442715Z",
+  "timestamp": "2026-02-01T22:37:39Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
+  "updated_at": "2026-02-01T13:05:48Z",
   "statistics": {
-    "version": "0.3",
-    "updated_at": "2026-02-01T13:05:48Z",
     "total_terms": 10,
     "by_layer": {
       "core": 5,
       "domain": 4,
       "aux": 1
+    },
+    "by_status": {
+      "stable": 9,
+      "draft": 1
     }
   },
   "key_terms_for_md": [
@@ -17,119 +20,55 @@
       "canonical": "Interpreter",
       "layer": "core",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": [
-        "GuiAgentInterpreter",
-        "会話インタープリタ"
-      ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "ARCHITECTURE.md"
-      ]
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Agent",
       "layer": "core",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": [
-        "AIエージェント",
-        "専門エージェント"
-      ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "ARCHITECTURE.md"
-      ]
+      "synonyms": ["AIエージェント", "専門エージェント"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Session",
       "layer": "core",
       "definition": "一意のIDで管理される会話コンテキスト",
-      "synonyms": [
-        "ChatSession",
-        "会話セッション"
-      ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "ARCHITECTURE.md"
-      ]
+      "synonyms": ["ChatSession", "会話セッション"],
+      "should_use_in": ["README.md", "AGENTS.md"]
     },
     {
       "canonical": "Message",
       "layer": "core",
       "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
-      "synonyms": [
-        "メッセージ",
-        "ChatMessage"
-      ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "ARCHITECTURE.md"
-      ]
+      "synonyms": ["メッセージ", "ChatMessage"],
+      "should_use_in": ["README.md", "AGENTS.md"]
     },
     {
       "canonical": "State",
       "layer": "core",
       "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": [
-        "InterpreterState",
-        "インタープリタ状態"
-      ],
-      "should_use_in": [
-        "README.md",
-        "AGENTS.md",
-        "ARCHITECTURE.md"
-      ]
-    },
-    {
-      "canonical": "AutoChat",
-      "layer": "domain",
-      "definition": "STATE_STOP時に自動的に会話を継続する機能",
-      "synonyms": [
-        "自動チャット",
-        "自動継続"
-      ],
-      "should_use_in": [
-        "README.md"
-      ]
-    },
-    {
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": [
-        "GuiAgentStreamWrapper",
-        "ストリームラッパー"
-      ],
-      "should_use_in": [
-        "README.md"
-      ]
-    },
-    {
-      "canonical": "Backend",
-      "layer": "domain",
-      "definition": "GUIフレームワーク実装（Gradio等）",
-      "synonyms": [
-        "GUIバックエンド",
-        "UIフレームワーク"
-      ],
-      "should_use_in": [
-        "README.md"
-      ]
-    },
-    {
-      "canonical": "Memory",
-      "layer": "domain",
-      "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": [
-        "会話メモリ",
-        "ConversationBuffer"
-      ],
-      "should_use_in": [
-        "README.md"
-      ]
+      "synonyms": ["InterpreterState", "インタープリタ状態"],
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     }
-  ]
+  ],
+  "invariants_summary": {
+    "total": 7,
+    "hard": 5,
+    "soft": 2,
+    "critical_invariants": [
+      {
+        "id": "INV-STATE-001",
+        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+      },
+      {
+        "id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+      },
+      {
+        "id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガーされる"
+      }
+    ]
+  }
 }

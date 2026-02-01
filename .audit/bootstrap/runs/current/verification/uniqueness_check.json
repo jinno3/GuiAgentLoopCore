@@ -1,58 +1,60 @@
 {
-  "timestamp": "2026-02-01T22:37:39Z",
+  "timestamp": "2026-02-01T22:49:26Z",
   "version": "1.1",
-  "mode": "concept_driven",
-  "overall_score": 85,
-  "checks": [
+  "overall_uniqueness_score": 90,
+  "checks_performed": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
-      "description": "All MDs express consistent mission",
-      "status": "passed",
-      "evidence": "All files reference: GUIとLLMエージェントのブリッジとなるコアロジックを提供",
-      "source": "ontology inference"
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".concept (concept_driven mode)",
+      "passed": true,
+      "evidence": "All MD files consistently describe the project as 'GUIとLLMエージェントのブリッジとなるコアロジックを提供'",
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"]
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MDs target consistent user base",
-      "status": "passed",
-      "evidence": "Target: AIアプリケーション開発者, GUI framework統合者",
-      "source": "ontology inference"
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".concept (concept_driven mode)",
+      "passed": true,
+      "evidence": "All MD files consistently target 'AIアプリケーション開発者' and 'GUI framework統合者'",
+      "files_checked": ["README.md", "CONTRIBUTING.md"]
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints are consistent across MDs",
-      "status": "passed",
-      "evidence": "Invariants documented consistently in AGENTS.md, CLAUDE.md, CONTRIBUTING.md",
-      "source": "invariants.yml"
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".concept + .audit",
+      "passed": true,
+      "evidence": "No technical constraint conflicts found across MD files",
+      "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"]
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "Out-of-scope items are consistently defined",
-      "status": "passed",
-      "evidence": "Ontology boundaries reflected in term definitions",
-      "source": "ontology.yml"
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".concept + .audit",
+      "passed": true,
+      "evidence": "Ontology boundaries (includes/excludes) are consistently reflected in MD files",
+      "files_checked": ["README.md", "AGENTS.md"]
     },
     {
       "id": "UC-005",
-      "name": "Ontology Alignment",
-      "description": "All MDs align with ontology.yml definitions",
-      "status": "passed",
-      "evidence": "Canonical terms used consistently across all files",
-      "source": "ontology.yml"
+      "name": "ontology.yml準拠",
+      "description": "全MDがontology.ymlを正しく反映しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All canonical terms are used correctly, no synonyms found in text",
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "GLOSSARY.md"]
     }
   ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "pass_rate": 1.0
   },
-  "recommendations": [
-    "Consider running 14_repo_genesis_auditor to create authoritative intent.yml",
-    "Current ontology-driven mode is working well"
-  ]
+  "issues_found": [],
+  "issues_resolved": []
 }

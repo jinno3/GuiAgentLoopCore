@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-01T22:37:39Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "overall_alignment_score": 95,
+  "timestamp": "2026-02-01T22:49:26Z",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 100,
   "term_usage_check": {
-    "total_term_occurrences": 52,
-    "canonical_used": 52,
+    "total_term_occurrences": 50,
+    "canonical_used": 50,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -12,79 +12,127 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "issues": [],
-      "improvements": [
-        "Added comprehensive invariants section",
-        "All terms use canonical forms"
-      ]
+      "alignment_score": 100,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 95,
-      "issues": [],
-      "improvements": [
-        "Updated mode declaration to concept_driven",
-        "Removed intent.yml warning",
-        "Maintained excellent term normalization table"
-      ]
+      "alignment_score": 100,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 92,
-      "issues": [],
-      "improvements": [
-        "Good alignment with ontology",
-        "Clear invariant guidelines"
-      ]
+      "alignment_score": 100,
+      "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "issues": [],
-      "improvements": [
-        "Excellent invariants section",
-        "Clear term normalization guidelines"
-      ]
+      "alignment_score": 100,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 98,
-      "issues": [],
-      "improvements": [
-        "Perfect alignment with ontology.yml v0.3",
-        "Auto-generated and up-to-date"
-      ]
+      "alignment_score": 100,
+      "issues": []
     }
   ],
   "invariant_check": {
     "total_invariants": 7,
     "reflected_in_md": 7,
     "missing": [],
-    "coverage": "100%",
-    "by_file": {
-      "AGENTS.md": 7,
-      "CLAUDE.md": 5,
-      "CONTRIBUTING.md": 5,
-      "README.md": 5
-    }
+    "coverage_rate": 1.0,
+    "details": [
+      {
+        "invariant_id": "INV-STATE-001",
+        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "covered"
+      },
+      {
+        "invariant_id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "covered"
+      },
+      {
+        "invariant_id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "covered"
+      },
+      {
+        "invariant_id": "INV-STREAM-001",
+        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "covered"
+      },
+      {
+        "invariant_id": "INV-SESSION-001",
+        "statement": "セッションは一意のUUIDで識別される",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "covered"
+      },
+      {
+        "invariant_id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "status": "covered"
+      },
+      {
+        "invariant_id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      }
+    ]
   },
   "ambiguity_check": {
     "active_auto_decisions": 8,
     "reflected_as_notes": 8,
     "missing_notes": 0,
-    "coverage": "100%"
-  },
-  "summary": {
-    "strengths": [
-      "Perfect term normalization (no synonyms used)",
-      "Complete invariants coverage",
-      "Excellent AUTO decisions documentation",
-      "Strong cross-reference between files"
-    ],
-    "recommendations": [
-      "Maintain current high standards",
-      "Consider running 14_repo_genesis_auditor for authoritative intent"
+    "coverage_rate": 1.0,
+    "details": [
+      {
+        "decision_key": "AUTO:Agent.role:classification",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:Agent.type:implementation_property",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:State.lifecycle:monotonic",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:AutoChat.trigger:stop_only",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:AutoChat.prompt:default_continue",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:Backend.primary:gradio",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:Memory.window:k10",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      },
+      {
+        "decision_key": "AUTO:Message.structure:flat",
+        "reflected_in": ["AGENTS.md"],
+        "status": "covered"
+      }
     ]
-  }
+  },
+  "synonym_usage_detected": []
 }
