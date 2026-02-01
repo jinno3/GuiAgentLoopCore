@@ -288,7 +288,35 @@ INIT
 
 ---
 
+## AUTO Decisions (Provisional Specifications)
+
+This architecture incorporates several AUTO decisions that reflect provisional specifications. These decisions are tracked in `.concept/ambiguities.yml` and may evolve as the project matures.
+
+### Memory Specifications (Provisional)
+- **AUTO:Memory.window:k10**: Conversation memory uses rolling window of size k=10
+- **AUTO:Memory.specs:provisional**: Window size k=10 (rolling) + max length 100 (hard limit)
+  - **Status**: Draft, subject to change based on performance testing
+
+### Backend Decisions
+- **AUTO:Backend.primary:gradio**: Gradio is the primary backend implementation
+- **AUTO:Backend.deployment:security**: Backend launches on 0.0.0.0 with allowed_paths security restrictions
+  - **Affects**: Security architecture and deployment configuration
+
+### State Management AUTO Decisions
+- **AUTO:State.timer:3sec**: State is auto-updated every 3 seconds via Gradio timer
+  - **Affects**: Timer-based polling mechanism in Backend layer
+- **AUTO:State.transition:auto_on_input**: User input automatically transitions to RUNNING
+
+### Connector Architecture
+- **AUTO:Connector.layer:domain**: Connector is a canonical domain concept
+  - **Affects**: How connectors are abstracted and integrated
+
+> **Note**: These AUTO decisions are marked as "provisional" and may be refined. See [AGENTS.md](AGENTS.md) for complete AUTO decision documentation.
+
+---
+
 **Related Documents**:
 - [SYSTEM_CONSTITUTION.md](SYSTEM_CONSTITUTION.md) - Constitutional constraints
 - [PURPOSE.md](PURPOSE.md) - Project purpose and objectives
 - `.concept/mappings.yml` - Concept-to-code mappings
+- `.concept/ambiguities.yml` - AUTO decisions tracking

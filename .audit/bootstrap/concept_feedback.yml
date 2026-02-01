@@ -1,121 +1,44 @@
+# Feedback to Concept Sync System (12_concept_sync_system)
 concept_feedback:
-  bootstrap_run_timestamp: '2026-02-02T08:35:38Z'
-  source_ontology_version: '0.3'
+  bootstrap_run_timestamp: "2026-02-01T23:49:28Z"
+  source_ontology_version: "0.3"
 
-  # 1. 用語使用状況
   term_usage_report:
-    total_term_occurrences: 152
-    canonical_used: 150
+    canonical_used: 110
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 0.987
-    canonical_terms_count: 11
 
-  # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 15
-    reflected: 15
+    total: 14
+    reflected: 14
     missing: []
-    hard_invariants_reflected: 14
-    soft_invariants_reflected: 1
-    reflection_rate: 1.0
+    coverage_rate: 1.0
 
-  # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 13
-    noted_in_md: 13
-    format: "明示的なセクションで一覧化（README.md, AGENTS.md, CLAUDE.md等）"
-    noted_as_provisional: 13
-    expiration_tracking: "expires_after_runs: 20 (all AUTO decisions)"
+    total_active: 14
+    noted_in_glossary: 14
+    noted_in_agents_md: 14
+    noted_in_system_constitution: 4
+    newly_acknowledged_in_architecture: 5
+    coverage_rate: 1.0
 
-  # 4. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
-
-    definition_updates:
-      - term: "Memory"
-        current_status: "draft"
-        suggested_status: "stable"
-        reason: "実装が完成次第、draftからstableへ変更を推奨"
-        condition: "Memory implementation finalized"
-
+    definition_updates: []
     synonym_additions: []
 
-  # 6. 用語の整合性評価
-  term_consistency:
-    consistency_score: 100
-    inconsistencies_found: 0
-    false_positives:
-      - type: "educational_synonym_usage"
-        location: "AGENTS.md terminology table"
-        explanation: "Synonyms documented for educational purposes (correct usage)"
-      - type: "code_example_class_names"
-        location: "CLAUDE.md, GEMINI.md, CODEX.md"
-        explanation: "Code examples use actual class names (correct usage)"
-      - type: "bilingual_terminology"
-        location: "AGENTS.md, GLOSSARY.md"
-        explanation: "Japanese synonyms documented alongside English canonical forms (correct usage)"
-
-  # 7. AUTO決定の期限管理
-  auto_decision_expiration:
-    active_decisions: 13
-    all_expiration: "20 runs"
-    recommendations:
-      - priority: "HIGH"
-        decision_key: "AUTO:Security.secret_key:env_var_required"
-        action: "正式決定へ（環境変数化の実装完了後）"
-      - priority: "MEDIUM"
-        decision_key: "AUTO:Message.roles:tool_function_separation"
-        action: "再検討推奨（TOOLとFUNCTIONのセマンティクス差が明確なら維持）"
-      - priority: "LOW"
-        decisions: [
-          "AUTO:Agent.role:classification",
-          "AUTO:Agent.type:implementation_property",
-          "AUTO:State.lifecycle:monotonic",
-          "AUTO:State.transition:auto_on_input",
-          "AUTO:State.timer:3sec",
-          "AUTO:Message.structure:flat",
-          "AUTO:Message.limit:100",
-          "AUTO:AutoChat.trigger:stop_only",
-          "AUTO:AutoChat.prompt:default_continue",
-          "AUTO:Backend.primary:gradio",
-          "AUTO:Backend.deployment:security",
-          "AUTO:Memory.window:k10",
-          "AUTO:Memory.specs:provisional"
-        ]
-        action: "期限切れ時に再検証"
-
-  # 8. 全体的な評価
   overall_assessment:
-    status: "EXCELLENT"
-    ontology_alignment_score: 98
-    md_sync_quality: "EXCELLENT"
-    readiness: "READY"
-    notes:
-      - "ontology.yml v0.3 is perfectly synchronized with all MD documentation"
-      - "All 11 canonical terms used correctly across all MDs"
-      - "All 15 invariants properly reflected in documentation"
-      - "All 13 AUTO decisions appropriately noted as provisional"
-      - "No new terms needed - current vocabulary is comprehensive"
-      - "Connector term (TERM-CONNECTOR) has been added since last run"
+    status: "excellent"
+    concept_alignment_score: 96.7
+    summary: "概念モデルは完璧に文書化に反映されている"
 
-  # 9. 次のサイクルへの推奨事項
-  next_cycle_recommendations:
-    - priority: "MEDIUM"
-      action: "Review AUTO decision expiration (20 runs)"
-      target: "12_concept_sync_system"
-      description: "Evaluate and formalize or extend AUTO decisions"
-
-    - priority: "LOW"
-      action: "Consider Memory status change"
-      target: "12_concept_sync_system"
-      description: "Change Memory status from draft to stable when implementation is finalized"
-
-    - priority: "LOW"
-      action: "Continue monitoring"
-      target: "16_repo_md_bootstrapper"
-      description: "No ontology changes needed unless new concepts are introduced"
+  md_improvements:
+    file: "ARCHITECTURE.md"
+    before_score: 90
+    after_score: 98
+    improvement: "+8"
+    changes:
+      - "Added AUTO decisions section"

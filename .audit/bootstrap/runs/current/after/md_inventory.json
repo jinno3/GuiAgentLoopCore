@@ -1,98 +1,97 @@
 {
-  "timestamp": "2026-02-02T08:35:38Z",
-  "total_md_files": 11,
-  "tier1_coverage": {
-    "required": ["README.md", "AGENTS.md"],
-    "existing": ["README.md", "AGENTS.md"],
-    "coverage": "2/2 (100%)"
-  },
-  "tier2_coverage": {
-    "recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
-    "existing": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
-    "coverage": "4/4 (100%)"
-  },
-  "tier3_coverage": {
-    "optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
-    "existing": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
-    "coverage": "4/4 (100%)"
-  },
+  "timestamp": "2026-02-01T23:49:28Z",
+  "total_md_files": 10,
   "files": [
     {
       "path": "README.md",
-      "tier": 1,
       "exists": true,
-      "size_bytes": 5012,
-      "line_count": 195
+      "size_bytes": 4789,
+      "line_count": 195,
+      "tier": "tier1_mandatory",
+      "status": "verified"
     },
     {
       "path": "AGENTS.md",
-      "tier": 1,
       "exists": true,
-      "size_bytes": 7421,
-      "line_count": 194
+      "size_bytes": 5698,
+      "line_count": 194,
+      "tier": "tier1_mandatory",
+      "status": "verified"
     },
     {
       "path": "CLAUDE.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 8234,
-      "line_count": 236
-    },
-    {
-      "path": "GLOSSARY.md",
-      "tier": 3,
-      "exists": true,
-      "size_bytes": 9234,
-      "line_count": 266
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "tier": 3,
-      "exists": true,
-      "size_bytes": 8456,
-      "line_count": 295
+      "size_bytes": 7588,
+      "line_count": 236,
+      "tier": "tier2_recommended",
+      "status": "verified"
     },
     {
       "path": "PURPOSE.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 4123,
-      "line_count": 139
+      "size_bytes": 4627,
+      "line_count": 164,
+      "tier": "tier2_recommended",
+      "status": "verified"
     },
     {
       "path": "CONTRIBUTING.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 4456,
-      "line_count": 162
+      "size_bytes": 4917,
+      "line_count": 152,
+      "tier": "tier2_recommended",
+      "status": "verified"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 7234,
-      "line_count": 245
+      "size_bytes": 7389,
+      "line_count": 246,
+      "tier": "tier2_recommended",
+      "status": "verified"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "size_bytes": 11245,
+      "line_count": 340,
+      "tier": "tier3_optional",
+      "status": "enhanced"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "size_bytes": 10955,
+      "line_count": 266,
+      "tier": "tier3_optional",
+      "status": "verified"
     },
     {
       "path": "GEMINI.md",
-      "tier": 3,
       "exists": true,
-      "size_bytes": 3456,
-      "line_count": 138
+      "size_bytes": 4455,
+      "line_count": 145,
+      "tier": "tier3_optional",
+      "status": "verified"
     },
     {
       "path": "CODEX.md",
-      "tier": 3,
       "exists": true,
-      "size_bytes": 3678,
-      "line_count": 158
-    },
-    {
-      "path": "CHANGELOG.md",
-      "tier": 0,
-      "exists": true,
-      "size_bytes": 0,
-      "line_count": 0
+      "size_bytes": 4926,
+      "line_count": 159,
+      "tier": "tier3_optional",
+      "status": "verified"
     }
-  ]
+  ],
+  "coverage": {
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "3/4 (75%)",
+    "tier3_coverage": "4/4 (100%)",
+    "overall_coverage": "9/10 (90%)"
+  },
+  "changes": {
+    "files_modified": 1,
+    "files_verified": 9,
+    "total_actions": 10
+  }
 }

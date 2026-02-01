@@ -1,0 +1,219 @@
+{
+  "timestamp": "2026-02-02T08:35:38Z",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 98,
+  "term_usage_check": {
+    "total_term_occurrences": 152,
+    "canonical_used": 150,
+    "synonym_used": 0,
+    "unknown_terms": 2,
+    "alignment_rate": 0.987
+  },
+  "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 98,
+      "issues": [
+        {
+          "line": 84,
+          "found": "Memory",
+          "expected": "Memory",
+          "note": "Correctly uses canonical term"
+        }
+      ]
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [
+        {
+          "line": 18,
+          "note": "Example text shows canonical terms correctly"
+        }
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": []
+    }
+  ],
+  "invariant_check": {
+    "total_invariants": 15,
+    "reflected_in_md": 15,
+    "missing": [],
+    "coverage": "100%",
+    "details": {
+      "INV_STATE_001": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_SESSION_001": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_MSG_001": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_AGENT_001": {
+        "found_in": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_AUTO_001": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_STREAM_001": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_MEM_001": {
+        "found_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_MESSAGE_001": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_STATE_002": {
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_BACKEND_001": {
+        "found_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_SESSION_002": {
+        "found_in": ["SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_CONNECTOR_001": {
+        "found_in": ["SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_CONVERTER_001": {
+        "found_in": ["SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      },
+      "INV_BACKEND_002": {
+        "found_in": ["SYSTEM_CONSTITUTION.md"],
+        "correctly_described": true
+      }
+    }
+  },
+  "ambiguity_check": {
+    "active_auto_decisions": 13,
+    "reflected_as_notes": 13,
+    "missing_notes": 0,
+    "coverage": "100%",
+    "details": {
+      "Agent_decisions": {
+        "AUTO_Agent_role_classification": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_Agent_type_implementation_property": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        }
+      },
+      "State_decisions": {
+        "AUTO_State_lifecycle_monotonic": {
+          "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_State_transition_auto_on_input": {
+          "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_State_timer_3sec": {
+          "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        }
+      },
+      "Message_decisions": {
+        "AUTO_Message_structure_flat": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_Message_limit_100": {
+          "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        }
+      },
+      "AutoChat_decisions": {
+        "AUTO_AutoChat_trigger_stop_only": {
+          "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_AutoChat_prompt_default_continue": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        }
+      },
+      "Backend_decisions": {
+        "AUTO_Backend_primary_gradio": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_Backend_deployment_security": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        }
+      },
+      "Memory_decisions": {
+        "AUTO_Memory_window_k10": {
+          "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        },
+        "AUTO_Memory_specs_provisional": {
+          "found_in": ["AGENTS.md", "CLAUDE.md"],
+          "correctly_noted": true
+        }
+      }
+    }
+  },
+  "ontology_completeness": {
+    "total_canonical_terms": 11,
+    "used_in_documentation": 11,
+    "missing_from_docs": [],
+    "over_documented": [],
+    "completeness_rate": "100%"
+  }
+}

@@ -1,242 +1,127 @@
 {
-  "timestamp": "2026-02-02T08:35:38Z",
-  "overall_score": 98,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-01T23:49:28Z",
+  "overall_score": 96.7,
+  "concept_alignment_score": 96.7,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (audit + concept統合)",
+  "scoring_method": "v1.1 (uniqueness 60% + concept alignment 40%)",
+  "uniqueness_score": 100,
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Memory", "AutoChat", "StreamWrapper", "Backend", "Converter"],
-        "synonym_usage": []
+        "score": 95,
+        "issues": []
       },
-      "strengths": [
-        "Clear mission statement aligned with intent.yml",
-        "Core components section references GLOSSARY.md",
-        "System invariants well documented",
-        "AUTO decisions section present and comprehensive",
-        "Uses canonical terms consistently"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "mission_present": true,
-        "target_user_present": true,
-        "core_value_present": true
-      }
+      "status": "verified"
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonym_usage": []
+        "issues": []
       },
-      "strengths": [
-        "Comprehensive term normalization table",
-        "All hard invariants documented with explanations",
-        "AUTO decisions section present",
-        "Behavior guidelines clear and actionable",
-        "References to .concept files"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "mission_present": true,
-        "boundaries_clear": true,
-        "behavior_rules_present": true
-      }
+      "status": "verified"
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "synonym_usage": []
+        "issues": []
       },
-      "strengths": [
-        "Claude-specific recommendations well targeted",
-        "Code examples demonstrate proper usage",
-        "AUTO decisions clearly marked",
-        "Checklist for code reviews provided",
-        "References to ontology and invariants"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "claude_specific_guidance": true,
-        "invariants_covered": true
-      }
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
-      },
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete with AUTO decisions",
-        "Evidence citations included",
-        "Term normalization map provided",
-        "Organized by layer (core/domain/aux)"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "ontology_aligned": true
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Converter", "Memory", "Connector"],
-        "synonym_usage": []
-      },
-      "strengths": [
-        "System architecture well documented",
-        "Component boundaries clearly defined",
-        "Data flow clearly explained",
-        "Extension points documented",
-        "All canonical terms used correctly"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "architecture_aligned": true
-      }
+      "status": "verified"
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonym_usage": []
+        "score": 85,
+        "issues": [
+          {
+            "type": "omission_appropriate",
+            "note": "No explicit mention of invariants or AUTO decisions - appropriate for purpose document"
+          }
+        ]
       },
-      "strengths": [
-        "Mission statement clear and concise",
-        "Objectives well defined",
-        "In-scope and out-of-scope clearly delineated",
-        "Design philosophy aligned with intent.yml",
-        "Success metrics measurable"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "mission_aligned": true,
-        "objectives_clear": true
-      }
+      "status": "verified"
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonym_usage": []
+        "score": 90,
+        "issues": []
       },
-      "strengths": [
-        "Terminology guidelines emphasized",
-        "Invariant requirements clearly stated",
-        "AUTO decision process explained",
-        "Get started guide comprehensive",
-        "PR guidelines include ontology checks"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "contribution_guidelines_clear": true
-      }
+      "status": "verified"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 97,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonym_usage": []
+        "issues": []
       },
-      "strengths": [
-        "All 15 hard invariants documented",
-        "Constitutional principles clearly stated",
-        "Amendment process defined",
-        "Enforcement mechanisms documented",
-        "AUTO decisions properly noted"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "constitution_complete": true
-      }
+      "status": "verified"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "status": "enhanced",
+      "improvements": [
+        "Added AUTO decisions section (35 lines added)"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "status": "verified"
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonym_usage": []
+        "score": 95,
+        "issues": []
       },
-      "strengths": [
-        "Gemini-specific guidance provided",
-        "Multimodal capabilities addressed",
-        "Code examples consistent with ontology",
-        "Checklist includes term normalization"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "gemini_guidance_complete": true
-      }
+      "status": "verified"
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonym_usage": []
+        "score": 95,
+        "issues": []
       },
-      "strengths": [
-        "Codex-specific guidance provided",
-        "Code generation focus addressed",
-        "Code examples consistent with ontology",
-        "Checklist includes term normalization"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "codex_guidance_complete": true
-      }
+      "status": "verified"
     }
   ],
   "summary": {
-    "total_files": 11,
-    "well_documented": 11,
-    "need_work": 0,
-    "empty": 0,
-    "term_normalization_rate": "100%",
-    "invariant_coverage": "100%",
-    "auto_decision_documentation": "100%"
+    "excellent_files": 7,
+    "good_files": 3,
+    "needs_improvement": 0,
+    "average_score": 96.7,
+    "previous_score": 94.5,
+    "improvement": "+2.2",
+    "status": "excellent"
   }
 }

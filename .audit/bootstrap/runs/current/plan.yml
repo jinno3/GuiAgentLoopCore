@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T08:35:38Z"
+run_timestamp: "2026-02-01T23:49:28Z"
 version: "1.1"
 
 rotation:
@@ -8,32 +8,52 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
+  version: "0.3"
   total_terms: 11
-  core_terms: 5
-  domain_terms: 5
-  aux_terms: 1
+  by_layer:
+    core: 5
+    domain: 5
+    aux: 1
+  by_status:
+    stable: 10
+    draft: 1
   key_terms:
     - canonical: "Interpreter"
+      layer: "core"
+      status: "stable"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
     - canonical: "Agent"
+      layer: "core"
+      status: "stable"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
     - canonical: "Session"
+      layer: "core"
+      status: "stable"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
     - canonical: "Message"
+      layer: "core"
+      status: "stable"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
+      layer: "core"
+      status: "stable"
       definition: "インタープリタの実行状態を表す列挙型"
 
 term_normalization:
@@ -60,95 +80,117 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_excellent"
+    concept_alignment_score: 95
     issues: []
 
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_excellent"
+    concept_alignment_score: 100
     issues: []
 
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
-    issues: []
-
-  - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    issues: []
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
+    status: "exists_excellent"
+    concept_alignment_score: 100
     issues: []
 
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
+    status: "exists_good"
+    concept_alignment_score: 85
     issues: []
 
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
+    status: "exists_good"
+    concept_alignment_score: 90
     issues: []
 
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
+    status: "exists_excellent"
+    concept_alignment_score: 100
+    issues: []
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_good"
+    concept_alignment_score: 90
+    issues:
+      - "No explicit mention of AUTO decisions"
+
+  - path: "GLOSSARY.md"
+    status: "exists_excellent"
+    concept_alignment_score: 100
     issues: []
 
   - path: "GEMINI.md"
-    status: "exists_needs_review"
+    status: "exists_good"
+    concept_alignment_score: 95
     issues: []
 
   - path: "CODEX.md"
-    status: "exists_needs_review"
-    issues: []
-
-  - path: "CHANGELOG.md"
-    status: "exists_no_action"
+    status: "exists_good"
+    concept_alignment_score: 95
     issues: []
 
 actions:
-  - action: "review"
+  - action: "verify"
     target: "README.md"
-    reason: "Verify concept alignment and intent consistency"
+    reason: "Already excellent - verification only"
+    concept_alignment_score: 95
 
-  - action: "review"
+  - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify term normalization and behavior rules"
+    reason: "Already perfect - verification only"
+    concept_alignment_score: 100
 
-  - action: "review"
+  - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and invariants"
+    reason: "Already perfect - verification only"
+    concept_alignment_score: 100
 
-  - action: "review"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology alignment"
-
-  - action: "review"
-    target: "ARCHITECTURE.md"
-    reason: "Verify technical alignment"
-
-  - action: "review"
-    target: "PURPOSE.md"
-    reason: "Verify mission alignment"
-
-  - action: "review"
-    target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines"
-
-  - action: "review"
+  - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection"
+    reason: "Already perfect - verification only"
+    concept_alignment_score: 100
 
-  - action: "review"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Already perfect - verification only"
+    concept_alignment_score: 100
+
+  - action: "minor_enhancement"
+    target: "ARCHITECTURE.md"
+    reason: "Add AUTO decisions reference"
+    concept_alignment_score: 90
+
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Appropriate for purpose document - verification only"
+    concept_alignment_score: 85
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Already good - verification only"
+    concept_alignment_score: 90
+
+  - action: "verify"
     target: "GEMINI.md"
-    reason: "Verify Gemini-specific instructions"
+    reason: "Already good - verification only"
+    concept_alignment_score: 95
 
-  - action: "review"
+  - action: "verify"
     target: "CODEX.md"
-    reason: "Verify Codex-specific instructions"
+    reason: "Already good - verification only"
+    concept_alignment_score: 95
+
+overall_assessment:
+  average_concept_alignment_score: 94.5
+  status: "excellent"
+  note: "Repository is in excellent state with all MD files properly aligned with ontology"
