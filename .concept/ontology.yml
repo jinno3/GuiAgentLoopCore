@@ -1,5 +1,5 @@
 version: "0.3"
-updated_at: "2026-02-02T05:23:14Z"
+updated_at: "2026-02-02T05:38:12Z"
 
 canonical_terms:
   Interpreter:
@@ -225,3 +225,23 @@ canonical_terms:
     evidence:
       - source: "exploration findings"
         quote: "Conversation buffer with window size (k=10)"
+
+  Connector:
+    id: "TERM-CONNECTOR"
+    layer: "domain"
+    status: "stable"
+    definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+    synonyms: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter"]
+    boundaries:
+      includes: ["GuiAgentInterpreterABCインターフェースの実装", "エージェント固有のブリッジロジック", "I/O変換"]
+      excludes: ["UI描画", "LLM直接実行", "セッション管理"]
+    lifecycle: ["initialized", "connected", "executing", "disconnected"]
+    related_terms: ["Interpreter", "Agent"]
+    assumptions: []
+    evidence:
+      - source: "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py"
+        quote: "class ConnectorImplCodeinterpreterApi(GuiAgentInterpreterABC)"
+      - source: "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py"
+        quote: "class ConnectorImplOpenInterpreter(GuiAgentInterpreterABC)"
+      - source: "gui_agent_loop_core/schema/core/schema.py"
+        quote: "class GuiAgentInterpreterABC(ABC): Abstract interface for agent connectors"

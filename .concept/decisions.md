@@ -143,3 +143,11 @@
 - Expires After Runs: 20
 - Linked: ASM-INV-BACKEND-002 / INV-BACKEND-002
 - Revert Triggers: primary_evidence_contradiction, performance_issue
+
+## AUTO:Connector.layer:domain
+- Status: ACTIVE
+- Chosen: Connectorは正規概念（domain層）
+- Policy: architectural_pattern
+- Expires After Runs: 20
+- Linked: AMB-CON-001
+- Revert Triggers: primary_evidence_contradiction, architectural_clarification

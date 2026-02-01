@@ -1,4 +1,4 @@
-updated_at: "2026-02-02T05:23:14Z"
+updated_at: "2026-02-02T05:38:12Z"
 ambiguities:
   - id: "AMB-AGT-001"
     term: "Agent"
@@ -217,17 +217,17 @@ ambiguities:
       - "将来的にコネクタが増える場合の設計意図"
     linked_conflicts: []
     auto_decision:
-      status: "pending"
-      decision_key: "AUTO:Connector.status:pending_review"
-      chosen: "term_queueで審査待ち（現時点では判断保留）"
-      policy: "caution"
-      confidence_auto: 0.40
-      decided_at_run: "2026-02-02T05:23:14Z"
-      expires_after_runs: 10
+      status: "applied"
+      decision_key: "AUTO:Connector.layer:domain"
+      chosen: "Connectorは正規概念（domain層）"
+      policy: "architectural_pattern"
+      confidence_auto: 0.80
+      decided_at_run: "2026-02-02T05:38:12Z"
+      expires_after_runs: 20
       revert_triggers:
         - "primary_evidence_contradiction"
         - "architectural_clarification"
-    last_touched_run: "2026-02-02T05:23:14Z"
+    last_touched_run: "2026-02-02T05:38:12Z"
     evidence:
       - source: "gui_agent_loop_core/connector_impl/"
         quote: "ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter found"
