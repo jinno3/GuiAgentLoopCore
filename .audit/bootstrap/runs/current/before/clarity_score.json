@@ -1,244 +1,336 @@
 {
-  "timestamp": "2026-02-01T22:17:03.568614+00:00",
-  "overall_score": 82,
-  "clarity_score": 77,
-  "concept_alignment_score": 88,
+  "timestamp": "2026-02-02T07:30:35.550535",
+  "overall_score": 100,
+  "concept_alignment_score": 65,
   "max_score": 100,
+  "total_files": 10,
+  "existing_files": 10,
+  "total_lines": 2028,
+  "canonical_usage_count": 545,
+  "synonym_usage_count": 118,
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "line_count": 195,
-      "word_count": 850,
-      "clarity_score": 75,
+      "lines": 195,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 90,
+        "canonical_terms_found": 11,
+        "synonym_issues": 1,
+        "issues": [
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 145
+          }
+        ]
       },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": [
+        "Found 1 synonym usages"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "line_count": 194,
-      "word_count": 455,
+      "lines": 194,
       "clarity_score": 100,
       "concept_alignment": {
-        "score": 50,
+        "score": 0,
+        "canonical_terms_found": 11,
+        "synonym_issues": 32,
         "issues": [
           {
-            "line": 15,
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
-          },
-          {
-            "line": 15,
             "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+            "expected": "Interpreter",
+            "line": 15
           },
           {
-            "line": 16,
-            "found": "AgentDefinition",
-            "should_be": "Agent",
-            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+            "found": "会話インタープリタ",
+            "expected": "Interpreter",
+            "line": 15
           },
           {
-            "line": 16,
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
-          },
-          {
-            "line": 16,
             "found": "AIエージェント",
-            "should_be": "Agent",
-            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+            "expected": "Agent",
+            "line": 16
+          },
+          {
+            "found": "AgentImage",
+            "expected": "Agent",
+            "line": 16
+          },
+          {
+            "found": "TaskAgent",
+            "expected": "Agent",
+            "line": 16
+          },
+          {
+            "found": "AgentDefinition",
+            "expected": "Agent",
+            "line": 16
+          },
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 16
+          },
+          {
+            "found": "専門エージェント",
+            "expected": "Agent",
+            "line": 16
+          },
+          {
+            "found": "ChatSession",
+            "expected": "Session",
+            "line": 17
+          },
+          {
+            "found": "JWT",
+            "expected": "Session",
+            "line": 17
           }
         ]
       },
-      "indicators": {
-        "has_mission": true,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": [
+        "Found 32 synonym usages"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "line_count": 236,
-      "word_count": 510,
-      "clarity_score": 75,
+      "lines": 236,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 80,
+        "score": 0,
+        "canonical_terms_found": 10,
+        "synonym_issues": 10,
         "issues": [
           {
-            "line": 46,
             "found": "InterpreterState",
-            "should_be": "State",
-            "context": "if interpreter.state == InterpreterState.STATE_INIT:"
+            "expected": "State",
+            "line": 46
           },
           {
-            "line": 47,
             "found": "InterpreterState",
-            "should_be": "State",
-            "context": "interpreter.state = InterpreterState.STATE_RUNNING"
+            "expected": "State",
+            "line": 47
+          },
+          {
+            "found": "InterpreterState",
+            "expected": "State",
+            "line": 55
+          },
+          {
+            "found": "自動チャット",
+            "expected": "AutoChat",
+            "line": 79
+          },
+          {
+            "found": "InterpreterState",
+            "expected": "State",
+            "line": 161
+          },
+          {
+            "found": "InterpreterState",
+            "expected": "State",
+            "line": 165
+          },
+          {
+            "found": "InterpreterState",
+            "expected": "State",
+            "line": 169
+          },
+          {
+            "found": "InterpreterState",
+            "expected": "State",
+            "line": 173
+          },
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 181
+          },
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 186
           }
         ]
       },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": [
+        "Found 10 synonym usages"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "line_count": 266,
-      "word_count": 789,
-      "clarity_score": 50,
+      "lines": 266,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 50,
+        "score": 0,
+        "canonical_terms_found": 11,
+        "synonym_issues": 71,
         "issues": [
           {
-            "line": 19,
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
-          },
-          {
-            "line": 19,
             "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+            "expected": "Interpreter",
+            "line": 19
           },
           {
-            "line": 34,
-            "found": "AgentDefinition",
-            "should_be": "Agent",
-            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+            "found": "会話インタープリタ",
+            "expected": "Interpreter",
+            "line": 19
           },
           {
-            "line": 34,
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
-          },
-          {
-            "line": 34,
             "found": "AIエージェント",
-            "should_be": "Agent",
-            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+            "expected": "Agent",
+            "line": 34
+          },
+          {
+            "found": "AgentImage",
+            "expected": "Agent",
+            "line": 34
+          },
+          {
+            "found": "TaskAgent",
+            "expected": "Agent",
+            "line": 34
+          },
+          {
+            "found": "AgentDefinition",
+            "expected": "Agent",
+            "line": 34
+          },
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 34
+          },
+          {
+            "found": "専門エージェント",
+            "expected": "Agent",
+            "line": 34
+          },
+          {
+            "found": "ChatSession",
+            "expected": "Session",
+            "line": 53
+          },
+          {
+            "found": "JWT",
+            "expected": "Session",
+            "line": 53
           }
         ]
       },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": false,
-        "has_term_definitions": true
-      }
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "line_count": 139,
-      "word_count": 648,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "indicators": {
-        "has_mission": true,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "line_count": 162,
-      "word_count": 766,
-      "clarity_score": 75,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "line_count": 295,
-      "word_count": 910,
-      "clarity_score": 75,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": [
+        "Found 71 synonym usages"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "line_count": 245,
-      "word_count": 757,
-      "clarity_score": 75,
+      "lines": 245,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_found": 10,
+        "synonym_issues": 0,
         "issues": []
       },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "lines": 295,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_found": 10,
+        "synonym_issues": 0,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "lines": 139,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_found": 6,
+        "synonym_issues": 0,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "lines": 162,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_found": 6,
+        "synonym_issues": 0,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "line_count": 138,
-      "word_count": 256,
-      "clarity_score": 75,
+      "lines": 138,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 80,
+        "canonical_terms_found": 5,
+        "synonym_issues": 2,
+        "issues": [
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 86
+          },
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 91
+          }
+        ]
       },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": [
+        "Found 2 synonym usages"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "line_count": 158,
-      "word_count": 294,
-      "clarity_score": 75,
+      "lines": 158,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 80,
+        "canonical_terms_found": 5,
+        "synonym_issues": 2,
+        "issues": [
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 87
+          },
+          {
+            "found": "AgentType",
+            "expected": "Agent",
+            "line": 92
+          }
+        ]
       },
-      "indicators": {
-        "has_mission": false,
-        "has_invariants": true,
-        "has_term_definitions": true
-      }
+      "issues": [
+        "Found 2 synonym usages"
+      ]
     }
   ]
 }

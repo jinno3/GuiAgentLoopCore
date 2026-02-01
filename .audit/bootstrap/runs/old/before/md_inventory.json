@@ -1,83 +1,240 @@
 {
-  "timestamp": "2026-02-02T07:00:00Z",
-  "total_md_files": 11,
+  "timestamp": "2026-02-01T22:17:03.568614+00:00",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "lines": 194,
-      "tier": 1,
-      "status": "exists_needs_review"
+      "line_count": 195,
+      "word_count": 850,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "lines": 193,
-      "tier": 1,
-      "status": "exists_needs_review"
+      "line_count": 194,
+      "word_count": 455,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 50,
+        "issues": [
+          {
+            "line": 15,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "line": 15,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "line": 16,
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 16,
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 16,
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          }
+        ]
+      },
+      "indicators": {
+        "has_mission": true,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "lines": 235,
-      "tier": 2,
-      "status": "exists_needs_review"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "lines": 244,
-      "tier": 2,
-      "status": "exists_needs_review"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "lines": 138,
-      "tier": 2,
-      "status": "exists_needs_review"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "lines": 161,
-      "tier": 2,
-      "status": "exists_needs_review"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "lines": 294,
-      "tier": 3,
-      "status": "exists_needs_review"
+      "line_count": 236,
+      "word_count": 510,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "line": 46,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "if interpreter.state == InterpreterState.STATE_INIT:"
+          },
+          {
+            "line": 47,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "interpreter.state = InterpreterState.STATE_RUNNING"
+          }
+        ]
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "lines": 265,
-      "tier": 3,
-      "status": "exists_needs_review"
+      "line_count": 266,
+      "word_count": 789,
+      "clarity_score": 50,
+      "concept_alignment": {
+        "score": 50,
+        "issues": [
+          {
+            "line": 19,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "line": 19,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "line": 34,
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "line": 34,
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "line": 34,
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          }
+        ]
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": false,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "line_count": 139,
+      "word_count": 648,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": true,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "line_count": 162,
+      "word_count": 766,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "line_count": 295,
+      "word_count": 910,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "line_count": 245,
+      "word_count": 757,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "lines": 137,
-      "tier": 3,
-      "status": "exists_needs_review"
+      "line_count": 138,
+      "word_count": 256,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "lines": 157,
-      "tier": 3,
-      "status": "exists_needs_review"
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "lines": 5,
-      "tier": 3,
-      "status": "exists_needs_review"
+      "line_count": 158,
+      "word_count": 294,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     }
   ]
 }

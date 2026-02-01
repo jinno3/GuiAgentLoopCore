@@ -1,23 +1,32 @@
-bootstrap_run_timestamp: '2026-02-01T22:19:00.322052+00:00'
+bootstrap_run_timestamp: '2026-02-02T07:33:22.661555'
 version: '1.1'
 existence_clarity:
-  before: 77
-  after: 77
+  before: 100
+  after: 100
   delta: 0
-  interpretation: 既に高品質 - intent.ymlが正しく反映されている
+  interpretation: intent.ymlの定義により既に高品質なMDドキュメントが維持されている
 uniqueness_score:
-  score: 62
-  issues_found: 0
+  score: 80
+  issues_found: 1
   issues_resolved: 0
-  remaining_issues: []
+  remaining_issues:
+  - UC-002
 md_coverage:
   tier1_coverage: 2/2 (100%)
-  tier2_coverage: 4/4 (100%)
-  tier3_coverage: 4/4 (100%)
+  tier2_coverage: 3/4 (75%)
+  tier3_coverage: 3/4 (75%)
+  total_files: 10
 inconsistencies: []
 intent_suggestions: []
 concept_integration:
   used: true
-  ontology_terms_used: 12
-  alignment_score: 87
+  ontology_terms_used: 53
+  alignment_score: 53
   new_term_candidates: []
+summary:
+  status: excellent
+  recommendation: MDドキュメントは既に高品質。定期的な検証を継続推奨。
+  next_steps:
+  - 定期的（月1回など）なbootstrap実行での品質維持
+  - 新規機能追加時の用語定義の徹底
+  - 概念モデルの更新をMDへ即時反映

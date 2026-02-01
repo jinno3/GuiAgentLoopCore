@@ -1,267 +1,244 @@
 {
-  "timestamp": "2026-02-02T07:00:00Z",
-  "overall_score": 92,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-01T22:17:03.568614+00:00",
+  "overall_score": 82,
+  "clarity_score": 77,
+  "concept_alignment_score": 88,
   "max_score": 100,
-  "evaluation": {
-    "existence_clarity": 95,
-    "uniqueness_score": 90,
-    "term_normalization_score": 95,
-    "invariant_coverage_score": 92
-  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
+      "line_count": 195,
+      "word_count": 850,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "positive_notes": [
-          "Uses canonical terms: Interpreter, Agent, Session, Message, State",
-          "Properly references invariants (INV-STATE-001, INV-MSG-001, etc.)",
-          "References GLOSSARY.md for terminology",
-          "AUTO decisions are well documented"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "strengths": [
-        "Mission statement clearly defined",
-        "Core components section with canonical terms",
-        "System invariants section with proper references",
-        "AUTO decisions section well structured",
-        "References to AGENTS.md and GLOSSARY.md"
-      ],
-      "issues": [
-        "Architecture diagram uses 'OpenGuiConnector' which is not a canonical term (should be 'Connector')",
-        "Diagram references 'OpenGuiConnector', 'OpenAPISpec' - these need to be checked against ontology",
-        "Installation and Usage sections are incomplete"
-      ]
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "line_count": 194,
+      "word_count": 455,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "positive_notes": [
-          "Excellent term normalization table with canonical forms and prohibited synonyms",
-          "All hard invariants from invariants.yml are properly documented",
-          "AUTO decisions are comprehensively listed with expiration tracking",
-          "Clear behavioral guidelines (DO's and DON'Ts)",
-          "References to .concept files are accurate"
+        "score": 50,
+        "issues": [
+          {
+            "line": 15,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "line": 15,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "line": 16,
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 16,
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 16,
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          }
         ]
       },
-      "strengths": [
-        "Comprehensive term normalization table",
-        "All hard invariants covered (INV-STATE-001/002, INV-MSG-001, INV-MESSAGE-001, INV-SESSION-001/002, INV-AGENT-001, INV-AUTO-001, INV-STREAM-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-BACKEND-001/002)",
-        "AUTO decisions are well tracked with expiration dates",
-        "Clear behavioral rules",
-        "Proper integration with concept dictionary"
-      ],
-      "issues": []
+      "indicators": {
+        "has_mission": true,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 93,
+      "line_count": 236,
+      "word_count": 510,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "positive_notes": [
-          "Canonical terms are used consistently",
-          "Hard invariants are properly referenced",
-          "AUTO decisions are acknowledged",
-          "Code examples follow best practices"
+        "score": 80,
+        "issues": [
+          {
+            "line": 46,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "if interpreter.state == InterpreterState.STATE_INIT:"
+          },
+          {
+            "line": 47,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "interpreter.state = InterpreterState.STATE_RUNNING"
+          }
         ]
       },
-      "strengths": [
-        "Claude-specific recommendations are clear",
-        "Invariant compliance guidelines are detailed",
-        "AUTO decision awareness is emphasized",
-        "Code examples demonstrate proper patterns"
-      ],
-      "issues": [
-        "Some sections could benefit from more specific examples"
-      ]
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "line_count": 266,
+      "word_count": 789,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "positive_notes": [
-          "Auto-generated from ontology.yml",
-          "All canonical terms are present",
-          "Synonyms are clearly listed",
-          "Layer classification is correct"
-        ]
-      },
-      "strengths": [
-        "Complete coverage of ontology.yml terms",
-        "Proper structure with core/domain/aux sections",
-        "Evidence and assumptions are included"
-      ],
-      "issues": [
-        "Some terms have draft status but this is clearly marked"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 90,
+        "score": 50,
         "issues": [
           {
-            "found": "OpenGuiConnector",
-            "expected": "Connector",
-            "line": "various",
-            "status": "needs_review"
+            "line": 19,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "line": 19,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "line": 34,
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "line": 34,
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "line": 34,
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
           }
-        ],
-        "positive_notes": [
-          "Mostly uses canonical terms",
-          "Good technical depth"
         ]
       },
-      "strengths": [
-        "Detailed architectural description",
-        "Component relationships are clear"
-      ],
-      "issues": [
-        "Some non-canonical terms used (OpenGuiConnector)",
-        "Could benefit from more explicit references to invariants"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "positive_notes": [
-          "Invariants are well represented",
-          "Uses canonical terminology"
-        ]
-      },
-      "strengths": [
-        "Strong focus on invariants",
-        "Clear constitutional principles"
-      ],
-      "issues": [
-        "Some sections could be more detailed"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "positive_notes": [
-          "References invariants",
-          "Mentions term guidelines"
-        ]
-      },
-      "strengths": [
-        "Clear contribution guidelines",
-        "References to AGENTS.md"
-      ],
-      "issues": [
-        "Could be more explicit about term normalization requirements",
-        "Missing specific references to ontology.yml"
-      ]
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": false,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 90,
+      "line_count": 139,
+      "word_count": 648,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "positive_notes": [
-          "Aligns well with intent.yml",
-          "Uses canonical terms"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "strengths": [
-        "Clear purpose statement",
-        "Good alignment with mission"
-      ],
-      "issues": [
-        "Could reference invariants more explicitly"
-      ]
+      "indicators": {
+        "has_mission": true,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "line_count": 162,
+      "word_count": 766,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "line_count": 295,
+      "word_count": 910,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "line_count": 245,
+      "word_count": 757,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 88,
+      "line_count": 138,
+      "word_count": 256,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "positive_notes": [
-          "Canonical terms are used",
-          "References to ontology"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "strengths": [
-        "Gemini-specific guidelines",
-        "Good integration with project standards"
-      ],
-      "issues": [
-        "Could be more detailed on invariants"
-      ]
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 88,
+      "line_count": 158,
+      "word_count": 294,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "positive_notes": [
-          "Uses canonical terms"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "strengths": [
-        "Codex-specific guidelines"
-      ],
-      "issues": [
-        "Could be more detailed"
-      ]
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "clarity_score": 60,
-      "concept_alignment": {
-        "score": 70,
-        "issues": [],
-        "positive_notes": []
-      },
-      "strengths": [
-        "Exists as placeholder"
-      ],
-      "issues": [
-        "Minimal content",
-        "Needs proper changelog entries"
-      ]
+      "indicators": {
+        "has_mission": false,
+        "has_invariants": true,
+        "has_term_definitions": true
+      }
     }
-  ],
-  "summary": {
-    "total_issues": 5,
-    "critical_issues": 0,
-    "recommendations": [
-      "Review 'OpenGuiConnector' usage in diagrams and replace with 'Connector' if appropriate",
-      "Complete Installation and Usage sections in README.md",
-      "Add more explicit references to ontology.yml in CONTRIBUTING.md",
-      "Populate CHANGELOG.md with proper entries",
-      "Consider adding more detailed examples in CLAUDE.md"
-    ]
-  }
+  ]
 }

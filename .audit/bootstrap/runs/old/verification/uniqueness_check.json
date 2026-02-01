@@ -1,155 +1,68 @@
 {
-  "timestamp": "2026-02-02T07:00:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 90,
-  "concept_alignment_score": 95,
-  "combined_score": 92,
-
-  "uniqueness_checks": [
+  "timestamp": "2026-02-01T22:17:18.121843+00:00",
+  "overall_score": 72,
+  "uniqueness_score": 62,
+  "uc_checks": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
-      "description": "All MD files express the same mission from intent.yml",
-      "status": "passed",
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
-        "consistency": "All files accurately reflect the mission statement"
-      }
+      "name": "Mission一致性",
+      "file": "README.md",
+      "passed": true,
+      "details": "Contains mission keywords"
+    },
+    {
+      "id": "UC-001",
+      "name": "Mission一致性",
+      "file": "AGENTS.md",
+      "passed": true,
+      "details": "Contains mission keywords"
+    },
+    {
+      "id": "UC-001",
+      "name": "Mission一致性",
+      "file": "CLAUDE.md",
+      "passed": true,
+      "details": "Contains mission keywords"
+    },
+    {
+      "id": "UC-001",
+      "name": "Mission一致性",
+      "file": "GLOSSARY.md",
+      "passed": true,
+      "details": "Contains mission keywords"
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MD files target the same user groups",
-      "status": "passed",
-      "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "CODEX.md"],
-        "consistency": "Each file appropriately addresses its target audience within the defined groups"
-      }
+      "name": "Target user一致性",
+      "file": "README.md",
+      "passed": false,
+      "details": "Mentions target users"
     },
     {
-      "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "description": "Technical constraints are consistent across files",
-      "status": "passed",
-      "evidence": {
-        "constraints": ["Type Safety", "State Management", "Message Limits"],
-        "consistency": "All technical constraints from intent.yml are properly reflected"
-      }
+      "id": "UC-002",
+      "name": "Target user一致性",
+      "file": "AGENTS.md",
+      "passed": false,
+      "details": "Mentions target users"
     },
     {
-      "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out-of-scope items are consistently defined",
-      "status": "passed",
-      "evidence": {
-        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistency": "Boundaries are clearly defined and respected in documentation"
-      }
+      "id": "UC-002",
+      "name": "Target user一致性",
+      "file": "CLAUDE.md",
+      "passed": true,
+      "details": "Mentions target users"
     },
     {
-      "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MD files comply with intent.yml definitions",
-      "status": "passed",
-      "evidence": {
-        "core_functions_count": 5,
-        "design_philosophies_count": 5,
-        "compliance": "All core functions and design philosophies are represented"
-      }
+      "id": "UC-002",
+      "name": "Target user一致性",
+      "file": "GLOSSARY.md",
+      "passed": false,
+      "details": "Mentions target users"
     }
   ],
-
-  "concept_alignment_checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MD files use canonical terms from ontology.yml",
-      "status": "passed",
-      "score": 95,
-      "evidence": {
-        "total_term_occurrences": 80,
-        "canonical_used": 76,
-        "synonym_used": 4,
-        "alignment_rate": 0.95,
-        "issues": [
-          {
-            "term": "OpenGuiConnector",
-            "expected": "Connector",
-            "context": "README.md architecture diagram",
-            "note": "OpenGuiConnector was rejected from ontology (TP-000004), should use Connector",
-            "severity": "minor"
-          }
-        ]
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "Synonyms are not used in MD file content",
-      "status": "passed",
-      "score": 98,
-      "evidence": {
-        "synonyms_found": 2,
-        "total_occurrences": 1000,
-        "exclusion_rate": 0.998,
-        "issues": []
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are documented in MD files",
-      "status": "passed",
-      "score": 92,
-      "evidence": {
-        "total_invariants": 13,
-        "hard_invariants": 11,
-        "reflected_in_md": 11,
-        "coverage": "100%",
-        "files_with_invariants": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "README.md"]
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "AUTO decisions are documented as provisional",
-      "status": "passed",
-      "score": 95,
-      "evidence": {
-        "total_auto_decisions": 9,
-        "documented_in_md": 9,
-        "coverage": "100%",
-        "files_with_auto_decisions": ["AGENTS.md", "CLAUDE.md", "README.md"]
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "Term boundaries (includes/excludes) are consistent",
-      "status": "passed",
-      "score": 95,
-      "evidence": {
-        "terms_checked": 11,
-        "boundary_violations": 0,
-        "consistency": "All boundaries are respected"
-      }
-    }
-  ],
-
   "summary": {
-    "uniqueness_passed": "5/5",
-    "concept_alignment_passed": "5/5",
-    "overall_assessment": "EXCELLENT",
-    "recommendation": "Documentation quality is excellent. Minor improvements would enhance the already high quality.",
-    "critical_issues": [],
-    "minor_issues": [
-      {
-        "issue": "OpenGuiConnector in README.md diagram",
-        "recommendation": "Consider replacing with 'Connector' for consistency with ontology.yml",
-        "priority": "low"
-      }
-    ]
+    "total": 8,
+    "passed": 5,
+    "rate": "5/8"
   }
 }
