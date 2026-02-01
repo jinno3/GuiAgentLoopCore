@@ -1,73 +1,24 @@
-feedback:
-  bootstrap_run_timestamp: "2026-02-02T00:20:00Z"
-  version: "1.1"
-  mode: "concept_driven"
-
-  # 1. 存在意義の明確度評価
-  existence_clarity:
-    before: 98
-    after: 98
-    delta: 0
-    interpretation: "concept_driven modeで稼働中。intent.ymlが存在しないが、PURPOSE.mdが存在意義を明確に定義"
-
-  # 2. 一意性評価
-  uniqueness_score:
-    score: 100
-    issues_found: 0
-    issues_resolved: 0
-    remaining_issues: []
-    notes: "全MD間で一貫性が保たれている"
-
-  # 3. MD網羅度
-  md_coverage:
-    tier1_coverage: "2/2 (100%)"
-    tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "4/4 (100%)"
-    overall_coverage: "10/10 (100%)"
-    recommendation: "全Tierのファイルが完備されており、追加は不要"
-
-  # 4. 発見した矛盾点
-  inconsistencies: []
-
-  # 5. intent.ymlへの提案（concept_driven modeからの移行）
-  intent_suggestions:
-    - priority: "medium"
-      field: "mission"
-      suggestion: "PURPOSE.mdのmission statementをintent.ymlに正式移行"
-      current_value: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-      reason: "concept_driven modeからaudit modeへの移行のため、存在意義をintent.ymlとして正式化"
-
-    - priority: "medium"
-      field: "target_user"
-      suggestion: "PURPOSE.mdのtarget_userをintent.ymlに移行"
-      current_value: |
-        - Application Developers building LLM-powered applications with GUI interfaces
-        - AI Agent Developers creating specialized agents
-        - Framework Developers building GUI backend implementations
-        - AI Agents (Claude, Gemini, Codex, etc.) working with this codebase
-      reason: "存在意義の文脈を明確化"
-
-    - priority: "low"
-      field: "constraints"
-      suggestion: "invariants.ymlのhard invariantsをconstraints.ymlに移行"
-      current_value: "定義されていない（invariants.ymlに依存）"
-      reason: "audit modeへの移行に伴い、制約条件を正式化"
-
-  # 6. 概念モデルとの連携状況
-  concept_integration:
-    used: true
-    ontology_terms_used: 82
-    alignment_score: 100
-    new_term_candidates: []
-
-  # 7. 次回実行への推奨事項
-  next_run_recommendations:
-    - "14_repo_genesis_auditorを実行し、intent.ymlを作成することで、audit_driven modeに移行"
-    - "現状のconcept_driven modeでの高スコア維持は良好"
-    - "新機能追加時は、用語の正規化と概念整合性に注意"
-
-  # 8. 全体的な評価
-  overall_assessment:
-    status: "excellent"
-    score: 100
-    summary: "MDドキュメント群は概念モデルと完全に整合しており、一意性が保証されている。概念_driven modeで稼働中だが、全指標で目標値を達成。"
+bootstrap_run_timestamp: '2026-02-02T00:46:38.675240'
+version: '1.1'
+mode: concept_driven
+note: No .audit/config/intent.yml found - running in concept_driven mode
+existence_clarity:
+  score: 100
+  interpretation: Ontology-driven documentation achieves high clarity
+uniqueness_score: 100
+md_coverage:
+  tier1_coverage: 2/2 (100%)
+  tier2_coverage: 4/4 (100%)
+  tier3_coverage: 4/4 (100%)
+inconsistencies: []
+intent_suggestions:
+- field: intent.yml
+  current: 不存在
+  suggestion: .audit/config/intent.ymlの作成を推奨
+  reason: 存在意義の明確な定義により、より精度の高いMD整備が可能に
+concept_integration:
+  used: true
+  ontology_version: '0.3'
+  ontology_terms_used: 472
+  alignment_score: 100
+  new_term_candidates: []

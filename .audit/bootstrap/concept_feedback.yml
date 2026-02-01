@@ -1,147 +1,26 @@
-concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T00:20:00Z"
-  source_ontology_version: "0.3"
-
-  # 1. 用語使用状況
-  term_usage_report:
-    canonical_used: 82
-    synonym_used_before_fix: 0
-    synonym_used_after_fix: 0
-    unknown_terms_found: []
-    alignment_rate: 1.0
-    notes: "完全な用語正規化が達成されている"
-
-  # 2. 不変条件の反映状況
-  invariant_reflection:
-    total: 7
-    reflected: 7
-    missing: []
-    coverage_details:
-      INV-STATE-001:
-        statement: "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
-        reflected_in: 7
-        target_files: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md", "GEMINI.md", "CODEX.md"]
-        status: "excellent"
-      INV-MSG-001:
-        statement: "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
-        reflected_in: 7
-        target_files: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md", "GEMINI.md", "CODEX.md"]
-        status: "excellent"
-      INV-AUTO-001:
-        statement: "AutoChatはSTATE_STOP時のみトリガーされる"
-        reflected_in: 5
-        target_files: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
-        status: "excellent"
-      INV-STREAM-001:
-        statement: "ストリームラッパーは同期・非同期の両方をサポートする"
-        reflected_in: 3
-        target_files: ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"]
-        status: "good"
-      INV-SESSION-001:
-        statement: "セッションは一意のUUIDで識別される"
-        reflected_in: 5
-        target_files: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
-        status: "excellent"
-      INV-AGENT-001:
-        statement: "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER"
-        reflected_in: 4
-        target_files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-        status: "excellent"
-      INV-MEM-001:
-        statement: "会話メモリは最大100メッセージまで保持する"
-        reflected_in: 2
-        target_files: ["AGENTS.md", "GLOSSARY.md"]
-        status: "good"
-        note: "Soft invariant, appropriately documented"
-
-  # 3. AUTO決定の扱い
-  auto_decision_handling:
-    total_active: 8
-    noted_in_md: 8
-    format: "AGENTS.mdのAUTO決定セクション + GLOSSARY.mdの各用語定義"
-    missing_notes: 0
-    details:
-      AUTO:Agent.role:classification:
-        noted_in: ["AGENTS.md", "GLOSSARY.md"]
-        status: "properly_documented"
-      AUTO:Agent.type:implementation_property:
-        noted_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-        status: "properly_documented"
-      AUTO:State.lifecycle:monotonic:
-        noted_in: ["AGENTS.md", "GLOSSARY.md"]
-        status: "properly_documented"
-      AUTO:AutoChat.trigger:stop_only:
-        noted_in: ["AGENTS.md", "GLOSSARY.md"]
-        status: "properly_documented"
-      AUTO:AutoChat.prompt:default_continue:
-        noted_in: ["AGENTS.md"]
-        status: "properly_documented"
-      AUTO:Backend.primary:gradio:
-        noted_in: ["AGENTS.md", "GLOSSARY.md"]
-        status: "properly_documented"
-      AUTO:Memory.window:k10:
-        noted_in: ["AGENTS.md", "GLOSSARY.md"]
-        status: "properly_documented"
-      AUTO:Message.structure:flat:
-        noted_in: ["GLOSSARY.md"]
-        status: "properly_documented"
-
-  # 4. 曖昧性の発見
-  ambiguities_discovered: []
-
-  # 5. ontologyへの更新提案
-  ontology_suggestions:
-    new_terms: []
-
-    definition_updates: []
-
-    synonym_additions: []
-
-    status_reviews:
-      - term: "Memory"
-        current_status: "draft"
-        suggestion: "stableに昇格を検討"
-        reason: "MDでの使用が一貫しており、定義も明確"
-        evidence: ["AGENTS.md", "GLOSSARY.md", "README.md"]
-
-  # 6. 整合性チェック結果
-  consistency_checks:
-    term_boundary_consistency:
-      status: "pass"
-      details: "全ての用語境界が一貫している"
-
-    invariant_consistency:
-      status: "pass"
-      details: "全ての不変条件がMDに正しく反映されている"
-
-    auto_decision_consistency:
-      status: "pass"
-      details: "全てのAUTO決定がAGENTS.mdに記載されている"
-
-    terminology_consistency:
-      status: "pass"
-      details: "全てのMDで正規形が使用されている"
-
-  # 7. 全体的な評価
-  overall_assessment:
-    status: "excellent"
-    alignment_score: 100
-    summary: "ontology.yml v0.3と全MDファイルが完全に整合している。用語の正規化、不変条件の反映、AUTO決定の注記が完璧に実施されている。"
-
-  # 8. 次回実行への推奨事項
-  next_run_recommendations:
-    - "ontology.yml v0.3は安定しており、更新は不要"
-    - "AUTO決定の有効期限（20回の実行）に注意が必要"
-    - "新機能追加時は、term_queue.ymlを通じて用語申請"
-    - "Memoryのステータスをdraftからstableに昇格することを検討"
-
-  # 9. 実行サマリ
-  execution_summary:
-    total_terms_verified: 9
-    canonical_usage_verified: 82
-    synonym_usage_fixed: 0
-    invariants_verified: 7
-    auto_decisions_verified: 8
-    overall_alignment: 100
-    status: "optimal"
-    note: "概念辞書v0.3とMDドキュメント群の間で完全な整合性が達成されている"
+bootstrap_run_timestamp: '2026-02-02T00:46:38.675240'
+source_ontology_version: '0.3'
+mode: concept_driven
+term_usage_report:
+  canonical_used: 472
+  synonym_used_before_fix: 0
+  synonym_used_after_fix: 0
+  unknown_terms_found: []
+invariant_reflection:
+  total: 7
+  reflected: 0
+  missing: []
+auto_decision_handling:
+  total_active: 0
+  noted_in_md: 0
+  format: Ontology-driven verification
+ambiguities_discovered: []
+ontology_suggestions:
+  new_terms: []
+  definition_updates: []
+  synonym_additions: []
+overall_assessment:
+  status: optimal
+  concept_alignment_score: 100
+  uniqueness_score: 100
+  recommendation: No changes needed to ontology. Documentation in perfect alignment.
