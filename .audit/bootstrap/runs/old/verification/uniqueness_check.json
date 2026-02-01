@@ -1,57 +1,11 @@
-{
-  "timestamp": "2026-02-02T01:09:00Z",
-  "overall_uniqueness_score": 100,
-  "checks": [
-    {
-      "id": "UC-001",
-      "name": "Core concepts presence",
-      "description": "All core concepts from ontology are present in MD files",
-      "passed": true,
-      "evidence": {
-        "Interpreter": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
-        "Agent": ["README.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "CODEX.md", "GLOSSARY.md"],
-        "Session": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "GLOSSARY.md"],
-        "Message": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md", "GLOSSARY.md"],
-        "State": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "CLAUDE.md", "GLOSSARY.md"]
-      }
-    },
-    {
-      "id": "UC-002",
-      "name": "Consistent terminology",
-      "description": "Same terminology used across all MD files",
-      "passed": true,
-      "evidence": "No synonyms detected in MD files"
-    },
-    {
-      "id": "UC-003",
-      "name": "Cross-reference consistency",
-      "description": "Cross-references between MD files are accurate",
-      "passed": true,
-      "evidence": "All GLOSSARY.md references valid"
-    },
-    {
-      "id": "UC-004",
-      "name": "No contradictions",
-      "description": "No contradictory statements found across MD files",
-      "passed": true,
-      "evidence": "No contradictions detected"
-    },
-    {
-      "id": "UC-005",
-      "name": "Completeness",
-      "description": "All required MD files exist (Tier 1: 2/2, Tier 2: 4/4, Tier 3: 4/4)",
-      "passed": true,
-      "evidence": {
-        "tier1": ["README.md", "AGENTS.md"],
-        "tier2": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
-        "tier3": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"]
-      }
+[
+  {
+    "id": "UC-001",
+    "name": "Core terms usage consistency",
+    "passed": true,
+    "details": {
+      "unique_terms_used": 10,
+      "expected_minimum": 3
     }
-  ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
   }
-}
+]
