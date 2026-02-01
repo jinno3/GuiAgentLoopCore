@@ -1,0 +1,83 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index dddb7db..9f9104c 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -14,7 +14,7 @@
+ |--------|------------------|------|
+ | `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネント |
+ | `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage | 特定の役割と実装タイプを持つ専門化AIエンティティ |
+-| `Session` | ChatSession, 会話セッション | 一意のIDで管理される会話コンテキスト |
++| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト |
+ | `Message` | メッセージ, ChatMessage | ユーザー、システム、エージェント間の構造化された通信単位 |
+ | `State` | InterpreterState, インタープリタ状態 | インタープリタの実行状態を表す列挙型 |
+ | `AutoChat` | 自動チャット, 自動継続 | STATE_STOP時に自動的に会話を継続する機能 |
+@@ -22,6 +22,7 @@
+ | `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GUIフレームワーク実装（Gradio等） |
+ | `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 |
+ | `Converter` | 変換器, マッパー | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
++| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter | 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ |
+ 
+ ❌ **禁止**: 同義語をコードやドキュメントで使用すること
+ ✅ **必須**: 常に正規形を使用すること
+@@ -48,6 +49,17 @@
+ - **INV-MESSAGE-001**: `Message`は最大100長（MAX_MESSAGE_LENGTH）
+   - メモリ使用量を制限し、パフォーマンスを維持するため、メッセージ履歴の長さを制限すること
+ 
++### 🔒 セッションの一意性とセキュリティ
++- **INV-SESSION-001**: `Session`は一意のUUIDで識別される
++  - セッションの衝突を防ぐため、UUID生成には標準ライブラリを使用すること
++  - 正しい認証を実現するため、セッションIDを適切に管理すること
++- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
++  - セキュアなセッション識別と検証を保証するため、jwt.encode()を使用すること
++
++### 🔒 Agentの役割制約
++- **INV-AGENT-001**: エージェントは定義された役割を持つ：`AGENT_EXECUTOR`, `LLM_PLANNER`, `SUPERVISOR`, `THOUGHT`, `CREW`, `OTHER`
++  - 役割ベースのアクセス制御と責任分離を維持すること
++
+ ### 🔒 AutoChatの発火条件
+ - **INV-AUTO-001**: `AutoChat`は`STATE_STOP`時のみトリガーされる
+   - 実行中（`STATE_RUNNING`）の自動干渉を防ぐため、状態チェックをトリガー前に行うこと
+@@ -57,10 +69,23 @@
+ - **INV-STREAM-001**: `StreamWrapper`は同期・非同期の両方をサポートする
+   - 柔軟な統合を可能にするため、両方のケースを考慮した実装を維持すること
+ 
+-### 🔒 セッションの一意性
+-- **INV-SESSION-001**: `Session`は一意のUUIDで識別される
+-  - セッションの衝突を防ぐため、UUID生成には標準ライブラリを使用すること
+-  - 正しい認証を実現するため、セッションIDを適切に管理すること
++### 🔒 Memoryの制約（暫定）
++- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する
++  - メモリ使用量を制限し、パフォーマンスを維持するため（draft status）
++
++### 🔒 Connectorのインターフェース制約
++- **INV-CONNECTOR-001**: コネクタは必ず`GuiAgentInterpreterABC`インターフェースを実装する
++  - 異なる実装間でのインターフェースの一貫性を保証するため
++
++### 🔒 Converterの変換ルール
++- **INV-CONVERTER-001**: コンバータは構造化変換のために`MappingRule`を使用する
++  - 一貫したデータ変換パターンを保証するため
++
++### 🔒 Backendのセキュリティ
++- **INV-BACKEND-001**: バックエンドサーバーは`allowed_paths`でセキュリティ制限される
++  - ファイルアクセスを制限し、セキュリティを強化するため
++- **INV-BACKEND-002**: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する
++  - UIと状態の同期メカニズムを保証するため（3秒間隔）
+ 
+ ---
+ 
+@@ -93,6 +118,9 @@
+ - **AUTO:Memory.window:k10**: メモリウィンドウサイズはk=10（暫定）（有効期限：20回の実行）
+ - **AUTO:Memory.specs:provisional**: ウィンドウサイズk=10（rolling）、最大長100（hard limit）（暫定）（有効期限：20回の実行）
+ 
++### Connector関連
++- **AUTO:Connector.layer:domain**: Connectorは正規概念（domain層）（有効期限：20回の実行）
++
+ ---
+ 
+ ## 行動規範
+@@ -162,4 +190,4 @@
+ 
+ ---
+ 
+-**最終更新**: 2026-02-02（.concept/ontology.yml v0.3に基づく）
++**最終更新**: 2026-02-02T06:36:00Z（.concept/ontology.yml v0.3 + invariants.ymlに基づく）

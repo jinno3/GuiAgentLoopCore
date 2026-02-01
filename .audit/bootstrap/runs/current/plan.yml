@@ -1,225 +1,97 @@
-# Bootstrap Plan - MD Bootstrap v1.1
-# GuiAgentLoopCore Repository
+run_timestamp: "2026-02-02T06:36:00Z"
+version: "1.1"
 
-run_info:
-  version: "1.1"
-  run_number: 3
-  timestamp: "2026-02-02T06:23:17Z"
-  mode: "concept_driven"
+rotation:
+  deleted_old: true
+  moved_current_to_old: true
 
 input_sources:
-  intent:
-    path: ".audit/config/intent.yml"
-    version: "1.0"
-    status: "loaded"
-    last_modified: "2026-02-02T00:00:00Z"
-
-  concept_model:
-    path: ".concept/ontology.yml"
-    version: "0.3"
-    status: "loaded"
-    last_modified: "2026-02-02T05:38:12Z"
-
-  invariants:
-    path: ".concept/invariants.yml"
-    version: "latest"
-    status: "loaded"
-    last_modified: "2026-02-02T05:23:14Z"
-    count: 14
-
-  ambiguities:
-    path: ".concept/ambiguities.yml"
-    version: "latest"
-    status: "loaded"
-    last_modified: "2026-02-02T05:38:12Z"
-    count: 12
-
-  mappings:
-    path: ".concept/mappings.yml"
-    version: "latest"
-    status: "loaded"
-    last_modified: "2026-02-02T05:38:12Z"
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-
-  target_users:
-    - "Application Developers: Building LLM-powered applications with GUI interfaces"
-    - "AI Agent Developers: Creating specialized agents for specific tasks"
-    - "Framework Developers: Building new GUI backend implementations"
-    - "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
-
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
-
-  core_functions:
-    - "Centralized Conversation Management: Interpreter component centralizes conversation flow, state management, and agent coordination"
-    - "State Machine with Monotonic Transitions: Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
-    - "Multi-Agent Coordination: Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
-    - "Structured Message Processing: Handle structured communication between users, systems, and agents"
-    - "Backend Abstraction: Enable multiple GUI framework implementations (Gradio, extensible to others)"
-
-  boundaries:
-    in_scope:
-      - "Conversation Flow Management"
-      - "State Machine"
-      - "Agent Coordination"
-      - "Message Processing"
-      - "Backend Abstraction"
-      - "Streaming Support"
-
-    out_of_scope:
-      - "UI Rendering"
-      - "LLM Execution"
-      - "Session Storage"
-      - "Authentication"
-      - "Network Protocols"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
   total_terms: 11
-  layers:
-    core: 5
-    domain: 4
-    aux: 1
-    domain_connector: 1
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
+  key_terms:
+    - canonical: "Interpreter"
+      layer: "core"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    - canonical: "Agent"
+      layer: "core"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "State"
+      layer: "core"
+      definition: "インタープリタの実行状態を表す列挙型"
+    - canonical: "Connector"
+      layer: "domain"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
 
-  canonical_terms:
-    - "Interpreter: 会話フローとエージェント相互作用を管理する中核コンポーネント"
-    - "Agent: 特定の役割と実装タイプを持つ専門化AIエンティティ"
-    - "Session: 一意のIDで管理される会話コンテキスト"
-    - "Message: ユーザー、システム、エージェント間の構造化された通信単位"
-    - "State: インタープリタの実行状態を表す列挙型"
-    - "AutoChat: STATE_STOP時に自動的に会話を継続する機能"
-    - "StreamWrapper: 同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-    - "Backend: GUIフレームワーク実装（Gradio等）"
-    - "Memory: 会話履歴を保持するバッファ機構"
-    - "Connector: 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-    - "Converter: データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+term_normalization:
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
 
-term_normalization_map:
-  GuiAgentInterpreter: "Interpreter"
-  会話インタープリタ: "Interpreter"
-  AIエージェント: "Agent"
-  専門エージェント: "Agent"
-  AgentType: "Agent"
-  AgentDefinition: "Agent"
-  TaskAgent: "Agent"
-  AgentImage: "Agent"
-  ChatSession: "Session"
-  会話セッション: "Session"
-  JWT: "Session"
-  メッセージ: "Message"
-  ChatMessage: "Message"
-  InterpreterState: "State"
-  インタープリタ状態: "State"
-  自動チャット: "AutoChat"
-  自動継続: "AutoChat"
-  GuiAgentStreamWrapper: "StreamWrapper"
-  ストリームラッパー: "StreamWrapper"
-  GUIバックエンド: "Backend"
-  UIフレームワーク: "Backend"
-  GuiBackend: "Backend"
-  GuiComponent: "Backend"
-  会話メモリ: "Memory"
-  ConversationBuffer: "Memory"
-  変換器: "Converter"
-  マッパー: "Converter"
-  コネクタ: "Connector"
-  GuiAgentInterpreterABC: "Connector"
-  ConnectorImplCodeinterpreterApi: "Connector"
-  ConnectorImplOpenInterpreter: "Connector"
-
-existing_md_inventory:
-  root_mds:
-    - path: "README.md"
-      status: "exists"
-      last_modified: "2026-02-02"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State", "Memory", "AutoChat", "StreamWrapper", "Backend", "Converter"]
-
-    - path: "AGENTS.md"
-      status: "exists"
-      last_modified: "2026-02-02"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"]
-
-    - path: "CLAUDE.md"
-      status: "exists"
-      last_modified: "2026-02-02"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"]
-
-    - path: "GLOSSARY.md"
-      status: "exists"
-      last_modified: "2026-02-02T06:00:00Z"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"]
-
-    - path: "PURPOSE.md"
-      status: "exists"
-      last_modified: "2026-02-01"
-      term_coverage: ["Interpreter", "Agent", "Message", "State"]
-
-    - path: "ARCHITECTURE.md"
-      status: "exists"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State"]
-
-    - path: "CONTRIBUTING.md"
-      status: "exists"
-      term_coverage: ["Interpreter", "Agent", "Message", "State"]
-
-    - path: "SYSTEM_CONSTITUTION.md"
-      status: "exists"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State"]
-
-    - path: "GEMINI.md"
-      status: "exists"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State"]
-
-    - path: "CODEX.md"
-      status: "exists"
-      term_coverage: ["Interpreter", "Agent", "Session", "Message", "State"]
+existing_mds:
+  - path: "README.md"
+    status: "exists_needs_update"
+    issues:
+      - "存在意義の反映は良好"
+      - "用語の正規形使用は良好"
+      - "不変条件の記述が一部古い（最新のinvariants.ymlに基づく必要あり）"
+  - path: "AGENTS.md"
+    status: "exists_needs_update"
+    issues:
+      - "用語規約セクションが古い（Connectorが含まれていない）"
+      - "不変条件の記述が不完全（最新の13個のinvariantを反映する必要あり）"
+  - path: "CLAUDE.md"
+    status: "exists_good"
+    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_needs_update"
+    issues:
+      - "Connector用語のAUTO決定記述に誤り（AUTO:Connector.layer:domainは存在しない）"
+  - path: "PURPOSE.md"
+    status: "exists"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists"
+    issues: []
 
 actions:
-  phase_4_updates:
-    - action: "update_timestamps"
-      files:
-        - "GLOSSARY.md"
-      reason: "Sync timestamps with ontology.yml v0.3"
+  - action: "update"
+    target: "AGENTS.md"
+    reason: "用語規約にConnectorを追加、不変条件を最新の13個に更新"
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "Connector用語のAUTO決定記述を修正（存在しないAUTO決定を削除）"
 
-    - action: "verify_term_usage"
-      files:
-        - "README.md"
-        - "AGENTS.md"
-        - "CLAUDE.md"
-        - "PURPOSE.md"
-        - "ARCHITECTURE.md"
-        - "CONTRIBUTING.md"
-        - "SYSTEM_CONSTITUTION.md"
-        - "GEMINI.md"
-        - "CODEX.md"
-      reason: "Ensure all canonical terms are used correctly, no synonyms"
-
-    - action: "verify_invariant_coverage"
-      files:
-        - "README.md"
-        - "AGENTS.md"
-        - "SYSTEM_CONSTITUTION.md"
-      reason: "Ensure all 14 invariants are documented"
-
-    - action: "verify_auto_decision_coverage"
-      files:
-        - "README.md"
-        - "AGENTS.md"
-        - "CLAUDE.md"
-      reason: "Ensure all 12 AUTO decisions are noted as provisional"
-
-  verification:
-    - check: "uniqueness_checks"
-      scope: ["UC-001", "UC-002", "UC-003", "UC-004", "UC-005"]
-
-    - check: "concept_alignment"
-      scope: ["CA-001", "CA-002", "CA-003", "CA-004", "CA-005"]
-
-expected_outcomes:
-  clarity_score_before: 85
-  clarity_score_after: 95
-  concept_alignment_before: 92
-  concept_alignment_after: 94
-  canonical_term_usage: 100%
-  synonym_usage: 0%
+concept_integration:
+  used: true
+  ontology_terms_used: 11
+  alignment_expected: 95

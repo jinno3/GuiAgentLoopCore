@@ -1,226 +1,81 @@
 {
-  "timestamp": "2026-02-02T06:00:00Z",
+  "timestamp": "2026-02-02T06:36:00Z",
   "overall_score": 85,
-  "concept_alignment_score": 92,
+  "concept_alignment_score": 88,
   "max_score": 100,
-  "scoring_methodology": "Uniqueness (40%) + Concept Alignment (30%) + Completeness (20%) + Clarity (10%)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms: Interpreter, Agent, Session, Message, State",
-          "Properly references GLOSSARY.md for detailed definitions",
-          "Correctly represents hard invariants from invariants.yml",
-          "AUTO decisions are properly documented with provisional status notes"
-        ]
+        "score": 92,
+        "issues": []
       },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": []
+      "issues": [
+        "存在意義の反映は良好",
+        "用語の正規形使用は良好",
+        "不変条件の記述が一部古い"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 82,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Comprehensive terminology table with canonical forms and synonyms",
-          "All 11 terms from ontology.yml properly represented",
-          "Hard invariants correctly documented with IDs (INV-STATE-001, etc.)",
-          "AUTO decisions properly documented with expiry information"
+        "score": 85,
+        "issues": [
+          {
+            "type": "missing_term",
+            "description": "用語規約テーブルにConnectorが含まれていない",
+            "severity": "medium"
+          },
+          {
+            "type": "incomplete_invariants",
+            "description": "不変条件が7個のみ記載（最新の13個を反映する必要あり）",
+            "severity": "high"
+          }
         ]
       },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": []
+      "issues": [
+        "用語規約セクションが古い（Connectorが含まれていない）",
+        "不変条件の記述が不完全"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 95,
-        "issues": [],
-        "strengths": [
-          "Canonical terms properly used throughout",
-          "Hard invariants correctly documented with code examples",
-          "AUTO decisions properly noted with provisional status",
-          "Correctly distinguishes between core, domain, and auxiliary terms"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
+        "issues": []
       },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "Comprehensive coverage of all 11 ontology terms",
-          "Properly structured by layer (core, domain, aux)",
-          "Includes AUTO decisions for relevant terms",
-          "Evidence references properly cited",
-          "Normalization map complete"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": [
-        "Missing Connector term in normalization map (line 256 should have more entries)",
-        "Last update timestamp shows 2026-02-02T05:50:00Z but ontology was updated at 2026-02-02T05:38:12Z"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
       "clarity_score": 80,
       "concept_alignment": {
-        "score": 85,
+        "score": 82,
         "issues": [
           {
-            "type": "potential_term_inconsistency",
-            "description": "May use older terminology, needs verification against canonical forms"
+            "type": "incorrect_auto_decision",
+            "description": "Connector用語にAUTO:Connector.layer:domainと記載されているが、このAUTO決定はambiguities.ymlに存在しない",
+            "severity": "medium"
           }
-        ],
-        "strengths": [
-          "Comprehensive architecture overview"
         ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
       },
       "issues": [
-        "Needs verification for term alignment with ontology.yml v0.3"
+        "Connector用語のAUTO決定記述に誤り"
       ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 82,
-      "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "Mission statement aligns with intent.yml"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "strengths": [
-          "References invariants appropriately"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": [
-        "Could benefit from more explicit terminology guidelines"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "strengths": [
-          "Hard invariants properly documented",
-          "Constitutional principles align with design philosophy"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Canonical terms properly used"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Canonical terms properly used"
-        ]
-      },
-      "uniqueness_checks": {
-        "mission_consistency": true,
-        "target_user_consistency": true,
-        "boundary_consistency": true
-      },
-      "issues": []
     }
   ],
-  "summary": {
-    "avg_clarity_score": 86,
-    "avg_concept_alignment": 91,
-    "total_issues": 3,
-    "critical_issues": 0,
-    "recommendations": [
-      "Verify ARCHITECTURE.md for term alignment with ontology.yml v0.3",
-      "Update CONTRIBUTING.md with explicit terminology guidelines",
-      "Fix minor timestamp inconsistency in GLOSSARY.md"
-    ]
+  "term_usage_check": {
+    "total_term_occurrences": 88,
+    "canonical_used": 84,
+    "synonym_used": 4,
+    "unknown_terms": 0,
+    "alignment_rate": 0.955
   }
 }
