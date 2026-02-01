@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-01T13:59:55Z",
+  "last_updated": "2026-02-01T14:15:36Z",
   "total_terms": 9,
   "terms_by_layer": {
     "core": 5,
@@ -11,7 +11,7 @@
     "draft": 1
   },
   "draft_ratio": 0.11,
-  "draft_ratio_limit": 0.30,
+  "draft_ratio_limit": 0.3,
   "total_invariants": 6,
   "total_ambiguities": 4,
   "total_conflicts": 0,
@@ -19,7 +19,7 @@
   "queue_pending": 0,
   "queue_merged": 3,
   "queue_rejected": 1,
-  "claims_count": 39,
+  "claims_count": 61,
   "mappings_count": 9,
   "decisions_active": 9,
   "decisions_expired": 0,
@@ -43,30 +43,35 @@
     "merged": 0,
     "deleted": 0,
     "deprecated": 0,
-    "reason": "No new items to process - all queue items already resolved"
+    "reason": "No bloat detected - all within budget limits"
   },
   "this_run_summary": {
-    "run_id": "2026-02-01T13:59:55Z",
-    "previous_run_id": "2026-02-01T13:47:06Z",
-    "claims_added": 0,
+    "run_id": "2026-02-01T14:15:36Z",
+    "previous_run_id": "2026-02-01T13:59:55Z",
+    "claims_added": 22,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
     "auto_decisions_expired": 0,
     "queue_processed": 0,
     "conflicts_resolved": 0,
     "files_analyzed": [
-      ".concept/ontology.yml",
-      ".concept/invariants.yml",
-      ".concept/ambiguities.yml",
-      ".concept/decisions.md",
-      ".concept/term_queue.yml"
+      "gui_agent_loop_core/core/interpreter_manager.py",
+      "gui_agent_loop_core/schema/core/schema.py",
+      "gui_agent_loop_core/schema/agent/schema.py",
+      "gui_agent_loop_core/schema/message/schema.py",
+      "gui_agent_loop_core/schema/backend/schema.py",
+      "gui_agent_loop_core/converter/request_converter.py",
+      "gui_agent_loop_core/util/gui_agent_stream_wrapper.py",
+      "gui_agent_loop_core/backend/server_impl_gradio.py"
     ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Updated run_state.json",
-      "Updated ontology_metrics.json",
-      "Verified all AUTO decisions are active and within expiry",
-      "Verified budget constraints are satisfied"
+      "Extracted and appended 22 new claims",
+      "Verified all AUTO decisions remain active and within expiry",
+      "Verified budget constraints are satisfied",
+      "No new terms detected - ontology remains stable",
+      "No conflicts detected",
+      "No ambiguities requiring new AUTO decisions"
     ]
   },
   "health_check": {
