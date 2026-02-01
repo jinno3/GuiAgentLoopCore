@@ -1,23 +1,25 @@
 {
-  "timestamp": "2026-02-02T01:09:00Z",
+  "timestamp": "2026-02-01T16:26:05.954623+00:00",
   "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 100,
-  "ontology_version": "0.3",
   "term_usage_check": {
-    "total_term_occurrences": 150,
-    "canonical_used": 150,
+    "canonical_used": 11,
     "synonym_used": 0,
-    "unknown_terms": 0,
     "alignment_rate": 1.0
   },
   "per_file": [
     {
-      "file": "README.md",
+      "file": "AGENTS.md",
       "alignment_score": 100,
       "issues": []
     },
     {
-      "file": "AGENTS.md",
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CHANGELOG.md",
       "alignment_score": 100,
       "issues": []
     },
@@ -27,12 +29,7 @@
       "issues": []
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
+      "file": "CODEX.md",
       "alignment_score": 100,
       "issues": []
     },
@@ -47,87 +44,34 @@
       "issues": []
     },
     {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
       "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "README.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
       "issues": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 7,
-    "reflected_in_md": 7,
-    "missing": [],
-    "details": {
-      "INV-STATE-001": {
-        "statement": "インタープリタ状態は単調遷移する",
-        "found_in": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "CLAUDE.md"]
-      },
-      "INV-SESSION-001": {
-        "statement": "セッションは一意のUUIDで識別される",
-        "found_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      "INV-MSG-001": {
-        "statement": "メッセージタイプは定義された列挙型のみ",
-        "found_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      },
-      "INV-AGENT-001": {
-        "statement": "エージェントは定義された役割を持つ",
-        "found_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      "INV-AUTO-001": {
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "found_in": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "GLOSSARY.md"]
-      },
-      "INV-MEM-001": {
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "found_in": ["GLOSSARY.md"]
-      },
-      "INV-STREAM-001": {
-        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
-        "found_in": ["SYSTEM_CONSTITUTION.md", "GLOSSARY.md"]
-      }
-    }
+    "total_invariants": 5,
+    "reflected_in_md": 5,
+    "missing": []
   },
   "ambiguity_check": {
-    "active_auto_decisions": 7,
-    "reflected_as_notes": 7,
-    "missing_notes": 0,
-    "details": {
-      "AUTO:Agent.role:classification": {
-        "found_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      "AUTO:Agent.type:implementation_property": {
-        "found_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      },
-      "AUTO:Message.structure:flat": {
-        "found_in": ["CLAUDE.md", "GLOSSARY.md"]
-      },
-      "AUTO:State.lifecycle:monotonic": {
-        "found_in": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "CLAUDE.md"]
-      },
-      "AUTO:AutoChat.trigger:stop_only": {
-        "found_in": ["AGENTS.md", "GLOSSARY.md"]
-      },
-      "AUTO:Backend.primary:gradio": {
-        "found_in": ["ARCHITECTURE.md", "GLOSSARY.md"]
-      },
-      "AUTO:Memory.window:k10": {
-        "found_in": ["GLOSSARY.md"]
-      }
-    }
-  },
-  "summary": {
-    "total_checks": 15,
-    "passed": 15,
-    "alignment_rate": 100
+    "active_auto_decisions": 4,
+    "reflected_as_notes": 4,
+    "missing_notes": 0
   }
 }

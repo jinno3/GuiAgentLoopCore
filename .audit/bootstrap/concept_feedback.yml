@@ -1,49 +1,20 @@
-bootstrap_run_timestamp: '2026-02-02T01:09:00Z'
-source_ontology_version: '0.3'
-mode: concept_driven
-
-term_usage_report:
-  canonical_used: 150
-  synonym_used_before_fix: 0
-  synonym_used_after_fix: 0
-  unknown_terms_found: []
-
-invariant_reflection:
-  total: 7
-  reflected: 7
-  missing: []
-
-auto_decision_handling:
-  total_active: 7
-  noted_in_md: 7
-  format: AUTO decisions properly documented in AGENTS.md, CLAUDE.md, and GLOSSARY.md
-  details:
-    - decision: "AUTO:Agent.role:classification"
-      documented_in: ["AGENTS.md", "GLOSSARY.md"]
-    - decision: "AUTO:Agent.type:implementation_property"
-      documented_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-    - decision: "AUTO:Message.structure:flat"
-      documented_in: ["CLAUDE.md", "GLOSSARY.md"]
-    - decision: "AUTO:State.lifecycle:monotonic"
-      documented_in: ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "CLAUDE.md"]
-    - decision: "AUTO:AutoChat.trigger:stop_only"
-      documented_in: ["AGENTS.md", "GLOSSARY.md"]
-    - decision: "AUTO:Backend.primary:gradio"
-      documented_in: ["ARCHITECTURE.md", "GLOSSARY.md"]
-    - decision: "AUTO:Memory.window:k10"
-      documented_in: ["GLOSSARY.md"]
-
 ambiguities_discovered: []
-
+auto_decision_handling:
+  format: implicitly used in documentation
+  noted_in_md: 4
+  total_active: 4
+bootstrap_run_timestamp: '2026-02-01T16:26:05.954623+00:00'
+invariant_reflection:
+  missing: []
+  reflected: 5
+  total: 7
 ontology_suggestions:
-  new_terms: []
   definition_updates: []
+  new_terms: []
   synonym_additions: []
-
-overall_assessment:
-  status: optimal
-  concept_alignment_score: 100
-  uniqueness_score: 100
-  recommendation: No changes needed to ontology. Documentation in perfect alignment with ontology v0.3. All canonical terms used correctly, all invariants reflected, all AUTO decisions documented.
-
-files_corrected: []
+source_ontology_version: '0.3'
+term_usage_report:
+  canonical_used: 11
+  synonym_used_after_fix: 0
+  synonym_used_before_fix: 0
+  unknown_terms_found: []

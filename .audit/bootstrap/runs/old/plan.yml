@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T00:55:00Z"
+run_timestamp: "2026-02-02T01:09:00Z"
 version: "1.1"
 mode: concept_driven
 
@@ -17,7 +17,7 @@ input_sources:
     has_concept: true
     ontology_version: "0.3"
 
-mode_note: "Running in concept_driven mode - no .audit/config/intent.yml found"
+mode_note: "Running in concept_driven mode - no .audit/config/intent.yml found. Recommend creating intent.yml for full audit+concept integration."
 
 ontology_summary:
   total_terms: 10
@@ -50,7 +50,7 @@ term_normalization:
   "会話セッション": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
-  "InterpreterState": "Interpreter"
+  "InterpreterState": "State"
   "インタープリタ状態": "State"
 
 invariants_summary:
@@ -102,35 +102,8 @@ existing_mds:
 
 actions:
   - action: "verify"
-    target: "README.md"
-    reason: "Verify concept alignment with ontology v0.3"
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Verify term normalization and invariant reflection"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify Claude-specific guidelines"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify alignment with ontology.yml"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants are properly documented"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify purpose documentation"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify architecture documentation"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify Gemini-specific guidelines"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify Codex-specific guidelines"
+    target: "all"
+    reason: "Verify concept alignment with ontology v0.3 and check for any new synonym usage"
 
 target_score: 90
 verification_mode: full
