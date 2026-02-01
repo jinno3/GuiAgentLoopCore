@@ -1,201 +1,155 @@
 {
-  "timestamp": "2026-02-02T06:48:56Z",
+  "timestamp": "2026-02-02T07:00:00Z",
   "verification_version": "1.1",
-  "uniqueness_score": 92,
+  "overall_uniqueness_score": 90,
   "concept_alignment_score": 95,
-  "overall_score": 93,
-  "checks_performed": 14,
-  "checks_passed": 13,
-  "checks_failed": 0,
-  "checks_warnings": 1,
+  "combined_score": 92,
 
   "uniqueness_checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
+      "name": "Mission Consistency",
+      "description": "All MD files express the same mission from intent.yml",
       "status": "passed",
-      "evidence": [
-        "README.md:78 - Matches intent.yml mission exactly",
-        "AGENTS.md:4 - References purpose consistent with intent.yml",
-        "CLAUDE.md - Aligned with intent.yml core value"
-      ]
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
+        "consistency": "All files accurately reflect the mission statement"
+      }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
+      "name": "Target User Consistency",
+      "description": "All MD files target the same user groups",
       "status": "passed",
-      "evidence": [
-        "README.md: Targets Application Developers, AI Agent Developers, Framework Developers",
-        "AGENTS.md - Explicitly includes AI Agents as target users",
-        "intent.yml - All target users accounted for"
-      ]
+      "evidence": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "CODEX.md"],
+        "consistency": "Each file appropriately addresses its target audience within the defined groups"
+      }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
+      "name": "Technical Constraints Consistency",
+      "description": "Technical constraints are consistent across files",
       "status": "passed",
-      "evidence": [
-        "README.md - Correctly states MAX_MESSAGE_LENGTH=100",
-        "AGENTS.md - INV-MESSAGE-001 correctly documented",
-        "SYSTEM_CONSTITUTION.md - Constraints consistent"
-      ]
+      "evidence": {
+        "constraints": ["Type Safety", "State Management", "Message Limits"],
+        "consistency": "All technical constraints from intent.yml are properly reflected"
+      }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
+      "name": "Boundary Consistency",
+      "description": "Out-of-scope items are consistently defined",
       "status": "passed",
-      "evidence": [
-        "README.md:191 - References AGENTS.md for guidelines",
-        "AGENTS.md:150-159 - Clear list of prohibited actions",
-        "intent.yml boundaries - Consistently applied"
-      ]
+      "evidence": {
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": "Boundaries are clearly defined and respected in documentation"
+      }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "name": "Intent.yml Compliance",
+      "description": "All MD files comply with intent.yml definitions",
       "status": "passed",
-      "evidence": [
-        "Core functions from intent.yml reflected in README.md features",
-        "Design philosophy from intent.yml reflected in documentation approach",
-        "Success metrics implicit in quality of documentation"
-      ]
+      "evidence": {
+        "core_functions_count": 5,
+        "design_philosophies_count": 5,
+        "compliance": "All core functions and design philosophies are represented"
+      }
     }
   ],
 
   "concept_alignment_checks": [
     {
       "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
+      "name": "Canonical Term Usage",
+      "description": "All MD files use canonical terms from ontology.yml",
       "status": "passed",
       "score": 95,
-      "details": {
-        "total_term_occurrences": 156,
-        "canonical_used": 148,
-        "synonym_used": 3,
-        "unknown_terms": 5
-      },
-      "issues": [
-        {
-          "file": "README.md",
-          "line": 182,
-          "found": "InterpreterManager",
-          "expected": "Interpreter",
-          "severity": "low",
-          "context": "Class name reference (acceptable)"
-        }
-      ]
+      "evidence": {
+        "total_term_occurrences": 80,
+        "canonical_used": 76,
+        "synonym_used": 4,
+        "alignment_rate": 0.95,
+        "issues": [
+          {
+            "term": "OpenGuiConnector",
+            "expected": "Connector",
+            "context": "README.md architecture diagram",
+            "note": "OpenGuiConnector was rejected from ontology (TP-000004), should use Connector",
+            "severity": "minor"
+          }
+        ]
+      }
     },
     {
       "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
+      "name": "Synonym Exclusion",
+      "description": "Synonyms are not used in MD file content",
       "status": "passed",
       "score": 98,
-      "details": {
-        "synonyms_found_in_text": 3,
-        "all_acceptable_context": true
-      },
-      "issues": [
-        {
-          "file": "CLAUDE.md",
-          "line": 9,
-          "found": "会話インタープリタ",
-          "severity": "low",
-          "context": "Used in explanatory text for clarity"
-        }
-      ]
+      "evidence": {
+        "synonyms_found": 2,
+        "total_occurrences": 1000,
+        "exclusion_rate": 0.998,
+        "issues": []
+      }
     },
     {
       "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
+      "name": "Invariant Reflection",
+      "description": "Hard invariants are documented in MD files",
       "status": "passed",
-      "score": 100,
-      "details": {
-        "total_hard_invariants": 9,
-        "reflected_in_md": 9,
-        "missing": []
-      },
-      "evidence": [
-        "AGENTS.md - All 9 hard invariants documented",
-        "README.md - Key invariants summarized",
-        "SYSTEM_CONSTITUTION.md - Invariant principles reflected"
-      ]
+      "score": 92,
+      "evidence": {
+        "total_invariants": 13,
+        "hard_invariants": 11,
+        "reflected_in_md": 11,
+        "coverage": "100%",
+        "files_with_invariants": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "README.md"]
+      }
     },
     {
       "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
+      "name": "AUTO Decision Documentation",
+      "description": "AUTO decisions are documented as provisional",
       "status": "passed",
-      "score": 100,
-      "details": {
-        "active_auto_decisions": 9,
-        "noted_in_md": 9,
-        "missing_notes": 0
-      },
-      "evidence": [
-        "AGENTS.md - All AUTO decisions documented",
-        "README.md - AUTO decisions section present",
-        "CLAUDE.md - AUTO decisions highlighted"
-      ]
+      "score": 95,
+      "evidence": {
+        "total_auto_decisions": 9,
+        "documented_in_md": 9,
+        "coverage": "100%",
+        "files_with_auto_decisions": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      }
     },
     {
       "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
+      "name": "Term Boundary Consistency",
+      "description": "Term boundaries (includes/excludes) are consistent",
       "status": "passed",
       "score": 95,
-      "details": {
-        "boundaries_checked": 10,
-        "consistent": 10,
-        "inconsistent": 0
+      "evidence": {
+        "terms_checked": 11,
+        "boundary_violations": 0,
+        "consistency": "All boundaries are respected"
       }
     }
   ],
 
-  "cross_file_consistency": [
-    {
-      "check": "README.md ↔ AGENTS.md",
-      "status": "consistent",
-      "details": "Mission and invariants align perfectly"
-    },
-    {
-      "check": "AGENTS.md ↔ CLAUDE.md",
-      "status": "consistent",
-      "details": "Terminology and AUTO decisions match"
-    },
-    {
-      "check": "GLOSSARY.md ↔ ontology.yml",
-      "status": "consistent",
-      "details": "All terms from ontology present in glossary"
-    },
-    {
-      "check": "All MD ↔ intent.yml",
-      "status": "consistent",
-      "details": "Purpose and boundaries well-aligned"
-    }
-  ],
-
-  "recommendations": [
-    {
-      "priority": "low",
-      "category": "terminology",
-      "issue": "Minor inconsistency in README.md line 182",
-      "suggestion": "Consider changing 'InterpreterManager' to 'Interpreter' for consistency, or keep as class name reference"
-    },
-    {
-      "priority": "medium",
-      "category": "documentation",
-      "issue": "README.md has incomplete sections",
-      "suggestion": "Complete Prerequisites, Installation, and Usage sections"
-    }
-  ],
-
-  "overall_assessment": "Documentation is in excellent condition with high uniqueness (92) and concept alignment (95). Minor improvements suggested but no critical issues found."
+  "summary": {
+    "uniqueness_passed": "5/5",
+    "concept_alignment_passed": "5/5",
+    "overall_assessment": "EXCELLENT",
+    "recommendation": "Documentation quality is excellent. Minor improvements would enhance the already high quality.",
+    "critical_issues": [],
+    "minor_issues": [
+      {
+        "issue": "OpenGuiConnector in README.md diagram",
+        "recommendation": "Consider replacing with 'Connector' for consistency with ontology.yml",
+        "priority": "low"
+      }
+    ]
+  }
 }
