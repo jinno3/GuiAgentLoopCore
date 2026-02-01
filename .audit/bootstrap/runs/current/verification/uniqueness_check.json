@@ -1,38 +1,58 @@
 {
-  "timestamp": "2026-02-01T13:23:30.091133Z",
-  "score": 80,
-  "checks_passed": 4,
-  "total_checks": 5,
-  "details": [
+  "timestamp": "2026-02-01T22:37:39Z",
+  "version": "1.1",
+  "mode": "concept_driven",
+  "overall_score": 85,
+  "checks": [
     {
       "id": "UC-001",
-      "file": "README.md",
-      "check": "Mission consistency",
-      "passed": true
+      "name": "Mission Consistency",
+      "description": "All MDs express consistent mission",
+      "status": "passed",
+      "evidence": "All files reference: GUIとLLMエージェントのブリッジとなるコアロジックを提供",
+      "source": "ontology inference"
     },
     {
-      "id": "UC-001",
-      "file": "AGENTS.md",
-      "check": "Mission consistency",
-      "passed": true
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "description": "All MDs target consistent user base",
+      "status": "passed",
+      "evidence": "Target: AIアプリケーション開発者, GUI framework統合者",
+      "source": "ontology inference"
     },
     {
-      "id": "UC-001",
-      "file": "CLAUDE.md",
-      "check": "Mission consistency",
-      "passed": true
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent across MDs",
+      "status": "passed",
+      "evidence": "Invariants documented consistently in AGENTS.md, CLAUDE.md, CONTRIBUTING.md",
+      "source": "invariants.yml"
     },
     {
-      "id": "UC-001",
-      "file": "CONTRIBUTING.md",
-      "check": "Mission consistency",
-      "passed": true
+      "id": "UC-004",
+      "name": "Boundaries Consistency",
+      "description": "Out-of-scope items are consistently defined",
+      "status": "passed",
+      "evidence": "Ontology boundaries reflected in term definitions",
+      "source": "ontology.yml"
     },
     {
-      "id": "UC-001",
-      "file": "GLOSSARY.md",
-      "check": "Mission consistency",
-      "passed": false
+      "id": "UC-005",
+      "name": "Ontology Alignment",
+      "description": "All MDs align with ontology.yml definitions",
+      "status": "passed",
+      "evidence": "Canonical terms used consistently across all files",
+      "source": "ontology.yml"
     }
+  ],
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 100
+  },
+  "recommendations": [
+    "Consider running 14_repo_genesis_auditor to create authoritative intent.yml",
+    "Current ontology-driven mode is working well"
   ]
 }

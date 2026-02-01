@@ -1,160 +1,103 @@
 {
-  "timestamp": "2026-02-01T13:22:25.442715Z",
+  "timestamp": "2026-02-01T22:37:39Z",
+  "overall_score": 75,
+  "concept_alignment_score": 92,
+  "max_score": 100,
+  "scoring_method": "v1.1 (intent + concept)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "issues": []
-      }
+      },
+      "issues": [
+        "Missing explicit invariants section",
+        "Could enhance connection to ontology"
+      ],
+      "strengths": [
+        "Good use of canonical terms",
+        "Clear structure",
+        "References to GLOSSARY.md"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "count": 1
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "count": 1
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "count": 2
-          },
-          {
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "count": 1
-          },
-          {
-            "found": "ChatSession",
-            "should_be": "Session",
-            "count": 1
-          }
-        ]
-      }
+        "score": 92,
+        "issues": []
+      },
+      "issues": [
+        "Contains warning about missing intent.yml",
+        "Could be enhanced with more specific examples"
+      ],
+      "strengths": [
+        "Excellent term normalization table",
+        "Comprehensive invariants documentation",
+        "Clear AUTO decisions section"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 50,
-        "issues": [
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "count": 1
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "count": 2
-          },
-          {
-            "found": "会話セッション",
-            "should_be": "Session",
-            "count": 1
-          },
-          {
-            "found": "メッセージ",
-            "should_be": "Message",
-            "count": 1
-          },
-          {
-            "found": "InterpreterState",
-            "should_be": "State",
-            "count": 7
-          }
-        ]
-      }
+        "score": 90,
+        "issues": []
+      },
+      "issues": [
+        "Could add more Claude-specific recommendations"
+      ],
+      "strengths": [
+        "Good alignment with ontology",
+        "Practical code examples",
+        "Clear invariant guidelines"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "count": 1
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "count": 1
-          }
-        ]
-      }
+        "score": 88,
+        "issues": []
+      },
+      "issues": [
+        "Could strengthen mention of invariants",
+        "Could add term normalization guidelines"
+      ],
+      "strengths": [
+        "Good structure",
+        "Clear development workflow"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "count": 2
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "count": 2
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "count": 2
-          },
-          {
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "count": 2
-          },
-          {
-            "found": "ChatSession",
-            "should_be": "Session",
-            "count": 3
-          }
-        ]
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": false,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
+        "score": 95,
         "issues": []
-      }
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": false,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": []
-      }
+      },
+      "issues": [],
+      "strengths": [
+        "Excellent ontology alignment",
+        "Clear term definitions",
+        "Good categorization"
+      ]
     }
   ],
-  "overall_score": 70,
-  "concept_alignment_score": 32,
-  "max_score": 100
+  "summary": {
+    "total_issues": 7,
+    "critical_issues": 0,
+    "recommendations": [
+      "Remove intent.yml warning from AGENTS.md (proceed in concept_driven mode)",
+      "Add invariants section to README.md",
+      "Strengthen invariant mentions in CONTRIBUTING.md"
+    ]
+  }
 }

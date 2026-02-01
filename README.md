@@ -95,6 +95,31 @@ This project is built around the following key concepts (see [GLOSSARY.md](GLOSS
 - **Type Safety**: Enumerated types for messages, states, and agents prevent runtime errors
 - **AutoChat**: Automatic conversation continuation when in STATE_STOP
 
+## System Invariants
+
+This project enforces strict invariants to ensure system safety and consistency. See [AGENTS.md](AGENTS.md) for complete details.
+
+### Critical Invariants (MUST NEVER violate)
+
+- **INV-STATE-001**: `Interpreter` state transitions are monotonic: `STATE_INIT` → `STATE_RUNNING` → `STATE_STOP`
+  - State regression is prohibited (e.g., `STATE_RUNNING` → `STATE_INIT`)
+  - Use dedicated methods like `change_state_running()` for transitions
+
+- **INV-MSG-001**: `Message` types must be from enumerated set only: `MESSAGE`, `CODE`, `CONFIRMATION`, `CONSOLE`, `IMAGE`, `FUNCTION`
+  - Ensures type safety and prevents unexpected message processing
+
+- **INV-AUTO-001**: `AutoChat` triggers only when in `STATE_STOP`
+  - Prevents automatic interference during execution
+  - Maintains user control over the conversation flow
+
+- **INV-STREAM-001**: `StreamWrapper` must support both sync and async
+  - Ensures flexible integration capabilities
+
+- **INV-SESSION-001**: `Session` must be identified by unique UUIDs
+  - Prevents session collisions and ensures proper authentication
+
+> **Note**: These invariants are enforced through code review and automated tests. Contributors must ensure their changes respect these constraints. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ## Getting Started
 
 

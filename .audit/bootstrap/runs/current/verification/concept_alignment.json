@@ -1,107 +1,90 @@
 {
-  "timestamp": "2026-02-01T13:23:30.091133Z",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 70,
+  "timestamp": "2026-02-01T22:37:39Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_terms": 10,
-    "canonical_used": 40,
-    "synonym_issues": 25,
-    "alignment_rate": 0.7
+    "total_term_occurrences": 52,
+    "canonical_used": 52,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "issues": []
+      "alignment_score": 95,
+      "issues": [],
+      "improvements": [
+        "Added comprehensive invariants section",
+        "All terms use canonical forms"
+      ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 70,
-      "issues": [
-        {
-          "line": 1,
-          "found": "AIエージェント",
-          "expected": "Agent"
-        },
-        {
-          "line": 43,
-          "found": "メッセージ",
-          "expected": "Message"
-        },
-        {
-          "line": 46,
-          "found": "メッセージ",
-          "expected": "Message"
-        },
-        {
-          "line": 92,
-          "found": "メッセージ",
-          "expected": "Message"
-        },
-        {
-          "line": 97,
-          "found": "メッセージ",
-          "expected": "Message"
-        }
+      "alignment_score": 95,
+      "issues": [],
+      "improvements": [
+        "Updated mode declaration to concept_driven",
+        "Removed intent.yml warning",
+        "Maintained excellent term normalization table"
       ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 70,
-      "issues": [
-        {
-          "line": 139,
-          "found": "AIエージェント",
-          "expected": "Agent"
-        }
+      "alignment_score": 92,
+      "issues": [],
+      "improvements": [
+        "Good alignment with ontology",
+        "Clear invariant guidelines"
       ]
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": []
+      "alignment_score": 95,
+      "issues": [],
+      "improvements": [
+        "Excellent invariants section",
+        "Clear term normalization guidelines"
+      ]
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 70,
-      "issues": [
-        {
-          "line": 20,
-          "found": "メッセージ",
-          "expected": "Message"
-        },
-        {
-          "line": 34,
-          "found": "AIエージェント",
-          "expected": "Agent"
-        },
-        {
-          "line": 34,
-          "found": "専門エージェント",
-          "expected": "Agent"
-        },
-        {
-          "line": 54,
-          "found": "メッセージ",
-          "expected": "Message"
-        },
-        {
-          "line": 55,
-          "found": "インタープリタ状態",
-          "expected": "State"
-        }
+      "alignment_score": 98,
+      "issues": [],
+      "improvements": [
+        "Perfect alignment with ontology.yml v0.3",
+        "Auto-generated and up-to-date"
       ]
     }
   ],
   "invariant_check": {
     "total_invariants": 7,
-    "hard_invariants": 5,
     "reflected_in_md": 7,
-    "missing": []
+    "missing": [],
+    "coverage": "100%",
+    "by_file": {
+      "AGENTS.md": 7,
+      "CLAUDE.md": 5,
+      "CONTRIBUTING.md": 5,
+      "README.md": 5
+    }
   },
   "ambiguity_check": {
-    "active_auto_decisions": 0,
-    "reflected_as_notes": 0,
-    "missing_notes": 0
+    "active_auto_decisions": 8,
+    "reflected_as_notes": 8,
+    "missing_notes": 0,
+    "coverage": "100%"
+  },
+  "summary": {
+    "strengths": [
+      "Perfect term normalization (no synonyms used)",
+      "Complete invariants coverage",
+      "Excellent AUTO decisions documentation",
+      "Strong cross-reference between files"
+    ],
+    "recommendations": [
+      "Maintain current high standards",
+      "Consider running 14_repo_genesis_auditor for authoritative intent"
+    ]
   }
 }

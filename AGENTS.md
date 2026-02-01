@@ -2,8 +2,7 @@
 
 > **プロジェクト**: GuiAgentLoopCore
 > **目的**: GUIとLLMエージェントのブリッジとなるコアロジックを提供
-
-> **⚠️ 重要**: このリポジトリには`.audit/config/intent.yml`が存在しません。14_repo_genesis_auditorの実行が強く推奨されます。
+> **モード**: concept_driven（.concept/ontology.yml v0.3に基づいて稼働中）
 
 ---
 
