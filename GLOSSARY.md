@@ -34,16 +34,16 @@
 - **同義語**: Agent, Agent（使用禁止）
 - **含む**: 役割定義, タスク実行, LLM呼び出し, 実装タイプ（TOOL_CALLING/STRUCTURED_CHAT）
 - **含まない**: セッション管理, UI描画
-- **関連用語**: Interpreter, AgentName, Message, AgentType
+- **関連用語**: Interpreter, AgentName, Message
 - **ステータス**: stable
 
 **AUTO決定**:
 - AUTO:Agent.role:classification - Agentはロールベースで分類される
-- AUTO:Agent.type:implementation_property - AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）
+- AUTO:Agent.type:implementation_property - 実装タイプはAgentのプロパティ（AgentNameの役割とは独立）
 
 **証拠**:
 - `gui_agent_loop_core/schema/core/schema.py`: "class AgentName(str, Enum): AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
-- `gui_agent_loop_core/schema/agent/schema.py`: "class AgentType(str, enum.Enum): TOOL_CALLING, STRUCTURED_CHAT"
+- `gui_agent_loop_core/schema/agent/schema.py`: "TOOL_CALLING, STRUCTURED_CHAT"
 
 ---
 

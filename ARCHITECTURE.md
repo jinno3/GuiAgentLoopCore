@@ -92,7 +92,7 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 
 **Responsibilities**:
 - Agent role management (AgentName enum)
-- Agent type handling (AgentType: TOOL_CALLING, STRUCTURED_CHAT)
+- Agent type handling (TOOL_CALLING, STRUCTURED_CHAT)
 - Agent lifecycle (creation, execution, termination)
 
 **Agent Roles**:

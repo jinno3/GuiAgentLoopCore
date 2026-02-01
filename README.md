@@ -8,9 +8,9 @@
 graph LR
     User((<i class="fas fa-user"></i>))---UI
     UI --- OpenGuiConnector
-    OpenGuiConnector --- TaskAgent
-    TaskAgent --- Agent1
-    TaskAgent --- Agent2
+    OpenGuiConnector --- Agent
+    Agent --- Agent1
+    Agent --- Agent2
     Agent1 --- LLM
     Agent2 --- LLM
 
@@ -24,7 +24,7 @@ graph LR
     end
 
     subgraph Task_Management_Layer
-    TaskAgent(TaskAgent<br>- Task decomposition<br>- Subtask prioritization<br>- Agent assignment)
+    Agent(Agent<br>- Task decomposition<br>- Subtask prioritization<br>- Agent assignment)
     end
 
     subgraph Execution_Layer
