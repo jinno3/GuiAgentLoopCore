@@ -13,9 +13,9 @@
 
 Claudeは、このリポジトリの`.concept/ontology.yml`で定義された正規形を優先的に使用します。
 
-- `Interpreter` - "会話インタープリタ"ではなく`Interpreter`を使用
-- `Agent` - "AIエージェント"ではなく`Agent`を使用
-- `Session` - "会話セッション"ではなく`Session`を使用
+- `Interpreter` - "Interpreter"ではなく`Interpreter`を使用
+- `Agent` - "Agent"ではなく`Agent`を使用
+- `Session` - "Session"ではなく`Session`を使用
 
 用語の完全なリストは[GLOSSARY.md](GLOSSARY.md)を参照してください。
 
@@ -26,8 +26,8 @@ Claudeは、以下のhard invariantsを絶対に違反しません：
 ```python
 # 良い例: 状態遷移の単調性を尊重
 def change_state_running(interpreter: Interpreter):
-    if interpreter.state == InterpreterState.STATE_INIT:
-        interpreter.state = InterpreterState.STATE_RUNNING
+    if interpreter.state == State.STATE_INIT:
+        interpreter.state = State.STATE_RUNNING
     else:
         raise InvalidStateTransitionError(
             f"Cannot transition to RUNNING from {interpreter.state}"
@@ -35,7 +35,7 @@ def change_state_running(interpreter: Interpreter):
 
 # 悪い例: 状態の逆行
 def revert_to_init(interpreter: Interpreter):  # ❌ 違反
-    interpreter.state = InterpreterState.STATE_INIT
+    interpreter.state = State.STATE_INIT
 ```
 
 ### 3. AUTO決定の認識
@@ -70,19 +70,19 @@ Claudeの以下の特性を活かして、このプロジェクトに貢献し�
 
 ```python
 # 推奨されるパターン
-from gui_agent_loop_core.schema.core.schema import InterpreterState
+from gui_agent_loop_core.schema.core.schema import State
 
 class InterpreterManager:
     def __init__(self):
-        self.state = InterpreterState.STATE_INIT
+        self.state = State.STATE_INIT
 
     def change_state_running(self):
         """状態をRUNNINGに変更。単調遷移を保証。"""
-        if self.state != InterpreterState.STATE_INIT:
+        if self.state != State.STATE_INIT:
             raise InvalidStateTransitionError(
                 f"Cannot transition to RUNNING from {self.state}"
             )
-        self.state = InterpreterState.STATE_RUNNING
+        self.state = State.STATE_RUNNING
 ```
 
 ### Agent関連のコード

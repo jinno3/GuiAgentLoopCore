@@ -1,151 +1,105 @@
 {
-  "timestamp": "2026-02-01T23:30:00Z",
-  "concept_source": ".concept/ontology.yml v0.3",
+  "timestamp": "2026-02-01T14:54:58.330937+00:00",
+  "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 100,
   "term_usage_check": {
-    "total_term_occurrences": 264,
-    "canonical_used": 264,
+    "total_term_occurrences": 285,
+    "canonical_used": 285,
     "synonym_used": 0,
-    "unknown_terms": 0,
     "alignment_rate": 1.0
   },
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "term_occurrences": 50,
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "term_occurrences": 78,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "term_occurrences": 27,
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
       "alignment_score": 100,
-      "term_occurrences": 9,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_occurrences": 100,
-      "issues": [],
-      "note": "用語集として同義語を列挙しているが、これは期待される動作"
+      "issues": []
+    },
+    {
+      "file": "CHANGELOG.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 7,
-    "reflected_in_md": 7,
-    "missing": [],
-    "coverage_rate": 1.0,
-    "details": [
-      {
-        "invariant_id": "INV-STATE-001",
-        "statement": "インタープリタ状態は単調遷移する",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-MSG-001",
-        "statement": "メッセージタイプは定義された列挙型のみ",
-        "reflected_in": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-AUTO-001",
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "reflected_in": ["README.md", "AGENTS.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-STREAM-001",
-        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
-        "reflected_in": ["README.md", "AGENTS.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-SESSION-001",
-        "statement": "セッションは一意のUUIDで識別される",
-        "reflected_in": ["README.md", "AGENTS.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ",
-        "reflected_in": ["README.md", "AGENTS.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "reflected_in": ["AGENTS.md"],
-        "status": "documented"
-      }
-    ]
+    "total_invariants": 5,
+    "reflected_in_md": 0,
+    "files_with_invariants": []
   },
   "auto_decision_check": {
-    "active_auto_decisions": 7,
-    "reflected_as_notes": 7,
-    "missing_notes": 0,
-    "coverage_rate": 1.0,
-    "details": [
-      {
-        "decision_key": "AUTO:Agent.role:classification",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      },
-      {
-        "decision_key": "AUTO:Agent.type:implementation_property",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      },
-      {
-        "decision_key": "AUTO:State.lifecycle:monotonic",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      },
-      {
-        "decision_key": "AUTO:AutoChat.trigger:stop_only",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      },
-      {
-        "decision_key": "AUTO:AutoChat.prompt:default_continue",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      },
-      {
-        "decision_key": "AUTO:Backend.primary:gradio",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      },
-      {
-        "decision_key": "AUTO:Memory.window:k10",
-        "reflected_in": ["AGENTS.md"],
-        "status": "noted"
-      }
-    ]
+    "total_active": 4,
+    "noted_in_md": 8
   },
-  "ambiguity_check": {
-    "ambiguities_found": 0,
-    "reported_in_ambiguities_yml": 0,
-    "needs_attention": []
-  },
+  "checks": [
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "status": "PASSED",
+      "details": "285 canonical uses, 0 synonym uses"
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "status": "PASSED",
+      "details": "0 inappropriate uses found"
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "status": "PARTIAL",
+      "details": "0 files document invariants"
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "status": "PASSED",
+      "details": "8 files note AUTO decisions, 4 total AUTO decisions"
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "status": "PASSED",
+      "details": "Boundaries from ontology are consistent"
+    }
+  ],
   "summary": {
-    "concept_alignment_score": 100,
-    "uniqueness_score": 95,
-    "overall_score": 98,
-    "critical_issues": 0,
-    "recommendations": [],
-    "note": "全てのMDファイルがontology.yml v0.3と完全に整合している"
+    "total": 5,
+    "passed": 4,
+    "partial": 1,
+    "failed": 0
   }
 }

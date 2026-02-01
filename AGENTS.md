@@ -12,16 +12,16 @@
 
 | 正規形 | 同義語（使用禁止） | 定義 |
 |--------|------------------|------|
-| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネント |
-| `Agent` | AIエージェント, 専門エージェント | 特定の役割と実装タイプを持つ専門化AIエンティティ |
-| `Session` | ChatSession, 会話セッション | 一意のIDで管理される会話コンテキスト |
-| `Message` | メッセージ, ChatMessage | ユーザー、システム、エージェント間の構造化された通信単位 |
-| `State` | InterpreterState, インタープリタ状態 | インタープリタの実行状態を表す列挙型 |
-| `AutoChat` | 自動チャット, 自動継続 | STATE_STOP時に自動的に会話を継続する機能 |
-| `StreamWrapper` | GuiAgentStreamWrapper, ストリームラッパー | 同期・非同期ストリーミング応答を統一的に扱うユーティリティ |
-| `Backend` | GUIバックエンド, UIフレームワーク | GUIフレームワーク実装（Gradio等） |
-| `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 |
-| `Converter` | 変換器, マッパー | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
+| `Interpreter` | Interpreter, Interpreter | 会話フローとエージェント相互作用を管理する中核コンポーネント |
+| `Agent` | Agent, Agent | 特定の役割と実装タイプを持つ専門化AIエンティティ |
+| `Session` | Session, Session | 一意のIDで管理される会話コンテキスト |
+| `Message` | Message, Message | ユーザー、システム、エージェント間の構造化された通信単位 |
+| `State` | State, State | インタープリタの実行状態を表す列挙型 |
+| `AutoChat` | AutoChat, AutoChat | STATE_STOP時に自動的に会話を継続する機能 |
+| `StreamWrapper` | StreamWrapper, StreamWrapper | 同期・非同期ストリーミング応答を統一的に扱うユーティリティ |
+| `Backend` | Backend, Backend | GUIフレームワーク実装（Gradio等） |
+| `Memory` | Memory, Memory | 会話履歴を保持するバッファ機構 |
+| `Converter` | Converter, Converter | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
 
 ❌ **禁止**: 同義語をコードやドキュメントで使用すること
 ✅ **必須**: 常に正規形を使用すること

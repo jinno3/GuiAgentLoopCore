@@ -15,7 +15,7 @@ This project uses a formal concept dictionary (`.concept/ontology.yml`) to ensur
 
 1. **Use Canonical Terms Only**
    - Always use canonical terms from the glossary, never synonyms
-   - Example: Use `Interpreter`, not "GuiAgentInterpreter" or "会話インタープリタ"
+   - Example: Use `Interpreter`, not "Interpreter" or "Interpreter"
    - See [GLOSSARY.md](GLOSSARY.md) for the complete list
 
 2. **Follow Invariant Rules**
