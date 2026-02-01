@@ -1,5 +1,4 @@
-# MD Bootstrap Execution Plan
-run_timestamp: "2026-02-02T02:42:00Z"
+run_timestamp: "2026-02-02T03:06:49Z"
 version: "1.1"
 
 rotation:
@@ -13,15 +12,13 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
+    ontology_version: "0.3"
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
@@ -48,67 +45,139 @@ term_normalization:
   "専門エージェント": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_minor_update"
+    status: "exists_needs_review"
+    tier: 1
+    last_score: 90
     issues:
-      - "Getting Started and Installation sections are empty (noted, not critical)"
-      - "Overall good alignment with intent.yml and ontology.yml"
+      - "Getting Started and Installation sections are empty (known, not critical)"
+
   - path: "AGENTS.md"
-    status: "exists_good"
+    status: "exists_needs_review"
+    tier: 1
+    last_score: 95
     issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_needs_fix"
-    issues:
-      - "Bug: 総用語数 shows 9 but ontology has 10 terms"
-      - "Bug: Synonyms section shows duplicates (e.g., 'Interpreter, Interpreter')"
-      - "Needs regeneration from ontology.yml"
+
   - path: "CLAUDE.md"
-    status: "exists_good"
+    status: "exists_needs_review"
+    tier: 2
+    last_score: 90
     issues: []
+
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_good"
+    status: "exists_needs_review"
+    tier: 2
+    last_score: 85
     issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_good"
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_acceptable"
-    issues:
-      - "Could reference mappings.yml for implementation details"
-  - path: "CODEX.md"
-    status: "exists_minimal"
-    issues:
-      - "Needs review for Codex-specific term guidelines"
-  - path: "GEMINI.md"
-    status: "exists_minimal"
-    issues:
-      - "Needs review for Gemini-specific term guidelines"
+
   - path: "PURPOSE.md"
-    status: "exists_good"
+    status: "exists_needs_review"
+    tier: 2
+    last_score: 88
     issues: []
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    last_score: 82
+    issues: []
+
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_score: 95
+    issues: []
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_score: 80
+    issues: []
+
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_score: 75
+    issues: []
+
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_score: 75
+    issues: []
+
+  - path: "CHANGELOG.md"
+    status: "excluded"
+    tier: 3
+    last_score: 100
+    issues: []
+    note: "Historical document, excluded from bootstrap"
+
+baseline_scores:
+  overall_score: 97
+  uniqueness_score: 98
+  concept_alignment_score: 99
+  achieved_at: "2026-02-02T02:42:00Z"
 
 actions:
-  - action: "update"
-    target: "GLOSSARY.md"
-    reason: "Fix bugs: incorrect term count (9→10) and duplicate synonyms"
-    priority: "high"
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology.yml"
-    priority: "medium"
+    reason: "Verify alignment with intent.yml and ontology.yml (no changes expected)"
+    priority: "high"
+
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify term normalization table is correct"
+    reason: "Verify term normalization and invariants reflection (no changes expected)"
+    priority: "high"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify perfect sync with ontology.yml v0.3 (no changes expected)"
+    priority: "high"
+
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific guidelines alignment (no changes expected)"
     priority: "medium"
 
-execution_notes: |
-  This run focuses on fixing the GLOSSARY.md bugs identified in the previous run.
-  The ontology.yml has 10 terms but GLOSSARY.md shows 9, and the synonyms
-  section has formatting issues with duplicate entries.
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify hard invariants reflection (no changes expected)"
+    priority: "medium"
 
-  All other MD files are in good shape with high alignment scores.
-  The main goal is to ensure GLOSSARY.md accurately reflects ontology.yml v0.3.
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify mission detail alignment (no changes expected)"
+    priority: "medium"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines alignment (no changes expected)"
+    priority: "low"
+
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify technical documentation alignment (no changes expected)"
+    priority: "low"
+
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific guidelines alignment (no changes expected)"
+    priority: "low"
+
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific guidelines alignment (no changes expected)"
+    priority: "low"
+
+run_type: "verification"
+expected_outcome: "Maintain high scores (97+ overall, 99+ concept alignment)"
+ontology_changes_since_last_run: false
+last_ontology_update: "2026-02-02T02:24:29Z"
+last_bootstrap_run: "2026-02-02T02:42:00Z"
