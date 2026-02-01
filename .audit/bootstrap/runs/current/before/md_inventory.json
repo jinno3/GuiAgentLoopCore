@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-02-01T22:09:00Z",
+  "scan_scope": "repository_root",
+  "total_md_files": 10,
+  "tier1_required": ["README.md", "AGENTS.md"],
+  "tier2_recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+  "tier3_optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+  "files": [
+    {
+      "path": "README.md",
+      "tier": 1,
+      "exists": true,
+      "size_bytes": 3168,
+      "line_count": 105,
+      "status": "exists_needs_update",
+      "issues": [
+        "存在意義が不明確（.audit/intent.yml不在）",
+        "用語が正規形で使用されていない",
+        "ontology.ymlの9コア用語が反映されていない",
+        "不変条件が記載されていない"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "tier": 1,
+      "exists": false,
+      "status": "missing",
+      "issues": ["AIエージェント向け指示が全く存在しない"]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 3328,
+      "line_count": 124,
+      "status": "exists_needs_update",
+      "issues": [
+        "不変条件(hard invariants)への言及がない",
+        "用語規約が定義されていない"
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "tier": 2,
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "PURPOSE.md",
+      "tier": 2,
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "tier": 2,
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 3,
+      "exists": false,
+      "status": "missing",
+      "recommendation": "ontology.ymlから自動生成可能"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "docs/api.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 0,
+      "status": "exists",
+      "note": "docsディレクトリ内のファイル"
+    },
+    {
+      "path": "docs/usage.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 0,
+      "status": "exists",
+      "note": "docsディレクトリ内のファイル"
+    }
+  ],
+  "coverage": {
+    "tier1": {
+      "covered": 1,
+      "total": 2,
+      "percentage": 50,
+      "missing": ["AGENTS.md"]
+    },
+    "tier2": {
+      "covered": 1,
+      "total": 4,
+      "percentage": 25,
+      "missing": ["CLAUDE.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"]
+    },
+    "tier3": {
+      "covered": 0,
+      "total": 4,
+      "percentage": 0,
+      "missing": ["GLOSSARY.md", "ARCHITECTURE.md", "GEMINI.md", "CODEX.md"]
+    },
+    "overall": {
+      "covered": 2,
+      "total": 10,
+      "percentage": 20
+    }
+  }
+}
