@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-01T16:35:33Z",
+  "last_updated": "2026-02-01T16:49:30Z",
   "total_terms": 10,
   "terms_by_layer": {
     "core": 5,
@@ -16,9 +16,9 @@
   "total_ambiguities": 4,
   "total_conflicts": 0,
   "queue_size": 7,
-  "queue_pending": 3,
-  "queue_merged": 3,
-  "queue_rejected": 1,
+  "queue_pending": 1,
+  "queue_merged": 4,
+  "queue_rejected": 2,
   "claims_count": 95,
   "mappings_count": 10,
   "decisions_active": 13,
@@ -33,50 +33,43 @@
     "draft_ratio_current": 0.1,
     "within_draft_limit": true,
     "queue_pending_max": 30,
-    "queue_pending_current": 3,
+    "queue_pending_current": 1,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
     "decisions_md_lines_current": 98,
     "within_decisions_limit": true
   },
   "gc_actions": {
-    "merged": 0,
+    "merged": 1,
     "deleted": 0,
     "deprecated": 0,
-    "reason": "No bloat detected - all within budget limits"
+    "rejected": 1,
+    "reason": "Bloat control - merged AgentImage into Agent, rejected Timer (implementation detail)"
   },
   "this_run_summary": {
-    "run_id": "2026-02-01T16:35:33Z",
-    "previous_run_id": "2026-02-02T01:20:21Z",
-    "run_count": 17,
-    "claims_added": 7,
+    "run_id": "2026-02-01T16:49:30Z",
+    "previous_run_id": "2026-02-01T16:35:33Z",
+    "run_count": 18,
+    "claims_added": 0,
     "ambiguities_added": 0,
-    "auto_decisions_added": 4,
+    "auto_decisions_added": 0,
     "auto_decisions_expired": 0,
-    "queue_processed": 3,
+    "queue_processed": 2,
     "conflicts_resolved": 0,
-    "files_analyzed": [
-      "gui_agent_loop_core/schema/backend/schema.py",
-      "gui_agent_loop_core/backend/server_impl_gradio.py",
-      "gui_agent_loop_core/backend/server_impl_common.py"
-    ],
-    "bloat_control_triggered": false,
+    "files_analyzed": [],
+    "bloat_control_triggered": true,
     "actions_taken": [
-      "Added 7 new claims from backend schema and implementation files",
-      "Added 3 new terms to queue (GuiComponent, Timer, AgentImage)",
-      "Updated Backend ontology with GuiBackendType and deployment evidence",
-      "Updated Message ontology with MAX_MESSAGE_LENGTH constraint",
-      "Updated State ontology with timer-based updates and auto-transition",
-      "Added 4 new invariants (INV-MESSAGE-001, INV-STATE-002, INV-BACKEND-001)",
-      "Added 4 new AUTO decisions",
-      "All metrics within budget - no GC needed",
-      "Updated run state and metrics"
+      "Processed term_queue: merged AgentImage into Agent, rejected Timer (implementation detail)",
+      "Kept GuiComponent pending (needs more evidence for merge/reject decision)",
+      "Updated Agent ontology with merged synonyms (AgentType, AgentDefinition, TaskAgent, AgentImage)",
+      "Updated run_state to run #18",
+      "All metrics within budget - no aggressive GC needed"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
     "decisions_cache_health": "healthy (98/200 lines)",
-    "queue_health": "healthy (3 pending, 3 merged, 1 rejected)",
+    "queue_health": "healthy (1 pending, 4 merged, 2 rejected)",
     "conflict_health": "healthy (0 conflicts)"
   }
 }

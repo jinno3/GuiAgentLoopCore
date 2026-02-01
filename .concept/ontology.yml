@@ -1,5 +1,5 @@
 version: "0.3"
-updated_at: "2026-02-01T13:05:48Z"
+updated_at: "2026-02-01T16:49:30Z"
 
 canonical_terms:
   Interpreter:
@@ -23,12 +23,12 @@ canonical_terms:
     layer: "core"
     status: "stable"
     definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    synonyms: ["AIエージェント", "専門エージェント"]
+    synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
     boundaries:
-      includes: ["役割定義", "タスク実行", "LLM呼び出し", "実装タイプ（TOOL_CALLING/STRUCTURED_CHAT）"]
+      includes: ["役割定義", "タスク実行", "LLM呼び出し", "実装タイプ（TOOL_CALLING/STRUCTURED_CHAT）", "アイコンマッピング"]
       excludes: ["セッション管理", "UI描画"]
     lifecycle: []
-    related_terms: ["Interpreter", "AgentName", "Message", "AgentType"]
+    related_terms: ["Interpreter", "AgentName", "Message", "Backend"]
     assumptions:
       - id: "ASM-AGENT-001"
         text: "AUTO: Agentはロールベースで分類される"
@@ -43,6 +43,8 @@ canonical_terms:
         quote: "class AgentName(str, Enum): AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
       - source: "gui_agent_loop_core/schema/agent/schema.py"
         quote: "class AgentType(str, enum.Enum): TOOL_CALLING, STRUCTURED_CHAT"
+      - source: "gui_agent_loop_core/backend/server_impl_common.py"
+        quote: "get_agent_image_path(agent_name): agent_image_filename mapping based on AgentName"
 
   Session:
     id: "TERM-SESSION"

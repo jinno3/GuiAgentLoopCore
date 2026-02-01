@@ -1,4 +1,4 @@
-updated_at: "2026-02-01T16:35:33Z"
+updated_at: "2026-02-01T16:49:30Z"
 queue:
   - id: "TP-000005"
     proposed_canonical: "GuiComponent"
@@ -14,6 +14,7 @@ queue:
     decision: "pending"
     expires_after_runs: 10
     created_run: "2026-02-01T16:35:33Z"
+    notes: "Keeping pending - similarity 0.68 < 0.78 threshold, but Backend already includes GuiComponent in boundaries"
 
   - id: "TP-000006"
     proposed_canonical: "Timer"
@@ -28,9 +29,9 @@ queue:
         similarity: 0.62
       - term: "State"
         similarity: 0.55
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T16:35:33Z"
+    decision: "rejected"
+    rejection_reason: "Timer is an implementation detail of Gradio backend framework (aux layer), not a domain concept. Low similarity to existing terms confirms it's not core to the ontology."
+    decided_run: "2026-02-02T01:48:00Z"
 
   - id: "TP-000007"
     proposed_canonical: "AgentImage"
@@ -43,9 +44,10 @@ queue:
     auto_merge_candidates:
       - term: "Agent"
         similarity: 0.75
-    decision: "pending"
-    expires_after_runs: 10
-    created_run: "2026-02-01T16:35:33Z"
+    decision: "merged"
+    merged_into: "Agent"
+    merge_reason: "AgentImage is a UI resource mapping property of Agent (similarity 0.75 < 0.78 threshold). It's a presentation detail, not a separate concept."
+    decided_run: "2026-02-02T01:48:00Z"
 
   - id: "TP-000001"
     proposed_canonical: "AgentType"
