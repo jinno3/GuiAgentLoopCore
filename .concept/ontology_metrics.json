@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T00:52:28Z",
+  "last_updated": "2026-02-01T16:08:34Z",
   "total_terms": 10,
   "terms_by_layer": {
     "core": 5,
@@ -19,11 +19,11 @@
   "queue_pending": 0,
   "queue_merged": 3,
   "queue_rejected": 1,
-  "claims_count": 78,
+  "claims_count": 88,
   "mappings_count": 10,
-  "decisions_active": 8,
+  "decisions_active": 9,
   "decisions_expired": 0,
-  "decisions_md_lines": 73,
+  "decisions_md_lines": 54,
   "tombstones_count": 4,
   "budget_status": "within_limits",
   "budget_details": {
@@ -36,7 +36,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 73,
+    "decisions_md_lines_current": 54,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -46,37 +46,38 @@
     "reason": "No bloat detected - all within budget limits"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T00:52:28Z",
-    "previous_run_id": "2026-02-01T15:42:13Z",
-    "run_count": 14,
-    "claims_added": 9,
+    "run_id": "2026-02-01T16:08:34Z",
+    "previous_run_id": "2026-02-02T00:52:28Z",
+    "run_count": 15,
+    "claims_added": 10,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
     "auto_decisions_expired": 0,
     "queue_processed": 0,
     "conflicts_resolved": 0,
     "files_analyzed": [
-      "gui_agent_loop_core/backend/server_impl_common.py",
-      "gui_agent_loop_core/converter/request_converter_str.py",
-      "gui_agent_loop_core/converter/dict_flattener/mapping_rule.py",
-      "gui_agent_loop_core/converter/dict_flattener/dict_flattener.py",
-      "gui_agent_loop_core/converter/dict_flattener/dict_flatten_converter.py",
-      "gui_agent_loop_core/converter/base_converter.py"
+      ".audit/bootstrap/concept_feedback.yml",
+      ".audit/bootstrap/runs/current/summary.md",
+      "AGENTS.md",
+      "GLOSSARY.md",
+      "GEMINI.md",
+      "CODEX.md",
+      "SYSTEM_CONSTITUTION.md"
     ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Extracted 9 new claims from converter and backend components",
-      "Analyzed converter hierarchy and mapping rule system",
-      "No contradictions detected",
+      "Extracted 10 new claims from bootstrap audit and documentation updates",
+      "Verified 100% concept alignment achieved by bootstrap process",
+      "No contradictions detected - all terms properly canonicalized",
       "No new ambiguities requiring AUTO decisions",
-      "Updated run state and metrics",
-      "System health confirmed - all metrics within acceptable ranges"
+      "All metrics within budget limits - no GC needed",
+      "Updated run state and metrics"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (73/200 lines)",
-    "queue_health": "healthy (all processed)",
+    "decisions_cache_health": "healthy (54/200 lines)",
+    "queue_health": "healthy (0 pending, 3 merged, 1 rejected)",
     "conflict_health": "healthy (0 conflicts)"
   }
 }
