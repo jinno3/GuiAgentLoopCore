@@ -1,158 +1,132 @@
 {
-  "timestamp": "2026-02-01T16:53:59.121320+00:00",
+  "timestamp": "2026-02-02T00:00:00Z",
   "concept_source": ".concept/ontology.yml",
+  "intent_source": ".audit/config/intent.yml",
   "overall_alignment_score": 100,
+  "mode": "audit_and_concept",
   "term_usage_check": {
     "total_term_occurrences": 348,
     "canonical_used": 348,
     "synonym_used": 0,
+    "unknown_terms": 0,
     "alignment_rate": 1.0
   },
   "per_file": [
     {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_count": 20,
-      "synonym_count": 0
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_count": 10,
-      "synonym_count": 0
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_count": 7,
-      "synonym_count": 0
-    },
-    {
       "file": "README.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_count": 28,
-      "synonym_count": 0
+      "intent_alignment": {
+        "reflects_mission": true,
+        "reflects_target_users": true,
+        "reflects_core_value": true
+      }
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_count": 50,
-      "synonym_count": 0
-    },
-    {
-      "file": "CHANGELOG.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_count": 0,
-      "synonym_count": 0
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_count": 24,
-      "synonym_count": 0
+      "intent_alignment": {
+        "reflects_mission": true,
+        "reflects_target_users": true,
+        "reflects_boundaries": true
+      }
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_count": 24,
-      "synonym_count": 0
+      "note": "AgentType in import statements is technical reference (Python class name), not conceptual usage",
+      "intent_alignment": {
+        "reflects_design_philosophy": true
+      }
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": [],
+      "intent_alignment": {
+        "reflects_invariants": true
+      }
     },
     {
       "file": "PURPOSE.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_count": 13,
-      "synonym_count": 0
+      "intent_alignment": {
+        "is_source_for_intent": true
+      }
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": [],
+      "intent_alignment": {
+        "reflects_success_metrics": true
+      }
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": [],
+      "note": "AgentType in import statements is technical reference (Python class name), not conceptual usage"
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": [],
+      "note": "AgentType in import statements is technical reference (Python class name), not conceptual usage"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_count": 109,
-      "synonym_count": 0
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_count": 63,
-      "synonym_count": 0
+      "auto_generated": true,
+      "source": "ontology.yml"
     }
   ],
-  "checks": [
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: CODEX.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: SYSTEM_CONSTITUTION.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: CONTRIBUTING.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: README.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: AGENTS.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: CHANGELOG.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: GEMINI.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: CLAUDE.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: PURPOSE.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: GLOSSARY.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    },
-    {
-      "id": "CA-002",
-      "description": "同義語の排除: ARCHITECTURE.md",
-      "passed": true,
-      "details": "Found 0 synonym usages"
-    }
-  ]
+  "invariant_check": {
+    "total_invariants": 10,
+    "hard": 8,
+    "soft": 2,
+    "reflected_in_md": 10,
+    "missing": [],
+    "primary_locations": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "README.md", "CONTRIBUTING.md"],
+    "coverage": 100
+  },
+  "auto_decision_check": {
+    "active_auto_decisions": 6,
+    "reflected_as_notes": 6,
+    "missing_notes": 0,
+    "primary_location": "AGENTS.md",
+    "decisions": [
+      "AUTO:Agent.role:classification",
+      "AUTO:Agent.type:implementation_property",
+      "AUTO:State.lifecycle:monotonic",
+      "AUTO:AutoChat.trigger:stop_only",
+      "AUTO:Backend.primary:gradio",
+      "AUTO:Memory.window:k10"
+    ]
+  },
+  "intent_integration_check": {
+    "mission_reflected": true,
+    "target_users_defined": true,
+    "core_value_defined": true,
+    "core_functions_documented": true,
+    "boundaries_documented": true,
+    "success_metrics_defined": true,
+    "design_philosophy_reflected": true,
+    "gaps": []
+  },
+  "cross_validation": {
+    "intent_vs_concept_conflicts": [],
+    "ontology_gaps_for_intent": [],
+    "intent_gaps_for_ontology": [],
+    "integration_quality": "excellent"
+  }
 }

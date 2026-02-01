@@ -1,61 +1,114 @@
 {
-  "timestamp": "2026-02-01T16:54:14.791361+00:00",
-  "total_files": 11,
+  "timestamp": "2026-02-02T00:00:00Z",
+  "scan_directory": "/home/jinno/jinno3/GuiAgentLoopCore",
+  "total_md_files": 18,
+  "root_level_files": 11,
   "files": [
     {
-      "path": "CODEX.md",
-      "size": 3240,
-      "lines": 158
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "size": 4539,
-      "lines": 153
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "size": 5283,
-      "lines": 162
-    },
-    {
       "path": "README.md",
-      "size": 6375,
-      "lines": 157
+      "exists": true,
+      "size_bytes": 6395,
+      "lines": 157,
+      "tier": 1,
+      "status": "exists_good"
     },
     {
       "path": "AGENTS.md",
-      "size": 4430,
-      "lines": 154
-    },
-    {
-      "path": "CHANGELOG.md",
-      "size": 61,
-      "lines": 6
-    },
-    {
-      "path": "GEMINI.md",
-      "size": 3014,
-      "lines": 138
+      "exists": true,
+      "size_bytes": 4430,
+      "lines": 154,
+      "tier": 1,
+      "status": "exists_good"
     },
     {
       "path": "CLAUDE.md",
-      "size": 3081,
-      "lines": 143
+      "exists": true,
+      "size_bytes": 3081,
+      "lines": 143,
+      "tier": 2,
+      "status": "exists_good"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "size_bytes": 4539,
+      "lines": 153,
+      "tier": 2,
+      "status": "exists_good"
     },
     {
       "path": "PURPOSE.md",
-      "size": 4961,
-      "lines": 139
+      "exists": true,
+      "size_bytes": 4961,
+      "lines": 139,
+      "tier": 2,
+      "status": "exists_good"
     },
     {
-      "path": "GLOSSARY.md",
-      "size": 5351,
-      "lines": 223
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "size_bytes": 5283,
+      "lines": 162,
+      "tier": 2,
+      "status": "exists_good"
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "size_bytes": 3014,
+      "lines": 138,
+      "tier": 3,
+      "status": "exists_good"
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "size_bytes": 3240,
+      "lines": 158,
+      "tier": 3,
+      "status": "exists_good"
     },
     {
       "path": "ARCHITECTURE.md",
-      "size": 8534,
-      "lines": 295
+      "exists": true,
+      "size_bytes": 8545,
+      "lines": 295,
+      "tier": 3,
+      "status": "exists_good"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "size_bytes": 5405,
+      "lines": 223,
+      "tier": 3,
+      "status": "exists_good"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "size_bytes": 61,
+      "lines": 6,
+      "tier": 0,
+      "status": "exists_good"
     }
-  ]
+  ],
+  "coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "percentage": 100
+    },
+    "tier2": {
+      "recommended": 4,
+      "exists": 4,
+      "percentage": 100
+    },
+    "tier3": {
+      "optional": 4,
+      "exists": 4,
+      "percentage": 100
+    }
+  },
+  "total_coverage_percentage": 100
 }
