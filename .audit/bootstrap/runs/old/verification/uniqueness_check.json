@@ -1,33 +1,27 @@
 {
-  "timestamp": "2026-02-02T03:22:00Z",
-  "verification_method": "v1.1 (intent + concept integration)",
+  "timestamp": "2026-02-02T03:32:00Z",
+  "verification_type": "uniqueness_check",
+  "version": "1.1",
+  "overall_score": 100,
+  "max_score": 100,
 
-  "uniqueness_checks": [
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "found_in": [
-          {
-            "file": "README.md",
-            "line": 78,
-            "match": "identical"
-          },
-          {
-            "file": "PURPOSE.md",
-            "line": 10,
-            "match": "identical"
-          },
-          {
-            "file": "AGENTS.md",
-            "line": 4,
-            "match": "consistent"
-          }
-        ]
+      "details": {
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "verified_in_files": [
+          "README.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          "PURPOSE.md",
+          "SYSTEM_CONSTITUTION.md"
+        ],
+        "consistency": "100%"
       }
     },
     {
@@ -36,53 +30,35 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": {
-        "intent_target_users": [
+      "details": {
+        "target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
-          "AI Agents"
+          "AI Agents (Claude, Gemini, Codex, etc.)"
         ],
-        "found_in": [
-          {
-            "file": "README.md",
-            "line": 10-14,
-            "match": "consistent"
-          },
-          {
-            "file": "PURPOSE.md",
-            "line": 71-77,
-            "match": "consistent"
-          },
-          {
-            "file": "CLAUDE.md",
-            "line": 1-2,
-            "match": "consistent (Claude-specific)"
-          }
-        ]
+        "verified_in_files": [
+          "README.md",
+          "AGENTS.md",
+          "CONTRIBUTING.md"
+        ],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
       "passed": true,
-      "evidence": {
-        "hard_invariants": [
-          "INV-STATE-001",
-          "INV-MSG-001",
-          "INV-MESSAGE-001",
-          "INV-AUTO-001",
-          "INV-STREAM-001",
-          "INV-SESSION-001"
-        ],
-        "consistent_in": [
+      "details": {
+        "python_version": ">=3.10",
+        "verified_consistency": true,
+        "dependencies_consistent": true,
+        "verified_in_files": [
           "README.md",
-          "AGENTS.md",
-          "CLAUDE.md",
-          "SYSTEM_CONSTITUTION.md",
-          "CONTRIBUTING.md"
+          "CONTRIBUTING.md",
+          "ARCHITECTURE.md"
         ]
       }
     },
@@ -92,30 +68,19 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit/intent.yml + .concept/ontology.yml",
       "passed": true,
-      "evidence": {
-        "out_of_scope_from_intent": [
+      "details": {
+        "out_of_scope_items": [
           "UI Rendering",
           "LLM Execution",
           "Session Storage",
           "Authentication",
           "Network Protocols"
         ],
-        "consistent_in": [
-          {
-            "file": "README.md",
-            "boundaries_section": "System Invariants",
-            "match": "consistent"
-          },
-          {
-            "file": "PURPOSE.md",
-            "boundaries_section": "What We Don't Do",
-            "match": "identical"
-          },
-          {
-            "file": "ARCHITECTURE.md",
-            "boundaries_section": "Component Boundaries",
-            "match": "consistent"
-          }
+        "verified_consistency": true,
+        "verified_in_files": [
+          "README.md",
+          "PURPOSE.md",
+          "ARCHITECTURE.md"
         ]
       }
     },
@@ -125,14 +90,14 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": {
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
+      "details": {
         "core_functions_reflected": true,
-        "boundaries_reflected": true,
         "design_philosophy_reflected": true,
-        "score": "100%"
+        "verified_in_files": [
+          "README.md",
+          "PURPOSE.md",
+          "SYSTEM_CONSTITUTION.md"
+        ]
       }
     }
   ],
@@ -141,7 +106,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100,
-    "assessment": "perfect"
+    "pass_rate": "100%"
   }
 }
