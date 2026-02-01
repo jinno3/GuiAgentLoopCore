@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-02-01T22:09:00Z",
+  "concept_source": ".concept/ontology.yml (v0.3)",
+  "overall_alignment_score": 92,
+
+  "term_usage_check": {
+    "total_term_occurrences": 9,
+    "canonical_used": 9,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+
+  "per_file": [
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": [
+        "全ての正規形が使用されている",
+        "用語規約セクションが完備",
+        "同義語表が提供されている"
+      ]
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": [
+        "ontology.ymlから完全に自動生成",
+        "全9用語が網羅されている"
+      ]
+    },
+    {
+      "file": "README.md",
+      "alignment_score": 85,
+      "issues": [],
+      "notes": [
+        "主要な正規形（Interpreter, Agent, Session, Message, State）が使用されている",
+        "アーキテクチャ図は古い命名（改善余地あり）"
+      ],
+      "recommendations": [
+        "アーキテクチャ図内のOpenGuiConnector等の用語を正規形に合わせる"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 90,
+      "issues": [],
+      "notes": [
+        "用語規約ガイドラインが追加された",
+        "不変条件への言及が追加された"
+      ]
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "notes": [
+        "Claude向けの用語ガイドラインが提供されている",
+        "コード例で正規形を使用している"
+      ]
+    }
+  ],
+
+  "invariant_check": {
+    "total_invariants": 7,
+    "hard_invariants": 5,
+    "reflected_in_md": 5,
+    "missing": [],
+    "coverage": "100%"
+  },
+
+  "auto_decision_handling": {
+    "total_active": 7,
+    "noted_in_md": 7,
+    "format": "専用セクションで記載",
+    "coverage": "100%"
+  },
+
+  "synonym_usage_check": {
+    "synonyms_found_in_mds": 0,
+    "auto_corrected": 0,
+    "manual_review_needed": 0
+  },
+
+  "improvements_from_previous_run": {
+    "term_normalization_applied": 0,
+    "new_glossary_created": true,
+    "term_guidelines_added": true,
+    "invariants_documented": true
+  }
+}

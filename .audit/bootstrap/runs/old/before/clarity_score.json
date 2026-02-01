@@ -1,0 +1,89 @@
+{
+  "timestamp": "2026-02-01T22:09:00Z",
+  "overall_score": 25,
+  "concept_alignment_score": 0,
+  "uniqueness_score": 30,
+  "max_score": 100,
+  "scoring_breakdown": {
+    "existence_clarity": 10,
+    "reason": ".audit/intent.yml不在により存在意義が不明確"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "clarity_score": 35,
+      "concept_alignment": {
+        "score": 10,
+        "issues": [
+          {
+            "type": "missing_canonical_terms",
+            "details": "ontology.ymlの9コア用語が使用されていない"
+          }
+        ]
+      },
+      "issues": [
+        "存在意義が1文で表現されていない",
+        "「What is GuiAgentLoopCore?」の説明が抽象的",
+        "用語が正規形でない"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": false,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "file_missing",
+            "details": "AIエージェント向け指示が全く存在しない"
+          }
+        ]
+      },
+      "issues": ["ファイルが存在しない"]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 40,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "missing_invariants",
+            "details": "hard invariantsの記載がない"
+          },
+          {
+            "type": "missing_term_guidelines",
+            "details": "用語規約が定義されていない"
+          }
+        ]
+      },
+      "issues": [
+        "プロジェクト特有の制約条件が記載されていない",
+        "不変条件への言及がない"
+      ]
+    }
+  ],
+  "critical_gaps": [
+    {
+      "gap_id": "CG-001",
+      "description": "存在意義不在",
+      "impact": "README.mdのミッション記述が不明確",
+      "remedy": ".audit/config/intent.ymlの作成が必要"
+    },
+    {
+      "gap_id": "CG-002",
+      "description": "用語正規化未実施",
+      "impact": "ドキュメント内で同義語が混在",
+      "remedy": "ontology.ymlの正規形を使用"
+    },
+    {
+      "gap_id": "CG-003",
+      "description": "不変条件未記載",
+      "impact": "開発者が守るべきルールが不明",
+      "remedy": "invariants.ymlのhard invariantsを記載"
+    }
+  ]
+}

@@ -1,89 +1,160 @@
 {
-  "timestamp": "2026-02-01T22:09:00Z",
-  "overall_score": 25,
-  "concept_alignment_score": 0,
-  "uniqueness_score": 30,
-  "max_score": 100,
-  "scoring_breakdown": {
-    "existence_clarity": 10,
-    "reason": ".audit/intent.yml不在により存在意義が不明確"
-  },
+  "timestamp": "2026-02-01T13:22:25.442715Z",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 35,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 10,
-        "issues": [
-          {
-            "type": "missing_canonical_terms",
-            "details": "ontology.ymlの9コア用語が使用されていない"
-          }
-        ]
-      },
-      "issues": [
-        "存在意義が1文で表現されていない",
-        "「What is GuiAgentLoopCore?」の説明が抽象的",
-        "用語が正規形でない"
-      ]
+        "score": 100,
+        "issues": []
+      }
     },
     {
       "path": "AGENTS.md",
-      "exists": false,
-      "clarity_score": 0,
+      "exists": true,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 0,
         "issues": [
           {
-            "type": "file_missing",
-            "details": "AIエージェント向け指示が全く存在しない"
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "count": 1
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "count": 1
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "count": 2
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "count": 1
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "count": 1
           }
         ]
-      },
-      "issues": ["ファイルが存在しない"]
+      }
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 96,
+      "concept_alignment": {
+        "score": 50,
+        "issues": [
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "count": 1
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "count": 2
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "count": 1
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "count": 1
+          },
+          {
+            "found": "InterpreterState",
+            "should_be": "State",
+            "count": 7
+          }
+        ]
+      }
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 40,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "count": 1
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 0,
         "issues": [
           {
-            "type": "missing_invariants",
-            "details": "hard invariantsの記載がない"
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "count": 2
           },
           {
-            "type": "missing_term_guidelines",
-            "details": "用語規約が定義されていない"
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "count": 2
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "count": 2
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "count": 2
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "count": 3
           }
         ]
-      },
-      "issues": [
-        "プロジェクト特有の制約条件が記載されていない",
-        "不変条件への言及がない"
-      ]
+      }
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": false,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": []
+      }
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": false,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": []
+      }
     }
   ],
-  "critical_gaps": [
-    {
-      "gap_id": "CG-001",
-      "description": "存在意義不在",
-      "impact": "README.mdのミッション記述が不明確",
-      "remedy": ".audit/config/intent.ymlの作成が必要"
-    },
-    {
-      "gap_id": "CG-002",
-      "description": "用語正規化未実施",
-      "impact": "ドキュメント内で同義語が混在",
-      "remedy": "ontology.ymlの正規形を使用"
-    },
-    {
-      "gap_id": "CG-003",
-      "description": "不変条件未記載",
-      "impact": "開発者が守るべきルールが不明",
-      "remedy": "invariants.ymlのhard invariantsを記載"
-    }
-  ]
+  "overall_score": 70,
+  "concept_alignment_score": 32,
+  "max_score": 100
 }

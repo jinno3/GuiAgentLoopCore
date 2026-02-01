@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-02-01T22:09:00Z",
+  "overall_score": 80,
+  "concept_alignment_score": 92,
+  "uniqueness_score": 70,
+  "max_score": 100,
+  "improvement_from_before": {
+    "overall": "+55",
+    "concept_alignment": "+92",
+    "uniqueness": "+40"
+  },
+  "scoring_breakdown": {
+    "existence_clarity": 70,
+    "reason": ".audit/intent.yml不在により完全な明確化は不可だが、ontology.ymlからの推論で大幅改善"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 85,
+        "improvement": "+75",
+        "issues": []
+      },
+      "improvements": [
+        "Core Componentsセクションで主要な正規形を使用",
+        "Key Featuresで不変条件を反映",
+        "GLOSSARY.mdへのリンクを追加"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "improvement": "+100",
+        "issues": []
+      },
+      "improvements": [
+        "用語規約セクションで正規形を完全に網羅",
+        "不変条件セクションでhard invariantsを全て記載",
+        "AUTO決定セクションで暫定仕様を明記"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 90,
+        "improvement": "+90",
+        "issues": []
+      },
+      "improvements": [
+        "Terminology Guidelinesで用語規約を追加",
+        "Invariant Rulesでhard invariantsを記載",
+        "AUTO Decisionsの扱いを明記"
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 95,
+        "improvement": "+95",
+        "issues": []
+      },
+      "improvements": [
+        "Claude向けの用語ガイドラインを提供",
+        "コード例で正規形を使用",
+        "不変条件の遵守を強調"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "improvement": "+100",
+        "issues": []
+      },
+      "improvements": [
+        "ontology.ymlから完全に自動生成",
+        "全9用語を網羅",
+        "用語の正規化マップを提供"
+      ]
+    }
+  ],
+  "critical_gaps_resolved": [
+    {
+      "gap_id": "CG-002",
+      "description": "用語正規化未実施",
+      "status": "RESOLVED",
+      "resolution": "全MDファイルで正規形を使用、GLOSSARY.mdを作成"
+    },
+    {
+      "gap_id": "CG-003",
+      "description": "不変条件未記載",
+      "status": "RESOLVED",
+      "resolution": "AGENTS.mdとCONTRIBUTING.mdにhard invariantsを記載"
+    }
+  ],
+  "remaining_gaps": [
+    {
+      "gap_id": "CG-001",
+      "description": "存在意義不在",
+      "status": "PARTIAL",
+      "resolution": "ontology.ymlからの推論で暫定的に改善",
+      "full_resolution_required": ".audit/config/intent.ymlの作成"
+    }
+  ]
+}

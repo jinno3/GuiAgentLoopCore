@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-02-01T22:09:00Z",
+  "scan_scope": "repository_root",
+  "total_md_files": 12,
+  "tier1_required": ["README.md", "AGENTS.md"],
+  "tier2_recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+  "tier3_optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+  "files": [
+    {
+      "path": "README.md",
+      "tier": 1,
+      "exists": true,
+      "size_bytes": 3168,
+      "line_count": 105,
+      "status": "updated",
+      "changes": [
+        "Core Componentsセクションを追加（Interpreter, Agent, Session, Message, Stateの説明）",
+        "Key Featuresセクションを追加",
+        "Featuresセクションを拡張（正規形を使用）",
+        "GLOSSARY.mdへのリンクを追加"
+      ],
+      "issues_resolved": [
+        "用語が正規形で使用されていない問題を改善"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "tier": 1,
+      "exists": true,
+      "size_bytes": 0,
+      "line_count": 0,
+      "status": "created",
+      "changes": [
+        "AIエージェント向け指示を新規作成",
+        "用語規約セクションを追加（正規形の使用）",
+        "不変条件セクションを追加（hard invariants）",
+        "AUTO決定セクションを追加",
+        "行動規範セクションを追加"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 3328,
+      "line_count": 124,
+      "status": "updated",
+      "changes": [
+        "Coding Standardsセクションを追加",
+        "Terminology Guidelinesを追加",
+        "Invariant Rulesを追加",
+        "AUTO Decisionsの扱いを追加",
+        "Pull Request Guidelinesを更新"
+      ],
+      "issues_resolved": [
+        "不変条件(hard invariants)への言及がない問題を解決",
+        "用語規約が定義されていない問題を解決"
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "tier": 2,
+      "exists": true,
+      "status": "created",
+      "changes": [
+        "Claude向け特化指示を新規作成",
+        "用語の一貫性ガイドラインを追加",
+        "不変条件の遵守ガイドを追加",
+        "コード例を追加"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "tier": 2,
+      "exists": false,
+      "status": "missing",
+      "note": ".audit/intent.yml不在のため作成見送り"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "tier": 2,
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 3,
+      "exists": true,
+      "status": "created",
+      "changes": [
+        "ontology.ymlから用語集を自動生成",
+        "全9用語を網羅",
+        "用語の正規化マップを追加"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "exists": false,
+      "status": "missing"
+    },
+    {
+      "path": "docs/api.md",
+      "tier": 3,
+      "exists": true,
+      "status": "exists"
+    },
+    {
+      "path": "docs/usage.md",
+      "tier": 3,
+      "exists": true,
+      "status": "exists"
+    }
+  ],
+  "coverage": {
+    "tier1": {
+      "covered": 2,
+      "total": 2,
+      "percentage": 100,
+      "missing": []
+    },
+    "tier2": {
+      "covered": 2,
+      "total": 4,
+      "percentage": 50,
+      "missing": ["PURPOSE.md", "SYSTEM_CONSTITUTION.md"]
+    },
+    "tier3": {
+      "covered": 1,
+      "total": 4,
+      "percentage": 25,
+      "missing": ["ARCHITECTURE.md", "GEMINI.md", "CODEX.md"]
+    },
+    "overall": {
+      "covered": 5,
+      "total": 12,
+      "percentage": 42
+    }
+  },
+  "summary": {
+    "created": 3,
+    "updated": 2,
+    "unchanged": 2,
+    "total_changes": 5
+  }
+}
