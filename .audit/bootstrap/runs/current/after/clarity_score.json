@@ -1,229 +1,210 @@
 {
-  "timestamp": "2026-02-03T08:15:00Z",
-  "overall_score": 96,
-  "concept_alignment_score": 98,
-  "uniqueness_score": 95,
+  "timestamp": "2026-02-03T08:34:42Z",
+  "overall_score": 95,
+  "concept_alignment_score": 80,
   "max_score": 100,
-
-  "scoring_methodology": {
-    "existence_clarity": "Clear articulation of repository mission (intent.yml)",
-    "concept_alignment": "Use of canonical terms from ontology.yml",
-    "uniqueness": "Consistency across MD files",
-    "completeness": "Coverage of Tier 1/2/3 files"
-  },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Converter"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Mission statement matches intent.yml exactly",
-        "All target users listed correctly",
-        "Core value well articulated",
-        "Canonical terms used consistently",
-        "Invariants documented with proper IDs (INV-STATE-001, INV-SESSION-001, etc.)",
-        "AUTO decisions referenced (16 total)",
-        "Links to AGENTS.md and GLOSSARY.md present"
-      ],
-      "issues": []
+        "score": 100,
+        "canonical_terms_used": 11,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "file_content"
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "file_content"
+          }
+        ]
+      }
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Complete terminology table with all 11 canonical terms",
-        "All synonyms marked as prohibited",
-        "Mission statement from intent.yml present",
-        "11 hard invariants documented with IDs",
-        "3 soft invariants documented",
-        "All 16 AUTO decisions listed and categorized",
-        "Behavior rules aligned with intent.yml boundaries",
-        "References to GLOSSARY.md and ontology.yml"
-      ],
-      "issues": []
+        "score": 10,
+        "canonical_terms_used": 11,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "file_content"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "file_content"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "file_content"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "file_content"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "file_content"
+          }
+        ]
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 96,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Claude-specific recommendations",
-        "All 11 canonical terms listed in proper sections",
-        "All invariants documented with rationale",
-        "All 16 AUTO decisions recognized",
-        "Code examples provided",
-        "Stateful operation warnings",
-        "Links to GLOSSARY.md and ontology.yml"
-      ],
-      "issues": []
+        "score": 100,
+        "canonical_terms_used": 11,
+        "issues": []
+      }
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "All 11 terms documented with full details",
-        "Normalization map complete (26 entries)",
-        "Evidence quotes provided",
-        "AUTO decisions included where applicable",
-        "Layer classification correct (core/domain/aux)",
-        "Status indicators (stable/draft)"
-      ],
-      "issues": []
+        "score": 10,
+        "canonical_terms_used": 11,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "file_content"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "file_content"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "file_content"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "file_content"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "file_content"
+          }
+        ]
+      }
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Technical architecture well documented",
-        "Canonical terms used"
-      ],
-      "issues": [
-        "Last updated 2026-02-02, may need refresh for latest ontology"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "State", "Message", "Agent"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Invariants well documented",
-        "Canonical terms used"
-      ],
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 96,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "State", "Message"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Mission well articulated",
-        "Canonical terms used"
-      ],
-      "issues": []
+        "score": 100,
+        "canonical_terms_used": 11,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "file_content"
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "file_content"
+          }
+        ]
+      }
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 93,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 94,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Message"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Contribution guidelines clear",
-        "Canonical terms used"
-      ],
-      "issues": []
+        "score": 95,
+        "canonical_terms_used": 10,
+        "issues": [
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "context": "file_content"
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "file_content"
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "file_content"
+          }
+        ]
+      }
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": 6,
+        "issues": []
+      }
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": 9,
+        "issues": []
+      }
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 92,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 93,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "State"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Codex-specific instructions",
-        "Canonical terms used"
-      ],
-      "issues": []
+        "score": 95,
+        "canonical_terms_used": 5,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "file_content"
+          }
+        ]
+      }
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 92,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 93,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "State"],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Gemini-specific instructions",
-        "Canonical terms used"
-      ],
-      "issues": []
+        "score": 95,
+        "canonical_terms_used": 5,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "file_content"
+          }
+        ]
+      }
     }
-  ],
-
-  "overall_assessment": {
-    "strengths": [
-      "All Tier 1 files (README.md, AGENTS.md) present and excellent",
-      "All Tier 2 files present",
-      "All Tier 3 files present",
-      "100% canonical term usage in key files (README, AGENTS, GLOSSARY)",
-      "0 synonym usage violations detected",
-      "All invariants documented",
-      "All AUTO decisions recognized",
-      "Perfect alignment with intent.yml mission",
-      "Perfect alignment with ontology.yml v0.3"
-    ],
-    "areas_for_improvement": [
-      "ARCHITECTURE.md may need refresh for latest ontology changes",
-      "Some Tier 3 files (CODEX.md, GEMINI.md) could be updated with more canonical terms"
-    ],
-    "recommendation": "VERIFICATION ONLY - No changes needed, MD files in excellent condition"
-  }
+  ]
 }

@@ -1,100 +1,212 @@
 {
-  "timestamp": "2026-02-03T08:01:00Z",
+  "timestamp": "2026-02-03T08:15:00Z",
   "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
   "overall_alignment_score": 98,
+
   "term_usage_check": {
-    "total_term_occurrences": 66,
-    "canonical_used": 66,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
+
+  "canonical_term_coverage": {
+    "Interpreter": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "Agent": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "Session": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "Message": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "State": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "AutoChat": {
+      "expected_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "3/3",
+      "alignment": "perfect"
+    },
+    "StreamWrapper": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "Backend": {
+      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "4/4",
+      "alignment": "perfect"
+    },
+    "Memory": {
+      "expected_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "3/3",
+      "alignment": "perfect",
+      "note": "Draft status noted in all occurrences"
+    },
+    "Connector": {
+      "expected_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "3/3",
+      "alignment": "perfect"
+    },
+    "Converter": {
+      "expected_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "found_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "coverage": "3/3",
+      "alignment": "perfect"
+    }
+  },
+
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "issues": [
-        {
-          "type": "resolved",
-          "description": "用語注記にConverterが不足していたが追加された",
-          "line": 20,
-          "status": "fixed"
-        },
-        {
-          "type": "resolved",
-          "description": "AUTO決定のリストにAUTO:Connector.layer:domainが不足していたが追加された",
-          "line": 91,
-          "status": "fixed"
-        }
-      ]
+      "alignment_score": 98,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Backend", "Converter"],
+      "synonyms_found": [],
+      "notes": ["Excellent alignment, all core terms present"]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": [
-        {
-          "type": "resolved",
-          "description": "補助用語（Converter）が不足していたが追加された",
-          "status": "fixed"
-        },
-        {
-          "type": "resolved",
-          "description": "AUTO決定にAUTO:Connector.layer:domainが不足していたが追加された",
-          "line": 124,
-          "status": "fixed"
-        }
-      ]
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "notes": ["Perfect: All 11 terms present, complete terminology table"]
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 98,
-      "issues": [
-        {
-          "type": "resolved",
-          "description": "AUTO決定のリストにAUTO:Message.roles:tool_function_separationが不足していたが追加された",
-          "line": 127,
-          "status": "fixed"
-        },
-        {
-          "type": "resolved",
-          "description": "AUTO決定にAUTO:Connector.layer:domainが不足していたが追加された",
-          "status": "fixed"
-        },
-        {
-          "type": "resolved",
-          "description": "9つのAUTO決定とあるが実際は16個存在 - 修正された",
-          "line": 174,
-          "status": "fixed"
-        },
-        {
-          "type": "resolved",
-          "description": "10個の正規用語とあるが実際は11個存在 - 修正された",
-          "line": 171,
-          "status": "fixed"
-        }
-      ]
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "notes": ["Excellent alignment, all terms present"]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "notes": ["Auto-generated from ontology, perfect alignment"]
     }
   ],
+
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage": "100%"
+    "by_file": [
+      {
+        "file": "README.md",
+        "invariants_documented": 5,
+        "invariant_ids": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001"]
+      },
+      {
+        "file": "AGENTS.md",
+        "invariants_documented": 14,
+        "invariant_ids": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-AUTO-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-AGENT-001", "INV-MEM-001", "INV-BACKEND-002"]
+      },
+      {
+        "file": "CLAUDE.md",
+        "invariants_documented": 14,
+        "invariant_ids": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001", "INV-STREAM-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-AGENT-001", "INV-MEM-001", "INV-BACKEND-002"]
+      }
+    ]
   },
+
   "auto_decision_check": {
     "total_auto_decisions": 16,
-    "documented_in_md": 16,
-    "missing_documentation": [],
-    "coverage": "100%"
+    "noted_in_md": 16,
+    "missing": [],
+    "by_category": [
+      {
+        "category": "Agent",
+        "count": 2,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "category": "Message",
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "category": "State",
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "category": "AutoChat",
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "category": "Backend",
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "category": "Memory",
+        "count": 4,
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "category": "Session",
+        "count": 1,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "category": "Connector",
+        "count": 1,
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    ]
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0
+    "missing_notes": 0,
+    "format": "AUTO decisions documented with decision keys"
+  },
+
+  "summary": {
+    "overall_alignment": 98,
+    "strengths": [
+      "100% canonical term usage (0 synonym violations)",
+      "All 11 terms from ontology present in key MD files",
+      "All 14 invariants documented",
+      "All 16 AUTO decisions recognized",
+      "Perfect normalization (26 synonyms mapped correctly)",
+      "Draft status of Memory term noted consistently"
+    ],
+    "minor_improvements": [
+      "Some Tier 3 files could reference more terms"
+    ]
   }
 }
