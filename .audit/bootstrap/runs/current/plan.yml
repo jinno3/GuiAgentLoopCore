@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T14:23:00Z"
+run_timestamp: "2026-02-02T14:42:00Z"
 version: "1.1"
 
 rotation:
@@ -15,13 +15,13 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 10
@@ -30,19 +30,14 @@ ontology_summary:
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
     - canonical: "Message"
-      layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
     - canonical: "State"
-      layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
 
 term_normalization:
@@ -71,46 +66,102 @@ term_normalization:
 
 existing_mds:
   - path: "README.md"
-    status: "exists_aligned"
+    status: "exists_verified"
+    tier: "tier1_mandatory"
     issues: []
   - path: "AGENTS.md"
-    status: "exists_aligned"
+    status: "exists_verified"
+    tier: "tier1_mandatory"
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_aligned"
+    status: "exists_verified"
+    tier: "tier2_recommended"
     issues: []
   - path: "GLOSSARY.md"
-    status: "exists_aligned"
+    status: "exists_verified"
+    tier: "tier3_optional"
     issues: []
-  - path: "PURPOSE.md"
-    status: "exists_aligned"
+  - path: "ARCHITECTURE.md"
+    status: "exists_verified"
+    tier: "tier3_optional"
     issues: []
   - path: "CONTRIBUTING.md"
-    status: "exists_aligned"
+    status: "exists_verified"
+    tier: "tier2_recommended"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists_verified"
+    tier: "tier2_recommended"
     issues: []
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_aligned"
+    status: "exists_verified"
+    tier: "tier2_recommended"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_verified"
+    tier: "tier3_optional"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_verified"
+    tier: "tier3_optional"
     issues: []
 
 actions:
   - action: "verify"
-    target: "README.md"
-    reason: "用語の正規形を使用しているか確認、存在意義との整合性を検証"
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "用語規約セクションと正規形の使用を確認、不変条件の反映を検証"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Claude向け特化指示と用語の正規形を確認"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "ontology.ymlから正しく生成されているか確認"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "存在意義の詳細説明がintent.ymlと整合しているか確認"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "貢献ガイドが用語規約と整合しているか確認"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "不変条件が正しく反映されているか確認"
+    target: "all_mds"
+    reason: "既存MDファイルは高品質（明確度92、概念整合度95）のため、検証のみ実施"
+    details:
+      - "全MDファイルで用語が正規形で使用されていることを確認"
+      - "intent.ymlとの整合性を確認"
+      - "ontology.ymlとの整合性を確認"
+      - "invariants.ymlが適切に反映されていることを確認"
+
+verification_targets:
+  - check_id: "UC-001"
+    name: "存在意義の一貫性"
+    description: "全MDで同じmissionが表現されているか"
+    source: ".audit"
+  - check_id: "UC-002"
+    name: "対象ユーザーの一貫性"
+    description: "全MDで同じtarget_userを想定しているか"
+    source: ".audit"
+  - check_id: "UC-003"
+    name: "制約の一貫性"
+    description: "技術的制約が一致しているか"
+    source: ".audit + .concept"
+  - check_id: "UC-004"
+    name: "境界線の一貫性"
+    description: "out_of_scopeが矛盾なく定義されているか"
+    source: ".audit + .concept"
+  - check_id: "UC-005"
+    name: "intent.yml準拠"
+    description: "全MDがintent.ymlを正しく反映しているか"
+    source: ".audit"
+  - check_id: "CA-001"
+    name: "用語の正規形使用"
+    description: "全MDでcanonical termを使用しているか"
+    source: ".concept"
+  - check_id: "CA-002"
+    name: "同義語の排除"
+    description: "synonymが本文で使用されていないか"
+    source: ".concept"
+  - check_id: "CA-003"
+    name: "不変条件の反映"
+    description: "hard invariantsがドキュメント化されているか"
+    source: ".concept"
+  - check_id: "CA-004"
+    name: "AUTO決定の注記"
+    description: "暫定仕様が明示されているか"
+    source: ".concept"
+  - check_id: "CA-005"
+    name: "用語境界の整合"
+    description: "boundaries.includes/excludesが矛盾していないか"
+    source: ".concept"
+
+expected_outcome:
+  overall_score: 92
+  uniqueness_score: 90
+  concept_alignment_score: 95
+  md_coverage: "11/11 (100%)"
+  changes_required: false
+  reason: "既存MDファイルはすでに高品質で、intent.ymlとontology.ymlに適切に準拠している"

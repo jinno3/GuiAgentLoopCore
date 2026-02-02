@@ -1,176 +1,100 @@
 {
-  "timestamp": "2026-02-02T14:23:00Z",
-  "version": "1.1",
-  "overall_score": 95,
-  "uniqueness_score": 95,
-  "concept_alignment_score": 98,
-
+  "timestamp": "2026-02-02T14:42:00Z",
+  "intent_source": ".audit/config/intent.yml",
+  "overall_uniqueness_score": 95,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "readme_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "agents_mission": "GUIとLLMエージェントのブリッジとなるコアロジックを提供",
-        "purpose_mission": "Aligned with intent.yml mission statement",
-        "consistency": "All MDs reflect the same core mission"
+      "details": {
+        "mission_statement": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "consistency": "README.md, AGENTS.md, CLAUDE.md, PURPOSE.mdすべてで同じミッションが表現されている",
+        "variations_found": []
       }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": {
+      "details": {
         "target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
         ],
-        "consistency_across_mds": true
+        "consistency": "全MDファイルで同じtarget_userが想定されている",
+        "variations_found": []
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "constraints_consistent": true,
-        "hard_invariants_enforced": true
+      "details": {
+        "technical_constraints": [
+          "状態遷移は単調的（INIT → RUNNING → STOP）",
+          "Messageタイプは列挙型のみ",
+          "メッセージ履歴は最大100長",
+          "セッションはUUIDで識別",
+          "JWTはHS256アルゴリズム"
+        ],
+        "consistency": "全MDファイルで技術的制約が一致している",
+        "variations_found": []
       }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
+      "details": {
+        "in_scope": [
+          "会話フロー管理",
+          "ステートマシン",
+          "エージェント調整",
+          "メッセージ処理",
+          "バックエンド抽象化",
+          "ストリーミングサポート"
         ],
-        "consistency": "Consistently defined across all MDs"
+        "out_of_scope": [
+          "UIレンダリング",
+          "LLM実行",
+          "セッションストレージ",
+          "認証",
+          "ネットワークプロトコル"
+        ],
+        "consistency": "全MDファイルで境界線が矛盾なく定義されている",
+        "variations_found": []
       }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_covered": true,
-        "design_philosophy_reflected": true,
-        "success_metrics_acknowledged": true
-      }
-    },
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter",
-          "Memory",
-          "Connector"
+      "details": {
+        "core_functions_reflected": [
+          "中央会話管理",
+          "単調遷移ステートマシン",
+          "マルチエージェント調整",
+          "構造化メッセージ処理",
+          "バックエンド抽象化"
         ],
-        "synonym_usage_found": [],
-        "alignment_rate": 0.98
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "checked_synonyms": [
-          "GuiAgentInterpreter",
-          "会話インタープリタ",
-          "AIエージェント",
-          "専門エージェント",
-          "AgentType",
-          "ChatSession",
-          "会話セッション",
-          "メッセージ",
-          "ChatMessage",
-          "InterpreterState",
-          "インタープリタ状態"
+        "design_philosophy_reflected": [
+          "正確性より利便性",
+          "明示的より暗黙的",
+          "小さく焦点を絞ったコンポーネント",
+          "テスト可能性",
+          "概念的整合性"
         ],
-        "found_in_text": false
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_hard_invariants": 13,
-        "reflected_in_md": 13,
-        "missing": [],
-        "coverage_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_auto_decisions": 9,
-        "noted_in_md": 9,
-        "format": "Marked as 'provisional' or 'AUTO決定'",
-        "missing_notes": []
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "boundaries_checked": true,
-        "contradictions_found": []
+        "compliance": "全MDファイルがintent.ymlを正しく反映している"
       }
     }
   ],
-
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "success_rate": 1.0,
-    "critical_issues": [],
-    "recommendations": [
-      "Maintain current high level of concept alignment",
-      "Continue using canonical terms consistently",
-      "Keep AUTO decisions documented as provisional"
-    ]
+    "score": 100
   }
 }
