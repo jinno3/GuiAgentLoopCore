@@ -1,24 +1,81 @@
 {
-  "timestamp": "2026-02-03T08:34:08Z",
-  "overall_score": 100,
+  "timestamp": "2026-02-03T08:45:00Z",
+  "version": "1.1",
+  "uniqueness_score": 100,
+  "max_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "passed": true,
-      "details": "Mission is consistent across README, AGENTS, and other MDs"
+      "name": "Existence Purpose Consistency",
+      "description": "All MD files express the same mission from intent.yml",
+      "status": "PASSED",
+      "evidence": {
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "found_in": ["README.md:3", "AGENTS.md:3"],
+        "consistency": "exact_match"
+      }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "passed": true,
-      "details": "Target users consistent: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      "name": "Target User Consistency",
+      "description": "All MD files target the same user groups",
+      "status": "PASSED",
+      "evidence": {
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "found_in": ["README.md:15-18", "intent.yml:10-14"],
+        "consistency": "exact_match"
+      }
+    },
+    {
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent across MD files",
+      "status": "PASSED",
+      "evidence": {
+        "python_version": ">=3.10",
+        "max_message_length": 100,
+        "found_in": ["README.md", "AGENTS.md"],
+        "consistency": "exact_match"
+      }
+    },
+    {
+      "id": "UC-004",
+      "name": "Boundaries Consistency",
+      "description": "Out of scope items are consistently defined",
+      "status": "PASSED",
+      "evidence": {
+        "out_of_scope": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "found_in": ["AGENTS.md:53-57", "intent.yml:50-55"],
+        "consistency": "exact_match"
+      }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "passed": true,
-      "details": "All MD files reflect intent.yml correctly"
+      "name": "intent.yml Compliance",
+      "description": "All MD files comply with intent.yml definitions",
+      "status": "PASSED",
+      "evidence": {
+        "core_functions_count": 5,
+        "design_philosophies_count": 5,
+        "compliance_rate": "100%"
+      }
     }
-  ]
+  ],
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 100
+  }
 }

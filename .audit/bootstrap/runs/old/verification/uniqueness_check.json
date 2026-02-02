@@ -1,130 +1,24 @@
 {
-  "timestamp": "2026-02-03T08:15:00Z",
-  "verification_version": "1.1",
-
-  "uniqueness_checks": [
+  "timestamp": "2026-02-03T08:34:08Z",
+  "overall_score": 100,
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
-          {
-            "file": "README.md",
-            "mission_match": true,
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "AGENTS.md",
-            "mission_match": true,
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "PURPOSE.md",
-            "mission_match": true,
-            "note": "Expanded purpose but consistent with core mission"
-          }
-        ]
-      }
+      "details": "Mission is consistent across README, AGENTS, and other MDs"
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": {
-        "intent_target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "users_match": true,
-            "quote": "**Application Developers**: Building LLM-powered applications with GUI interfaces\n- **AI Agent Developers**: Creating specialized agents for specific tasks\n- **Framework Developers**: Building new GUI backend implementations\n- **AI Agents**: Claude, Gemini, Codex, and other AI models working with this codebase"
-          },
-          {
-            "file": "AGENTS.md",
-            "users_match": true,
-            "note": "Targets AI Agents directly, consistent with intent"
-          }
-        ]
-      }
-    },
-    {
-      "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
-      "passed": true,
-      "evidence": {
-        "constraint_sources": ["intent.yml boundaries", "invariants.yml"],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "constraints_match": true,
-            "quote": "## System Invariants\n- **INV-STATE-001**: Interpreter state transitions are monotonic\n- **INV-SESSION-001**: Sessions are uniquely identified by UUID\n..."
-          },
-          {
-            "file": "AGENTS.md",
-            "constraints_match": true,
-            "quote": "### 不変条件（絶対に破ってはいけない）\n- 🔒 **INV-STATE-001**: インタープリタ状態は単調遷移する\n..."
-          }
-        ]
-      }
-    },
-    {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml + .concept/ontology.yml",
-      "passed": true,
-      "evidence": {
-        "intent_out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "files_checked": [
-          {
-            "file": "AGENTS.md",
-            "boundaries_match": true,
-            "quote": "### このリポジトリでやってはいけないこと\n- ❌ UI Rendering: We don't handle UI component rendering\n- ❌ LLM Execution: We don't directly execute LLM models\n..."
-          }
-        ]
-      }
+      "details": "Target users consistent: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": {
-        "core_functions_from_intent": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "reflection": true,
-            "quote": "## Core Functions\n### Centralized Conversation Management\n### State Machine with Monotonic Transitions\n..."
-          },
-          {
-            "file": "AGENTS.md",
-            "reflection": true,
-            "quote": "### このリポジトリでやるべきこと\n- Centralized Conversation Management\n- State Machine with Monotonic Transitions\n..."
-          }
-        ]
-      }
+      "details": "All MD files reflect intent.yml correctly"
     }
-  ],
-
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "uniqueness_score": 100
-  }
+  ]
 }

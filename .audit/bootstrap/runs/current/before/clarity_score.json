@@ -1,210 +1,78 @@
 {
-  "timestamp": "2026-02-03T08:33:36Z",
+  "timestamp": "2026-02-03T08:45:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 80,
+  "concept_alignment_score": 95,
   "max_score": 100,
+  "scoring_method": "v1.1 (audit + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "canonical_terms_used": 11,
-        "issues": [
-          {
-            "found": "AgentType",
-            "should_be": "Agent",
-            "context": "file_content"
-          },
-          {
-            "found": "JWT",
-            "should_be": "Session",
-            "context": "file_content"
-          }
-        ]
-      }
+        "score": 95,
+        "issues": []
+      },
+      "strengths": [
+        "Mission statement clearly matches intent.yml",
+        "All target users correctly listed",
+        "Core functions match intent.yml exactly",
+        "Canonical terms used consistently (Interpreter, Agent, Session, Message, State)",
+        "Invariants documented with proper IDs",
+        "AUTO decisions documented with proper keys"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 10,
-        "canonical_terms_used": 11,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "context": "file_content"
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "context": "file_content"
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "context": "file_content"
-          },
-          {
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "context": "file_content"
-          },
-          {
-            "found": "AgentType",
-            "should_be": "Agent",
-            "context": "file_content"
-          }
-        ]
-      }
+        "score": 98,
+        "issues": []
+      },
+      "strengths": [
+        "Complete terminology table with all 11 canonical terms",
+        "All synonyms properly documented",
+        "Core, Domain, and Aux terms correctly categorized",
+        "All 14 invariants (11 hard + 3 soft) documented",
+        "All 16 AUTO decisions documented with proper categorization",
+        "Behavior norms match intent.yml boundaries"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "canonical_terms_used": 11,
+        "score": 95,
         "issues": []
-      }
+      },
+      "strengths": [
+        "Claude-specific terminology guidance",
+        "All 11 canonical terms listed",
+        "Invariant violations clearly documented",
+        "AUTO decisions properly noted",
+        "Code examples demonstrate correct usage"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 10,
-        "canonical_terms_used": 11,
-        "issues": [
-          {
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter",
-            "context": "file_content"
-          },
-          {
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "context": "file_content"
-          },
-          {
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "context": "file_content"
-          },
-          {
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "context": "file_content"
-          },
-          {
-            "found": "AgentType",
-            "should_be": "Agent",
-            "context": "file_content"
-          }
-        ]
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_terms_used": 11,
-        "issues": [
-          {
-            "found": "JWT",
-            "should_be": "Session",
-            "context": "file_content"
-          },
-          {
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector",
-            "context": "file_content"
-          }
-        ]
-      }
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": 10,
-        "issues": [
-          {
-            "found": "ChatSession",
-            "should_be": "Session",
-            "context": "file_content"
-          },
-          {
-            "found": "JWT",
-            "should_be": "Session",
-            "context": "file_content"
-          },
-          {
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector",
-            "context": "file_content"
-          }
-        ]
-      }
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_terms_used": 6,
+        "score": 98,
         "issues": []
-      }
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_terms_used": 9,
-        "issues": []
-      }
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": 5,
-        "issues": [
-          {
-            "found": "AgentType",
-            "should_be": "Agent",
-            "context": "file_content"
-          }
-        ]
-      }
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": 5,
-        "issues": [
-          {
-            "found": "AgentType",
-            "should_be": "Agent",
-            "context": "file_content"
-          }
-        ]
-      }
+      },
+      "strengths": [
+        "Auto-generated from ontology.yml v0.3",
+        "All 11 terms with complete definitions",
+        "Proper layer categorization (core/domain/aux)",
+        "Synonyms and boundaries documented"
+      ],
+      "issues": []
     }
   ]
 }

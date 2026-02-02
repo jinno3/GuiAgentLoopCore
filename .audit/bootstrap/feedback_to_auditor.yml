@@ -1,26 +1,45 @@
-bootstrap_run_timestamp: '2026-02-03T08:35:07Z'
-version: '1.1'
-existence_clarity:
-  before: 95
-  after: 95
-  delta: 0
-  interpretation: MD files already aligned with intent.yml from previous run
-uniqueness_score:
-  score: 100
-  checks_passed: 3
-  total_checks: 3
-  issues_found: 0
-  issues_resolved: 0
-  remaining_issues: []
-md_coverage:
-  tier1_coverage: 2/2 (100%)
-  tier2_coverage: 4/4 (100%)
-  tier3_coverage: 4/4 (100%)
-inconsistencies: []
-intent_suggestions: []
-concept_integration:
-  used: true
-  ontology_version: '0.3'
-  ontology_terms_used: 33
-  alignment_score: 50
-  new_term_candidates: []
+feedback:
+  bootstrap_run_timestamp: "2026-02-03T08:45:00Z"
+  version: "1.1"
+  run_number: 65
+
+  # 1. 存在意義の明確度評価
+  existence_clarity:
+    before: 95
+    after: 95
+    delta: 0
+    interpretation: "intent.ymlの定義は明確で、全MDファイルに適切に反映されている"
+
+  # 2. 一意性評価
+  uniqueness_score:
+    score: 100
+    checks_passed: "5/5"
+    issues_found: 0
+    issues_resolved: 0
+    remaining_issues: []
+
+  # 3. MD網羅度
+  md_coverage:
+    tier1_coverage: "2/2 (100%)"
+    tier2_coverage: "4/4 (100%)"
+    tier3_coverage: "4/4 (100%)"
+    total_coverage: "10/10 (100%)"
+
+  # 4. 発見した矛盾点
+  inconsistencies: []
+
+  # 5. intent.ymlへの提案
+  intent_suggestions: []
+
+  # 6. 概念モデルとの連携状況
+  concept_integration:
+    used: true
+    ontology_version: "0.3"
+    ontology_terms_used: 11
+    alignment_score: 98
+    new_term_candidates: []
+
+  # 7. 全体的な評価
+  overall_assessment:
+    status: "excellent"
+    summary: "MDファイル群はintent.ymlとontology.ymlに完全に準拠しています。一意性スコア100点、概念整合スコア98点を達成しています。"

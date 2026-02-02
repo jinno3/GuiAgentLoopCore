@@ -1,138 +1,126 @@
-run_timestamp: "2026-02-03T08:15:00Z"
-version: "1.1"
-run_number: 63
-
+run_timestamp: '2026-02-03T08:33:13Z'
+version: '1.1'
+run_number: 64
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
 input_sources:
   audit:
-    intent_yml: ".audit/config/intent.yml"
-    intent_version: "1.0"
-    constraints_yml: ".audit/config/constraints.yml"
+    intent_yml: .audit/config/intent.yml
+    intent_version: '1.0'
+    constraints_yml: .audit/config/constraints.yml
   concept:
-    ontology_yml: ".concept/ontology.yml"
-    ontology_version: "0.3"
-    invariants_yml: ".concept/invariants.yml"
+    ontology_yml: .concept/ontology.yml
+    ontology_version: '0.3'
+    invariants_yml: .concept/invariants.yml
     has_concept: true
-
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
+    LLM agents, managing conver...
+  target_user: '{''Application Developers'', {''AI Agent Developers'', {''Framework
+    Developers'', {''AI Agents'''
+  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
+    with pred...
   core_functions_count: 5
-
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
   key_terms:
-    - canonical: "Interpreter"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
-    - canonical: "Agent"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
-    - canonical: "Session"
-      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
-    - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
-    - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
-
+  - canonical: Interpreter
+    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
+    layer: core
+  - canonical: Agent
+    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
+    layer: core
+  - canonical: Session
+    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）
+    layer: core
+  - canonical: Message
+    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）
+    layer: core
+  - canonical: State
+    definition: インタープリタの実行状態を表す列挙型
+    layer: core
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "会話メモリ": "Memory"
-
+  GuiAgentInterpreter: Interpreter
+  会話インタープリタ: Interpreter
+  AIエージェント: Agent
+  専門エージェント: Agent
+  AgentType: Agent
+  AgentDefinition: Agent
+  TaskAgent: Agent
+  AgentImage: Agent
+  ChatSession: Session
+  会話セッション: Session
+  JWT: Session
+  メッセージ: Message
+  ChatMessage: Message
+  InterpreterState: State
+  インタープリタ状態: State
 existing_mds:
-  - path: "README.md"
-    status: "exists_aligned"
-    tier: 1
-    issues: []
-    strengths:
-      - "Mission clearly stated from intent.yml"
-      - "Core value well articulated"
-      - "All target users listed"
-      - "Canonical terms used consistently"
-      - "Invariants documented with proper IDs"
-      - "AUTO decisions referenced"
-      - "Links to AGENTS.md and GLOSSARY.md"
-
-  - path: "AGENTS.md"
-    status: "exists_aligned"
-    tier: 1
-    issues: []
-    strengths:
-      - "Complete terminology table with canonical forms"
-      - "All 11 terms from ontology present"
-      - "Synonyms clearly marked as prohibited"
-      - "Hard invariants (11) fully documented"
-      - "Soft invariants (3) documented"
-      - "All 16 AUTO decisions listed with categories"
-      - "Behavior rules aligned with intent.yml"
-
-  - path: "GLOSSARY.md"
-    status: "exists_aligned"
-    tier: 3
-    issues: []
-    strengths:
-      - "Auto-generated from ontology.yml v0.3"
-      - "All 11 terms documented with full details"
-      - "Normalization map complete"
-      - "Evidence quotes provided"
-      - "AUTO decisions included where applicable"
-
-  - path: "CLAUDE.md"
-    status: "exists_aligned"
-    tier: 2
-    issues: []
-    strengths:
-      - "Claude-specific recommendations"
-      - "All 11 canonical terms listed"
-      - "All invariants documented"
-      - "All 16 AUTO decisions recognized"
-      - "Code examples provided"
-
-actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "Already aligned with intent.yml and ontology.yml"
-    expected_changes: 0
-
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Already aligned with intent.yml and ontology.yml"
-    expected_changes: 0
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Auto-generated from ontology.yml, already up-to-date"
-    expected_changes: 0
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Already aligned with intent.yml and ontology.yml"
-    expected_changes: 0
-
-verification_priority: "high"
-expected_outcome: "Verification run - MD files appear to be in excellent condition based on previous run (96/100 score)"
+- path: README.md
+  status: exists_aligned
+  issues:
+  - Uses synonym 'AgentType' instead of canonical 'Agent'
+  strengths:
+  - From previous run - verified aligned
+- path: AGENTS.md
+  status: exists_aligned
+  issues:
+  - Uses synonym 'GuiAgentInterpreter' instead of canonical 'Interpreter'
+  - Uses synonym '会話インタープリタ' instead of canonical 'Interpreter'
+  - Uses synonym 'AIエージェント' instead of canonical 'Agent'
+  - Uses synonym '専門エージェント' instead of canonical 'Agent'
+  - Uses synonym 'AgentType' instead of canonical 'Agent'
+  strengths:
+  - From previous run - verified aligned
+- path: CLAUDE.md
+  status: exists_aligned
+  issues: []
+  strengths:
+  - From previous run - verified aligned
+- path: GLOSSARY.md
+  status: exists_aligned
+  issues:
+  - Uses synonym 'GuiAgentInterpreter' instead of canonical 'Interpreter'
+  - Uses synonym '会話インタープリタ' instead of canonical 'Interpreter'
+  - Uses synonym 'AIエージェント' instead of canonical 'Agent'
+  - Uses synonym '専門エージェント' instead of canonical 'Agent'
+  - Uses synonym 'AgentType' instead of canonical 'Agent'
+  strengths:
+  - From previous run - verified aligned
+- path: ARCHITECTURE.md
+  status: exists_aligned
+  issues: []
+  strengths:
+  - From previous run - verified aligned
+- path: CONTRIBUTING.md
+  status: exists_aligned
+  issues: []
+  strengths:
+  - From previous run - verified aligned
+- path: PURPOSE.md
+  status: exists_aligned
+  issues: []
+  strengths:
+  - From previous run - verified aligned
+- path: SYSTEM_CONSTITUTION.md
+  status: exists_aligned
+  issues: []
+  strengths:
+  - From previous run - verified aligned
+- path: CODEX.md
+  status: exists_aligned
+  issues:
+  - Uses synonym 'AgentType' instead of canonical 'Agent'
+  strengths:
+  - From previous run - verified aligned
+- path: GEMINI.md
+  status: exists_aligned
+  issues:
+  - Uses synonym 'AgentType' instead of canonical 'Agent'
+  strengths:
+  - From previous run - verified aligned
+actions: []
