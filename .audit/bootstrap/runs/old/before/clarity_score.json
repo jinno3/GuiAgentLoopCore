@@ -1,111 +1,257 @@
 {
-  "timestamp": "2026-02-03T04:40:00Z",
-  "overall_score": 92,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-03T04:53:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 90,
   "max_score": 100,
-  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, and invariants.yml coverage",
+  "scoring_method": "v1.1 (audit + concept integration)",
+
+  "score_breakdown": {
+    "existence_clarity": 95,
+    "uniqueness": 85,
+    "concept_alignment": 90,
+    "completeness": 80,
+    "consistency": 85
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": []
+        "score": 90,
+        "issues": [
+          {
+            "type": "missing_content",
+            "description": "Missing AUTO decisions documentation",
+            "severity": "medium"
+          },
+          {
+            "type": "missing_content",
+            "description": "Missing invariants section",
+            "severity": "medium"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 95,
-        "mission_present": true,
-        "target_users_present": true,
-        "core_value_present": true,
-        "core_functions_count": 5
-      },
-      "issues": []
+      "strengths": [
+        "Mission statement is clear and concise",
+        "Core functions well documented",
+        "Terms are normalized (uses canonical forms)"
+      ],
+      "issues": [
+        "No AUTO decisions documentation",
+        "No invariants section",
+        "Could benefit from more detailed concept integration notes"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "synonyms_found": [],
-        "term_normalization_table_present": true
-      },
-      "intent_alignment": {
-        "score": 100,
-        "mission_present": true,
-        "in_scope_out_of_scope_present": true
-      },
-      "invariants_coverage": {
         "score": 95,
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total_invariants": 14
+        "issues": [
+          {
+            "type": "missing_content",
+            "description": "Missing AUTO decisions section",
+            "severity": "low"
+          },
+          {
+            "type": "outdated_metadata",
+            "description": "Last updated timestamp is outdated",
+            "severity": "low"
+          }
+        ]
       },
-      "issues": []
+      "strengths": [
+        "Excellent term normalization table",
+        "Comprehensive invariants documentation",
+        "Clear behavior guidelines",
+        "Good concept alignment"
+      ],
+      "issues": [
+        "Missing AUTO decisions section",
+        "Timestamp outdated (2026-02-02, should be 2026-02-03)"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "auto_decisions_noted": 9
+        "score": 100,
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 90,
-        "claude_specific_guidance": true
-      },
+      "strengths": [
+        "Perfect term normalization (all canonical forms used)",
+        "All 9 AUTO decisions documented",
+        "Comprehensive invariants documentation",
+        "Excellent concept alignment"
+      ],
       "issues": [
-        "Some AUTO decisions may need expiration checks"
+        "Minor: timestamp could be updated"
       ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty or not properly generated from ontology.yml"]
+        "score": 100,
+        "issues": []
       },
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Perfect concept alignment",
+        "Comprehensive term documentation",
+        "Includes AUTO decisions and evidence"
+      ],
       "issues": [
-        "File exists but appears to be empty - needs ontology.yml content"
+        "Minor: timestamp outdated"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "unknown",
+            "description": "Concept alignment not verified",
+            "severity": "medium"
+          }
+        ]
+      },
+      "strengths": [
+        "Comprehensive architecture overview"
+      ],
+      "issues": [
+        "Concept alignment not verified against mappings.yml"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "unknown",
+            "description": "Concept alignment not verified",
+            "severity": "medium"
+          }
+        ]
+      },
+      "strengths": [
+        "Good contribution guidelines"
+      ],
+      "issues": [
+        "Should verify alignment with invariants.yml"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
       "clarity_score": 85,
       "concept_alignment": {
-        "score": 90,
-        "issues": ["Should reference mappings.yml for implementation details"]
+        "score": 85,
+        "issues": [
+          {
+            "type": "unknown",
+            "description": "Concept alignment not verified",
+            "severity": "medium"
+          }
+        ]
       },
+      "strengths": [
+        "Clear purpose documentation"
+      ],
       "issues": [
-        "Should verify mappings.yml integration"
+        "Should verify alignment with intent.yml"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "unknown",
+            "description": "Concept alignment not verified",
+            "severity": "medium"
+          }
+        ]
+      },
+      "strengths": [
+        "System principles documented"
+      ],
+      "issues": [
+        "Should verify alignment with invariants.yml"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "unknown",
+            "description": "Concept alignment not verified",
+            "severity": "low"
+          }
+        ]
+      },
+      "strengths": [],
+      "issues": [
+        "Should verify alignment with ontology.yml"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "unknown",
+            "description": "Concept alignment not verified",
+            "severity": "low"
+          }
+        ]
+      },
+      "strengths": [],
+      "issues": [
+        "Should verify alignment with ontology.yml"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 60,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [],
+      "issues": [
+        "Minimal content (61 bytes)"
       ]
     }
   ],
+
   "summary": {
-    "strengths": [
-      "README.md clearly states mission and uses canonical terms",
-      "AGENTS.md has comprehensive term normalization table",
-      "CLAUDE.md documents AUTO decisions appropriately",
-      "High concept alignment across existing MD files"
-    ],
-    "weaknesses": [
-      "GLOSSARY.md appears to be empty despite ontology.yml existing",
-      "Some MD files may need ontology.yml integration verification"
-    ],
-    "recommendations": [
-      "Verify GLOSSARY.md is properly generated from ontology.yml",
-      "Update CLAUDE.md timestamp after verification",
-      "Consider adding GLOSSARY.md reference to README.md"
-    ]
+    "total_files": 11,
+    "excellent_files": 3,
+    "good_files": 5,
+    "needs_improvement": 3,
+    "critical_issues": 0
   }
 }

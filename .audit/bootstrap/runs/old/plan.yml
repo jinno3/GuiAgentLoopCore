@@ -1,12 +1,9 @@
-# MD Bootstrap Execution Plan (v1.1)
-# GuiAgentLoopCore Repository
-
-run_timestamp: "2026-02-03T04:40:00Z"
+run_timestamp: "2026-02-03T04:53:00Z"
 version: "1.1"
 
 rotation:
-  deleted_old: false  # No previous runs existed
-  moved_current_to_old: false  # No previous runs existed
+  deleted_old: true
+  moved_current_to_old: true
 
 input_sources:
   audit:
@@ -15,30 +12,20 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries"
+  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
   core_functions_count: 5
 
 ontology_summary:
+  total_terms: 11
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
   version: "0.3"
-  updated_at: "2026-02-02T05:38:12Z"
-  total_terms: 10
-  by_layer:
-    core: 5
-    domain: 4
-    aux: 1
-  by_status:
-    stable: 9
-    draft: 1
   key_terms:
     - canonical: "Interpreter"
       layer: "core"
@@ -56,51 +43,152 @@ ontology_summary:
       layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
 
-invariants_summary:
-  total: 14
-  hard: 11
-  soft: 3
-  stable: 13
-  draft: 1
-
-auto_decisions_active: 9
+term_normalization:
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists"
+    status: "exists_needs_update"
     tier: 1
+    issues:
+      - "Missing AUTO decisions documentation"
+      - "Missing invariants documentation"
+      - "Could benefit from more detailed concept integration notes"
+
   - path: "AGENTS.md"
-    status: "exists"
+    status: "exists_needs_update"
     tier: 1
+    issues:
+      - "Missing AUTO decisions section"
+      - "Last updated timestamp outdated (2026-02-02, should be 2026-02-03)"
+
   - path: "CLAUDE.md"
-    status: "exists"
+    status: "exists_good"
     tier: 2
-  - path: "ARCHITECTURE.md"
-    status: "exists"
-    tier: 2
-  - path: "CONTRIBUTING.md"
-    status: "exists"
-    tier: 2
+    issues:
+      - "Already well-aligned with ontology (verified: all 9 AUTO decisions noted)"
+      - "Minor: timestamp could be updated to reflect current bootstrap run"
+
   - path: "GLOSSARY.md"
-    status: "exists"
+    status: "exists_good"
     tier: 3
+    issues:
+      - "Auto-generated from ontology.yml - in good alignment"
+      - "Minor: timestamp outdated (2026-02-02, should be 2026-02-03)"
+
   - path: "PURPOSE.md"
-    status: "exists"
+    status: "exists_needs_review"
     tier: 2
+    issues:
+      - "Should verify alignment with intent.yml"
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should verify alignment with intent.yml and invariants.yml"
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Should verify alignment with mappings.yml"
+
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
+    status: "exists_needs_review"
     tier: 2
+    issues:
+      - "Should verify alignment with invariants.yml"
+
   - path: "GEMINI.md"
-    status: "exists"
+    status: "exists_needs_review"
     tier: 3
+    issues:
+      - "Should verify alignment with ontology.yml"
+
   - path: "CODEX.md"
-    status: "exists"
+    status: "exists_needs_review"
     tier: 3
+    issues:
+      - "Should verify alignment with ontology.yml"
 
 actions:
+  - action: "update"
+    target: "README.md"
+    reason: "Add AUTO decisions documentation and invariants section"
+    priority: "high"
+
+  - action: "update"
+    target: "AGENTS.md"
+    reason: "Add AUTO decisions section and update timestamp"
+    priority: "high"
+
   - action: "verify"
-    target: "All MD files"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "update_timestamps"
-    target: "Verification complete"
-    reason: "Document bootstrap verification completion"
+    target: "CLAUDE.md"
+    reason: "Verify concept alignment (already good)"
+    priority: "medium"
+
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "Update timestamp to reflect current bootstrap run"
+    priority: "low"
+
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify alignment with intent.yml"
+    priority: "medium"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify alignment with intent.yml and invariants.yml"
+    priority: "medium"
+
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify alignment with mappings.yml"
+    priority: "low"
+
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify alignment with invariants.yml"
+    priority: "medium"
+
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify alignment with ontology.yml"
+    priority: "low"
+
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify alignment with ontology.yml"
+    priority: "low"
