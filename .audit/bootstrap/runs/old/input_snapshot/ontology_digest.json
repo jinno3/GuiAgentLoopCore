@@ -1,148 +1,178 @@
 {
-  "timestamp": "2026-02-03T04:53:00Z",
+  "timestamp": "2026-02-03T05:10:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
+  "updated_at": "2026-02-02T05:38:12Z",
 
   "statistics": {
-    "total_terms": 11,
+    "total_terms": 10,
     "by_layer": {
       "core": 5,
-      "domain": 5,
+      "domain": 4,
       "aux": 1
     },
     "by_status": {
-      "stable": 10,
+      "stable": 9,
       "draft": 1
-    }
-  },
-
-  "auto_decisions": {
-    "total": 9,
-    "by_term": {
-      "Agent": 2,
-      "Session": 1,
-      "Message": 3,
-      "State": 2,
-      "AutoChat": 1,
-      "Backend": 2,
-      "Memory": 2,
-      "Connector": 1
     }
   },
 
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
+      "id": "TERM-INTERPRETER",
       "layer": "core",
+      "status": "stable",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
       "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "boundaries": {
+        "includes": ["状態管理", "セッション管理", "メッセージルーティング"],
+        "excludes": ["UI描画", "LLM直接実行"]
+      },
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Agent",
+      "id": "TERM-AGENT",
       "layer": "core",
+      "status": "stable",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
       "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "boundaries": {
+        "includes": ["役割定義", "タスク実行", "LLM呼び出し", "実装タイプ（TOOL_CALLING/STRUCTURED_CHAT）", "アイコンマッピング"],
+        "excludes": ["セッション管理", "UI描画"]
+      },
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Session",
+      "id": "TERM-SESSION",
       "layer": "core",
+      "status": "stable",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
       "synonyms": ["ChatSession", "会話セッション", "JWT"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "boundaries": {
+        "includes": ["メッセージ履歴", "セッションID（UUID）", "JWTトークン（HS256アルゴリズム）"],
+        "excludes": ["UI状態", "インタープリタ状態"]
+      },
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Message",
+      "id": "TERM-MESSAGE",
       "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "status": "stable",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
       "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "boundaries": {
+        "includes": ["コンテンツ", "役割（USER/SYSTEM/ASSISTANT/COMPUTER/TOOL/FUNCTION）", "タイプ", "メタデータ", "最大長制限（MAX_MESSAGE_LENGTH=100）"],
+        "excludes": ["セッション状態", "UIイベント"]
+      },
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "State",
+      "id": "TERM-STATE",
       "layer": "core",
+      "status": "stable",
       "definition": "インタープリタの実行状態を表す列挙型",
       "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "boundaries": {
+        "includes": ["状態遷移", "状態チェック", "状態変更イベント", "タイマーベースの定期更新（3秒間隔）"],
+        "excludes": ["セッションライフサイクル", "UI状態"]
+      },
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "AutoChat",
+      "id": "TERM-AUTOCHAT",
       "layer": "domain",
+      "status": "stable",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
-      "should_use_in": ["AGENTS.md", "CLAUDE.md"]
+      "boundaries": {
+        "includes": ["自動入力生成", "状態チェック", "継続トリガー"],
+        "excludes": ["手動チャット", "UIイベントハンドリング"]
+      },
+      "should_use_in": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "StreamWrapper",
+      "id": "TERM-STREAMWRAPPER",
       "layer": "domain",
+      "status": "stable",
       "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
       "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "should_use_in": ["ARCHITECTURE.md"]
+      "boundaries": {
+        "includes": ["ストリーム処理", "同期/非同期変換"],
+        "excludes": ["メッセージ変換", "状態管理"]
+      },
+      "should_use_in": ["ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Backend",
+      "id": "TERM-BACKEND",
       "layer": "domain",
+      "status": "stable",
       "definition": "GUIフレームワーク実装（Gradio等）",
       "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
+      "boundaries": {
+        "includes": ["UI描画", "イベントハンドリング", "コンポーネント管理", "GuiComponent列挙", "GuiBackendType列挙（GRADIO/STREAMSYNC）"],
+        "excludes": ["会話ロジック", "エージェント管理"]
+      },
       "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Memory",
+      "id": "TERM-MEMORY",
       "layer": "domain",
+      "status": "draft",
       "definition": "会話履歴を保持するバッファ機構",
       "synonyms": ["会話メモリ", "ConversationBuffer"],
-      "status": "draft",
-      "should_use_in": ["ARCHITECTURE.md", "AGENTS.md"]
+      "boundaries": {
+        "includes": ["メッセージ履歴", "ウィンドウサイズ"],
+        "excludes": ["セッション管理", "状態保持"]
+      },
+      "should_use_in": ["ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Connector",
+      "id": "TERM-CONNECTOR",
       "layer": "domain",
+      "status": "stable",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
       "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
-      "should_use_in": ["ARCHITECTURE.md"]
+      "boundaries": {
+        "includes": ["GuiAgentInterpreterABCインターフェースの実装", "エージェント固有のブリッジロジック", "I/O変換"],
+        "excludes": ["UI描画", "LLM直接実行", "セッション管理"]
+      },
+      "should_use_in": ["ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Converter",
+      "id": "TERM-CONVERTER",
       "layer": "aux",
+      "status": "stable",
       "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
       "synonyms": ["変換器", "マッパー"],
+      "boundaries": {
+        "includes": ["リクエスト変換", "辞書フラット化", "コードコンテンツ処理", "format/languageフィールド抽出"],
+        "excludes": ["メッセージ処理", "状態管理"]
+      },
       "should_use_in": ["ARCHITECTURE.md"]
     }
   ],
 
-  "synonym_mapping": {
-    "GuiAgentInterpreter": "Interpreter",
-    "会話インタープリタ": "Interpreter",
-    "AIエージェント": "Agent",
-    "専門エージェント": "Agent",
-    "AgentType": "Agent",
-    "AgentDefinition": "Agent",
-    "TaskAgent": "Agent",
-    "AgentImage": "Agent",
-    "ChatSession": "Session",
-    "会話セッション": "Session",
-    "JWT": "Session",
-    "メッセージ": "Message",
-    "ChatMessage": "Message",
-    "InterpreterState": "State",
-    "インタープリタ状態": "State",
-    "自動チャット": "AutoChat",
-    "自動継続": "AutoChat",
-    "GuiAgentStreamWrapper": "StreamWrapper",
-    "ストリームラッパー": "StreamWrapper",
-    "GUIバックエンド": "Backend",
-    "UIフレームワーク": "Backend",
-    "GuiBackend": "Backend",
-    "GuiComponent": "Backend",
-    "会話メモリ": "Memory",
-    "ConversationBuffer": "Memory",
-    "変換器": "Converter",
-    "マッパー": "Converter",
-    "コネクタ": "Connector",
-    "GuiAgentInterpreterABC": "Connector",
-    "ConnectorImplCodeinterpreterApi": "Connector",
-    "ConnectorImplOpenInterpreter": "Connector",
-    "OpenGuiConnector": "Connector"
-  }
+  "auto_decisions_count": 9,
+  "active_auto_decisions": [
+    "AUTO:Agent.role:classification",
+    "AUTO:Agent.type:implementation_property",
+    "AUTO:Message.structure:flat",
+    "AUTO:Message.limit:100",
+    "AUTO:Message.roles:tool_function_separation",
+    "AUTO:State.lifecycle:monotonic",
+    "AUTO:State.transition:auto_on_input",
+    "AUTO:AutoChat.trigger:stop_only",
+    "AUTO:Backend.primary:gradio"
+  ]
 }

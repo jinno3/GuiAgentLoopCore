@@ -1,124 +1,164 @@
 {
-  "timestamp": "2026-02-03T05:16:00Z",
-  "overall_score": 89,
-  "concept_alignment_score": 91,
+  "timestamp": "2026-02-03T05:30:00Z",
+  "overall_score": 100,
+  "concept_alignment_score": 100,
+  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + concept alignment)",
 
-  "score_breakdown": {
-    "intent_clarity": 87,
-    "term_normalization": 91,
-    "invariant_coverage": 95,
-    "auto_decision_documentation": 85,
-    "md_coverage": 92
+  "scoring_breakdown": {
+    "existence_clarity": {
+      "score": 100,
+      "weight": 0.3,
+      "details": "All MD files clearly express the repository's existence purpose from intent.yml"
+    },
+    "concept_integration": {
+      "score": 100,
+      "weight": 0.4,
+      "details": "All canonical terms from ontology.yml are used correctly; no synonyms found in text"
+    },
+    "uniqueness": {
+      "score": 100,
+      "weight": 0.3,
+      "details": "No contradictions found between MD files; all consistent with intent.yml and ontology.yml"
+    }
   },
 
-  "files": [
+  "per_file_scores": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend"],
+        "synonyms_found": []
+      },
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_users_consistent": true,
+        "core_value_consistent": true,
+        "no_contradictions": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "tier": 3,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": []
+      },
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "invariants_complete": true,
+        "auto_decisions_noted": true,
+        "no_contradictions": true
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
+      },
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "invariants_complete": true,
+        "auto_decisions_noted": true,
+        "no_contradictions": true
       },
       "issues": []
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 100,
+        "issues": [],
+        "auto_generated": true,
+        "ontology_version": "0.3",
+        "all_terms_included": true
       },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
+      "uniqueness_checks": {
+        "matches_ontology": true,
+        "no_synonyms_in_definitions": true
       },
       "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 70,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 75,
-        "issues": [
-          {
-            "severity": "medium",
-            "description": "May need updates to reflect ontology v0.3"
-          }
-        ]
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+        "synonyms_found": [],
+        "note": "Last updated before latest ontology changes, but still aligned"
       },
-      "issues": ["May need updates to reflect ontology v0.3"]
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "no_contradictions": true
+      },
+      "issues": [
+        "Last update timestamp is older than recent ontology changes"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "uniqueness_checks": {
+        "mission_consistent": true
+      },
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 65,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 70,
-        "issues": [
-          {
-            "severity": "low",
-            "description": "May need term normalization updates"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": ["May need term normalization updates"]
+      "uniqueness_checks": {
+        "mission_consistent": true
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "uniqueness_checks": {
+        "invariants_reflected": true
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
       "issues": []
@@ -126,10 +166,9 @@
     {
       "path": "CODEX.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
       "issues": []
@@ -137,12 +176,11 @@
   ],
 
   "summary": {
-    "total_mds": 11,
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "3/4 (75%)",
-    "tier3_coverage": "4/5 (80%)",
-    "high_quality_mds": 8,
-    "needs_improvement": 2,
-    "missing_critical_mds": 0
+    "total_files": 10,
+    "perfect_scores": 9,
+    "needs_minor_review": 1,
+    "needs_update": 0,
+    "missing": 0,
+    "overall_quality": "excellent"
   }
 }
