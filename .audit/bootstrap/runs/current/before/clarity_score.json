@@ -1,213 +1,249 @@
 {
-  "timestamp": "2026-02-02T22:33:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-02T22:52:03.070587",
+  "overall_score": 78,
+  "concept_alignment_score": 75,
   "max_score": 100,
-  "scoring_criteria": {
-    "existence_clarity": {
-      "weight": 0.4,
-      "description": "Clear expression of mission and purpose from intent.yml"
-    },
-    "term_normalization": {
-      "weight": 0.3,
-      "description": "Use of canonical terms from ontology.yml"
-    },
-    "invariant_reflection": {
-      "weight": 0.2,
-      "description": "Reflection of hard invariants from invariants.yml"
-    },
-    "auto_decision_notes": {
-      "weight": 0.1,
-      "description": "Notes about AUTO decisions from ambiguities.yml"
-    }
-  },
   "files": [
     {
       "path": "README.md",
-      "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": []
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Missing reference to GLOSSARY.md for complete terminology"
-      ],
-      "strengths": [
-        "Clear mission statement from intent.yml",
-        "All core terms used in canonical form",
-        "Proper reference to ontology-based terminology"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 10,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "synonyms_found": []
+        "score": 0,
+        "issues": [
+          {
+            "line": 14,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 14,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 15,
+            "found": "AIエージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "専門エージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "AgentDefinition",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "TaskAgent",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "AgentImage",
+            "should_be": "Agent"
+          },
+          {
+            "line": 16,
+            "found": "ChatSession",
+            "should_be": "Session"
+          },
+          {
+            "line": 16,
+            "found": "会話セッション",
+            "should_be": "Session"
+          }
+        ]
       },
-      "issues": [
-        "Missing AUTO decision notes in invariants section"
-      ],
-      "strengths": [
-        "Excellent term normalization table",
-        "Comprehensive hard invariants list",
-        "Clear behavior guidelines aligned with intent.yml"
-      ]
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "synonyms_found": []
+        "score": 100,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Comprehensive AUTO decision documentation",
-        "Clear invariant violation examples",
-        "Excellent Claude-specific guidelines"
-      ]
+      "issues": []
     },
     {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 88,
+      "path": "GLOSSARY.md",
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "line": 19,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 19,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 34,
+            "found": "AIエージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 34,
+            "found": "専門エージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 34,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 34,
+            "found": "AgentDefinition",
+            "should_be": "Agent"
+          },
+          {
+            "line": 34,
+            "found": "TaskAgent",
+            "should_be": "Agent"
+          },
+          {
+            "line": 34,
+            "found": "AgentImage",
+            "should_be": "Agent"
+          },
+          {
+            "line": 53,
+            "found": "ChatSession",
+            "should_be": "Session"
+          },
+          {
+            "line": 53,
+            "found": "会話セッション",
+            "should_be": "Session"
+          }
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "clarity_score": 91,
       "concept_alignment": {
         "score": 85,
         "issues": [
           {
-            "line": 30,
-            "found": "Interpreter",
-            "expected": "Interpreter",
-            "status": "ok"
+            "line": 158,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 162,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 336,
+            "found": "JWT",
+            "should_be": "Session"
           }
-        ],
-        "canonical_terms_used": ["Interpreter", "Agent", "State", "Message"],
-        "synonyms_found": []
+        ]
       },
-      "issues": [
-        "Could reference ontology.yml more explicitly",
-        "Missing some domain terms like AutoChat, StreamWrapper"
-      ],
-      "strengths": [
-        "Well-structured mission and objectives",
-        "Clear in-scope/out-of-scope boundaries",
-        "Good alignment with intent.yml"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": false,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [],
-        "canonical_terms_used": [],
-        "synonyms_found": []
-      },
-      "issues": [
-        "CRITICAL: GLOSSARY.md does not exist - should be auto-generated from ontology.yml"
-      ],
-      "strengths": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [],
-        "canonical_terms_used": [],
-        "synonyms_found": []
-      },
-      "issues": [
-        "File is empty - should document hard invariants as system constitution"
-      ],
-      "strengths": []
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 94,
       "concept_alignment": {
-        "score": 0,
-        "issues": [],
-        "canonical_terms_used": [],
-        "synonyms_found": []
+        "score": 90,
+        "issues": [
+          {
+            "line": 30,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 33,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          }
+        ]
       },
-      "issues": [
-        "File is empty - should document contribution guidelines with term normalization rules"
-      ],
-      "strengths": []
+      "issues": []
     },
     {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 0,
+      "path": "PURPOSE.md",
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 0,
-        "issues": [],
-        "canonical_terms_used": [],
-        "synonyms_found": []
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "File is empty - should document architecture with canonical terms"
-      ],
-      "strengths": []
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 94,
       "concept_alignment": {
-        "score": 0,
-        "issues": [],
-        "canonical_terms_used": [],
-        "synonyms_found": []
+        "score": 90,
+        "issues": [
+          {
+            "line": 86,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 91,
+            "found": "AgentType",
+            "should_be": "Agent"
+          }
+        ]
       },
-      "issues": [
-        "File is empty - should provide Gemini-specific instructions like CLAUDE.md"
-      ],
-      "strengths": []
+      "issues": []
     },
     {
       "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 94,
       "concept_alignment": {
-        "score": 0,
-        "issues": [],
-        "canonical_terms_used": [],
-        "synonyms_found": []
+        "score": 90,
+        "issues": [
+          {
+            "line": 87,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 92,
+            "found": "AgentType",
+            "should_be": "Agent"
+          }
+        ]
       },
-      "issues": [
-        "File is empty - should provide Codex-specific instructions"
-      ],
-      "strengths": []
+      "issues": []
     }
-  ],
-  "summary": {
-    "total_files_assessed": 10,
-    "files_with_good_clarity": 4,
-    "files_with_poor_clarity": 6,
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "1/4 (25%)",
-    "tier3_coverage": "0/4 (0%)",
-    "priority_improvements": [
-      "Generate GLOSSARY.md from ontology.yml",
-      "Populate SYSTEM_CONSTITUTION.md with hard invariants",
-      "Populate CONTRIBUTING.md with term normalization guidelines",
-      "Populate ARCHITECTURE.md with system architecture",
-      "Create GEMINI.md and CODEX.md following CLAUDE.md pattern"
-    ]
-  }
+  ]
 }

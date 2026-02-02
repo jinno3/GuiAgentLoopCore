@@ -1,176 +1,213 @@
 {
-  "timestamp": "2026-02-02T22:06:49Z",
-  "overall_score": 98,
-  "concept_alignment_score": 98,
-  "uniqueness_score": 98,
+  "timestamp": "2026-02-02T22:33:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 90,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + concept integrated)",
+  "scoring_criteria": {
+    "existence_clarity": {
+      "weight": 0.4,
+      "description": "Clear expression of mission and purpose from intent.yml"
+    },
+    "term_normalization": {
+      "weight": 0.3,
+      "description": "Use of canonical terms from ontology.yml"
+    },
+    "invariant_reflection": {
+      "weight": 0.2,
+      "description": "Reflection of hard invariants from invariants.yml"
+    },
+    "auto_decision_notes": {
+      "weight": 0.1,
+      "description": "Notes about AUTO decisions from ambiguities.yml"
+    }
+  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 12,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true,
-        "boundaries_respected": true
-      },
-      "issues": []
+      "issues": [
+        "Missing reference to GLOSSARY.md for complete terminology"
+      ],
+      "strengths": [
+        "Clear mission statement from intent.yml",
+        "All core terms used in canonical form",
+        "Proper reference to ontology-based terminology"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 25,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true,
-        "boundaries_respected": true
-      },
-      "issues": []
+      "issues": [
+        "Missing AUTO decision notes in invariants section"
+      ],
+      "strengths": [
+        "Excellent term normalization table",
+        "Comprehensive hard invariants list",
+        "Clear behavior guidelines aligned with intent.yml"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 18,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true,
-        "boundaries_respected": true
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 15,
-        "synonym_usage": 0,
-        "issues": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true,
-        "invariants_covered": 13
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Comprehensive AUTO decision documentation",
+        "Clear invariant violation examples",
+        "Excellent Claude-specific guidelines"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 8,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "line": 30,
+            "found": "Interpreter",
+            "expected": "Interpreter",
+            "status": "ok"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "State", "Message"],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true,
-        "boundaries_respected": true
+      "issues": [
+        "Could reference ontology.yml more explicitly",
+        "Missing some domain terms like AutoChat, StreamWrapper"
+      ],
+      "strengths": [
+        "Well-structured mission and objectives",
+        "Clear in-scope/out-of-scope boundaries",
+        "Good alignment with intent.yml"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": false,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
-      "issues": []
+      "issues": [
+        "CRITICAL: GLOSSARY.md does not exist - should be auto-generated from ontology.yml"
+      ],
+      "strengths": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [],
+        "canonical_terms_used": [],
+        "synonyms_found": []
+      },
+      "issues": [
+        "File is empty - should document hard invariants as system constitution"
+      ],
+      "strengths": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 10,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 0,
+        "issues": [],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true
-      },
-      "issues": []
+      "issues": [
+        "File is empty - should document contribution guidelines with term normalization rules"
+      ],
+      "strengths": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 96,
-        "canonical_term_usage": 14,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 0,
+        "issues": [],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true
-      },
-      "issues": []
+      "issues": [
+        "File is empty - should document architecture with canonical terms"
+      ],
+      "strengths": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 96,
-        "canonical_term_usage": 8,
-        "synonym_usage": 0,
-        "issues": []
+        "score": 0,
+        "issues": [],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true
-      },
-      "issues": []
+      "issues": [
+        "File is empty - should provide Gemini-specific instructions like CLAUDE.md"
+      ],
+      "strengths": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 96,
-        "canonical_term_usage": 8,
-        "synonym_usage": 0,
-        "issues": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_user_consistent": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 33,
-        "synonym_usage": 0,
-        "issues": []
-      },
-      "uniqueness_checks": {
-        "ontology_aligned": true
+        "score": 0,
+        "issues": [],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
       "issues": [
-        "タイムスタンプ更新が必要"
-      ]
+        "File is empty - should provide Codex-specific instructions"
+      ],
+      "strengths": []
     }
-  ]
+  ],
+  "summary": {
+    "total_files_assessed": 10,
+    "files_with_good_clarity": 4,
+    "files_with_poor_clarity": 6,
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "1/4 (25%)",
+    "tier3_coverage": "0/4 (0%)",
+    "priority_improvements": [
+      "Generate GLOSSARY.md from ontology.yml",
+      "Populate SYSTEM_CONSTITUTION.md with hard invariants",
+      "Populate CONTRIBUTING.md with term normalization guidelines",
+      "Populate ARCHITECTURE.md with system architecture",
+      "Create GEMINI.md and CODEX.md following CLAUDE.md pattern"
+    ]
+  }
 }

@@ -91,4 +91,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-02T21:32:00Z (bootstrap run v1.1 - AGENTS.md updated with term normalization table)
+**最終更新**: 2026-02-02T22:50:00Z (bootstrap run v1.1 - run #29 verification complete)
