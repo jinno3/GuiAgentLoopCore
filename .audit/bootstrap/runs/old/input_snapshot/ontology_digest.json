@@ -1,7 +1,9 @@
 {
-  "timestamp": "2026-02-02T03:59:39.416989+00:00",
+  "timestamp": "2026-02-02T13:09:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
+  "updated_at": "2026-02-02T05:38:12Z",
+
   "statistics": {
     "total_terms": 11,
     "by_layer": {
@@ -14,125 +16,133 @@
       "draft": 1
     }
   },
+
+  "canonical_terms": [
+    {
+      "id": "TERM-INTERPRETER",
+      "canonical": "Interpreter",
+      "layer": "core",
+      "status": "stable",
+      "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+      "related_terms": ["Agent", "Session", "Message", "State"]
+    },
+    {
+      "id": "TERM-AGENT",
+      "canonical": "Agent",
+      "layer": "core",
+      "status": "stable",
+      "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
+      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
+      "related_terms": ["Interpreter", "AgentName", "Message", "Backend"]
+    },
+    {
+      "id": "TERM-SESSION",
+      "canonical": "Session",
+      "layer": "core",
+      "status": "stable",
+      "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
+      "synonyms": ["ChatSession", "会話セッション", "JWT"],
+      "related_terms": ["Interpreter", "Message", "Agent"]
+    },
+    {
+      "id": "TERM-MESSAGE",
+      "canonical": "Message",
+      "layer": "core",
+      "status": "stable",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
+      "synonyms": ["メッセージ", "ChatMessage"],
+      "related_terms": ["Interpreter", "Agent", "Session"]
+    },
+    {
+      "id": "TERM-STATE",
+      "canonical": "State",
+      "layer": "core",
+      "status": "stable",
+      "definition": "インタープリタの実行状態を表す列挙型",
+      "synonyms": ["InterpreterState", "インタープリタ状態"],
+      "related_terms": ["Interpreter", "AutoChat", "Timer"]
+    },
+    {
+      "id": "TERM-AUTOCHAT",
+      "canonical": "AutoChat",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "STATE_STOP時に自動的に会話を継続する機能",
+      "synonyms": ["自動チャット", "自動継続"],
+      "related_terms": ["Interpreter", "State", "Message"]
+    },
+    {
+      "id": "TERM-STREAMWRAPPER",
+      "canonical": "StreamWrapper",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
+      "related_terms": ["Message", "Interpreter"]
+    },
+    {
+      "id": "TERM-BACKEND",
+      "canonical": "Backend",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "GUIフレームワーク実装（Gradio等）",
+      "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
+      "related_terms": ["Interpreter", "Session", "GuiComponent"]
+    },
+    {
+      "id": "TERM-CONNECTOR",
+      "canonical": "Connector",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
+      "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter"],
+      "related_terms": ["Interpreter", "Agent"]
+    },
+    {
+      "id": "TERM-MEMORY",
+      "canonical": "Memory",
+      "layer": "domain",
+      "status": "draft",
+      "definition": "会話履歴を保持するバッファ機構",
+      "synonyms": ["会話メモリ", "ConversationBuffer"],
+      "related_terms": ["Session", "Message"]
+    },
+    {
+      "id": "TERM-CONVERTER",
+      "canonical": "Converter",
+      "layer": "aux",
+      "status": "stable",
+      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+      "synonyms": ["変換器", "マッパー"],
+      "related_terms": ["Message"]
+    }
+  ],
+
+  "total_synonyms": 31,
+  "avg_synonyms_per_term": 2.82,
+
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
       "layer": "core",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": [
-        "GuiAgentInterpreter",
-        "会話インタープリタ"
-      ],
-      "status": "stable"
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Agent",
       "layer": "core",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": [
-        "AIエージェント",
-        "専門エージェント",
-        "AgentType",
-        "AgentDefinition",
-        "TaskAgent",
-        "AgentImage"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Session",
-      "layer": "core",
-      "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
-      "synonyms": [
-        "ChatSession",
-        "会話セッション",
-        "JWT"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Message",
-      "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
-      "synonyms": [
-        "メッセージ",
-        "ChatMessage"
-      ],
-      "status": "stable"
+      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "State",
       "layer": "core",
       "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": [
-        "InterpreterState",
-        "インタープリタ状態"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "AutoChat",
-      "layer": "domain",
-      "definition": "STATE_STOP時に自動的に会話を継続する機能",
-      "synonyms": [
-        "自動チャット",
-        "自動継続"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": [
-        "GuiAgentStreamWrapper",
-        "ストリームラッパー"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Backend",
-      "layer": "domain",
-      "definition": "GUIフレームワーク実装（Gradio等）",
-      "synonyms": [
-        "GUIバックエンド",
-        "UIフレームワーク",
-        "GuiBackend",
-        "GuiComponent"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Converter",
-      "layer": "aux",
-      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
-      "synonyms": [
-        "変換器",
-        "マッパー"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Memory",
-      "layer": "domain",
-      "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": [
-        "会話メモリ",
-        "ConversationBuffer"
-      ],
-      "status": "draft"
-    },
-    {
-      "canonical": "Connector",
-      "layer": "domain",
-      "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
-      "synonyms": [
-        "コネクタ",
-        "GuiAgentInterpreterABC",
-        "ConnectorImplCodeinterpreterApi",
-        "ConnectorImplOpenInterpreter"
-      ],
-      "status": "stable"
+      "synonyms": ["InterpreterState", "インタープリタ状態"],
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
     }
   ]
 }

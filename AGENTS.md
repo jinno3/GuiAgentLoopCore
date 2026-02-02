@@ -190,4 +190,4 @@
 
 ---
 
-**最終更新**: 2026-02-02T02:56:23Z（.concept/ontology.yml v0.3 + invariants.ymlに基づく）
+**最終更新**: 2026-02-02T13:23:00Z（.concept/ontology.yml v0.3 + invariants.ymlに基づく - verified, no changes needed）

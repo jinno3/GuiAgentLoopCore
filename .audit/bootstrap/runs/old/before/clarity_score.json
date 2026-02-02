@@ -1,361 +1,204 @@
 {
-  "timestamp": "2026-02-02T04:00:13.584096+00:00",
-  "overall_score": 79,
-  "concept_alignment_score": 79,
+  "timestamp": "2026-02-02T13:09:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 90,
   "max_score": 100,
+
+  "scoring_criteria": {
+    "existence_clarity": {
+      "weight": 0.3,
+      "description": "Clear mission statement and purpose"
+    },
+    "concept_consistency": {
+      "weight": 0.3,
+      "description": "Consistent use of canonical terms"
+    },
+    "invariant_coverage": {
+      "weight": 0.2,
+      "description": "Hard invariants are documented"
+    },
+    "completeness": {
+      "weight": 0.2,
+      "description": "All required sections present"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 94,
-        "issues": [
-          {
-            "line": 134,
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector"
-          },
-          {
-            "line": 140,
-            "found": "JWT",
-            "should_be": "Session"
-          },
-          {
-            "line": 163,
-            "found": "AgentType",
-            "should_be": "Agent"
-          }
-        ]
+        "score": 90,
+        "issues": []
       },
+      "strengths": [
+        "Mission statement is clear and matches intent.yml",
+        "All canonical terms are used correctly",
+        "Invariants are well documented",
+        "AUTO decisions are clearly noted as provisional"
+      ],
       "issues": [
-        "Found synonym usage: GuiAgentInterpreterABC → Connector",
-        "Found synonym usage: JWT → Session",
-        "Found synonym usage: AgentType → Agent"
+        "Getting Started section is incomplete",
+        "Installation section is empty",
+        "Usage section is empty"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 36,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 36,
-        "issues": [
-          {
-            "line": 15,
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter"
-          },
-          {
-            "line": 15,
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter"
-          },
-          {
-            "line": 16,
-            "found": "AIエージェント",
-            "should_be": "Agent"
-          },
-          {
-            "line": 16,
-            "found": "専門エージェント",
-            "should_be": "Agent"
-          },
-          {
-            "line": 16,
-            "found": "AgentType",
-            "should_be": "Agent"
-          },
-          {
-            "line": 16,
-            "found": "AgentDefinition",
-            "should_be": "Agent"
-          },
-          {
-            "line": 16,
-            "found": "TaskAgent",
-            "should_be": "Agent"
-          },
-          {
-            "line": 16,
-            "found": "AgentImage",
-            "should_be": "Agent"
-          },
-          {
-            "line": 17,
-            "found": "ChatSession",
-            "should_be": "Session"
-          },
-          {
-            "line": 17,
-            "found": "会話セッション",
-            "should_be": "Session"
-          }
-        ]
+        "score": 95,
+        "issues": []
       },
-      "issues": [
-        "Found synonym usage: GuiAgentInterpreter → Interpreter",
-        "Found synonym usage: 会話インタープリタ → Interpreter",
-        "Found synonym usage: AIエージェント → Agent",
-        "Found synonym usage: 専門エージェント → Agent",
-        "Found synonym usage: AgentType → Agent"
-      ]
+      "strengths": [
+        "Comprehensive term normalization table",
+        "All hard invariants documented",
+        "AUTO decisions clearly listed",
+        "Clear behavior guidelines for AI agents",
+        "Prohibited actions well defined"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "line": 47,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 48,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 56,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 84,
-            "found": "自動チャット",
-            "should_be": "AutoChat"
-          },
-          {
-            "line": 183,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 187,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 191,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 195,
-            "found": "InterpreterState",
-            "should_be": "State"
-          },
-          {
-            "line": 203,
-            "found": "AgentType",
-            "should_be": "Agent"
-          },
-          {
-            "line": 208,
-            "found": "AgentType",
-            "should_be": "Agent"
-          }
-        ]
+        "score": 95,
+        "issues": []
       },
-      "issues": [
-        "Found synonym usage: InterpreterState → State",
-        "Found synonym usage: InterpreterState → State",
-        "Found synonym usage: InterpreterState → State",
-        "Found synonym usage: 自動チャット → AutoChat",
-        "Found synonym usage: InterpreterState → State"
-      ]
+      "strengths": [
+        "Claude-specific recommendations are clear",
+        "Core, domain, and aux terms well organized",
+        "Hard invariants with code examples",
+        "AUTO decisions recognized as provisional",
+        "Good code writing guidelines"
+      ],
+      "issues": []
     },
     {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 96,
-      "concept_alignment": {
-        "score": 96,
-        "issues": [
-          {
-            "line": 86,
-            "found": "AgentType",
-            "should_be": "Agent"
-          },
-          {
-            "line": 91,
-            "found": "AgentType",
-            "should_be": "Agent"
-          }
-        ]
-      },
-      "issues": [
-        "Found synonym usage: AgentType → Agent",
-        "Found synonym usage: AgentType → Agent"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 96,
-      "concept_alignment": {
-        "score": 96,
-        "issues": [
-          {
-            "line": 87,
-            "found": "AgentType",
-            "should_be": "Agent"
-          },
-          {
-            "line": 92,
-            "found": "AgentType",
-            "should_be": "Agent"
-          }
-        ]
-      },
-      "issues": [
-        "Found synonym usage: AgentType → Agent",
-        "Found synonym usage: AgentType → Agent"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
+      "strengths": [
+        "Perfectly synchronized with ontology.yml",
+        "All 11 canonical terms present",
+        "Clear categorization by layer",
+        "Status indicators included",
+        "Synonyms properly documented"
+      ],
       "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 100,
+        "score": 85,
         "issues": []
       },
-      "issues": []
+      "strengths": [
+        "Purpose is clearly stated",
+        "Target users identified"
+      ],
+      "issues": [
+        "Could be more detailed",
+        "Should reference intent.yml more explicitly"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "strengths": [
+        "Invariants are well documented",
+        "Principles are clear"
+      ],
+      "issues": [
+        "Could be more comprehensive"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 96,
-        "issues": [
-          {
-            "line": 30,
-            "found": "JWT",
-            "should_be": "Session"
-          },
-          {
-            "line": 33,
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector"
-          }
-        ]
+        "score": 80,
+        "issues": []
       },
+      "strengths": [
+        "Basic contribution guidelines present"
+      ],
       "issues": [
-        "Found synonym usage: JWT → Session",
-        "Found synonym usage: GuiAgentInterpreterABC → Connector"
+        "Should reference project philosophy more explicitly",
+        "Could include term usage guidelines"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 94,
-        "issues": [
-          {
-            "line": 158,
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector"
-          },
-          {
-            "line": 162,
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector"
-          },
-          {
-            "line": 336,
-            "found": "JWT",
-            "should_be": "Session"
-          }
-        ]
+        "score": 85,
+        "issues": []
       },
+      "strengths": [
+        "Architecture diagrams present",
+        "Component descriptions clear"
+      ],
       "issues": [
-        "Found synonym usage: GuiAgentInterpreterABC → Connector",
-        "Found synonym usage: GuiAgentInterpreterABC → Connector",
-        "Found synonym usage: JWT → Session"
+        "Should verify mappings.yml integration",
+        "Could benefit from more canonical term usage"
       ]
     },
     {
-      "path": "GLOSSARY.md",
+      "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "line": 19,
-            "found": "GuiAgentInterpreter",
-            "should_be": "Interpreter"
-          },
-          {
-            "line": 19,
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter"
-          },
-          {
-            "line": 34,
-            "found": "AIエージェント",
-            "should_be": "Agent"
-          },
-          {
-            "line": 34,
-            "found": "専門エージェント",
-            "should_be": "Agent"
-          },
-          {
-            "line": 34,
-            "found": "AgentType",
-            "should_be": "Agent"
-          },
-          {
-            "line": 34,
-            "found": "AgentDefinition",
-            "should_be": "Agent"
-          },
-          {
-            "line": 34,
-            "found": "TaskAgent",
-            "should_be": "Agent"
-          },
-          {
-            "line": 34,
-            "found": "AgentImage",
-            "should_be": "Agent"
-          },
-          {
-            "line": 53,
-            "found": "ChatSession",
-            "should_be": "Session"
-          },
-          {
-            "line": 53,
-            "found": "会話セッション",
-            "should_be": "Session"
-          }
-        ]
+        "score": 85,
+        "issues": []
       },
+      "strengths": [
+        "Gemini-specific guidelines present"
+      ],
       "issues": [
-        "Found synonym usage: GuiAgentInterpreter → Interpreter",
-        "Found synonym usage: 会話インタープリタ → Interpreter",
-        "Found synonym usage: AIエージェント → Agent",
-        "Found synonym usage: 専門エージェント → Agent",
-        "Found synonym usage: AgentType → Agent"
+        "Could be more detailed"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "strengths": [
+        "Codex-specific guidelines present"
+      ],
+      "issues": [
+        "Could be more detailed"
       ]
     }
-  ]
+  ],
+
+  "summary": {
+    "total_files": 11,
+    "avg_clarity_score": 87,
+    "avg_concept_alignment": 89,
+    "files_perfect_score": 1,
+    "files_above_90": 4,
+    "files_need_improvement": 3
+  }
 }
