@@ -1,4 +1,7 @@
-run_timestamp: "2026-02-02T15:43:00Z"
+# MD Bootstrap Execution Plan (v1.1)
+# Generated: 2026-02-02T16:05:00Z
+
+run_timestamp: "2026-02-02T16:05:00Z"
 version: "1.1"
 
 rotation:
@@ -9,35 +12,31 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
-    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
-    ontology_version: "0.3"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_users:
+  target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  in_scope_count: 6
-  out_of_scope_count: 5
 
 ontology_summary:
-  total_terms: 10
+  version: "0.3"
+  updated_at: "2026-02-02T05:38:12Z"
+  total_terms: 11
   by_layer:
-    core: 5
-    domain: 4
-    aux: 1
+    core: 5  # Interpreter, Agent, Session, Message, State
+    domain: 5  # AutoChat, StreamWrapper, Backend, Memory, Connector
+    aux: 1  # Converter
   by_status:
-    stable: 9
-    draft: 1
+    stable: 10
+    draft: 1  # Memory
   key_terms:
     - canonical: "Interpreter"
       layer: "core"
@@ -59,73 +58,30 @@ ontology_summary:
       layer: "core"
       status: "stable"
       definition: "インタープリタの実行状態を表す列挙型"
-    - canonical: "AutoChat"
-      layer: "domain"
-      status: "stable"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-    - canonical: "StreamWrapper"
-      layer: "domain"
-      status: "stable"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-    - canonical: "Backend"
-      layer: "domain"
-      status: "stable"
-      definition: "GUIフレームワーク実装（Gradio等）"
-    - canonical: "Converter"
-      layer: "aux"
-      status: "stable"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-    - canonical: "Memory"
-      layer: "domain"
-      status: "draft"
-      definition: "会話履歴を保持するバッファ機構"
 
 invariants_summary:
-  total_invariants: 14
+  total_invariants: 13
   hard_invariants: 11
-  soft_invariants: 3
-  by_strength:
-    hard:
-      - "INV-STATE-001"
-      - "INV-SESSION-001"
-      - "INV-MSG-001"
-      - "INV-AUTO-001"
-      - "INV-STREAM-001"
-      - "INV-MESSAGE-001"
-      - "INV-STATE-002"
-      - "INV-BACKEND-001"
-      - "INV-SESSION-002"
-      - "INV-CONNECTOR-001"
-      - "INV-CONVERTER-001"
-    soft:
-      - "INV-AGENT-001"
-      - "INV-MEM-001"
-      - "INV-BACKEND-002"
-
-auto_decisions_summary:
-  total_auto_decisions: 17
-  active_applied: 15
-  expired: 2
-  by_category:
-    Agent: 2
-    State: 3
-    Message: 3
-    AutoChat: 2
-    Backend: 2
-    Memory: 2
-    Session: 2
-    Connector: 1
-  expired_decisions:
-    - id: "AMB-SEC-001"
-      decision_key: "AUTO:Security.secret_key:env_var_required"
-      severity: "high"
-    - id: "AMB-SEC-002"
-      decision_key: "AUTO:Session.jwt:decode_method_fix"
-      severity: "high"
+  soft_invariants: 2
+  related_to_terms:
+    - INV-STATE-001 (hard, Interpreter)
+    - INV-MSG-001 (hard, Message)
+    - INV-MESSAGE-001 (hard, Message)
+    - INV-SESSION-001 (hard, Session)
+    - INV-SESSION-002 (hard, Session)
+    - INV-AGENT-001 (soft, Agent)
+    - INV-AUTO-001 (hard, AutoChat)
+    - INV-MEM-001 (soft, Memory)
+    - INV-STREAM-001 (hard, StreamWrapper)
+    - INV-STATE-002 (hard, State)
+    - INV-BACKEND-001 (hard, Backend)
+    - INV-BACKEND-002 (soft, Backend)
+    - INV-CONNECTOR-001 (hard, Connector)
+    - INV-CONVERTER-001 (hard, Converter)
 
 term_normalization:
-  "会話インタープリタ": "Interpreter"
   "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
@@ -147,107 +103,128 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
     status: "exists_verified"
     tier: 1
+    clarity_score: 95
+    concept_alignment: 100
     issues: []
   - path: "AGENTS.md"
     status: "exists_verified"
     tier: 1
+    clarity_score: 98
+    concept_alignment: 100
     issues: []
   - path: "CLAUDE.md"
     status: "exists_verified"
     tier: 2
-    issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_verified"
-    tier: 3
+    clarity_score: 95
+    concept_alignment: 100
     issues: []
   - path: "PURPOSE.md"
     status: "exists_verified"
     tier: 2
+    clarity_score: 95
+    concept_alignment: 100
     issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_verified"
+    tier: 3
+    clarity_score: 100
+    concept_alignment: 100
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    clarity_score: 85
+    concept_alignment: 90
+    issues:
+      - "May need review for ontology v0.3 alignment"
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    clarity_score: 85
+    concept_alignment: 90
+    issues:
+      - "May need review for ontology v0.3 alignment"
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_update"
+    tier: 2
+    clarity_score: 70
+    concept_alignment: 75
+    issues:
+      - "Should reference invariants and AUTO decisions"
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_update"
+    tier: 3
+    clarity_score: 75
+    concept_alignment: 80
+    issues:
+      - "Should use canonical terminology"
+      - "Should reflect mappings.yml"
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_verified"
     tier: 2
+    clarity_score: 90
+    concept_alignment: 95
     issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_verified"
-    tier: 2
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_verified"
-    tier: 3
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_verified"
-    tier: 3
-    issues: []
-  - path: "GEMINI.md"
-    status: "exists_verified"
-    tier: 3
-    issues: []
-
-previous_run_scores:
-  clarity_score: 95
-  uniqueness_score: 95
-  concept_alignment_score: 98
-  overall_score: 96
 
 actions:
+  # Tier 1 files - already verified, no changes needed
   - action: "verify"
     target: "README.md"
-    reason: "既に検証済み。再度確認を実施"
+    reason: "Already aligned with intent.yml and ontology.yml v0.3"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "既に検証済み。再度確認を実施"
+    reason: "Already aligned with intent.yml and ontology.yml v0.3"
+
+  # Tier 2 files - minor updates needed
+  - action: "update"
+    target: "CONTRIBUTING.md"
+    reason: "Add references to invariants.yml and AUTO decisions"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "既に検証済み。再度確認を実施"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "既に検証済み。再度確認を実施"
+    reason: "Already aligned with ontology.yml v0.3"
   - action: "verify"
     target: "PURPOSE.md"
-    reason: "既に検証済み。再度確認を実施"
+    reason: "Already aligned with intent.yml"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "既に検証済み。再度確認を実施"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "既に検証済み。再度確認を実施"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "既に検証済み。再度確認を実施"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "既に検証済み。再度確認を実施"
-  - action: "verify"
+    reason: "Already aligned with invariants.yml"
+
+  # Tier 3 files - review needed
+  - action: "review"
     target: "GEMINI.md"
-    reason: "既に検証済み。再度確認を実施"
+    reason: "Verify ontology v0.3 alignment"
+  - action: "review"
+    target: "CODEX.md"
+    reason: "Verify ontology v0.3 alignment"
+  - action: "update"
+    target: "ARCHITECTURE.md"
+    reason: "Use canonical terminology, reflect mappings.yml"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Auto-generated from ontology.yml"
 
-verification_targets:
-  uniqueness_checks:
-    - "UC-001: Existence consistency"
-    - "UC-002: Target user consistency"
-    - "UC-003: Constraints consistency"
-    - "UC-004: Boundaries consistency"
-    - "UC-005: Intent.yml compliance"
-  concept_alignment_checks:
-    - "CA-001: Canonical term usage"
-    - "CA-002: Synonym exclusion"
-    - "CA-003: Invariant reflection"
-    - "CA-004: AUTO decision documentation"
-    - "CA-005: Term boundary consistency"
+overall_assessment:
+  md_coverage_tier1: "2/2 (100%)"
+  md_coverage_tier2: "4/4 (100%)"
+  md_coverage_tier3: "4/4 (100%)"
+  overall_clarity_score: 91
+  overall_concept_alignment: 94
 
-expected_outcomes:
-  maintain_high_scores: true
-  target_overall_score: 96
-  focus_area: "Verification and monitoring (no changes expected)"
+expected_improvements:
+  clarity_score_delta: +4  # Target 95
+  concept_alignment_delta: +6  # Target 100
+  files_to_update: 2
+  files_to_review: 2

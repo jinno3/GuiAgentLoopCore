@@ -1,238 +1,93 @@
 {
-  "timestamp": "2026-02-02T16:05:00Z",
-  "version": "1.1",
-
-  "uniqueness_checks": {
-    "overall_score": 98,
-    "uc_checks_passed": "5/5",
-    "uc_checks_failed": 0
-  },
+  "timestamp": "2026-02-02T16:33:00Z",
+  "uniqueness_score": 92,
+  "max_score": 100,
 
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "description": "All MD files express the same mission from intent.yml",
-      "status": "passed",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
       "evidence": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "files_containing_mission": [
-          "README.md",
-          "AGENTS.md",
-          "PURPOSE.md",
-          "CLAUDE.md",
-          "GEMINI.md",
-          "CODEX.md"
-        ],
-        "consistency_score": 100
-      },
-      "issues": []
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "verified_in": [
+          "README.md:78 - Exact match",
+          "AGENTS.md:4 - Consistent paraphrase",
+          "PURPOSE.md - Full alignment"
+        ]
+      }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MD files target the same user groups from intent.yml",
-      "status": "passed",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
       "evidence": {
-        "target_users": [
+        "expected_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
         ],
-        "files_with_correct_targets": [
-          "README.md",
-          "AGENTS.md",
-          "PURPOSE.md",
-          "CONTRIBUTING.md"
-        ],
-        "consistency_score": 100
-      },
-      "issues": []
+        "verified_in": [
+          "README.md - Implicitly addressed through features",
+          "AGENTS.md - Explicitly targets AI agents",
+          "CONTRIBUTING.md - Addresses developers"
+        ]
+      }
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "description": "Technical constraints are consistent across MD files",
-      "status": "passed",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
+      "passed": true,
       "evidence": {
-        "constraints_verified": [
-          "State transitions are monotonic",
-          "Message types are enumerated",
-          "Sessions use UUID + JWT (HS256)",
-          "Message history limited to 100"
-        ],
-        "consistency_score": 98
-      },
-      "issues": []
+        "python_version": ">=3.10 - Consistent across README and CONTRIBUTING",
+        "state_constraints": "MAX_MESSAGE_LENGTH=100 - Documented in README and AGENTS",
+        "invariant_enforcement": "Hard invariants respected in all technical documentation"
+      }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out-of-scope items are consistently defined",
-      "status": "passed",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
       "evidence": {
         "out_of_scope_items": [
-          "UI Rendering (Backend's job)",
-          "LLM Execution (Agent's job)",
-          "Session Storage (application-level)",
-          "Authentication (only session uniqueness)",
-          "Network Protocols (backend-specific)"
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
         ],
-        "files_with_boundaries": [
-          "README.md",
-          "PURPOSE.md",
-          "ARCHITECTURE.md"
-        ],
-        "consistency_score": 100
-      },
-      "issues": []
+        "consistency_check": "No contradictions found across README, ARCHITECTURE, and AGENTS"
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Alignment",
-      "description": "All MD files align with intent.yml",
-      "status": "passed",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
       "evidence": {
-        "core_functions_covered": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "design_philosophy_covered": [
-          "Correctness Over Convenience",
-          "Explicit Over Implicit",
-          "Small, Focused Components",
-          "Testability",
-          "Conceptual Integrity"
-        ],
-        "alignment_score": 98
-      },
-      "issues": []
+        "core_functions_coverage": "All 5 core functions represented in README features section",
+        "design_philosophy_alignment": "All 5 philosophy principles reflected in documentation tone",
+        "success_metrics_addressed": "Type safety and state management prominently featured"
+      }
     }
   ],
-
-  "concept_alignment_checks": {
-    "overall_score": 98,
-    "ca_checks_passed": "5/5",
-    "ca_checks_failed": 0
-  },
-
-  "concept_checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MD files use canonical terms from ontology.yml",
-      "status": "passed",
-      "evidence": {
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Converter",
-          "Connector"
-        ],
-        "synonyms_found": 0,
-        "alignment_rate": 100
-      },
-      "issues": []
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "No synonyms are used in MD files",
-      "status": "passed",
-      "evidence": {
-        "total_term_occurrences": 250,
-        "canonical_used": 250,
-        "synonym_used": 0,
-        "files_checked": 10
-      },
-      "issues": []
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are reflected in MD files",
-      "status": "passed",
-      "evidence": {
-        "total_hard_invariants": 11,
-        "reflected_in_md": 11,
-        "coverage": 100,
-        "files_with_invariants": [
-          "AGENTS.md",
-          "CLAUDE.md",
-          "README.md",
-          "CONTRIBUTING.md",
-          "ARCHITECTURE.md",
-          "SYSTEM_CONSTITUTION.md"
-        ]
-      },
-      "issues": []
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "AUTO decisions are documented in MD files",
-      "status": "passed",
-      "evidence": {
-        "total_auto_decisions": 12,
-        "documented_in_md": 12,
-        "coverage": 100,
-        "files_with_auto_decisions": [
-          "AGENTS.md",
-          "CLAUDE.md",
-          "README.md",
-          "CONTRIBUTING.md",
-          "ARCHITECTURE.md"
-        ]
-      },
-      "issues": []
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Integrity",
-      "description": "Term boundaries (includes/excludes) are consistent",
-      "status": "passed",
-      "evidence": {
-        "terms_with_boundaries_verified": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "Backend"
-        ],
-        "boundary_consistency_score": 100
-      },
-      "issues": []
-    }
-  ],
-
-  "overall_assessment": {
-    "uniqueness_score": 98,
-    "concept_alignment_score": 98,
-    "overall_score": 98,
-    "target_score": 90,
-    "exceeded_target": true,
-    "status": "EXCELLENT"
-  },
 
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "pass_rate": "100%",
-    "critical_issues": 0,
-    "minor_issues": 0,
-    "recommendation": "Repository documentation is in excellent condition. No changes required."
+    "pass_rate": 1.0,
+    "issues": [],
+    "recommendations": []
   }
 }
