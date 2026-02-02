@@ -1,31 +1,23 @@
 {
-  "timestamp": "2026-02-02T20:31:00Z",
+  "timestamp": "2026-02-02T11:47:55Z",
   "version": "1.1",
-  "overall_uniqueness_score": 95,
+  "uniqueness_score": 98,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "all_consistent": true
-      }
+      "evidence": "README.md, AGENTS.md, CLAUDE.md, PURPOSE.md all consistently express the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "CODEX.md"],
-        "all_consistent": true
-      }
+      "evidence": "All MD files consistently target: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
     },
     {
       "id": "UC-003",
@@ -33,10 +25,7 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "constraints_verified": ["Python", "State transitions", "Message types", "JWT encoding"],
-        "all_consistent": true
-      }
+      "evidence": "Technical constraints (hard invariants) are consistently documented across all MD files"
     },
     {
       "id": "UC-004",
@@ -44,10 +33,7 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "properly_documented": true
-      }
+      "evidence": "Boundaries are consistently defined in README.md, ARCHITECTURE.md, and ontology.yml"
     },
     {
       "id": "UC-005",
@@ -55,11 +41,7 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_reflected": true,
-        "design_philosophies_reflected": true,
-        "success_metrics_documented": true
-      }
+      "evidence": "All MD files accurately reflect the mission, target users, and core value from intent.yml"
     }
   ],
   "summary": {

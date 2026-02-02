@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-02T20:31:00Z",
-  "overall_score": 96,
+  "timestamp": "2026-02-02T11:47:55Z",
+  "overall_score": 95,
   "concept_alignment_score": 98,
   "max_score": 100,
   "files": [
@@ -9,11 +9,10 @@
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 98,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Normalized OpenGuiConnector to Connector in architecture diagram"]
+      "status": "verified"
     },
     {
       "path": "AGENTS.md",
@@ -23,8 +22,7 @@
         "score": 100,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Perfect term normalization in table format"]
+      "status": "verified"
     },
     {
       "path": "CLAUDE.md",
@@ -34,96 +32,91 @@
         "score": 100,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Excellent invariant documentation", "Clear AUTO decision tracking"]
+      "status": "verified"
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Auto-generated from ontology", "Complete synonym mapping"]
+      "status": "verified"
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 95,
+        "score": 98,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Good alignment with intent.yml"]
+      "status": "verified"
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 95,
+        "score": 98,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Good invariant coverage"]
+      "status": "verified"
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "issues": [
+          {
+            "line": 322,
+            "note": "Duplicate AUTO:State.timer:3sec entry (minor)"
+          }
+        ]
       },
-      "issues": [],
-      "improvements": ["Correct interface name usage"]
+      "status": "verified"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 100,
+        "score": 98,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Complete invariant documentation"]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [],
-      "improvements": ["Good alignment with ontology"]
+      "status": "verified"
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "issues": []
       },
-      "issues": [],
-      "improvements": ["Good alignment with ontology"]
+      "status": "verified"
     },
     {
-      "path": "CHANGELOG.md",
+      "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 0,
+        "score": 95,
         "issues": []
       },
-      "issues": ["File is empty"],
-      "improvements": []
+      "status": "verified"
     }
-  ]
+  ],
+  "summary": {
+    "total_issues": 1,
+    "critical_issues": 0,
+    "major_issues": 0,
+    "minor_issues": 1,
+    "term_normalization_issues": 0,
+    "invariant_reflection_issues": 0,
+    "concept_definition_issues": 0
+  }
 }

@@ -1,15 +1,21 @@
 {
-  "timestamp": "2026-02-02T11:47:55Z",
-  "version": "1.1",
-  "uniqueness_score": 98,
-  "checks": [
+  "timestamp": "2026-02-02T21:04:12Z",
+  "verification_method": "v1.1 (intent + concept integrated)",
+  "overall_score": 95,
+  "uniqueness_score": 95,
+  "concept_alignment_score": 98,
+  "checks_performed": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "README.md, AGENTS.md, CLAUDE.md, PURPOSE.md all consistently express the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "mission_consistency": "All files express the same mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
+        "variations_found": []
+      }
     },
     {
       "id": "UC-002",
@@ -17,7 +23,15 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "All MD files consistently target: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      "evidence": {
+        "target_users_consistent": true,
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ]
+      }
     },
     {
       "id": "UC-003",
@@ -25,7 +39,15 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": "Technical constraints (hard invariants) are consistently documented across all MD files"
+      "evidence": {
+        "constraints_consistent": true,
+        "key_constraints": [
+          "State transitions are monotonic",
+          "Message types are enumerated",
+          "Sessions use UUID",
+          "JWT uses HS256 algorithm"
+        ]
+      }
     },
     {
       "id": "UC-004",
@@ -33,7 +55,16 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": "Boundaries are consistently defined in README.md, ARCHITECTURE.md, and ontology.yml"
+      "evidence": {
+        "out_of_scope_consistent": true,
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ]
+      }
     },
     {
       "id": "UC-005",
@@ -41,13 +72,143 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "All MD files accurately reflect the mission, target users, and core value from intent.yml"
+      "evidence": {
+        "intent_reflection": "All MD files correctly reflect intent.yml",
+        "mission_reflected": true,
+        "core_functions_reflected": true,
+        "design_philosophy_reflected": true
+      }
+    },
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_term_occurrences": 85,
+        "canonical_used": 85,
+        "synonym_used": 0,
+        "alignment_rate": 1.0,
+        "files_checked": [
+          "README.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          "PURPOSE.md",
+          "CONTRIBUTING.md",
+          "ARCHITECTURE.md",
+          "GLOSSARY.md",
+          "CODEX.md",
+          "GEMINI.md",
+          "SYSTEM_CONSTITUTION.md"
+        ]
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "synonyms_checked": [
+          "GuiAgentInterpreter",
+          "会話インタープリタ",
+          "AIエージェント",
+          "専門エージェント",
+          "ChatSession",
+          "会話セッション",
+          "InterpreterState",
+          "インタープリタ状態",
+          "自動チャット",
+          "自動継続",
+          "GuiAgentStreamWrapper",
+          "ストリームラッパー",
+          "GUIバックエンド",
+          "UIフレームワーク",
+          "会話メモリ",
+          "ConversationBuffer",
+          "変換器",
+          "マッパー"
+        ],
+        "synonyms_found_in_text": 0,
+        "compliance_rate": 1.0
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_hard_invariants": 11,
+        "reflected_in_mds": 11,
+        "reflection_rate": 1.0,
+        "files_with_invariants": [
+          {
+            "file": "README.md",
+            "invariants_count": 11
+          },
+          {
+            "file": "AGENTS.md",
+            "invariants_count": 11
+          },
+          {
+            "file": "CLAUDE.md",
+            "invariants_count": 11
+          }
+        ]
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_auto_decisions": 9,
+        "noted_in_mds": 9,
+        "files_with_auto_decisions": [
+          {
+            "file": "README.md",
+            "auto_decisions_count": 9
+          },
+          {
+            "file": "AGENTS.md",
+            "auto_decisions_count": 9
+          },
+          {
+            "file": "CLAUDE.md",
+            "auto_decisions_count": 9
+          }
+        ]
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "boundary_conflicts": [],
+        "terms_checked": 11,
+        "boundaries_consistent": true
+      }
     }
   ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
+    "uc_checks_passed": "5/5",
+    "ca_checks_passed": "5/5",
+    "total_checks_passed": "10/10",
+    "overall_pass_rate": 1.0,
+    "critical_issues": [],
+    "recommendations": [
+      "MDファイルは既に高品質な状態にあり、概念整合性が非常に高い",
+      "SYSTEM_CONSTITUTION.mdとARCHITECTURE.mdの定期的なレビューを推奨",
+      "EXPIRED AUTO決定（AMB-SEC-001, AMB-SEC-002）への対応を推奨"
+    ]
   }
 }
