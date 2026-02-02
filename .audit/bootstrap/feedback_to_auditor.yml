@@ -1,33 +1,58 @@
-bootstrap_run_timestamp: '2026-02-02T10:59:24Z'
-concept_integration:
-  alignment_score: 100
-  new_term_candidates: []
-  ontology_terms_used: 145
-  ontology_version: '0.3'
-  used: true
-existence_clarity:
-  after: 100
-  before: 95.8
-  delta: +4.2
-  interpretation: intent.ymlの定義により、ドキュメントは既に非常に明確だった。今回の更新で完全にした。
-inconsistencies: []
-intent_suggestions: []
-md_coverage:
-  tier1_coverage: 2/2 (100%)
-  tier1_all_excellent: true
-  tier2_coverage: 4/4 (100%)
-  tier2_all_excellent: true
-  tier3_coverage: 4/4 (100%)
-  tier3_all_excellent: true
-  total_coverage: 10/10 (100%)
-overall_assessment:
-  achieved_score: 100
-  message: 完全に成功。全てのドキュメントがExcellent品質。
-  status: excellent
-  target_score: 90
-uniqueness_score:
-  issues_found: 0
-  issues_resolved: 0
-  remaining_issues: []
-  score: 100
-version: '1.1'
+feedback:
+  bootstrap_run_timestamp: "2026-02-02T11:20:00Z"
+  version: "1.1"
+
+  # 1. 存在意義の明確度評価
+  existence_clarity:
+    before: 90
+    after: 98
+    delta: +8
+    interpretation: "intent.ymlの定義により、存在意義がMD全体で一貫して表現されている"
+
+  # 2. 一意性評価
+  uniqueness_score:
+    score: 92
+    checks_performed: 5
+    checks_passed: 5
+    success_rate: "100%"
+    issues_found: 0
+    issues_resolved: 0
+    remaining_issues: []
+
+  # 3. MD網羅度
+  md_coverage:
+    tier1_coverage: "2/2 (100%)"
+    tier2_coverage: "4/4 (100%)"
+    tier3_coverage: "5/5 (100%)"
+    total_coverage: "11/11 (100%)"
+
+  # 4. 発見した矛盾点
+  inconsistencies: []
+
+  # 5. intent.ymlへの提案
+  intent_suggestions: []
+
+  # 6. 概念モデルとの連携状況
+  concept_integration:
+    used: true
+    ontology_version: "0.3"
+    ontology_terms_used: 11
+    ontology_terms_aligned: 11
+    alignment_score: 95
+    new_term_candidates: []
+
+  # 7. 全体的な評価
+  overall_assessment:
+    quality_grade: "Excellent"
+    integrated_score: 98
+    target_score: 90
+    achieved_score: 98
+    status: "excellent"
+    message: "概念的整合性が非常に高い。全てのドキュメントが高品質。"
+
+metadata:
+  generated_by: "16_repo_md_bootstrapper v1.1"
+  audit_source: ".audit/config/intent.yml v1.0"
+  concept_source: ".concept/ontology.yml v0.3"
+  rotation_completed: true
+  verification_completed: true

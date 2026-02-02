@@ -1,28 +1,47 @@
 concept_feedback:
-  ambiguities_discovered: []
-  auto_decision_handling:
-    format: 注記として記載（暫定仕様として扱う）
-    missing_notes: 0
-    noted_in_md: 9
-    total_active: 9
-  bootstrap_run_timestamp: '2026-02-02T10:59:24Z'
-  invariant_reflection:
-    assessment: 全てのhard invariantsが完璧に反映されている
-    missing: []
-    reflected: 14
-    total: 14
-  ontology_suggestions:
-    definition_updates: []
-    new_terms: []
-    status_changes: []
-    synonym_additions: []
-  overall_assessment:
-    concept_alignment_score: 100
-    message: 用語、不変条件、AUTO決定の全てが完璧に統合されている。
-    status: excellent
-  source_ontology_version: '0.3'
+  bootstrap_run_timestamp: "2026-02-02T11:20:00Z"
+  source_ontology_version: "0.3"
+
+  # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 145
+    total_canonical_terms: 11
+    canonical_terms_used_in_md: 11
+    usage_coverage_rate: 1.0
+    synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    synonym_used_before_fix: 3
     unknown_terms_found: []
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 13
+    reflected: 13
+    missing: []
+    assessment: "すべてのhard invariantsが完全に反映されている"
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 9
+    noted_in_md: 9
+    format: "注記として記載（暫定仕様として扱う）"
+    missing_notes: 0
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+
+  # 6. 全体的な整合性評価
+  overall_assessment:
+    concept_alignment_score: 95
+    status: "excellent"
+    message: "用語、不変条件、AUTO決定の全てが優れて統合されている。"
+
+metadata:
+  generated_by: "16_repo_md_bootstrapper v1.1"
+  ontology_source: ".concept/ontology.yml v0.3"
+  invariants_source: ".concept/invariants.yml"
+  ambiguities_source: ".concept/ambiguities.yml"

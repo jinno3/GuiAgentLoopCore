@@ -1,144 +1,113 @@
 {
-  "timestamp": "2026-02-02T01:41:08.007194+00:00",
-  "overall_score": 65,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-02T10:59:24Z",
+  "overall_score": 95.8,
+  "concept_alignment_score": 97.6,
   "max_score": 100,
+  "scoring_method": "v1.1 (intent + concept integration)",
   "files": [
     {
-      "path": "AGENTS.md",
+      "path": "README.md",
       "exists": true,
-      "clarity_score": 70,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "found": "jwt",
-            "should_be": "Session",
-            "line": 57
-          }
-        ]
+        "score": 98,
+        "issues": []
       },
       "issues": [
-        "用語が正規形でない（1箇所）"
+        "Missing 5 invariants (INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002)"
       ]
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 70,
+      "tier": 1,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
       "issues": []
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "clarity_score": 40,
-      "concept_alignment": {
-        "score": 80,
-        "issues": []
-      },
-      "issues": [
-        "正規形用語が使用されていない",
-        "内容が薄い"
-      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 70,
+      "tier": 2,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 65,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 65,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 65,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
+      "issues": [
+        "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 70,
+      "tier": 3,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 20,
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
         "issues": [
           {
-            "found": "インタープリタ状態",
-            "should_be": "State",
-            "line": 55
+            "found": "Agent Manager",
+            "should_be": "Agent",
+            "line": null,
+            "context": "Section header"
           },
           {
-            "found": "自動チャット",
-            "should_be": "AutoChat",
-            "line": 116
-          },
-          {
-            "found": "自動継続",
-            "should_be": "AutoChat",
-            "line": 116
-          },
-          {
-            "found": "guicomponent",
-            "should_be": "Backend",
-            "line": 152
-          },
-          {
-            "found": "会話メモリ",
-            "should_be": "Memory",
-            "line": 170
+            "found": "Message Handler",
+            "should_be": "Message",
+            "line": null,
+            "context": "Section header"
           }
         ]
       },
       "issues": [
-        "用語が正規形でない（8箇所）"
+        "Non-canonical terms: 'Agent Manager', 'Message Handler'",
+        "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "found": "\"Interpreter\" (with quotes in bad example)",
+            "should_be": "Interpreter",
+            "line": 18,
+            "context": "Incorrect usage example"
+          }
+        ]
+      },
+      "issues": [
+        "Confusing example with quotes",
+        "Missing 6 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-001, INV-BACKEND-002)"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 70,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "README.md",
-      "exists": true,
-      "clarity_score": 70,
-      "concept_alignment": {
-        "score": 100,
+        "score": 98,
         "issues": []
       },
       "issues": []
@@ -146,12 +115,23 @@
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 65,
+      "tier": 2,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
       "issues": []
     }
-  ]
+  ],
+  "summary": {
+    "total_files_assessed": 8,
+    "excellent_files": 7,
+    "good_files": 1,
+    "fair_files": 0,
+    "poor_files": 0,
+    "total_non_canonical_usage": 3,
+    "total_missing_invariants": 31,
+    "unique_missing_invariants": 7
+  }
 }

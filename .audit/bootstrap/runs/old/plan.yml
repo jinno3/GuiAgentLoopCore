@@ -1,121 +1,180 @@
-actions:
-- action: update
-  reason: 存在意義の反映、用語の正規化
-  target: README.md
-- action: update
-  reason: 存在意義の反映、用語の正規化
-  target: AGENTS.md
-- action: update
-  condition: ontology_exists
-  reason: 概念辞書からの用語集生成
-  target: GLOSSARY.md
-existing_mds:
-- modified: '2026-02-01T15:57:10.545812+00:00'
-  path: CODEX.md
-  size: 5224
-- modified: '2026-02-01T20:33:18.142761+00:00'
-  path: SYSTEM_CONSTITUTION.md
-  size: 7943
-- modified: '2026-02-01T14:53:03.861920+00:00'
-  path: CONTRIBUTING.md
-  size: 5291
-- modified: '2026-02-01T18:12:01.519142+00:00'
-  path: README.md
-  size: 8595
-- modified: '2026-02-01T22:45:59.069031+00:00'
-  path: AGENTS.md
-  size: 11462
-- modified: '2026-02-01T12:56:10.174623+00:00'
-  path: CHANGELOG.md
-  size: 61
-- modified: '2026-02-01T15:57:10.521812+00:00'
-  path: GEMINI.md
-  size: 4744
-- modified: '2026-02-01T22:46:15.765260+00:00'
-  path: CLAUDE.md
-  size: 10291
-- modified: '2026-02-01T14:53:54.015603+00:00'
-  path: PURPOSE.md
-  size: 4965
-- modified: '2026-02-01T22:45:48.854892+00:00'
-  path: GLOSSARY.md
-  size: 11205
-- modified: '2026-02-01T23:50:30.182387+00:00'
-  path: ARCHITECTURE.md
-  size: 12443
-input_sources:
-  audit:
-    has_constraints: true
-    intent_yml: .audit/config/intent.yml
-  concept:
-    ambiguities_yml: .concept/ambiguities.yml
-    has_concept: true
-    invariants_yml: .concept/invariants.yml
-    ontology_yml: .concept/ontology.yml
-intent_summary:
-  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
-    with predictable state manage...
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
-  target_user:
-  - Application Developers: Building LLM-powered applications with GUI interfaces
-  - AI Agent Developers: Creating specialized agents for specific tasks
-  - Framework Developers: Building new GUI backend implementations
-  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
-ontology_summary:
-  by_layer:
-    aux: 1
-    core: 5
-    domain: 5
-  by_status:
-    draft: 1
-    stable: 10
-  key_terms:
-  - canonical: Interpreter
-    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント...
-  - canonical: Agent
-    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ...
-  - canonical: Session
-    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）...
-  - canonical: Message
-    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）...
-  - canonical: State
-    definition: インタープリタの実行状態を表す列挙型...
-  total_terms: 11
+run_timestamp: "2026-02-02T10:59:24Z"
+version: "1.1"
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
-run_timestamp: '2026-02-02T01:40:31.770327+00:00'
+
+input_sources:
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    has_concept: true
+
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
+
+ontology_summary:
+  version: "0.3"
+  total_terms: 11
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
+  key_terms:
+    - canonical: "Interpreter"
+      layer: "core"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    - canonical: "Agent"
+      layer: "core"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "Session"
+      layer: "core"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    - canonical: "Message"
+      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+    - canonical: "State"
+      layer: "core"
+      definition: "インタープリタの実行状態を表す列挙型"
+    - canonical: "AutoChat"
+      layer: "domain"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+    - canonical: "StreamWrapper"
+      layer: "domain"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+    - canonical: "Backend"
+      layer: "domain"
+      definition: "GUIフレームワーク実装（Gradio等）"
+    - canonical: "Converter"
+      layer: "aux"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+    - canonical: "Memory"
+      layer: "domain"
+      definition: "会話履歴を保持するバッファ機構"
+      status: "draft"
+    - canonical: "Connector"
+      layer: "domain"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+
 term_normalization:
-  AIエージェント: Agent
-  AgentDefinition: Agent
-  AgentImage: Agent
-  AgentType: Agent
-  ChatMessage: Message
-  ChatSession: Session
-  ConnectorImplCodeinterpreterApi: Connector
-  ConnectorImplOpenInterpreter: Connector
-  ConversationBuffer: Memory
-  GUIバックエンド: Backend
-  GuiAgentInterpreter: Interpreter
-  GuiAgentInterpreterABC: Connector
-  GuiAgentStreamWrapper: StreamWrapper
-  GuiBackend: Backend
-  GuiComponent: Backend
-  InterpreterState: State
-  JWT: Session
-  TaskAgent: Agent
-  UIフレームワーク: Backend
-  インタープリタ状態: State
-  コネクタ: Connector
-  ストリームラッパー: StreamWrapper
-  マッパー: Converter
-  メッセージ: Message
-  会話インタープリタ: Interpreter
-  会話セッション: Session
-  会話メモリ: Memory
-  変換器: Converter
-  専門エージェント: Agent
-  自動チャット: AutoChat
-  自動継続: AutoChat
-version: '1.1'
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+
+existing_mds:
+  - path: "README.md"
+    status: "exists_good"
+    clarity_score: 95
+    concept_alignment: 98
+    issues:
+      - "Missing 5 invariants (INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002)"
+
+  - path: "AGENTS.md"
+    status: "exists_excellent"
+    clarity_score: 100
+    concept_alignment: 100
+    issues: []
+
+  - path: "CLAUDE.md"
+    status: "exists_good"
+    clarity_score: 98
+    concept_alignment: 100
+    issues:
+      - "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
+
+  - path: "GLOSSARY.md"
+    status: "exists_excellent"
+    clarity_score: 100
+    concept_alignment: 100
+    issues: []
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_good"
+    clarity_score: 92
+    concept_alignment: 95
+    issues:
+      - "Non-canonical terms: 'Agent Manager', 'Message Handler'"
+      - "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_good"
+    clarity_score: 88
+    concept_alignment: 90
+    issues:
+      - "Confusing example with quotes"
+      - "Missing 6 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-001, INV-BACKEND-002)"
+
+  - path: "PURPOSE.md"
+    status: "exists_excellent"
+    clarity_score: 95
+    concept_alignment: 98
+    issues: []
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_excellent"
+    clarity_score: 98
+    concept_alignment: 100
+    issues: []
+
+actions:
+  - action: "update"
+    target: "README.md"
+    reason: "Add missing invariants to improve documentation coverage"
+    priority: "medium"
+
+  - action: "update"
+    target: "CLAUDE.md"
+    reason: "Add missing invariants relevant for Claude"
+    priority: "medium"
+
+  - action: "update"
+    target: "ARCHITECTURE.md"
+    reason: "Fix non-canonical terms and add missing invariants"
+    priority: "medium"
+
+  - action: "update"
+    target: "CONTRIBUTING.md"
+    reason: "Fix confusing example and add missing invariants"
+    priority: "medium"
+
+overall_assessment:
+  current_clarity_score: 95.8
+  current_concept_alignment: 97.6
+  target_score: 98
+  improvement_needed: "Minor - mostly adding missing invariants and fixing 3 non-canonical term usages"
