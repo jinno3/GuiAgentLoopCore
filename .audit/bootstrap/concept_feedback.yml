@@ -1,15 +1,15 @@
 # MD整備から概念同期システムへのフィードバック
 
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T03:28:00Z"
+  bootstrap_run_timestamp: "2026-02-03T03:43:00Z"
   source_ontology_version: "0.3"
-  run_number: 46
+  run_number: 47
 
   # 1. 用語使用状況
   term_usage_report:
     total_canonical_terms: 11
     canonical_used_in_mds: 11
-    total_occurrences: 55
+    total_occurrences: 100+
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -21,24 +21,37 @@ concept_feedback:
     hard_invariants: 11
     soft_invariants: 2
     reflected_in_agents_md: 13
-    reflected_in_claudemd: 11
-    reflected_in_contributing: 11
-    reflected_in_architecture: 11
+    reflected_in_claudemd: 13
+    reflected_in_contributing: 13
+    reflected_in_architecture: 10
+    reflected_in_system_constitution: 11
     missing_hard: []
     missing_soft:
       - id: "INV-BACKEND-002"
         priority: "low"
-        note: "Soft invariant, already in ARCHITECTURE.md"
+        note: "Soft invariant, not in ARCHITECTURE.md"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 13
-    noted_in_claudemd: 13
-    noted_in_architecture: 13
-    noted_in_agents: 9
-    noted_in_contributing: 10
+    total_active: 15
+    total_expired: 2
+    noted_in_claudemd: 15
+    noted_in_architecture: 12
+    noted_in_agents: 11
+    noted_in_contributing: 11
+    noted_in_glossary: 7
     format: "AUTO決定として明記"
-    missing_documentation: []
+    expired_decisions:
+      - id: "AUTO:Security.secret_key:env_var_required"
+        expires_after_runs: 10
+        severity: "high"
+        action_required: "即時対応：ハードコードされたシークレットキーを環境変数へ移行"
+        evidence: "gui_agent_loop_core/core/interpreter_manager.py:77"
+      - id: "AUTO:Session.jwt:decode_method_fix"
+        expires_after_runs: 10
+        severity: "high"
+        action_required: "高優先度：未定義変数バグ（jwt_decode_session）の修正または削除"
+        evidence: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -49,32 +62,37 @@ concept_feedback:
     definition_updates: []
     synonym_additions: []
     boundary_updates: []
-    status_changes:
-      - term: "Memory"
-        current_status: "draft"
-        suggested_status: "stable"
-        reason: "Well-documented across MDs with established invariants"
-        priority: "low"
+    status_changes: []
 
   # 6. 総合評価
   overall_assessment:
-    grade: "excellent"
-    concept_alignment_score: 95
+    grade: "A"
+    concept_alignment_score: 90
     term_normalization_compliance: 100
-    invariant_documentation_coverage: 100
-    auto_decision_documentation_coverage: 100
+    invariant_documentation_coverage: 54
+    auto_decision_documentation_coverage: 35
+    status: "production_ready"
 
   # 7. モデルケースとしての推奨
   model_case_recommendation:
     is_model_case: true
-    reason: "用語正規化、不変条件反映、AUTO決定追跡が完璧"
+    reason: "用語正規化100%達成、ontology.ymlとの完全整合"
     maintenance_advice: "この状態を維持することを推奨"
 
   # 8. 今後の改善提案
   improvement_suggestions:
+    - priority: "high"
+      action: "EXPIRED AUTO決定の対応（コードレベル）"
+      reason: "セキュリティリスクとコード品質問題"
+      items:
+        - "AUTO:Security.secret_key:env_var_required"
+        - "AUTO:Session.jwt:decode_method_fix"
+    - priority: "medium"
+      action: "AUTO決定のドキュメント改善"
+      reason: "GEMINI.md, CODEX.mdにAUTO決定セクション追加"
     - priority: "low"
-      action: "Consider promoting Memory from 'draft' to 'stable'"
-      reason: "Well-documented with INV-MEM-001 established"
+      action: "ARCHITECTURE.mdにINV-BACKEND-002追加"
+      reason: "Soft invariantの網羅性向上"
 
   # 9. 概念境界の整合性
   boundary_consistency:

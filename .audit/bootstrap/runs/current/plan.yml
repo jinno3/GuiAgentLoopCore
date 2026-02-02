@@ -1,49 +1,43 @@
-# MD Bootstrap Execution Plan (v1.1)
-# Generated: 2026-02-03T03:28:00Z
-
-run_timestamp: "2026-02-03T03:28:00Z"
+run_timestamp: "2026-02-03T03:43:00Z"
 version: "1.1"
-run_number: 46
+run_number: 47
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
-  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
     intent_version: "1.0"
-    constraints_version: "1.0"
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
     ontology_version: "0.3"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    mappings_yml: ".concept/mappings.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_users: 4
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_functions: 5
+  design_philosophies: 5
 
 ontology_summary:
   total_terms: 11
-  by_layer:
-    core: 5
-    domain: 5
-    aux: 1
-  by_status:
-    stable: 10
-    draft: 1
-  invariants_count: 13
-  hard_invariants: 11
-  soft_invariants: 2
-  auto_decisions: 13
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
+  stable_terms: 10
+  draft_terms: 1
+  total_synonyms: 28
+  auto_decisions: 9
+  invariants: 13
 
 term_normalization:
-  # Core terms
   "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
@@ -54,11 +48,11 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
-  # Domain terms
   "自動チャット": "AutoChat"
   "自動継続": "AutoChat"
   "GuiAgentStreamWrapper": "StreamWrapper"
@@ -74,149 +68,116 @@ term_normalization:
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
-  # Aux terms
   "変換器": "Converter"
   "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_compliant"
+    status: "exists"
     tier: 1
-    issues: []
-    last_updated: "2026-02-02"
-
+    last_updated: "2026-02-02T21:34:00Z"
+    size_bytes: 2301
   - path: "AGENTS.md"
-    status: "exists_compliant"
+    status: "exists"
     tier: 1
-    issues: []
-    last_updated: "2026-02-02T23:11:00Z"
-
+    last_updated: "2026-02-02T23:16:00Z"
+    size_bytes: 6361
   - path: "CLAUDE.md"
-    status: "exists_compliant"
+    status: "exists"
     tier: 2
-    issues: []
-    last_updated: "2026-02-02T13:23:00Z"
-
-  - path: "GLOSSARY.md"
-    status: "exists_compliant"
-    tier: 3
-    issues: []
-    last_updated: "2026-02-02T22:50:00Z"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "May need term normalization review"
-    last_updated: "2026-02-02"
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "May need invariants alignment review"
-    last_updated: "2026-02-02"
-
-  - path: "PURPOSE.md"
-    status: "exists_compliant"
-    tier: 2
-    issues: []
-    last_updated: "2026-02-02"
-
+    last_updated: "2026-02-02T23:16:00Z"
+    size_bytes: 11620
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_compliant"
+    status: "exists"
     tier: 2
-    issues: []
-    last_updated: "2026-02-02"
-
-  - path: "CODEX.md"
-    status: "exists_compliant"
+    last_updated: "2026-02-02T05:33:00Z"
+    size_bytes: 7943
+  - path: "PURPOSE.md"
+    status: "exists"
+    tier: 2
+    last_updated: "2026-02-02T23:47:00Z"
+    size_bytes: 5374
+  - path: "CONTRIBUTING.md"
+    status: "exists"
+    tier: 2
+    last_updated: "2026-02-02T23:47:00Z"
+    size_bytes: 6727
+  - path: "GLOSSARY.md"
+    status: "exists"
     tier: 3
-    issues: []
-    last_updated: "2026-02-02"
-
+    last_updated: "2026-02-02T22:52:00Z"
+    size_bytes: 11205
+  - path: "ARCHITECTURE.md"
+    status: "exists"
+    tier: 3
+    last_updated: "2026-02-02T11:07:00Z"
+    size_bytes: 13424
   - path: "GEMINI.md"
-    status: "exists_compliant"
+    status: "exists"
     tier: 3
-    issues: []
-    last_updated: "2026-02-02"
-
+    last_updated: "2026-02-02T00:57:00Z"
+    size_bytes: 4744
+  - path: "CODEX.md"
+    status: "exists"
+    tier: 3
+    last_updated: "2026-02-02T00:57:00Z"
+    size_bytes: 5224
   - path: "CHANGELOG.md"
-    status: "exists_minimal"
+    status: "exists"
     tier: 3
-    issues:
-      - "Minimal content, not part of bootstrap scope"
-    last_updated: "2026-02-01"
+    last_updated: "2026-02-01T21:56:00Z"
+    size_bytes: 61
+
+verification_plan:
+  mode: "verify_only"
+  reason: "All Tier 1 and Tier 2 MD files exist and were recently updated. This run will verify concept alignment and update timestamps if necessary."
 
 actions:
-  # Tier 1 files - Already compliant
   - action: "verify"
     target: "README.md"
-    reason: "Verify concept alignment and terminology normalization"
-    priority: "high"
-
+    check: "concept_alignment"
+    reason: "Verify terminology normalization and intent reflection"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept alignment and terminology normalization"
-    priority: "high"
-
-  # Tier 2 files - Review and update if needed
-  - action: "review"
-    target: "CLAUDE.md"
-    reason: "Review for latest invariants and AUTO decisions"
-    priority: "medium"
-
-  - action: "review"
-    target: "CONTRIBUTING.md"
-    reason: "Review for invariants alignment"
-    priority: "medium"
-
+    check: "concept_alignment"
+    reason: "Verify term normalization, invariants coverage, and AUTO decisions"
   - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify alignment with intent.yml"
-    priority: "medium"
-
+    target: "CLAUDE.md"
+    check: "concept_alignment"
+    reason: "Verify Claude-specific instructions align with ontology"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify hard invariants are reflected"
-    priority: "medium"
-
-  # Tier 3 files - Review as needed
-  - action: "review"
+    check: "invariant_coverage"
+    reason: "Verify all hard invariants from invariants.yml are reflected"
+  - action: "verify"
+    target: "PURPOSE.md"
+    check: "intent_alignment"
+    reason: "Verify purpose document matches intent.yml"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    check: "terminology_guidelines"
+    reason: "Verify terminology guidelines reference ontology correctly"
+  - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology.yml changes are reflected"
-    priority: "medium"
-
-  - action: "review"
+    check: "ontology_sync"
+    reason: "Verify glossary matches ontology.yml"
+  - action: "verify"
     target: "ARCHITECTURE.md"
-    reason: "Review for terminology normalization"
-    priority: "low"
-
-  - action: "skip"
-    target: "CODEX.md"
-    reason: "Model-specific, out of scope"
-    priority: "low"
-
-  - action: "skip"
+    check: "mapping_alignment"
+    reason: "Verify architecture references match mappings.yml"
+  - action: "verify"
     target: "GEMINI.md"
-    reason: "Model-specific, out of scope"
-    priority: "low"
+    check: "concept_alignment"
+    reason: "Verify Gemini-specific instructions align with ontology"
+  - action: "verify"
+    target: "CODEX.md"
+    check: "concept_alignment"
+    reason: "Verify Codex-specific instructions align with ontology"
 
-  - action: "skip"
-    target: "CHANGELOG.md"
-    reason: "Minimal content, not part of bootstrap scope"
-    priority: "low"
-
-expected_outcomes:
-  overall_score_target: 95
-  uniqueness_score_target: 95
-  concept_alignment_target: 95
-  md_coverage_target: "100% Tier 1, 80% Tier 2"
-
-verification_criteria:
-  - "All Tier 1 MDs use canonical terms"
-  - "All hard invariants are reflected in AGENTS.md"
-  - "All AUTO decisions are documented in CLAUDE.md"
-  - "No contradictions between MDs"
-  - "Intent.yml is accurately reflected"
-  - "Ontology.yml terms are normalized"
+quality_targets:
+  min_overall_score: 90
+  min_uniqueness_score: 90
+  min_concept_alignment_score: 90
+  target_term_normalization_rate: 100
+  target_invariant_coverage: 100
+  target_auto_decision_documentation: 100

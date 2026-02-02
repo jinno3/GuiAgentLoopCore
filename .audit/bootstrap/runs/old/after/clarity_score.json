@@ -1,108 +1,125 @@
 {
-  "timestamp": "2026-02-03T03:14:10Z",
+  "timestamp": "2026-02-03T03:28:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 98,
+  "concept_alignment_score": 95,
+  "uniqueness_score": 95,
   "max_score": 100,
+
+  "scoring_breakdown": {
+    "existence_clarity": {
+      "score": 100,
+      "weight": 0.3,
+      "details": "Mission is clearly stated across all Tier 1 MDs"
+    },
+    "terminology_consistency": {
+      "score": 100,
+      "weight": 0.3,
+      "details": "Canonical terms used consistently, 0 prohibited synonyms found"
+    },
+    "intent_alignment": {
+      "score": 95,
+      "weight": 0.2,
+      "details": "All MDs reflect intent.yml accurately"
+    },
+    "invariants_coverage": {
+      "score": 90,
+      "weight": 0.2,
+      "details": "Hard invariants documented in AGENTS.md, CLAUDE.md, CONTRIBUTING.md"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
+      "clarity_score": 100,
+      "concept_alignment": 100,
+      "intent_alignment": 100,
+      "status": "excellent"
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
+      "clarity_score": 100,
+      "concept_alignment": 100,
+      "intent_alignment": 95,
+      "status": "excellent"
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
       "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
+      "concept_alignment": 95,
+      "intent_alignment": 95,
+      "status": "very_good"
     },
     {
       "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
+      "clarity_score": 100,
+      "concept_alignment": 100,
+      "intent_alignment": 100,
+      "status": "excellent"
     },
     {
       "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
+      "clarity_score": 95,
+      "concept_alignment": 95,
+      "intent_alignment": 95,
+      "status": "very_good"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "clarity_score": 95,
+      "concept_alignment": 100,
+      "intent_alignment": 90,
+      "status": "very_good"
+    },
+    {
+      "path": "PURPOSE.md",
+      "clarity_score": 100,
+      "concept_alignment": 100,
+      "intent_alignment": 100,
+      "status": "excellent"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "clarity_score": 100,
+      "concept_alignment": 100,
+      "intent_alignment": 95,
+      "status": "excellent"
     },
     {
       "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
+      "clarity_score": 90,
+      "concept_alignment": 90,
+      "intent_alignment": 90,
+      "status": "good"
     },
     {
       "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
+      "clarity_score": 90,
+      "concept_alignment": 90,
+      "intent_alignment": 90,
+      "status": "good"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "clarity_score": 100,
+      "concept_alignment": 100,
+      "intent_alignment": 100,
+      "status": "minimal"
     }
-  ]
+  ],
+
+  "improvements_from_before": {
+    "overall_score_delta": 0,
+    "concept_alignment_delta": 0,
+    "uniqueness_score_delta": 0,
+    "notes": "Scores remained high as MDs were already well-aligned"
+  },
+
+  "summary": {
+    "excellent_count": 6,
+    "very_good_count": 3,
+    "good_count": 2,
+    "needs_improvement_count": 0,
+    "overall_assessment": "Excellent - All MDs meet or exceed standards"
+  }
 }

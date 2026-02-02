@@ -1,176 +1,625 @@
 {
-  "timestamp": "2026-02-03T03:28:00Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "invariants_source": ".concept/invariants.yml",
-
-  "overall_alignment_score": 95,
+  "timestamp": "2026-02-03T00:00:00Z",
+  "overall_score": 92,
   "uniqueness_score": 95,
-  "concept_alignment_score": 95,
-
-  "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
-
-  "per_file_alignment": [
+  "concept_alignment_score": 90,
+  "files": [
     {
-      "file": "README.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
-      },
-      "issues": []
-    },
-    {
-      "file": "AGENTS.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
-      },
-      "issues": []
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 95,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
-      },
-      "issues": [
-        {
-          "type": "timestamp_update",
-          "note": "Last verified 2026-02-02T13:23:00Z - may benefit from re-verification",
-          "severity": "low"
+      "path": "README.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-002": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
         }
-      ]
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_found": ["All 11 terms from ontology.yml"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
       },
-      "issues": [
-        {
-          "type": "version_sync",
-          "note": "Last updated 2026-02-02T22:50:00Z - verify ontology v0.3 is current",
-          "severity": "low"
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": ["Hard invariants mentioned but not detailed (by design - references other docs)"]
+        },
+        "CA-004": {
+          "passed": false,
+          "issues": ["AUTO decisions not documented (README is high-level overview)"]
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
         }
-      ]
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 2,
+        "missing": ["INV-MSG-001", "INV-AGENT-001", "INV-AUTO-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-BACKEND-002", "INV-MEM-001"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 0,
+        "missing": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property", "AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue", "AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security", "AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Session.jwt:algorithm_hs256", "AUTO:State.timer:3sec", "AUTO:Connector.layer:domain", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional"]
+      }
     },
     {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Converter", "Connector", "Memory"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
-      },
-      "issues": [
-        {
-          "type": "review_periodic",
-          "note": "Architecture documentation is well-aligned, periodic review recommended",
-          "severity": "low"
+      "path": "AGENTS.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-002": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
         }
-      ]
+      },
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": false,
+          "issues": ["AUTO decisions mentioned but not detailed (references ambiguities.yml)"]
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 11,
+        "missing": ["AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional", "AUTO:State.transition:forward_only", "AUTO:Agent.role:other_default", "AUTO:AutoChat.check:before_trigger", "AUTO:Memory.limit:100"]
+      }
     },
     {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Connector", "Converter", "Memory", "Backend"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
+      "path": "CLAUDE.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-002": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
       },
-      "issues": []
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 15,
+        "missing": ["AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional"]
+      }
     },
     {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
+      "path": "SYSTEM_CONSTITUTION.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-002": {
+          "passed": false,
+          "issues": ["Target users not explicitly defined (constitution focuses on system constraints)"]
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": false,
+          "issues": ["Boundaries not explicitly defined (constitution focuses on invariants)"]
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
       },
-      "issues": []
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 11,
+        "missing": ["INV-AGENT-001", "INV-MEM-001", "INV-BACKEND-002"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 5,
+        "missing": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property", "AUTO:Message.structure:flat", "AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue", "AUTO:Backend.primary:gradio", "AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:State.timer:3sec", "AUTO:Connector.layer:domain", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional", "AUTO:State.transition:forward_only", "AUTO:Agent.role:other_default", "AUTO:AutoChat.check:before_trigger", "AUTO:Memory.limit:100"]
+      }
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "alignment_rate": 1.0
+      "path": "PURPOSE.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-002": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
       },
-      "issues": []
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": false,
+          "issues": ["Invariants not explicitly detailed (purpose document focuses on objectives)"]
+        },
+        "CA-004": {
+          "passed": false,
+          "issues": ["AUTO decisions not documented (purpose document focuses on vision)"]
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 1,
+        "missing": ["INV-MSG-001", "INV-AGENT-001", "INV-AUTO-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-BACKEND-002", "INV-MEM-001"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 0,
+        "missing": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property", "AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue", "AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security", "AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Session.jwt:algorithm_hs256", "AUTO:State.timer:3sec", "AUTO:Connector.layer:domain", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional"]
+      }
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": false,
+          "issues": ["Mission statement not explicitly stated (contributing guide focuses on process)"]
+        },
+        "UC-002": {
+          "passed": false,
+          "issues": ["Target users not defined"]
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": false,
+          "issues": ["Boundaries not explicitly defined"]
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 11,
+        "missing": ["AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional", "AUTO:State.transition:forward_only", "AUTO:Agent.role:other_default", "AUTO:AutoChat.check:before_trigger", "AUTO:Memory.limit:100"]
+      }
+    },
+    {
+      "path": "GLOSSARY.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": false,
+          "issues": ["Mission not stated (glossary is reference documentation)"]
+        },
+        "UC-002": {
+          "passed": false,
+          "issues": ["Target users not defined"]
+        },
+        "UC-003": {
+          "passed": false,
+          "issues": ["Constraints not explicitly listed (glossary defines terms)"]
+        },
+        "UC-004": {
+          "passed": false,
+          "issues": ["Boundaries not explicitly defined (glossary defines term boundaries)"]
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": false,
+          "issues": ["Invariants not explicitly detailed (glossary focuses on term definitions)"]
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 0,
+        "missing": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-AGENT-001", "INV-AUTO-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-BACKEND-002", "INV-MEM-001"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 7,
+        "missing": ["AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue", "AUTO:Backend.primary:gradio", "AUTO:State.timer:3sec", "AUTO:Connector.layer:domain", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional", "AUTO:State.transition:forward_only", "AUTO:Agent.role:other_default", "AUTO:AutoChat.check:before_trigger"]
+      }
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-002": {
+          "passed": false,
+          "issues": ["Target users not explicitly defined (architecture focuses on structure)"]
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 10,
+        "missing": ["INV-BACKEND-002"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 12,
+        "missing": ["AUTO:AutoChat.prompt:default_continue", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional", "AUTO:State.transition:forward_only", "AUTO:Agent.role:other_default"]
+      }
+    },
+    {
+      "path": "GEMINI.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": false,
+          "issues": ["Mission statement not explicitly stated (agent-specific guide)"]
+        },
+        "UC-002": {
+          "passed": false,
+          "issues": ["Target users not defined"]
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": false,
+          "issues": ["Boundaries not explicitly defined"]
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 1,
+        "missing": ["INV-SESSION-001", "INV-MSG-001", "INV-AGENT-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-BACKEND-002", "INV-MEM-001"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 0,
+        "missing": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property", "AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue", "AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security", "AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Session.jwt:algorithm_hs256", "AUTO:State.timer:3sec", "AUTO:Connector.layer:domain", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional"]
+      }
+    },
+    {
+      "path": "CODEX.md",
+      "uc_checks": {
+        "UC-001": {
+          "passed": false,
+          "issues": ["Mission statement not explicitly stated (agent-specific guide)"]
+        },
+        "UC-002": {
+          "passed": false,
+          "issues": ["Target users not defined"]
+        },
+        "UC-003": {
+          "passed": true,
+          "issues": []
+        },
+        "UC-004": {
+          "passed": false,
+          "issues": ["Boundaries not explicitly defined"]
+        },
+        "UC-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "ca_checks": {
+        "CA-001": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-002": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-003": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-004": {
+          "passed": true,
+          "issues": []
+        },
+        "CA-005": {
+          "passed": true,
+          "issues": []
+        }
+      },
+      "term_usage_issues": [],
+      "invariant_coverage": {
+        "total": 13,
+        "reflected": 1,
+        "missing": ["INV-SESSION-001", "INV-MSG-001", "INV-AGENT-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-BACKEND-002", "INV-MEM-001"]
+      },
+      "auto_decision_coverage": {
+        "total": 17,
+        "documented": 0,
+        "missing": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property", "AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue", "AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security", "AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Session.jwt:algorithm_hs256", "AUTO:State.timer:3sec", "AUTO:Connector.layer:domain", "AUTO:Message.roles:tool_function_separation", "AUTO:Memory.implementation:dual_provisional"]
+      }
     }
   ],
-
-  "invariant_check": {
-    "total_invariants": 13,
-    "hard_invariants": 11,
-    "soft_invariants": 2,
-    "reflected_in_md": {
-      "agents_md": 13,
-      "claudemd": 11,
-      "contributing": 11,
-      "architecture": 11
-    },
-    "missing_hard_invariants": [],
-    "missing_soft_invariants": [
-      {
-        "invariant_id": "INV-BACKEND-002",
-        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
-        "strength": "soft",
-        "reflected_in": ["ARCHITECTURE.md"],
-        "not_in": ["CLAUDE.md", "CONTRIBUTING.md"],
-        "priority": "low",
-        "note": "Soft invariant, not critical for all MDs"
-      }
-    ]
-  },
-
-  "auto_decision_handling": {
-    "total_active": 13,
-    "noted_in_claudemd": 13,
-    "noted_in_architecture": 13,
-    "noted_in_agents": 9,
-    "noted_in_contributing": 10,
-    "format": "Explicitly documented as AUTO decisions with expiry tracking",
-    "missing_notes": []
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 13,
-    "reflected_as_notes": 13,
-    "missing_notes": 0,
-    "well_documented_in": ["CLAUDE.md", "ARCHITECTURE.md"]
-  },
-
   "summary": {
-    "strengths": [
-      "All canonical terms used consistently across MDs",
-      "No prohibited synonyms found in core documentation",
-      "All hard invariants reflected in AGENTS.md and CLAUDE.md",
-      "AUTO decisions well documented in specialized MDs",
-      "Term boundaries consistent across all documentation",
-      "100% concept alignment rate for core terms"
+    "total_files_checked": 10,
+    "files_fully_compliant": 3,
+    "files_needing_updates": [
+      "README.md - Add AUTO decision documentation",
+      "SYSTEM_CONSTITUTION.md - Add target users and boundaries sections",
+      "PURPOSE.md - Consider adding invariant and AUTO decision references",
+      "CONTRIBUTING.md - Add mission and target users sections",
+      "GLOSSARY.md - Consider adding invariants section",
+      "GEMINI.md - Add AUTO decision documentation",
+      "CODEX.md - Add AUTO decision documentation"
     ],
-    "minor_improvements": [
-      "Update verification timestamps in CLAUDE.md",
-      "Consider adding INV-BACKEND-002 to CONTRIBUTING.md (low priority)",
-      "Periodic re-verification recommended to maintain alignment"
+    "term_normalization_rate": 100,
+    "invariant_coverage_rate": 54,
+    "auto_decision_documentation_rate": 35,
+    "key_findings": [
+      "All files use canonical terminology correctly (100% normalization rate)",
+      "No synonym usage detected in any MD file",
+      "Hard invariants well-documented in AGENTS.md, CLAUDE.md, CONTRIBUTING.md, and ARCHITECTURE.md",
+      "AUTO decisions documented in CLAUDE.md (15/17), ARCHITECTURE.md (12/17), and AGENTS.md (11/17)",
+      "README.md focuses on high-level overview (by design)",
+      "Agent-specific guides (GEMINI.md, CODEX.md) reference AUTO decisions but don't detail them",
+      "SYSTEM_CONSTITUTION.md focuses on constitutional invariants (11/13 hard invariants covered)",
+      "GLOSSARY.md is auto-generated from ontology.yml (perfect alignment)",
+      "All files comply with intent.yml mission and core functions",
+      "Expired AUTO decisions (AUTO:Security.secret_key:env_var_required, AUTO:Session.jwt:decode_method_fix) not documented in MD files"
     ],
-    "overall_assessment": "Excellent - Concept integrity is well maintained across all MD files"
+    "recommendations": [
+      "Consider adding AUTO decision summary to README.md for visibility",
+      "Add target users section to SYSTEM_CONSTITUTION.md",
+      "Document expired AUTO decisions in relevant MD files",
+      "Consider creating separate AUTO_DECISIONS.md for comprehensive AUTO decision tracking",
+      "Add invariant references to PURPOSE.md for traceability",
+      "Standardize AUTO decision documentation across agent-specific guides (GEMINI.md, CODEX.md)",
+      "Consider adding INV-BACKEND-002 to ARCHITECTURE.md (currently missing)"
+    ]
   }
 }
