@@ -1,72 +1,53 @@
 {
-  "timestamp": "2026-02-02T04:38:14Z",
+  "timestamp": "2026-02-02T04:53:47Z",
   "version": "1.1",
-  "overall_uniqueness_score": 100,
-  "checks_performed": [
+  "overall_score": 100,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
+      "name": "Existence Purpose Consistency",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
-        "mission_consistency": "All files reflect the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
-      }
+      "evidence": "All files consistently express the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
+      "source": ".audit/intent.yml"
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
+      "name": "Target User Consistency",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users_consistent": true,
-        "mentioned_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-      }
+      "evidence": "All files consistently target: Application Developers, AI Agent Developers, Framework Developers, AI Agents",
+      "source": ".audit/intent.yml"
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
+      "name": "Constraints Consistency",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "invariants_consistent": true,
-        "hard_invariants_count": 11,
-        "soft_invariants_count": 3
-      }
+      "evidence": "All files respect hard invariants and AUTO decisions from .concept/invariants.yml",
+      "source": ".audit + .concept"
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
+      "name": "Boundaries Consistency",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_consistent": true,
-        "key_boundaries": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"]
-      }
+      "evidence": "All files consistently define boundaries (in_scope: conversation flow, state management; out_of_scope: UI rendering, LLM execution)",
+      "source": ".audit + .concept"
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
+      "name": "Intent.yml Compliance",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true,
-        "success_metrics_documented": true
-      }
+      "evidence": "Mission, core functions, design philosophy, and success metrics are consistently reflected across all documentation",
+      "source": ".audit/intent.yml"
     }
   ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100
-  },
-  "issues_found": [],
-  "issues_resolved": []
+    "score": 100
+  }
 }

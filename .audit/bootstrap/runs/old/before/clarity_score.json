@@ -1,9 +1,10 @@
 {
-  "timestamp": "2026-02-02T13:23:00Z",
+  "timestamp": "2026-02-02T04:38:14Z",
   "overall_score": 95,
   "concept_alignment_score": 95,
+  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (audit + concept integrated)",
+  "scoring_method": "v1.1 (intent + ontology integration)",
   "files": [
     {
       "path": "README.md",
@@ -12,36 +13,37 @@
       "concept_alignment": {
         "score": 95,
         "canonical_terms_used": 11,
-        "synonym_usage_detected": 0,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Mission clearly stated from intent.yml",
-        "All 11 canonical terms properly used",
-        "Invariants section complete with references",
-        "AUTO decisions section well-documented",
-        "References to AGENTS.md and GLOSSARY.md"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "issues": []
+      },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "canonical_terms_used": 11,
-        "synonym_usage_detected": 0,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Perfect term normalization table",
-        "All 11 canonical terms documented",
-        "Complete invariants list from invariants.yml",
-        "All AUTO decisions documented with expiry",
-        "Clear behavior rules section",
-        "References to .concept files"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "mission_reflected": true,
+        "invariants_documented": 14,
+        "auto_decisions_documented": 9,
+        "issues": []
+      },
       "issues": []
     },
     {
@@ -49,38 +51,90 @@
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
         "canonical_terms_used": 10,
-        "synonym_usage_detected": 0,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Canonical terms properly categorized (Core/Domain/Aux)",
-        "All invariants documented with rationale",
-        "AUTO decisions clearly explained",
-        "Code examples follow best practices",
-        "Review checklist comprehensive"
-      ],
+      "intent_alignment": {
+        "score": 90,
+        "invariants_documented": 14,
+        "auto_decisions_documented": 9,
+        "issues": []
+      },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "canonical_terms_used": 11,
-        "synonym_usage_detected": 0,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All 11 terms with full definitions",
-        "Normalization map complete",
-        "AUTO decisions documented per term",
-        "Evidence citations included"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "generated_from_ontology": true,
+        "issues": []
+      },
       "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 90,
+        "canonical_terms_used": 8,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "mission_reflected": true,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 85,
+        "canonical_terms_used": 7,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 90,
+        "design_philosophy_reflected": true,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 80,
+        "canonical_terms_used": 5,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "issues": ["Could benefit from more explicit term usage guidelines"]
     },
     {
       "path": "ARCHITECTURE.md",
@@ -88,110 +142,67 @@
       "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
-        "canonical_terms_used": 8,
-        "synonym_usage_detected": 0,
+        "canonical_terms_used": 9,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Architecture diagrams present",
-        "Component descriptions use canonical terms"
-      ],
-      "issues": [
-        "Could benefit from more explicit mappings.yml references"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
+      "intent_alignment": {
         "score": 90,
-        "canonical_terms_used": 6,
-        "synonym_usage_detected": 0,
         "issues": []
       },
-      "strengths": [
-        "References to AGENTS.md for term guidelines"
-      ],
-      "issues": [
-        "Could include more explicit term usage guidelines"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 90,
-        "canonical_terms_used": 5,
-        "synonym_usage_detected": 0,
-        "issues": []
-      },
-      "strengths": [
-        "Uses canonical terms in code examples"
-      ],
-      "issues": [
-        "Could reference more invariants"
-      ]
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 90,
-        "canonical_terms_used": 5,
-        "synonym_usage_detected": 0,
+        "score": 85,
+        "canonical_terms_used": 6,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Canonical term references present"
-      ],
-      "issues": [
-        "Could be more comprehensive like CLAUDE.md"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": 8,
-        "synonym_usage_detected": 0,
+      "intent_alignment": {
+        "score": 85,
         "issues": []
       },
-      "strengths": [
-        "Well-aligned with intent.yml",
-        "Canonical terms used consistently"
-      ],
       "issues": []
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": 7,
-        "synonym_usage_detected": 0,
+        "score": 85,
+        "canonical_terms_used": 6,
+        "synonyms_found": 0,
+        "unknown_terms": 0,
         "issues": []
       },
-      "strengths": [
-        "Invariants properly documented",
-        "Canonical terms used correctly"
-      ],
+      "intent_alignment": {
+        "score": 85,
+        "issues": []
+      },
       "issues": []
     }
   ],
-  "summary": {
-    "total_files": 10,
-    "excellent_files": 6,
-    "good_files": 4,
-    "needs_improvement_files": 0,
-    "critical_issues": 0,
-    "canonical_term_coverage": "100% (11/11 terms documented)",
-    "invariant_coverage": "100% (14/14 invariants documented)",
-    "auto_decision_coverage": "100% (15/15 AUTO decisions documented)"
+  "scores_by_tier": {
+    "tier1": {
+      "average_clarity": 97.5,
+      "average_concept_alignment": 97.5,
+      "average_intent_alignment": 100
+    },
+    "tier2": {
+      "average_clarity": 91.25,
+      "average_concept_alignment": 88.75,
+      "average_intent_alignment": 91.25
+    },
+    "tier3": {
+      "average_clarity": 87.5,
+      "average_concept_alignment": 87.5,
+      "average_intent_alignment": 86.67
+    }
   }
 }
