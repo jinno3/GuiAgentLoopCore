@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T02:13:31Z",
+  "last_updated": "2026-02-02T02:33:59Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -20,7 +20,7 @@
   "queue_merged": 7,
   "queue_accepted": 1,
   "queue_rejected": 4,
-  "claims_count": 148,
+  "claims_count": 149,
   "mappings_count": 11,
   "decisions_active": 16,
   "decisions_expired": 1,
@@ -48,10 +48,10 @@
     "reason": "No bloat control actions needed - ontology healthy"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T02:13:31Z",
-    "previous_run_id": "2026-02-02T01:53:39Z",
-    "run_count": 58,
-    "claims_added": 0,
+    "run_id": "2026-02-02T02:33:59Z",
+    "previous_run_id": "2026-02-02T02:13:31Z",
+    "run_count": 59,
+    "claims_added": 1,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
     "auto_decisions_expired": 0,
@@ -67,8 +67,8 @@
       "Queue status: 0 pending, 7 merged, 4 rejected, 1 accepted",
       "decisions.md: 154 lines (within 200-line limit)",
       "14 hard invariants maintained",
-      "17 AUTO decisions (1 EXPIRED: AMB-SEC-001 - expired 48 runs ago)",
-      "CRITICAL SECURITY: AMB-SEC-001 AUTO decision EXPIRED - hardcoded JWT secret must be migrated to env var"
+      "17 AUTO decisions (1 EXPIRED: AMB-SEC-001 - security critical)",
+      "CRITICAL SECURITY: AMB-SEC-001 AUTO decision EXPIRED - hardcoded JWT secret must be migrated to env var IMMEDIATELY"
     ]
   },
   "health_check": {
@@ -78,7 +78,7 @@
     "conflict_health": "healthy (0 conflicts)",
     "bootstrap_sync_quality": "EXCELLENT (100% alignment)",
     "architecture_doc_alignment": "EXCELLENT (100% alignment with ontology)",
-    "security_alert": "CRITICAL: AMB-SEC-001 EXPIRED (expires_after_runs=10, decided at run ~10, current run=58). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py must be migrated to environment variable IMMEDIATELY. This is a security vulnerability."
+    "security_alert": "CRITICAL: AMB-SEC-001 EXPIRED (expires_after_runs=10, decided at run ~48, current run=59). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py must be migrated to environment variable IMMEDIATELY. This is a security vulnerability."
   },
   "next_steps": [
     "CRITICAL: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable",
