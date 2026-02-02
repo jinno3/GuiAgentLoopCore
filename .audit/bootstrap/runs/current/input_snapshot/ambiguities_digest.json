@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-02-03T02:42:00Z",
+  "source": ".concept/ambiguities.yml",
+  "updated_at": "2026-02-02T05:57:38Z",
+
+  "statistics": {
+    "total_ambiguities": 9,
+    "by_severity": {
+      "high": 2,
+      "medium": 2,
+      "low": 5
+    },
+    "by_status": {
+      "applied": 6,
+      "expired": 2
+    }
+  },
+
+  "high_severity_issues": [
+    {
+      "id": "AMB-SEC-001",
+      "term": "Security",
+      "topic": "ハードコードされたシークレットキー vs 環境変数",
+      "auto_decision": "AUTO:Security.secret_key:env_var_required",
+      "status": "expired",
+      "chosen": "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）",
+      "confidence_auto": 0.85,
+      "expires_after_runs": 10,
+      "last_touched_run": "2026-02-02T05:57:38Z",
+      "critical_note": "EXPIRED for 20+ runs past expiration - needs immediate attention"
+    },
+    {
+      "id": "AMB-SEC-002",
+      "term": "Session",
+      "topic": "JWTデコードメソッドの未定義変数バグ",
+      "auto_decision": "AUTO:Session.jwt:decode_method_fix",
+      "status": "expired",
+      "chosen": "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要",
+      "confidence_auto": 0.75,
+      "expires_after_runs": 10,
+      "last_touched_run": "2026-02-02T05:57:38Z",
+      "critical_note": "EXPIRED for 4+ runs past expiration - code quality issue"
+    }
+  ],
+
+  "medium_severity_issues": [
+    {
+      "id": "AMB-MSG-001",
+      "term": "Message",
+      "topic": "Message Role types - TOOL vs FUNCTIONの意味論的違い",
+      "auto_decision": "AUTO:Message.roles:tool_function_separation",
+      "status": "applied"
+    },
+    {
+      "id": "AMB-MEM-002",
+      "term": "Memory",
+      "topic": "デュアルメモリ実装 - LangChain vs カスタム",
+      "auto_decision": "AUTO:Memory.implementation:dual_provisional",
+      "status": "applied"
+    }
+  ],
+
+  "low_severity_issues": [
+    {
+      "id": "AMB-AGT-001",
+      "term": "Agent",
+      "topic": "AgentとAgentTypeの関係",
+      "auto_decision": "AUTO:Agent.type:implementation_property",
+      "status": "applied"
+    },
+    {
+      "id": "AMB-MEM-001",
+      "term": "Memory",
+      "topic": "会話メモリのウィンドウサイズと最大長",
+      "auto_decision": "AUTO:Memory.specs:provisional",
+      "status": "applied"
+    },
+    {
+      "id": "AMB-AUTO-001",
+      "term": "AutoChat",
+      "topic": "AUTO_CHAT_PROMPTのデフォルト値",
+      "auto_decision": "AUTO:AutoChat.prompt:default_continue",
+      "status": "applied"
+    },
+    {
+      "id": "AMB-BE-001",
+      "term": "Backend",
+      "topic": "Streamsyncサポートの有無と優先度",
+      "auto_decision": "AUTO:Backend.primary:gradio",
+      "status": "applied"
+    },
+    {
+      "id": "AMB-CON-001",
+      "term": "Connector",
+      "topic": "コネクタの正規名と抽象度",
+      "auto_decision": "AUTO:Connector.layer:domain",
+      "status": "applied"
+    }
+  ],
+
+  "active_auto_decisions": 6,
+  "expired_auto_decisions": 2
+}

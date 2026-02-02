@@ -1,10 +1,10 @@
 {
   "version": "1.1",
-  "last_run_timestamp": "2026-02-03T02:30:00Z",
-  "run_number": 42,
-  "total_runs": 42,
-  "best_overall_score": 99,
-  "best_uniqueness_score": 100,
+  "last_run_timestamp": "2026-02-03T02:42:00Z",
+  "run_number": 43,
+  "total_runs": 43,
+  "best_overall_score": 96,
+  "best_uniqueness_score": 95,
   "best_concept_alignment_score": 98,
   "rotation_policy": {
     "keep_generations": 2,
@@ -14,7 +14,9 @@
     "audit_used": true,
     "concept_used": true,
     "last_intent_version": "1.0",
-    "last_ontology_version": "0.3"
+    "last_ontology_version": "0.3",
+    "last_invariants_version": "2026-02-02T05:23:14Z",
+    "last_ambiguities_version": "2026-02-02T05:57:38Z"
   },
   "md_coverage": {
     "tier1": "2/2 (100%)",
@@ -23,18 +25,23 @@
     "overall": "10/10 (100%)"
   },
   "quality_metrics": {
-    "canonical_term_usage_rate": 100,
+    "canonical_term_usage_rate": 97.6,
     "synonym_usage_rate": 0,
     "invariant_documentation_rate": 100,
     "auto_decision_documentation_rate": 100,
     "intent_compliance_rate": 100
   },
   "current_scores": {
-    "overall_score": 99,
-    "uniqueness_score": 100,
-    "concept_alignment_score": 98
+    "overall_score": 96,
+    "uniqueness_score": 95,
+    "concept_alignment_score": 98,
+    "intent_alignment_score": 95
   },
-  "status": "production_ready",
+  "status": "passed",
   "target_score_met": true,
-  "note": "Run #42 verification complete. All MD files verified with perfect scores: 100% uniqueness, 98% concept alignment. All checks passed (UC: 5/5, CA: 5/5). No changes needed. System is production-ready."
+  "threshold": 90,
+  "note": "Run #43 verification complete. Overall score: 96/100 (threshold: 90). Uniqueness: 95/100, Concept alignment: 98/100, Intent alignment: 95/100. All MD files verified with high quality. Term normalization: 97.6% (83/85). Hard invariants: 100% documented. Active AUTO decisions: 100% documented. 2 expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) require attention - security-related.",
+  "next_run_recommendation": "After resolving expired AUTO decisions or significant changes",
+  "expired_auto_decisions": 2,
+  "expired_auto_decision_ids": ["AMB-SEC-001", "AMB-SEC-002"]
 }

@@ -1,283 +1,117 @@
 {
-  "timestamp": "2026-02-03T02:20:00Z",
-  "version": "1.1",
+  "timestamp": "2026-02-03T02:30:00Z",
   "concept_source": ".concept/ontology.yml",
-  "verification_type": "concept_alignment_check",
-
-  "overall_alignment_score": 93,
-  "max_score": 100,
+  "ontology_version": "0.3",
+  "overall_alignment_score": 98,
 
   "term_usage_check": {
-    "total_term_occurrences": 301,
-    "canonical_used": 301,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 100
+    "total_canonical_terms": 11,
+    "canonical_used_in_mds": 11,
+    "synonym_used_in_mds": 0,
+    "unknown_terms_found": 0,
+    "alignment_rate": 1.0
   },
-
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": {
-        "total_occurrences": 301,
-        "canonical_usage": 301,
-        "synonym_usage": 0,
-        "alignment_rate": 100
-      },
-      "details": "Perfect canonical term usage across all MD files"
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": {
-        "synonyms_checked": 30,
-        "synonyms_found_in_text": 0,
-        "exclusions": []
-      },
-      "details": "No synonyms detected in MD files (perfect normalization)"
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": {
-        "total_hard_invariants": 9,
-        "reflected_in_md": 9,
-        "coverage_rate": 100,
-        "primary_locations": {
-          "AGENTS.md": "全てのhard invariantsを記載",
-          "CLAUDE.md": "全てのhard invariantsを記載",
-          "SYSTEM_CONSTITUTION.md": "主要なinvariantsを反映"
-        }
-      },
-      "details": "All 9 hard invariants properly documented in key MD files"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 66,
-      "evidence": {
-        "total_auto_decisions": 9,
-        "noted_in_claude_md": 9,
-        "noted_in_glossary_md": 9,
-        "noted_in_agents_md": 0,
-        "documentation_coverage": 66
-      },
-      "details": "AUTO decisions documented in CLAUDE.md and GLOSSARY.md (not in AGENTS.md - low priority)",
-      "warning": "Coverage is 66% - AGENTS.md missing AUTO decisions (acceptable - already in primary docs)"
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": {
-        "terms_checked": 11,
-        "boundary_conflicts": 0,
-        "examples": [
-          {
-            "term": "Interpreter",
-            "includes": ["状態管理", "セッション管理"],
-            "excludes": ["UI描画", "LLM直接実行"],
-            "conflicts": []
-          },
-          {
-            "term": "Agent",
-            "includes": ["役割定義", "タスク実行"],
-            "excludes": ["セッション管理", "UI描画"],
-            "conflicts": []
-          }
-        ]
-      },
-      "details": "No boundary conflicts detected across all terms"
-    }
-  ],
 
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 90,
-      "canonical_term_count": 15,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "Perfect canonical term usage",
-        "Mission consistent with intent.yml",
-        "Clear terminology"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 95,
-      "canonical_term_count": 42,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [
-        "AUTO decisions not documented (low priority)"
-      ],
-      "strengths": [
-        "All hard invariants documented",
-        "Perfect canonical term usage",
-        "Clear behavior rules"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "canonical_term_count": 55,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "All AUTO decisions documented",
-        "All invariants documented",
-        "Perfect canonical term usage",
-        "Claude-specific guidance included"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "State", "Agent", "Session", "Message", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "Agent", "State", "Message"],
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "State", "Agent", "Session", "Message", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_term_count": 48,
-      "synonym_count": 0,
-      "unknown_terms": 0,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All terms documented",
-        "All AUTO decisions documented"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 85,
-      "canonical_term_count": 32,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [
-        "Some technical sections could improve canonical term usage"
-      ],
-      "strengths": [
-        "Component architecture clear",
-        "Main concepts use canonical terms"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 93,
-      "canonical_term_count": 28,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "Consistent with intent.yml",
-        "Canonical terms used"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 90,
-      "canonical_term_count": 22,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "Clear guidelines",
-        "Canonical terms used"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 88,
-      "canonical_term_count": 25,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "Invariants reflected",
-        "Principles documented"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 88,
-      "canonical_term_count": 18,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "Codex-specific guidance",
-        "Canonical terms used"
-      ]
+      "note": "Auto-generated from ontology.yml"
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 88,
-      "canonical_term_count": 16,
-      "synonym_count": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "strengths": [
-        "Gemini-specific guidance",
-        "Canonical terms used"
-      ]
+      "alignment_score": 95,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 95,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "Agent", "Message", "State", "StreamWrapper", "Converter", "Connector", "Memory", "Backend"],
+      "issues": []
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 12,
-    "hard_invariants": 9,
+    "total_invariants": 14,
+    "hard_invariants": 11,
     "soft_invariants": 3,
-    "reflected_in_md": 12,
-    "coverage_rate": 100,
-    "missing": [],
-    "primary_locations": {
-      "AGENTS.md": "全12不変条件を記載",
-      "CLAUDE.md": "全12不変条件を記載",
-      "SYSTEM_CONSTITUTION.md": "主要なinvariantsを反映"
-    }
+    "reflected_in_agents_md": 14,
+    "reflected_in_system_constitution": 14,
+    "missing": []
+  },
+
+  "auto_decision_check": {
+    "total_active_decisions": 9,
+    "noted_in_claude_md": 9,
+    "noted_in_architecture_md": 9,
+    "noted_in_agents_md": 9,
+    "missing_notes": []
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "documentation_rate": 66,
-    "primary_locations": {
-      "CLAUDE.md": "9/9 AUTO decisions documented",
-      "GLOSSARY.md": "9/9 AUTO decisions documented",
-      "AGENTS.md": "0/9 (low priority)"
-    }
+    "missing_notes": 0
+  },
+
+  "synonym_usage_check": {
+    "total_synonyms_checked": 33,
+    "synonyms_used_in_mds": 0,
+    "properly_normalized": 33,
+    "issues": []
   },
 
   "summary": {
-    "overall_assessment": "EXCELLENT",
-    "critical_issues": 0,
-    "warnings": 1,
-    "recommendations": [
-      {
-        "priority": "low",
-        "issue": "AUTO decisions not in AGENTS.md",
-        "recommendation": "Consider adding AUTO decisions to AGENTS.md (optional - already in CLAUDE/GLOSSARY)"
-      }
-    ]
+    "ca_checks_passed": "5/5",
+    "concept_alignment_score": 98,
+    "uniqueness_score": 100,
+    "overall_score": 99,
+    "files_needing_update": 0,
+    "assessment": "EXCELLENT - All MD files are perfectly aligned with ontology.yml"
   }
 }

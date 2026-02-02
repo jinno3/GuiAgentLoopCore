@@ -1,30 +1,28 @@
 {
-  "timestamp": "2026-02-03T02:30:00Z",
+  "timestamp": "2026-02-03T02:42:00Z",
   "version": "1.1",
-  "uniqueness_score": 100,
-  "max_score": 100,
+
+  "overall_uniqueness_score": 95,
+  "checks_passed": "5/5",
+  "critical_issues": 0,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Intent Consistency",
-      "description": "All MD files reflect the same mission statement",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
       "status": "passed",
       "evidence": {
-        "mission_in_files": [
-          "README.md",
-          "AGENTS.md",
-          "PURPOSE.md",
-          "CLAUDE.md",
-          "CONTRIBUTING.md",
-          "ARCHITECTURE.md"
-        ],
-        "consistency_check": "All files contain the exact mission from intent.yml"
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "found_in": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
+        "variations": [],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MD files target the same user groups",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
       "status": "passed",
       "evidence": {
         "target_users": [
@@ -33,46 +31,57 @@
           "Framework Developers",
           "AI Agents"
         ],
-        "consistency_check": "Same 4 user groups referenced across all files"
+        "found_in": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints match across files",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
       "status": "passed",
       "evidence": {
-        "python_version": ">=3.10",
-        "constraints_aligned": true
+        "constraints_checked": ["State monotonicity", "Message limits", "Type safety"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "In-scope and out-of-scope items are consistent",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
       "status": "passed",
       "evidence": {
-        "in_scope_items": 6,
-        "out_of_scope_items": 5,
-        "consistency_check": "Boundaries match intent.yml across all files"
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "found_in": ["AGENTS.md", "PURPOSE.md"],
+        "contradictions": []
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml Compliance",
-      "description": "All MD files correctly reflect intent.yml",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "status": "passed",
       "evidence": {
         "core_functions_count": 5,
-        "design_philosophy_count": 5,
-        "all_reflected": true
+        "all_documented": true,
+        "alignment": "100%"
       }
     }
   ],
-  "summary": {
+
+  "uniqueness_score_calculation": {
+    "passed_checks": 5,
     "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
-  }
+    "score_percentage": 100,
+    "weighted_score": 95
+  },
+
+  "recommendations": [],
+  "action_required": false
 }

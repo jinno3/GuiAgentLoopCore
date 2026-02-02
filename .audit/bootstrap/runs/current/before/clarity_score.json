@@ -1,44 +1,63 @@
 {
-  "timestamp": "2026-02-03T02:30:00Z",
+  "timestamp": "2026-02-03T02:42:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 97,
+  "concept_alignment_score": 98,
+  "intent_alignment_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + ontology integrated)",
+
+  "scoring_breakdown": {
+    "existence_clarity": {
+      "score": 95,
+      "weight": 0.3,
+      "notes": "Mission clearly stated in README, AGENTS.md, PURPOSE.md"
+    },
+    "term_normalization": {
+      "score": 98,
+      "weight": 0.3,
+      "notes": "Canonical terms consistently used across all MDs"
+    },
+    "invariant_coverage": {
+      "score": 92,
+      "weight": 0.2,
+      "notes": "Most hard invariants documented, soft invariants partially covered"
+    },
+    "uniqueness": {
+      "score": 95,
+      "weight": 0.2,
+      "notes": "No contradictions found, consistent messaging"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
       "intent_alignment": {
         "score": 95,
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
-        "core_functions_count": 5,
-        "boundaries_respected": true
+        "mission_present": true,
+        "target_users_present": true,
+        "core_value_present": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
+        "score": 100,
         "issues": []
       },
       "intent_alignment": {
-        "score": 95,
-        "mission_stated": true,
-        "invariants_listed": true,
-        "behavior_rules_defined": true,
-        "boundaries_respected": true
+        "score": 98,
+        "mission_present": true,
+        "boundaries_present": true,
+        "invariants_section": true
       },
       "issues": []
     },
@@ -48,35 +67,42 @@
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "synonyms_found": [],
         "issues": []
       },
       "intent_alignment": {
-        "score": 95,
-        "claude_specific_recommendations": true,
-        "invariants_documented": true,
-        "auto_decisions_tracked": true
+        "score": 92,
+        "auto_decisions_covered": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "notes": "Generated from ontology.yml, fully aligned"
+      },
+      "intent_alignment": {
+        "score": 95
       },
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "invariants_from_ontology": true,
-        "all_hard_invariants_listed": 11,
-        "soft_invariants_listed": 3,
+        "score": 95,
         "issues": []
       },
       "intent_alignment": {
-        "score": 95,
-        "constitutional_principles_defined": true,
-        "amendment_process_documented": true
+        "score": 90
       },
-      "issues": []
+      "issues": [
+        "Some soft invariants could be more explicitly stated"
+      ]
     },
     {
       "path": "PURPOSE.md",
@@ -84,114 +110,85 @@
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "State", "Message"],
-        "synonyms_found": [],
         "issues": []
       },
       "intent_alignment": {
-        "score": 98,
-        "mission_statement_matches": true,
-        "vision_defined": true,
-        "objectives_match_intent": true,
-        "design_philosophy_matches": true
+        "score": 98
       },
       "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 98,
-        "terminology_guidelines_present": true,
-        "invariants_enforced": true,
-        "auto_decisions_referenced": true,
+        "score": 95,
         "issues": []
       },
       "intent_alignment": {
-        "score": 92,
-        "coding_standards_defined": true,
-        "contribution_process_documented": true
+        "score": 90
+      },
+      "issues": [
+        "Could benefit from more explicit term normalization guidelines"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 92
       },
       "issues": []
     },
     {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "auto_generated_from_ontology": true,
-        "ontology_version": "0.3",
-        "all_terms_covered": 11,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 100,
-        "terminology_consistent": true
-      },
-      "issues": [],
-      "note": "Auto-generated from ontology.yml v0.3"
-    },
-    {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
+        "score": 98,
         "issues": []
       },
       "intent_alignment": {
-        "score": 90,
-        "gemini_specific_recommendations": true,
-        "multimodal_support_addressed": true
+        "score": 93
       },
       "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 90,
-        "codex_specific_recommendations": true,
-        "code_generation_focus": true
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "Message", "State", "StreamWrapper", "Converter", "Connector", "Memory", "Backend"],
-        "synonyms_found": [],
-        "auto_decisions_documented": true,
         "issues": []
       },
       "intent_alignment": {
-        "score": 95,
-        "component_boundaries_match": true,
-        "extension_points_defined": true
+        "score": 93
       },
       "issues": []
     }
   ],
-  "summary": {
-    "total_files": 10,
-    "avg_clarity_score": 95,
-    "avg_concept_alignment": 97,
-    "files_with_issues": 0,
-    "files_needing_update": 0,
-    "overall_assessment": "EXCELLENT - All MD files are well-aligned with intent.yml and ontology.yml"
+
+  "identified_issues": {
+    "critical": [],
+    "warnings": [
+      {
+        "id": "WARN-001",
+        "issue": "Expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) not documented in CLAUDE.md",
+        "severity": "medium",
+        "files_affected": ["CLAUDE.md"]
+      }
+    ],
+    "suggestions": [
+      {
+        "id": "SUG-001",
+        "issue": "Consider adding security section to document expired AUTO decisions",
+        "files_affected": ["CLAUDE.md", "AGENTS.md"]
+      }
+    ]
   }
 }

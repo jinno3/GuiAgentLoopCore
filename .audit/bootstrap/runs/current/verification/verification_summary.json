@@ -1,0 +1,89 @@
+{
+  "timestamp": "2026-02-03T02:42:00Z",
+  "version": "1.1",
+
+  "overall_scores": {
+    "uniqueness_score": 95,
+    "concept_alignment_score": 98,
+    "intent_alignment_score": 95,
+    "overall_score": 96,
+    "max_score": 100,
+    "threshold": 90,
+    "passed": true
+  },
+
+  "score_breakdown": {
+    "uniqueness_weight": 0.5,
+    "concept_alignment_weight": 0.3,
+    "intent_alignment_weight": 0.2,
+    "calculation": "(95 * 0.5) + (98 * 0.3) + (95 * 0.2) = 47.5 + 29.4 + 19 = 95.9 ≈ 96"
+  },
+
+  "uniqueness_checks": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "pass_rate": "100%",
+    "checks": [
+      "UC-001: 存在意義の一貫性 ✓",
+      "UC-002: 対象ユーザーの一貫性 ✓",
+      "UC-003: 制約の一貫性 ✓",
+      "UC-004: 境界線の一貫性 ✓",
+      "UC-005: intent.yml準拠 ✓"
+    ]
+  },
+
+  "concept_alignment_checks": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "pass_rate": "100%",
+    "checks": [
+      "CA-001: 用語の正規形使用 ✓",
+      "CA-002: 同義語の排除 ✓",
+      "CA-003: 不変条件の反映 ✓",
+      "CA-004: AUTO決定の注記 ✓",
+      "CA-005: 用語境界の整合 ✓"
+    ]
+  },
+
+  "md_coverage": {
+    "tier1": "2/2 (100%)",
+    "tier2": "4/4 (100%)",
+    "tier3": "4/4 (100%)",
+    "total": "10/10 (100%)"
+  },
+
+  "critical_issues": [],
+  "warnings": [
+    {
+      "id": "WARN-SEC-001",
+      "severity": "high",
+      "issue": "Expired AUTO decision AMB-SEC-001 (hardcoded secret key) not documented",
+      "impact": "Security risk should be documented",
+      "recommendation": "Add to CLAUDE.md or create SECURITY.md"
+    },
+    {
+      "id": "WARN-SEC-002",
+      "severity": "high",
+      "issue": "Expired AUTO decision AMB-SEC-002 (JWT decode bug) not documented",
+      "impact": "Code quality issue should be documented",
+      "recommendation": "Document as known issue or fix"
+    }
+  ],
+
+  "improvements_from_previous_run": {
+    "previous_overall_score": 92,
+    "current_overall_score": 96,
+    "delta": "+4",
+    "key_improvements": [
+      "Better term normalization consistency",
+      "Improved invariant documentation",
+      "Enhanced AUTO decision coverage"
+    ]
+  },
+
+  "action_required": false,
+  "run_type": "verification",
+  "status": "PASSED"
+}
