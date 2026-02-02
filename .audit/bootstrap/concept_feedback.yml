@@ -1,16 +1,16 @@
 # MD Bootstrap Feedback to Concept Sync System (12_concept_sync_system)
-# Run Number: 48
-# Timestamp: 2026-02-03T03:54:00Z
+# Run Number: 49
+# Timestamp: 2026-02-03T04:06:55Z
 
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T03:54:00Z"
+  bootstrap_run_timestamp: "2026-02-03T04:06:55Z"
   source_ontology_version: "0.3"
-  run_number: 48
+  run_number: 49
 
   # 1. 用語使用状況
   term_usage_report:
-    total_canonical_terms: 10
-    canonical_used_in_mds: 10
+    total_canonical_terms: 11
+    canonical_used_in_mds: 11
     total_occurrences: 85
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
@@ -60,6 +60,11 @@ concept_feedback:
       - term: "Backend"
         occurrences: 15
         files: 7
+        assessment: "perfect"
+
+      - term: "Connector"
+        occurrences: 5
+        files: 5
         assessment: "perfect"
 
       - term: "Memory"
@@ -125,15 +130,15 @@ concept_feedback:
 
   # 10. 概念境界の整合性
   boundary_consistency:
-    checked_terms: 10
-    consistent_boundaries: 10
+    checked_terms: 11
+    consistent_boundaries: 11
     inconsistent_boundaries: 0
     assessment: "perfect"
 
   # 11. MDファイル別の概念整合スコア
   per_file_scores:
     - file: "README.md"
-      score: 98
+      score: 100
       terms_normalized: true
 
     - file: "AGENTS.md"
@@ -145,15 +150,15 @@ concept_feedback:
       terms_normalized: true
 
     - file: "CONTRIBUTING.md"
-      score: 95
-      terms_normalized: true
-
-    - file: "PURPOSE.md"
       score: 98
       terms_normalized: true
 
+    - file: "PURPOSE.md"
+      score: 100
+      terms_normalized: true
+
     - file: "SYSTEM_CONSTITUTION.md"
-      score: 95
+      score: 100
       terms_normalized: true
 
     - file: "GLOSSARY.md"
@@ -169,5 +174,5 @@ concept_feedback:
       terms_normalized: true
 
     - file: "ARCHITECTURE.md"
-      score: 96
+      score: 98
       terms_normalized: true

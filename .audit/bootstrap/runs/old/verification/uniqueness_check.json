@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-02-03T03:54:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 98,
+
+  "checks": [
+    {
+      "id": "UC-001",
+      "name": "Existence Intent Consistency",
+      "description": "全MDで同じmissionが表現されているか",
+      "passed": true,
+      "evidence": {
+        "mission_found_in": [
+          "README.md:3",
+          "AGENTS.md:3",
+          "PURPOSE.md:1"
+        ],
+        "consistency": "100%",
+        "variations": []
+      }
+    },
+    {
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "passed": true,
+      "evidence": {
+        "target_users_consistent": true,
+        "users_found": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "inconsistencies": []
+      }
+    },
+    {
+      "id": "UC-003",
+      "name": "Constraint Consistency",
+      "description": "技術的制約が一致しているか",
+      "passed": true,
+      "evidence": {
+        "python_version": ">=3.10",
+        "consistent_across": ["README.md", "CONTRIBUTING.md"],
+        "inconsistencies": []
+      }
+    },
+    {
+      "id": "UC-004",
+      "name": "Boundary Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "passed": true,
+      "evidence": {
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "contradictions": []
+      }
+    },
+    {
+      "id": "UC-005",
+      "name": "Intent.yml Compliance",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "passed": true,
+      "evidence": {
+        "core_functions_covered": 5,
+        "design_philosophy_covered": 5,
+        "missing_reflections": []
+      }
+    }
+  ],
+
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "pass_rate": "100%",
+    "score": 100
+  }
+}

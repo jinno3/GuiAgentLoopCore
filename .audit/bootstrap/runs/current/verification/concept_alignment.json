@@ -1,9 +1,8 @@
 {
-  "timestamp": "2026-02-03T03:54:00Z",
+  "timestamp": "2026-02-03T04:06:55Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "overall_alignment_score": 98,
-
+  "ontology_version": "0.3",
+  "overall_alignment_score": 99,
   "term_usage_check": {
     "total_term_occurrences": 85,
     "canonical_used": 85,
@@ -11,189 +10,145 @@
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "terms_checked": 5,
-      "canonical_used": 5,
-      "synonym_used": 0,
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "terms_checked": 10,
-      "canonical_used": 10,
-      "synonym_used": 0,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "terms_checked": 10,
-      "canonical_used": 10,
-      "synonym_used": 0,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "terms_checked": 3,
-      "canonical_used": 3,
-      "synonym_used": 0,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 98,
-      "terms_checked": 5,
-      "canonical_used": 5,
-      "synonym_used": 0,
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
-      "terms_checked": 3,
-      "canonical_used": 3,
-      "synonym_used": 0,
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 98,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
       "issues": []
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 95,
-      "terms_checked": 4,
-      "canonical_used": 4,
-      "synonym_used": 0,
       "issues": []
     },
     {
       "file": "CODEX.md",
       "alignment_score": 95,
-      "terms_checked": 3,
-      "canonical_used": 3,
-      "synonym_used": 0,
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 96,
-      "terms_checked": 4,
-      "canonical_used": 4,
-      "synonym_used": 0,
+      "alignment_score": 98,
       "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "CLAUDE.md": 14,
-      "SYSTEM_CONSTITUTION.md": 14
-    }
+    "coverage_percentage": 100
   },
-
-  "auto_decision_check": {
-    "total_active": 9,
-    "noted_in_md": 9,
-    "format": "AUTO決定として記載",
-    "covered_in": [
-      "AGENTS.md",
-      "CLAUDE.md"
-    ],
-    "missing_notes": []
-  },
-
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
     "missing_notes": 0,
-    "documented_in": [
-      "CLAUDE.md",
-      "AGENTS.md"
-    ]
+    "coverage_percentage": 100
   },
-
   "checks": [
     {
       "id": "CA-001",
-      "name": "Term Canonical Form Usage",
+      "name": "用語の正規形使用",
       "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
       "passed": true,
       "score": 100,
-      "evidence": {
-        "synonyms_found": 0,
-        "canonical_terms_used": 85
-      }
+      "evidence": [
+        "All 11 canonical terms are used consistently across MD files",
+        "No synonyms detected in any MD file",
+        "0 unknown terms found"
+      ],
+      "issues": []
     },
     {
       "id": "CA-002",
-      "name": "Synonym Exclusion",
+      "name": "同義語の排除",
       "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
       "passed": true,
       "score": 100,
-      "evidence": {
-        "synonyms_used_in_text": 0,
-        "banned_terms": ["GuiAgentInterpreter", "AIエージェント", "ChatSession", "InterpreterState"]
-      }
+      "evidence": [
+        "0 synonym usage detected in 10 MD files",
+        "All 22 synonyms listed in ontology are properly avoided"
+      ],
+      "issues": []
     },
     {
       "id": "CA-003",
-      "name": "Hard Invariant Reflection",
+      "name": "不変条件の反映",
       "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
       "passed": true,
       "score": 100,
-      "evidence": {
-        "hard_invariants_total": 11,
-        "hard_invariants_documented": 11,
-        "missing": []
-      }
+      "evidence": [
+        "11 hard invariants reflected in AGENTS.md",
+        "11 hard invariants reflected in SYSTEM_CONSTITUTION.md",
+        "11 hard invariants reflected in CLAUDE.md",
+        "3 soft invariants reflected in AGENTS.md"
+      ],
+      "issues": []
     },
     {
       "id": "CA-004",
-      "name": "AUTO Decision Notation",
+      "name": "AUTO決定の注記",
       "description": "暫定仕様が明示されているか",
+      "source": ".concept",
       "passed": true,
       "score": 100,
-      "evidence": {
-        "auto_decisions_total": 9,
-        "auto_decisions_noted": 9,
-        "missing": []
-      }
+      "evidence": [
+        "All 9 AUTO decisions documented in CLAUDE.md",
+        "All 9 AUTO decisions documented in AGENTS.md",
+        "AUTO decisions properly marked as provisional in ARCHITECTURE.md"
+      ],
+      "issues": []
     },
     {
       "id": "CA-005",
-      "name": "Term Boundary Consistency",
+      "name": "用語境界の整合",
       "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
       "passed": true,
       "score": 95,
-      "evidence": {
-        "boundaries_checked": 10,
-        "contradictions": 0
-      }
+      "evidence": [
+        "All term boundaries are consistent across MD files",
+        "Minor: Some boundaries could be more explicit in tier 3 files"
+      ],
+      "issues": []
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "pass_rate": "100%",
-    "average_score": 99
+    "score_percentage": 99
   }
 }

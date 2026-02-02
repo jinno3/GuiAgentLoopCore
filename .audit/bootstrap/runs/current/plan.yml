@@ -1,58 +1,50 @@
-# MD Bootstrap Execution Plan v1.1
-# GuiAgentLoopCore Repository
-
-run_timestamp: "2026-02-03T03:54:00Z"
+run_timestamp: "2026-02-03T04:06:55Z"
 version: "1.1"
-run_number: 48
+run_number: 49
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
-  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
-    intent_version: "1.0"
-    constraints_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ontology_version: "0.3"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_users:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation"
+  version: "1.0"
 
 ontology_summary:
-  total_terms: 10
+  version: "0.3"
+  updated_at: "2026-02-02T05:38:12Z"
+  total_terms: 11
   core_terms: 5
-  domain_terms: 4
+  domain_terms: 5
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
-      layer: "core"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
       layer: "core"
+    - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -60,127 +52,92 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 1
-    issues: []
-
   - path: "AGENTS.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 1
-    issues: []
-
   - path: "CLAUDE.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 2
-    issues: []
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_verified"
-    tier: 2
-    issues: []
-
-  - path: "PURPOSE.md"
-    status: "exists_verified"
-    tier: 2
-    issues: []
-
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 2
-    issues: []
-
+  - path: "PURPOSE.md"
+    status: "verified"
+    tier: 2
+  - path: "CONTRIBUTING.md"
+    status: "verified"
+    tier: 2
   - path: "GLOSSARY.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 3
-    issues: []
-
   - path: "GEMINI.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 3
-    issues: []
-
   - path: "CODEX.md"
-    status: "exists_verified"
+    status: "verified"
     tier: 3
-    issues: []
-
   - path: "ARCHITECTURE.md"
-    status: "exists"
+    status: "verified"
     tier: 3
-    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent alignment and term normalization"
-    status: "pending"
-
+    reason: "Verify intent reflection and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify invariant coverage and term normalization"
-    status: "pending"
-
+    reason: "Verify terminology norms and invariants"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and AUTO decision coverage"
-    status: "pending"
-
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines align with intent"
-    status: "pending"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify purpose documentation aligns with intent"
-    status: "pending"
-
+    reason: "Verify Claude-specific instructions and AUTO decisions"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants are properly documented"
-    status: "pending"
-
+    reason: "Verify invariants reflection"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose alignment with intent"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology alignment"
-    status: "pending"
-
+    reason: "Verify ontology generation"
   - action: "verify"
     target: "GEMINI.md"
     reason: "Verify Gemini-specific instructions"
-    status: "pending"
-
   - action: "verify"
     target: "CODEX.md"
     reason: "Verify Codex-specific instructions"
-    status: "pending"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify architecture documentation"
 
-verification_targets:
-  uniqueness_checks:
-    - "UC-001: Existence intent consistency"
-    - "UC-002: Target user consistency"
-    - "UC-003: Constraint consistency"
-    - "UC-004: Boundary consistency"
-    - "UC-005: Intent.yml compliance"
+previous_run_scores:
+  clarity_score: 98
+  uniqueness_score: 100
+  concept_alignment_score: 99
+  overall_score: 98
 
-  concept_alignment_checks:
-    - "CA-001: Term canonical form usage"
-    - "CA-002: Synonym exclusion"
-    - "CA-003: Hard invariant reflection"
-    - "CA-004: AUTO decision notation"
-    - "CA-005: Term boundary consistency"
-
-expected_outcomes:
-  overall_score_target: 95
-  uniqueness_score_target: 95
-  concept_alignment_target: 95
-  md_coverage_target: "9/9 (100%)"
+target_score: 95

@@ -1,85 +1,85 @@
 {
-  "timestamp": "2026-02-03T03:54:00Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 98,
-
+  "timestamp": "2026-02-03T04:06:55Z",
+  "verification_type": "uniqueness_verification",
+  "intent_source": ".audit/config/intent.yml",
+  "concept_source": ".concept/ontology.yml",
+  "overall_uniqueness_score": 100,
+  "max_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Intent Consistency",
+      "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "mission_found_in": [
-          "README.md:3",
-          "AGENTS.md:3",
-          "PURPOSE.md:1"
-        ],
-        "consistency": "100%",
-        "variations": []
-      }
+      "score": 100,
+      "evidence": [
+        "README.md line 3: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'",
+        "AGENTS.md line 3: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'",
+        "PURPOSE.md line 10: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+      ],
+      "issues": []
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
+      "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users_consistent": true,
-        "users_found": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "inconsistencies": []
-      }
+      "score": 100,
+      "evidence": [
+        "README.md: 'Application Developers', 'AI Agent Developers', 'Framework Developers', 'AI Agents'",
+        "AGENTS.md: 'Application Developers', 'AI Agent Developers', 'Framework Developers', 'AI Agents'",
+        "PURPOSE.md: 'Application Developers', 'AI Agent Developers', 'Framework Developers', 'AI Agents'"
+      ],
+      "issues": []
     },
     {
       "id": "UC-003",
-      "name": "Constraint Consistency",
+      "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "python_version": ">=3.10",
-        "consistent_across": ["README.md", "CONTRIBUTING.md"],
-        "inconsistencies": []
-      }
+      "score": 100,
+      "evidence": [
+        "All MD files reference invariants.yml constraints consistently",
+        "Hard invariants are uniformly documented across AGENTS.md, CLAUDE.md, SYSTEM_CONSTITUTION.md"
+      ],
+      "issues": []
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
+      "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "contradictions": []
-      }
+      "score": 100,
+      "evidence": [
+        "README.md: Out of scope = 'UI Rendering', 'LLM Execution', 'Session Storage', 'Authentication', 'Network Protocols'",
+        "AGENTS.md: Out of scope = 'UI Rendering', 'LLM Execution', 'Session Storage', 'Authentication', 'Network Protocols'",
+        "PURPOSE.md: Out of scope = 'UI Rendering', 'LLM Execution', 'Session Storage', 'Authentication', 'Network Protocols'"
+      ],
+      "issues": []
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_covered": 5,
-        "design_philosophy_covered": 5,
-        "missing_reflections": []
-      }
+      "score": 100,
+      "evidence": [
+        "All core_functions from intent.yml are reflected in README.md",
+        "All design_philosophy from intent.yml are reflected in PURPOSE.md",
+        "All boundaries from intent.yml are reflected in AGENTS.md"
+      ],
+      "issues": []
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "pass_rate": "100%",
-    "score": 100
+    "score_percentage": 100
   }
 }
