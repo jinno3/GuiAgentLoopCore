@@ -7,6 +7,29 @@
 
 このリポジトリでは概念の一意性を保つため、以下の正規形を使用します。
 
+### コア用語（Core Terms）- 必須
+
+| 正規形 | 同義語（使用禁止） | 定義 |
+|--------|------------------|------|
+| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネント |
+| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage | 特定の役割と実装タイプを持つ専門化AIエンティティ |
+| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト（JWT認証使用） |
+| `Message` | メッセージ, ChatMessage | ユーザー、システム、エージェント間の構造化された通信単位 |
+| `State` | InterpreterState, インタープリタ状態 | インタープリタの実行状態を表す列挙型 |
+
+### ドメイン用語（Domain Terms）
+
+| 正規形 | 同義語（使用禁止） | 定義 |
+|--------|------------------|------|
+| `AutoChat` | 自動チャット, 自動継続 | STATE_STOP時に自動的に会話を継続する機能 |
+| `StreamWrapper` | GuiAgentStreamWrapper, ストリームラッパー | 同期・非同期ストリーミング応答を統一的に扱うユーティリティ |
+| `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GUIフレームワーク実装（Gradio等） |
+| `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 (**status: draft**) |
+| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter, OpenGuiConnector | 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ |
+
+❌ **禁止**: 同義語をコードやドキュメントで使用すること
+✅ **必須**: 常に正規形を使用すること
+
 詳細は `GLOSSARY.md` または `.concept/ontology.yml` を参照してください。
 
 ## 行動規範
@@ -68,4 +91,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-02T12:21:43.186425Z
+**最終更新**: 2026-02-02T21:32:00Z (bootstrap run v1.1 - AGENTS.md updated with term normalization table)

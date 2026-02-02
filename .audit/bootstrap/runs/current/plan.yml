@@ -1,0 +1,146 @@
+run_timestamp: "2026-02-02T21:32:00Z"
+version: "1.1"
+
+rotation:
+  deleted_old: true
+  moved_current_to_old: true
+
+input_sources:
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    has_concept: true
+
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_functions_count: 5
+
+ontology_summary:
+  version: "0.3"
+  total_terms: 10
+  core_terms: 5
+  domain_terms: 4
+  aux_terms: 1
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+
+term_normalization:
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+
+existing_mds:
+  - path: "README.md"
+    status: "exists_needs_update"
+    tier: 1
+  - path: "AGENTS.md"
+    status: "exists_needs_update"
+    tier: 1
+  - path: "CLAUDE.md"
+    status: "exists_verified"
+    tier: 2
+  - path: "PURPOSE.md"
+    status: "exists_needs_update"
+    tier: 2
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_update"
+    tier: 2
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_update"
+    tier: 2
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_update"
+    tier: 3
+  - path: "GLOSSARY.md"
+    status: "exists_needs_update"
+    tier: 3
+  - path: "GEMINI.md"
+    status: "missing"
+    tier: 3
+  - path: "CODEX.md"
+    status: "exists_verified"
+    tier: 3
+  - path: "CHANGELOG.md"
+    status: "exists_no_action"
+    tier: 3
+
+actions:
+  - action: "update"
+    target: "README.md"
+    reason: "Ensure existence clarity and concept alignment"
+
+  - action: "update"
+    target: "AGENTS.md"
+    reason: "Ensure terminology normalization and concept integration"
+
+  - action: "update"
+    target: "PURPOSE.md"
+    reason: "Align with intent.yml"
+
+  - action: "update"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Reflect hard invariants from invariants.yml"
+
+  - action: "update"
+    target: "CONTRIBUTING.md"
+    reason: "Include terminology guidelines and contribution rules"
+
+  - action: "update"
+    target: "ARCHITECTURE.md"
+    reason: "Reflect mappings.yml and component relationships"
+
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "Regenerate from ontology.yml (current version)"
+
+  - action: "create"
+    target: "GEMINI.md"
+    reason: "Create Gemini-specific instructions (Tier 3 optional)"
