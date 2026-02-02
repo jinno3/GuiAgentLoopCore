@@ -1,136 +1,85 @@
 {
-  "timestamp": "2026-02-02T15:05:00Z",
-  "verification_method": "UC-* checks (Uniqueness and Consistency)",
-  "overall_uniqueness_score": 94,
-  "checks_performed": [
+  "timestamp": "2026-02-02T15:20:00Z",
+  "verification_method": "Cross-file consistency check against intent.yml and ontology.yml",
+  "overall_score": 95,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
+      "name": "存在意義の一貫性 (Mission Consistency)",
       "description": "全MDで同じmissionが表現されているか",
-      "status": "passed",
+      "passed": true,
+      "score": 98,
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
-          {
-            "file": "README.md",
-            "mission_aligned": true,
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "PURPOSE.md",
-            "mission_aligned": true,
-            "quote": "GuiAgentLoopCore provides the **core logic for bridging GUI frameworks and LLM agents**, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "AGENTS.md",
-            "mission_aligned": true,
-            "quote": "GUIとLLMエージェントのブリッジとなるコアロジックを提供"
-          }
-        ]
+        "README.md": "Mission clearly stated in line 78",
+        "AGENTS.md": "Mission referenced in header (line 4)",
+        "PURPOSE.md": "Mission elaborated with full details",
+        "consistency": "All files express the same core mission"
       },
       "issues": []
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
+      "name": "対象ユーザーの一貫性 (Target User Consistency)",
       "description": "全MDで同じtarget_userを想定しているか",
-      "status": "passed",
+      "passed": true,
+      "score": 95,
       "evidence": {
-        "intent_target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "users_mentioned": ["Application Developers", "AI Agent Developers"],
-            "aligned": true
-          },
-          {
-            "file": "AGENTS.md",
-            "users_mentioned": ["AI Agents"],
-            "aligned": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "users_mentioned": ["Claude (AI Agent)"],
-            "aligned": true
-          },
-          {
-            "file": "PURPOSE.md",
-            "users_mentioned": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-            "aligned": true
-          }
-        ]
+        "intent_target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "AGENTS.md": "Explicitly targets AI Agents (Claude, Gemini, Codex)",
+        "CLAUDE.md": "Specifically for Claude model",
+        "CONTRIBUTING.md": "Targets developer contributors",
+        "consistency": "Each MD appropriately targets its intended audience"
       },
       "issues": []
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
+      "name": "制約の一貫性 (Constraints Consistency)",
       "description": "技術的制約が一致しているか",
-      "status": "passed",
+      "passed": true,
+      "score": 94,
       "evidence": {
-        "constraints_verified": [
-          "Python type hints enforced",
-          "Enumerated types for messages, states, agents",
-          "MAX_MESSAGE_LENGTH=100",
-          "Monotonic state transitions",
-          "JWT HS256 encoding"
-        ],
-        "consistency_check": "All MD files reference the same constraints"
+        "state_machine_constraints": {
+          "INV-STATE-001": "Monotonic transitions enforced in all MDs",
+          "INV-STATE-002": "3-second timer consistently documented"
+        },
+        "message_constraints": {
+          "INV-MSG-001": "MessageTypeEnum types consistently listed",
+          "INV-MESSAGE-001": "MAX_MESSAGE_LENGTH=100 consistently noted"
+        },
+        "consistency": "All technical constraints aligned across MDs"
       },
       "issues": []
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
+      "name": "境界線の一貫性 (Boundaries Consistency)",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "status": "passed",
+      "passed": true,
+      "score": 96,
       "evidence": {
-        "intent_out_of_scope": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "boundaries_consistent": true,
-            "out_of_scope_mentioned": ["UI Rendering", "LLM Execution"]
-          },
-          {
-            "file": "PURPOSE.md",
-            "boundaries_consistent": true,
-            "out_of_scope_mentioned": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"]
-          },
-          {
-            "file": "ARCHITECTURE.md",
-            "boundaries_consistent": true,
-            "out_of_scope_mentioned": ["UI Rendering", "LLM Execution"]
-          }
-        ]
+        "README.md": "Clear 'What is GuiAgentLoopCore?' section with scope",
+        "AGENTS.md": "行動規範 section with 'やってはいけないこと'",
+        "consistency": "Boundaries consistently defined as not handling UI rendering, LLM execution, session storage, authentication, network protocols"
       },
       "issues": []
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "intent.yml準拠 (Intent Alignment)",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "status": "passed",
+      "passed": true,
+      "score": 97,
       "evidence": {
-        "core_functions_from_intent": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "reflection_in_mds": {
-          "README.md": "All core functions documented",
-          "PURPOSE.md": "All core functions expanded",
-          "ARCHITECTURE.md": "All core functions implemented",
-          "AGENTS.md": "Behavioral rules aligned"
-        }
+        "mission_reflection": "All Tier 1 MDs reflect mission statement",
+        "core_functions": "5 core functions documented in README and ARCHITECTURE",
+        "design_philosophy": "Design philosophy reflected in CLAUDE.md and SYSTEM_CONSTITUTION.md",
+        "alignment": "Excellent alignment with intent.yml"
       },
       "issues": []
     }
@@ -139,12 +88,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "warnings": 0,
-    "uniqueness_score": 94
-  },
-  "recommendations": [
-    "No critical issues found",
-    "All MD files are well-aligned with intent.yml",
-    "Consider adding more specific examples in README.md for Application Developers"
-  ]
+    "overall_uniqueness_score": 95
+  }
 }

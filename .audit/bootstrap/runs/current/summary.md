@@ -2,13 +2,14 @@
 
 ## 実行情報 (Execution Information)
 - **バージョン**: 1.1（audit + concept統合）
-- **実行日時**: 2026-02-02T15:20:00Z
+- **実行日時**: 2026-02-02T15:43:00Z
 - **ローテーション**: old削除 → current→old移動 → new current作成 ✓
 
 ## 入力ソース (Input Sources)
 - `.audit/config/intent.yml`: ✓ 使用 (v1.0)
 - `.concept/ontology.yml`: ✓ 使用 (v0.3, 10用語)
 - `.concept/invariants.yml`: ✓ 使用 (14不変条件)
+- `.concept/ambiguities.yml`: ✓ 使用 (17 AUTO決定、うち2件が期限切れ)
 
 ## Before → After スコア比較
 
@@ -25,26 +26,26 @@
 
 | 正規形 (Canonical) | 使用状況 | 同義語使用 (Synonyms Used) |
 |--------|----------------|---------|
-| `Interpreter` | ✓ 100% | 0件 |
-| `Agent` | ✓ 100% | 0件 |
-| `Session` | ✓ 100% | 0件 |
-| `Message` | ✓ 100% | 0件 |
-| `State` | ✓ 100% | 0件 |
-| `AutoChat` | ✓ 100% | 0件 |
-| `StreamWrapper` | ✓ 100% | 0件 |
-| `Backend` | ✓ 100% | 0件 |
-| `Memory` | ✓ 100% (draft) | 0件 |
-| `Connector` | ✓ 100% | 0件 |
+| `Interpreter` | ✓ 100% (15 occurrences) | 0件 |
+| `Agent` | ✓ 100% (12 occurrences) | 0件 |
+| `Session` | ✓ 100% (8 occurrences) | 0件 |
+| `Message` | ✓ 100% (14 occurrences) | 0件 |
+| `State` | ✓ 100% (11 occurrences) | 0件 |
+| `AutoChat` | ✓ 100% (6 occurrences) | 0件 |
+| `StreamWrapper` | ✓ 100% (5 occurrences) | 0件 |
+| `Backend` | ✓ 100% (7 occurrences) | 0件 |
+| `Memory` | ✓ 100% (4 occurrences, draft) | 0件 |
+| `Connector` | ✓ 100% (3 occurrences) | 0件 |
 
-**用語使用の完全性**: 85/85 occurences (100%) が正規形を使用
+**用語使用の完全性**: 85/85 occurrences (100%) が正規形を使用
 
 ## 実施内容 (Actions Taken)
 
 ### 検証したファイル (Verified Files)
-- **README.md**: 存在意義の反映、用語の正規化 ✓
-- **AGENTS.md**: 用語規約セクション、不変条件の完全な反映 ✓
-- **CLAUDE.md**: Claude向け特化指示、AUTO決定の注記 ✓
-- **GLOSSARY.md**: 概念辞書から自動生成 ✓
+- **README.md**: 存在意義の反映、用語の正規化、不変条件の反映 ✓
+- **AGENTS.md**: 用語規約セクション、不変条件の完全な反映、AUTO決定の文書化 ✓
+- **CLAUDE.md**: Claude向け特化指示、AUTO決定の注記、コード例付き ✓
+- **GLOSSARY.md**: 概念辞書から自動生成、完全な整合性 ✓
 - **PURPOSE.md**: 目的の詳細説明 ✓
 - **SYSTEM_CONSTITUTION.md**: 不変条件の反映 ✓
 - **CONTRIBUTING.md**: 貢献ガイド、用語ガイドライン ✓
@@ -87,6 +88,23 @@
 
 **合計**: 17件すべて適切に文書化済み
 
+### 期限切れAUTO決定 (Expired AUTO Decisions) - **要対応**
+**重要**: 2件の期限切れAUTO決定が見つかりました。これらはセキュリティ関連の問題です。
+
+1. **AMB-SEC-001** (HIGH severity)
+   - **decision_key**: `AUTO:Security.secret_key:env_var_required`
+   - **内容**: ハードコードされたシークレットキーを環境変数に移行が必要
+   - **場所**: `gui_agent_loop_core/core/interpreter_manager.py:77`
+   - **状態**: 期限切れ (20+ runs past expiration)
+   - **推奨アクション**: 緊急のセキュリティ修正が必要
+
+2. **AMB-SEC-002** (HIGH severity)
+   - **decision_key**: `AUTO:Session.jwt:decode_method_fix`
+   - **内容**: `jwt_decode_session()` メソッドの未定義変数バグを修正
+   - **場所**: `gui_agent_loop_core/core/interpreter_manager.py:56-60`
+   - **状態**: 期限切れ (4+ runs past expiration)
+   - **推奨アクション**: メソッドを削除または実装を完了
+
 ## 強み (Strengths)
 
 1. **用語の一貫性**: すべてのMDファイルで正規形が100%使用されている
@@ -104,11 +122,16 @@
 ### 監査システムへの提案 (Suggestions for Auditor)
 なし - intent.ymlは明確で、すべてのMDファイルと完全に整合している
 
+### 緊急のセキュリティ対応 (Security Actions Required)
+**重要**: 2件の期限切れAUTO決定に対処してください：
+1. `AMB-SEC-001`: シークレットキーの環境変数移行
+2. `AMB-SEC-002`: JWTデコードメソッドのバグ修正
+
 ## 総合評価 (Overall Assessment)
 
 **評価**: 優 (Excellent)
 
-このリポジトリのMDドキュメント群は、.audit/intent.yml（存在意義）と.concept/ontology.yml（概念辞書）との統合において、**極めて高い品質**を達成しています。
+このリポジトリのMDドキュメント群は、`.audit/intent.yml`（存在意義）と`.concept/ontology.yml`（概念辞書）との統合において、**極めて高い品質**を達成しています。
 
 - **用語の正規化**: 100%
 - **概念整合**: 98%
@@ -116,6 +139,8 @@
 - **網羅性**: 100% (Tier 1-3)
 
 すべてのMDファイルが、存在意義を正しく反映し、概念辞書で定義された正規形を使用し、不変条件とAUTO決定を適切に文書化しています。この品質レベルは、v1.1の統合基準を**大幅に超えて**います。
+
+**注意事項**: 2件の期限切れAUTO決定（セキュリティ関連）に対処することをお勧めします。
 
 ## 次回のサイクルへ (Next Cycle)
 

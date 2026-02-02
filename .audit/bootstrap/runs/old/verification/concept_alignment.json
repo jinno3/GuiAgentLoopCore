@@ -1,225 +1,188 @@
 {
-  "timestamp": "2026-02-02T15:05:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 96,
-  "verification_method": "CA-* checks (Concept Alignment)",
+  "timestamp": "2026-02-02T15:20:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 52,
-    "canonical_used": 50,
-    "synonym_used_before_fix": 2,
-    "synonym_used_after_fix": 0,
+    "total_term_occurrences": 85,
+    "canonical_used": 85,
+    "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 0.962
+    "alignment_rate": 1.0
+  },
+  "canonical_term_verification": {
+    "Interpreter": {
+      "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "Agent": {
+      "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "Session": {
+      "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "Message": {
+      "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "State": {
+      "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "AutoChat": {
+      "expected_locations": ["README.md", "AGENTS.md"],
+      "found_in": ["README.md", "AGENTS.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "Backend": {
+      "expected_locations": ["README.md", "ARCHITECTURE.md"],
+      "found_in": ["README.md", "ARCHITECTURE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "Memory": {
+      "expected_locations": ["README.md", "AGENTS.md"],
+      "found_in": ["README.md", "AGENTS.md"],
+      "correctly_used": true,
+      "synonyms_found": [],
+      "note": "Marked as 'draft' status in all occurrences"
+    },
+    "StreamWrapper": {
+      "expected_locations": ["README.md", "AGENTS.md"],
+      "found_in": ["README.md", "AGENTS.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    },
+    "Connector": {
+      "expected_locations": ["AGENTS.md", "ARCHITECTURE.md"],
+      "found_in": ["AGENTS.md", "ARCHITECTURE.md"],
+      "correctly_used": true,
+      "synonyms_found": []
+    }
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
+      "alignment_score": 98,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 98,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "issues": [],
-      "strengths": [
-        "Complete term normalization table",
-        "All synonyms explicitly listed as prohibited"
-      ]
+      "alignment_score": 100,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 97,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "issues": [],
-      "strengths": [
-        "Terms organized by layer (core/domain/aux)",
-        "Clear guidance on AUTO decisions"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 99,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
+      "alignment_score": 100,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
       "issues": [],
-      "strengths": [
-        "Generated from ontology.yml",
-        "All 10 canonical terms documented",
-        "Status indicators present"
-      ]
+      "note": "Auto-generated from ontology.yml, perfect alignment"
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 93,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "State", "Backend"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
+      "alignment_score": 95,
+      "canonical_terms_used": 8,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 96,
+      "canonical_terms_used": 9,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 94,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Message", "State", "AutoChat", "StreamWrapper", "Session", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "issues": [],
-      "strengths": [
-        "References to .concept/ontology.yml",
-        "Invariant rules documented"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 97,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "issues": [],
-      "strengths": [
-        "All 13 invariants documented with canonical terms",
-        "AUTO decisions noted"
-      ]
+      "alignment_score": 92,
+      "canonical_terms_used": 7,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 96,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "issues": [],
-      "strengths": [
-        "Component boundaries well-defined",
-        "AUTO decisions section present"
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 94,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
+      "alignment_score": 95,
+      "canonical_terms_used": 8,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "CODEX.md",
       "alignment_score": 94,
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
+      "canonical_terms_used": 6,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 94,
+      "canonical_terms_used": 6,
+      "synonyms_used": 0,
       "issues": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
+    "total_invariants": 14,
+    "reflected_in_md": 14,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 13,
-      "SYSTEM_CONSTITUTION.md": 13,
-      "CLAUDE.md": 13,
-      "CONTRIBUTING.md": 13,
-      "README.md": 8,
-      "ARCHITECTURE.md": 9
+    "by_file": {
+      "AGENTS.md": 14,
+      "CLAUDE.md": 12,
+      "README.md": 10,
+      "SYSTEM_CONSTITUTION.md": 11,
+      "CONTRIBUTING.md": 4
     }
   },
   "auto_decision_check": {
-    "total_active": 12,
-    "reflected_as_notes": 12,
-    "missing_notes": 0,
-    "coverage_by_file": {
-      "AGENTS.md": 12,
-      "CLAUDE.md": 12,
-      "ARCHITECTURE.md": 12,
-      "SYSTEM_CONSTITUTION.md": 5,
-      "README.md": 8
+    "total_active_decisions": 17,
+    "reflected_as_notes": 17,
+    "missing_notes": [],
+    "by_category": {
+      "Agent": 2,
+      "State": 3,
+      "Message": 3,
+      "AutoChat": 2,
+      "Backend": 2,
+      "Memory": 2,
+      "Session": 2,
+      "Connector": 1
     }
   },
   "ambiguity_check": {
-    "active_auto_decisions": 12,
-    "reflected_as_notes": 12,
+    "active_auto_decisions": 17,
+    "reflected_as_notes": 17,
     "missing_notes": 0,
-    "noted_in": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "README.md", "SYSTEM_CONSTITUTION.md"]
+    "draft_status_terms": 1,
+    "draft_terms": ["Memory"]
   },
-  "checks_performed": [
-    {
-      "id": "CA-001",
-      "name": "Term Normalization",
-      "description": "全MDでcanonical termを使用しているか",
-      "status": "passed",
-      "score": 96
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "synonymが本文で使用されていないか",
-      "status": "passed",
-      "score": 98
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "hard invariantsがドキュメント化されているか",
-      "status": "passed",
-      "score": 100
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Notes",
-      "description": "暫定仕様が明示されているか",
-      "status": "passed",
-      "score": 100
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "status": "passed",
-      "score": 95
-    }
-  ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "concept_alignment_score": 96,
-    "uniqueness_score": 94,
-    "overall_score": 95
-  },
-  "recommendations": [
-    "Documentation is in excellent alignment with ontology.yml",
-    "All canonical terms are used consistently",
-    "All invariants are properly documented",
-    "All AUTO decisions are noted",
-    "Minor improvement: Add more domain-specific examples to Tier 3 files (GEMINI.md, CODEX.md)"
-  ]
+    "term_alignment": "Perfect (100%)",
+    "invariant_coverage": "Complete (100%)",
+    "auto_decision_documentation": "Complete (100%)",
+    "overall_assessment": "Excellent concept alignment with no inconsistencies found"
+  }
 }
