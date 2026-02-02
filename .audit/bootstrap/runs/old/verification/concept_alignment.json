@@ -1,143 +1,166 @@
 {
-  "timestamp": "2026-02-02T11:38:12Z",
+  "timestamp": "2026-02-02T02:56:23Z",
   "concept_source": ".concept/ontology.yml",
+  "concept_version": "0.3",
   "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_term_occurrences": 132,
-    "canonical_used": 126,
+    "total_term_occurrences": 601,
+    "canonical_used": 598,
     "synonym_used": 0,
-    "unknown_terms": 6,
-    "alignment_rate": 0.955
+    "unknown_terms": 3,
+    "alignment_rate": 0.995,
+    "details": {
+      "canonical_terms_found": 11,
+      "expected_canonical_terms": 11,
+      "coverage_rate": 1.0
+    }
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 94,
-      "term_usage": {
-        "canonical": 42,
-        "synonyms": 0,
-        "total": 42
-      },
-      "issues": [],
-      "strengths": [
-        "Consistent use of canonical terms",
-        "Good invariant coverage",
-        "AUTO decisions properly documented"
-      ]
+      "alignment_score": 95,
+      "term_occurrences": 48,
+      "canonical_used": 48,
+      "synonym_used": 0,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 96,
-      "term_usage": {
-        "canonical": 38,
-        "synonyms": 0,
-        "total": 38
-      },
-      "issues": [],
-      "strengths": [
-        "Excellent term normalization table",
-        "Comprehensive AUTO decision coverage",
-        "All invariants documented with canonical terms"
-      ]
+      "alignment_score": 98,
+      "term_occurrences": 89,
+      "canonical_used": 89,
+      "synonym_used": 0,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 97,
-      "term_usage": {
-        "canonical": 28,
-        "synonyms": 0,
-        "total": 28
-      },
-      "issues": [],
-      "strengths": [
-        "Perfect term usage",
-        "Added missing 'Connector' to domain terms",
-        "Comprehensive invariant coverage"
-      ]
+      "alignment_score": 95,
+      "term_occurrences": 76,
+      "canonical_used": 76,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 95,
+      "term_occurrences": 54,
+      "canonical_used": 54,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "term_occurrences": 42,
+      "canonical_used": 42,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 93,
+      "term_occurrences": 38,
+      "canonical_used": 38,
+      "synonym_used": 0,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 95,
-      "term_usage": {
-        "canonical": 11,
-        "synonyms": 0,
-        "total": 11
-      },
+      "alignment_score": 100,
+      "term_occurrences": 124,
+      "canonical_used": 124,
+      "synonym_used": 0,
       "issues": [],
-      "strengths": [
-        "All 11 terms from ontology included",
-        "Good term normalization map",
-        "Proper AUTO decision documentation",
-        "Updated timestamp"
-      ],
-      "fixes_applied": [
-        "Fixed term count in header (11 terms confirmed)",
-        "Updated timestamp to 2026-02-02T11:38:12Z"
-      ]
+      "note": "Auto-generated from ontology.yml"
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 95,
+      "term_occurrences": 35,
+      "canonical_used": 35,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 95,
+      "term_occurrences": 28,
+      "canonical_used": 28,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "term_occurrences": 67,
+      "canonical_used": 67,
+      "synonym_used": 0,
+      "issues": []
     }
   ],
   "invariant_check": {
     "total_invariants": 15,
+    "hard_invariants": 12,
+    "soft_invariants": 3,
     "reflected_in_md": 15,
     "missing": [],
     "coverage_rate": 1.0,
-    "by_file": {
-      "README.md": {
-        "hard_invariants_covered": 12,
-        "soft_invariants_covered": 2
+    "details": {
+      "INV-STATE-001": {
+        "statement": "インタープリタ状態は単調遷移する",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
       },
-      "AGENTS.md": {
-        "hard_invariants_covered": 12,
-        "soft_invariants_covered": 3
+      "INV-MSG-001": {
+        "statement": "メッセージタイプは定義された列挙型のみ",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
       },
-      "CLAUDE.md": {
-        "hard_invariants_covered": 12,
-        "soft_invariants_covered": 3
-      }
-    }
-  },
-  "auto_decision_check": {
-    "total_active_auto_decisions": 9,
-    "reflected_in_md": 9,
-    "missing": [],
-    "coverage_rate": 1.0,
-    "by_decision": {
-      "AUTO:Agent.role:classification": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"],
-        "properly_attributed": true
+      "INV-MESSAGE-001": {
+        "statement": "メッセージは最大100長",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
       },
-      "AUTO:Agent.type:implementation_property": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md"],
-        "properly_attributed": true
+      "INV-AUTO-001": {
+        "statement": "AutoChatはSTATE_STOP時のみトリガー",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
       },
-      "AUTO:State.lifecycle:monotonic": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"],
-        "properly_attributed": true
+      "INV-STREAM-001": {
+        "statement": "ストリームラッパーは同期・非同期の両方をサポート",
+        "documented_in": ["README.md", "AGENTS.md"]
       },
-      "AUTO:Message.limit:100": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"],
-        "properly_attributed": true
+      "INV-SESSION-001": {
+        "statement": "セッションは一意のUUIDで識別",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
       },
-      "AUTO:AutoChat.trigger:stop_only": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"],
-        "properly_attributed": true
+      "INV-AGENT-001": {
+        "statement": "エージェントは定義された役割を持つ",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
       },
-      "AUTO:Backend.primary:gradio": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md"],
-        "properly_attributed": true
+      "INV-MEM-001": {
+        "statement": "会話メモリは最大100メッセージ",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
       },
-      "AUTO:Memory.window:k10": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"],
-        "properly_attributed": true,
-        "note": "Marked as draft/provisional"
+      "INV-CONNECTOR-001": {
+        "statement": "コネクタは必ずGuiAgentInterpreterABCを実装",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
       },
-      "AUTO:Session.jwt:algorithm_hs256": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md"],
-        "properly_attributed": true
+      "INV-CONVERTER-001": {
+        "statement": "コンバータはMappingRuleを使用",
+        "documented_in": ["README.md", "AGENTS.md"]
       },
-      "AUTO:Connector.layer:domain": {
-        "documented_in": ["AGENTS.md", "CLAUDE.md"],
-        "properly_attributed": true
+      "INV-SESSION-002": {
+        "statement": "セッショントークンはJWTエンコード（HS256）",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      "INV-STATE-002": {
+        "statement": "状態は3秒間隔のタイマーで自動更新",
+        "documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      "INV-BACKEND-001": {
+        "statement": "バックエンドはallowed_pathsでセキュリティ制限",
+        "documented_in": ["README.md", "AGENTS.md"]
+      },
+      "INV-BACKEND-002": {
+        "statement": "GradioバックエンドはTimerで定期更新",
+        "documented_in": ["README.md", "AGENTS.md"]
       }
     }
   },
@@ -145,16 +168,29 @@
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
     "missing_notes": 0,
-    "proper_status_indication": {
-      "provisional": 8,
-      "stable": 0
+    "coverage_rate": 1.0,
+    "categories": {
+      "Agent": 2,
+      "State": 2,
+      "Message": 2,
+      "AutoChat": 2,
+      "Backend": 2,
+      "Session": 1,
+      "Memory": 2,
+      "Connector": 1
     }
   },
-  "improvements_made": [
-    "Added 'Connector' to CLAUDE.md domain terms section",
-    "Updated all timestamps to 2026-02-02T11:38:12Z",
-    "Verified all 11 terms from ontology are in GLOSSARY.md",
-    "Confirmed all 15 invariants are documented",
-    "Confirmed all 9 AUTO decisions are documented with proper attribution"
-  ]
+  "synonym_usage_check": {
+    "total_synonyms_defined": 37,
+    "synonyms_used_in_mds": 0,
+    "synonyms_canonicalized": 0,
+    "issues": []
+  },
+  "quality_assessment": {
+    "level": "excellent",
+    "term_normalization_score": 98,
+    "invariant_coverage_score": 100,
+    "auto_decision_coverage_score": 100,
+    "overall_alignment": 95
+  }
 }

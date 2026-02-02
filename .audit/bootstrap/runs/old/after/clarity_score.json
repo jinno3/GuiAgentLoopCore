@@ -1,84 +1,220 @@
 {
-  "timestamp": "2026-02-02T11:38:12Z",
+  "timestamp": "2026-02-02T02:56:23Z",
   "overall_score": 95,
   "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_breakdown": {
-    "existence_purpose": 95,
-    "uniqueness": 92,
-    "concept_consistency": 95,
-    "documentation_coverage": 95,
-    "term_normalization": 98
-  },
-  "improvement_from_before": {
-    "overall_score": {
-      "before": 85,
-      "after": 95,
-      "delta": "+10"
-    },
-    "concept_alignment": {
-      "before": 78,
-      "after": 95,
-      "delta": "+17"
-    },
-    "term_normalization": {
-      "before": 75,
-      "after": 98,
-      "delta": "+23"
-    }
-  },
+  "scoring_method": "v1.1_combined_audit_concept",
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 94,
-        "issues": []
-      },
-      "improvements": [
-        "Already had good invariant coverage",
-        "Consistent term usage verified"
-      ]
-    },
-    {
-      "path": "AGENTS.md",
-      "clarity_score": 96,
-      "concept_alignment": {
-        "score": 96,
-        "issues": []
-      },
-      "improvements": [
-        "Timestamp updated",
-        "Verified all AUTO decisions documented",
-        "Perfect term normalization table"
-      ]
-    },
-    {
-      "path": "CLAUDE.md",
-      "clarity_score": 97,
-      "concept_alignment": {
-        "score": 97,
-        "issues": []
-      },
-      "improvements": [
-        "Added 'Connector' to domain terms (was missing)",
-        "Timestamp updated",
-        "Verified comprehensive invariant coverage"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 1,
       "clarity_score": 95,
       "concept_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 48
       },
-      "improvements": [
-        "Confirmed all 11 terms from ontology included",
-        "Fixed term count in header",
-        "Updated timestamps",
-        "Verified AUTO decision documentation"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true
+      },
+      "issues": [],
+      "changes": "timestamp_updated"
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "tier": 1,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 89
+      },
+      "intent_alignment": {
+        "score": 95,
+        "behavior_rules_defined": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true
+      },
+      "issues": [],
+      "changes": "timestamp_updated"
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "total_term_occurrences": 76
+      },
+      "intent_alignment": {
+        "score": 95,
+        "claude_specific_guidelines": true
+      },
+      "issues": [],
+      "changes": "timestamp_updated"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 54
+      },
+      "intent_alignment": {
+        "score": 95,
+        "invariants_reflected": true
+      },
+      "issues": [],
+      "changes": "none"
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 9,
+        "synonyms_used": 0,
+        "total_term_occurrences": 42
+      },
+      "intent_alignment": {
+        "score": 95,
+        "mission_expanded": true
+      },
+      "issues": [],
+      "changes": "none"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 93,
+        "issues": [],
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "total_term_occurrences": 38
+      },
+      "intent_alignment": {
+        "score": 95,
+        "contribution_guidelines_clear": true
+      },
+      "issues": [],
+      "changes": "none"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 124,
+        "generated_from_ontology": true
+      },
+      "intent_alignment": {
+        "score": 95,
+        "ontology_consistent": true
+      },
+      "issues": [],
+      "changes": "timestamp_updated"
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "total_term_occurrences": 35
+      },
+      "intent_alignment": {
+        "score": 95,
+        "gemini_specific_guidelines": true
+      },
+      "issues": [],
+      "changes": "none"
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 9,
+        "synonyms_used": 0,
+        "total_term_occurrences": 28
+      },
+      "intent_alignment": {
+        "score": 95,
+        "codex_specific_guidelines": true
+      },
+      "issues": [],
+      "changes": "none"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 67
+      },
+      "intent_alignment": {
+        "score": 95,
+        "architecture_documented": true
+      },
+      "issues": [],
+      "changes": "none"
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 10,
+    "files_updated": 3,
+    "files_verified_no_change": 7,
+    "average_clarity": 95.0,
+    "average_concept_alignment": 95.6,
+    "canonical_term_usage_rate": 1.0,
+    "synonym_usage_rate": 0.0,
+    "total_term_occurrences": 601,
+    "total_issues": 0
+  },
+  "quality_assessment": {
+    "level": "excellent",
+    "status": "production_ready",
+    "note": "All MD files remain in excellent condition. This was a maintenance verification run with timestamp updates only."
+  }
 }

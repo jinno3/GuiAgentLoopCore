@@ -1,94 +1,45 @@
 {
-  "timestamp": "2026-02-02T02:56:23Z",
-  "verification_version": "1.1",
-  "uniqueness_score": 92,
-  "max_score": 100,
+  "timestamp": "2026-02-02T04:00:52.194595+00:00",
+  "overall_score": 80,
+  "uniqueness_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
+      "name": "Mission Consistency",
       "passed": true,
-      "evidence": {
-        "files_checked": 10,
-        "mission_consistent": true,
-        "mission_source": ".audit/config/intent.yml",
-        "inconsistencies": []
-      }
-    },
-    {
-      "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "passed": true,
-      "evidence": {
-        "files_checked": 10,
-        "target_users_consistent": true,
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "inconsistencies": []
-      }
-    },
-    {
-      "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "passed": true,
-      "evidence": {
-        "files_checked": 10,
-        "constraints_consistent": true,
-        "key_constraints": [
-          "Monotonic state transitions",
-          "Enumerated message types",
-          "Type safety enforcement"
-        ],
-        "inconsistencies": []
-      }
-    },
-    {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "passed": true,
-      "evidence": {
-        "files_checked": 10,
-        "boundaries_consistent": true,
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "inconsistencies": []
-      }
+      "details": "Mission statement consistent across MDs"
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "name": "Intent.yml Alignment",
       "passed": true,
-      "evidence": {
-        "files_checked": 10,
-        "intent_reflected": true,
-        "mission_present": true,
-        "core_value_present": true,
-        "boundaries_respected": true,
-        "deviations": []
-      }
+      "details": "MD files align with intent.yml"
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "passed": false,
+      "details": "Found 116 synonym usages vs 231 canonical usages"
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "passed": false,
+      "details": "116 synonym usages found in documentation"
+    },
+    {
+      "id": "CA-003",
+      "name": "Hard Invariant Reflection",
+      "passed": true,
+      "details": "11 hard invariants defined in ontology"
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation",
+      "passed": true,
+      "details": "8 AUTO decisions documented in ambiguities.yml"
     }
   ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100,
-    "uniqueness_score": 92
-  },
-  "issues": [],
-  "quality_level": "excellent"
+  "uc_passed": "2/2",
+  "ca_passed": "2/4"
 }

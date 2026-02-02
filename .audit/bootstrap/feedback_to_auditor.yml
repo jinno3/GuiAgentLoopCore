@@ -1,106 +1,23 @@
-feedback:
-  bootstrap_run_timestamp: "2026-02-02T02:56:23Z"
-  version: "1.1"
-  run_number: 2
-
-  # 1. 存在意義の明確度評価
-  existence_clarity:
-    before: 95
-    after: 95
-    delta: 0
-    interpretation: "intent.ymlの定義は既に明確で、全MDファイルに適切に反映されている。保守実行のため変化なし。"
-
-  # 2. 一意性評価
-  uniqueness_score:
-    score: 92
-    target_score: 90
-    status: "target_exceeded"
-    issues_found: 0
-    issues_resolved: 0
-    remaining_issues: []
-    checks_passed: "5/5"
-
-  # 3. MD網羅度
-  md_coverage:
-    tier1_coverage: "2/2 (100%)"
-    tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "4/4 (100%)"
-    total_coverage: "10/10 (100%)"
-    status: "excellent"
-
-  # 4. 発見した矛盾点
-  inconsistencies: []
-
-  # 5. intent.ymlへの提案
-  intent_suggestions:
-    - field: "core_functions"
-      current: "5つのcore functionsが定義されている"
-      suggestion: "現状のままで問題ない。すべてのMDファイルで適切に反映されている。"
-      reason: "README.md, AGENTS.md, CLAUDE.mdで一貫して記載されている"
-
-    - field: "design_philosophy"
-      current: "5つのdesign philosophiesが定義されている"
-      suggestion: "現状のままで問題ない。"
-      reason: "概念の一意性が維持されている"
-
-    - field: "boundaries"
-      current: "in_scope: 6, out_of_scope: 5"
-      suggestion: "現状のままで問題ない。"
-      reason: "境界線が明確で、すべてのMDファイルで一貫している"
-
-  # 6. 概念モデルとの連携状況
-  concept_integration:
-    used: true
-    ontology_version: "0.3"
-    ontology_terms_used: 11
-    ontology_terms_documented: 11
-    alignment_score: 95
-    new_term_candidates: []
-
-  # 7. 今回の実行での変更点
-  changes:
-    - "AGENTS.md: タイムスタンプ更新（保守）"
-    - "GLOSSARY.md: タイムスタンプ更新（保守）"
-    - "CLAUDE.md: タイムスタンプ更新（保守）"
-    - "その他7ファイル: 検証のみ実施（変更なし）"
-
-  # 8. 実行モード
-  execution_mode: "verification"
-  run_type: "maintenance"
-  changes_applied:
-    - "timestamp_updates_only"
-    - "3_files_updated"
-    - "7_files_verified_no_change"
-
-  # 9. 今後の推奨アクション
-  recommendations:
-    - priority: "low"
-      action: "現状維持"
-      reason: "MDファイルはexcellentレベル（95%）に達しており、保守実行で品質を維持"
-      next_steps: "ontology.ymlやinvariants.ymlに更新がある場合のみ、bootstrapを再実行してください"
-
-    - priority: "informational"
-      action: "監査継続"
-      reason: "概念の整合性を維持するため、定期的な検証を推奨"
-      suggested_frequency: "ontology.ymlまたはinvariants.yml更新時、または月1回の保守実行"
-
-  # 10. 全体的な評価
-  overall_assessment:
-    status: "excellent"
-    quality_level: "production_ready"
-    readiness_indicators:
-      existence_purpose: "clear_and_consistent"
-      terminology: "normalized"
-      invariants: "fully_documented"
-      auto_decisions: "properly_attributed"
-      documentation_coverage: "complete"
-
-  # 11. メトリクスサマリ
-  metrics_summary:
-    overall_score: 95 (maintained)
-    uniqueness_score: "92/100"
-    concept_alignment_score: 95
-    term_normalization_score: 98
-    auto_decision_coverage: "100% (9/9)"
-    invariant_coverage: "100% (15/15)"
-    quality_trend: "stable_excellent"
+bootstrap_run_timestamp: '2026-02-02T04:01:53.682342+00:00'
+version: '1.1'
+existence_clarity:
+  before: 79
+  after: 79
+  delta: 0
+  interpretation: MDファイルは既に整備されており、高品質が維持されています
+uniqueness_score:
+  score: 100
+  issues_found: 0
+  issues_resolved: 0
+  remaining_issues: []
+md_coverage:
+  tier1_coverage: 2/2 (100%)
+  tier2_coverage: 4/4 (100%)
+  tier3_coverage: 4/4 (100%)
+inconsistencies: []
+intent_suggestions: []
+concept_integration:
+  used: true
+  ontology_terms_used: 231
+  alignment_score: 50
+  new_term_candidates: []

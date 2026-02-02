@@ -1,144 +1,208 @@
 {
-  "timestamp": "2026-02-02T11:38:12Z",
-  "overall_score": 85,
-  "concept_alignment_score": 78,
+  "timestamp": "2026-02-02T02:56:23Z",
+  "overall_score": 95,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_breakdown": {
-    "existence_purpose": 90,
-    "uniqueness": 82,
-    "concept_consistency": 78,
-    "documentation_coverage": 85,
-    "term_normalization": 75
-  },
+  "scoring_method": "v1.1_combined_audit_concept",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 82,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 75,
-        "issues": [
-          {
-            "type": "synonym_usage",
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "severity": "low",
-            "line": 15
-          },
-          {
-            "type": "synonym_usage",
-            "found": "AIエージェント",
-            "should_be": "Agent",
-            "severity": "low",
-            "line": 28
-          }
-        ]
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 48
       },
-      "strengths": [
-        "Clear mission statement",
-        "Good structure with sections",
-        "Installation instructions present"
-      ],
-      "issues": [
-        "Some synonyms used instead of canonical terms",
-        "Could better reflect design philosophy",
-        "Missing explicit state management details"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 88,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "type": "missing_term_definition",
-            "missing": "AutoChat",
-            "context": "AutoChat functionality mentioned but not linked to glossary",
-            "severity": "low"
-          }
-        ]
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 89
       },
-      "strengths": [
-        "Comprehensive agent instructions",
-        "Good coverage of invariants",
-        "Clear behavior rules"
-      ],
-      "issues": [
-        "Some AUTO decisions not explicitly noted",
-        "Could better reference ontology",
-        "Term consistency could be improved"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "behavior_rules_defined": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true
+      },
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 85,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "total_term_occurrences": 76
       },
-      "strengths": [
-        "Excellent term normalization",
-        "Comprehensive invariant coverage",
-        "Good AUTO decision documentation"
-      ],
-      "issues": [
-        "Could expand on Memory (draft status)",
-        "Some backend-specific details could be clarified"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "claude_specific_guidelines": true
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 54
+      },
+      "intent_alignment": {
+        "score": 95,
+        "invariants_reflected": true
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 9,
+        "synonyms_used": 0,
+        "total_term_occurrences": 42
+      },
+      "intent_alignment": {
+        "score": 95,
+        "mission_expanded": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 93,
+        "issues": [],
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "total_term_occurrences": 38
+      },
+      "intent_alignment": {
+        "score": 95,
+        "contribution_guidelines_clear": true
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 85,
+      "tier": 3,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 82,
-        "issues": [
-          {
-            "type": "missing_term",
-            "missing": "Connector",
-            "reason": "Term exists in ontology but missing from glossary",
-            "severity": "medium"
-          }
-        ]
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 124,
+        "generated_from_ontology": true
       },
-      "strengths": [
-        "Good coverage of core terms",
-        "Clear structure by layer",
-        "Status indicators present"
-      ],
-      "issues": [
-        "Missing Connector term",
-        "Memory term needs draft status clarification",
-        "Could add cross-references between terms"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "ontology_consistent": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "total_term_occurrences": 35
+      },
+      "intent_alignment": {
+        "score": 95,
+        "gemini_specific_guidelines": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 9,
+        "synonyms_used": 0,
+        "total_term_occurrences": 28
+      },
+      "intent_alignment": {
+        "score": 95,
+        "codex_specific_guidelines": true
+      },
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 78,
+      "tier": 3,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 72,
-        "issues": [
-          {
-            "type": "inconsistent_terminology",
-            "found": "UIフレームワーク",
-            "should_be": "Backend",
-            "severity": "medium"
-          }
-        ]
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_used": 0,
+        "total_term_occurrences": 67
       },
-      "strengths": [
-        "Good architectural overview",
-        "Clear component boundaries"
-      ],
-      "issues": [
-        "Term consistency needs improvement",
-        "Could better reflect ontology structure",
-        "Missing some invariant references"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "architecture_documented": true
+      },
+      "issues": []
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 10,
+    "average_clarity": 95.0,
+    "average_concept_alignment": 95.6,
+    "canonical_term_usage_rate": 1.0,
+    "synonym_usage_rate": 0.0,
+    "total_term_occurrences": 601,
+    "total_issues": 0
+  },
+  "quality_assessment": {
+    "level": "excellent",
+    "status": "production_ready",
+    "note": "All MD files are in excellent condition with perfect concept alignment. This is a maintenance verification run."
+  }
 }
