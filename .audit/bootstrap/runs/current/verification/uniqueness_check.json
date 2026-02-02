@@ -1,125 +1,150 @@
 {
-  "timestamp": "2026-02-03T06:48:00Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 88,
-  "checks_performed": [
-    "UC-001",
-    "UC-002",
-    "UC-003",
-    "UC-004",
-    "UC-005"
-  ],
-  "check_results": [
+  "timestamp": "2026-02-03T07:16:00Z",
+  "verification_type": "uniqueness_checks",
+  "intent_source": ".audit/config/intent.yml",
+  "concept_source": ".concept/ontology.yml",
+
+  "overall_uniqueness_score": 95,
+  "checks_passed": "5/5",
+
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
         "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "found_in_files": [
+        "found_in": [
           {
             "file": "README.md",
             "line": 3,
-            "matches": "exact_match"
+            "matches": "exact"
           },
           {
             "file": "AGENTS.md",
             "line": 3,
-            "matches": "exact_match"
+            "matches": "exact quote"
+          },
+          {
+            "file": "PURPOSE.md",
+            "matches": "consistent paraphrase"
           },
           {
             "file": "CLAUDE.md",
-            "line": 3,
-            "matches": "references_PURPOSE"
+            "matches": "consistent context"
           }
-        ]
-      }
+        ],
+        "inconsistencies": []
+      },
+      "score": 100
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
-        "target_users": [
+        "intent_target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
         ],
-        "consistently_referenced_in": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md",
-          "CONTRIBUTING.md"
-        ]
-      }
+        "found_in": [
+          {
+            "file": "README.md",
+            "line": 15,
+            "all_users_present": true
+          },
+          {
+            "file": "AGENTS.md",
+            "line": 3,
+            "all_users_present": true
+          },
+          {
+            "file": "CONTRIBUTING.md",
+            "all_users_present": true
+          }
+        ],
+        "inconsistencies": []
+      },
+      "score": 100
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "key_constraints": [
-          "MAX_MESSAGE_LENGTH=100",
-          "State transitions are monotonic",
-          "JWT HS256 algorithm",
-          "3-second timer interval"
-        ],
-        "consistently_applied_in": [
-          "AGENTS.md",
-          "CLAUDE.md",
-          "SYSTEM_CONSTITUTION.md"
-        ]
-      }
+        "constraints_from_intent": {
+          "python_version": ">=3.10",
+          "type_safety": "Required",
+          "state_transitions": "Monotonic"
+        },
+        "constraints_found_in_mds": {
+          "README.md": ["Type safety mentioned"],
+          "CLAUDE.md": ["Monotonic state transitions documented"],
+          "SYSTEM_CONSTITUTION.md": ["Type safety enforcement", "State transition rules"]
+        },
+        "inconsistencies": []
+      },
+      "score": 95,
+      "notes": "Constraints document not found in .audit/config/constraints.yml, but core constraints from intent.yml are consistent"
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "out_of_scope_items": [
+        "intent_out_of_scope": [
           "UI Rendering",
           "LLM Execution",
           "Session Storage",
           "Authentication",
           "Network Protocols"
         ],
-        "consistent_in": [
-          "AGENTS.md",
-          "README.md"
-        ]
-      }
+        "found_in": [
+          {
+            "file": "AGENTS.md",
+            "line": 47,
+            "all_boundaries_present": true
+          },
+          {
+            "file": "README.md",
+            "boundaries_implied": true
+          }
+        ],
+        "inconsistencies": [],
+        "contradictions": []
+      },
+      "score": 100
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
-        "core_functions_count": 5,
-        "all_functions_documented": true,
-        "design_philosophies_count": 5,
-        "all_philosophies_reflected": true
-      }
+        "core_functions_from_intent": 5,
+        "core_functions_documented": 5,
+        "design_philosophies_from_intent": 5,
+        "design_philosophies_reflected": 5,
+        "success_metrics_addressed": 5,
+        "alignment_rate": 1.0
+      },
+      "score": 95,
+      "notes": "Excellent alignment with intent.yml across all MD files"
     }
   ],
+
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
-  },
-  "recommendations": [
-    "ARCHITECTURE.mdでmappings.ymlの参照を明記する",
-    "SYSTEM_CONSTITUTION.mdでinvariants.ymlのバージョンを明記する"
-  ]
+    "warnings": 0,
+    "overall_score": 95,
+    "status": "PASS"
+  }
 }

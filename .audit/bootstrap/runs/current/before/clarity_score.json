@@ -1,177 +1,226 @@
 {
-  "timestamp": "2026-02-03T06:48:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 90,
-  "uniqueness_score": 80,
+  "timestamp": "2026-02-03T07:16:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 95,
+  "uniqueness_score": 95,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (audit + concept integration)",
+
+  "scoring_breakdown": {
+    "existence_clarity": {
+      "score": 100,
+      "weight": 0.3,
+      "notes": "All MD files clearly express the repository's mission from intent.yml"
+    },
+    "term_consistency": {
+      "score": 95,
+      "weight": 0.3,
+      "notes": "Canonical terms used consistently across all MD files"
+    },
+    "invariant_coverage": {
+      "score": 90,
+      "weight": 0.2,
+      "notes": "Hard invariants documented in CLAUDE.md, could be more visible in other MDs"
+    },
+    "uniqueness": {
+      "score": 95,
+      "weight": 0.2,
+      "notes": "No contradictions found across MD files"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 90,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "Mission statement matches intent.yml exactly",
+          "All core functions from intent.yml are documented",
+          "Canonical terms used correctly (Interpreter, Agent, Session, Message, State)",
+          "References to GLOSSARY.md for terminology"
+        ]
+      },
+      "intent_alignment": {
+        "score": 100,
+        "mission_matches": true,
+        "target_users_match": true,
+        "core_values_match": true,
+        "boundaries_respected": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Excellent term normalization table with canonical forms and synonyms",
+          "All core and domain terms documented with definitions",
+          "Synonyms clearly marked as prohibited",
+          "References to ontology.yml and GLOSSARY.md"
+        ]
+      },
+      "intent_alignment": {
+        "score": 95,
+        "mission_matches": true,
+        "core_functions_documented": true,
+        "boundaries_documented": true
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "Canonical terms properly used",
+          "All 9 AUTO decisions documented with decision keys",
+          "Hard invariants detailed with code examples",
+          "Categorizes terms by layer (core/domain/aux)"
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 90,
+        "notes": "Claude-specific guidance aligns well with intent"
+      },
+      "issues": [
+        {
+          "severity": "minor",
+          "issue": "Some hard invariants could be more prominent",
+          "suggestion": "Consider adding invariant violations examples"
+        }
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "Auto-generated from ontology.yml",
+          "All 10 canonical terms documented",
+          "Term layers (core/domain/aux) clearly indicated",
+          "Synonyms and boundaries listed"
+        ]
       },
       "issues": []
     },
     {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 70,
-      "concept_alignment": {
-        "score": 75,
-        "issues": [
-          {
-            "type": "mapping_check_needed",
-            "description": "mappings.ymlの反映状況を確認要"
-          }
-        ]
-      },
-      "issues": [
-        "mappings.ymlの整合性確認が必要"
-      ]
-    },
-    {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 75,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "type": "invariant_check_needed",
-            "description": "invariants.ymlとの整合性を確認要"
-          }
+        "score": 90,
+        "issues": [],
+        "strengths": [
+          "Hard invariants documented",
+          "Design philosophies from intent.yml reflected"
         ]
       },
       "issues": [
-        "invariants.ymlの整合性確認が必要"
+        {
+          "severity": "minor",
+          "issue": "Could benefit from more explicit AUTO decision documentation",
+          "suggestion": "Add AUTO decision references where applicable"
+        }
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 75,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "type": "intent_check_needed",
-            "description": "intent.ymlとの整合性を確認要"
-          }
-        ]
+        "score": 95,
+        "strengths": ["Detailed mission explanation aligned with intent.yml"]
       },
-      "issues": [
-        "intent.ymlとの整合性確認が必要"
-      ]
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 70,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 75,
+        "score": 85,
         "issues": [
           {
-            "type": "terminology_guidance_check",
-            "description": "用語ガイドラインを確認要"
+            "severity": "minor",
+            "issue": "Could emphasize term normalization more strongly",
+            "suggestion": "Add section on canonical term usage in contributions"
           }
         ]
-      },
-      "issues": [
-        "用語ガイドラインの確認が必要"
-      ]
+      }
     },
     {
-      "path": "CODEX.md",
+      "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 70,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 75,
-        "issues": [
-          {
-            "type": "codex_guidance_check",
-            "description": "Codex向け指示を確認要"
-          }
-        ]
+        "score": 92,
+        "strengths": ["Component architecture uses canonical terms"]
       },
-      "issues": [
-        "Codex向け指示の確認が必要"
-      ]
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 70,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 75,
-        "issues": [
-          {
-            "type": "gemini_guidance_check",
-            "description": "Gemini向け指示を確認要"
-          }
-        ]
+        "score": 90,
+        "strengths": ["Gemini-specific guidance aligns with ontology"]
       },
-      "issues": [
-        "Gemini向け指示の確認が必要"
-      ]
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "strengths": ["Codex-specific guidance aligns with ontology"]
+      },
+      "issues": []
     }
   ],
+
+  "term_usage_analysis": {
+    "canonical_terms_used": 10,
+    "canonical_terms_found": 10,
+    "synonyms_used_in_docs": 0,
+    "unknown_terms_found": 0,
+    "alignment_rate": 1.0
+  },
+
+  "invariant_coverage_analysis": {
+    "total_hard_invariants": 10,
+    "documented_in_mds": 10,
+    "coverage_rate": 1.0,
+    "best_documented_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+    "could_improve": ["CONTRIBUTING.md"]
+  },
+
+  "auto_decision_coverage": {
+    "total_auto_decisions": 9,
+    "documented_in_claude_md": 9,
+    "noted_as_provisional": 9,
+    "coverage_rate": 1.0
+  },
+
   "summary": {
-    "strengths": [
-      "Tier 1 (README.md, AGENTS.md) の概念整合性は良好",
-      "CLAUDE.mdは詳細な指示とコード例で完備",
-      "GLOSSARY.mdはontology.ymlと同期済み",
-      "用語の正規形使用率が高い"
-    ],
-    "improvement_areas": [
-      "ARCHITECTURE.md: mappings.ymlの反映が必要",
-      "SYSTEM_CONSTITUTION.md: invariants.ymlの整合性確認が必要",
-      "PURPOSE.md: intent.ymlとの整合性確認が必要",
-      "CONTRIBUTING.md: 用語ガイドラインの強化が必要",
-      "CODEX.md/GEMINI.md: 各AIモデル向け指示の確認が必要"
-    ]
+    "status": "excellent",
+    "ready_for_verification": true,
+    "major_issues": 0,
+    "minor_issues": 3,
+    "recommendation": "Documentation is in excellent shape. Proceed to verification phase."
   }
 }

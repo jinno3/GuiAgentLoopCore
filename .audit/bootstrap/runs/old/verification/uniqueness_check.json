@@ -1,58 +1,90 @@
 {
-  "timestamp": "2026-02-03T06:37:00Z",
-  "verification_version": "v1.1 (audit + concept integrated)",
-  "overall_uniqueness_score": 95,
-
+  "timestamp": "2026-02-03T06:48:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 88,
   "checks_performed": [
+    "UC-001",
+    "UC-002",
+    "UC-003",
+    "UC-004",
+    "UC-005"
+  ],
+  "check_results": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "details": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "consistent_files": 4,
-        "total_files": 4,
-        "consistency_rate": 1.0
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "found_in_files": [
+          {
+            "file": "README.md",
+            "line": 3,
+            "matches": "exact_match"
+          },
+          {
+            "file": "AGENTS.md",
+            "line": 3,
+            "matches": "exact_match"
+          },
+          {
+            "file": "CLAUDE.md",
+            "line": 3,
+            "matches": "references_PURPOSE"
+          }
+        ]
       }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "details": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "consistent_files": 4,
-        "total_files": 4,
-        "consistency_rate": 1.0
+      "evidence": {
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "consistently_referenced_in": [
+          "README.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          "CONTRIBUTING.md"
+        ]
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
+      "source": ".audit + .concept",
       "passed": true,
-      "details": {
-        "hard_invariants_count": 11,
-        "files_checked": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-        "consistent_files": 4,
-        "total_files": 4,
-        "consistency_rate": 1.0
+      "evidence": {
+        "key_constraints": [
+          "MAX_MESSAGE_LENGTH=100",
+          "State transitions are monotonic",
+          "JWT HS256 algorithm",
+          "3-second timer interval"
+        ],
+        "consistently_applied_in": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "SYSTEM_CONSTITUTION.md"
+        ]
       }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit + .concept",
       "passed": true,
-      "details": {
+      "evidence": {
         "out_of_scope_items": [
           "UI Rendering",
           "LLM Execution",
@@ -60,113 +92,34 @@
           "Authentication",
           "Network Protocols"
         ],
-        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "consistent_files": 3,
-        "total_files": 3,
-        "consistency_rate": 1.0
+        "consistent_in": [
+          "AGENTS.md",
+          "README.md"
+        ]
       }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "details": {
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true,
-        "success_metrics_documented": true,
-        "overall_compliance": 0.98
+      "evidence": {
+        "core_functions_count": 5,
+        "all_functions_documented": true,
+        "design_philosophies_count": 5,
+        "all_philosophies_reflected": true
       }
     }
   ],
-
-  "concept_alignment_checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept/ontology.yml",
-      "passed": true,
-      "details": {
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "files_with_synonyms": []
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept/ontology.yml",
-      "passed": true,
-      "details": {
-        "synonyms_checked": 28,
-        "synonyms_found_in_text": 0,
-        "excluded_from_table": 28,
-        "compliance_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept/invariants.yml",
-      "passed": true,
-      "details": {
-        "total_invariants": 14,
-        "hard_invariants": 11,
-        "reflected_in_md": 11,
-        "missing": [],
-        "reflection_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept/ambiguities.yml",
-      "passed": true,
-      "details": {
-        "active_auto_decisions": 9,
-        "noted_in_md": 9,
-        "missing_notes": 0,
-        "documentation_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept/ontology.yml",
-      "passed": true,
-      "details": {
-        "terms_with_boundaries": 11,
-        "contradictions_found": 0,
-        "consistency_rate": 1.0
-      }
-    }
-  ],
-
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "pass_rate": 1.0,
-    "uc_passed": "5/5",
-    "ca_passed": "5/5",
-    "uniqueness_score": 95,
-    "concept_alignment_score": 98,
-    "overall_score": 96
+    "score": 100
   },
-
-  "issues_found": [],
   "recommendations": [
-    "ARCHITECTURE.mdでmappings.ymlとの整合性を次回確認",
-    "PURPOSE.mdでintent.ymlとの整合性を次回確認",
-    "SYSTEM_CONSTITUTION.mdでinvariants.ymlの最新版を反映"
+    "ARCHITECTURE.mdでmappings.ymlの参照を明記する",
+    "SYSTEM_CONSTITUTION.mdでinvariants.ymlのバージョンを明記する"
   ]
 }

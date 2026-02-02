@@ -1,203 +1,177 @@
 {
-  "timestamp": "2026-02-03T06:37:00Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-03T06:48:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 90,
+  "uniqueness_score": 80,
   "max_score": 100,
-  "evaluation_method": "v1.1 (audit + concept integrated)",
-
-  "score_breakdown": {
-    "existence_clarity": 98,
-    "uniqueness": 95,
-    "concept_alignment": 98,
-    "completeness": 92,
-    "terminology_consistency": 98
-  },
-
+  "scoring_methodology": "v1.1 (audit + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 96,
+      "tier": 1,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend"],
-        "synonyms_found": [],
+        "score": 95,
         "issues": []
       },
-      "strengths": [
-        "存在意義が明確に記載されている",
-        "用語が正規形で使用されている",
-        "AUTO決定が適切に記載されている",
-        "不変条件が正しく反映されている"
-      ],
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "synonyms_found": [],
         "issues": []
       },
-      "strengths": [
-        "用語規約セクションが完備されている",
-        "全ての正規形が適切に使用されている",
-        "不変条件が詳細に記載されている",
-        "AUTO決定が体系的に整理されている"
-      ],
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 97,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
-        "synonyms_found": [],
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Claude向けの特化指示が充実している",
-        "用語の一貫性が保たれている",
-        "不変条件が適切に記載されている",
-        "AUTO決定が正しく反映されている"
-      ],
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 99,
+      "tier": 3,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 100,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
         "issues": []
       },
-      "strengths": [
-        "ontology.ymlから自動生成されている",
-        "全ての正規形が網羅されている",
-        "同義語マップが完備されている",
-        "AUTO決定が適切に記載されている"
-      ],
       "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 96,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "issues": []
-      },
-      "strengths": [
-        "用語ガイドラインが詳細に記載されている",
-        "不変条件が適切に記載されている",
-        "AUTO決定が正しく反映されている"
-      ],
-      "issues": [
-        "いくつかの用語が英語で記載されている（正規形自体は正しい）"
-      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 90,
+      "tier": 3,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 92,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
-        "synonyms_found": [],
+        "score": 75,
         "issues": [
           {
-            "line": 0,
-            "description": "mappings.ymlの反映状況を確認が必要"
+            "type": "mapping_check_needed",
+            "description": "mappings.ymlの反映状況を確認要"
           }
         ]
       },
-      "strengths": [
-        "アーキテクチャが明確に記載されている"
-      ],
       "issues": [
-        "mappings.ymlとの整合性を確認が必要"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
-      },
-      "strengths": [
-        "目的が明確に記載されている"
-      ],
-      "issues": [
-        "intent.ymlとの整合性を確認が必要"
+        "mappings.ymlの整合性確認が必要"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 93,
+      "tier": 2,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 96,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 80,
+        "issues": [
+          {
+            "type": "invariant_check_needed",
+            "description": "invariants.ymlとの整合性を確認要"
+          }
+        ]
       },
-      "strengths": [
-        "不変条件が適切に記載されている"
-      ],
       "issues": [
-        "invariants.ymlの最新版との整合性を確認が必要"
+        "invariants.ymlの整合性確認が必要"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "intent_check_needed",
+            "description": "intent.ymlとの整合性を確認要"
+          }
+        ]
+      },
+      "issues": [
+        "intent.ymlとの整合性確認が必要"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 75,
+        "issues": [
+          {
+            "type": "terminology_guidance_check",
+            "description": "用語ガイドラインを確認要"
+          }
+        ]
+      },
+      "issues": [
+        "用語ガイドラインの確認が必要"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 75,
+        "issues": [
+          {
+            "type": "codex_guidance_check",
+            "description": "Codex向け指示を確認要"
+          }
+        ]
+      },
+      "issues": [
+        "Codex向け指示の確認が必要"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 93,
+      "tier": 3,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 75,
+        "issues": [
+          {
+            "type": "gemini_guidance_check",
+            "description": "Gemini向け指示を確認要"
+          }
+        ]
       },
-      "strengths": [
-        "Gemini向けの特化指示が記載されている"
-      ],
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
-      },
-      "strengths": [
-        "Codex向けの特化指示が記載されている"
-      ],
-      "issues": []
+      "issues": [
+        "Gemini向け指示の確認が必要"
+      ]
     }
   ],
-
   "summary": {
-    "total_issues": 3,
-    "critical_issues": 0,
-    "warning_issues": 3,
-    "info_issues": 0,
-    "overall_assessment": "MDファイル群は非常に良好な状態。概念整合度が高く、用語の正規形が適切に使用されている。"
+    "strengths": [
+      "Tier 1 (README.md, AGENTS.md) の概念整合性は良好",
+      "CLAUDE.mdは詳細な指示とコード例で完備",
+      "GLOSSARY.mdはontology.ymlと同期済み",
+      "用語の正規形使用率が高い"
+    ],
+    "improvement_areas": [
+      "ARCHITECTURE.md: mappings.ymlの反映が必要",
+      "SYSTEM_CONSTITUTION.md: invariants.ymlの整合性確認が必要",
+      "PURPOSE.md: intent.ymlとの整合性確認が必要",
+      "CONTRIBUTING.md: 用語ガイドラインの強化が必要",
+      "CODEX.md/GEMINI.md: 各AIモデル向け指示の確認が必要"
+    ]
   }
 }

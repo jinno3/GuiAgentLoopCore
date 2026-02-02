@@ -1,155 +1,193 @@
 {
-  "timestamp": "2026-02-03T06:37:00Z",
-  "overall_score": 96,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-03T06:48:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 94,
+  "uniqueness_score": 88,
   "max_score": 100,
-  "evaluation_method": "v1.1 (audit + concept integrated)",
-
-  "score_breakdown": {
-    "existence_clarity": 98,
-    "uniqueness": 96,
-    "concept_alignment": 98,
-    "completeness": 93,
-    "terminology_consistency": 98
-  },
-
-  "improvements_from_before": {
-    "overall_score_delta": +1,
-    "uniqueness_delta": +1,
-    "concept_alignment_delta": 0,
-    "completeness_delta": +1,
-    "terminology_consistency_delta": 0
-  },
-
+  "scoring_methodology": "v1.1 (audit + concept integration)",
+  "verification_run": true,
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 96,
+      "tier": 1,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
+        "score": 95,
         "issues": []
       },
       "status": "verified",
-      "changes": []
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "status": "updated",
-      "changes": [
-        "タイムスタンプを2026-02-03T06:37:00Zに更新"
-      ]
+      "status": "verified",
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 97,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "status": "updated",
-      "changes": [
-        "タイムスタンプを2026-02-03T06:37:00Zに更新"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 99,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "status": "updated",
-      "changes": [
-        "タイムスタンプを2026-02-03T06:37:00Zに更新"
+      "status": "verified",
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "status": "verified",
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 75,
+        "issues": [
+          {
+            "type": "mapping_reference_missing",
+            "description": "mappings.ymlの参照が明記されていない",
+            "severity": "low"
+          }
+        ]
+      },
+      "status": "verified",
+      "issues": [
+        "mappings.ymlの参照を明記することを推奨"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "invariant_version_missing",
+            "description": "invariants.ymlのバージョンが明記されていない",
+            "severity": "low"
+          }
+        ]
+      },
+      "status": "verified",
+      "issues": [
+        "invariants.ymlのバージョンを明記することを推奨"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "intent_reference_weak",
+            "description": "intent.ymlへの直接参照が弱い",
+            "severity": "low"
+          }
+        ]
+      },
+      "status": "verified",
+      "issues": [
+        "intent.ymlへの直接参照を強化することを推奨"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 94,
+      "tier": 2,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 96,
-        "issues": []
-      },
-      "status": "verified",
-      "changes": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 92,
+        "score": 85,
         "issues": [
           {
-            "line": 0,
-            "description": "mappings.ymlの反映状況を確認が必要"
+            "type": "terminology_guidance_light",
+            "description": "用語ガイドラインがあるが強化可能",
+            "severity": "low"
           }
         ]
       },
-      "status": "review_needed",
-      "changes": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "status": "review_needed",
-      "changes": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 96,
-        "issues": []
-      },
-      "status": "review_needed",
-      "changes": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
       "status": "verified",
-      "changes": []
+      "issues": [
+        "用語ガイドラインを強化することを推奨"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 93,
+      "tier": 3,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "type": "codex_guidance_adequate",
+            "description": "Codex向け指示は基本的に適切",
+            "severity": "info"
+          }
+        ]
       },
       "status": "verified",
-      "changes": []
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "gemini_guidance_adequate",
+            "description": "Gemini向け指示は基本的に適切",
+            "severity": "info"
+          }
+        ]
+      },
+      "status": "verified",
+      "issues": []
     }
   ],
-
   "summary": {
-    "total_issues": 3,
-    "critical_issues": 0,
-    "warning_issues": 3,
-    "info_issues": 0,
-    "overall_assessment": "MDファイル群は非常に良好な状態。概念整合度が高く（98%）、用語の正規形が適切に使用されている。3つのファイルで次回のレビューが必要。"
+    "strengths": [
+      "Tier 1 (README.md, AGENTS.md) の概念整合性は優秀 (95-100%)",
+      "CLAUDE.mdは完全な概念整合 (100%)",
+      "GLOSSARY.mdはontology.ymlと完全に同期 (100%)",
+      "全14の不変条件がMDに反映済み (100%)",
+      "全14のAUTO決定が注記として記載済み (100%)",
+      "用語の正規形使用率は96.1% (122/127)",
+      "存在意義の一意性は100% (UC-001〜UC-005全合格)"
+    ],
+    "improvement_recommendations": [
+      "ARCHITECTURE.md: mappings.ymlの参照を明記",
+      "SYSTEM_CONSTITUTION.md: invariants.ymlのバージョンを明記",
+      "PURPOSE.md: intent.ymlへの直接参照を強化",
+      "CONTRIBUTING.md: 用語ガイドラインを強化"
+    ],
+    "overall_assessment": "This is a high-quality documentation set with excellent concept alignment. No critical issues found."
   }
 }
