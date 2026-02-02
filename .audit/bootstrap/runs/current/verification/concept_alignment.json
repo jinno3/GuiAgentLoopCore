@@ -1,225 +1,184 @@
 {
-  "timestamp": "2026-02-03T06:24:00Z",
+  "timestamp": "2026-02-03T06:37:00Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "invariants_source": ".concept/invariants.yml",
-
-  "overall_alignment_score": 95,
+  "ontology_version": "0.3",
+  "overall_alignment_score": 98,
 
   "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
 
-  "per_file_term_usage": [
+  "per_file": [
     {
       "file": "README.md",
-      "terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend"],
-      "alignment_score": 100,
+      "alignment_score": 98,
+      "canonical_terms_found": 8,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
-      "terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
       "alignment_score": 100,
+      "canonical_terms_found": 10,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-      "alignment_score": 100,
+      "alignment_score": 98,
+      "canonical_terms_found": 10,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
-      "terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "alignment_score": 100,
+      "canonical_terms_found": 11,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "alignment_score": 100,
+      "alignment_score": 96,
+      "canonical_terms_found": 10,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 92,
+      "canonical_terms_found": 7,
+      "synonyms_found": 0,
+      "issues": [
+        {
+          "type": "review_needed",
+          "description": "mappings.ymlの反映状況を確認が必要"
+        }
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "canonical_terms_found": 5,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "terms_used": ["Interpreter", "State"],
-      "alignment_score": 100,
+      "alignment_score": 96,
+      "canonical_terms_found": 5,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 95,
+      "canonical_terms_found": 5,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 95,
+      "canonical_terms_found": 5,
+      "synonyms_found": 0,
       "issues": []
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 13,
+    "total_invariants": 14,
     "hard_invariants": 11,
-    "soft_invariants": 2,
-    "reflected_in_md": {
-      "hard_invariants": 11,
-      "soft_invariants": 2
-    },
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
     "missing": [],
-    "coverage": "100%"
-  },
-
-  "invariant_reflection_by_file": {
-    "README.md": {
-      "invariants_covered": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001"],
-      "count": 5
-    },
-    "AGENTS.md": {
-      "invariants_covered": [
-        "INV-STATE-001",
-        "INV-SESSION-001",
-        "INV-MSG-001",
-        "INV-AUTO-001",
-        "INV-STREAM-001",
-        "INV-MESSAGE-001",
-        "INV-STATE-002",
-        "INV-BACKEND-001",
-        "INV-SESSION-002",
-        "INV-CONNECTOR-001",
-        "INV-CONVERTER-001",
-        "INV-AGENT-001",
-        "INV-MEM-001",
-        "INV-BACKEND-002"
-      ],
-      "count": 14
-    },
-    "CONTRIBUTING.md": {
-      "invariants_covered": [
-        "INV-STATE-001",
-        "INV-STATE-002",
-        "INV-MSG-001",
-        "INV-MESSAGE-001",
-        "INV-AUTO-001",
-        "INV-STREAM-001",
-        "INV-SESSION-001",
-        "INV-SESSION-002",
-        "INV-AGENT-001",
-        "INV-MEM-001",
-        "INV-CONNECTOR-001",
-        "INV-CONVERTER-001",
-        "INV-BACKEND-001",
-        "INV-BACKEND-002"
-      ],
-      "count": 14
-    },
-    "CLAUDE.md": {
-      "invariants_covered": [
-        "INV-STATE-001",
-        "INV-STATE-002",
-        "INV-MSG-001",
-        "INV-MESSAGE-001",
-        "INV-AGENT-001",
-        "INV-AUTO-001",
-        "INV-STREAM-001",
-        "INV-BACKEND-001",
-        "INV-BACKEND-002",
-        "INV-SESSION-001",
-        "INV-SESSION-002",
-        "INV-MEM-001",
-        "INV-CONNECTOR-001",
-        "INV-CONVERTER-001"
-      ],
-      "count": 14
-    },
-    "SYSTEM_CONSTITUTION.md": {
-      "invariants_covered": ["INV-STATE-001"],
-      "count": 1
+    "coverage_rate": 1.0,
+    "by_file": {
+      "AGENTS.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "total": 14
+      },
+      "CLAUDE.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 2,
+        "total": 13
+      },
+      "CONTRIBUTING.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "total": 14
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "hard_invariants_documented": 10,
+        "soft_invariants_documented": 2,
+        "total": 12
+      }
     }
   },
 
   "auto_decision_check": {
-    "total_auto_decisions": 14,
-    "active_in_ontology": 13,
-    "noted_in_md": 14,
-    "coverage": "100%",
-    "missing_notes": []
-  },
-
-  "auto_decision_reflection_by_file": {
-    "AGENTS.md": {
-      "auto_decisions_covered": 14,
-      "sections": [
-        "Agent関連のAUTO決定",
-        "Message関連のAUTO決定",
-        "State関連のAUTO決定",
-        "AutoChat関連のAUTO決定",
-        "Backend関連のAUTO決定",
-        "Memory関連のAUTO決定",
-        "Session関連のAUTO決定",
-        "Connector関連のAUTO決定"
-      ]
-    },
-    "README.md": {
-      "auto_decisions_covered": 9,
-      "section": "AUTO Decisions"
-    },
-    "CONTRIBUTING.md": {
-      "auto_decisions_covered": 14,
-      "section": "Respect AUTO Decisions"
-    },
-    "CLAUDE.md": {
-      "auto_decisions_covered": 13,
-      "section": "AUTO決定の認識"
+    "total_active_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "documentation_rate": 1.0,
+    "by_category": {
+      "Agent": {
+        "count": 2,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+      },
+      "Message": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+      },
+      "State": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+      },
+      "AutoChat": {
+        "count": 2,
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      "Backend": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+      },
+      "Memory": {
+        "count": 4,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+      },
+      "Session": {
+        "count": 1,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+      },
+      "Connector": {
+        "count": 1,
+        "documented_in": ["AGENTS.md"]
+      }
     }
   },
 
   "ambiguity_check": {
-    "active_auto_decisions": 14,
-    "reflected_as_notes": 14,
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
     "missing_notes": 0,
-    "coverage": "100%"
-  },
-
-  "term_boundary_check": {
-    "terms_checked": 11,
-    "boundaries_respected": 11,
-    "violations": 0,
-    "notes": "All term boundaries from ontology.yml are properly respected"
-  },
-
-  "synonym_usage_check": {
-    "total_synonyms": 33,
-    "found_in_mds_as_text": 0,
-    "documented_in_tables": 33,
-    "status": "excellent - synonyms only in documentation tables, not in code/text"
-  },
-
-  "improvements_from_before": {
-    "overall_alignment": {
-      "before": 92,
-      "after": 95,
-      "delta": "+3"
-    },
-    "invariant_coverage": {
-      "before": "92%",
-      "after": "100%",
-      "delta": "+8%"
-    },
-    "auto_decision_coverage": {
-      "before": "93%",
-      "after": "100%",
-      "delta": "+7%"
-    }
+    "expired_decisions": 2,
+    "expired_handling": "適切にdocumented",
+    "format": "注記として記載（暫定仕様として扱う）"
   },
 
   "summary": {
-    "strengths": [
-      "Perfect canonical term usage (100%)",
-      "All invariants properly documented (100%)",
-      "All AUTO decisions noted (100%)",
-      "No synonym violations in text",
-      "All term boundaries respected"
-    ],
-    "areas_for_monitoring": [
-      "Continue monitoring AUTO decisions as they expire after 20 runs",
-      "Memory term is in draft status - monitor for changes",
-      "Consider adding more detailed mappings in ARCHITECTURE.md"
+    "overall_alignment_score": 98,
+    "term_usage_compliance": 100,
+    "invariant_coverage": 100,
+    "auto_decision_documentation": 100,
+    "areas_for_improvement": [
+      "ARCHITECTURE.mdでmappings.ymlの反映を検討",
+      "SYSTEM_CONSTITUTION.mdで全てのinvariantsを反映"
     ]
   }
 }

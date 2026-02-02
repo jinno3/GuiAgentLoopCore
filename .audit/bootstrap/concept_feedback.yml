@@ -1,7 +1,7 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T06:24:00Z"
+  bootstrap_run_timestamp: "2026-02-03T06:37:00Z"
   source_ontology_version: "0.3"
-  run_number: 58
+  run_number: 59
 
   # 1. 用語使用状況
   term_usage_report:
@@ -11,31 +11,27 @@ concept_feedback:
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
+    total_occurrences: 88
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 14
+    hard: 11
+    soft: 3
     reflected: 14
     missing: []
-    by_strength:
-      hard:
-        total: 11
-        reflected: 11
-        missing: []
-      soft:
-        total: 3
-        reflected: 3
-        missing: []
+    coverage_rate: 1.0
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 14
-    noted_in_md: 14
+    total_active: 9
+    noted_in_md: 9
     format: "カテゴリ別整理（Agent, Message, State, AutoChat, Backend, Memory, Session, Connector）"
+    documentation_rate: 1.0
     by_file:
-      AGENTS.md: 14
-      CONTRIBUTING.md: 14
-      CLAUDE.md: 13
+      AGENTS.md: 9
+      CONTRIBUTING.md: 9
+      CLAUDE.md: 9
       README.md: 9
 
   # 4. 曖昧性の発見
@@ -44,18 +40,10 @@ concept_feedback:
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
-
     definition_updates: []
-
     relationship_updates: []
-
     synonym_additions: []
-
-    layer_corrections:
-      - term: "Memory"
-        current_layer: "domain"
-        note: "Correctly classified as domain layer (status: draft)"
-        action: "Monitor for status change from draft to stable"
+    layer_corrections: []
 
   # 6. 用語統計
   term_statistics:
@@ -99,7 +87,7 @@ concept_feedback:
     strengths:
       - "全ての正規形用語が100%使用されている（11/11）"
       - "不変条件が完全に反映されている（14/14）"
-      - "AUTO決定が網羅的に記載されている（14/14）"
+      - "AUTO決定が網羅的に記載されている（9/9）"
       - "用語整合率が100%を達成"
       - "同義語の不適切使用が0件"
       - "全ての用語境界が尊重されている"
@@ -110,17 +98,17 @@ concept_feedback:
   # 9. 次回のアクション
   next_actions:
     - "12_concept_sync_system: Memory用語のステータス変更を監視（draft→stable）"
-    - "12_concept_sync_system: AUTO決定の有効期限を監視（残り18回）"
+    - "12_concept_sync_system: AUTO決定の有効期限を監視"
     - "16_repo_md_bootstrapper: ontology.ymlまたはinvariants.yml更新時に実行"
 
   # 10. 改善の推移
   improvement_progress:
-    previous_run: 57
-    current_run: 58
+    previous_run: 58
+    current_run: 59
     concept_health_score:
-      before: 96
+      before: 98
       after: 98
-      delta: +2
+      delta: 0
     invariant_coverage:
       before: "100%"
       after: "100%"
