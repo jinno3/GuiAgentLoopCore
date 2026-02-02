@@ -129,12 +129,13 @@
 - Revert Triggers: primary_evidence_contradiction, performance_issue, maintenance_burden
 
 ## AUTO:Security.secret_key:env_var_required
-- Status: ACTIVE
+- Status: **EXPIRED** - Critical security issue remains unresolved for 20+ runs past expiration
 - Chosen: ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）
 - Policy: security_first
 - Expires After Runs: 10
 - Linked: AMB-SEC-001
 - Revert Triggers: primary_evidence_contradiction, security_risk_escalation
+- **URGENT**: Hardcoded JWT secret at gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable
 
 ## AUTO:Backend.timer:3sec_interval
 - Status: ACTIVE
@@ -151,3 +152,12 @@
 - Expires After Runs: 20
 - Linked: AMB-CON-001
 - Revert Triggers: primary_evidence_contradiction, architectural_clarification
+
+## AUTO:Session.jwt:decode_method_fix
+- Status: **EXPIRED** - Critical code quality issue remains unresolved for 4+ runs past expiration
+- Chosen: jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要
+- Policy: code_quality
+- Expires After Runs: 10
+- Linked: AMB-SEC-002
+- Revert Triggers: primary_evidence_contradiction, runtime_error
+- **URGENT**: Method with undefined variables (token, secret_key) at gui_agent_loop_core/core/interpreter_manager.py:56-60 must be fixed or removed
