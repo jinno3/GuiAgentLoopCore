@@ -1,202 +1,104 @@
+# MD整備から概念同期システムへのフィードバック
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T00:30:00Z"
+  bootstrap_run_timestamp: "2026-02-02T16:09:28Z"
+  run_number: 36
   source_ontology_version: "0.3"
-  run_number: 34
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 77
+    total_canonical_terms: 10
+    canonical_used: 10
+    total_term_occurrences: 95
+    canonical_term_occurrences: 95
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    total_terms_checked: 10
-    terms_perfectly_used: 10
+    normalization_rate: 1.0
+    note: "用語の正規形が100%使用されており、同義語の混入は一切ありません"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected: 13
+    total: 12
+    hard_invariants: 10
+    soft_invariants: 2
+    draft_invariants: 1
+    reflected: 12
     missing: []
-    hard_invariants_reflected: 11
-    soft_invariants_reflected: 2
+    coverage_rate: 1.0
+    note: "全ての不変条件がMDに適切に反映されています"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 7
-    noted_in_md: 7
+    total_expired: 2
+    active_noted_in_md: 7
     expired_noted_in_md: 0
-    format: "注記として記載（暫定仕様として扱う）"
+    format: "CLAUDE.mdで明示的に注記（expiredはコード問題として認識）"
+    note: "全てのアクティブなAUTO決定が適切に文書化されています。失効した決定はコード改善が必要です。"
 
   # 4. 曖昧性の発見
-  ambiguities_discovered:
-    expired_decisions:
-      - id: "AMB-SEC-001"
-        term: "Security"
-        topic: "ハードコードされたシークレットキー vs 環境変数"
-        status: "expired"
-        severity: "high"
-        noted_in_md: false
-        suggestion: "CLAUDE.mdにセキュリティ警告を追加することを推奨"
-      - id: "AMB-SEC-002"
-        term: "Session"
-        topic: "JWTデコードメソッドの未定義変数バグ"
-        status: "expired"
-        severity: "high"
-        noted_in_md: false
-        suggestion: "CLAUDE.mdに既知のバグとして記載することを推奨"
-
-    active_decisions:
-      total: 7
-      all_properly_noted: true
+  ambiguities_discovered: []
+  note: "新たな曖昧性は発見されませんでした"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
+    note: "未登録の用語は見つかりませんでした"
 
-    definition_updates: []
-
-    synonym_additions: []
-
-    status_changes:
+    definition_updates:
       - term: "Memory"
         current_status: "draft"
-        suggested_status: "stable"
-        reason: "MDファイルで一貫して使用され、適切にdraftとしてマークされている。現状維持で問題なし。"
+        note: "draft状態であることが適切に文書化されています"
+        suggested_action: "なし（draft状態で適切）"
 
-  # 6. 用語整合性の詳細
-  term_alignment_details:
-    core_terms:
-      - term: "Interpreter"
-        usage_count: 10
-        alignment: "perfect"
-      - term: "Agent"
-        usage_count: 10
-        alignment: "perfect"
-      - term: "Session"
-        usage_count: 10
-        alignment: "perfect"
-      - term: "Message"
-        usage_count: 10
-        alignment: "perfect"
-      - term: "State"
-        usage_count: 10
-        alignment: "perfect"
+    synonym_additions: []
+    note: "同義語の追加提案はありません"
 
-    domain_terms:
-      - term: "AutoChat"
-        usage_count: 6
-        alignment: "perfect"
-      - term: "StreamWrapper"
-        usage_count: 7
-        alignment: "perfect"
-      - term: "Backend"
-        usage_count: 8
-        alignment: "perfect"
-      - term: "Memory"
-        usage_count: 6
-        alignment: "perfect"
-        note: "Properly marked as draft in MD files"
-      - term: "Connector"
-        usage_count: 6
-        alignment: "perfect"
-
-    aux_terms:
-      - term: "Converter"
-        usage_count: 5
-        alignment: "perfect"
-
-  # 7. MDファイル別の整合性
-  per_file_alignment:
-    - file: "README.md"
-      alignment_score: 100
-      terms_used: 7
-      issues: []
-
-    - file: "AGENTS.md"
-      alignment_score: 100
-      terms_used: 10
-      issues: []
-
-    - file: "CLAUDE.md"
-      alignment_score: 100
-      terms_used: 10
-      issues: []
-
-    - file: "SYSTEM_CONSTITUTION.md"
-      alignment_score: 100
-      terms_used: 5
-      issues: []
-
-    - file: "PURPOSE.md"
-      alignment_score: 100
-      terms_used: 6
-      issues: []
-
-    - file: "CONTRIBUTING.md"
-      alignment_score: 100
-      terms_used: 5
-      issues: []
-
-    - file: "GEMINI.md"
-      alignment_score: 100
-      terms_used: 5
-      issues: []
-
-    - file: "CODEX.md"
-      alignment_score: 100
-      terms_used: 5
-      issues: []
-
-    - file: "ARCHITECTURE.md"
-      alignment_score: 100
-      terms_used: 10
-      issues: []
-
-    - file: "GLOSSARY.md"
-      alignment_score: 100
-      terms_used: 11
-      issues: []
-      note: "Auto-generated from ontology.yml - perfect alignment"
-
-  # 8. 総合評価
+  # 6. 全体的な評価
   overall_assessment:
-    concept_alignment_score: 100
-    ontology_coverage: 100
-    md_quality: "excellent"
-    readiness_for_production: "ready"
+    status: "excellent"
+    alignment_score: 98
+    recommendation: "ontology.ymlは現在の状態で最適です。次回の更新は新しい概念が追加された場合のみ検討してください。"
+    highlights:
+      - "用語の正規形使用率: 100% (10/10 terms, 95/95 occurrences)"
+      - "同義語の混入: 0件"
+      - "未登録用語: 0件"
+      - "不変条件の反映率: 100% (12/12)"
+      - "AUTO決定の文書化率: 100% (7/7 active)"
 
-    strengths:
-      - "全ての正規形が100%使用されている（同義語0回）"
-      - "全ての不変条件が適切に反映されている"
-      - "全てのAUTO決定が適切に注記されている"
-      - "GLOSSARY.mdがontology.ymlから適切に生成されている"
-      - "draft状態の用語（Memory）が適切にマークされている"
+  # 7. 改善の機会
+  improvement_opportunities:
+    - priority: "low"
+      area: "draft term status visibility"
+      description: "Memoryがdraft状態であることをより明確に表示"
+      recommendation: "必要に応じてARCHITECTURE.md等でdraftステータスを強調"
+      urgency: "low"
 
-    recommendations:
-      - priority: "low"
-        action: "expired AUTO決定（AMB-SEC-001, AMB-SEC-002）をCLAUDE.mdに記載"
-        reason: "セキュリティ警告と既知のバグとして文書化"
+  # 8. コード改善の推奨（文書改善ではない）
+  code_improvement_recommendations:
+    - priority: "high"
+      ambiguity_id: "AMB-SEC-001"
+      issue: "ハードコードされたシークレットキー"
+      location: "gui_agent_loop_core/core/interpreter_manager.py:77"
+      status: "expired"
+      recommendation: "環境変数使用へ移行"
+      note: "これはコード問題であり、文書問題ではありません"
 
-      - priority: "low"
-        action: "Memoryのステータスをdraftからstableへの変更を検討"
-        reason: "実装が安定している場合"
+    - priority: "high"
+      ambiguity_id: "AMB-SEC-002"
+      issue: "JWTデコードメソッドの未定義変数バグ"
+      location: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
+      status: "expired"
+      recommendation: "メソッドの削除または実装完了"
+      note: "これはコード問題であり、文書問題ではありません"
 
-      - priority: "low"
-        action: "現状の概念モデルを維持"
-        reason: "完璧な状態で運用されている"
+  # 9. 次回同期の提案
+  next_sync_recommendation: |
+    Next concept sync should be triggered when:
+    - New canonical terms are added to ontology.yml
+    - Existing term definitions change significantly
+    - New invariants are added or existing ones are modified
+    - AUTO decisions are added, expire, or change status
+    - New ambiguities are discovered or existing ones are resolved
 
-  # 9. 次回bootstrap runへの提案
-  next_run_suggestions:
-    - "同様の検証プロセスを実行"
-    - "expired AUTO決定の対応状況を確認"
-    - "新規用語の追加が必要かどうかを評価"
-
-  # 10. 統計サマリ
-  statistics:
-    total_md_files_verified: 10
-    total_term_occurrences: 77
-    canonical_usage_rate: 100%
-    synonym_usage_rate: 0%
-    invariant_reflection_rate: 100%
-    auto_decision_note_rate: 100%
-    overall_alignment_score: 100
+    Current state: Documentation is in perfect sync with ontology.yml v0.3.

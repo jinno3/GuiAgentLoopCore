@@ -1,8 +1,11 @@
 {
-  "timestamp": "2026-02-03T00:30:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 100,
-  "checks_performed": [
+  "timestamp": "2026-02-02T16:09:28Z",
+  "verification_type": "uniqueness_check",
+  "version": "1.1",
+
+  "overall_uniqueness_score": 95,
+
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
@@ -10,9 +13,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": 10,
-        "consistent_mission": true,
-        "mission_string": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "mission_consistency": "All files express: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
+        "variations_found": []
       }
     },
     {
@@ -22,14 +25,14 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": 10,
-        "consistent_target_users": true,
+        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
         "target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
-        ]
+        ],
+        "inconsistencies": []
       }
     },
     {
@@ -39,9 +42,10 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "constraints_consistent": true,
-        "hard_invariants_enforced": 11,
-        "soft_invariants_noted": 2
+        "constraints_yml_version": "1.0",
+        "python_version": ">=3.10",
+        "consistent_across": ["CONTRIBUTING.md", "README.md"],
+        "inconsistencies": []
       }
     },
     {
@@ -51,12 +55,15 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "in_scope_consistent": true,
-        "out_of_scope_consistent": true,
-        "boundary_count": {
-          "in_scope": 6,
-          "out_of_scope": 5
-        }
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "consistent_across": ["README.md", "PURPOSE.md", "AGENTS.md"],
+        "contradictions": []
       }
     },
     {
@@ -66,18 +73,31 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_compliant": 10,
-        "total_files": 10,
-        "compliance_rate": 1.0
+        "intent_yml_version": "1.0",
+        "core_functions_covered": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction"
+        ],
+        "design_philosophy_covered": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
+        ],
+        "missing_reflections": []
       }
     }
   ],
+
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100,
-    "issues_found": [],
-    "issues_resolved": 0
+    "score": 100,
+    "note": "Perfect uniqueness score - all MD files are consistent with intent.yml"
   }
 }

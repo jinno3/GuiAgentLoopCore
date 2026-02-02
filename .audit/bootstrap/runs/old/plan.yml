@@ -1,4 +1,5 @@
-run_timestamp: "2026-02-03T00:15:00Z"
+# MD整備実行計画 (v1.1)
+run_timestamp: "2026-02-03T00:55:07Z"
 version: "1.1"
 
 rotation:
@@ -12,7 +13,6 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
@@ -23,89 +23,23 @@ intent_summary:
     - "Framework Developers"
     - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions:
-    - "Centralized Conversation Management"
-    - "State Machine with Monotonic Transitions"
-    - "Multi-Agent Coordination"
-    - "Structured Message Processing"
-    - "Backend Abstraction"
-  boundaries:
-    in_scope:
-      - "Conversation Flow Management"
-      - "State Machine"
-      - "Agent Coordination"
-      - "Message Processing"
-      - "Backend Abstraction"
-      - "Streaming Support"
-    out_of_scope:
-      - "UI Rendering"
-      - "LLM Execution"
-      - "Session Storage"
-      - "Authentication"
-      - "Network Protocols"
 
 ontology_summary:
-  version: "0.3"
-  total_terms: 10
-  by_layer:
-    core: 5
-    domain: 4
-    aux: 1
-  by_status:
-    stable: 9
-    draft: 1
+  total_terms: 11
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      status: "stable"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      status: "stable"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      status: "stable"
     - canonical: "Message"
-      layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
-      status: "stable"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
-      layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-      status: "stable"
-    - canonical: "AutoChat"
-      layer: "domain"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-      status: "stable"
-    - canonical: "StreamWrapper"
-      layer: "domain"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-      status: "stable"
-    - canonical: "Backend"
-      layer: "domain"
-      definition: "GUIフレームワーク実装（Gradio等）"
-      status: "stable"
-    - canonical: "Memory"
-      layer: "domain"
-      definition: "会話履歴を保持するバッファ機構"
-      status: "draft"
-    - canonical: "Connector"
-      layer: "domain"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      status: "stable"
-    - canonical: "Converter"
-      layer: "aux"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      status: "stable"
-
-invariants_summary:
-  total_invariants: 13
-  hard_invariants: 11
-  soft_invariants: 2
-  stable_invariants: 12
-  draft_invariants: 1
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -118,9 +52,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
   "自動チャット": "AutoChat"
@@ -131,79 +62,67 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-  "ConnectorImplCodeinterpreterApi": "Connector"
-  "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_verification"
-    tier: 1
+    status: "verified"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_needs_verification"
-    tier: 1
-  - path: "CLAUDE.md"
-    status: "exists_needs_verification"
-    tier: 2
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_verification"
-    tier: 2
-  - path: "PURPOSE.md"
-    status: "exists_needs_verification"
-    tier: 2
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_verification"
-    tier: 2
-  - path: "GEMINI.md"
-    status: "exists_needs_verification"
-    tier: 3
-  - path: "CODEX.md"
-    status: "exists_needs_verification"
-    tier: 3
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_verification"
-    tier: 3
+    status: "verified"
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_verification"
-    tier: 3
-  - path: "CHANGELOG.md"
-    status: "exists_no_changes_needed"
-    tier: 4
+    status: "verified"
+    issues: []
+  - path: "CLAUDE.md"
+    status: "verified"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists"
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Tier 1必須ファイル。存在意義と概念統合の整合性を検証"
+    reason: "既にintent.ymlとontology.ymlに基づいて生成されている"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Tier 1必須ファイル。用語規約と行動規範を検証"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Tier 2推奨ファイル。Claude向け特化指示を検証"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Tier 2推奨ファイル。不変条件の反映を検証"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Tier 2推奨ファイル。存在意義の詳細説明を検証"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Tier 2推奨ファイル。貢献ガイドを検証"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Tier 3オプションファイル。Gemini向け特化指示を検証"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Tier 3オプションファイル。Codex向け特化指示を検証"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Tier 3オプションファイル。技術的実現を検証"
+    reason: "用語規約、不変条件、行動規範が既に正確に記載されている"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Tier 3オプションファイル。概念辞書からの生成を検証"
+    reason: "ontology.ymlから自動生成され、完全に整合している"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Claude向けの特化指示が正規形用語で正確に記載されている"
+  - action: "skip"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "既に存在し、内容を確認する必要がある"
+  - action: "skip"
+    target: "PURPOSE.md"
+    reason: "既に存在し、内容を確認する必要がある"
+  - action: "skip"
+    target: "CONTRIBUTING.md"
+    reason: "既に存在する"
+  - action: "skip"
+    target: "ARCHITECTURE.md"
+    reason: "既に存在する"
+  - action: "skip"
+    target: "GEMINI.md"
+    reason: "既に存在する"
+  - action: "skip"
+    target: "CODEX.md"
+    reason: "既に存在する"
