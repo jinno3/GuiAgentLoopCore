@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T06:24:00Z"
+run_timestamp: "2026-02-03T06:37:00Z"
 version: "1.1"
 
 rotation:
@@ -8,26 +8,21 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions:
-    - "Centralized Conversation Management"
-    - "State Machine with Monotonic Transitions"
-    - "Multi-Agent Coordination"
-    - "Structured Message Processing"
-    - "Backend Abstraction"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
@@ -37,38 +32,14 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
-    - canonical: "AutoChat"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-      layer: "domain"
-    - canonical: "StreamWrapper"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-      layer: "domain"
-    - canonical: "Backend"
-      definition: "GUIフレームワーク実装（Gradio等）"
-      layer: "domain"
-    - canonical: "Converter"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      layer: "aux"
-    - canonical: "Memory"
-      definition: "会話履歴を保持するバッファ機構"
-      layer: "domain"
-      status: "draft"
-    - canonical: "Connector"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      layer: "domain"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -81,7 +52,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -96,115 +66,76 @@ term_normalization:
   "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_update"
-    tier: 1
-    issues:
-      - "May need alignment with latest ontology terms"
-
+    status: "exists_verified"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_needs_update"
-    tier: 1
-    issues:
-      - "May need ontology alignment updates"
-
+    status: "exists_verified"
+    issues: []
   - path: "CLAUDE.md"
-    status: "exists_recent"
-    tier: 2
-    issues:
-      - "Recently updated (2026-02-03T04:40:00Z)"
-
+    status: "exists_verified"
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_update"
-    tier: 3
-    issues:
-      - "Should be regenerated from latest ontology.yml"
-
+    status: "exists_verified"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_verified"
+    issues: []
   - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
-    tier: 3
     issues:
-      - "Should reflect ontology mappings"
-
+      - "mappings.ymlの反映が必要か確認"
   - path: "PURPOSE.md"
     status: "exists_needs_review"
-    tier: 2
     issues:
-      - "Source of intent.yml, should verify alignment"
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Should reflect hard invariants"
-
+      - "intent.ymlとの整合性確認"
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
-    tier: 2
     issues:
-      - "Should reflect hard invariants"
-
+      - "invariants.ymlの反映確認"
   - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "Should align with CLAUDE.md structure"
-
+    status: "exists_verified"
+    issues: []
   - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "Should align with CLAUDE.md structure"
-
-  - path: "CHANGELOG.md"
-    status: "exists_no_action"
-    tier: 0
+    status: "exists_verified"
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify ontology alignment and intent consistency"
-
+    reason: "存在意義の反映、用語の正規形を確認"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify ontology alignment and intent consistency"
-
+    reason: "AIエージェント向け指示、用語規約の確認"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify recent update is complete"
-
-  - action: "regenerate"
-    target: "GLOSSARY.md"
-    reason: "Regenerate from ontology.yml v0.3"
-    condition: "ontology_exists"
-
+    reason: "Claude向け特化指示、AUTO決定の反映確認"
   - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify alignment with intent.yml"
-
+    target: "GLOSSARY.md"
+    reason: "ontology.ymlから自動生成、整合性確認"
   - action: "verify"
     target: "CONTRIBUTING.md"
-    reason: "Verify hard invariants are reflected"
-
-  - action: "verify"
+    reason: "用語ガイドライン、不変条件の記載確認"
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "mappings.ymlの反映が必要か確認"
+  - action: "review"
+    target: "PURPOSE.md"
+    reason: "intent.ymlとの整合性確認"
+  - action: "review"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify hard invariants are reflected"
-
-metadata:
-  total_md_files: 11
-  tier1_coverage: "2/2 (100%)"
-  tier2_coverage: "4/4 (100%)"
-  tier3_coverage: "5/4 (125%)"
-  ontology_version: "0.3"
-  invariants_count: 13
-  hard_invariants: 10
-  soft_invariants: 3
-  auto_decisions_active: 13
+    reason: "invariants.ymlの反映確認"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Gemini向け特化指示の確認"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Codex向け特化指示の確認"

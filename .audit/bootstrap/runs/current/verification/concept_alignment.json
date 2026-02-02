@@ -1,184 +1,279 @@
 {
-  "timestamp": "2026-02-03T06:37:00Z",
+  "timestamp": "2026-02-03T06:48:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 98,
-
+  "concept_version": "0.3",
+  "overall_alignment_score": 94,
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
-    "synonym_used": 0,
+    "total_term_occurrences": 127,
+    "canonical_used": 122,
+    "synonym_used": 5,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.961
   },
-
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "canonical_terms_found": 8,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend"
+      ],
+      "synonym_usage": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_found": 10,
-      "synonyms_found": 0,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "synonym_usage": [],
+      "term_normalization_table": "complete"
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
-      "canonical_terms_found": 10,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "synonym_usage": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_found": 11,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 96,
-      "canonical_terms_found": 10,
-      "synonyms_found": 0,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "synonym_usage": [],
+      "generated_from": "ontology.yml"
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 92,
-      "canonical_terms_found": 7,
-      "synonyms_found": 0,
+      "alignment_score": 75,
       "issues": [
         {
-          "type": "review_needed",
-          "description": "mappings.ymlの反映状況を確認が必要"
+          "type": "mapping_reference_missing",
+          "description": "mappings.ymlの参照が明記されていない",
+          "severity": "low"
         }
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "canonical_terms_found": 5,
-      "synonyms_found": 0,
-      "issues": []
+      ],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Backend",
+        "Connector",
+        "Converter"
+      ],
+      "synonym_usage": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 96,
-      "canonical_terms_found": 5,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "invariant_version_missing",
+          "description": "invariants.ymlのバージョンが明記されていない",
+          "severity": "low"
+        }
+      ],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "synonym_usage": []
     },
     {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "canonical_terms_found": 5,
-      "synonyms_found": 0,
-      "issues": []
+      "file": "PURPOSE.md",
+      "alignment_score": 80,
+      "issues": [
+        {
+          "type": "intent_reference_missing",
+          "description": "intent.ymlへの直接参照が弱い",
+          "severity": "low"
+        }
+      ],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Backend"
+      ],
+      "synonym_usage": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "terminology_guidance_light",
+          "description": "用語ガイドラインがあるが強化可能",
+          "severity": "low"
+        }
+      ],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Message"
+      ],
+      "synonym_usage": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 95,
-      "canonical_terms_found": 5,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "codex_specific_guidance",
+          "description": "Codex向け指示は基本的に適切",
+          "severity": "low"
+        }
+      ],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Backend"
+      ],
+      "synonym_usage": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "gemini_specific_guidance",
+          "description": "Gemini向け指示は基本的に適切",
+          "severity": "low"
+        }
+      ],
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Backend"
+      ],
+      "synonym_usage": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_rate": 1.0,
-    "by_file": {
-      "AGENTS.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total": 14
+    "coverage": "100%",
+    "breakdown": {
+      "hard_invariants": {
+        "total": 11,
+        "documented": 11,
+        "in_files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "SYSTEM_CONSTITUTION.md"
+        ]
       },
-      "CLAUDE.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 2,
-        "total": 13
-      },
-      "CONTRIBUTING.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total": 14
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "hard_invariants_documented": 10,
-        "soft_invariants_documented": 2,
-        "total": 12
+      "soft_invariants": {
+        "total": 3,
+        "documented": 3,
+        "in_files": [
+          "AGENTS.md",
+          "CLAUDE.md"
+        ]
       }
     }
   },
-
-  "auto_decision_check": {
-    "total_active_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "documentation_rate": 1.0,
-    "by_category": {
-      "Agent": {
-        "count": 2,
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-      },
-      "Message": {
-        "count": 3,
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-      },
-      "State": {
-        "count": 3,
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-      },
-      "AutoChat": {
-        "count": 2,
-        "documented_in": ["AGENTS.md", "CLAUDE.md"]
-      },
-      "Backend": {
-        "count": 3,
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-      },
-      "Memory": {
-        "count": 4,
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-      },
-      "Session": {
-        "count": 1,
-        "documented_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
-      },
-      "Connector": {
-        "count": 1,
-        "documented_in": ["AGENTS.md"]
-      }
-    }
-  },
-
   "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
+    "active_auto_decisions": 14,
+    "reflected_as_notes": 14,
     "missing_notes": 0,
-    "expired_decisions": 2,
-    "expired_handling": "適切にdocumented",
-    "format": "注記として記載（暫定仕様として扱う）"
+    "coverage": "100%",
+    "breakdown": {
+      "agent_auto_decisions": {
+        "total": 2,
+        "noted_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      "message_auto_decisions": {
+        "total": 3,
+        "noted_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      "state_auto_decisions": {
+        "total": 3,
+        "noted_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      "autochat_auto_decisions": {
+        "total": 3,
+        "noted_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      "backend_auto_decisions": {
+        "total": 3,
+        "noted_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    }
   },
-
+  "synonym_usage_analysis": {
+    "total_synonyms_in_ontology": 27,
+    "synonyms_used_in_mds": 5,
+    "acceptable_context_usage": 5,
+    "violations": 0,
+    "details": [
+      {
+        "synonym": "JWT",
+        "canonical": "Session",
+        "context": "Session内でJWT認証の説明として使用",
+        "acceptable": true
+      }
+    ]
+  },
   "summary": {
-    "overall_alignment_score": 98,
-    "term_usage_compliance": 100,
-    "invariant_coverage": 100,
-    "auto_decision_documentation": 100,
-    "areas_for_improvement": [
-      "ARCHITECTURE.mdでmappings.ymlの反映を検討",
-      "SYSTEM_CONSTITUTION.mdで全てのinvariantsを反映"
+    "strengths": [
+      "Tier 1 (README.md, AGENTS.md) の概念整合性は優秀 (95-100%)",
+      "CLAUDE.mdは完全な概念整合 (100%)",
+      "GLOSSARY.mdはontology.ymlと完全に同期 (100%)",
+      "全14の不変条件がMDに反映済み (100%)",
+      "全14のAUTO決定が注記として記載済み (100%)",
+      "用語の正規形使用率は96.1% (122/127)"
+    ],
+    "improvement_recommendations": [
+      "ARCHITECTURE.md: mappings.ymlの参照を明記",
+      "SYSTEM_CONSTITUTION.md: invariants.ymlのバージョンを明記",
+      "PURPOSE.md: intent.ymlへの直接参照を強化",
+      "CONTRIBUTING.md: 用語ガイドラインを強化"
     ]
   }
 }

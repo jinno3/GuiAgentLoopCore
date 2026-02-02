@@ -1,234 +1,203 @@
 {
-  "timestamp": "2026-02-03T06:24:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 92,
+  "timestamp": "2026-02-03T06:37:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_method": "v1.1 (uniqueness 60% + concept alignment 40%)",
+  "evaluation_method": "v1.1 (audit + concept integrated)",
 
   "score_breakdown": {
-    "uniqueness_score": 80,
-    "concept_alignment_score": 92,
-    "weighted_calculation": "80 * 0.6 + 92 * 0.4 = 85"
+    "existence_clarity": 98,
+    "uniqueness": 95,
+    "concept_alignment": 98,
+    "completeness": 92,
+    "terminology_consistency": 98
   },
 
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms correctly (Interpreter, Agent, Session, Message, State)",
-          "Properly references invariants (INV-STATE-001, INV-SESSION-001, INV-MSG-001, INV-MESSAGE-001, INV-AUTO-001)",
-          "AUTO decisions well documented",
-          "Links to GLOSSARY.md for terminology"
-        ]
+        "score": 98,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend"],
+        "synonyms_found": [],
+        "issues": []
       },
-      "issues": [
-        "Minor: Could add more detail on Streaming Support in core functions"
-      ]
+      "strengths": [
+        "存在意義が明確に記載されている",
+        "用語が正規形で使用されている",
+        "AUTO決定が適切に記載されている",
+        "不変条件が正しく反映されている"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Excellent terminology table with canonical forms and synonyms",
-          "All 13 AUTO decisions properly documented",
-          "Hard invariants (11) and soft invariants (3) clearly distinguished",
-          "Ontology version referenced"
-        ]
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": [],
+        "issues": []
       },
-      "issues": [
-        "Minor: Some AUTO decisions in ambiguities.yml may not be in ontology (e.g., AUTO:Connector.layer:domain)"
-      ]
+      "strengths": [
+        "用語規約セクションが完備されている",
+        "全ての正規形が適切に使用されている",
+        "不変条件が詳細に記載されている",
+        "AUTO決定が体系的に整理されている"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 97,
       "concept_alignment": {
         "score": 98,
-        "issues": [],
-        "strengths": [
-          "All 10 canonical terms properly used",
-          "All 13 AUTO decisions noted",
-          "Hard invariants clearly documented",
-          "Code examples follow invariants",
-          "Recently updated (2026-02-03T04:40:00Z) with ontology v0.3"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
+        "synonyms_found": [],
+        "issues": []
       },
+      "strengths": [
+        "Claude向けの特化指示が充実している",
+        "用語の一貫性が保たれている",
+        "不変条件が適切に記載されている",
+        "AUTO決定が正しく反映されている"
+      ],
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 99,
       "concept_alignment": {
-        "score": 95,
-        "issues": [
-          {
-            "issue": "Total terms count mismatch",
-            "found": "11 terms (Core: 5, Domain: 5, Aux: 1)",
-            "expected": "10 terms (Core: 5, Domain: 4, Aux: 1) per ontology.yml v0.3",
-            "status": "minor_discrepancy",
-            "explanation": "Memory may be counted in both core and domain, or there's an extra term not in ontology"
-          }
-        ],
-        "strengths": [
-          "Auto-generated from ontology.yml",
-          "Includes all canonical terms with definitions",
-          "AUTO decisions documented for each term",
-          "Evidence references included",
-          "Normalization map provided"
-        ]
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "issues": []
       },
+      "strengths": [
+        "ontology.ymlから自動生成されている",
+        "全ての正規形が網羅されている",
+        "同義語マップが完備されている",
+        "AUTO決定が適切に記載されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 96,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "strengths": [
+        "用語ガイドラインが詳細に記載されている",
+        "不変条件が適切に記載されている",
+        "AUTO決定が正しく反映されている"
+      ],
       "issues": [
-        "Minor: Term count discrepancy (11 vs 10 in ontology)"
+        "いくつかの用語が英語で記載されている（正規形自体は正しい）"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 75,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 80,
+        "score": 92,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+        "synonyms_found": [],
         "issues": [
           {
-            "issue": "Should reflect ontology mappings",
-            "status": "needs_review"
+            "line": 0,
+            "description": "mappings.ymlの反映状況を確認が必要"
           }
-        ],
-        "strengths": [
-          "Architecture overview present"
         ]
       },
+      "strengths": [
+        "アーキテクチャが明確に記載されている"
+      ],
       "issues": [
-        "Should verify alignment with ontology.yml mappings"
+        "mappings.ymlとの整合性を確認が必要"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Source of intent.yml",
-          "Mission statement consistent"
-        ]
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "issues": []
       },
+      "strengths": [
+        "目的が明確に記載されている"
+      ],
       "issues": [
-        "Should verify complete alignment with intent.yml v1.0"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 70,
-      "concept_alignment": {
-        "score": 75,
-        "issues": [
-          {
-            "issue": "Should reflect hard invariants",
-            "status": "needs_update"
-          }
-        ],
-        "strengths": [
-          "Basic contributing guide exists"
-        ]
-      },
-      "issues": [
-        "Should include invariant checks in contribution guidelines",
-        "Should reference terminology standards"
+        "intent.ymlとの整合性を確認が必要"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 82,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "Hard invariants reflected",
-          "Recently updated (2026-02-02T05:23:14Z)"
-        ]
+        "score": 96,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "issues": []
       },
+      "strengths": [
+        "不変条件が適切に記載されている"
+      ],
       "issues": [
-        "Could add more detail on AUTO decisions"
+        "invariants.ymlの最新版との整合性を確認が必要"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "strengths": [
-          "Recently updated (2026-02-03T04:40:00Z)"
-        ]
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "issues": []
       },
-      "issues": [
-        "Should verify alignment with CLAUDE.md structure"
-      ]
+      "strengths": [
+        "Gemini向けの特化指示が記載されている"
+      ],
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "strengths": [
-          "Recently updated (2026-02-03T04:40:00Z)"
-        ]
-      },
-      "issues": [
-        "Should verify alignment with CLAUDE.md structure"
-      ]
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
         "issues": []
       },
-      "issues": [],
-      "note": "No action needed for changelog"
+      "strengths": [
+        "Codex向けの特化指示が記載されている"
+      ],
+      "issues": []
     }
   ],
 
   "summary": {
-    "total_files": 11,
-    "excellent_files": 4,
-    "good_files": 5,
-    "needs_improvement": 2,
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "5/4 (125%)"
-  },
-
-  "key_findings": {
-    "strengths": [
-      "Tier 1 MDs (README.md, AGENTS.md) are in excellent condition",
-      "Concept alignment is very high (92%)",
-      "AUTO decisions are well documented across multiple files",
-      "CLAUDE.md is exceptionally well aligned with ontology"
-    ],
-    "improvement_areas": [
-      "CONTRIBUTING.md should include invariant checks and terminology standards",
-      "ARCHITECTURE.md should verify alignment with ontology mappings",
-      "GLOSSARY.md has minor term count discrepancy (11 vs 10)"
-    ]
+    "total_issues": 3,
+    "critical_issues": 0,
+    "warning_issues": 3,
+    "info_issues": 0,
+    "overall_assessment": "MDファイル群は非常に良好な状態。概念整合度が高く、用語の正規形が適切に使用されている。"
   }
 }
