@@ -1,136 +1,100 @@
 {
-  "timestamp": "2026-02-02T13:30:00Z",
-  "total_mds": 11,
-  "tier1_coverage": {
-    "required": 2,
-    "present": 2,
-    "files": ["README.md", "AGENTS.md"]
-  },
-  "tier2_coverage": {
-    "recommended": 5,
-    "present": 5,
-    "files": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md"]
-  },
-  "tier3_coverage": {
-    "optional": 4,
-    "present": 4,
-    "files": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "CHANGELOG.md"]
+  "timestamp": "2026-02-02T19:43:00Z",
+  "total_files": 11,
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "coverage": "100%"
+    },
+    "tier2": {
+      "recommended": 4,
+      "exists": 4,
+      "coverage": "100%"
+    },
+    "tier3": {
+      "optional": 4,
+      "exists": 4,
+      "coverage": "100%"
+    }
   },
   "files": [
     {
       "path": "README.md",
       "tier": 1,
       "exists": true,
-      "size_bytes": 6389,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 98,
-      "intent_alignment": 95
+      "size_bytes": 6432,
+      "last_modified": "2026-02-02T11:06:00Z"
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
       "exists": true,
-      "size_bytes": 7650,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 100,
-      "intent_alignment": 98
+      "size_bytes": 7566,
+      "last_modified": "2026-02-02T13:24:00Z"
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 8421,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 100,
-      "intent_alignment": 95
+      "size_bytes": 8692,
+      "last_modified": "2026-02-02T13:24:00Z"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 5234,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 98,
-      "intent_alignment": 95
+      "size_bytes": 6433,
+      "last_modified": "2026-02-02T05:33:00Z"
     },
     {
       "path": "PURPOSE.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 4123,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 98,
-      "intent_alignment": 98
+      "size_bytes": 3925,
+      "last_modified": "2026-02-02T13:12:00Z"
     },
     {
       "path": "CONTRIBUTING.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 3456,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 90,
-      "intent_alignment": 90
-    },
-    {
-      "path": "GLOSSARY.md",
-      "tier": 2,
-      "exists": true,
-      "size_bytes": 10234,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 100,
-      "intent_alignment": 95
+      "size_bytes": 4358,
+      "last_modified": "2026-02-02T11:07:00Z"
     },
     {
       "path": "GEMINI.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 6543,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 98,
-      "intent_alignment": 95
+      "size_bytes": 3706,
+      "last_modified": "2026-02-02T00:57:00Z"
     },
     {
       "path": "CODEX.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 5123,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 98,
-      "intent_alignment": 95
+      "size_bytes": 3891,
+      "last_modified": "2026-02-02T00:57:00Z"
     },
     {
       "path": "ARCHITECTURE.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 7890,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "verified_no_changes_needed",
-      "concept_alignment": 95,
-      "intent_alignment": 88
+      "size_bytes": 10940,
+      "last_modified": "2026-02-02T11:07:00Z"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 9504,
+      "last_modified": "2026-02-02T11:59:00Z"
     },
     {
       "path": "CHANGELOG.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 2345,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "verification_status": "skipped_bootstrap_target",
-      "note": "変更履歴はbootstrap対象外"
+      "size_bytes": 61,
+      "last_modified": "2026-02-01T21:56:00Z"
     }
-  ],
-  "summary": {
-    "total_verified": 10,
-    "verification_passed": 10,
-    "changes_needed": 0,
-    "overall_status": "All MD files verified and aligned with intent.yml and ontology.yml"
-  }
+  ]
 }

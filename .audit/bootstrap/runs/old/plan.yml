@@ -1,5 +1,4 @@
-# MD Bootstrap Execution Plan (v1.1)
-run_timestamp: "2026-02-02T19:10:00Z"
+run_timestamp: "2026-02-02T13:30:00Z"
 version: "1.1"
 
 rotation:
@@ -9,7 +8,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -52,86 +51,123 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
-    tier: 1
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "既にintent.ymlとconcept統合済みの内容で高品質"
+      - "用語も正規形で使用されている"
+      - "System Invariantsセクションで不変条件を適切に記述"
+      - "AUTO Decisionsセクションで暫定仕様を適切に記述"
   - path: "AGENTS.md"
-    status: "exists_verified"
-    tier: 1
-    issues: []
-
-  - path: "GLOSSARY.md"
-    status: "exists_verified"
-    tier: 3
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "用語規約セクションで正規形を適切に使用"
+      - "不変条件を適切に記述"
+      - "AUTO決定を適切に記述"
+      - "行動規範セクションで明確な指示を提供"
   - path: "CLAUDE.md"
-    status: "exists_verified"
-    tier: 2
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "Claude向けの特化指示を提供"
+      - "用語の正規形を適切に使用"
+      - "不変条件を遵守するよう指示"
+      - "AUTO決定の認識を促進"
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    issues:
+      - "ontology.ymlから自動生成済み"
+      - "全用語を適切にカテゴライズ"
+      - "用語の正規化マップを提供"
   - path: "ARCHITECTURE.md"
-    status: "exists"
-    tier: 3
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "アーキテクチャの詳細を記述"
+      - "概念整合性の確認が必要"
   - path: "CONTRIBUTING.md"
-    status: "exists"
-    tier: 2
-    issues: []
-
-  - path: "PURPOSE.md"
-    status: "exists"
-    tier: 2
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "貢献ガイドを提供"
+      - "概念整合性の確認が必要"
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
-    tier: 2
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "システム憲法を提供"
+      - "概念整合性の確認が必要"
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    issues:
+      - "目的の詳細説明を提供"
+      - "概念整合性の確認が必要"
   - path: "GEMINI.md"
-    status: "exists"
-    tier: 3
-    issues: []
-
+    status: "exists_needs_review"
+    issues:
+      - "Gemini向け特化指示"
+      - "概念整合性の確認が必要"
   - path: "CODEX.md"
-    status: "exists"
-    tier: 3
-    issues: []
+    status: "exists_needs_review"
+    issues:
+      - "Codex向け特化指示"
+      - "概念整合性の確認が必要"
+  - path: "CHANGELOG.md"
+    status: "exists_skip"
+    issues:
+      - "変更履歴はbootstrap対象外"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent alignment and term normalization"
-
+    reason: "既に高品質なMDとして整備済み、概念整合性検証を実施"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify invariants and AUTO decisions coverage"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology synchronization (auto-generated)"
-
+    reason: "既に高品質なMDとして整備済み、概念整合性検証を実施"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific guidelines"
-
-expected_outcome:
-  description: "All existing MD files are already aligned with intent.yml and ontology.yml v0.3"
-  clarity_score_before: 95
-  clarity_score_target: 95
-  uniqueness_score_before: 90
-  uniqueness_score_target: 90
-  concept_alignment_before: 95
-  concept_alignment_target: 95
+    reason: "既に高品質なMDとして整備済み、概念整合性検証を実施"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "ontology.ymlから自動生成済み、概念整合性検証を実施"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "概念整合性検証を実施"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "概念整合性検証を実施"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "概念整合性検証を実施"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "概念整合性検証を実施"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "概念整合性検証を実施"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "概念整合性検証を実施"
