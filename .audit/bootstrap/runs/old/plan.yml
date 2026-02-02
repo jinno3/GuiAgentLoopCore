@@ -1,7 +1,7 @@
 # MD Bootstrapping Plan v1.1
-run_timestamp: "2026-02-03T05:38:00Z"
+run_timestamp: "2026-02-03T05:53:00Z"
 version: "1.1"
-run_number: 55
+run_number: 56
 
 rotation:
   deleted_old: true
@@ -14,12 +14,13 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
   core_functions:
     - "Centralized Conversation Management"
     - "State Machine with Monotonic Transitions"
@@ -29,6 +30,7 @@ intent_summary:
 
 ontology_summary:
   version: "0.3"
+  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 10
   core_terms: 5
   domain_terms: 4
@@ -55,43 +57,65 @@ term_normalization:
   "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 1
   - path: "AGENTS.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 1
   - path: "CLAUDE.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 2
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 2
   - path: "PURPOSE.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 2
   - path: "CONTRIBUTING.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 2
   - path: "GEMINI.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 3
   - path: "CODEX.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 3
   - path: "ARCHITECTURE.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 3
   - path: "GLOSSARY.md"
-    status: "exists"
+    status: "exists_needs_verification"
     tier: 3
 
 actions:
@@ -106,7 +130,25 @@ actions:
     reason: "Verify Claude-specific instructions and concept alignment"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology synchronization"
+    reason: "Verify ontology synchronization with v0.3"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants reflection"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose alignment with intent"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines alignment"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify mappings reflection"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific instructions"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific instructions"
 
 target_score: 90
 max_iterations: 3

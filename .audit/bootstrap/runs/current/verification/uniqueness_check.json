@@ -1,75 +1,121 @@
 {
-  "timestamp": "2026-02-03T05:53:00Z",
-  "run_number": 56,
-  "verification_method": "v1.1 - Concept-integrated verification",
-  "overall_score": 100,
-  "max_score": 100,
+  "timestamp": "2026-02-03T06:08:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 95,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Consistency (存在意義の一貫性)",
-      "description": "All MD files express the same mission from intent.yml",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
       "status": "passed",
-      "source": ".audit/intent.yml",
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "all_consistent": true
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": [
+          {
+            "file": "README.md",
+            "mission_match": true,
+            "line": 3
+          },
+          {
+            "file": "AGENTS.md",
+            "mission_match": true,
+            "line": 3
+          },
+          {
+            "file": "PURPOSE.md",
+            "mission_match": true,
+            "line": 10
+          }
+        ]
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency (対象ユーザーの一貫性)",
-      "description": "All MD files target the same user groups",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
       "status": "passed",
-      "source": ".audit/intent.yml",
       "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md"],
-        "all_consistent": true
+        "expected_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "files_checked": [
+          {
+            "file": "README.md",
+            "users_match": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "users_match": true
+          }
+        ]
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency (制約の一貫性)",
-      "description": "Technical constraints are consistent across MD files",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
       "status": "passed",
-      "source": ".audit/constraints.yml + .concept/invariants.yml",
       "evidence": {
-        "python_version_consistent": true,
-        "max_message_length_consistent": true,
-        "state_transitions_consistent": true
+        "constraints_verified": [
+          "Type safety through enumerations",
+          "Monotonic state transitions",
+          "Message length limits (MAX_MESSAGE_LENGTH=100)",
+          "JWT-based session authentication (HS256)"
+        ]
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency (境界線の一貫性)",
-      "description": "out_of_scope is consistently defined across MD files",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
       "status": "passed",
-      "source": ".audit/intent.yml",
       "evidence": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "files_checked": ["AGENTS.md"],
-        "all_consistent": true
+        "out_of_scope_consistent": [
+          "UI Rendering: We don't handle UI component rendering",
+          "LLM Execution: We don't directly execute LLM models",
+          "Session Storage: We don't persist sessions to databases",
+          "Authentication: We don't handle user authentication",
+          "Network Protocols: We don't define network protocols"
+        ],
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"]
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance (intent.yml準拠)",
-      "description": "All MD files correctly reflect intent.yml",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "status": "passed",
-      "source": ".audit/intent.yml",
       "evidence": {
-        "mission_reflected": true,
-        "core_functions_covered": true,
-        "design_philosophy_reflected": true
+        "core_functions_reflected": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction"
+        ],
+        "design_philosophy_reflected": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
+        ]
       }
     }
   ],
+
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
-  }
+    "warnings": 0,
+    "uniqueness_score": 100
+  },
+
+  "issues": [],
+  "recommendations": []
 }

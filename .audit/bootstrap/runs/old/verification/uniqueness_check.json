@@ -1,54 +1,64 @@
 {
-  "timestamp": "2026-02-03T05:38:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 100,
-  "checks_performed": [
+  "timestamp": "2026-02-03T05:53:00Z",
+  "run_number": 56,
+  "verification_method": "v1.1 - Concept-integrated verification",
+  "overall_score": 100,
+  "max_score": 100,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "description": "All MD files express the same mission",
+      "name": "Existence Consistency (存在意義の一貫性)",
+      "description": "All MD files express the same mission from intent.yml",
       "status": "passed",
+      "source": ".audit/intent.yml",
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "mission_consistency": "All files correctly state: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'"
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "all_consistent": true
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MD files target the same users",
+      "name": "Target User Consistency (対象ユーザーの一貫性)",
+      "description": "All MD files target the same user groups",
       "status": "passed",
+      "source": ".audit/intent.yml",
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
         "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistency": "100%"
+        "files_checked": ["README.md", "AGENTS.md"],
+        "all_consistent": true
       }
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
+      "name": "Constraints Consistency (制約の一貫性)",
       "description": "Technical constraints are consistent across MD files",
       "status": "passed",
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
       "evidence": {
-        "constraints_verified": ["Type safety", "State monotonicity", "Hard invariants"],
-        "consistency": "100%"
+        "python_version_consistent": true,
+        "max_message_length_consistent": true,
+        "state_transitions_consistent": true
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out of scope is consistently defined",
+      "name": "Boundary Consistency (境界線の一貫性)",
+      "description": "out_of_scope is consistently defined across MD files",
       "status": "passed",
+      "source": ".audit/intent.yml",
       "evidence": {
         "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistency": "100%"
+        "files_checked": ["AGENTS.md"],
+        "all_consistent": true
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "Intent.yml Compliance (intent.yml準拠)",
       "description": "All MD files correctly reflect intent.yml",
       "status": "passed",
+      "source": ".audit/intent.yml",
       "evidence": {
         "mission_reflected": true,
         "core_functions_covered": true,

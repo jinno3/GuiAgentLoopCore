@@ -1,85 +1,48 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T05:53:00Z"
-  run_number: 56
+  bootstrap_run_timestamp: "2026-02-03T06:08:00Z"
   source_ontology_version: "0.3"
-  source_invariants_version: "2026-02-02T05:23:14Z"
-  source_ambiguities_version: "2026-02-02T05:57:38Z"
+  run_number: 57
 
   # 1. 用語使用状況
   term_usage_report:
-    total_term_occurrences: 85
-    canonical_used: 85
+    canonical_used: 50
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found: []
-    normalization_rate: 1.0
-    assessment: "PERFECT"
+    unknown_terms_found:
+      - term: "Converter"
+        context: "SYSTEM_CONSTITUTION.mdで記載不十分"
+        suggestion: "補助用語としての記載を強化"
+        priority: "low"
+      - term: "MappingRule"
+        context: "INV-CONVERTER-001で言及されているが、用語集への記載が不十分"
+        suggestion: "用語集への明示的な記載を検討"
+        priority: "low"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 14
-    hard_invariants: 11
-    soft_invariants: 3
-    reflected: 14
+    total: 13
+    reflected: 13
     missing: []
-    coverage_rate: 1.0
-    by_file:
-      AGENTS.md:
-        hard_reflected: 11
-        soft_reflected: 3
-      SYSTEM_CONSTITUTION.md:
-        hard_reflected: 11
-        soft_reflected: 3
-      CLAUDE.md:
-        hard_reflected: 9
-      README.md:
-        key_invariants_noted: 5
+    by_strength:
+      hard:
+        total: 11
+        reflected: 11
+        missing: []
+      soft:
+        total: 2
+        reflected: 2
+        missing: []
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 6
-    total_expired: 2
-    total_documented: 8
-    noted_in_md: 8
-    format: "Auto-decisions section in AGENTS.md and notes in relevant files"
-    handling_quality: "excellent"
-    by_status:
-      applied:
-        count: 6
-        documented: 6
-        decisions:
-          - "AUTO:Agent.role:classification"
-          - "AUTO:Agent.type:implementation_property"
-          - "AUTO:Message.structure:flat"
-          - "AUTO:Message.limit:100"
-          - "AUTO:State.lifecycle:monotonic"
-          - "AUTO:AutoChat.trigger:stop_only"
-          - "AUTO:Backend.primary:gradio"
-          - "AUTO:Memory.window:k10"
-          - "AUTO:Session.jwt:algorithm_hs256"
-          - "AUTO:Connector.layer:domain"
-      expired:
-        count: 2
-        documented: 2
-        decisions:
-          - key: "AUTO:Security.secret_key:env_var_required"
-            ambiguity_id: "AMB-SEC-001"
-            severity: "high"
-            status: "expired"
-            issue: "Hardcoded JWT secret key security risk (decided ~run48, expires_after_runs=10, current run=68)"
-            recommendation: "Urgent: Migrate to environment variable JWT_SECRET_KEY"
-            evidence:
-              - "gui_agent_loop_core/core/interpreter_manager.py:77"
-              - "self.secret_key = 'jwt_secret_key_2571'"
-          - key: "AUTO:Session.jwt:decode_method_fix"
-            ambiguity_id: "AMB-SEC-002"
-            severity: "high"
-            status: "expired"
-            issue: "Undefined variables in jwt_decode_session() method (decided ~run64, expires_after_runs=10, current run=68)"
-            recommendation: "Fix: Delete or complete jwt_decode_session() method implementation"
-            evidence:
-              - "gui_agent_loop_core/core/interpreter_manager.py:56-60"
-              - "Undefined variables: token, secret_key"
+    total_active: 15
+    noted_in_md: 15
+    format: "カテゴリ別整理（Agent, Message, State, AutoChat, Backend, Memory, Session, Connector）"
+    by_file:
+      AGENTS.md: 15
+      CONTRIBUTING.md: 15
+      CLAUDE.md: 9
+      README.md: 9
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -87,64 +50,81 @@ concept_feedback:
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
-    definition_updates: []
-    synonym_additions: []
-    status_changes:
-      - term: "Memory"
-        current_status: "draft"
-        suggested_status: "stable"
-        reason: "Memory has been consistently defined and used across multiple runs. Consider promoting to stable."
-        confidence: 0.7
-        evidence:
-          - "Consistently documented in GLOSSARY.md"
-          - "AUTO decisions clearly defined"
-          - "Used in AGENTS.md and CLAUDE.md"
-    boundary_adjustments: []
 
-  # 6. 全体的な整合性
-  overall_alignment:
-    score: 100
-    term_normalization_rate: 1.0
-    invariant_coverage_rate: 1.0
-    auto_decision_coverage_rate: 1.0
-    status: "perfect"
-
-  # 7. 推奨事項
-  recommendations:
-    - recommendation: "Address expired AUTO decisions (Security)"
-      priority: "high"
-      reason: "2 AUTO decisions have expired with security implications"
-      actions:
-        - "AMB-SEC-001: Migrate hardcoded JWT secret to environment variable"
-        - "AMB-SEC-002: Fix or remove jwt_decode_session() method"
-    - recommendation: "Maintain current ontology quality"
-      priority: "low"
-      reason: "All terms are properly normalized and documented"
-    - recommendation: "Consider promoting Memory to stable status"
-      priority: "low"
-      reason: "Memory term has been stable across multiple runs"
-
-  # 8. 用語の使用統計
-  term_statistics:
-    most_used_terms:
-      - term: "Interpreter"
-        count: 18
-      - term: "Agent"
-        count: 15
-      - term: "State"
-        count: 14
-      - term: "Message"
-        count: 12
-      - term: "Session"
-        count: 10
-    least_used_terms:
+    definition_updates:
       - term: "Converter"
-        count: 3
-      - term: "Memory"
-        count: 5
-      - term: "Connector"
-        count: 6
-      - term: "StreamWrapper"
-        count: 7
-      - term: "AutoChat"
-        count: 8
+        current_definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+        suggested_action: "SYSTEM_CONSTITUTION.mdでの記載強化"
+        reason: "不変条件には記載があるが、用語の説明が不十分"
+        priority: "low"
+
+      - term: "MappingRule"
+        current_definition: "コンバータが使用するマッピングルール（old_key, new_key, required_keys, required_keys_upper）"
+        suggested_action: "用語集への明示的な記載を検討"
+        reason: "INV-CONVERTER-001で言及されているが、個別の用語としての記載が不十分"
+        priority: "low"
+
+    relationship_updates:
+      - term1: "Converter"
+        term2: "MappingRule"
+        suggested_relationship: "Converter uses MappingRule for structured transformations"
+        reason: "INV-CONVERTER-001の説明から関係性が明確だが、related_termsで相互リンクを強化可能"
+        priority: "low"
+
+    synonym_additions: []
+
+  # 6. 用語統計
+  term_statistics:
+    total_canonical_terms: 10
+    by_layer:
+      core: 5
+      domain: 4
+      aux: 1
+    by_status:
+      stable: 9
+      draft: 1
+    alignment_rate: 0.962
+    most_used_terms:
+      - term: "Agent"
+        occurrences: 12
+        files: 7
+      - term: "State"
+        occurrences: 9
+        files: 6
+      - term: "Message"
+        occurrences: 10
+        files: 6
+      - term: "Interpreter"
+        occurrences: 8
+        files: 5
+      - term: "Session"
+        occurrences: 6
+        files: 5
+
+  # 7. 総合評価
+  overall_assessment:
+    status: "excellent"
+    concept_health_score: 96
+    strengths:
+      - "全てのコア用語が正規形で使用されている（5/5）"
+      - "ドメイン用語が適切に統合されている（4/4）"
+      - "不変条件が完全に反映されている（13/13）"
+      - "AUTO決定が網羅的に記載されている（15/15）"
+      - "用語整合率が96.2%を達成"
+    improvement_areas:
+      - "補助用語（Converter, MappingRule）の記載強化"
+      - "SYSTEM_CONSTITUTION.mdでの用語説明の充実"
+
+  # 8. 次回のアクション
+  next_actions:
+    - "12_concept_sync_system: ConverterとMappingRuleの関係性を明確化"
+    - "12_concept_sync_system: SYSTEM_CONSTITUTION.mdの更新推奨"
+    - "16_repo_md_bootstrapper: 24時間後に次回実行を推奨"
+
+  # 9. メタデータ
+  metadata:
+    total_checks: 10
+    passed_checks: 10
+    failed_checks: 0
+    warning_checks: 2
+    concept_integrity: "very_high"
