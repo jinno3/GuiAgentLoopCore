@@ -1,42 +1,19 @@
 {
-  "timestamp": "2026-02-02T10:10:00Z",
-  "verification_mode": "full_analysis",
-  "overall_score": 100,
-  "max_score": 100,
+  "timestamp": "2026-02-02T10:20:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 95,
   "checks_performed": [
-    "UC-001",
-    "UC-002",
-    "UC-003",
-    "UC-004",
-    "UC-005"
-  ],
-  "results": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
-          {
-            "file": "README.md",
-            "mission_match": true,
-            "excerpt": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "AGENTS.md",
-            "mission_match": true,
-            "excerpt": "GUIとLLMエージェントのブリッジとなるコアロジックを提供"
-          },
-          {
-            "file": "PURPOSE.md",
-            "mission_match": true,
-            "note": "Aligned with intent.yml"
-          }
-        ]
-      },
+      "evidence": [
+        "README.md: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
+        "AGENTS.md: 'GUIとLLMエージェントのブリッジとなるコアロジックを提供'",
+        "CLAUDE.md: 同じmissionを反映"
+      ],
       "issues": []
     },
     {
@@ -45,22 +22,9 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "consistency_check": {
-          "README.md": "✅ Correct target audience implied",
-          "AGENTS.md": "✅ Explicitly targets AI Agents",
-          "CONTRIBUTING.md": "✅ Targets contributors/developers",
-          "CLAUDE.md": "✅ Targets Claude AI model",
-          "GEMINI.md": "✅ Targets Gemini AI model",
-          "CODEX.md": "✅ Targets Codex AI model"
-        }
-      },
+      "evidence": [
+        "intent.ymlで定義された4つのユーザーグループ（Application Developers, AI Agent Developers, Framework Developers, AI Agents）が全MDで一貫して扱われている"
+      ],
       "issues": []
     },
     {
@@ -69,10 +33,10 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "python_version": ">=3.10",
-        "consistency": "All docs reference modern Python features appropriately"
-      },
+      "evidence": [
+        "全MDでhard invariantsが一貫して記載されている",
+        "README.md, AGENTS.md, CLAUDE.mdで同じ制約事項が説明されている"
+      ],
       "issues": []
     },
     {
@@ -81,24 +45,9 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "in_scope": [
-          "Conversation Flow Management",
-          "State Machine",
-          "Agent Coordination",
-          "Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
-        ],
-        "out_of_scope": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistency_check": "README.md correctly describes in_scope features and acknowledges out_of_scope is backend's responsibility"
-      },
+      "evidence": [
+        "UI Rendering, LLM Execution, Session Storage等がout_of_scopeとして一貫して扱われている"
+      ],
       "issues": []
     },
     {
@@ -107,15 +56,10 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_count": 5,
-        "design_philosophies_count": 5,
-        "reflection_check": {
-          "README.md": "✅ All 5 core functions mentioned",
-          "AGENTS.md": "✅ Behavioral rules reflect philosophies",
-          "CONTRIBUTING.md": "✅ Guidelines align with philosophies"
-        }
-      },
+      "evidence": [
+        "core_functionsが全MDで適切に反映されている",
+        "design_philosophy（Correctness Over Convenience等）がドキュメントに反映されている"
+      ],
       "issues": []
     }
   ],
@@ -123,6 +67,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "uniqueness_score": 100
   }
 }

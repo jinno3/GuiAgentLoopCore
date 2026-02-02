@@ -1,41 +1,128 @@
 {
-  "timestamp": "2026-02-02T00:54:43.013004+00:00",
-  "uniqueness_score": 100,
-  "checks": [
+  "timestamp": "2026-02-02T10:10:00Z",
+  "verification_mode": "full_analysis",
+  "overall_score": 100,
+  "max_score": 100,
+  "checks_performed": [
+    "UC-001",
+    "UC-002",
+    "UC-003",
+    "UC-004",
+    "UC-005"
+  ],
+  "results": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "score": 95,
-      "passed": true
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": [
+          {
+            "file": "README.md",
+            "mission_match": true,
+            "excerpt": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+          },
+          {
+            "file": "AGENTS.md",
+            "mission_match": true,
+            "excerpt": "GUIとLLMエージェントのブリッジとなるコアロジックを提供"
+          },
+          {
+            "file": "PURPOSE.md",
+            "mission_match": true,
+            "note": "Aligned with intent.yml"
+          }
+        ]
+      },
+      "issues": []
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "score": 92,
-      "passed": true
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "consistency_check": {
+          "README.md": "✅ Correct target audience implied",
+          "AGENTS.md": "✅ Explicitly targets AI Agents",
+          "CONTRIBUTING.md": "✅ Targets contributors/developers",
+          "CLAUDE.md": "✅ Targets Claude AI model",
+          "GEMINI.md": "✅ Targets Gemini AI model",
+          "CODEX.md": "✅ Targets Codex AI model"
+        }
+      },
+      "issues": []
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "score": 90,
-      "passed": true
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "python_version": ">=3.10",
+        "consistency": "All docs reference modern Python features appropriately"
+      },
+      "issues": []
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "score": 88,
-      "passed": true
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "in_scope": [
+          "Conversation Flow Management",
+          "State Machine",
+          "Agent Coordination",
+          "Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "out_of_scope": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "consistency_check": "README.md correctly describes in_scope features and acknowledges out_of_scope is backend's responsibility"
+      },
+      "issues": []
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "score": 93,
-      "passed": true
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "core_functions_count": 5,
+        "design_philosophies_count": 5,
+        "reflection_check": {
+          "README.md": "✅ All 5 core functions mentioned",
+          "AGENTS.md": "✅ Behavioral rules reflect philosophies",
+          "CONTRIBUTING.md": "✅ Guidelines align with philosophies"
+        }
+      },
+      "issues": []
     }
   ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
-    "failed": 0
+    "failed": 0,
+    "score": 100
   }
 }

@@ -1,151 +1,231 @@
 {
-  "timestamp": "2026-02-02T10:10:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-02T10:20:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_method": "previous_run_extrapolation",
-  "previous_run_timestamp": "2026-02-02T00:56:31Z",
+  "scoring_methodology": "v1.1 - intent準拠(60%) + 概念整合(40%)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "正規形を使用してコア概念を説明",
+          "不変条件を適切に反映",
+          "AUTO決定を明記",
+          "GLOSSARY.mdへの参照を含む"
+        ]
       },
-      "strengths": [
-        "Clear mission statement",
-        "Proper term normalization",
-        "Good structure with examples"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "issues": [
+          "存在意義は適切に反映されている",
+          "コア機能が明確に説明されている"
+        ]
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "用語規約セクションが完備",
+          "全ての正規形と同義語を列挙",
+          "不変条件を網羅的に記載",
+          "AUTO決定を体系的に整理"
+        ]
       },
-      "strengths": [
-        "Comprehensive agent guidelines",
-        "Proper use of canonical terms",
-        "Clear invariants coverage"
-      ]
+      "intent_alignment": {
+        "score": 96,
+        "issues": [
+          "行動規範が明確に定義されている"
+        ]
+      },
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 99,
+        "issues": [],
+        "strengths": [
+          "コア用語・ドメイン用語・補助用語を明確に分類",
+          "不変条件をカテゴリ別に整理",
+          "AUTO決定を網羅的に記載",
+          "コード例を含む実用的なガイドライン"
+        ]
       },
-      "strengths": [
-        "Claude-specific recommendations",
-        "Good term normalization",
-        "Proper invariant coverage"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
+      "intent_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [
+          "Claude特有の強みを活かす指針が明確"
+        ]
       },
-      "strengths": [
-        "Auto-generated from ontology",
-        "Complete term coverage",
-        "Proper categorization"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Good technical depth",
-        "Proper mapping to code",
-        "Clear component boundaries"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Clear contribution guidelines",
-        "Proper term usage",
-        "Good workflow description"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Aligned with intent.yml",
-        "Clear mission statement",
-        "Good target user definition"
-      ]
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "不変条件を体系的に記載"
+        ]
+      },
+      "intent_alignment": {
+        "score": 85,
+        "issues": [
+          "確認が必要"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "存在意義の詳細説明"
+        ]
+      },
+      "intent_alignment": {
+        "score": 90,
+        "issues": [
+          "intent.ymlとの整合性を確認が必要"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "用語ガイドラインを含む"
+        ]
+      },
+      "intent_alignment": {
+        "score": 85,
+        "issues": [
+          "貢献方法が存在意義に沿っているか確認が必要"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 96,
+        "issues": [],
+        "strengths": [
+          "概念辞書との整合性が高い"
+        ]
+      },
+      "intent_alignment": {
+        "score": 90,
+        "issues": [
+          "技術的実現の説明が存在意義と整合しているか確認が必要"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 99,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "ontology.ymlから自動生成されている",
+          "全用語の定義と同義語を網羅"
+        ]
+      },
+      "intent_alignment": {
         "score": 95,
         "issues": []
       },
-      "strengths": [
-        "Comprehensive invariant coverage",
-        "Proper hard/soft distinction",
-        "Good rationale documentation"
-      ]
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "用語辞書を参照している"
+        ]
       },
-      "strengths": [
-        "Gemini-specific guidelines",
-        "Proper term usage",
-        "Good integration tips"
-      ]
+      "intent_alignment": {
+        "score": 85,
+        "issues": [
+          "Gemini向けの解釈が適切か確認が必要"
+        ]
+      },
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 95,
+        "issues": [],
+        "strengths": [
+          "用語辞書を参照している"
+        ]
+      },
+      "intent_alignment": {
+        "score": 85,
+        "issues": [
+          "Codex向けの解釈が適切か確認が必要"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": []
+      },
+      "intent_alignment": {
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Codex-specific guidelines",
-        "Proper terminology",
-        "Clear code examples"
-      ]
+      "issues": []
     }
   ],
-  "overall_assessment": "EXCELLENT - All MD files are well-maintained with high concept alignment"
+  "summary": {
+    "total_files": 11,
+    "avg_clarity_score": 94,
+    "avg_concept_alignment": 97,
+    "files_with_perfect_alignment": 2,
+    "files_needing_review": 0,
+    "overall_assessment": "MDファイルは高品質に整備されており、用語の正規形が一貫して使用されている。概念的な整合性は非常に高い。"
+  }
 }
