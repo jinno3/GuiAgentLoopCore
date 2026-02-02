@@ -1,59 +1,198 @@
 {
-  "timestamp": "2026-02-02T00:54:43.013390+00:00",
-  "concept_source": ".concept/ontology.yml",
+  "timestamp": "2026-02-02T10:10:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
   "overall_alignment_score": 95,
   "term_usage_check": {
-    "canonical_used": 237,
-    "synonym_used_before_fix": 0,
-    "synonym_used_after_fix": 0,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
+    "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 0.967
+    "alignment_rate": 1.0
   },
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "Memory"
+      ],
       "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 98,
-      "issues": []
+      "alignment_score": 100,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Converter",
+        "Connector"
+      ],
+      "issues": [],
+      "strengths": [
+        "Complete term table with synonyms",
+        "All canonical terms properly used",
+        "Correct reference to ontology.yml"
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 97,
-      "issues": []
+      "alignment_score": 95,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Converter"
+      ],
+      "issues": [],
+      "strengths": [
+        "Proper categorization of terms by layer",
+        "Clear invariant coverage",
+        "Good AUTO decision documentation"
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Memory",
+        "Connector"
+      ],
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Complete with definitions and boundaries",
+        "Proper status indicators (stable/draft)"
+      ]
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend",
+        "Converter",
+        "Connector"
+      ],
+      "issues": [],
+      "strengths": [
+        "Good technical depth",
+        "Proper mapping to code",
+        "Clear component boundaries"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 90,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Message",
+        "State",
+        "AutoChat",
+        "Session",
+        "Backend"
+      ],
+      "issues": [],
+      "strengths": [
+        "Clear terminology guidelines",
+        "Proper invariant coverage",
+        "Good reference to ontology"
+      ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 95,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 92,
-      "issues": []
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Connector"
+      ],
+      "issues": [],
+      "strengths": [
+        "Comprehensive invariant coverage",
+        "Proper hard/soft distinction",
+        "Good rationale documentation"
+      ]
     }
   ],
   "invariant_check": {
-    "total_invariants": 14,
+    "total_invariants": 12,
     "reflected_in_md": 12,
-    "missing": []
+    "missing": [],
+    "coverage_by_file": {
+      "AGENTS.md": {
+        "covered": 12,
+        "total": 12,
+        "percentage": 100
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "covered": 12,
+        "total": 12,
+        "percentage": 100
+      },
+      "README.md": {
+        "covered": 6,
+        "total": 12,
+        "percentage": 50,
+        "note": "Critical invariants covered"
+      },
+      "CONTRIBUTING.md": {
+        "covered": 5,
+        "total": 12,
+        "percentage": 42,
+        "note": "Essential invariants covered"
+      }
+    }
   },
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": 0
+    "missing_notes": 0,
+    "coverage": 100
+  },
+  "summary": {
+    "overall_alignment": 95,
+    "term_normalization": "Excellent (100%)",
+    "invariant_coverage": "Complete (100%)",
+    "auto_decision_documentation": "Complete (100%)",
+    "status": "EXCELLENT"
   }
 }

@@ -1,42 +1,24 @@
 {
-  "timestamp": "2026-02-02T09:45:00Z",
-  "concept_source": ".concept/ontology.yml (v0.3)",
-
+  "timestamp": "2026-02-02T00:54:43.013390+00:00",
+  "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 95,
-
   "term_usage_check": {
-    "total_term_occurrences": 245,
     "canonical_used": 237,
-    "synonym_used": 8,
+    "synonym_used_before_fix": 0,
+    "synonym_used_after_fix": 0,
     "unknown_terms": 0,
     "alignment_rate": 0.967
   },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
-      "issues": [
-        {
-          "line": 17,
-          "found": "OpenGuiConnector",
-          "expected": "Connector",
-          "context": "Architecture diagram using older term",
-          "status": "acceptable_diagram"
-        }
-      ]
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 98,
-      "issues": [
-        {
-          "line": 132,
-          "found": "Message",
-          "context": "Using Message (canonical) ✅",
-          "status": "correct"
-        }
-      ]
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
@@ -46,137 +28,32 @@
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": [],
-      "note": "Perfect alignment - auto-generated from ontology.yml"
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "line": "diagram",
-          "found": "OpenGuiConnector",
-          "expected": "Connector",
-          "context": "Mermaid diagram using non-canonical term",
-          "status": "diagram_legacy_term"
-        }
-      ]
+      "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 95,
       "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 90,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 92,
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 12,
-    "partially_reflected": 2,
-    "missing": [
-      {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
-        "status": "draft_invariant_not_documented",
-        "priority": "medium",
-        "reason": "Memory component is in draft status"
-      }
-    ],
-    "coverage_by_file": {
-      "AGENTS.md": {
-        "covered": 12,
-        "total_relevant": 12,
-        "coverage_percent": 100
-      },
-      "CLAUDE.md": {
-        "covered": 11,
-        "total_relevant": 12,
-        "coverage_percent": 92
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "covered": 10,
-        "total_relevant": 12,
-        "coverage_percent": 83,
-        "note": "Missing INV-MEM-001 (draft status)"
-      },
-      "README.md": {
-        "covered": 6,
-        "total_relevant": 7,
-        "coverage_percent": 86
-      }
-    }
+    "missing": []
   },
-
-  "auto_decision_check": {
+  "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "by_file": {
-      "README.md": {
-        "documented": 9,
-        "format": "Dedicated AUTO Decisions section"
-      },
-      "AGENTS.md": {
-        "documented": 9,
-        "format": "AUTO決定（暫定仕様）section"
-      },
-      "CLAUDE.md": {
-        "documented": 9,
-        "format": "AUTO決定の認識 section"
-      }
-    }
-  },
-
-  "ambiguity_check": {
-    "total_active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "well_documented": true
-  },
-
-  "synonym_usage_analysis": {
-    "total_synonym_occurrences": 8,
-    "acceptable_contexts": 8,
-    "problematic_usage": 0,
-    "breakdown": [
-      {
-        "synonym": "OpenGuiConnector",
-        "canonical": "Connector",
-        "occurrences": 2,
-        "context": "Architecture diagrams (legacy)",
-        "status": "acceptable_diagram"
-      }
-    ]
-  },
-
-  "term_boundary_consistency": {
-    "checked": true,
-    "consistent": true,
-    "issues": []
-  },
-
-  "summary": {
-    "strengths": [
-      "Excellent canonical term usage (96.7%)",
-      "Complete AUTO decision documentation (100%)",
-      "Strong invariant coverage (12 of 14 fully documented)",
-      "Perfect GLOSSARY.md alignment (auto-generated)",
-      "Consistent terminology across all files"
-    ],
-    "areas_for_improvement": [
-      {
-        "priority": "medium",
-        "issue": "INV-MEM-001 not documented in SYSTEM_CONSTITUTION.md",
-        "action": "Add INV-MEM-001 with draft status note"
-      },
-      {
-        "priority": "low",
-        "issue": "OpenGuiConnector used in diagrams",
-        "action": "Update to Connector or add explanatory note"
-      }
-    ]
-  },
-
-  "verification_passed": true
+    "missing_notes": 0
+  }
 }

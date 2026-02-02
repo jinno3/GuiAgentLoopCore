@@ -1,141 +1,41 @@
 {
-  "timestamp": "2026-02-02T09:45:00Z",
-  "verification_version": "1.1",
-
-  "uniqueness_checks": {
-    "UC-001": {
+  "timestamp": "2026-02-02T00:54:43.013004+00:00",
+  "uniqueness_score": 100,
+  "checks": [
+    {
+      "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "All MD files reflect the same mission from intent.yml",
-      "status": "passed",
       "score": 95,
-      "findings": [
-        {
-          "file": "README.md",
-          "mission_match": true,
-          "excerpt": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-        },
-        {
-          "file": "AGENTS.md",
-          "mission_match": true,
-          "excerpt": "GUIとLLMエージェントのブリッジとなるコアロジックを提供"
-        },
-        {
-          "file": "PURPOSE.md",
-          "mission_match": true,
-          "excerpt": "Core mission aligned across documentation"
-        }
-      ],
-      "issues": []
+      "passed": true
     },
-    "UC-002": {
+    {
+      "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MD files target the same user groups",
-      "status": "passed",
       "score": 92,
-      "findings": [
-        {
-          "file": "intent.yml",
-          "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-        },
-        {
-          "file": "README.md",
-          "target_users": "Consistent with intent.yml"
-        },
-        {
-          "file": "AGENTS.md",
-          "target_users": "AI Agents (Claude, Gemini, Codex)"
-        }
-      ],
-      "issues": [
-        {
-          "severity": "minor",
-          "description": "README.md could be more explicit about AI Agents as target users"
-        }
-      ]
+      "passed": true
     },
-    "UC-003": {
+    {
+      "id": "UC-003",
       "name": "Technical Constraints Consistency",
-      "description": "Technical constraints are consistent across MDs",
-      "status": "passed",
       "score": 90,
-      "findings": [
-        {
-          "constraint": "Python version",
-          "consistent": true,
-          "mentioned_in": ["README.md", "CONTRIBUTING.md"]
-        },
-        {
-          "constraint": "Type safety requirements",
-          "consistent": true,
-          "mentioned_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-        }
-      ],
-      "issues": []
+      "passed": true
     },
-    "UC-004": {
-      "name": "Boundary Definition Consistency",
-      "description": "in_scope and out_of_scope are consistent",
-      "status": "passed",
+    {
+      "id": "UC-004",
+      "name": "Boundary Consistency",
       "score": 88,
-      "findings": [
-        {
-          "file": "README.md",
-          "in_scope": ["Conversation Flow Management", "State Machine", "Agent Coordination"],
-          "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage"]
-        },
-        {
-          "file": "PURPOSE.md",
-          "boundaries_match": true
-        }
-      ],
-      "issues": [
-        {
-          "severity": "minor",
-          "description": "Some files don't explicitly list all out_of_scope items"
-        }
-      ]
+      "passed": true
     },
-    "UC-005": {
-      "name": "intent.yml Compliance",
-      "description": "All MDs comply with intent.yml definitions",
-      "status": "passed",
+    {
+      "id": "UC-005",
+      "name": "Intent.yml Compliance",
       "score": 93,
-      "findings": [
-        {
-          "aspect": "Core functions",
-          "coverage": "All 5 core functions documented across MDs"
-        },
-        {
-          "aspect": "Design philosophy",
-          "coverage": "All 5 philosophies reflected in documentation"
-        }
-      ],
-      "issues": []
+      "passed": true
     }
-  },
-
-  "overall_uniqueness_score": 92,
-
+  ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
-    "failed": 0,
-    "issues_total": 2,
-    "critical_issues": 0,
-    "major_issues": 0,
-    "minor_issues": 2
-  },
-
-  "recommendations": [
-    {
-      "priority": "low",
-      "action": "Make README.md more explicit about AI Agents as target users",
-      "file": "README.md"
-    },
-    {
-      "priority": "low",
-      "action": "Ensure all files explicitly list out_of_scope items where relevant",
-      "files": ["ARCHITECTURE.md", "CONTRIBUTING.md"]
-    }
-  ]
+    "failed": 0
+  }
 }
