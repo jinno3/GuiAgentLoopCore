@@ -1,8 +1,7 @@
 {
-  "timestamp": "2026-02-02T19:10:00Z",
+  "timestamp": "2026-02-02T13:30:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
-  "updated_at": "2026-02-02T05:38:12Z",
   "statistics": {
     "total_terms": 11,
     "by_layer": {
@@ -21,31 +20,27 @@
       "layer": "core",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
       "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "status": "stable",
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Agent",
       "layer": "core",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
       "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "status": "stable",
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Session",
       "layer": "core",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
       "synonyms": ["ChatSession", "会話セッション", "JWT"],
-      "status": "stable",
-      "should_use_in": ["README.md", "AGENTS.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Message",
       "layer": "core",
       "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
       "synonyms": ["メッセージ", "ChatMessage"],
-      "status": "stable",
       "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
@@ -53,23 +48,20 @@
       "layer": "core",
       "definition": "インタープリタの実行状態を表す列挙型",
       "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "status": "stable",
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "AutoChat",
       "layer": "domain",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
-      "status": "stable",
-      "should_use_in": ["README.md", "AGENTS.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "StreamWrapper",
       "layer": "domain",
       "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
       "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "status": "stable",
       "should_use_in": ["README.md", "ARCHITECTURE.md"]
     },
     {
@@ -77,15 +69,6 @@
       "layer": "domain",
       "definition": "GUIフレームワーク実装（Gradio等）",
       "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "status": "stable",
-      "should_use_in": ["README.md", "ARCHITECTURE.md"]
-    },
-    {
-      "canonical": "Converter",
-      "layer": "aux",
-      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
-      "synonyms": ["変換器", "マッパー"],
-      "status": "stable",
       "should_use_in": ["README.md", "ARCHITECTURE.md"]
     },
     {
@@ -93,18 +76,76 @@
       "layer": "domain",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
       "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter"],
-      "status": "stable",
-      "should_use_in": ["ARCHITECTURE.md"]
+      "should_use_in": ["ARCHITECTURE.md", "AGENTS.md"]
     },
     {
-      "canonical": "Memory",
-      "layer": "domain",
-      "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": ["会話メモリ", "ConversationBuffer"],
-      "status": "draft",
-      "should_use_in": ["README.md", "AGENTS.md"]
+      "canonical": "Converter",
+      "layer": "aux",
+      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+      "synonyms": ["変換器", "マッパー"],
+      "should_use_in": ["ARCHITECTURE.md"]
     }
   ],
-  "total_synonyms": 35,
-  "auto_decisions": 15
+  "auto_decisions": [
+    {
+      "key": "AUTO:Agent.role:classification",
+      "description": "Agentはロールベースで分類される",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Agent.type:implementation_property",
+      "description": "AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Session.jwt:algorithm_hs256",
+      "description": "JWTはHS256アルゴリズム使用（暫定）",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Message.structure:flat",
+      "description": "メッセージは再帰的にフラット化可能",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Message.limit:100",
+      "description": "MAX_MESSAGE_LENGTH=100はハードリミット",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Message.roles:tool_function_separation",
+      "description": "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:State.lifecycle:monotonic",
+      "description": "状態は単調遷移する（INIT → RUNNING → STOP）",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:State.transition:auto_on_input",
+      "description": "ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:AutoChat.trigger:stop_only",
+      "description": "AutoChatはSTATE_STOP時のみ発火",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Backend.primary:gradio",
+      "description": "Gradioが主要バックエンド（暫定）",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Backend.deployment:security",
+      "description": "バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限",
+      "expires_after_runs": 20
+    },
+    {
+      "key": "AUTO:Memory.window:k10",
+      "description": "メモリウィンドウサイズはk=10（暫定）",
+      "expires_after_runs": 20
+    }
+  ]
 }

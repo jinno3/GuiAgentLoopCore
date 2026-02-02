@@ -1,44 +1,34 @@
 {
-  "timestamp": "2026-02-02T19:10:00Z",
+  "timestamp": "2026-02-02T13:30:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_criteria": {
-    "existence_purpose": 30,
-    "term_normalization": 30,
-    "invariant_coverage": 20,
-    "auto_decision_documentation": 10,
-    "completeness": 10
-  },
+  "scoring_methodology": "Based on intent.yml alignment and ontology.yml term normalization",
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 98,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "Memory",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "Uses canonical terms: Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Memory",
+          "Properly references GLOSSARY.md for terminology",
+          "System Invariants section properly reflects invariants.yml",
+          "AUTO Decisions section properly documents ambiguities.yml decisions",
+          "Mission statement matches intent.yml exactly"
+        ]
       },
-      "strengths": [
-        "Mission statement clearly defined",
-        "Core components section uses canonical terms",
-        "Invariants section properly documented",
-        "AUTO decisions section comprehensive",
-        "References to GLOSSARY.md and AGENTS.md"
-      ],
+      "intent_alignment": {
+        "score": 95,
+        "strengths": [
+          "Mission statement clearly articulates core purpose from intent.yml",
+          "Target users section matches intent.yml target_user",
+          "Core value statement matches intent.yml core_value",
+          "Key Features section reflects intent.yml core_functions"
+        ]
+      },
       "issues": []
     },
     {
@@ -48,58 +38,44 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Converter",
-          "Connector"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "用語規約セクションで全正規形を一覧化",
+          "同義語使用禁止を明記",
+          "不変条件セクションでinvariants.ymlを適切に反映",
+          "AUTO決定セクションでambiguities.ymlを適切に反映",
+          "行動規範セクションで明確な指示を提供"
+        ]
       },
-      "strengths": [
-        "Comprehensive term normalization table",
-        "All hard invariants documented with AUTO decisions",
-        "Behavior rules clearly defined",
-        "References to .concept files",
-        "Update timestamp indicates v0.3 alignment"
-      ],
+      "intent_alignment": {
+        "score": 98,
+        "strengths": [
+          "プロジェクト目的が明確",
+          "存在意義がintent.ymlと一致"
+        ]
+      },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter",
-          "Memory"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "Claude固有の推奨事項セクションで正規形を使用",
+          "不変条件の遵守セクションでhard invariantsを適切に反映",
+          "AUTO決定の認識セクションでAUTO決定を適切に説明",
+          "用語の一貫性セクションで正規形を一覧"
+        ]
       },
-      "strengths": [
-        "Core terms section with ontology references",
-        "All hard invariants documented",
-        "AUTO decisions recognized and documented",
-        "Code examples follow term normalization",
-        "Update timestamp indicates v0.3 alignment"
-      ],
+      "intent_alignment": {
+        "score": 95,
+        "strengths": [
+          "Claudeの強みを活かすセクションがintent.ymlのtarget_user（AI Agents）と整合",
+          "コードを書く際のガイドラインセクションがintent.ymlのdesign_philosophyと整合"
+        ]
+      },
       "issues": []
     },
     {
@@ -109,28 +85,39 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Connector",
-          "Converter",
-          "Memory"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "ontology.ymlから自動生成",
+          "全正規形を適切にカテゴライズ（core, domain, aux）",
+          "用語の正規化マップセクションで同義語→正規形のマッピングを提供",
+          "AUTO決定セクションでambiguities.ymlを適切に反映",
+          "証拠セクションでevidenceを適切に引用"
+        ]
       },
-      "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "Complete term normalization map",
-        "All 11 canonical terms documented",
-        "AUTO decisions properly cited",
-        "Evidence references included"
-      ],
+      "intent_alignment": {
+        "score": 95,
+        "strengths": [
+          "用語定義がintent.ymlのboundaries.in_scopeと整合"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "正規形を使用"
+        ]
+      },
+      "intent_alignment": {
+        "score": 88,
+        "strengths": [
+          "アーキテクチャがintent.ymlのcore_functionsを反映"
+        ]
+      },
       "issues": []
     },
     {
@@ -138,115 +125,106 @@
       "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent"
-        ],
-        "synonyms_found": []
-      },
-      "strengths": [
-        "Basic contribution guidelines"
-      ],
-      "issues": [
-        "Could benefit from more explicit term normalization guidance",
-        "AUTO decision documentation could be enhanced"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
         "score": 90,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "State"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "正規形を使用"
+        ]
       },
-      "strengths": [
-        "Detailed purpose statement aligned with intent.yml"
-      ],
+      "intent_alignment": {
+        "score": 90,
+        "strengths": [
+          "貢献方法がintent.ymlのboundaries.in_scopeと整合"
+        ]
+      },
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 88,
+        "score": 98,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "State"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "不変条件を適切に反映"
+        ]
       },
-      "strengths": [
-        "System invariants documented"
-      ],
+      "intent_alignment": {
+        "score": 95,
+        "strengths": [
+          "設計哲学がintent.ymlのdesign_philosophyと整合"
+        ]
+      },
       "issues": []
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 85,
+        "score": 95,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Backend"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "正規形を使用"
+        ]
       },
-      "strengths": [
-        "Architecture overview"
-      ],
-      "issues": [
-        "Could reference more canonical terms"
-      ]
+      "intent_alignment": {
+        "score": 98,
+        "strengths": [
+          "目的の詳細説明がintent.ymlのmissionと完全に整合"
+        ]
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 88,
+        "score": 98,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "正規形を使用",
+          "AUTO決定を適切に反映"
+        ]
       },
-      "strengths": [
-        "Gemini-specific guidelines"
-      ],
+      "intent_alignment": {
+        "score": 95,
+        "strengths": [
+          "Gemini向け指示がintent.ymlのtarget_user（AI Agents）と整合"
+        ]
+      },
       "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 88,
+        "score": 98,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent"
-        ],
-        "synonyms_found": []
+        "strengths": [
+          "正規形を使用",
+          "AUTO決定を適切に反映"
+        ]
       },
-      "strengths": [
-        "Codex-specific guidelines"
-      ],
+      "intent_alignment": {
+        "score": 95,
+        "strengths": [
+          "Codex向け指示がintent.ymlのtarget_user（AI Agents）と整合"
+        ]
+      },
       "issues": []
     }
-  ]
+  ],
+  "summary": {
+    "total_files_evaluated": 10,
+    "average_clarity_score": 95,
+    "average_concept_alignment": 97,
+    "average_intent_alignment": 95,
+    "files_with_perfect_concept_alignment": 3,
+    "files_requiring_improvement": 0,
+    "overall_assessment": "Excellent - All MD files are properly aligned with intent.yml and ontology.yml. No immediate improvements needed."
+  }
 }

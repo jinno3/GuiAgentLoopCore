@@ -1,47 +1,222 @@
 {
-  "score": 100,
-  "checks": [
+  "timestamp": "2026-02-02T19:10:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
+  "overall_alignment_score": 95,
+  "term_usage_check": {
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+  "per_file": [
     {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MDs use canonical terms in conceptual context",
-      "passed": true,
-      "evidence": "Terms are used correctly; technical class names are preserved appropriately",
-      "note": "Synonyms in code examples and technical descriptions are legitimate"
+      "file": "README.md",
+      "alignment_score": 95,
+      "term_usage": {
+        "canonical_terms_found": 10,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Converter",
+          "Memory"
+        ]
+      },
+      "issues": []
     },
     {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "Synonyms are not used in conceptual explanations",
-      "passed": true,
-      "evidence": "AGENTS.md explicitly lists banned synonyms in table format"
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_terms_found": 11,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter",
+          "Connector"
+        ]
+      },
+      "issues": []
     },
     {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are documented",
-      "passed": true,
-      "evidence": "11 hard invariants documented"
+      "file": "CLAUDE.md",
+      "alignment_score": 95,
+      "term_usage": {
+        "canonical_terms_found": 10,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Converter",
+          "Memory"
+        ]
+      },
+      "issues": []
     },
     {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "AUTO decisions are explicitly noted",
-      "passed": true,
-      "evidence": "AUTO decisions documented with provisional status in CLAUDE.md"
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_terms_found": 11,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Connector",
+          "Converter",
+          "Memory"
+        ]
+      },
+      "issues": []
     },
     {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludes are consistent",
-      "passed": true,
-      "evidence": "Ontology boundaries are reflected in documentation"
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 85,
+      "term_usage": {
+        "canonical_terms_found": 2,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent"
+        ]
+      },
+      "issues": [
+        {
+          "type": "improvement_recommended",
+          "description": "Could benefit from more explicit term normalization guidance"
+        }
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 90,
+      "term_usage": {
+        "canonical_terms_found": 3,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent",
+          "State"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 88,
+      "term_usage": {
+        "canonical_terms_found": 2,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "State"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 85,
+      "term_usage": {
+        "canonical_terms_found": 3,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent",
+          "Backend"
+        ]
+      },
+      "issues": [
+        {
+          "type": "improvement_recommended",
+          "description": "Could reference more canonical terms for better alignment"
+        }
+      ]
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 88,
+      "term_usage": {
+        "canonical_terms_found": 2,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent"
+        ]
+      },
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 88,
+      "term_usage": {
+        "canonical_terms_found": 2,
+        "synonyms_found": 0,
+        "terms": [
+          "Interpreter",
+          "Agent"
+        ]
+      },
+      "issues": []
     }
   ],
-  "summary": {
-    "total": 5,
-    "passed": 5,
-    "failed": 0
+  "invariant_check": {
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_by_file": {
+      "AGENTS.md": 14,
+      "CLAUDE.md": 14,
+      "README.md": 10
+    }
   },
-  "note": "Technical terms (AgentType, JWT, GuiAgentInterpreterABC) in code examples are legitimate usage"
+  "auto_decision_check": {
+    "total_active": 15,
+    "reflected_as_notes": 15,
+    "missing_notes": 0,
+    "coverage_by_file": {
+      "AGENTS.md": 15,
+      "CLAUDE.md": 15,
+      "README.md": 12
+    }
+  },
+  "ambiguity_check": {
+    "active_auto_decisions": 15,
+    "reflected_as_notes": 15,
+    "missing_notes": 0
+  },
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "improvements_recommended": 2,
+    "alignment_rate": 1.0
+  }
 }

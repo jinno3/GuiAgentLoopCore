@@ -1,34 +1,50 @@
 {
-  "timestamp": "2026-02-02T19:10:00Z",
+  "timestamp": "2026-02-02T13:30:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 95,
+  "invariants_source": ".concept/invariants.yml",
+  "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
+    "total_term_occurrences": 150,
+    "canonical_used": 148,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 2,
+    "alignment_rate": 0.987,
+    "details": {
+      "synonyms_found_and_corrected": [],
+      "unknown_terms": [
+        {
+          "term": "OpenGuiConnector",
+          "context": "README.md:10 - Architecture diagram uses legacy term",
+          "suggestion": "Consider aligning with canonical 'Connector' or note as diagram-specific terminology",
+          "severity": "low"
+        },
+        {
+          "term": "ConversationBuffer",
+          "context": "README.md:89 - Described as synonym for Memory",
+          "suggestion": "Already marked as synonym in ontology.yml, but ensure consistent use",
+          "severity": "info"
+        }
+      ]
+    }
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
+      "alignment_score": 98,
       "term_usage": {
-        "canonical_terms_found": 10,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter",
-          "Memory"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 13,
+        "documented": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 13,
+        "documented": 13,
+        "missing": []
       },
       "issues": []
     },
@@ -36,42 +52,39 @@
       "file": "AGENTS.md",
       "alignment_score": 100,
       "term_usage": {
-        "canonical_terms_found": 11,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Converter",
-          "Connector"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 13,
+        "documented": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 13,
+        "documented": 13,
+        "missing": []
       },
       "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 95,
+      "alignment_score": 100,
       "term_usage": {
-        "canonical_terms_found": 10,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter",
-          "Memory"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 13,
+        "documented": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 13,
+        "documented": 13,
+        "missing": []
       },
       "issues": []
     },
@@ -79,144 +92,301 @@
       "file": "GLOSSARY.md",
       "alignment_score": 100,
       "term_usage": {
-        "canonical_terms_found": 11,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Connector",
-          "Converter",
-          "Memory"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_used": [],
+        "issues": []
       },
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 85,
-      "term_usage": {
-        "canonical_terms_found": 2,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent"
-        ]
+      "invariant_coverage": {
+        "total_hard_invariants": 0,
+        "documented": 0,
+        "missing": [],
+        "note": "GLOSSARY.md documents AUTO decisions within term definitions"
       },
-      "issues": [
-        {
-          "type": "improvement_recommended",
-          "description": "Could benefit from more explicit term normalization guidance"
-        }
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 90,
-      "term_usage": {
-        "canonical_terms_found": 3,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent",
-          "State"
-        ]
-      },
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 88,
-      "term_usage": {
-        "canonical_terms_found": 2,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "State"
-        ]
+      "auto_decision_coverage": {
+        "total_auto_decisions": 13,
+        "documented": 13,
+        "missing": []
       },
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 85,
+      "alignment_score": 95,
       "term_usage": {
-        "canonical_terms_found": 3,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent",
-          "Backend"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+        "synonyms_used": [],
+        "issues": []
       },
-      "issues": [
-        {
-          "type": "improvement_recommended",
-          "description": "Could reference more canonical terms for better alignment"
-        }
-      ]
+      "invariant_coverage": {
+        "total_hard_invariants": 8,
+        "documented": 8,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 7,
+        "documented": 7,
+        "missing": []
+      },
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "term_usage": {
+        "canonical_terms_used": ["Interpreter", "Agent", "Message", "State"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 5,
+        "documented": 5,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 3,
+        "documented": 3,
+        "missing": []
+      },
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "term_usage": {
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 13,
+        "documented": 13,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 10,
+        "documented": 10,
+        "missing": []
+      },
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 98,
+      "term_usage": {
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 8,
+        "documented": 8,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 7,
+        "documented": 7,
+        "missing": []
+      },
+      "issues": []
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 88,
+      "alignment_score": 98,
       "term_usage": {
-        "canonical_terms_found": 2,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 10,
+        "documented": 10,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 8,
+        "documented": 8,
+        "missing": []
       },
       "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 88,
+      "alignment_score": 98,
       "term_usage": {
-        "canonical_terms_found": 2,
-        "synonyms_found": 0,
-        "terms": [
-          "Interpreter",
-          "Agent"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend"],
+        "synonyms_used": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "total_hard_invariants": 10,
+        "documented": 10,
+        "missing": []
+      },
+      "auto_decision_coverage": {
+        "total_auto_decisions": 8,
+        "documented": 8,
+        "missing": []
       },
       "issues": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
+    "total_hard_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "CLAUDE.md": 14,
-      "README.md": 10
-    }
-  },
-  "auto_decision_check": {
-    "total_active": 15,
-    "reflected_as_notes": 15,
-    "missing_notes": 0,
-    "coverage_by_file": {
-      "AGENTS.md": 15,
-      "CLAUDE.md": 15,
-      "README.md": 12
+    "coverage_rate": 1.0,
+    "details": {
+      "INV-STATE-001": {
+        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "properly_documented": true
+      },
+      "INV-MSG-001": {
+        "statement": "メッセージタイプは定義された列挙型のみ",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-MESSAGE-001": {
+        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-SESSION-001": {
+        "statement": "セッションは一意のUUIDで識別される",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-SESSION-002": {
+        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-AUTO-001": {
+        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-STREAM-001": {
+        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-AGENT-001": {
+        "statement": "エージェントは定義された役割を持つ",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-MEM-001": {
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-CONNECTOR-001": {
+        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+        "properly_documented": true
+      },
+      "INV-CONVERTER-001": {
+        "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+        "properly_documented": true
+      },
+      "INV-BACKEND-001": {
+        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-BACKEND-002": {
+        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      },
+      "INV-STATE-002": {
+        "statement": "状態は3秒間隔のタイマーで自動更新される",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "properly_documented": true
+      }
     }
   },
   "ambiguity_check": {
-    "active_auto_decisions": 15,
-    "reflected_as_notes": 15,
-    "missing_notes": 0
+    "active_auto_decisions": 13,
+    "reflected_as_notes": 13,
+    "missing_notes": 0,
+    "coverage_rate": 1.0,
+    "details": {
+      "AUTO:Agent.role:classification": {
+        "description": "Agentはロールベースで分類される",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:Agent.type:implementation_property": {
+        "description": "AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:Message.structure:flat": {
+        "description": "メッセージは再帰的にフラット化可能",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:Message.limit:100": {
+        "description": "MAX_MESSAGE_LENGTH=100はハードリミット",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:State.lifecycle:monotonic": {
+        "description": "状態は単調遷移する（INIT → RUNNING → STOP）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:State.transition:auto_on_input": {
+        "description": "ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:State.timer:3sec": {
+        "description": "t3タイマーは3秒間隔",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:AutoChat.trigger:stop_only": {
+        "description": "AutoChatはSTATE_STOP時のみ発火",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:AutoChat.prompt:default_continue": {
+        "description": "未設定時はデフォルト継続プロンプト使用（安全側）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:Backend.primary:gradio": {
+        "description": "Gradioが主要バックエンド（暫定）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:Backend.deployment:security": {
+        "description": "バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:Memory.window:k10": {
+        "description": "メモリウィンドウサイズはk=10（暫定）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      },
+      "AUTO:Session.jwt:algorithm_hs256": {
+        "description": "JWTはHS256アルゴリズム使用（暫定）",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "properly_noted": true
+      }
+    }
   },
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "improvements_recommended": 2,
-    "alignment_rate": 1.0
-  }
+  "recommendations": [
+    {
+      "priority": "low",
+      "issue": "OpenGuiConnector in README.md architecture diagram",
+      "suggestion": "Consider whether to update diagram terminology to use canonical 'Connector' term, or document as legacy diagram-specific terminology",
+      "action": "review"
+    }
+  ]
 }

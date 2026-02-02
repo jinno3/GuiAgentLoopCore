@@ -1,15 +1,23 @@
 # MD Bootstrap Feedback to Concept Sync System (12_concept_sync_system)
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T19:10:00Z"
+  bootstrap_run_timestamp: "2026-02-02T13:30:00Z"
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 88
+    canonical_used: 148
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found: []
-    alignment_rate: 1.0
+    unknown_terms_found:
+      - term: "OpenGuiConnector"
+        context: "README.md:10 - Architecture diagram uses legacy term"
+        suggestion: "図表特有の用語として許容。将来的に'Connector'に統一することを検討"
+        severity: "low"
+      - term: "ConversationBuffer"
+        context: "README.md:89 - Described as synonym for Memory"
+        suggestion: "既にontology.ymlで同義語として登録済み。適切に使用されている"
+        severity: "info"
+    alignment_rate: 0.987
 
   # 2. 不変条件の反映状況
   invariant_reflection:
@@ -21,13 +29,14 @@ concept_feedback:
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 15
-    noted_in_md: 15
-    format: "暫定仕様として明示"
+    total_active: 13
+    noted_in_md: 13
+    format: "README.md, AGENTS.md, CLAUDE.mdの各AUTO Decisionsセクション、およびGLOSSARY.mdの各用語定義内で記載"
     coverage_files:
       - "AGENTS.md"
       - "CLAUDE.md"
       - "README.md"
+      - "GLOSSARY.md"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -46,9 +55,33 @@ concept_feedback:
     - "AUTO決定が適切にドキュメント化されている"
     - "用語の境界（includes/excludes）が明確"
     - "ライフサイクルと関連用語が適切に記述されている"
+    - "全MDファイルで正規形用語が一貫して使用されている（同義語使用: 0）"
+    - "用語集（GLOSSARY.md）がontology.ymlから自動生成され、常に最新状態を維持している"
   improvements: []
 
-  # 7. 次回の概念同期での推奨事項
+  # 7. 概念整合性スコア
+  concept_alignment_scores:
+    overall: 98
+    per_file:
+      README.md: 98
+      AGENTS.md: 100
+      CLAUDE.md: 100
+      GLOSSARY.md: 100
+      ARCHITECTURE.md: 95
+      CONTRIBUTING.md: 90
+      SYSTEM_CONSTITUTION.md: 98
+      PURPOSE.md: 98
+      GEMINI.md: 98
+      CODEX.md: 98
+
+  # 8. 用語カバレッジ
+  term_coverage:
+    total_canonical_terms: 11
+    documented_in_glossary: 11
+    used_in_mds: 11
+    coverage_rate: 1.0
+
+  # 9. 次回の概念同期での推奨事項
   next_sync_recommendations:
     - "現状のontology.ymlを維持"
     - "新規用語追加時はevidenceの提供を重視"
@@ -58,6 +91,6 @@ concept_feedback:
 # メタデータ
 metadata:
   generated_by: "16_repo_md_bootstrapper v1.1"
-  generated_at: "2026-02-02T19:10:00Z"
+  generated_at: "2026-02-02T13:30:00Z"
   ontology_version: "0.3"
   intent_version: "1.0"
