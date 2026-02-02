@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T14:19:48Z",
+  "last_updated": "2026-02-02T05:32:31Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -48,9 +48,9 @@
     "reason": "No bloat control actions needed - ontology healthy"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T14:19:48Z",
-    "previous_run_id": "2026-02-02T05:03:58Z",
-    "run_count": 66,
+    "run_id": "2026-02-02T05:32:31Z",
+    "previous_run_id": "2026-02-02T14:19:48Z",
+    "run_count": 67,
     "run_type": "maintenance",
     "claims_added": 0,
     "ambiguities_added": 0,
@@ -61,19 +61,20 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #66 completed - Concept sync maintenance run",
-      "No new code changes detected since last run (2026-02-02T05:03:58Z)",
-      "Recent commits: MD bootstrap runs (documentation alignment verification)",
+      "Run #67 completed - Concept sync maintenance run",
+      "No new code changes detected since last run (2026-02-02T14:19:48Z)",
+      "Recent commits: MD bootstrap verification runs continuing",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
       "Queue status: 0 pending, 7 merged, 4 rejected, 1 accepted (Connector)",
       "decisions.md: 154 lines (within 200-line limit)",
       "14 hard invariants maintained (13 hard, 1 soft)",
-      "18 AUTO decisions active (1 CRITICAL security EXPIRED: AMB-SEC-001)",
-      "CRITICAL SECURITY ALERT: AMB-SEC-001 AUTO decision EXPIRED for 18+ runs past expiration (expires_after_runs=10, decided at run ~48, current run=66). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY.",
-      "HIGH PRIORITY: AMB-SEC-002 - JWT decoding method jwt_decode_session() contains undefined variables (token, secret_key) causing runtime failure (expires_after_runs=10, expires soon)",
-      "Multiple TODO comments found indicating incomplete implementation (Message roles, Connector blocking, Backend image handling)",
-      "MD bootstrap system achieved 98/100 alignment score - excellent documentation coverage"
+      "18 AUTO decisions active (2 CRITICAL security issues identified)",
+      "CRITICAL SECURITY ALERT #1: AMB-SEC-001 AUTO decision EXPIRED for 19+ runs past expiration (expires_after_runs=10, decided at run ~48, current run=67). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY.",
+      "CRITICAL SECURITY ALERT #2: AMB-SEC-002 - JWT decoding method jwt_decode_session() contains undefined variables (token, secret_key) causing runtime failure (expires_after_runs=10, decided at run ~64, current run=67 - EXPIRES SOON)",
+      "System health: All budget limits within acceptable ranges",
+      "No conflicts detected",
+      "No new ambiguities detected in this run"
     ]
   },
   "health_check": {
@@ -83,14 +84,14 @@
     "conflict_health": "healthy (0 conflicts)",
     "bootstrap_sync_quality": "EXCELLENT (98% alignment from MD bootstrap v1.1)",
     "architecture_doc_alignment": "EXCELLENT (100% alignment with ontology)",
-    "security_alert": "CRITICAL: AMB-SEC-001 EXPIRED for 18+ runs past expiration (expires_after_runs=10, decided at run ~48, current run=66). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY. HIGH: AMB-SEC-002 JWT decoding bug with undefined variables (expires_after_runs=10, decided at run ~64, current run=66 - expires soon)."
+    "security_alert": "CRITICAL: Two (2) security AUTO decisions require immediate attention: AMB-SEC-001 (hardcoded JWT secret - EXPIRED for 19+ runs past expiration) and AMB-SEC-002 (undefined variables in JWT decode method - expires in 3 runs). Both issues are in gui_agent_loop_core/core/interpreter_manager.py and pose security/functional risks."
   },
   "next_steps": [
-    "CRITICAL: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED for 17+ runs - URGENT)",
-    "HIGH: Fix AMB-SEC-002 - Fix or remove jwt_decode_session() method with undefined variables (token, secret_key)",
+    "CRITICAL #1: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED for 19+ runs past expiration - URGENT)",
+    "CRITICAL #2: Fix AMB-SEC-002 - Fix or remove jwt_decode_session() method with undefined variables (expires in 3 runs - HIGH priority)",
     "MEDIUM: Resolve TODO comments in message schema (FUNCTION/TOOL roles)",
     "MEDIUM: Resolve TODO comments in connector and backend implementations",
-    "LOW: Consider promoting Memory term from draft to stable status (suggested by MD bootstrap)",
-    "Continue regular ontology sync runs"
+    "LOW: Consider promoting Memory term from draft to stable status",
+    "Continue regular ontology sync runs to monitor security debt"
   ]
 }
