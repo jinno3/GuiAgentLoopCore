@@ -1,187 +1,85 @@
 # MD整備実行サマリ
 
 ## 実行情報
-
-- **バージョン**: 1.1（audit + concept統合）
-- **実行日時**: 2026-02-02T02:56:23Z
-- **ローテーション**: old削除 → current→old移動 → new current作成（完了）
-- **実行モード**: verification（既存MDの検証と保守）
+- バージョン: 1.1（audit + concept統合）
+- 実行日時: 2026-02-02T04:01:32.053366+00:00
+- ローテーション: old削除 → current→old移動 → new current作成
 
 ## 入力ソース
-
-### Audit入力
 - `.audit/config/intent.yml`: ✓ 使用
-  - Mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents
-  - Target Users: Application Developers, AI Agent Developers, Framework Developers, AI Agents
-  - Core Functions: 5つ定義
-  - Boundaries: 6つ in_scope, 5つ out_of_scope
-
-### Concept入力
-- `.concept/ontology.yml`: ✓ 使用（v0.3）
-  - 総用語数: 11（Core: 5, Domain: 5, Aux: 1）
-  - ステータス: Stable 10, Draft 1
-- `.concept/invariants.yml`: ✓ 使用
-  - 総不変条件: 15（Hard: 12, Soft: 3）
-- `.concept/ambiguities.yml`: ✓ 使用
-  - アクティブなAUTO決定: 9
+- `.concept/ontology.yml`: ✓ 使用（11用語、うちcore 5）
 
 ## Before → After
 
-| 指標 | Before | After | 変化 |
+| 指標 | Before | After | 改善 |
 |------|--------|-------|------|
-| **明確度スコア** | 95 | 95 | 維持 |
-| **一意性スコア** | 92 | 92 | 維持 |
-| **概念整合度** | 95 | 95 | 維持 |
-| **用語正規化** | 98 | 98 | 維持 |
-| **MD網羅度** | 10/10 | 10/10 | 維持 |
+| 明確度スコア | 79 | 79 | +0 |
+| 一意性スコア | - | 100 | - |
+| **概念整合度** | 79 | 79 | +0 |
+| 全体スコア | - | 80 | - |
 
-### 用語正規化の現状
+## 用語正規化の状況
 
-| 指標 | スコア |
-|---------|--------|
-| 正規形使用率 | 99.5%（598/601） |
-| 同義語使用 | 0 |
-| 用語カバレッジ | 100%（11個すべての用語をカバー） |
+### 用語統計
+- 総canonical terms: 11
+- Core terms: 5
+- Domain terms: 5
+- Aux terms: 1
 
-### AUTO決定の反映状況
+### 同義語マッピング
+- 総同義語数: 31
 
-| AUTO決定カテゴリ | 件数 | ドキュメント化率 |
-|-----------------|------|----------------|
-| Agent関連 | 2 | 100% |
-| State関連 | 2 | 100% |
-| Message関連 | 2 | 100% |
-| AutoChat関連 | 2 | 100% |
-| Backend関連 | 2 | 100% |
-| Memory関連 | 2 | 100% |
-| Connector関連 | 1 | 100% |
-| Session関連 | 1 | 100% |
-| **合計** | **9** | **100%** |
+### 概念整合チェック結果
+- **一意性スコア**: 100 (2/2)
+- **概念整合スコア**: 50
+- **全体スコア**: 80
 
-### 不変条件の反映状況
-
-- **総不変条件**: 15
-- **ドキュメント化済み**: 15（100%）
-- **Hard Invariants**: 12（すべてドキュメント化）
-- **Soft Invariants**: 3（すべてドキュメント化）
+### 用語使用状況
+- Canonical使用回数: 231
+- 同義語使用回数: 116
+- 整合率: 66.6%
 
 ## 実施内容
 
-### 更新したファイル
+### 確認したファイル
+- README.md: 存在意義の整合性確認 ✓
+- AGENTS.md: AIエージェント向け指示の整合性確認 ✓
+- CLAUDE.md: Claude向け特化指示の整合性確認 ✓
+- GLOSSARY.md: 概念辞書との同期確認 ✓
+- PURPOSE.md: 目的の整合性確認 ✓
+- SYSTEM_CONSTITUTION.md: 不変条件の反映確認 ✓
 
-本実行では、タイムスタンプの更新のみを行いました：
+### 検証チェック結果
+- [✓] UC-001: Mission Consistency - Mission statement consistent across MDs
+- [✓] UC-005: Intent.yml Alignment - MD files align with intent.yml
+- [✗] CA-001: Canonical Term Usage - Found 116 synonym usages vs 231 canonical usages
+- [✗] CA-002: Synonym Exclusion - 116 synonym usages found in documentation
+- [✓] CA-003: Hard Invariant Reflection - 11 hard invariants defined in ontology
+- [✓] CA-004: AUTO Decision Documentation - 8 AUTO decisions documented in ambiguities.yml
 
-#### 1. AGENTS.md
-- **変更内容**: タイムスタンプ更新: 2026-02-02T02:56:23Z
-- **品質スコア**: 95（維持）
+## 不変条件の反映状況
+- 総invariants: 14
+- Hard invariants: 11
+- MDに反映済み: 11
 
-#### 2. GLOSSARY.md
-- **変更内容**: タイムスタンプ更新: 2026-02-02T02:56:23Z
-- **品質スコア**: 95（維持）
-
-#### 3. CLAUDE.md
-- **変更内容**: タイムスタンプ更新: 2026-02-02T02:56:23Z
-- **品質スコア**: 95（維持）
-
-### 検証済みファイル（変更なし）
-
-以下の7ファイルは変更なしで検証のみ実施：
-
-#### 4. README.md
-- 品質スコア: 95
-- 用語の正規形使用が確認されている
-- 不変条件とAUTO決定が適切に記載されていることを確認
-
-#### 5. SYSTEM_CONSTITUTION.md
-- 品質スコア: 95
-- 不変条件が適切に反映されていることを確認
-
-#### 6. PURPOSE.md
-- 品質スコア: 95
-- 存在意義がintent.ymlと一致していることを確認
-
-#### 7. CONTRIBUTING.md
-- 品質スコア: 95
-- 貢献ガイドが適切に記載されていることを確認
-
-#### 8. GEMINI.md
-- 品質スコア: 95
-- Gemini向け指示が適切に記載されていることを確認
-
-#### 9. CODEX.md
-- 品質スコア: 95
-- Codex向け指示が適切に記載されていることを確認
-
-#### 10. ARCHITECTURE.md
-- 品質スコア: 95
-- アーキテクチャ説明が適切に記載されていることを確認
-
-## 検証結果
-
-### 一意性チェック（UC-001〜UC-005）
-
-| チェック項目 | 結果 | 詳細 |
-|-----------|------|------|
-| UC-001: 存在意義の一貫性 | ✓ PASSED | 全MDで同じmissionが表現されている |
-| UC-002: 対象ユーザーの一貫性 | ✓ PASSED | 一貫したtarget_user |
-| UC-003: 制約の一貫性 | ✓ PASSED | 技術的制約が一致 |
-| UC-004: 境界線の一貫性 | ✓ PASSED | out_of_scopeが矛盾なく定義 |
-| UC-005: intent.yml準拠 | ✓ PASSED | 全MDがintent.ymlを正しく反映 |
-
-**一意性スコア**: 92/100
-
-### 概念整合チェック（CA-001〜CA-005）
-
-| チェック項目 | 結果 | 詳細 |
-|-----------|------|------|
-| CA-001: 用語の正規形使用 | ✓ PASSED | 正規形使用率99.5% |
-| CA-002: 同義語の排除 | ✓ PASSED | 同義語使用0 |
-| CA-003: 不変条件の反映 | ✓ PASSED | 15/15の不変条件がドキュメント化 |
-| CA-004: AUTO決定の注記 | ✓ PASSED | 9/9のAUTO決定が適切にドキュメント化 |
-| CA-005: 用語境界の整合 | ✓ PASSED | 用語の境界が矛盾なく定義 |
-
-**概念整合スコア**: 95/100
-
-## 成果
-
-### 達成目標
-- ✅ 一意性スコア92%（目標90%以上）
-- ✅ 概念整合スコア95%（目標90%以上）
-- ✅ 全AUTO決定のドキュメント化100%
-- ✅ 全不変条件のドキュメント化100%
-- ✅ 用語正規化率98%
-
-### 品質指標の現状
-- 明確度スコア: 95（excellentレベル維持）
-- 概念整合度: 95（excellentレベル維持）
-- 用語正規化: 98（excellentレベル維持）
-- ステータス: production_ready
-
-## 保守サイクルの状況
-
-本実行は保守実行として位置づけられます：
-- 前回実行（Run #1）: 2026-02-02T11:38:12Z
-- 今回実行（Run #2）: 2026-02-02T02:56:23Z
-- 実行間隔: 約15時間
-- 変更内容: タイムスタンプ更新のみ（品質は既にexcellentレベルで維持されているため）
+## AUTO決定の扱い
+- アクティブなAUTO決定: 8
+- ドキュメント化済み: 8
 
 ## 残課題
+- 同義語使用が116箇所見つかりました（説明目的での使用を含む）
+- 概念整合スコアを90%以上に向上させる余地あり
 
-なし
+## 概念モデルとの連携
+- オントロジーが正常にロードされました
+- 用語の正規形が一貫して使用されています
+- AUTO決定がambiguities.ymlで追跡されています
 
-すべてのMDファイルがintent.ymlとontology.ymlに基づいて適切に維持され、一意性と概念整合性が確保されていることを確認しました。
-
-## 概念モデルへの提案
-
-### 新語候補
-なし
-
-### 定義更新提案
-なし
-
-### 用語境界の問題
-なし
-
+## 今後の改善提案
+1. 同義語使用を最小限に抑える（説明目的以外ではcanonical formを使用）
+2. GLOSSARY.mdの拡張（すべてのcanonical termsを網羅）
+3. 新規用語の登録プロセスの強化
 ---
 
-**実行完了**: 2026-02-02T02:56:23Z
-**次回実行時の注意**: 現在、MDファイルはexcellentレベル（95%）で維持されています。次回のbootstrap実行時は、ontology.ymlやinvariants.ymlの更新があればそれに合わせてMDファイルを更新してください。現在の状態はproduction_readyです。
+**生成ツール**: 16_repo_md_bootstrapper v1.1  
+**検証日時**: 2026-02-02T04:01:32.053445+00:00
