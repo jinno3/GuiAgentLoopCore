@@ -1,65 +1,50 @@
 {
-  "timestamp": "2026-02-02T15:43:00Z",
+  "timestamp": "2026-02-02T16:05:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
 
-  "mission": {
-    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "state control", "bridging"]
-  },
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
 
-  "target_users": {
-    "count": 4,
-    "users": [
-      "Application Developers",
-      "AI Agent Developers",
-      "Framework Developers",
-      "AI Agents"
-    ]
-  },
+  "target_users": [
+    "Application Developers",
+    "AI Agent Developers",
+    "Framework Developers",
+    "AI Agents"
+  ],
 
-  "core_value": {
-    "summary": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-    "pillars": [
-      "Reliable",
-      "Type-safe",
-      "Extensible",
-      "Predictable state management",
-      "Clear component boundaries"
-    ]
-  },
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
 
-  "core_functions": {
-    "count": 5,
-    "functions": [
-      {
-        "name": "Centralized Conversation Management",
-        "key_component": "Interpreter"
-      },
-      {
-        "name": "State Machine with Monotonic Transitions",
-        "key_component": "State"
-      },
-      {
-        "name": "Multi-Agent Coordination",
-        "key_component": "Agent"
-      },
-      {
-        "name": "Structured Message Processing",
-        "key_component": "Message"
-      },
-      {
-        "name": "Backend Abstraction",
-        "key_component": "Backend"
-      }
-    ]
-  },
+  "core_functions": [
+    {
+      "description": "Centralized Conversation Management",
+      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination",
+      "example": "interpreter_manager.py manages chat sessions and state transitions"
+    },
+    {
+      "description": "State Machine with Monotonic Transitions",
+      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants",
+      "example": "change_state_running() ensures state transitions are monotonic"
+    },
+    {
+      "description": "Multi-Agent Coordination",
+      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries",
+      "example": "AgentName enum defines roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
+    },
+    {
+      "description": "Structured Message Processing",
+      "details": "Handle structured communication between users, systems, and agents",
+      "example": "MessageTypeEnum defines: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+    },
+    {
+      "description": "Backend Abstraction",
+      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
+      "example": "GuiBackendType enum: GRADIO, STREAMSYNC"
+    }
+  ],
 
   "boundaries": {
-    "in_scope_count": 6,
-    "out_of_scope_count": 5,
-    "key_in_scope": [
+    "in_scope": [
       "Conversation Flow Management",
       "State Machine",
       "Agent Coordination",
@@ -67,7 +52,7 @@
       "Backend Abstraction",
       "Streaming Support"
     ],
-    "key_out_of_scope": [
+    "out_of_scope": [
       "UI Rendering",
       "LLM Execution",
       "Session Storage",
@@ -76,31 +61,31 @@
     ]
   },
 
-  "success_metrics": {
-    "count": 5,
-    "metrics": [
-      "Integration Time < 1 hour",
-      "Zero state transition bugs",
-      "Agent compatibility without core modifications",
-      "Zero runtime type errors",
-      "All concepts have unambiguous definitions"
-    ]
-  },
+  "success_metrics": [
+    {"metric": "Integration Time", "target": "New applications can integrate GuiAgentLoopCore in < 1 hour"},
+    {"metric": "Bug-Free State Transitions", "target": "Zero state transition bugs in production"},
+    {"metric": "Agent Compatibility", "target": "New agents can be added without core modifications"},
+    {"metric": "Type Safety", "target": "Zero runtime type errors in message handling"},
+    {"metric": "Documentation Clarity", "target": "All concepts have unambiguous definitions"}
+  ],
 
-  "design_philosophy": {
-    "count": 5,
-    "philosophies": [
-      "Correctness Over Convenience",
-      "Explicit Over Implicit",
-      "Small, Focused Components",
-      "Testability",
-      "Conceptual Integrity"
-    ]
-  },
+  "design_philosophy": [
+    {"philosophy": "Correctness Over Convenience", "description": "Prioritize system correctness over developer convenience"},
+    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined"},
+    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility"},
+    {"philosophy": "Testability", "description": "All behavior is testable. Hard invariants have automated tests"},
+    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology"}
+  ],
 
-  "md_integration_points": {
-    "should_appear_in": ["README.md", "PURPOSE.md", "AGENTS.md", "CLAUDE.md"],
-    "mission_words_to_use": ["bridging GUI frameworks and LLM agents", "core logic", "conversation flow", "state control"],
-    "value_words_to_use": ["Reliable", "type-safe", "extensible", "predictable", "clear boundaries"]
+  "summary_for_md": {
+    "one_liner": "Core logic for bridging GUI frameworks and LLM agents with reliable state management",
+    "value_proposition": "Type-safe, extensible foundation with predictable state control",
+    "primary_audience": "Application Developers, AI Agent Developers, Framework Developers, AI Agents",
+    "key_differentiators": [
+      "Monotonic state transitions",
+      "Role-based agent coordination",
+      "Structured message processing",
+      "Backend abstraction"
+    ]
   }
 }

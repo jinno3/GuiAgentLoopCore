@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-02T15:20:00Z",
+  "timestamp": "2026-02-02T15:43:00Z",
   "concept_source": ".concept/ontology.yml v0.3",
   "overall_alignment_score": 98,
   "term_usage_check": {
@@ -14,62 +14,72 @@
       "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
       "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 15
     },
     "Agent": {
       "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
       "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 12
     },
     "Session": {
       "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
       "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 8
     },
     "Message": {
       "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
       "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 14
     },
     "State": {
       "expected_locations": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
       "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 11
     },
     "AutoChat": {
       "expected_locations": ["README.md", "AGENTS.md"],
       "found_in": ["README.md", "AGENTS.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 6
+    },
+    "StreamWrapper": {
+      "expected_locations": ["README.md", "AGENTS.md"],
+      "found_in": ["README.md", "AGENTS.md"],
+      "correctly_used": true,
+      "synonyms_found": [],
+      "occurrences": 5
     },
     "Backend": {
       "expected_locations": ["README.md", "ARCHITECTURE.md"],
       "found_in": ["README.md", "ARCHITECTURE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 7
     },
     "Memory": {
       "expected_locations": ["README.md", "AGENTS.md"],
       "found_in": ["README.md", "AGENTS.md"],
       "correctly_used": true,
       "synonyms_found": [],
+      "occurrences": 4,
       "note": "Marked as 'draft' status in all occurrences"
-    },
-    "StreamWrapper": {
-      "expected_locations": ["README.md", "AGENTS.md"],
-      "found_in": ["README.md", "AGENTS.md"],
-      "correctly_used": true,
-      "synonyms_found": []
     },
     "Connector": {
       "expected_locations": ["AGENTS.md", "ARCHITECTURE.md"],
       "found_in": ["AGENTS.md", "ARCHITECTURE.md"],
       "correctly_used": true,
-      "synonyms_found": []
+      "synonyms_found": [],
+      "occurrences": 3
     }
   },
   "per_file": [
@@ -85,7 +95,8 @@
       "alignment_score": 100,
       "canonical_terms_used": 10,
       "synonyms_used": 0,
-      "issues": []
+      "issues": [],
+      "note": "Perfect normalization table in section 2"
     },
     {
       "file": "CLAUDE.md",
@@ -149,6 +160,7 @@
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": [],
+    "coverage_percentage": 100,
     "by_file": {
       "AGENTS.md": 14,
       "CLAUDE.md": 12,
@@ -161,6 +173,7 @@
     "total_active_decisions": 17,
     "reflected_as_notes": 17,
     "missing_notes": [],
+    "coverage_percentage": 100,
     "by_category": {
       "Agent": 2,
       "State": 3,
@@ -170,19 +183,37 @@
       "Memory": 2,
       "Session": 2,
       "Connector": 1
-    }
+    },
+    "expired_decisions_noted": [
+      {
+        "id": "AMB-SEC-001",
+        "decision_key": "AUTO:Security.secret_key:env_var_required",
+        "severity": "high",
+        "status": "expired - requires action",
+        "note": "This AUTO decision has expired. Security concern: hardcoded secret key needs migration to environment variables."
+      },
+      {
+        "id": "AMB-SEC-002",
+        "decision_key": "AUTO:Session.jwt:decode_method_fix",
+        "severity": "high",
+        "status": "expired - requires action",
+        "note": "This AUTO decision has expired. Bug: jwt_decode_session() method has undefined variables."
+      }
+    ]
   },
   "ambiguity_check": {
     "active_auto_decisions": 17,
     "reflected_as_notes": 17,
     "missing_notes": 0,
     "draft_status_terms": 1,
-    "draft_terms": ["Memory"]
+    "draft_terms": ["Memory"],
+    "expired_decisions": 2,
+    "expired_decisions_require_action": true
   },
   "summary": {
     "term_alignment": "Perfect (100%)",
     "invariant_coverage": "Complete (100%)",
     "auto_decision_documentation": "Complete (100%)",
-    "overall_assessment": "Excellent concept alignment with no inconsistencies found"
+    "overall_assessment": "Excellent concept alignment with no inconsistencies found. Note: 2 expired AUTO decisions require action (security-related)."
   }
 }

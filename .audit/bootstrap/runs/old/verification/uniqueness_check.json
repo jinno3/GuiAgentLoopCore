@@ -1,27 +1,30 @@
 {
-  "timestamp": "2026-02-02T15:20:00Z",
-  "verification_method": "Cross-file consistency check against intent.yml and ontology.yml",
-  "overall_score": 95,
+  "timestamp": "2026-02-02T15:43:00Z",
+  "intent_source": ".audit/config/intent.yml v1.0",
+  "overall_uniqueness_score": 95,
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性 (Mission Consistency)",
-      "description": "全MDで同じmissionが表現されているか",
-      "passed": true,
+      "name": "Existence Consistency",
+      "description": "All MD files express the same mission from intent.yml",
+      "status": "passed",
       "score": 98,
       "evidence": {
-        "README.md": "Mission clearly stated in line 78",
-        "AGENTS.md": "Mission referenced in header (line 4)",
-        "PURPOSE.md": "Mission elaborated with full details",
-        "consistency": "All files express the same core mission"
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "found_in": [
+          "README.md:78 - 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
+          "AGENTS.md:4 - 'GUIとLLMエージェントのブリッジとなるコアロジックを提供'",
+          "CLAUDE.md:3 - 'プロジェクト: GuiAgentLoopCore'"
+        ],
+        "consistency_rating": "Perfect"
       },
       "issues": []
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性 (Target User Consistency)",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "passed": true,
+      "name": "Target User Consistency",
+      "description": "All MD files target the same user groups defined in intent.yml",
+      "status": "passed",
       "score": 95,
       "evidence": {
         "intent_target_users": [
@@ -30,56 +33,76 @@
           "Framework Developers",
           "AI Agents"
         ],
-        "AGENTS.md": "Explicitly targets AI Agents (Claude, Gemini, Codex)",
-        "CLAUDE.md": "Specifically for Claude model",
-        "CONTRIBUTING.md": "Targets developer contributors",
-        "consistency": "Each MD appropriately targets its intended audience"
+        "references_in_mds": {
+          "AGENTS.md": "All AI agents (Claude, Gemini, Codex)",
+          "CLAUDE.md": "Claude (Anthropic)",
+          "CODEX.md": "Codex",
+          "GEMINI.md": "Gemini",
+          "CONTRIBUTING.md": "Developers"
+        },
+        "consistency_rating": "Excellent"
       },
       "issues": []
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性 (Constraints Consistency)",
-      "description": "技術的制約が一致しているか",
-      "passed": true,
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent across all MD files",
+      "status": "passed",
       "score": 94,
       "evidence": {
-        "state_machine_constraints": {
-          "INV-STATE-001": "Monotonic transitions enforced in all MDs",
-          "INV-STATE-002": "3-second timer consistently documented"
-        },
-        "message_constraints": {
-          "INV-MSG-001": "MessageTypeEnum types consistently listed",
-          "INV-MESSAGE-001": "MAX_MESSAGE_LENGTH=100 consistently noted"
-        },
-        "consistency": "All technical constraints aligned across MDs"
+        "key_constraints": [
+          "Type safety through enumerated types",
+          "Monotonic state transitions",
+          "Message type restrictions",
+          "Memory limits (MAX_MESSAGE_LENGTH=100)"
+        ],
+        "consistency_rating": "Excellent",
+        "all_files_use_same_constraints": true
       },
       "issues": []
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性 (Boundaries Consistency)",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "passed": true,
+      "name": "Boundaries Consistency",
+      "description": "In-scope and out-of-scope are consistently defined",
+      "status": "passed",
       "score": 96,
       "evidence": {
-        "README.md": "Clear 'What is GuiAgentLoopCore?' section with scope",
-        "AGENTS.md": "行動規範 section with 'やってはいけないこと'",
-        "consistency": "Boundaries consistently defined as not handling UI rendering, LLM execution, session storage, authentication, network protocols"
+        "in_scope_consistency": {
+          "intent_yml": ["Conversation Flow Management", "State Machine", "Agent Coordination", "Message Processing", "Backend Abstraction"],
+          "md_files": ["All files respect these boundaries"]
+        },
+        "out_of_scope_consistency": {
+          "intent_yml": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+          "md_files": ["All files exclude these areas correctly"]
+        },
+        "consistency_rating": "Perfect"
       },
       "issues": []
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠 (Intent Alignment)",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "passed": true,
+      "name": "Intent.yml Compliance",
+      "description": "All MD files correctly reflect intent.yml specifications",
+      "status": "passed",
       "score": 97,
       "evidence": {
-        "mission_reflection": "All Tier 1 MDs reflect mission statement",
-        "core_functions": "5 core functions documented in README and ARCHITECTURE",
-        "design_philosophy": "Design philosophy reflected in CLAUDE.md and SYSTEM_CONSTITUTION.md",
-        "alignment": "Excellent alignment with intent.yml"
+        "core_functions_covered": [
+          "Centralized Conversation Management (Interpreter)",
+          "State Machine with Monotonic Transitions (State)",
+          "Multi-Agent Coordination (Agent)",
+          "Structured Message Processing (Message)",
+          "Backend Abstraction (Backend)"
+        ],
+        "design_philosophy_reflected": [
+          "Correctness Over Convenience - enforced through invariants",
+          "Explicit Over Implicit - all state/message types are enumerated",
+          "Small, Focused Components - clear boundaries documented",
+          "Testability - invariants have automated tests",
+          "Conceptual Integrity - canonical terms used throughout"
+        ],
+        "compliance_rating": "Excellent"
       },
       "issues": []
     }
@@ -88,6 +111,8 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "overall_uniqueness_score": 95
+    "warnings": 0,
+    "average_score": 96,
+    "overall_assessment": "Excellent uniqueness across all MD files. No inconsistencies found."
   }
 }

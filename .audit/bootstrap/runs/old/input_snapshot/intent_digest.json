@@ -1,42 +1,106 @@
 {
-  "timestamp": "2026-02-02T15:20:00Z",
+  "timestamp": "2026-02-02T15:43:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-  "target_users": [
-    "Application Developers: Building LLM-powered applications with GUI interfaces",
-    "AI Agent Developers: Creating specialized agents for specific tasks",
-    "Framework Developers: Building new GUI backend implementations",
-    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
-  ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-  "core_functions": [
-    "Centralized Conversation Management",
-    "State Machine with Monotonic Transitions",
-    "Multi-Agent Coordination",
-    "Structured Message Processing",
-    "Backend Abstraction"
-  ],
-  "in_scope": [
-    "Conversation Flow Management",
-    "State Machine",
-    "Agent Coordination",
-    "Message Processing",
-    "Backend Abstraction",
-    "Streaming Support"
-  ],
-  "out_of_scope": [
-    "UI Rendering",
-    "LLM Execution",
-    "Session Storage",
-    "Authentication",
-    "Network Protocols"
-  ],
-  "design_philosophy": [
-    "Correctness Over Convenience",
-    "Explicit Over Implicit",
-    "Small, Focused Components",
-    "Testability",
-    "Conceptual Integrity"
-  ]
+  "created_at": "2026-02-02T00:00:00Z",
+
+  "mission": {
+    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "state control", "bridging"]
+  },
+
+  "target_users": {
+    "count": 4,
+    "users": [
+      "Application Developers",
+      "AI Agent Developers",
+      "Framework Developers",
+      "AI Agents"
+    ]
+  },
+
+  "core_value": {
+    "summary": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+    "pillars": [
+      "Reliable",
+      "Type-safe",
+      "Extensible",
+      "Predictable state management",
+      "Clear component boundaries"
+    ]
+  },
+
+  "core_functions": {
+    "count": 5,
+    "functions": [
+      {
+        "name": "Centralized Conversation Management",
+        "key_component": "Interpreter"
+      },
+      {
+        "name": "State Machine with Monotonic Transitions",
+        "key_component": "State"
+      },
+      {
+        "name": "Multi-Agent Coordination",
+        "key_component": "Agent"
+      },
+      {
+        "name": "Structured Message Processing",
+        "key_component": "Message"
+      },
+      {
+        "name": "Backend Abstraction",
+        "key_component": "Backend"
+      }
+    ]
+  },
+
+  "boundaries": {
+    "in_scope_count": 6,
+    "out_of_scope_count": 5,
+    "key_in_scope": [
+      "Conversation Flow Management",
+      "State Machine",
+      "Agent Coordination",
+      "Message Processing",
+      "Backend Abstraction",
+      "Streaming Support"
+    ],
+    "key_out_of_scope": [
+      "UI Rendering",
+      "LLM Execution",
+      "Session Storage",
+      "Authentication",
+      "Network Protocols"
+    ]
+  },
+
+  "success_metrics": {
+    "count": 5,
+    "metrics": [
+      "Integration Time < 1 hour",
+      "Zero state transition bugs",
+      "Agent compatibility without core modifications",
+      "Zero runtime type errors",
+      "All concepts have unambiguous definitions"
+    ]
+  },
+
+  "design_philosophy": {
+    "count": 5,
+    "philosophies": [
+      "Correctness Over Convenience",
+      "Explicit Over Implicit",
+      "Small, Focused Components",
+      "Testability",
+      "Conceptual Integrity"
+    ]
+  },
+
+  "md_integration_points": {
+    "should_appear_in": ["README.md", "PURPOSE.md", "AGENTS.md", "CLAUDE.md"],
+    "mission_words_to_use": ["bridging GUI frameworks and LLM agents", "core logic", "conversation flow", "state control"],
+    "value_words_to_use": ["Reliable", "type-safe", "extensible", "predictable", "clear boundaries"]
+  }
 }
