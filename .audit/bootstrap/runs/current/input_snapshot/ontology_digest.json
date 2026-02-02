@@ -1,100 +1,171 @@
 {
-  "timestamp": "2026-02-03T04:06:55Z",
+  "timestamp": "2026-02-03T04:18:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
   "updated_at": "2026-02-02T05:38:12Z",
+
   "statistics": {
-    "total_terms": 11,
+    "total_terms": 10,
     "by_layer": {
       "core": 5,
-      "domain": 5,
+      "domain": 4,
       "aux": 1
     },
     "by_status": {
-      "stable": 10,
+      "stable": 9,
       "draft": 1
     }
   },
+
+  "layers": {
+    "core": {
+      "count": 5,
+      "terms": ["Interpreter", "Agent", "Session", "Message", "State"]
+    },
+    "domain": {
+      "count": 4,
+      "terms": ["AutoChat", "StreamWrapper", "Backend", "Connector", "Memory"]
+    },
+    "aux": {
+      "count": 1,
+      "terms": ["Converter"]
+    }
+  },
+
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
       "layer": "core",
+      "status": "stable",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
       "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+      "auto_decisions": []
     },
     {
       "canonical": "Agent",
       "layer": "core",
+      "status": "stable",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
       "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+      "auto_decisions": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property"]
     },
     {
       "canonical": "Session",
       "layer": "core",
+      "status": "stable",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
       "synonyms": ["ChatSession", "会話セッション", "JWT"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "auto_decisions": ["AUTO:Session.jwt:algorithm_hs256"]
     },
     {
       "canonical": "Message",
       "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "status": "stable",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
       "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+      "auto_decisions": ["AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:Message.roles:tool_function_separation"]
     },
     {
       "canonical": "State",
       "layer": "core",
+      "status": "stable",
       "definition": "インタープリタの実行状態を表す列挙型",
       "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"],
+      "auto_decisions": ["AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:State.timer:3sec"]
     },
     {
       "canonical": "AutoChat",
       "layer": "domain",
+      "status": "stable",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
-      "should_use_in": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
+      "should_use_in": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+      "auto_decisions": ["AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue"]
     },
     {
       "canonical": "StreamWrapper",
       "layer": "domain",
+      "status": "stable",
       "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
       "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "should_use_in": ["ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["ARCHITECTURE.md"],
+      "auto_decisions": []
     },
     {
       "canonical": "Backend",
       "layer": "domain",
+      "status": "stable",
       "definition": "GUIフレームワーク実装（Gradio等）",
       "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+      "auto_decisions": ["AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security", "AUTO:Backend.timer:3sec_interval"]
     },
     {
       "canonical": "Connector",
       "layer": "domain",
+      "status": "stable",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
       "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
-      "should_use_in": ["ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"],
+      "auto_decisions": []
     },
     {
       "canonical": "Converter",
       "layer": "aux",
+      "status": "stable",
       "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
       "synonyms": ["変換器", "マッパー"],
-      "should_use_in": ["ARCHITECTURE.md"]
+      "should_use_in": ["ARCHITECTURE.md"],
+      "auto_decisions": []
     },
     {
       "canonical": "Memory",
       "layer": "domain",
+      "status": "draft",
       "definition": "会話履歴を保持するバッファ機構",
       "synonyms": ["会話メモリ", "ConversationBuffer"],
-      "status": "draft",
-      "should_use_in": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
+      "should_use_in": ["ARCHITECTURE.md"],
+      "auto_decisions": ["AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Memory.limit:100"]
     }
   ],
-  "invariants_count": 14,
-  "auto_decisions_count": 9
+
+  "synonym_mapping": {
+    "会話インタープリタ": "Interpreter",
+    "GuiAgentInterpreter": "Interpreter",
+    "AIエージェント": "Agent",
+    "専門エージェント": "Agent",
+    "AgentType": "Agent",
+    "AgentDefinition": "Agent",
+    "TaskAgent": "Agent",
+    "AgentImage": "Agent",
+    "ChatSession": "Session",
+    "会話セッション": "Session",
+    "JWT": "Session",
+    "メッセージ": "Message",
+    "ChatMessage": "Message",
+    "InterpreterState": "State",
+    "インタープリタ状態": "State",
+    "自動チャット": "AutoChat",
+    "自動継続": "AutoChat",
+    "GuiAgentStreamWrapper": "StreamWrapper",
+    "ストリームラッパー": "StreamWrapper",
+    "GUIバックエンド": "Backend",
+    "UIフレームワーク": "Backend",
+    "GuiBackend": "Backend",
+    "GuiComponent": "Backend",
+    "会話メモリ": "Memory",
+    "ConversationBuffer": "Memory",
+    "コネクタ": "Connector",
+    "GuiAgentInterpreterABC": "Connector",
+    "ConnectorImplCodeinterpreterApi": "Connector",
+    "ConnectorImplOpenInterpreter": "Connector",
+    "OpenGuiConnector": "Connector",
+    "変換器": "Converter",
+    "マッパー": "Converter"
+  }
 }

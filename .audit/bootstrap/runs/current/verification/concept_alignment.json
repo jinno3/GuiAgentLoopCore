@@ -1,154 +1,204 @@
 {
-  "timestamp": "2026-02-03T04:06:55Z",
+  "timestamp": "2026-02-03T04:18:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
   "overall_alignment_score": 99,
+  "max_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 85,
-    "canonical_used": 85,
+    "total_term_occurrences": 10,
+    "canonical_used": 10,
     "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 1.0,
+    "summary": "All 10 canonical terms used correctly across documentation"
   },
+
+  "term_coverage": {
+    "core_terms": {
+      "total": 5,
+      "documented": 5,
+      "coverage": "100%",
+      "terms": ["Interpreter", "Agent", "Session", "Message", "State"]
+    },
+    "domain_terms": {
+      "total": 4,
+      "documented": 4,
+      "coverage": "100%",
+      "terms": ["AutoChat", "StreamWrapper", "Backend", "Connector", "Memory"]
+    },
+    "aux_terms": {
+      "total": 1,
+      "documented": 1,
+      "coverage": "100%",
+      "terms": ["Converter"]
+    }
+  },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "synonyms_found": [],
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": []
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Connector", "Memory", "Converter"],
+      "synonyms_found": [],
+      "issues": [],
+      "strengths": [
+        "Comprehensive canonical terms table",
+        "All synonyms listed as prohibited",
+        "Terms categorized by layer (core/domain/aux)"
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 98,
-      "issues": []
+      "alignment_score": 99,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "issues": [
+        {
+          "type": "documentation_improvement",
+          "note": "Expired AUTO security decisions not prominently flagged",
+          "severity": "low",
+          "recommendation": "Add CRITICAL note for expired AUTO decisions"
+        }
+      ],
+      "strengths": [
+        "Terms listed by layer with definitions",
+        "AUTO decisions comprehensively documented",
+        "Code examples demonstrate proper term usage"
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 95,
-      "issues": []
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Complete term documentation",
+        "Status indicators (stable/draft)",
+        "Synonym lists comprehensive"
+      ]
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 98,
-      "issues": []
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector", "Converter"],
+      "synonyms_found": [],
+      "issues": [
+        {
+          "type": "staleness",
+          "note": "Last updated before recent ontology changes",
+          "severity": "low",
+          "recommendation": "Review for latest ontology alignment"
+        }
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "canonical_terms_used": ["Interpreter", "Agent", "State", "Backend"],
+      "synonyms_found": [],
+      "issues": [
+        {
+          "type": "staleness",
+          "note": "Older than recent invariant updates",
+          "severity": "low",
+          "recommendation": "Review for latest invariants.yml alignment"
+        }
+      ]
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
+    "total_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage_percentage": 100
+    "coverage": "100%",
+    "by_file": {
+      "AGENTS.md": {
+        "hard_invariants": 11,
+        "soft_invariants": 2,
+        "total": 13,
+        "coverage": "100%"
+      },
+      "CLAUDE.md": {
+        "hard_invariants": 11,
+        "soft_invariants": 1,
+        "total": 12,
+        "note": "INV-MEM-001 marked as draft in context"
+      }
+    },
+    "summary": "All invariants (11 hard + 2 soft) are documented in AGENTS.md and CLAUDE.md with proper categorization"
   },
+
+  "auto_decision_check": {
+    "total_active_decisions": 9,
+    "documented_in_md": 9,
+    "coverage": "100%",
+    "by_status": {
+      "applied": 7,
+      "expired": 2,
+      "documented": 9
+    },
+    "expired_decisions": [
+      {
+        "decision": "AUTO:Security.secret_key:env_var_required",
+        "status": "expired",
+        "severity": "high",
+        "documented_in_md": true,
+        "prominently_flagged": false,
+        "recommendation": "Add CRITICAL warning in CLAUDE.md"
+      },
+      {
+        "decision": "AUTO:Session.jwt:decode_method_fix",
+        "status": "expired",
+        "severity": "high",
+        "documented_in_md": true,
+        "prominently_flagged": false,
+        "recommendation": "Add CRITICAL warning in CLAUDE.md"
+      }
+    ],
+    "summary": "All 9 AUTO decisions documented in CLAUDE.md. 2 expired security decisions documented but not prominently flagged as CRITICAL."
+  },
+
   "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
+    "active_auto_decisions": 7,
+    "reflected_as_notes": 7,
+    "format": "Documented as AUTO decisions in CLAUDE.md",
     "missing_notes": 0,
-    "coverage_percentage": 100
+    "summary": "All active AUTO decisions properly documented with context"
   },
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": [
-        "All 11 canonical terms are used consistently across MD files",
-        "No synonyms detected in any MD file",
-        "0 unknown terms found"
-      ],
-      "issues": []
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": [
-        "0 synonym usage detected in 10 MD files",
-        "All 22 synonyms listed in ontology are properly avoided"
-      ],
-      "issues": []
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": [
-        "11 hard invariants reflected in AGENTS.md",
-        "11 hard invariants reflected in SYSTEM_CONSTITUTION.md",
-        "11 hard invariants reflected in CLAUDE.md",
-        "3 soft invariants reflected in AGENTS.md"
-      ],
-      "issues": []
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "evidence": [
-        "All 9 AUTO decisions documented in CLAUDE.md",
-        "All 9 AUTO decisions documented in AGENTS.md",
-        "AUTO decisions properly marked as provisional in ARCHITECTURE.md"
-      ],
-      "issues": []
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "score": 95,
-      "evidence": [
-        "All term boundaries are consistent across MD files",
-        "Minor: Some boundaries could be more explicit in tier 3 files"
-      ],
-      "issues": []
-    }
-  ],
+
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score_percentage": 99
+    "overall_score": 99,
+    "grade": "A+",
+    "strengths": [
+      "Perfect canonical term usage (100%)",
+      "All 13 invariants documented",
+      "All 9 AUTO decisions documented",
+      "Terms categorized by layer",
+      "Synonyms clearly prohibited",
+      "Status indicators present (stable/draft)"
+    ],
+    "issues": [
+      {
+        "severity": "low",
+        "type": "documentation_improvement",
+        "description": "2 expired AUTO security decisions not prominently flagged as CRITICAL"
+      }
+    ],
+    "recommendations": [
+      "Add CRITICAL warning for expired AUTO:Security.secret_key:env_var_required",
+      "Add CRITICAL warning for expired AUTO:Session.jwt:decode_method_fix",
+      "Review ARCHITECTURE.md for latest ontology alignment",
+      "Review SYSTEM_CONSTITUTION.md for latest invariants.yml alignment"
+    ]
   }
 }

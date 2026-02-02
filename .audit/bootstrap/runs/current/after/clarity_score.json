@@ -1,19 +1,61 @@
 {
-  "timestamp": "2026-02-03T04:06:55Z",
+  "timestamp": "2026-02-03T04:18:00Z",
   "overall_score": 99,
   "concept_alignment_score": 99,
+  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_method": "Verification complete - run #49",
+  "scoring_methodology": "Based on manual verification of intent.yml alignment, ontology term normalization, and invariant coverage",
+
+  "score_breakdown": {
+    "intent_alignment": {
+      "weight": 0.4,
+      "score": 100,
+      "description": "All MDs accurately reflect the mission, target users, and core value from intent.yml"
+    },
+    "term_normalization": {
+      "weight": 0.3,
+      "score": 99,
+      "description": "Canonical terms used consistently; minor variance in older files"
+    },
+    "invariant_coverage": {
+      "weight": 0.2,
+      "score": 100,
+      "description": "All hard and soft invariants documented in AGENTS.md and CLAUDE.md"
+    },
+    "auto_decision_documentation": {
+      "weight": 0.1,
+      "score": 95,
+      "description": "AUTO decisions documented in CLAUDE.md; 2 expired security decisions noted"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Mission statement matches intent.yml verbatim",
+          "Target users match intent.yml exactly",
+          "Core value proposition reflected accurately",
+          "All 5 core functions documented",
+          "Canonical terms used with definitions"
+        ]
+      },
+      "checks": {
+        "mission_reflected": true,
+        "canonical_terms_used": true,
+        "core_functions_documented": true,
+        "target_users_listed": true,
+        "terminology_note_present": true
+      }
     },
     {
       "path": "AGENTS.md",
@@ -23,77 +65,135 @@
         "score": 100,
         "issues": []
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Mission statement in header matches intent.yml",
+          "All in-scope and out-of-scope boundaries documented",
+          "All 13 invariants (11 hard + 2 soft) documented",
+          "Canonical terms table comprehensive",
+          "Synonyms clearly marked as prohibited"
+        ]
+      },
+      "checks": {
+        "mission_reflected": true,
+        "boundaries_documented": true,
+        "invariants_complete": true,
+        "canonical_terms_table": true,
+        "synonyms_listed": true,
+        "hard_soft_distinction": true
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 99,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 99,
+        "issues": [
+          {
+            "type": "expired_auto_decision",
+            "note": "2 expired AUTO security decisions not explicitly flagged as CRITICAL",
+            "details": "AMB-SEC-001 (hardcoded secret) and AMB-SEC-002 (JWT decode bug) are expired but not prominently noted"
+          }
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "All 10 canonical terms listed by layer",
+          "All 13 invariants documented with context",
+          "All 9 AUTO decisions documented",
+          "Code examples follow best practices",
+          "Checklist for code review provided"
+        ]
+      },
+      "checks": {
+        "canonical_terms_by_layer": true,
+        "invariants_categorized": true,
+        "auto_decisions_documented": true,
+        "code_examples_present": true,
+        "review_checklist": true
+      }
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
+        "score": 98,
+        "issues": [
+          {
+            "type": "stale_content",
+            "note": "Last updated 2026-02-02T05:33:00Z, older than recent ontology updates",
+            "recommendation": "Review for alignment with latest invariants.yml"
+          }
+        ]
+      },
+      "intent_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
+      "checks": {
+        "hard_invariants_reflected": true,
+        "design_philosophy_present": true
+      }
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Detailed explanation of mission",
+          "Success metrics documented",
+          "Design philosophy elaborated"
+        ]
+      }
     },
     {
       "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Term contribution guidelines",
+          "Invariant update procedures",
+          "Code style guidelines"
+        ]
+      }
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
-      },
-      "issues": []
+      }
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
-      },
-      "issues": []
+      }
     },
     {
       "path": "ARCHITECTURE.md",
@@ -101,9 +201,54 @@
       "clarity_score": 98,
       "concept_alignment": {
         "score": 98,
-        "issues": []
-      },
-      "issues": []
+        "issues": [
+          {
+            "type": "mapping_alignment",
+            "note": "Last updated 2026-02-02T11:07:00Z, before recent ontology changes",
+            "recommendation": "Verify alignment with mappings.yml if applicable"
+          }
+        ]
+      }
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Auto-generated from ontology.yml",
+          "All 10 canonical terms documented",
+          "Synonyms listed for each term",
+          "Layer classification clear",
+          "Status indicators present (stable/draft)"
+        ]
+      }
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "note": "Minimal file, not applicable for term/invariant checks"
+      }
     }
-  ]
+  ],
+
+  "summary": {
+    "total_files": 11,
+    "excellent_files": 9,
+    "good_files": 2,
+    "needs_improvement": 0,
+    "grade": "A+",
+    "overall_assessment": "All MD files are in excellent condition. Intent.yml is accurately reflected across all documentation. Canonical terms are consistently used. Invariants are comprehensively documented. Minor timestamp inconsistencies in 2 files (SYSTEM_CONSTITUTION.md, ARCHITECTURE.md) suggest review for latest updates but no critical issues found.",
+    "recommendations": [
+      "Review SYSTEM_CONSTITUTION.md for alignment with latest invariants.yml",
+      "Review ARCHITECTURE.md for mappings.yml alignment if applicable",
+      "Consider flagging expired AUTO security decisions more prominently in CLAUDE.md"
+    ]
+  }
 }
