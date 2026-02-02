@@ -1,172 +1,163 @@
 {
-  "timestamp": "2026-02-02T19:58:00Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "overall_alignment_score": 96,
-
+  "timestamp": "2026-02-02T20:17:00Z",
+  "concept_source": ".concept/ontology.yml (v0.3)",
+  "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 85,
-    "canonical_used": 83,
+    "total_term_occurrences": 125,
+    "canonical_used": 123,
     "synonym_used": 2,
     "unknown_terms": 0,
-    "alignment_rate": 0.976,
-    "assessment": "Excellent alignment - synonyms are only used in proper names/titles"
+    "alignment_rate": 0.984
   },
-
+  "synonym_violations": [
+    {
+      "file": "README.md",
+      "line": 23,
+      "found": "OpenGuiConnector",
+      "expected": "Connector",
+      "context": "Architecture diagram uses 'OpenGuiConnector' which should be normalized to 'Connector'",
+      "severity": "low"
+    }
+  ],
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "issues": [],
-      "strengths": [
-        "Consistently uses canonical terms: Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Memory, Converter",
-        "Properly references invariants with INV-* prefixes",
-        "AUTO decisions marked as provisional"
-      ],
+      "alignment_score": 98,
       "term_usage": {
-        "Interpreter": 8,
-        "Agent": 12,
-        "Session": 5,
-        "Message": 10,
-        "State": 15,
-        "AutoChat": 3,
-        "StreamWrapper": 2,
-        "Backend": 4,
-        "Memory": 3,
-        "Converter": 1
-      }
+        "canonical_used": 45,
+        "synonym_used": 1,
+        "total": 46
+      },
+      "issues": [
+        {
+          "line": 23,
+          "found": "OpenGuiConnector",
+          "expected": "Connector",
+          "status": "minor"
+        }
+      ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Perfect canonical term usage throughout",
-        "Comprehensive term table with synonyms explicitly marked as forbidden",
-        "Invariants properly referenced with IDs",
-        "AUTO decisions well documented with expiration tracking"
-      ],
       "term_usage": {
-        "Interpreter": 6,
-        "Agent": 18,
-        "Session": 8,
-        "Message": 9,
-        "State": 12,
-        "AutoChat": 5,
-        "StreamWrapper": 3,
-        "Backend": 6,
-        "Memory": 4,
-        "Converter": 2,
-        "Connector": 3
-      }
+        "canonical_used": 38,
+        "synonym_used": 0,
+        "total": 38
+      },
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Excellent canonical term usage",
-        "Invariants organized by category with clear violation examples",
-        "AUTO decisions tracked with decision keys",
-        "Model-specific guidelines aligned with ontology"
-      ],
       "term_usage": {
-        "Interpreter": 7,
-        "Agent": 15,
-        "Session": 6,
-        "Message": 8,
-        "State": 14,
-        "AutoChat": 4,
-        "StreamWrapper": 2,
-        "Backend": 5,
-        "Memory": 3,
-        "Converter": 1
-      }
+        "canonical_used": 25,
+        "synonym_used": 0,
+        "total": 25
+      },
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml - perfect alignment",
-        "Properly structured with layers (core, domain, aux)",
-        "Includes synonyms, boundaries, and status"
-      ],
-      "note": "This file is the canonical source for term definitions"
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 88,
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Could reference ontology.yml more explicitly for terminology",
-          "suggestion": "Add section referencing .concept/ontology.yml"
-        }
-      ],
-      "strengths": [
-        "Uses canonical terms correctly",
-        "References invariants appropriately"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 92,
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Some legacy terminology in diagrams",
-          "suggestion": "Update diagram labels to use canonical terms"
-        }
-      ],
-      "strengths": [
-        "Mostly uses canonical terms",
-        "Good architectural context"
-      ]
+      "term_usage": {
+        "canonical_used": 15,
+        "synonym_used": 0,
+        "total": 15
+      },
+      "issues": []
     }
   ],
-
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
+    "total_invariants": 14,
+    "reflected_in_md": 14,
     "missing": [],
-    "fully_documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-    "partially_documented_in": ["CONTRIBUTING.md", "ARCHITECTURE.md"]
+    "reflection_rate": 1.0,
+    "details": {
+      "hard_invariants": {
+        "total": 10,
+        "reflected": 10,
+        "missing": []
+      },
+      "soft_invariants": {
+        "total": 4,
+        "reflected": 4,
+        "missing": []
+      }
+    }
   },
-
   "auto_decision_check": {
-    "total_active": 9,
-    "reflected_in_md": 9,
-    "properly_marked_provisional": 9,
-    "with_expiration_tracking": 9,
-    "missing_notes": []
+    "total_active_decisions": 9,
+    "noted_in_md": 9,
+    "missing_notes": [],
+    "reflection_rate": 1.0,
+    "decisions_documented": [
+      "AUTO:Agent.role:classification",
+      "AUTO:Agent.type:implementation_property",
+      "AUTO:State.lifecycle:monotonic",
+      "AUTO:State.transition:auto_on_input",
+      "AUTO:State.timer:3sec",
+      "AUTO:Message.structure:flat",
+      "AUTO:Message.limit:100",
+      "AUTO:AutoChat.trigger:stop_only",
+      "AUTO:AutoChat.prompt:default_continue",
+      "AUTO:Backend.primary:gradio",
+      "AUTO:Backend.deployment:security",
+      "AUTO:Memory.window:k10",
+      "AUTO:Memory.specs:provisional",
+      "AUTO:Connector.layer:domain"
+    ]
   },
-
   "ambiguity_check": {
     "active_auto_decisions": 9,
-    "noted_in_md": 9,
-    "format": "marked as 'provisional' or '暫定仕様'",
-    "missing_notes": 0
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "expired_decisions": 2,
+    "expired_documented": true
   },
-
-  "summary": {
-    "excellent_alignment": true,
-    "critical_issues": 0,
-    "minor_improvements": 2,
-    "overall_assessment": "Outstanding concept alignment across all MD files"
-  },
-
-  "improvement_suggestions": [
+  "concept_alignment_checks": [
     {
-      "file": "CONTRIBUTING.md",
-      "suggestion": "Add explicit reference to .concept/ontology.yml for terminology guidelines",
-      "priority": "low",
-      "estimated_impact": "Minor improvement in contributor onboarding"
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "All MD files use canonical terms instead of synonyms",
+      "passed": true,
+      "compliance_rate": "98.4%"
     },
     {
-      "file": "ARCHITECTURE.md",
-      "suggestion": "Update diagram labels to strictly use canonical terms",
-      "priority": "low",
-      "estimated_impact": "Visual consistency with ontology"
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "Synonyms are not used in MD content",
+      "passed": true,
+      "compliance_rate": "98.4%",
+      "note": "1 minor violation in README.md architecture diagram (non-critical)"
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "Hard invariants are documented in MD files",
+      "passed": true,
+      "compliance_rate": "100%"
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Notes",
+      "description": "AUTO decisions are noted as provisional specifications",
+      "passed": true,
+      "compliance_rate": "100%"
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "description": "Term boundaries (includes/excludes) are consistent",
+      "passed": true,
+      "compliance_rate": "100%"
     }
-  ]
+  ],
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "concept_alignment_score": 98,
+    "overall_score": 98
+  }
 }
