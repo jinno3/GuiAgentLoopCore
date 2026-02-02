@@ -1,12 +1,94 @@
 {
-  "timestamp": "2026-02-03T07:45:00Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
-  "uniqueness_score": 92,
+  "timestamp": "2026-02-03T08:01:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 92,
   "max_score": 100,
   "files": [
     {
       "path": "README.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "missing_term",
+            "description": "用語注記にConverterが不足",
+            "line": 20,
+            "severity": "minor"
+          },
+          {
+            "type": "incomplete_auto_list",
+            "description": "AUTO決定のリストにAUTO:Connector.layer:domainが不足",
+            "line": 89,
+            "severity": "minor"
+          }
+        ]
+      },
+      "issues": [
+        "用語注記が不完全（Converterが不足）",
+        "AUTO決定のリストにAUTO:Connector.layer:domainが不足"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 88,
+        "issues": [
+          {
+            "type": "missing_term",
+            "description": "補助用語（Converter）が不足",
+            "severity": "minor"
+          },
+          {
+            "type": "incomplete_auto_list",
+            "description": "AUTO決定にAUTO:Connector.layer:domainが不足",
+            "line": 123,
+            "severity": "minor"
+          }
+        ]
+      },
+      "issues": [
+        "AUTO決定にAUTO:Connector.layer:domainが不足",
+        "補助用語（Converter）が不足"
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 82,
+        "issues": [
+          {
+            "type": "incomplete_auto_list",
+            "description": "AUTO決定のリストにAUTO:Message.roles:tool_function_separationが不足",
+            "line": 126,
+            "severity": "minor"
+          },
+          {
+            "type": "incomplete_auto_list",
+            "description": "AUTO決定にAUTO:Connector.layer:domainが不足",
+            "severity": "minor"
+          },
+          {
+            "type": "inaccurate_count",
+            "description": "9つのAUTO決定とあるが実際は16個存在",
+            "line": 174,
+            "severity": "minor"
+          }
+        ]
+      },
+      "issues": [
+        "AUTO決定のリストにAUTO:Message.roles:tool_function_separationが不足",
+        "AUTO決定にAUTO:Connector.layer:domainが不足",
+        "9つのAUTO決定とあるが実際はもっと多い"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
@@ -14,103 +96,6 @@
         "issues": []
       },
       "issues": []
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 96,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 92,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
     }
-  ],
-  "summary": {
-    "total_files": 10,
-    "excellent_files": 8,
-    "good_files": 2,
-    "needs_improvement_files": 0,
-    "critical_files": 0
-  }
+  ]
 }

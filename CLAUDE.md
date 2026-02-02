@@ -32,6 +32,11 @@ Claudeは、このリポジトリの`.concept/ontology.yml`で定義された正
 
 用語の完全なリストは[GLOSSARY.md](GLOSSARY.md)を参照してください。
 
+このプロジェクトには**11個の正規用語**が定義されています：
+- **Core (5)**: Interpreter, Agent, Session, Message, State
+- **Domain (5)**: AutoChat, StreamWrapper, Backend, Memory, Connector
+- **Auxiliary (1)**: Converter
+
 ### 2. 不変条件の遵守
 
 Claudeは、以下のhard invariantsを絶対に違反しません：
@@ -124,6 +129,7 @@ Claudeは、AUTO決定（`.concept/ambiguities.yml`に記録）を暫定仕様�
 #### Message関連のAUTO決定
 - **AUTO:Message.structure:flat** - メッセージは再帰的にフラット化可能
 - **AUTO:Message.limit:100** - MAX_MESSAGE_LENGTH=100はハードリミット
+- **AUTO:Message.roles:tool_function_separation** - TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）
 
 #### State関連のAUTO決定
 - **AUTO:State.lifecycle:monotonic** - 状態は単調遷移する（INIT → RUNNING → STOP）
@@ -141,8 +147,16 @@ Claudeは、AUTO決定（`.concept/ambiguities.yml`に記録）を暫定仕様�
 #### Memory関連のAUTO決定
 - **AUTO:Memory.window:k10** - メモリウィンドウサイズはk=10（暫定）
 - **AUTO:Memory.specs:provisional** - ウィンドウサイズk=10（rolling）、最大長100（hard limit）（暫定）
+- **AUTO:Memory.limit:100** - 100は安全上限（暫定）
+- **AUTO:Memory.implementation:dual_provisional** - 両者は暫定的に共存（移行期間中とみなす）
 
-> **注意**: これらのAUTO決定は暫定仕様です。変更する必要がある場合、まず`.concept/ambiguities.yml`を確認し、変更の正当性を説明するevidenceを提供してください。
+#### Session関連のAUTO決定
+- **AUTO:Session.jwt:algorithm_hs256** - JWTはHS256アルゴリズム使用（暫定）
+
+#### Connector関連のAUTO決定
+- **AUTO:Connector.layer:domain** - Connectorは正規概念（domain層）
+
+> **注意**: これらは主要なAUTO決定です。全16個のAUTO決定については`.concept/ontology.yml`を参照してください。
 
 ### 4. ステートフルな操作の注意
 
@@ -168,10 +182,10 @@ Claudeは、以下のステートフルな操作で特に注意を払います�
 
 Claudeの以下の特性を活かして、このプロジェクトに貢献してください：
 
-1. **長いコンテキストの理解**: 10個の canonical terms (`Interpreter`、`Agent`、`Session`、`Message`、`State`、`AutoChat`、`StreamWrapper`、`Backend`、`Converter`、`Memory`) の複雑な相互作用を理解
+1. **長いコンテキストの理解**: 11個の canonical terms (`Interpreter`、`Agent`、`Session`、`Message`、`State`、`AutoChat`、`StreamWrapper`、`Backend`、`Converter`、`Memory`、`Connector`) の複雑な相互作用を理解
 2. **詳細な分析**: 不変条件違反の可能性を詳細に分析
 3. **明確な説明**: 技術的な決定を明確に説明し、evidenceを提供
-4. **AUTO決定の追跡**: 9つのアクティブなAUTO決定を考慮に入れた設計提案
+4. **AUTO決定の追跡**: 16個のアクティブなAUTO決定を考慮に入れた設計提案
 
 ---
 
@@ -250,7 +264,7 @@ if len(messages) > MAX_MESSAGE_LENGTH:
 
 ---
 
-**最終更新**: 2026-02-03T06:37:00Z (bootstrap run v1.1 - CLAUDE.md verified - concept alignment confirmed, all 9 AUTO decisions noted, ontology v0.3)
+**最終更新**: 2026-02-03T08:01:00Z (bootstrap run v1.1 - CLAUDE.md updated - concept alignment confirmed, all 16 AUTO decisions noted, ontology v0.3)
 **関連ドキュメント**:
 - [AGENTS.md](AGENTS.md) - 全AI Agent向け指示
 - [GLOSSARY.md](GLOSSARY.md) - 用語集

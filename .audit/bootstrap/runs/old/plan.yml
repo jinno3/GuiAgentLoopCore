@@ -1,5 +1,7 @@
-run_timestamp: "2026-02-03T07:29:41Z"
+# MD Bootstrap Execution Plan (v1.1)
+run_timestamp: "2026-02-03T07:45:00Z"
 version: "1.1"
+run_number: 62
 
 rotation:
   deleted_old: true
@@ -12,16 +14,17 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
@@ -30,155 +33,69 @@ ontology_summary:
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
     - canonical: "Message"
-      layer: "core"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
-      layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-    - canonical: "AutoChat"
-      layer: "domain"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-    - canonical: "StreamWrapper"
-      layer: "domain"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-    - canonical: "Backend"
-      layer: "domain"
-      definition: "GUIフレームワーク実装（Gradio等）"
-    - canonical: "Connector"
-      layer: "domain"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-    - canonical: "Converter"
-      layer: "aux"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-    - canonical: "Memory"
-      layer: "domain"
-      definition: "会話履歴を保持するバッファ機構"
 
 term_normalization:
-  "会話インタープリタ": "Interpreter"
   "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-  "ConnectorImplCodeinterpreterApi": "Connector"
-  "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_update"
-    tier: 1
-    last_modified: "2026-02-03T06:27:00Z"
+    status: "exists_aligned"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_needs_update"
-    tier: 1
-    last_modified: "2026-02-03T06:40:00Z"
+    status: "exists_aligned"
+    issues: []
   - path: "CLAUDE.md"
-    status: "exists_needs_update"
-    tier: 2
-    last_modified: "2026-02-03T06:40:00Z"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_current"
-    tier: 2
-    last_modified: "2026-02-02T05:33:00Z"
-  - path: "PURPOSE.md"
-    status: "exists_current"
-    tier: 2
-    last_modified: "2026-02-02T23:47:00Z"
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_update"
-    tier: 2
-    last_modified: "2026-02-03T06:27:00Z"
-  - path: "GEMINI.md"
-    status: "exists_needs_update"
-    tier: 3
-    last_modified: "2026-02-02T00:57:00Z"
-  - path: "CODEX.md"
-    status: "exists_needs_update"
-    tier: 3
-    last_modified: "2026-02-02T00:57:00Z"
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_update"
-    tier: 3
-    last_modified: "2026-02-02T11:07:00Z"
+    status: "exists_aligned"
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_update"
-    tier: 3
-    last_modified: "2026-02-03T06:40:00Z"
+    status: "exists_aligned"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_aligned"
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology.yml, ensure canonical terms used"
-
+    reason: "存在意義と概念整合性の検証"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept alignment, term normalization, and invariant documentation"
-
+    reason: "用語規約と不変条件の検証"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify concept alignment, all 9 AUTO decisions noted, invariants documented"
-
+    reason: "Claude向け指示の概念整合性検証"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify generated from ontology.yml, all 11 canonical terms present"
-
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify invariants and concept guidelines reflected"
-
-  - action: "skip"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Already current, no changes needed"
-
-  - action: "skip"
-    target: "PURPOSE.md"
-    reason: "Already current, no changes needed"
-
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify concept alignment and term normalization"
-
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify concept alignment and term normalization"
-
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify mappings.yml reflected, concept alignment maintained"
-
-target_score: 90
-max_iterations: 3
+    reason: "用語集とontology.ymlの同期検証"

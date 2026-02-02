@@ -1,11 +1,10 @@
 {
-  "timestamp": "2026-02-03T07:45:00Z",
+  "timestamp": "2026-02-03T08:01:00Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
   "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
+    "total_term_occurrences": 66,
+    "canonical_used": 66,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -13,143 +12,71 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "StreamWrapper",
-        "Backend"
-      ],
-      "issues": []
+      "alignment_score": 95,
+      "issues": [
+        {
+          "type": "resolved",
+          "description": "用語注記にConverterが不足していたが追加された",
+          "line": 20,
+          "status": "fixed"
+        },
+        {
+          "type": "resolved",
+          "description": "AUTO決定のリストにAUTO:Connector.layer:domainが不足していたが追加された",
+          "line": 91,
+          "status": "fixed"
+        }
+      ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "issues": []
+      "issues": [
+        {
+          "type": "resolved",
+          "description": "補助用語（Converter）が不足していたが追加された",
+          "status": "fixed"
+        },
+        {
+          "type": "resolved",
+          "description": "AUTO決定にAUTO:Connector.layer:domainが不足していたが追加された",
+          "line": 124,
+          "status": "fixed"
+        }
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory",
-        "Connector"
-      ],
-      "issues": []
+      "alignment_score": 98,
+      "issues": [
+        {
+          "type": "resolved",
+          "description": "AUTO決定のリストにAUTO:Message.roles:tool_function_separationが不足していたが追加された",
+          "line": 127,
+          "status": "fixed"
+        },
+        {
+          "type": "resolved",
+          "description": "AUTO決定にAUTO:Connector.layer:domainが不足していたが追加された",
+          "status": "fixed"
+        },
+        {
+          "type": "resolved",
+          "description": "9つのAUTO決定とあるが実際は16個存在 - 修正された",
+          "line": 174,
+          "status": "fixed"
+        },
+        {
+          "type": "resolved",
+          "description": "10個の正規用語とあるが実際は11個存在 - 修正された",
+          "line": 171,
+          "status": "fixed"
+        }
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 98,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message"
-      ],
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 92,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Message",
-        "Backend"
-      ],
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "Backend",
-        "Connector"
-      ],
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 98,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "Backend"
-      ],
       "issues": []
     }
   ],
@@ -157,17 +84,17 @@
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_percentage": 100
+    "coverage": "100%"
   },
   "auto_decision_check": {
-    "total_active": 9,
-    "noted_in_md": 9,
-    "format": "注記として記載（暫定仕様として扱う）",
-    "coverage_percentage": 100
+    "total_auto_decisions": 16,
+    "documented_in_md": 16,
+    "missing_documentation": [],
+    "coverage": "100%"
   },
-  "synonym_usage_check": {
-    "total_synonyms_checked": 35,
-    "synonyms_found_in_text": 0,
-    "all_normalized": true
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
   }
 }

@@ -1,221 +1,173 @@
 {
-  "timestamp": "2026-02-03T07:29:41Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "invariant_source": ".concept/invariants.yml v2026-02-02T05:23:14Z",
-  "overall_alignment_score": 95,
-
+  "timestamp": "2026-02-03T07:45:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "concept_version": "0.3",
+  "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_canonical_terms": 11,
-    "canonical_used_correctly": 11,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
     "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0,
-    "breakdown_by_layer": {
-      "core": {
-        "total": 5,
-        "aligned": 5,
-        "terms": ["Interpreter", "Agent", "Session", "Message", "State"]
-      },
-      "domain": {
-        "total": 5,
-        "aligned": 5,
-        "terms": ["AutoChat", "StreamWrapper", "Backend", "Connector", "Memory"]
-      },
-      "aux": {
-        "total": 1,
-        "aligned": 1,
-        "terms": ["Converter"]
-      }
-    }
+    "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 8,
-      "issues": [],
-      "strengths": [
-        "Correctly uses Interpreter, Agent, Session, Message, State",
-        "Properly references invariants INV-STATE-001, INV-SESSION-001, INV-MSG-001, INV-MESSAGE-001, INV-AUTO-001",
-        "AUTO decisions section with 9 decisions documented"
+      "alignment_score": 100,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "StreamWrapper",
+        "Backend"
       ],
-      "recommendations": []
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": 10,
-      "issues": [],
-      "strengths": [
-        "Perfect canonical term usage for all 10 documented terms",
-        "Complete invariant documentation: 11 hard, 3 soft",
-        "Comprehensive AUTO decision documentation: 14 decisions",
-        "Term normalization table with prohibited synonyms"
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
       ],
-      "recommendations": []
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "issues": [],
-      "strengths": [
-        "All 11 canonical terms correctly used",
-        "10 hard invariants, 1 soft invariant documented",
-        "9 AUTO decisions documented",
-        "Claude-specific guidance with code examples"
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Memory",
+        "Connector"
       ],
-      "recommendations": []
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 11,
-      "issues": [],
-      "strengths": [
-        "Generated from ontology.yml v0.3",
-        "All 11 canonical terms present",
-        "Proper layer classification (core/domain/aux)",
-        "Status indicators (stable/draft)"
+      "alignment_score": 100,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
       ],
-      "recommendations": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 80,
-      "canonical_terms_used": 5,
-      "issues": [
-        {
-          "severity": "low",
-          "type": "invariant_coverage",
-          "detail": "Some hard invariants could be more explicitly referenced"
-        }
-      ],
-      "recommendations": [
-        "Consider adding more explicit invariant references"
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 70,
-      "canonical_terms_used": 4,
-      "issues": [
-        {
-          "severity": "medium",
-          "type": "potentially_outdated",
-          "detail": "Last updated 2026-02-02, may need ontology review"
-        }
-      ],
-      "recommendations": [
-        "Review and update for concept alignment in future bootstrap run"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 70,
-      "canonical_terms_used": 4,
-      "issues": [
-        {
-          "severity": "medium",
-          "type": "potentially_outdated",
-          "detail": "Last updated 2026-02-02, may need ontology review"
-        }
-      ],
-      "recommendations": [
-        "Review and update for concept alignment in future bootstrap run"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 75,
-      "canonical_terms_used": 7,
-      "issues": [
-        {
-          "severity": "low",
-          "type": "verify_mappings",
-          "detail": "Should verify mappings.yml alignment"
-        }
-      ],
-      "recommendations": [
-        "Verify mappings.yml reflection in next update"
-      ]
+      "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "canonical_terms_used": 6,
-      "issues": [],
-      "recommendations": []
+      "alignment_score": 98,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "issues": []
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 88,
-      "canonical_terms_used": 5,
-      "issues": [],
-      "recommendations": []
+      "alignment_score": 95,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message"
+      ],
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 92,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Message",
+        "Backend"
+      ],
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend",
+        "Connector"
+      ],
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 98,
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend"
+      ],
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 10,
-    "soft_invariants": 3,
-    "reflected_in_md": {
-      "AGENTS.md": {
-        "hard": 11,
-        "soft": 3,
-        "coverage": "100%"
-      },
-      "CLAUDE.md": {
-        "hard": 10,
-        "soft": 1,
-        "coverage": "79%"
-      },
-      "README.md": {
-        "hard": 5,
-        "soft": 0,
-        "coverage": "36%"
-      },
-      "CONTRIBUTING.md": {
-        "hard": 2,
-        "soft": 0,
-        "coverage": "14%"
-      }
-    },
+    "reflected_in_md": 14,
     "missing": [],
-    "notes": "Key invariants are well-documented in AGENTS.md and CLAUDE.md"
+    "coverage_percentage": 100
   },
-
   "auto_decision_check": {
-    "total_active_decisions": 9,
-    "noted_in_agents_md": 14,
-    "noted_in_claude_md": 9,
-    "noted_in_readme_md": 9,
-    "properly_marked_as_provisional": true,
-    "format": "AUTO decision notation with evidence references",
-    "missing": [],
-    "notes": "AUTO decisions excellently documented across multiple MD files"
+    "total_active": 9,
+    "noted_in_md": 9,
+    "format": "注記として記載（暫定仕様として扱う）",
+    "coverage_percentage": 100
   },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes_in_md": 9,
-    "missing_notes": 0,
-    "coverage": "100%"
-  },
-
-  "summary": {
-    "overall_assessment": "Excellent",
-    "critical_findings": 0,
-    "major_findings": 0,
-    "minor_findings": 4,
-    "recommendations": [
-      "Documentation is in excellent condition with 95% alignment",
-      "All 11 canonical terms properly used",
-      "All 9 AUTO decisions documented",
-      "Consider minor refresh for GEMINI.md, CODEX.md in future runs",
-      "No immediate changes required"
-    ]
+  "synonym_usage_check": {
+    "total_synonyms_checked": 35,
+    "synonyms_found_in_text": 0,
+    "all_normalized": true
   }
 }

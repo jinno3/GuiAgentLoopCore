@@ -1,7 +1,5 @@
-# MD Bootstrap Execution Plan (v1.1)
-run_timestamp: "2026-02-03T07:45:00Z"
+run_timestamp: "2026-02-03T08:01:00Z"
 version: "1.1"
-run_number: 62
 
 rotation:
   deleted_old: true
@@ -14,7 +12,6 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
@@ -49,53 +46,67 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_update"
+    issues:
+      - "用語注記が不完全（Converterが不足）"
+      - "AUTO決定のリストにAUTO:Connector.layer:domainが不足"
   - path: "AGENTS.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_update"
+    issues:
+      - "AUTO決定にAUTO:Connector.layer:domainが不足"
+      - "補助用語（Converter）が不足"
   - path: "CLAUDE.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_update"
+    issues:
+      - "AUTO決定のリストにAUTO:Message.roles:tool_function_separationが不足"
+      - "AUTO決定にAUTO:Connector.layer:domainが不足"
+      - "9つのAUTO決定とあるが実際はもっと多い"
   - path: "GLOSSARY.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "PURPOSE.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "GEMINI.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_verified"
 
 actions:
-  - action: "verify"
+  - action: "update"
     target: "README.md"
-    reason: "存在意義と概念整合性の検証"
-  - action: "verify"
+    reason: "用語注記にConverterを追加、AUTO決定を補完"
+
+  - action: "update"
     target: "AGENTS.md"
-    reason: "用語規約と不変条件の検証"
-  - action: "verify"
+    reason: "AUTO決定にAUTO:Connector.layer:domainを追加、補助用語を追加"
+
+  - action: "update"
     target: "CLAUDE.md"
-    reason: "Claude向け指示の概念整合性検証"
+    reason: "AUTO決定を完全なリストに更新、9個という記載を修正"
+
   - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "用語集とontology.ymlの同期検証"
+    target: "all_md"
+    reason: "概念整合性チェックの実施"

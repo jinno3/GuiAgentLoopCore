@@ -17,7 +17,7 @@ This project is designed for:
 - **Framework Developers**: Building new GUI backend implementations
 - **AI Agents**: Claude, Gemini, Codex, and other AI models working with this codebase
 
-> **Note**: This repository uses normalized terminology for consistency. Key terms include `Interpreter` (core conversation management), `Agent` (specialized AI entities), `Session` (unique conversation contexts), `Message` (structured communication), and `State` (interpreter execution states). See [GLOSSARY.md](GLOSSARY.md) for complete terminology.
+> **Note**: This repository uses normalized terminology for consistency. Key terms include `Interpreter` (core conversation management), `Agent` (specialized AI entities), `Session` (unique conversation contexts), `Message` (structured communication), `State` (interpreter execution states), and `Converter` (data transformation utilities). See [GLOSSARY.md](GLOSSARY.md) for complete terminology.
 
 ## Core Functions
 
@@ -85,8 +85,10 @@ This project uses AUTO decisions (provisional specifications) to resolve ambigui
 - **AUTO:Message.limit:100** - MAX_MESSAGE_LENGTH=100 is a hard limit
 - **AUTO:AutoChat.trigger:stop_only** - AutoChat only fires at STATE_STOP
 - **AUTO:Backend.primary:gradio** - Gradio is the primary backend (provisional)
+- **AUTO:Backend.timer:3sec_interval** - t3 timer is 3 second interval
 - **AUTO:Memory.window:k10** - Memory window size is k=10 (provisional)
 - **AUTO:Session.jwt:algorithm_hs256** - JWT uses HS256 algorithm (provisional)
+- **AUTO:Connector.layer:domain** - Connector is a domain-layer concept (provisional)
 
 > **Note**: AUTO decisions are provisional specifications. See `.concept/ambiguities.yml` for details and evidence.
 

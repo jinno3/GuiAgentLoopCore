@@ -27,6 +27,12 @@
 | `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 (**status: draft**) |
 | `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter, OpenGuiConnector | 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ |
 
+### 補助用語（Auxiliary Terms）
+
+| 正規形 | 同義語（使用禁止） | 定義 |
+|--------|------------------|------|
+| `Converter` | 変換器, マッパー | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
+
 ❌ **禁止**: 同義語をコードやドキュメントで使用すること
 ✅ **必須**: 常に正規形を使用すること
 
@@ -122,6 +128,10 @@
 
 - **AUTO:Connector.layer:domain** - Connectorは正規概念（domain層）
 
+### Converter関連のAUTO決定
+
+現在、Converterに関連するAUTO決定はありません。
+
 > **重要**: これらのAUTO決定は暫定仕様です。変更する必要がある場合、まず`.concept/ambiguities.yml`を確認し、変更の正当性を説明するevidenceを提供してください。
 
 ## 開発ガイドライン
@@ -151,4 +161,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-03T06:37:00Z (bootstrap run v1.1 - run #59 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z)
+**最終更新**: 2026-02-03T08:01:00Z (bootstrap run v1.1 - run #63 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z)
