@@ -1,14 +1,11 @@
 {
-  "timestamp": "2026-02-02T16:05:00Z",
-  "version": "1.1",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "invariant_source": ".concept/invariants.yml v0.3",
-
-  "overall_alignment_score": 98,
+  "timestamp": "2026-02-02T16:33:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 96,
 
   "term_usage_check": {
-    "total_term_occurrences": 250,
-    "canonical_used": 250,
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -17,314 +14,149 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
+      "alignment_score": 97,
       "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory"
-      ],
-      "synonyms_detected": []
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
+        "synonyms_found": [],
+        "unknown_terms": []
+      },
+      "strengths": [
+        "All core terms used correctly",
+        "Invariant references properly formatted",
+        "AUTO decisions noted as provisional"
+      ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
       "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Converter",
-        "Connector"
-      ],
-      "synonyms_detected": []
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory"
-      ],
-      "synonyms_detected": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "State",
-        "Message"
-      ],
-      "synonyms_detected": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend"
-      ],
-      "synonyms_detected": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "State"
-      ],
-      "synonyms_detected": []
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
+        "synonyms_found": [],
+        "unknown_terms": []
+      },
+      "strengths": [
+        "Complete term normalization table",
+        "All invariants documented",
+        "AUTO decisions with expiration tracking"
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory",
-        "Connector"
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
+        "synonyms_found": [],
+        "unknown_terms": []
+      },
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Perfect alignment guaranteed",
+        "Includes synonym mapping table"
+      ]
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+        "synonyms_found": [],
+        "unknown_terms": []
+      },
+      "strengths": [
+        "Claude-specific guidelines while maintaining terminology",
+        "Code examples use canonical terms"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "term_consistency",
+          "severity": "low",
+          "description": "Some sections may use informal terminology",
+          "recommendation": "Add explicit term normalization guidelines"
+        }
       ],
-      "synonyms_detected": [],
-      "note": "Auto-generated from ontology.yml"
+      "term_usage": {
+        "canonical_found": 7,
+        "synonyms_found": 1,
+        "unknown_terms": 0
+      }
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "StreamWrapper",
-        "Converter",
-        "Connector",
-        "Backend",
-        "Memory"
-      ],
-      "synonyms_detected": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 90,
+      "alignment_score": 92,
       "issues": [
         {
-          "type": "review_recommended",
-          "description": "May benefit from ontology v0.3 review, but no critical issues found"
+          "type": "mapping_reference",
+          "severity": "low",
+          "description": "mappings.yml integration not explicit",
+          "recommendation": "Add cross-reference to .concept/mappings.yml"
         }
       ],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message"
-      ],
-      "synonyms_detected": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "type": "review_recommended",
-          "description": "May benefit from ontology v0.3 review, but no critical issues found"
-        }
-      ],
-      "canonical_terms_detected": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message"
-      ],
-      "synonyms_detected": []
+      "term_usage": {
+        "canonical_found": 8,
+        "synonyms_found": 0,
+        "unknown_terms": 0
+      }
     }
   ],
 
   "invariant_check": {
     "total_invariants": 13,
-    "hard_invariants": 11,
-    "soft_invariants": 2,
     "reflected_in_md": 13,
-    "coverage": 100,
     "missing": [],
-    "invariant_coverage_by_file": {
-      "AGENTS.md": 13,
-      "CLAUDE.md": 12,
+    "coverage_by_file": {
       "README.md": 10,
-      "CONTRIBUTING.md": 11,
-      "ARCHITECTURE.md": 10,
-      "SYSTEM_CONSTITUTION.md": 11
+      "AGENTS.md": 13,
+      "CLAUDE.md": 9,
+      "SYSTEM_CONSTITUTION.md": 8
     }
   },
 
   "ambiguity_check": {
-    "active_auto_decisions": 12,
-    "reflected_as_notes_in_md": 12,
-    "missing_notes": 0,
-    "coverage": 100,
-    "auto_decision_coverage_by_file": {
-      "AGENTS.md": 12,
-      "CLAUDE.md": 12,
+    "active_auto_decisions": 9,
+    "noted_in_md": 9,
+    "format": "明示的に「暫定仕様」として記載",
+    "missing_notes": [],
+    "coverage_by_file": {
       "README.md": 9,
-      "CONTRIBUTING.md": 8,
-      "ARCHITECTURE.md": 9
+      "AGENTS.md": 9,
+      "CLAUDE.md": 9
     }
   },
 
-  "boundary_integrity_check": {
-    "terms_with_boundaries": 11,
-    "boundaries_verified": 11,
-    "integrity_score": 100,
-    "boundary_details": [
-      {
-        "term": "Interpreter",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "Agent",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "Session",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "Message",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "State",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "AutoChat",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "StreamWrapper",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "Backend",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "Memory",
-        "includes_consistent": true,
-        "excludes_consistent": true,
-        "note": "Draft status - boundaries may evolve"
-      },
-      {
-        "term": "Converter",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      },
-      {
-        "term": "Connector",
-        "includes_consistent": true,
-        "excludes_consistent": true
-      }
-    ]
-  },
-
-  "term_normalization_verification": {
-    "total_synonyms_in_ontology": 32,
-    "synonyms_checked_in_md": 32,
-    "synonyms_properly_avoided": 32,
-    "normalization_rate": 100,
-    "examples_of_proper_normalization": [
-      {
-        "synonym": "GuiAgentInterpreter",
-        "canonical_used": "Interpreter",
-        "files_verified": 10
-      },
-      {
-        "synonym": "ChatSession",
-        "canonical_used": "Session",
-        "files_verified": 8
-      },
-      {
-        "synonym": "InterpreterState",
-        "canonical_used": "State",
-        "files_verified": 9
-      },
-      {
-        "synonym": "会話インタープリタ",
-        "canonical_used": "Interpreter",
-        "files_verified": 2
-      },
-      {
-        "synonym": "AIエージェント",
-        "canonical_used": "Agent",
-        "files_verified": 3
-      }
+  "boundary_check": {
+    "total_terms_with_boundaries": 11,
+    "boundaries_consistent": 11,
+    "inconsistencies": [],
+    "verified_terms": [
+      "Interpreter - includes/excludes consistent",
+      "Agent - includes/excludes consistent",
+      "Session - includes/excludes consistent",
+      "Message - includes/excludes consistent",
+      "State - includes/excludes consistent",
+      "AutoChat - includes/excludes consistent",
+      "StreamWrapper - includes/excludes consistent",
+      "Backend - includes/excludes consistent",
+      "Memory - includes/excludes consistent (draft status noted)",
+      "Converter - includes/excludes consistent",
+      "Connector - includes/excludes consistent"
     ]
   },
 
   "summary": {
-    "overall_score": 98,
-    "target_score": 90,
-    "status": "EXCELLENT",
-    "key_findings": [
-      "100% canonical term usage across all MD files",
-      "All 13 invariants properly documented",
-      "All 12 AUTO decisions documented",
-      "Term boundaries maintained with 100% integrity",
-      "No synonyms used in place of canonical terms"
-    ],
+    "concept_alignment_percentage": 96,
+    "critical_issues": 0,
+    "minor_issues": 2,
     "recommendations": [
-      "Optional review of GEMINI.md and CODEX.md for future optimization",
-      "Current state exceeds quality targets - no immediate changes needed"
+      "Add term normalization guidelines to CONTRIBUTING.md",
+      "Add mappings.yml reference to ARCHITECTURE.md"
     ]
   }
 }

@@ -1,7 +1,5 @@
-# MD Bootstrap Execution Plan (v1.1)
-# Generated: 2026-02-02T16:05:00Z
-
-run_timestamp: "2026-02-02T16:05:00Z"
+# MD整備実行計画 (v1.1 - audit + concept統合)
+run_timestamp: "2026-02-02T16:33:00Z"
 version: "1.1"
 
 rotation:
@@ -15,69 +13,49 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  design_philosophy:
+    - "Correctness Over Convenience"
+    - "Explicit Over Implicit"
+    - "Small, Focused Components"
+    - "Testability"
+    - "Conceptual Integrity"
 
 ontology_summary:
-  version: "0.3"
-  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 11
   by_layer:
-    core: 5  # Interpreter, Agent, Session, Message, State
-    domain: 5  # AutoChat, StreamWrapper, Backend, Memory, Connector
-    aux: 1  # Converter
+    core: 5
+    domain: 5
+    aux: 1
   by_status:
     stable: 10
-    draft: 1  # Memory
+    draft: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
-      status: "stable"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
-      layer: "core"
-      status: "stable"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
-      layer: "core"
-      status: "stable"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
-      layer: "core"
-      status: "stable"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
       layer: "core"
-      status: "stable"
+    - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-
-invariants_summary:
-  total_invariants: 13
-  hard_invariants: 11
-  soft_invariants: 2
-  related_to_terms:
-    - INV-STATE-001 (hard, Interpreter)
-    - INV-MSG-001 (hard, Message)
-    - INV-MESSAGE-001 (hard, Message)
-    - INV-SESSION-001 (hard, Session)
-    - INV-SESSION-002 (hard, Session)
-    - INV-AGENT-001 (soft, Agent)
-    - INV-AUTO-001 (hard, AutoChat)
-    - INV-MEM-001 (soft, Memory)
-    - INV-STREAM-001 (hard, StreamWrapper)
-    - INV-STATE-002 (hard, State)
-    - INV-BACKEND-001 (hard, Backend)
-    - INV-BACKEND-002 (soft, Backend)
-    - INV-CONNECTOR-001 (hard, Connector)
-    - INV-CONVERTER-001 (hard, Converter)
+      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -90,7 +68,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -116,115 +93,123 @@ existing_mds:
   - path: "README.md"
     status: "exists_verified"
     tier: 1
-    clarity_score: 95
-    concept_alignment: 100
     issues: []
   - path: "AGENTS.md"
     status: "exists_verified"
     tier: 1
-    clarity_score: 98
-    concept_alignment: 100
-    issues: []
-  - path: "CLAUDE.md"
-    status: "exists_verified"
-    tier: 2
-    clarity_score: 95
-    concept_alignment: 100
-    issues: []
-  - path: "PURPOSE.md"
-    status: "exists_verified"
-    tier: 2
-    clarity_score: 95
-    concept_alignment: 100
     issues: []
   - path: "GLOSSARY.md"
     status: "exists_verified"
     tier: 3
-    clarity_score: 100
-    concept_alignment: 100
     issues: []
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-    clarity_score: 85
-    concept_alignment: 90
-    issues:
-      - "May need review for ontology v0.3 alignment"
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-    clarity_score: 85
-    concept_alignment: 90
-    issues:
-      - "May need review for ontology v0.3 alignment"
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_update"
-    tier: 2
-    clarity_score: 70
-    concept_alignment: 75
-    issues:
-      - "Should reference invariants and AUTO decisions"
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_update"
-    tier: 3
-    clarity_score: 75
-    concept_alignment: 80
-    issues:
-      - "Should use canonical terminology"
-      - "Should reflect mappings.yml"
-  - path: "SYSTEM_CONSTITUTION.md"
+  - path: "CLAUDE.md"
     status: "exists_verified"
     tier: 2
-    clarity_score: 90
-    concept_alignment: 95
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "概念整合性の確認が必要"
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "mappings.ymlの反映が必要"
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "intent.ymlとの整合性確認"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "invariants.ymlの反映確認"
+  - path: "GEMINI.md"
+    status: "exists_verified"
+    tier: 3
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_verified"
+    tier: 3
     issues: []
 
 actions:
-  # Tier 1 files - already verified, no changes needed
   - action: "verify"
     target: "README.md"
-    reason: "Already aligned with intent.yml and ontology.yml v0.3"
+    reason: "既にintent.ymlとontology.ymlに基づいて作成済み。整合性確認のみ実施。"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Already aligned with intent.yml and ontology.yml v0.3"
-
-  # Tier 2 files - minor updates needed
-  - action: "update"
-    target: "CONTRIBUTING.md"
-    reason: "Add references to invariants.yml and AUTO decisions"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Already aligned with ontology.yml v0.3"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Already aligned with intent.yml"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Already aligned with invariants.yml"
-
-  # Tier 3 files - review needed
-  - action: "review"
-    target: "GEMINI.md"
-    reason: "Verify ontology v0.3 alignment"
-  - action: "review"
-    target: "CODEX.md"
-    reason: "Verify ontology v0.3 alignment"
-  - action: "update"
-    target: "ARCHITECTURE.md"
-    reason: "Use canonical terminology, reflect mappings.yml"
+    reason: "既にontology.ymlとinvariants.ymlに基づいて作成済み。整合性確認のみ実施。"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Auto-generated from ontology.yml"
+    reason: "ontology.ymlから自動生成済み。最新版との照合のみ実施。"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Claude向け特化指示が作成済み。概念整合性確認のみ実施。"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "用語正規形の使用状況を確認し、必要に応じて更新。"
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "mappings.ymlの内容が反映されているか確認。"
+  - action: "skip"
+    target: "CHANGELOG.md"
+    reason: "バージョン管理用ファイル。概念統合の対象外。"
 
-overall_assessment:
-  md_coverage_tier1: "2/2 (100%)"
-  md_coverage_tier2: "4/4 (100%)"
-  md_coverage_tier3: "4/4 (100%)"
-  overall_clarity_score: 91
-  overall_concept_alignment: 94
+expected_outcomes:
+  overall_score_target: 95
+  uniqueness_score_target: 95
+  concept_alignment_target: 95
+  md_coverage_target: "Tier1: 100%, Tier2: 75%, Tier3: 50%"
 
-expected_improvements:
-  clarity_score_delta: +4  # Target 95
-  concept_alignment_delta: +6  # Target 100
-  files_to_update: 2
-  files_to_review: 2
+validation_criteria:
+  - id: "UC-001"
+    name: "存在意義の一貫性"
+    check: "全MDで同じmissionが表現されているか"
+    source: ".audit/intent.yml"
+  - id: "UC-002"
+    name: "対象ユーザーの一貫性"
+    check: "全MDで同じtarget_userを想定しているか"
+    source: ".audit/intent.yml"
+  - id: "UC-003"
+    name: "制約の一貫性"
+    check: "技術的制約が一致しているか"
+    source: ".audit/constraints.yml + .concept/invariants.yml"
+  - id: "UC-004"
+    name: "境界線の一貫性"
+    check: "out_of_scopeが矛盾なく定義されているか"
+    source: ".audit/intent.yml"
+  - id: "UC-005"
+    name: "intent.yml準拠"
+    check: "全MDがintent.ymlを正しく反映しているか"
+    source: ".audit/intent.yml"
+  - id: "CA-001"
+    name: "用語の正規形使用"
+    check: "全MDでcanonical termを使用しているか"
+    source: ".concept/ontology.yml"
+  - id: "CA-002"
+    name: "同義語の排除"
+    check: "synonymが本文で使用されていないか"
+    source: ".concept/ontology.yml"
+  - id: "CA-003"
+    name: "不変条件の反映"
+    check: "hard invariantsがドキュメント化されているか"
+    source: ".concept/invariants.yml"
+  - id: "CA-004"
+    name: "AUTO決定の注記"
+    check: "暫定仕様が明示されているか"
+    source: ".concept/ambiguities.yml"
+  - id: "CA-005"
+    name: "用語境界の整合"
+    check: "boundaries.includes/excludesが矛盾していないか"
+    source: ".concept/ontology.yml"
+
+metadata:
+  bootstrap_version: "1.1"
+  ontology_version: "0.3"
+  invariants_count: 13
+  active_auto_decisions: 9
+  expired_auto_decisions: 2
+  total_ambiguities: 9
