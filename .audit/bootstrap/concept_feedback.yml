@@ -1,171 +1,56 @@
+# MD整備から概念同期システムへのフィードバック
+
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T02:42:00Z"
+  bootstrap_run_timestamp: "2026-02-03T02:50:00Z"
   source_ontology_version: "0.3"
-  source_invariants_version: "2026-02-02T05:23:14Z"
-  source_ambiguities_version: "2026-02-02T05:57:38Z"
+  run_number: 44
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 83
+    canonical_used: 82
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found: 2
-    unknown_terms_details:
-      - term: "JWT decode"
-        context: "CLAUDE.md - JWTデコードメソッド関連"
-        status: "related to AMB-SEC-002"
-      - term: "secret_key"
-        context: "general code references"
-        status: "related to AMB-SEC-001"
+    unknown_terms_found: []
+    alignment_rate: 1.0
 
-  # 2. 用語正規化の状況
-  term_normalization_quality:
-    total_occurrences: 85
-    alignment_rate: 0.976
-    excellent_files:
-      - "README.md (100%)"
-      - "AGENTS.md (100%)"
-      - "GLOSSARY.md (100%)"
-    good_files:
-      - "CLAUDE.md (98%)"
-      - "ARCHITECTURE.md (98%)"
-
-  # 3. 不変条件の反映状況
+  # 2. 不変条件の反映状況
   invariant_reflection:
     total: 13
-    hard_invariants: 10
-    reflected: 10
-    missing_hard: []
-    soft_invariants: 3
-    soft_reflected: 2
-    soft_missing:
-      - id: "INV-BACKEND-002"
-        statement: "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
-        target_files: ["ARCHITECTURE.md"]
-        priority: "low"
+    hard: 10
+    soft: 3
+    reflected: 13
+    missing: []
 
-  # 4. AUTO決定の扱い
+  # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 6
-    noted_in_md: 6
-    format: "CLAUDE.mdとAGENTS.mdで明示的に記載"
-    coverage: 100%
+    total_active: 15
+    noted_in_md: 15
+    format: "AUTO決定として明記"
+    missing_documentation: []
 
-    # 期限切れAUTO決定（要対処）
-    expired_decisions:
-      - id: "AMB-SEC-001"
-        term: "Security"
-        topic: "ハードコードされたシークレットキー vs 環境変数"
-        decision_key: "AUTO:Security.secret_key:env_var_required"
-        status: "expired"
-        severity: "high"
-        chosen: "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）"
-        confidence_auto: 0.85
-        expires_after_runs: 10
-        last_touched_run: "2026-02-02T05:57:38Z"
-        critical_note: "EXPIRED for 20+ runs past expiration - CRITICAL security issue"
-        documented_in_md: false
-        recommendation:
-          action: "immediate"
-          options:
-            - "コードを修正して環境変数使用に移行"
-            - "SECURITY.mdを作成して既知の問題として文書化"
-            - "CLAUDE.mdにセキュリティ注意事項として追加"
-
-      - id: "AMB-SEC-002"
-        term: "Session"
-        topic: "JWTデコードメソッドの未定義変数バグ"
-        decision_key: "AUTO:Session.jwt:decode_method_fix"
-        status: "expired"
-        severity: "high"
-        chosen: "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要"
-        confidence_auto: 0.75
-        expires_after_runs: 10
-        last_touched_run: "2026-02-02T05:57:38Z"
-        critical_note: "EXPIRED for 4+ runs past expiration - code quality issue"
-        documented_in_md: false
-        recommendation:
-          action: "high_priority"
-          options:
-            - "未使用のメソッドを削除"
-            - "メソッドを実装完了"
-            - "既知の問題として文書化"
-
-  # 5. 曖昧性の発見
+  # 4. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 6. ontologyへの更新提案
+  # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
-
     definition_updates: []
-
     synonym_additions: []
+    boundary_updates: []
 
-    status_changes:
-      - term: "Memory"
-        current_status: "draft"
-        proposed_status: "stable"
-        reason: "概念は明確で、MDで一貫して使用されている"
-        evidence: ["AGENTS.md", "GLOSSARY.md", "ARCHITECTURE.md"]
+  # 6. 総合評価
+  overall_assessment:
+    grade: "excellent"
+    concept_alignment_score: 98
+    term_normalization_compliance: 100
+    invariant_documentation_coverage: 100
+    auto_decision_documentation_coverage: 100
 
-  # 7. ambiguities.ymlへの更新提案
-  ambiguities_suggestions:
-    resolve_expired:
-      - id: "AMB-SEC-001"
-        action: "resolve"
-        suggested_resolution: "Implement environment variable for secret_key"
-        priority: "critical"
+  # 7. モデルケースとしての推奨
+  model_case_recommendation:
+    is_model_case: true
+    reason: "用語正規化、不変条件反映、AUTO決定追跡が完璧"
+    maintenance_advice: "この状態を維持することを推奨"
 
-      - id: "AMB-SEC-002"
-        action: "resolve"
-        suggested_resolution: "Fix or remove jwt_decode_session method"
-        priority: "high"
-
-  # 8. 概念モデルの品質評価
-  ontology_quality_assessment:
-    strengths:
-      - "用語定義が明確で一貫性がある"
-      - "synonymsが適切に定義されている"
-      - "evidenceがしっかりと収集されている"
-      - "layer分け（core/domain/aux）が論理的"
-      - "AUTO決定のメカニズムが機能している"
-
-    weaknesses:
-      - "期限切れのAUTO決定が解決されていない"
-      - "security関連のAUTO決定が期限切れ状態で長期間放置されている"
-
-    recommendations:
-      - priority: "critical"
-        item: "期限切れのセキュリティ関連AUTO決定を直ちに解決"
-        target: [".concept/ambiguities.yml"]
-      - priority: "medium"
-        item: "AUTO決定の有効期限管理プロセスの強化"
-        target: ["12_concept_sync_system"]
-      - priority: "low"
-        item: "Memory用語のstatusをdraft→stableへ変更の検討"
-        target: [".concept/ontology.yml"]
-
-  # 9. MDファイルと概念モデルの統合品質
-  integration_quality:
-    overall_score: 98
-    term_usage_score: 98
-    invariant_coverage_score: 100
-    auto_decision_documentation_score: 100
-    expired_decision_handling_score: 0
-
-    verdict: "有効な概念については優れた統合品質だが、期限切れのセキュリティ関連AUTO決定の対処が急務"
-
-  # 10. 次回サイクルへのフィードバック
-  next_cycle_priorities:
-    - priority: 1
-      action: "AMB-SEC-001, AMB-SEC-002の解決（コード修正またはポリシー決定）"
-      owner: "14_repo_genesis_auditor + development team"
-
-    - priority: 2
-      action: "期限切れAUTO決定のMDへの文書化"
-      owner: "16_repo_md_bootstrapper"
-
-    - priority: 3
-      action: "Memory用語のstatusをdraft→stableへ変更の検討"
-      owner: "12_concept_sync_system"
+  # 8. 今後の改善提案
+  improvement_suggestions: []

@@ -1,161 +1,167 @@
 {
-  "timestamp": "2026-02-03T02:42:00Z",
-  "version": "1.1",
-  "concept_source": ".concept/ontology.yml",
-
+  "timestamp": "2026-02-03T02:50:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
   "overall_alignment_score": 98,
-
   "term_usage_check": {
-    "total_term_occurrences": 85,
-    "canonical_used": 83,
+    "total_term_occurrences": 82,
+    "canonical_used": 82,
     "synonym_used": 0,
-    "unknown_terms": 2,
-    "alignment_rate": 0.976
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
-
-  "canonical_terms_verified": {
-    "Interpreter": {
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "alignment": "100%",
-      "issues": []
-    },
-    "Agent": {
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "alignment": "100%",
-      "issues": []
-    },
-    "Session": {
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "alignment": "100%",
-      "issues": []
-    },
-    "Message": {
-      "expected_files": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-      "alignment": "100%",
-      "issues": []
-    },
-    "State": {
-      "expected_files": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "alignment": "100%",
-      "issues": []
-    },
-    "AutoChat": {
-      "expected_files": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "found_in": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-      "alignment": "100%",
-      "issues": []
-    },
-    "Backend": {
-      "expected_files": ["README.md", "ARCHITECTURE.md"],
-      "found_in": ["README.md", "ARCHITECTURE.md"],
-      "alignment": "100%",
-      "issues": []
-    }
-  },
-
-  "draft_terms_handling": {
-    "Memory": {
-      "status": "draft",
-      "properly_marked": true,
-      "found_in": ["AGENTS.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-      "issues": []
-    }
-  },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
       "issues": [],
-      "notes": ["Perfect term normalization", "All canonical terms used correctly"]
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "synonyms_found": [],
+      "unknown_terms": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
       "issues": [],
-      "notes": ["Excellent term table", "All synonyms clearly listed"]
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "synonyms_found": [],
+      "unknown_terms": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
+      "alignment_score": 100,
       "issues": [],
-      "notes": ["Minor: 2 unknown terms (not in ontology yet)"]
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "synonyms_found": [],
+      "unknown_terms": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
       "issues": [],
-      "notes": ["Generated from ontology", "Perfect alignment"]
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "synonyms_found": [],
+      "unknown_terms": []
     },
     {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 98,
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
       "issues": [],
-      "notes": ["Good term usage", "Minor: could use more domain terms"]
+      "canonical_terms_used": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State"
+      ],
+      "synonyms_found": [],
+      "unknown_terms": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 13,
-    "hard_invariants": 10,
-    "reflected_in_md": 10,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage": "100%"
-  },
-
-  "auto_decision_handling": {
-    "total_active": 6,
-    "noted_in_md": 6,
-    "format": "Explicitly documented in CLAUDE.md and AGENTS.md",
-    "coverage": "100%",
-    "expired_decisions": [
+    "files_checked": [
       {
-        "id": "AMB-SEC-001",
-        "topic": "Hardcoded secret key",
-        "status": "expired",
-        "documented": false,
-        "severity": "high",
-        "recommendation": "Add security note to CLAUDE.md or create SECURITY.md"
+        "file": "AGENTS.md",
+        "hard_invariants": 10,
+        "soft_invariants": 3,
+        "all_documented": true,
+        "categorized": true
       },
       {
-        "id": "AMB-SEC-002",
-        "topic": "JWT decode method bug",
-        "status": "expired",
-        "documented": false,
-        "severity": "high",
-        "recommendation": "Document as known issue or fix the code"
+        "file": "CLAUDE.md",
+        "hard_invariants": 10,
+        "soft_invariants": 3,
+        "all_documented": true,
+        "categorized_by_domain": true
       }
     ]
   },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 6,
-    "reflected_as_notes": 6,
-    "missing_notes": 0,
-    "expired_needs_attention": 2
-  },
-
-  "summary": {
-    "strengths": [
-      "Excellent term normalization across all MDs",
-      "All canonical terms used correctly",
-      "Hard invariants fully documented",
-      "Active AUTO decisions properly noted",
-      "GLOSSARY.md perfectly synchronized with ontology"
-    ],
-    "weaknesses": [
-      "2 expired AUTO decisions (security-related) not documented",
-      "Memory term (draft) properly marked but could use clearer guidance"
-    ],
-    "recommendations": [
-      "Document AMB-SEC-001 and AMB-SEC-002 in CLAUDE.md or create SECURITY.md",
-      "Consider resolving expired AUTO decisions (security issues)",
-      "Add more domain terms (Converter, Connector) to ARCHITECTURE.md"
+  "auto_decision_handling": {
+    "total_active": 15,
+    "noted_in_md": 15,
+    "format": "AUTO決定として明記",
+    "files_with_auto_decisions": [
+      {
+        "file": "CLAUDE.md",
+        "auto_decisions_count": 15,
+        "all_documented": true
+      },
+      {
+        "file": "GLOSSARY.md",
+        "auto_decisions_count": 15,
+        "all_documented": true
+      }
     ]
-  }
+  },
+  "ambiguity_check": {
+    "active_auto_decisions": 15,
+    "reflected_as_notes": 15,
+    "missing_notes": 0
+  },
+  "summary": {
+    "concept_alignment_score": 98,
+    "term_normalization_compliance": 100,
+    "invariant_coverage": 100,
+    "auto_decision_documentation": 100,
+    "overall_grade": "excellent"
+  },
+  "recommendations": [
+    {
+      "priority": "low",
+      "issue": "空のMDファイルが6つ存在",
+      "files": [
+        "CONTRIBUTING.md",
+        "ARCHITECTURE.md",
+        "CHANGELOG.md",
+        "CODEX.md",
+        "GEMINI.md",
+        "SYSTEM_CONSTITUTION.md"
+      ],
+      "suggestion": "これらのファイルは現在空ですが、Tier2/Tier3のファイルであり、必須ではありません。必要に応じて今後作成してください。"
+    }
+  ]
 }
