@@ -1,19 +1,18 @@
 {
-  "timestamp": "2026-02-02T13:23:00Z",
+  "timestamp": "2026-02-02T04:38:14Z",
   "version": "1.1",
-  "overall_score": 100,
-  "checks": [
+  "overall_uniqueness_score": 100,
+  "checks_performed": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": [
-        "README.md: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents' - matches intent.yml",
-        "AGENTS.md: 'GUIとLLMエージェントのブリッジとなるコアロジックを提供' - consistent translation",
-        "PURPOSE.md: Aligned with intent.yml mission statement"
-      ]
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
+        "mission_consistency": "All files reflect the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+      }
     },
     {
       "id": "UC-002",
@@ -21,11 +20,10 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": [
-        "README.md: References 'Application Developers, AI Agent Developers, Framework Developers, AI Agents'",
-        "AGENTS.md: Explicitly lists 'AI Agent' as target user",
-        "CONTRIBUTING.md: Guidelines for developers and AI agents"
-      ]
+      "evidence": {
+        "target_users_consistent": true,
+        "mentioned_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+      }
     },
     {
       "id": "UC-003",
@@ -33,11 +31,11 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": [
-        "All MD files respect MAX_MESSAGE_LENGTH=100",
-        "State transition monotonicity enforced across all docs",
-        "HS256 JWT algorithm consistently referenced"
-      ]
+      "evidence": {
+        "invariants_consistent": true,
+        "hard_invariants_count": 11,
+        "soft_invariants_count": 3
+      }
     },
     {
       "id": "UC-004",
@@ -45,11 +43,10 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": [
-        "README.md: Clearly states what's out of scope (UI Rendering, LLM Execution, etc.)",
-        "AGENTS.md: Behavior rules respect boundaries",
-        "ARCHITECTURE.md: Component boundaries well-defined"
-      ]
+      "evidence": {
+        "out_of_scope_consistent": true,
+        "key_boundaries": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"]
+      }
     },
     {
       "id": "UC-005",
@@ -57,17 +54,19 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": [
-        "Core functions (5) documented across MDs",
-        "Success metrics reflected in CONTRIBUTING.md",
-        "Design philosophies (Correctness Over Convenience, etc.) reflected in code guidelines"
-      ]
+      "evidence": {
+        "core_functions_reflected": true,
+        "design_philosophy_reflected": true,
+        "success_metrics_documented": true
+      }
     }
   ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
-  }
+    "uniqueness_score": 100
+  },
+  "issues_found": [],
+  "issues_resolved": []
 }

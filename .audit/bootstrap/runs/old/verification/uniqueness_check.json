@@ -1,123 +1,73 @@
 {
-  "timestamp": "2026-02-02T13:09:00Z",
+  "timestamp": "2026-02-02T13:23:00Z",
   "version": "1.1",
-  "intent_source": ".audit/config/intent.yml v1.0",
-  "overall_uniqueness_score": 100,
-
+  "overall_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
-      "description": "Mission statement consistent across MDs",
-      "result": "pass",
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "found_in": {
-          "README.md": "✓ Exact match at line 78",
-          "PURPOSE.md": "✓ Match with slight formatting at line 10",
-          "AGENTS.md": "✓ Referenced in purpose section at line 4"
-        },
-        "inconsistencies": []
-      }
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": [
+        "README.md: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents' - matches intent.yml",
+        "AGENTS.md: 'GUIとLLMエージェントのブリッジとなるコアロジックを提供' - consistent translation",
+        "PURPOSE.md: Aligned with intent.yml mission statement"
+      ]
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "Target users are consistently defined",
-      "result": "pass",
-      "evidence": {
-        "intent_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "found_in": {
-          "README.md": "✓ Implicitly addressed in content",
-          "PURPOSE.md": "✓ Explicitly listed at lines 73-76",
-          "AGENTS.md": "✓ Targets AI Agents directly",
-          "CONTRIBUTING.md": "✓ Addresses contributors/developers"
-        },
-        "inconsistencies": []
-      }
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": [
+        "README.md: References 'Application Developers, AI Agent Developers, Framework Developers, AI Agents'",
+        "AGENTS.md: Explicitly lists 'AI Agent' as target user",
+        "CONTRIBUTING.md: Guidelines for developers and AI agents"
+      ]
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints",
-      "description": "Technical constraints are consistent",
-      "result": "pass",
-      "evidence": {
-        "constraints_found": {
-          "README.md": "Type safety, state management documented",
-          "AGENTS.md": "Hard invariants listed (14 total)",
-          "SYSTEM_CONSTITUTION.md": "Constitutional principles documented",
-          "CONTRIBUTING.md": "Coding standards reference invariants"
-        },
-        "inconsistencies": []
-      }
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": [
+        "All MD files respect MAX_MESSAGE_LENGTH=100",
+        "State transition monotonicity enforced across all docs",
+        "HS256 JWT algorithm consistently referenced"
+      ]
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "In-scope and out-of-scope are consistent",
-      "result": "pass",
-      "evidence": {
-        "intent_boundaries": {
-          "in_scope": [
-            "Conversation Flow Management",
-            "State Machine",
-            "Agent Coordination",
-            "Message Processing",
-            "Backend Abstraction",
-            "Streaming Support"
-          ],
-          "out_of_scope": [
-            "UI Rendering",
-            "LLM Execution",
-            "Session Storage",
-            "Authentication",
-            "Network Protocols"
-          ]
-        },
-        "found_in": {
-          "README.md": "✓ Core features section matches in-scope items",
-          "PURPOSE.md": "✓ Explicit 'What We Do' and 'What We Don't Do' sections",
-          "AGENTS.md": "✓ Boundaries reflected in prohibited actions"
-        },
-        "inconsistencies": []
-      }
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": [
+        "README.md: Clearly states what's out of scope (UI Rendering, LLM Execution, etc.)",
+        "AGENTS.md: Behavior rules respect boundaries",
+        "ARCHITECTURE.md: Component boundaries well-defined"
+      ]
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Alignment",
-      "description": "All MD files align with intent.yml",
-      "result": "pass",
-      "evidence": {
-        "core_functions_covered": {
-          "Centralized Conversation Management": "✓ README, PURPOSE, AGENTS",
-          "State Machine with Monotonic Transitions": "✓ All MDs",
-          "Multi-Agent Coordination": "✓ README, AGENTS, ARCHITECTURE",
-          "Structured Message Processing": "✓ README, AGENTS",
-          "Backend Abstraction": "✓ README, ARCHITECTURE"
-        },
-        "design_philosophy_covered": {
-          "Correctness Over Convenience": "✓ PURPOSE, SYSTEM_CONSTITUTION, CONTRIBUTING",
-          "Explicit Over Implicit": "✓ PURPOSE, AGENTS",
-          "Small, Focused Components": "✓ ARCHITECTURE",
-          "Testability": "✓ CONTRIBUTING",
-          "Conceptual Integrity": "✓ AGENTS, GLOSSARY"
-        },
-        "inconsistencies": []
-      }
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": [
+        "Core functions (5) documented across MDs",
+        "Success metrics reflected in CONTRIBUTING.md",
+        "Design philosophies (Correctness Over Convenience, etc.) reflected in code guidelines"
+      ]
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100,
-    "failed_checks": [],
-    "recommendations": []
+    "score": 100
   }
 }

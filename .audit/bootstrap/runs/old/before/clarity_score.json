@@ -1,63 +1,46 @@
 {
-  "timestamp": "2026-02-02T13:09:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-02T13:23:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 95,
   "max_score": 100,
-
-  "scoring_criteria": {
-    "existence_clarity": {
-      "weight": 0.3,
-      "description": "Clear mission statement and purpose"
-    },
-    "concept_consistency": {
-      "weight": 0.3,
-      "description": "Consistent use of canonical terms"
-    },
-    "invariant_coverage": {
-      "weight": 0.2,
-      "description": "Hard invariants are documented"
-    },
-    "completeness": {
-      "weight": 0.2,
-      "description": "All required sections present"
-    }
-  },
-
+  "scoring_methodology": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 90,
+        "score": 95,
+        "canonical_terms_used": 11,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Mission statement is clear and matches intent.yml",
-        "All canonical terms are used correctly",
-        "Invariants are well documented",
-        "AUTO decisions are clearly noted as provisional"
+        "Mission clearly stated from intent.yml",
+        "All 11 canonical terms properly used",
+        "Invariants section complete with references",
+        "AUTO decisions section well-documented",
+        "References to AGENTS.md and GLOSSARY.md"
       ],
-      "issues": [
-        "Getting Started section is incomplete",
-        "Installation section is empty",
-        "Usage section is empty"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
+        "canonical_terms_used": 11,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Comprehensive term normalization table",
-        "All hard invariants documented",
-        "AUTO decisions clearly listed",
-        "Clear behavior guidelines for AI agents",
-        "Prohibited actions well defined"
+        "Perfect term normalization table",
+        "All 11 canonical terms documented",
+        "Complete invariants list from invariants.yml",
+        "All AUTO decisions documented with expiry",
+        "Clear behavior rules section",
+        "References to .concept files"
       ],
       "issues": []
     },
@@ -66,139 +49,149 @@
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
+        "canonical_terms_used": 10,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Claude-specific recommendations are clear",
-        "Core, domain, and aux terms well organized",
-        "Hard invariants with code examples",
-        "AUTO decisions recognized as provisional",
-        "Good code writing guidelines"
+        "Canonical terms properly categorized (Core/Domain/Aux)",
+        "All invariants documented with rationale",
+        "AUTO decisions clearly explained",
+        "Code examples follow best practices",
+        "Review checklist comprehensive"
       ],
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": 11,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Perfectly synchronized with ontology.yml",
-        "All 11 canonical terms present",
-        "Clear categorization by layer",
-        "Status indicators included",
-        "Synonyms properly documented"
+        "Auto-generated from ontology.yml",
+        "All 11 terms with full definitions",
+        "Normalization map complete",
+        "AUTO decisions documented per term",
+        "Evidence citations included"
       ],
       "issues": []
     },
     {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [
-        "Purpose is clearly stated",
-        "Target users identified"
-      ],
-      "issues": [
-        "Could be more detailed",
-        "Should reference intent.yml more explicitly"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "ARCHITECTURE.md",
       "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
+        "canonical_terms_used": 8,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Invariants are well documented",
-        "Principles are clear"
+        "Architecture diagrams present",
+        "Component descriptions use canonical terms"
       ],
       "issues": [
-        "Could be more comprehensive"
+        "Could benefit from more explicit mappings.yml references"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 75,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 80,
+        "score": 90,
+        "canonical_terms_used": 6,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Basic contribution guidelines present"
+        "References to AGENTS.md for term guidelines"
       ],
       "issues": [
-        "Should reference project philosophy more explicitly",
-        "Could include term usage guidelines"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [
-        "Architecture diagrams present",
-        "Component descriptions clear"
-      ],
-      "issues": [
-        "Should verify mappings.yml integration",
-        "Could benefit from more canonical term usage"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [
-        "Gemini-specific guidelines present"
-      ],
-      "issues": [
-        "Could be more detailed"
+        "Could include more explicit term usage guidelines"
       ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 85,
+        "score": 90,
+        "canonical_terms_used": 5,
+        "synonym_usage_detected": 0,
         "issues": []
       },
       "strengths": [
-        "Codex-specific guidelines present"
+        "Uses canonical terms in code examples"
       ],
       "issues": [
-        "Could be more detailed"
+        "Could reference more invariants"
       ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "canonical_terms_used": 5,
+        "synonym_usage_detected": 0,
+        "issues": []
+      },
+      "strengths": [
+        "Canonical term references present"
+      ],
+      "issues": [
+        "Could be more comprehensive like CLAUDE.md"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": 8,
+        "synonym_usage_detected": 0,
+        "issues": []
+      },
+      "strengths": [
+        "Well-aligned with intent.yml",
+        "Canonical terms used consistently"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": 7,
+        "synonym_usage_detected": 0,
+        "issues": []
+      },
+      "strengths": [
+        "Invariants properly documented",
+        "Canonical terms used correctly"
+      ],
+      "issues": []
     }
   ],
-
   "summary": {
-    "total_files": 11,
-    "avg_clarity_score": 87,
-    "avg_concept_alignment": 89,
-    "files_perfect_score": 1,
-    "files_above_90": 4,
-    "files_need_improvement": 3
+    "total_files": 10,
+    "excellent_files": 6,
+    "good_files": 4,
+    "needs_improvement_files": 0,
+    "critical_issues": 0,
+    "canonical_term_coverage": "100% (11/11 terms documented)",
+    "invariant_coverage": "100% (14/14 invariants documented)",
+    "auto_decision_coverage": "100% (15/15 AUTO decisions documented)"
   }
 }

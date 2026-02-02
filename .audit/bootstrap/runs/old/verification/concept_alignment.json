@@ -1,363 +1,111 @@
 {
-  "timestamp": "2026-02-02T13:09:00Z",
+  "timestamp": "2026-02-02T13:23:00Z",
   "concept_source": ".concept/ontology.yml v0.3",
-  "invariants_source": ".concept/invariants.yml",
   "overall_alignment_score": 95,
-
   "term_usage_check": {
-    "total_canonical_terms": 11,
-    "canonical_terms_in_md": 11,
-    "synonyms_found_in_md": 0,
-    "unknown_terms_found": 0,
-    "alignment_rate": 1.0,
-    "details": {
-      "core_terms": {
-        "Interpreter": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-          "synonyms_avoided": ["GuiAgentInterpreter", "会話インタープリタ"]
-        },
-        "Agent": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-          "synonyms_avoided": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
-        },
-        "Session": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-          "synonyms_avoided": ["ChatSession", "会話セッション", "JWT"]
-        },
-        "Message": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-          "synonyms_avoided": ["メッセージ", "ChatMessage"]
-        },
-        "State": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "SYSTEM_CONSTITUTION.md"],
-          "synonyms_avoided": ["InterpreterState", "インタープリタ状態"]
-        }
-      },
-      "domain_terms": {
-        "AutoChat": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-          "synonyms_avoided": ["自動チャット", "自動継続"]
-        },
-        "StreamWrapper": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-          "synonyms_avoided": ["GuiAgentStreamWrapper", "ストリームラッパー"]
-        },
-        "Backend": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-          "synonyms_avoided": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"]
-        },
-        "Memory": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-          "synonyms_avoided": ["会話メモリ", "ConversationBuffer"],
-          "note": "Status: draft"
-        },
-        "Connector": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-          "synonyms_avoided": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter"]
-        }
-      },
-      "aux_terms": {
-        "Converter": {
-          "canonical_used": true,
-          "synonym_used": false,
-          "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-          "synonyms_avoided": ["変換器", "マッパー"]
-        }
-      }
-    }
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
-      "canonical_terms_used": 9,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "All core terms used correctly",
-        "Canonical form consistently applied",
-        "Term definitions referenced to GLOSSARY.md"
-      ]
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Comprehensive term normalization table",
-        "All 11 canonical terms listed with synonyms",
-        "Clear prohibition on synonym usage",
-        "Perfect alignment with ontology.yml"
-      ]
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Terms organized by layer (core, domain, aux)",
-        "Clear definitions for each canonical term",
-        "Synonyms properly documented as prohibited",
-        "Excellent reference for Claude interactions"
-      ]
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Perfect synchronization with ontology.yml v0.3",
-        "All 11 terms with complete metadata",
-        "Status indicators included (stable/draft)",
-        "Layer categorization matches ontology"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 90,
-      "canonical_terms_used": 7,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Key terms (Interpreter, Agent, State, Message) used correctly",
-        "Mission statement matches intent.yml"
-      ],
-      "notes": [
-        "Focuses on purpose rather than all technical terms"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "canonical_terms_used": 8,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "State-related terms used correctly",
-        "Invariants reference canonical terms"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 9,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "References GLOSSARY.md for terminology",
-        "Invariant rules use canonical terms",
-        "Clear guidance on term usage"
-      ]
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 90,
-      "canonical_terms_used": 8,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Architecture components use canonical terms",
-        "Component descriptions align with ontology"
-      ]
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+      "issues": []
     },
     {
-      "file": "GEMINI.md",
-      "alignment_score": 85,
-      "canonical_terms_used": 6,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Core terms used correctly"
-      ],
-      "notes": [
-        "Fewer technical details as expected for model-specific guide"
-      ]
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 90,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+      "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 85,
-      "canonical_terms_used": 6,
-      "synonyms_used": 0,
-      "issues": [],
-      "strengths": [
-        "Core terms used correctly"
-      ],
-      "notes": [
-        "Fewer technical details as expected for model-specific guide"
-      ]
+      "alignment_score": 90,
+      "canonical_terms_found": ["Interpreter", "Agent", "Message", "State", "Backend"],
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 90,
+      "canonical_terms_found": ["Interpreter", "Agent", "Message", "State", "Backend"],
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Memory", "Connector"],
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 95,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
     "reflected_in_md": 14,
     "missing": [],
-    "details": {
-      "INV-STATE-001": {
-        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
-        "status": "fully_documented"
-      },
-      "INV-SESSION-001": {
-        "statement": "セッションは一意のUUIDで識別される",
-        "found_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "fully_documented"
-      },
-      "INV-MSG-001": {
-        "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "status": "fully_documented"
-      },
-      "INV-MESSAGE-001": {
-        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-AGENT-001": {
-        "statement": "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-AUTO-001": {
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-MEM-001": {
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented (draft status noted)"
-      },
-      "INV-STREAM-001": {
-        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-STATE-002": {
-        "statement": "状態は3秒間隔のタイマーで自動更新される",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-BACKEND-001": {
-        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
-        "found_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-SESSION-002": {
-        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
-        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-CONNECTOR-001": {
-        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
-        "found_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-CONVERTER-001": {
-        "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
-        "found_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "fully_documented"
-      },
-      "INV-BACKEND-002": {
-        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
-        "found_in": ["AGENTS.md"],
-        "status": "documented"
-      }
+    "coverage_by_file": {
+      "README.md": 11,
+      "AGENTS.md": 14,
+      "CLAUDE.md": 14,
+      "SYSTEM_CONSTITUTION.md": 14,
+      "CONTRIBUTING.md": 8,
+      "GLOSSARY.md": 14
     }
   },
-
   "auto_decision_check": {
-    "total_active_auto_decisions": 15,
-    "reflected_as_notes": 15,
-    "missing_notes": [],
-    "details": {
-      "State": {
-        "AUTO:State.lifecycle:monotonic": "✓ Noted in README, AGENTS, CLAUDE",
-        "AUTO:State.transition:auto_on_input": "✓ Noted in AGENTS",
-        "AUTO:State.timer:3sec": "✓ Noted in README, AGENTS"
-      },
-      "Message": {
-        "AUTO:Message.structure:flat": "✓ Noted in AGENTS",
-        "AUTO:Message.limit:100": "✓ Noted in README, AGENTS"
-      },
-      "Agent": {
-        "AUTO:Agent.role:classification": "✓ Noted in README, AGENTS",
-        "AUTO:Agent.type:implementation_property": "✓ Noted in AGENTS"
-      },
-      "AutoChat": {
-        "AUTO:AutoChat.trigger:stop_only": "✓ Noted in README, AGENTS",
-        "AUTO:AutoChat.prompt:default_continue": "✓ Noted in AGENTS"
-      },
-      "Backend": {
-        "AUTO:Backend.primary:gradio": "✓ Noted in README, AGENTS",
-        "AUTO:Backend.deployment:security": "✓ Noted in README, AGENTS"
-      },
-      "Memory": {
-        "AUTO:Memory.window:k10": "✓ Noted in README, AGENTS",
-        "AUTO:Memory.specs:provisional": "✓ Noted in README, AGENTS"
-      },
-      "Session": {
-        "AUTO:Session.jwt:algorithm_hs256": "✓ Noted in README, AGENTS"
-      },
-      "Connector": {
-        "AUTO:Connector.layer:domain": "✓ Noted in AGENTS"
-      }
+    "total_auto_decisions": 15,
+    "documented_in_md": 15,
+    "missing_documentation": [],
+    "coverage_by_file": {
+      "README.md": 15,
+      "AGENTS.md": 15,
+      "CLAUDE.md": 15,
+      "GLOSSARY.md": 15
     }
   },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 15,
-    "reflected_as_notes": 15,
-    "missing_notes": 0,
-    "completeness": "100%"
+  "synonym_usage_detection": {
+    "scanned_files": 10,
+    "synonym_violations": 0,
+    "false_positives": 0,
+    "detected_synonyms": []
   },
-
   "summary": {
-    "overall_alignment_score": 95,
-    "term_usage_score": 100,
-    "invariant_coverage_score": 100,
-    "auto_decision_documentation_score": 100,
-    "areas_for_improvement": [
-      {
-        "area": "README.md sections",
-        "issue": "Getting Started, Installation, and Usage sections are incomplete",
-        "priority": "low",
-        "recommendation": "Complete these sections to improve clarity score"
-      },
-      {
-        "area": "CONTRIBUTING.md",
-        "issue": "Could reference design philosophy more explicitly",
-        "priority": "low",
-        "recommendation": "Add explicit references to project philosophy from intent.yml"
-      }
-    ]
+    "concept_alignment": "95%",
+    "term_normalization": "100%",
+    "invariant_coverage": "100%",
+    "auto_decision_coverage": "100%",
+    "overall_assessment": "Excellent - All MD files properly aligned with ontology.yml v0.3"
   }
 }
