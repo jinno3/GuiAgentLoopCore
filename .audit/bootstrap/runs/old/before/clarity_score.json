@@ -1,76 +1,55 @@
 {
-  "timestamp": "2026-02-03T07:16:00Z",
-  "overall_score": 95,
+  "timestamp": "2026-02-03T07:29:41Z",
+  "overall_score": 92,
   "concept_alignment_score": 95,
-  "uniqueness_score": 95,
+  "uniqueness_score": 90,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 100,
-      "weight": 0.3,
-      "notes": "All MD files clearly express the repository's mission from intent.yml"
-    },
-    "term_consistency": {
-      "score": 95,
-      "weight": 0.3,
-      "notes": "Canonical terms used consistently across all MD files"
-    },
-    "invariant_coverage": {
-      "score": 90,
-      "weight": 0.2,
-      "notes": "Hard invariants documented in CLAUDE.md, could be more visible in other MDs"
-    },
-    "uniqueness": {
-      "score": 95,
-      "weight": 0.2,
-      "notes": "No contradictions found across MD files"
-    }
-  },
-
+  "scoring_method": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "Mission statement matches intent.yml exactly",
-          "All core functions from intent.yml are documented",
-          "Canonical terms used correctly (Interpreter, Agent, Session, Message, State)",
-          "References to GLOSSARY.md for terminology"
-        ]
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend"],
+        "synonyms_found": [],
+        "issues": []
       },
       "intent_alignment": {
-        "score": 100,
-        "mission_matches": true,
-        "target_users_match": true,
-        "core_values_match": true,
-        "boundaries_respected": true
+        "score": 98,
+        "mission_reflected": true,
+        "target_users_correct": true,
+        "core_functions_covered": true
+      },
+      "invariant_documentation": {
+        "hard_invariants_listed": 5,
+        "total_hard_invariants": 10,
+        "coverage": "50%"
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "strengths": [
-          "Excellent term normalization table with canonical forms and synonyms",
-          "All core and domain terms documented with definitions",
-          "Synonyms clearly marked as prohibited",
-          "References to ontology.yml and GLOSSARY.md"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": [],
+        "issues": []
       },
       "intent_alignment": {
         "score": 95,
-        "mission_matches": true,
-        "core_functions_documented": true,
-        "boundaries_documented": true
+        "mission_reflected": true,
+        "boundaries_documented": true,
+        "behavior_rules_clear": true
+      },
+      "invariant_documentation": {
+        "hard_invariants_listed": 11,
+        "soft_invariants_listed": 3,
+        "total_documented": 14,
+        "coverage": "100%"
       },
       "issues": []
     },
@@ -79,42 +58,96 @@
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Canonical terms properly used",
-          "All 9 AUTO decisions documented with decision keys",
-          "Hard invariants detailed with code examples",
-          "Categorizes terms by layer (core/domain/aux)"
-        ]
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "issues": []
       },
       "intent_alignment": {
-        "score": 90,
-        "notes": "Claude-specific guidance aligns well with intent"
+        "score": 98,
+        "claude_specific_guidance": true,
+        "invariants_covered": true,
+        "auto_decisions_noted": 9
       },
-      "issues": [
-        {
-          "severity": "minor",
-          "issue": "Some hard invariants could be more prominent",
-          "suggestion": "Consider adding invariant violations examples"
-        }
-      ]
+      "invariant_documentation": {
+        "hard_invariants_listed": 10,
+        "soft_invariants_listed": 1,
+        "total_documented": 11,
+        "coverage": "92%"
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "Auto-generated from ontology.yml",
-          "All 10 canonical terms documented",
-          "Term layers (core/domain/aux) clearly indicated",
-          "Synonyms and boundaries listed"
+        "score": 95,
+        "ontology_source": ".concept/ontology.yml v0.3",
+        "total_terms": 11,
+        "all_canonical_terms_present": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "missing_invariant_reference",
+            "detail": "Some hard invariants not explicitly referenced in contribution guidelines"
+          }
         ]
       },
       "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 70,
+        "issues": [
+          {
+            "type": "outdated_content",
+            "detail": "Last updated 2026-02-02, may need concept alignment refresh"
+          }
+        ]
+      },
+      "issues": ["May need ontology review for term normalization"]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 70,
+        "issues": [
+          {
+            "type": "outdated_content",
+            "detail": "Last updated 2026-02-02, may need concept alignment refresh"
+          }
+        ]
+      },
+      "issues": ["May need ontology review for term normalization"]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 75,
+        "issues": [
+          {
+            "type": "potentially_outdated",
+            "detail": "Last updated 2026-02-02, should verify mappings.yml alignment"
+          }
+        ]
+      },
+      "issues": ["Verify mappings.yml reflection, concept alignment"]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
@@ -122,105 +155,30 @@
       "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
-        "issues": [],
-        "strengths": [
-          "Hard invariants documented",
-          "Design philosophies from intent.yml reflected"
-        ]
+        "issues": []
       },
-      "issues": [
-        {
-          "severity": "minor",
-          "issue": "Could benefit from more explicit AUTO decision documentation",
-          "suggestion": "Add AUTO decision references where applicable"
-        }
-      ]
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "strengths": ["Detailed mission explanation aligned with intent.yml"]
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 85,
-        "issues": [
-          {
-            "severity": "minor",
-            "issue": "Could emphasize term normalization more strongly",
-            "suggestion": "Add section on canonical term usage in contributions"
-          }
-        ]
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 92,
-        "strengths": ["Component architecture uses canonical terms"]
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 90,
-        "strengths": ["Gemini-specific guidance aligns with ontology"]
-      },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 90,
-        "strengths": ["Codex-specific guidance aligns with ontology"]
+        "score": 88,
+        "issues": []
       },
       "issues": []
     }
   ],
-
-  "term_usage_analysis": {
-    "canonical_terms_used": 10,
-    "canonical_terms_found": 10,
-    "synonyms_used_in_docs": 0,
-    "unknown_terms_found": 0,
-    "alignment_rate": 1.0
-  },
-
-  "invariant_coverage_analysis": {
-    "total_hard_invariants": 10,
-    "documented_in_mds": 10,
-    "coverage_rate": 1.0,
-    "best_documented_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
-    "could_improve": ["CONTRIBUTING.md"]
-  },
-
-  "auto_decision_coverage": {
-    "total_auto_decisions": 9,
-    "documented_in_claude_md": 9,
-    "noted_as_provisional": 9,
-    "coverage_rate": 1.0
-  },
-
   "summary": {
-    "status": "excellent",
-    "ready_for_verification": true,
-    "major_issues": 0,
-    "minor_issues": 3,
-    "recommendation": "Documentation is in excellent shape. Proceed to verification phase."
+    "total_files": 11,
+    "avg_clarity": 88.2,
+    "avg_concept_alignment": 87.3,
+    "excellent_files": 7,
+    "good_files": 3,
+    "needs_attention": 1,
+    "auto_decisions_documented": 9,
+    "hard_invariants_documented": 10,
+    "canonical_terms_coverage": "100%"
   }
 }
