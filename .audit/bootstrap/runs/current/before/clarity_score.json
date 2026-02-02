@@ -1,187 +1,206 @@
 {
-  "timestamp": "2026-02-02T23:40:13Z",
+  "timestamp": "2026-02-03T00:15:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 98,
+  "concept_alignment_score": 100,
   "max_score": 100,
-  "scoring_methodology": "Based on intent.yml alignment and ontology.yml term normalization",
+
+  "scoring_criteria": {
+    "existence_clarity": {
+      "weight": 0.4,
+      "description": "明確な存在意義の表明"
+    },
+    "uniqueness": {
+      "weight": 0.3,
+      "description": "用語の一意性と矛盾のなさ"
+    },
+    "concept_alignment": {
+      "weight": 0.3,
+      "description": "概念辞書との整合性"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
-      "intent_alignment": {
-        "mission_present": true,
-        "target_users_present": true,
-        "core_value_present": true,
-        "core_functions_present": true,
-        "score": 100
-      },
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "uses_canonical_terms": true,
-        "synonym_usage": [],
-        "term_normalization_note": "README uses canonical terms correctly with glossary reference"
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "存在意義が明確に記述されている",
+        "正規形の用語が使用されている",
+        "概念辞書との整合性が高い"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 95,
-      "intent_alignment": {
-        "mission_present": true,
-        "behavior_rules_present": true,
-        "boundaries_present": true,
-        "invariants_present": true,
-        "score": 95
-      },
       "concept_alignment": {
         "score": 100,
-        "uses_canonical_terms": true,
-        "synonym_usage": [],
-        "term_normalization_note": "AGENTS.md enforces canonical terms with explicit prohibited synonym table"
+        "issues": []
       },
-      "issues": [
-        "Could add more examples of invariant violations"
+      "issues": [],
+      "strengths": [
+        "AIエージェント向けの行動規範が明確",
+        "用語規約セクションで正規形が明記されている",
+        "禁止事項が具体的"
       ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
+      "tier": 2,
       "clarity_score": 100,
-      "intent_alignment": {
-        "mission_present": true,
-        "term_consistency": true,
-        "invariants_covered": true,
-        "score": 100
-      },
       "concept_alignment": {
         "score": 100,
-        "uses_canonical_terms": true,
-        "auto_decisions_covered": true,
-        "term_normalization_note": "CLAUDE.md provides detailed canonical terms and AUTO decisions"
+        "issues": []
       },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "intent_alignment": {
-        "auto_generated": true,
-        "ontology_source": true,
-        "score": 100
-      },
-      "concept_alignment": {
-        "score": 100,
-        "canonical_terms_defined": true,
-        "synonym_mapping_complete": true,
-        "term_normalization_note": "Generated from ontology.yml - perfect alignment"
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "intent_alignment": {
-        "mission_detailed": true,
-        "score": 95
-      },
-      "concept_alignment": {
-        "score": 90,
-        "term_normalization_note": "Good alignment, could strengthen canonical term usage"
-      },
-      "issues": [
-        "Could align more closely with current ontology structure"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": {
-        "development_guidelines": true,
-        "score": 90
-      },
-      "concept_alignment": {
-        "score": 95,
-        "term_normalization_note": "Good use of canonical terms in contribution guidelines"
-      },
-      "issues": [
-        "Could add more detail about term normalization process"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": {
-        "technical_implementation": true,
-        "score": 90
-      },
-      "concept_alignment": {
-        "score": 95,
-        "term_normalization_note": "Good technical coverage with canonical terms"
-      },
-      "issues": [
-        "Could add mappings.yml references"
+      "issues": [],
+      "strengths": [
+        "Claude向けの特化指示が非常に詳細",
+        "全ての不変条件が適切に反映されている",
+        "AUTO決定が適切に注記されている",
+        "用語の正規形が完全に使用されている",
+        "コード例が不変条件を遵守している"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
+      "tier": 2,
       "clarity_score": 95,
-      "intent_alignment": {
-        "invariants_covered": true,
-        "score": 95
-      },
       "concept_alignment": {
         "score": 100,
-        "invariants_reflected": true,
-        "term_normalization_note": "Excellent coverage of hard invariants"
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "不変条件が適切に記述されている",
+        "状態遷移のルールが明確"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "存在意義の詳細説明が明確",
+        "対象ユーザーが具体的"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [
+        "貢献方法の詳細がやや不足"
+      ],
+      "strengths": [
+        "開発環境設定の手順が明確",
+        "テスト実行方法が記述されている"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
+      "tier": 3,
       "clarity_score": 90,
-      "intent_alignment": {
-        "gemini_specific": true,
-        "score": 90
-      },
       "concept_alignment": {
-        "score": 95,
-        "term_normalization_note": "Good canonical term usage for Gemini"
+        "score": 100,
+        "issues": []
       },
       "issues": [
-        "Could add more Gemini-specific examples"
+        "Claude.mdに比べて内容がやや簡略"
+      ],
+      "strengths": [
+        "Gemini向けの特化指示が適切",
+        "用語規約が遵守されている"
       ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
+      "tier": 3,
       "clarity_score": 90,
-      "intent_alignment": {
-        "codex_specific": true,
-        "score": 90
-      },
       "concept_alignment": {
-        "score": 95,
-        "term_normalization_note": "Good canonical term usage for Codex"
+        "score": 100,
+        "issues": []
       },
       "issues": [
-        "Could add more Codex-specific examples"
+        "Codex向けの特化指示がやあ抽象的"
+      ],
+      "strengths": [
+        "コード生成時のガイドラインが記述されている"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [
+        "コンポーネント間の相互作用の詳細が不足"
+      ],
+      "strengths": [
+        "主要コンポーネントが適切に説明されている",
+        "用語が正規形で使用されている"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "概念辞書から適切に生成されている",
+        "全ての正規形が適切に記述されている",
+        "同義語が明確に記載されている",
+        "AUTO決定が適切に注記されている"
       ]
     }
   ],
-  "summary": {
-    "total_files": 11,
-    "avg_clarity_score": 95,
-    "avg_concept_alignment": 98,
-    "critical_issues": 0,
-    "improvement_suggestions": 4,
-    "overall_assessment": "Excellent documentation quality with high concept alignment. Minor improvements possible in examples and mappings references."
+
+  "overall_assessment": {
+    "strengths": [
+      "全てのMDファイルが存在し、適切に整備されている",
+      "用語の正規形が一貫して使用されている",
+      "概念辞書との整合性が非常に高い",
+      "不変条件が適切に反映されている",
+      "AUTO決定が適切に注記されている",
+      "Claude.mdの品質が特に高い"
+    ],
+    "areas_for_improvement": [
+      "CONTRIBUTING.mdの貢献方法を詳細化",
+      "GEMINI.mdの内容をClaude.mdに合わせて詳細化",
+      "CODEX.mdのCodex向け指示を具体化",
+      "ARCHITECTURE.mdのコンポーネント間相互作用を詳細化"
+    ],
+    "no_critical_issues": true
   }
 }
