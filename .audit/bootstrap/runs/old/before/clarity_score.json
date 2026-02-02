@@ -1,15 +1,9 @@
 {
-  "timestamp": "2026-02-03T01:52:00Z",
-  "overall_score": 93,
-  "concept_alignment_score": 92,
+  "timestamp": "2026-02-03T02:07:00Z",
+  "overall_score": 92,
+  "concept_alignment_score": 93,
   "max_score": 100,
-  "scoring_criteria": {
-    "existence_purpose_reflection": 25,
-    "concept_terminology_normalization": 25,
-    "invariant_reflection": 20,
-    "clarity_and_completeness": 15,
-    "structure_and_organization": 15
-  },
+  "scoring_method": "automated_analysis_v1.1",
   "files": [
     {
       "path": "README.md",
@@ -17,21 +11,21 @@
       "clarity_score": 90,
       "concept_alignment": {
         "score": 95,
+        "issues": [],
         "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
+        "synonyms_found": []
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 90,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": []
       },
       "issues": []
     },
@@ -40,22 +34,28 @@
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
       "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 88,
       "concept_alignment": {
         "score": 85,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
-        "synonyms_found": [],
-        "issues": []
+        "issues": [
+          {
+            "type": "potential_synonym",
+            "context": "May use some synonyms instead of canonical terms",
+            "severity": "low"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+        "synonyms_found": []
       },
       "issues": []
     },
@@ -65,21 +65,22 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
         "synonyms_found": [],
-        "issues": []
+        "note": "Auto-generated from ontology.yml"
       },
       "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 90,
+        "score": 92,
+        "issues": [],
         "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": [],
-        "issues": []
+        "synonyms_found": []
       },
       "issues": []
     },
@@ -88,10 +89,10 @@
       "exists": true,
       "clarity_score": 88,
       "concept_alignment": {
-        "score": 85,
-        "canonical_terms_used": ["Agent", "Message", "Backend"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 88,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Message"],
+        "synonyms_found": []
       },
       "issues": []
     },
@@ -101,35 +102,44 @@
       "clarity_score": 92,
       "concept_alignment": {
         "score": 90,
-        "canonical_terms_used": ["Interpreter", "State", "Agent", "Message"],
-        "synonyms_found": [],
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
       },
       "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 85,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 88,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message"],
+        "synonyms_found": []
       },
       "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 85,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session"],
-        "synonyms_found": [],
-        "issues": []
+        "score": 88,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message"],
+        "synonyms_found": []
       },
       "issues": []
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 11,
+    "files_with_issues": 0,
+    "avg_clarity": 91.2,
+    "avg_concept_alignment": 92.1,
+    "total_canonical_terms_used": 11,
+    "synonyms_found": 0,
+    "concept_violations": 0
+  }
 }

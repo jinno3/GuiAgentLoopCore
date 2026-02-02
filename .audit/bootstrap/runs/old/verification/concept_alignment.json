@@ -1,7 +1,8 @@
 {
-  "timestamp": "2026-02-03T01:52:00Z",
+  "timestamp": "2026-02-03T02:07:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 92,
+  "concept_version": "0.3",
+  "overall_alignment_score": 93,
   "term_usage_check": {
     "total_term_occurrences": 55,
     "canonical_used": 55,
@@ -13,74 +14,133 @@
     {
       "file": "README.md",
       "alignment_score": 95,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
       "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 90,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector"],
+      "alignment_score": 95,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
       "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 85,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-      "issues": []
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": [],
+      "note": "Auto-generated from ontology.yml"
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 90,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "alignment_score": 92,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 85,
-      "canonical_terms_used": ["Agent", "Message", "Backend"],
+      "alignment_score": 88,
+      "canonical_terms_found": ["Interpreter", "Agent", "Message"],
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 90,
-      "canonical_terms_used": ["Interpreter", "State", "Agent", "Message"],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
       "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 85,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session"],
+      "alignment_score": 88,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message"],
       "issues": []
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 85,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session"],
+      "alignment_score": 88,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message"],
       "issues": []
     }
   ],
   "invariant_check": {
     "total_invariants": 12,
-    "reflected_in_md": 12,
+    "hard_invariants": 9,
+    "soft_invariants": 3,
+    "reflected_in_md": {
+      "hard_invariants_agents_md": 9,
+      "hard_invariants_claude_md": 9,
+      "hard_invariants_constitution_md": 9,
+      "soft_invariants_agents_md": 3,
+      "soft_invariants_claude_md": 3
+    },
     "missing": [],
-    "coverage": "100%"
+    "reflection_rate": 1.0
+  },
+  "auto_decision_check": {
+    "total_active_decisions": 9,
+    "reflected_as_notes_in_claude_md": 9,
+    "reflected_as_notes_in_glossary_md": 9,
+    "reflected_as_notes_in_agents_md": 0,
+    "missing_notes": [
+      {
+        "target_file": "AGENTS.md",
+        "auto_decisions_count": 9,
+        "priority": "low",
+        "status": "pending"
+      }
+    ]
   },
   "ambiguity_check": {
-    "active_auto_decisions": 7,
-    "reflected_as_notes": 7,
-    "expired_auto_decisions": 2,
-    "expired_noted_in_md": 2
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "documentation_coverage": 1.0
+  },
+  "ontology_coverage": {
+    "total_terms": 11,
+    "documented_in_glossary": 11,
+    "used_in_readme": 5,
+    "used_in_agents": 10,
+    "used_in_claude": 11,
+    "used_in_architecture": 6,
+    "coverage_rate": 1.0
+  },
+  "connector_term_verification": {
+    "term": "Connector",
+    "status": "verified",
+    "added_in_current_cycle": true,
+    "synonyms_checked": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
+    "canonical_used_in_mds": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+    "properly_integrated": true
+  },
+  "summary": {
+    "overall_assessment": "excellent",
+    "critical_issues": 0,
+    "improvement_needed": 1,
+    "strengths": [
+      "100% canonical term usage",
+      "All hard invariants properly documented",
+      "AUTO decisions well-documented in CLAUDE.md and GLOSSARY.md",
+      "Connector term properly integrated into ontology and documentation",
+      "No synonym usage detected"
+    ],
+    "recommendations": [
+      {
+        "priority": "low",
+        "action": "Consider adding AUTO decision notes to AGENTS.md",
+        "benefit": "Complete AUTO decision documentation coverage"
+      }
+    ]
   }
 }

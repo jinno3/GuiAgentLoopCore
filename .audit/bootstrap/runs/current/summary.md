@@ -2,7 +2,8 @@
 
 ## 実行情報
 - バージョン: 1.1（audit + concept統合）
-- 実行日時: 2026-02-03T02:07:00Z
+- 実行日時: 2026-02-03T02:20:00Z
+- 実行番号: 41
 - 実行タイプ: 検証実行（検証のみ、変更なし）
 - ローテーション: old削除 → current→old移動 → new current作成
 
@@ -20,6 +21,7 @@
 | 一意性スコア | 95 | 95 | - (維持) |
 | **概念整合度** | 93 | 93 | - (維持) |
 | MD網羅度 | 10/10 | 10/10 | - (完了) |
+| **統合スコア** | **94** | **94** | **- (目標達成)** |
 
 ## 実施内容
 
@@ -36,26 +38,20 @@
 - **GEMINI.md**: Gemini向け指示を確認 ✓
 
 ### 用語正規化の状況
-- **正規形使用率**: 100% (55/55 出現)
+- **正規形使用率**: 100% (301/301 出現)
 - **同義語検出**: 0件
 - **未知の用語**: 0件
 
 ### 概念統合の状況
 
 #### オントロジー統計
-- **総用語数**: 11 (前回 run #30 から +1)
-  - Core: 5
-  - Domain: 5 (前回から +1: Connector)
-  - Aux: 1
+- **総用語数**: 11 (前回 run #40 から変更なし)
+  - Core: 5 (Interpreter, Agent, Session, Message, State)
+  - Domain: 5 (AutoChat, StreamWrapper, Backend, Memory, Connector)
+  - Aux: 1 (Converter)
 - **ステータス分布**:
   - Stable: 10
   - Draft: 1 (Memory)
-
-#### 新規追加用語
-- **Connector** (domain layer, stable)
-  - 定義: 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ
-  - 同義語: コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter, OpenGuiConnector
-  - 整合状況: AGENTS.md, CLAUDE.md, GLOSSARY.md で正規形として使用済み ✓
 
 #### 不変条件の反映状況
 - **総不変条件**: 12
@@ -75,18 +71,18 @@
 ## 検証結果
 
 ### 一意性チェック (Uniqueness Check)
-- **UC-001** (存在意義の一貫性): ✓ PASSED
-- **UC-002** (対象ユーザーの一貫性): ✓ PASSED
-- **UC-003** (制約の一貫性): ✓ PASSED
-- **UC-004** (境界線の一貫性): ✓ PASSED
-- **UC-005** (intent.yml準拠): ✓ PASSED
+- **UC-001** (存在意義の一貫性): ✓ PASSED (100%)
+- **UC-002** (対象ユーザーの一貫性): ✓ PASSED (100%)
+- **UC-003** (制約の一貫性): ✓ PASSED (100%)
+- **UC-004** (境界線の一貫性): ✓ PASSED (100%)
+- **UC-005** (intent.yml準拠): ✓ PASSED (100%)
 
 ### 概念整合チェック (Concept Alignment Check)
 - **CA-001** (用語の正規形使用): ✓ PASSED (100%)
-- **CA-002** (同義語の排除): ✓ PASSED (0件検出)
+- **CA-002** (同義語の排除): ✓ PASSED (100%)
 - **CA-003** (不変条件の反映): ✓ PASSED (100%)
 - **CA-004** (AUTO決定の注記): ⚠ WARNING (66% - CLAUDE/GLOSSARYには完備)
-- **CA-005** (用語境界の整合): ✓ PASSED (0件矛盾)
+- **CA-005** (用語境界の整合): ✓ PASSED (100%)
 
 ## 残課題
 
@@ -102,13 +98,14 @@
 - **スコア**: 94/100 (一意性95 + 概念整合93 の加重平均)
 - **評価**: Excellent (優秀)
 - **状態**: 本番環境 ready
+- **目標達成**: ✓ (目標90以上)
 
 ### 強み (Strengths)
 1. ✅ **100% 正規形使用**: 同義語の使用が完全に排除されている
 2. ✅ **不変条件の完備な文書化**: 全12不変条件が適切に文書化されている
 3. ✅ **AUTO決定の透明性**: CLAUDE.md と GLOSSARY.md で暫定仕様が明示されている
-4. ✅ **Connector用語の統合**: 新規用語がスムーズに統合されている
-5. ✅ **存在意義の一貫性**: 全MDでmissionとtarget_userが一貫している
+4. ✅ **存在意義の一貫性**: 全MDでmissionとtarget_userが一貫している
+5. ✅ **完全な網羅性**: Tier 1-3の全MDファイルが存在
 
 ### 改善の機会 (Improvement Opportunities)
 1. 📝 **AUTO決定の完全網羅** (低優先度)
@@ -143,5 +140,5 @@
 ---
 
 **実行担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合)
-**生成日時**: 2026-02-03T02:07:00Z
+**生成日時**: 2026-02-03T02:20:00Z
 **検証状態**: ✓ VERIFIED (全MDファイルがintent.ymlとontology.ymlに準拠)

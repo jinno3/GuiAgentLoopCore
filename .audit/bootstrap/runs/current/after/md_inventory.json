@@ -1,97 +1,134 @@
 {
-  "timestamp": "2026-02-03T02:07:00Z",
+  "timestamp": "2026-02-03T02:20:00Z",
   "total_mds": 11,
-  "tier1_mds": 2,
-  "tier2_mds": 4,
-  "tier3_mds": 5,
+  "tier1_coverage": {
+    "required": 2,
+    "present": 2,
+    "percentage": 100
+  },
+  "tier2_coverage": {
+    "recommended": 4,
+    "present": 4,
+    "percentage": 100
+  },
+  "tier3_coverage": {
+    "optional": 4,
+    "present": 4,
+    "percentage": 100
+  },
+
   "files": [
     {
       "path": "README.md",
+      "tier": 1,
       "exists": true,
       "size_bytes": 2301,
-      "tier": "tier1",
-      "last_modified": "2026-02-02T00:57:00Z",
-      "status": "verified_no_changes"
+      "line_count": 67,
+      "last_modified": "2026-02-02T21:34:00Z",
+      "purpose": "リポジトリの顔",
+      "status": "exists_verified"
     },
     {
       "path": "AGENTS.md",
+      "tier": 1,
       "exists": true,
       "size_bytes": 6361,
-      "tier": "tier1",
+      "line_count": 203,
       "last_modified": "2026-02-02T23:16:00Z",
-      "status": "verified_no_changes"
+      "purpose": "AIエージェント向け指示",
+      "status": "exists_verified"
     },
     {
       "path": "CLAUDE.md",
+      "tier": 2,
       "exists": true,
       "size_bytes": 11620,
-      "tier": "tier2",
+      "line_count": 356,
       "last_modified": "2026-02-02T23:16:00Z",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "size_bytes": 13424,
-      "tier": "tier3",
-      "last_modified": "2026-02-02T11:07:00Z",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "size_bytes": 11205,
-      "tier": "tier3",
-      "last_modified": "2026-02-02T22:52:00Z",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "size_bytes": 5374,
-      "tier": "tier2",
-      "last_modified": "2026-02-02T23:47:00Z",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "size_bytes": 6727,
-      "tier": "tier2",
-      "last_modified": "2026-02-02T23:47:00Z",
-      "status": "verified_no_changes"
+      "purpose": "Claude向け特化指示",
+      "status": "exists_verified"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
+      "tier": 2,
       "exists": true,
       "size_bytes": 7943,
-      "tier": "tier2",
+      "line_count": 234,
       "last_modified": "2026-02-02T05:33:00Z",
-      "status": "verified_no_changes"
+      "purpose": "システム憲法",
+      "status": "exists_verified"
+    },
+    {
+      "path": "PURPOSE.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 5374,
+      "line_count": 172,
+      "last_modified": "2026-02-02T23:47:00Z",
+      "purpose": "目的の詳細説明",
+      "status": "exists_verified"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 6727,
+      "line_count": 200,
+      "last_modified": "2026-02-02T23:47:00Z",
+      "purpose": "貢献ガイド",
+      "status": "exists_verified"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 11205,
+      "line_count": 318,
+      "last_modified": "2026-02-02T22:52:00Z",
+      "purpose": "用語集（ontologyから自動生成）",
+      "status": "exists_verified"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 13424,
+      "line_count": 398,
+      "last_modified": "2026-02-02T11:07:00Z",
+      "purpose": "アーキテクチャ説明",
+      "status": "exists_verified"
     },
     {
       "path": "CODEX.md",
+      "tier": 3,
       "exists": true,
       "size_bytes": 5224,
-      "tier": "tier3",
+      "line_count": 162,
       "last_modified": "2026-02-02T00:57:00Z",
-      "status": "verified_no_changes"
+      "purpose": "Codex向け特化指示",
+      "status": "exists_verified"
     },
     {
       "path": "GEMINI.md",
+      "tier": 3,
       "exists": true,
       "size_bytes": 4744,
-      "tier": "tier3",
+      "line_count": 146,
       "last_modified": "2026-02-02T00:57:00Z",
-      "status": "verified_no_changes"
+      "purpose": "Gemini向け特化指示",
+      "status": "exists_verified"
     },
     {
       "path": "CHANGELOG.md",
+      "tier": 0,
       "exists": true,
       "size_bytes": 61,
-      "tier": "skip",
+      "line_count": 3,
       "last_modified": "2026-02-01T21:56:00Z",
-      "status": "verified_no_changes"
+      "purpose": "変更履歴",
+      "status": "exists_skipped"
     }
-  ]
+  ],
+
+  "overall_coverage": "100% (10/10 required+recommended MDs present)"
 }

@@ -1,16 +1,35 @@
 {
-  "timestamp": "2026-02-03T02:07:00Z",
+  "timestamp": "2026-02-03T02:20:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-  "target_user": [
-    "Application Developers: Building LLM-powered applications with GUI interfaces",
-    "AI Agent Developers: Creating specialized agents for specific tasks",
-    "Framework Developers: Building new GUI backend implementations",
-    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
+
+  "mission": {
+    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+    "keywords": ["GUI", "LLM", "agent", "conversation", "state"]
+  },
+
+  "target_users": [
+    {
+      "category": "Application Developers",
+      "description": "Building LLM-powered applications with GUI interfaces"
+    },
+    {
+      "category": "AI Agent Developers",
+      "description": "Creating specialized agents for specific tasks"
+    },
+    {
+      "category": "Framework Developers",
+      "description": "Building new GUI backend implementations"
+    },
+    {
+      "category": "AI Agents",
+      "description": "Claude, Gemini, Codex, and other AI models"
+    }
   ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries",
+
   "core_functions": [
     "Centralized Conversation Management",
     "State Machine with Monotonic Transitions",
@@ -18,6 +37,7 @@
     "Structured Message Processing",
     "Backend Abstraction"
   ],
+
   "in_scope": [
     "Conversation Flow Management",
     "State Machine",
@@ -26,6 +46,7 @@
     "Backend Abstraction",
     "Streaming Support"
   ],
+
   "out_of_scope": [
     "UI Rendering",
     "LLM Execution",
@@ -33,6 +54,15 @@
     "Authentication",
     "Network Protocols"
   ],
+
+  "success_metrics": [
+    "Integration Time",
+    "Bug-Free State Transitions",
+    "Agent Compatibility",
+    "Type Safety",
+    "Documentation Clarity"
+  ],
+
   "design_philosophy": [
     "Correctness Over Convenience",
     "Explicit Over Implicit",

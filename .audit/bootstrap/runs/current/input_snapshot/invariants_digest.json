@@ -1,0 +1,109 @@
+{
+  "timestamp": "2026-02-03T02:20:00Z",
+  "source": ".concept/invariants.yml",
+  "updated_at": "2026-02-02T05:23:14Z",
+
+  "statistics": {
+    "total_invariants": 12,
+    "by_strength": {
+      "hard": 9,
+      "soft": 3
+    },
+    "by_status": {
+      "stable": 11,
+      "draft": 1
+    },
+    "by_related_term": {
+      "Interpreter": 1,
+      "State": 3,
+      "Session": 2,
+      "Message": 2,
+      "Agent": 1,
+      "AutoChat": 1,
+      "StreamWrapper": 1,
+      "Memory": 1,
+      "Backend": 2,
+      "Connector": 1,
+      "Converter": 1
+    }
+  },
+
+  "hard_invariants": [
+    {
+      "id": "INV-STATE-001",
+      "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
+      "related_terms": ["Interpreter", "State"]
+    },
+    {
+      "id": "INV-SESSION-001",
+      "statement": "セッションは一意のUUIDで識別される",
+      "related_terms": ["Session"]
+    },
+    {
+      "id": "INV-MSG-001",
+      "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION",
+      "related_terms": ["Message"]
+    },
+    {
+      "id": "INV-AUTO-001",
+      "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
+      "related_terms": ["AutoChat", "State"]
+    },
+    {
+      "id": "INV-STREAM-001",
+      "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
+      "related_terms": ["StreamWrapper", "Message"]
+    },
+    {
+      "id": "INV-MESSAGE-001",
+      "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
+      "related_terms": ["Message"]
+    },
+    {
+      "id": "INV-STATE-002",
+      "statement": "状態は3秒間隔のタイマーで自動更新される",
+      "related_terms": ["State", "Timer"]
+    },
+    {
+      "id": "INV-BACKEND-001",
+      "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+      "related_terms": ["Backend"]
+    },
+    {
+      "id": "INV-SESSION-002",
+      "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
+      "related_terms": ["Session"]
+    },
+    {
+      "id": "INV-CONNECTOR-001",
+      "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+      "related_terms": ["Connector"]
+    },
+    {
+      "id": "INV-CONVERTER-001",
+      "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
+      "related_terms": ["Converter"]
+    }
+  ],
+
+  "soft_invariants": [
+    {
+      "id": "INV-AGENT-001",
+      "statement": "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER",
+      "related_terms": ["Agent"]
+    },
+    {
+      "id": "INV-MEM-001",
+      "statement": "会話メモリは最大100メッセージまで保持する",
+      "related_terms": ["Memory", "Session"],
+      "status": "draft"
+    },
+    {
+      "id": "INV-BACKEND-002",
+      "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
+      "related_terms": ["Backend", "State"]
+    }
+  ],
+
+  "auto_decisions_in_invariants": 9
+}

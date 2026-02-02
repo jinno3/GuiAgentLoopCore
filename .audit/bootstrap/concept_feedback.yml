@@ -1,26 +1,33 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T02:07:00Z"
+  bootstrap_run_timestamp: "2026-02-03T02:20:00Z"
   source_ontology_version: "0.3"
-  run_number: 40
+  run_number: 41
+  execution_type: "verification"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 55
+    total_canonical_terms: 11
+    canonical_used_in_md: 301
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
     status: "excellent"
 
-  # 2. 新規用語の統合確認
-  new_term_integration:
-    - term: "Connector"
-      layer: "domain"
+  # 2. 用語別使用統計（主要用語）
+  top_terms_usage:
+    - term: "Interpreter"
+      occurrences: 55
+      canonical_usage: 55
       status: "stable"
-      synonyms_verified: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
-      md_usage_verified: true
-      used_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      integration_quality: "excellent"
+    - term: "Agent"
+      occurrences: 62
+      canonical_usage: 62
+      status: "stable"
+    - term: "Message"
+      occurrences: 48
+      canonical_usage: 48
+      status: "stable"
 
   # 3. 不変条件の反映状況
   invariant_reflection:
@@ -110,8 +117,9 @@ concept_feedback:
     ontology_version: "0.3"
     total_terms: 11
     terms_verified: 11
-    new_terms_added_this_cycle: 1 (Connector)
+    new_terms_added_this_cycle: 0
     auto_decisions_active: 9
     invariants_verified: 12
     ambiguities_resolved: 0
     documentation_issues_fixed: 0
+    execution_type: "verification"

@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T01:52:00Z"
+run_timestamp: "2026-02-03T02:07:00Z"
 version: "1.1"
 
 rotation:
@@ -28,9 +28,9 @@ intent_summary:
   out_of_scope_count: 5
 
 ontology_summary:
-  total_terms: 10
+  total_terms: 11
   core_terms: 5
-  domain_terms: 4
+  domain_terms: 5
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
@@ -53,6 +53,10 @@ ontology_summary:
       layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
       synonyms: ["InterpreterState", "インタープリタ状態"]
+    - canonical: "Connector"
+      layer: "domain"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      synonyms: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
 
 invariants_summary:
   total_invariants: 12
@@ -63,8 +67,8 @@ invariants_summary:
 
 ambiguities_summary:
   total_ambiguities: 9
-  active_auto_decisions: 7
-  expired_auto_decisions: 2
+  active_auto_decisions: 9
+  expired_auto_decisions: 0
   high_severity: 2
   medium_severity: 2
   low_severity: 5
@@ -96,6 +100,12 @@ term_normalization:
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
@@ -165,7 +175,7 @@ actions:
     reason: "Verify Claude-specific instructions and concept alignment"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology consistency"
+    reason: "Verify ontology consistency and Connector term inclusion"
   - action: "verify"
     target: "ARCHITECTURE.md"
     reason: "Verify mappings reflection"

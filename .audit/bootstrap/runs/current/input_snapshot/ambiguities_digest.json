@@ -1,0 +1,127 @@
+{
+  "timestamp": "2026-02-03T02:20:00Z",
+  "source": ".concept/ambiguities.yml",
+  "updated_at": "2026-02-02T05:23:14Z",
+
+  "statistics": {
+    "total_auto_decisions": 9,
+    "by_status": {
+      "active": 9,
+      "expired": 0,
+      "resolved": 0
+    },
+    "by_term": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "Session": 1,
+      "AutoChat": 1,
+      "Backend": 2,
+      "Memory": 2
+    }
+  },
+
+  "active_auto_decisions": [
+    {
+      "id": "AUTO:Agent.role:classification",
+      "term": "Agent",
+      "description": "Agentはロールベースで分類される",
+      "evidence": "AgentName enum: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Agent.type:implementation_property",
+      "term": "Agent",
+      "description": "AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）",
+      "evidence": "AgentType enum: TOOL_CALLING, STRUCTURED_CHAT",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Message.structure:flat",
+      "term": "Message",
+      "description": "メッセージは再帰的にフラット化可能",
+      "evidence": "RequestConverter flattens nested content recursively",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Message.limit:100",
+      "term": "Message",
+      "description": "MAX_MESSAGE_LENGTH=100はハードリミット",
+      "evidence": "MAX_MESSAGE_LENGTH = 100 in server_impl_gradio.py",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Message.roles:tool_function_separation",
+      "term": "Message",
+      "description": "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）",
+      "evidence": "MessageRoleEnum: TOOL, FUNCTION (separate roles)",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:State.lifecycle:monotonic",
+      "term": "State",
+      "description": "状態は単調遷移する（INIT → RUNNING → STOP）",
+      "evidence": "InterpreterState enum with monotonic transitions",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:State.transition:auto_on_input",
+      "term": "State",
+      "description": "ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移",
+      "evidence": "chat_iface.textbox.submit(fn=interpreter_manager.change_state_running)",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:State.timer:3sec",
+      "term": "State",
+      "description": "t3タイマーは3秒間隔",
+      "evidence": "t3 = gr.Timer(3, active=False)",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:AutoChat.trigger:stop_only",
+      "term": "AutoChat",
+      "description": "AutoChatはSTATE_STOP時のみ発火",
+      "evidence": "auto_chat(): Only triggers when state is STATE_STOP",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Backend.primary:gradio",
+      "term": "Backend",
+      "description": "Gradioが主要バックエンド（暫定）",
+      "evidence": "Gradio implementation of the server interface",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Backend.deployment:security",
+      "term": "Backend",
+      "description": "バックエンドは0.0.0.0で起動し、allowed_pathsでセキュリティ制限",
+      "evidence": "app.launch(server_name='0.0.0.0', allowed_paths=[...])",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Session.jwt:algorithm_hs256",
+      "term": "Session",
+      "description": "JWTはHS256アルゴリズム使用（暫定）",
+      "evidence": "jwt.encode(session_id, self.secret_key, algorithm='HS256')",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Memory.window:k10",
+      "term": "Memory",
+      "description": "メモリウィンドウサイズはk=10（暫定）",
+      "evidence": "Conversation buffer with window size (k=10)",
+      "expires_after_runs": 20
+    },
+    {
+      "id": "AUTO:Memory.limit:100",
+      "term": "Memory",
+      "description": "100は安全上限（暫定）",
+      "evidence": "Maximum message length (100) enforced",
+      "expires_after_runs": 20
+    }
+  ],
+
+  "expires_soon": [],
+  "all_active": true
+}

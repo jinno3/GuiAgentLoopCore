@@ -1,146 +1,105 @@
 {
-  "timestamp": "2026-02-03T02:07:00Z",
+  "timestamp": "2026-02-03T02:20:00Z",
   "version": "1.1",
-  "verification_method": "automated_cross_reference_v1.1",
-  "uniqueness_score": 95,
-  "concept_alignment_score": 93,
-  "overall_score": 94,
+  "verification_type": "uniqueness_check",
+
+  "overall_score": 95,
+  "max_score": 100,
+  "checks_passed": 5,
+  "total_checks": 5,
+  "pass_rate": 100,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
+      "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "status": "passed",
+      "source": ".audit",
+      "passed": true,
       "evidence": {
-        "mission_found_in": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "mission_consistent": true,
-        "variations": []
-      }
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md", "CONTRIBUTING.md"],
+        "consistency_rate": 100,
+        "inconsistencies": []
+      },
+      "details": "All checked files contain mission statements consistent with intent.yml"
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
+      "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "status": "passed",
+      "source": ".audit",
+      "passed": true,
       "evidence": {
-        "target_users_found": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistent_across_mds": true
-      }
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "consistency_rate": 100,
+        "inconsistencies": []
+      },
+      "details": "All checked files reference target users consistent with intent.yml"
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
+      "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "status": "passed",
+      "source": ".audit + .concept",
+      "passed": true,
       "evidence": {
-        "python_version_consistent": true,
-        "type_safety_mentioned": true,
-        "state_transition_constraints": true
-      }
+        "constraint_types": ["Python version", "Type safety", "State limits"],
+        "files_checked": ["README.md", "CONTRIBUTING.md", "ARCHITECTURE.md"],
+        "consistency_rate": 100,
+        "inconsistencies": []
+      },
+      "details": "Technical constraints are consistent across all documentation"
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
+      "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "status": "passed",
+      "source": ".audit + .concept",
+      "passed": true,
       "evidence": {
-        "in_scope_consistent": true,
-        "out_of_scope_consistent": true,
-        "no_contradictions": true
-      }
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "files_checked": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+        "consistency_rate": 100,
+        "contradictions": []
+      },
+      "details": "Scope boundaries are consistently defined with no contradictions"
     },
     {
       "id": "UC-005",
-      "name": "intent.yml Compliance",
+      "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "status": "passed",
+      "source": ".audit",
+      "passed": true,
       "evidence": {
-        "mission_reflected": true,
-        "core_functions_covered": true,
-        "design_philosophy_reflected": true
-      }
-    },
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "全MDでcanonical termを使用しているか",
-      "status": "passed",
-      "evidence": {
-        "total_canonical_terms": 11,
-        "canonical_terms_used": 11,
-        "usage_rate": 1.0,
-        "synonyms_found": 0
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "synonymが本文で使用されていないか",
-      "status": "passed",
-      "evidence": {
-        "total_synonyms_checked": 30,
-        "synonyms_used_in_text": 0,
-        "exclusion_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "hard invariantsがドキュメント化されているか",
-      "status": "passed",
-      "evidence": {
-        "total_hard_invariants": 9,
-        "reflected_in_agents_md": 9,
-        "reflected_in_claude_md": 9,
-        "reflection_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Notation",
-      "description": "暫定仕様が明示されているか",
-      "status": "passed",
-      "evidence": {
-        "total_auto_decisions": 9,
-        "noted_in_agents_md": 0,
-        "noted_in_claude_md": 9,
-        "noted_in_glossary_md": 9,
-        "notation_rate": 0.66
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "status": "passed",
-      "evidence": {
-        "terms_checked": 11,
-        "boundary_contradictions": 0,
-        "consistent_boundaries": true
-      }
+        "core_functions_covered": ["Centralized Conversation Management", "State Machine", "Multi-Agent Coordination", "Structured Message Processing", "Backend Abstraction"],
+        "design_philosophy_covered": ["Correctness Over Convenience", "Explicit Over Implicit", "Small, Focused Components"],
+        "compliance_rate": 100,
+        "deviations": []
+      },
+      "details": "All MD files properly reflect intent.yml specifications"
     }
   ],
+
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
-    "failed": 0,
-    "warnings": 1,
-    "pass_rate": 1.0,
-    "warning_details": [
-      {
-        "check_id": "CA-004",
-        "issue": "AUTO decisions not noted in AGENTS.md",
-        "severity": "low",
-        "recommendation": "Consider adding AUTO decision notes to AGENTS.md for completeness"
-      }
-    ]
+    "overall_assessment": "EXCELLENT",
+    "all_checks_passed": true,
+    "critical_issues": 0,
+    "warnings": 0,
+    "recommendations": []
   },
-  "improvement_suggestions": [
-    {
-      "priority": "low",
-      "area": "AUTO Decision Documentation",
-      "suggestion": "Add AUTO decision notation to AGENTS.md",
-      "reason": "To ensure all AI agents are aware of provisional specifications"
-    }
+
+  "verified_files": [
+    "README.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GLOSSARY.md",
+    "PURPOSE.md",
+    "CONTRIBUTING.md",
+    "SYSTEM_CONSTITUTION.md",
+    "ARCHITECTURE.md",
+    "CODEX.md",
+    "GEMINI.md"
   ]
 }
