@@ -1,106 +1,88 @@
 {
-  "timestamp": "2026-02-03T01:40:00Z",
-  "repository": "GuiAgentLoopCore",
-  "total_md_files": 11,
-  "verified_files": 10,
-  "skipped_files": 1,
-
+  "timestamp": "2026-02-03T01:52:00Z",
+  "total_mds": 11,
+  "tier1_mds": 2,
+  "tier2_mds": 4,
+  "tier3_mds": 4,
+  "skip_mds": 1,
   "files": [
     {
       "path": "README.md",
+      "tier": "Tier 1",
       "size": "2.3K",
-      "line_count": 72,
-      "exists": true,
-      "tier": 1
+      "last_modified": "2026-02-02T21:34:00Z",
+      "required": true
     },
     {
       "path": "AGENTS.md",
+      "tier": "Tier 1",
       "size": "6.3K",
-      "line_count": 200,
-      "exists": true,
-      "tier": 1
+      "last_modified": "2026-02-02T23:16:00Z",
+      "required": true
     },
     {
       "path": "CLAUDE.md",
+      "tier": "Tier 2",
       "size": "12K",
-      "line_count": 300,
-      "exists": true,
-      "tier": 2
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "size": "14K",
-      "line_count": 400,
-      "exists": true,
-      "tier": 3
-    },
-    {
-      "path": "GLOSSARY.md",
-      "size": "11K",
-      "line_count": 250,
-      "exists": true,
-      "tier": 3
-    },
-    {
-      "path": "PURPOSE.md",
-      "size": "5.3K",
-      "line_count": 150,
-      "exists": true,
-      "tier": 2
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "size": "6.6K",
-      "line_count": 180,
-      "exists": true,
-      "tier": 2
+      "last_modified": "2026-02-02T23:16:00Z",
+      "required": false
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
+      "tier": "Tier 2",
       "size": "7.8K",
-      "line_count": 220,
-      "exists": true,
-      "tier": 2
+      "last_modified": "2026-02-02T05:33:00Z",
+      "required": false
+    },
+    {
+      "path": "PURPOSE.md",
+      "tier": "Tier 2",
+      "size": "5.3K",
+      "last_modified": "2026-02-02T23:47:00Z",
+      "required": false
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "tier": "Tier 2",
+      "size": "6.6K",
+      "last_modified": "2026-02-02T23:47:00Z",
+      "required": false
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": "Tier 3",
+      "size": "14K",
+      "last_modified": "2026-02-02T11:07:00Z",
+      "required": false
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": "Tier 3",
+      "size": "11K",
+      "last_modified": "2026-02-02T22:52:00Z",
+      "required": false
     },
     {
       "path": "CODEX.md",
+      "tier": "Tier 3",
       "size": "5.2K",
-      "line_count": 140,
-      "exists": true,
-      "tier": 3
+      "last_modified": "2026-02-02T00:57:00Z",
+      "required": false
     },
     {
       "path": "GEMINI.md",
+      "tier": "Tier 3",
       "size": "4.7K",
-      "line_count": 130,
-      "exists": true,
-      "tier": 3
+      "last_modified": "2026-02-02T00:57:00Z",
+      "required": false
     },
     {
       "path": "CHANGELOG.md",
+      "tier": "Skip",
       "size": "61",
-      "line_count": 5,
-      "exists": true,
-      "tier": 3,
-      "skip_reason": "Minimal content, not in scope for bootstrap"
+      "last_modified": "2026-02-01T21:56:00Z",
+      "required": false,
+      "skip_reason": "Managed by version control system"
     }
-  ],
-
-  "tier_coverage": {
-    "tier1": {
-      "required": 2,
-      "exists": 2,
-      "coverage": "100%"
-    },
-    "tier2": {
-      "required": 4,
-      "exists": 4,
-      "coverage": "100%"
-    },
-    "tier3": {
-      "optional": 4,
-      "exists": 4,
-      "coverage": "100%"
-    }
-  }
+  ]
 }

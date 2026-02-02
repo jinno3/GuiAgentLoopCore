@@ -1,171 +1,187 @@
-# Bootstrap Execution Plan
-# Protocol: 16_repo_md_bootstrapper v1.1
-# Generated: 2026-02-03T01:22:27Z
-# Repository: GuiAgentLoopCore
+run_timestamp: "2026-02-03T01:40:00Z"
+version: "1.1"
 
-run_info:
-  run_id: "v1.1-run-37"
-  protocol_version: "1.1"
-  started_at: "2026-02-03T01:22:27Z"
-  executor: "Claude Sonnet 4.5"
+rotation:
+  deleted_old: true
+  moved_current_to_old: true
 
-input_analysis:
-  intent_source: ".audit/config/intent.yml"
-  ontology_source: ".concept/ontology.yml"
-  invariants_source: ".concept/invariants.yml"
-  has_intent: true
-  has_ontology: true
-  has_invariants: true
+input_sources:
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: null
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    has_concept: true
 
-canonical_terms_summary:
-  total_terms: 11
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_functions_count: 5
+  in_scope_count: 6
+  out_of_scope_count: 5
+
+ontology_summary:
+  total_terms: 10
   core_terms: 5
-  domain_terms: 5
+  domain_terms: 4
   aux_terms: 1
-  terms:
-    - Interpreter (core)
-    - Agent (core)
-    - Session (core)
-    - Message (core)
-    - State (core)
-    - AutoChat (domain)
-    - StreamWrapper (domain)
-    - Backend (domain)
-    - Memory (domain, status: draft)
-    - Connector (domain)
-    - Converter (aux)
+  key_terms:
+    - canonical: "Interpreter"
+      layer: "core"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      synonyms: ["GuiAgentInterpreter", "会話インタープリタ"]
+    - canonical: "Agent"
+      layer: "core"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"]
+    - canonical: "Session"
+      layer: "core"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      synonyms: ["ChatSession", "会話セッション", "JWT"]
+    - canonical: "Message"
+      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      synonyms: ["メッセージ", "ChatMessage"]
+    - canonical: "State"
+      layer: "core"
+      definition: "インタープリタの実行状態を表す列挙型"
+      synonyms: ["InterpreterState", "インタープリタ状態"]
 
-existing_md_files:
-  tier_1_critical:
-    - README.md (exists)
-    - AGENTS.md (exists)
-  tier_2_important:
-    - CLAUDE.md (exists)
-    - SYSTEM_CONSTITUTION.md (exists)
-    - PURPOSE.md (exists)
-    - CONTRIBUTING.md (exists)
-  tier_3_useful:
-    - GLOSSARY.md (exists)
-    - ARCHITECTURE.md (exists)
-    - CHANGELOG.md (exists)
-    - CODEX.md (exists)
-    - GEMINI.md (exists)
+invariants_summary:
+  total_invariants: 12
+  hard_invariants: 9
+  soft_invariants: 3
+  stable_invariants: 11
+  draft_invariants: 1
 
-phases:
-  - phase: "1"
-    name: "Input Integration and Planning"
-    status: "in_progress"
-    outputs:
-      - "plan.yml"
+ambiguities_summary:
+  total_ambiguities: 9
+  active_auto_decisions: 7
+  expired_auto_decisions: 2
+  high_severity: 2
+  medium_severity: 2
+  low_severity: 5
 
-  - phase: "2"
-    name: "Input Snapshot"
-    status: "pending"
-    outputs:
-      - "input_snapshot/intent_digest.json"
-      - "input_snapshot/ontology_digest.json"
+term_normalization:
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
 
-  - phase: "3"
-    name: "Before Snapshot"
-    status: "pending"
-    outputs:
-      - "before/md_inventory.json"
-      - "before/clarity_scores.json"
-      - "before/concept_alignment_scores.json"
+existing_mds:
+  - path: "README.md"
+    status: "exists_verified"
+    size: "2.3K"
+    issues: []
+    concept_alignment: 95
+  - path: "AGENTS.md"
+    status: "exists_verified"
+    size: "6.3K"
+    issues: []
+    concept_alignment: 90
+  - path: "CLAUDE.md"
+    status: "exists_verified"
+    size: "12K"
+    issues: []
+    concept_alignment: 95
+  - path: "ARCHITECTURE.md"
+    status: "exists_verified"
+    size: "14K"
+    issues: []
+    concept_alignment: 85
+  - path: "GLOSSARY.md"
+    status: "exists_verified"
+    size: "11K"
+    issues: []
+    concept_alignment: 100
+  - path: "PURPOSE.md"
+    status: "exists_verified"
+    size: "5.3K"
+    issues: []
+    concept_alignment: 90
+  - path: "CONTRIBUTING.md"
+    status: "exists_verified"
+    size: "6.6K"
+    issues: []
+    concept_alignment: 85
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_verified"
+    size: "7.8K"
+    issues: []
+    concept_alignment: 90
+  - path: "CODEX.md"
+    status: "exists_verified"
+    size: "5.2K"
+    issues: []
+    concept_alignment: 85
+  - path: "GEMINI.md"
+    status: "exists_verified"
+    size: "4.7K"
+    issues: []
+    concept_alignment: 85
+  - path: "CHANGELOG.md"
+    status: "exists_skip"
+    size: "61"
+    issues: []
 
-  - phase: "4"
-    name: "MD Generation/Update Execution"
-    status: "pending"
-    strategy: "verify_and_update"
-    target_files:
-      - path: "README.md"
-        tier: 1
-        action: "verify"
-        priority: "critical"
-      - path: "AGENTS.md"
-        tier: 1
-        action: "verify"
-        priority: "critical"
-      - path: "CLAUDE.md"
-        tier: 2
-        action: "verify"
-        priority: "high"
-      - path: "GLOSSARY.md"
-        tier: 3
-        action: "regenerate"
-        priority: "medium"
-      - path: "ARCHITECTURE.md"
-        tier: 3
-        action: "review"
-        priority: "medium"
-    outputs:
-      - "changes/"
+actions:
+  - action: "verify"
+    target: "README.md"
+    reason: "Verify intent reflection and concept alignment"
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify terminology normalization and invariants"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific instructions and concept alignment"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology consistency"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify mappings reflection"
 
-  - phase: "5"
-    name: "Verification"
-    status: "pending"
-    verifications:
-      - category: "uniqueness"
-        checks:
-          - "UC-001: No duplicate term definitions"
-          - "UC-002: No contradictory statements"
-          - "UC-003: No circular references"
-          - "UC-004: No ambiguous terminology"
-          - "UC-005: No orphaned concepts"
-      - category: "concept_alignment"
-        checks:
-          - "CA-001: Use only canonical terms from ontology"
-          - "CA-002: No synonyms used instead of canonical forms"
-          - "CA-003: All terms defined in ontology or queue"
-          - "CA-004: Hard invariants respected"
-          - "CA-005: AUTO decisions documented"
-    outputs:
-      - "verification/uniqueness_report.json"
-      - "verification/concept_alignment_report.json"
-      - "verification/verification_summary.json"
-
-  - phase: "6"
-    name: "After Snapshot"
-    status: "pending"
-    outputs:
-      - "after/md_inventory.json"
-      - "after/clarity_scores.json"
-      - "after/concept_alignment_scores.json"
-
-  - phase: "7"
-    name: "Effect Measurement"
-    status: "pending"
-    outputs:
-      - "summary.md"
-
-  - phase: "8"
-    name: "Feedback Generation"
-    status: "pending"
-    outputs:
-      - ".audit/bootstrap/feedback_to_auditor.yml"
-      - ".audit/bootstrap/concept_feedback.yml"
-
-success_criteria:
-  - All Tier 1 files (README.md, AGENTS.md) verified and aligned with ontology
-  - GLOSSARY.md regenerated from ontology.yml
-  - Uniqueness score >= 95%
-  - Concept alignment score >= 95%
-  - All hard invariants documented in AGENTS.md and CLAUDE.md
-  - All AUTO decisions documented with notes
-  - Both feedback files generated
-
-risk_assessment:
-  risks:
-    - risk: "Ontology drift"
-      mitigation: "Strict canonical term enforcement"
-    - risk: "Invariant violations in existing docs"
-      mitigation: "Comprehensive verification in Phase 5"
-    - risk: "Inconsistent terminology across files"
-      mitigation: "Use ontology.yml as single source of truth"
-
-notes:
-  - "Phase 0 (rotation) already completed"
-  - "Current run directory: .audit/bootstrap/runs/current/"
-  - "All canonical terms must be used from ontology.yml"
-  - "Respect all hard invariants from invariants.yml"
-  - "Document AUTO decisions as notes"
+expected_outcome:
+  overall_score_target: 95
+  uniqueness_score_target: 95
+  concept_alignment_target: 95
+  verification_checks:
+    - "UC-001: Existence purpose consistency"
+    - "UC-002: Target user consistency"
+    - "UC-003: Constraints consistency"
+    - "UC-004: Boundary consistency"
+    - "UC-005: intent.yml compliance"
+    - "CA-001: Canonical term usage"
+    - "CA-002: Synonym exclusion"
+    - "CA-003: Invariant reflection"
+    - "CA-004: AUTO decision notation"
+    - "CA-005: Term boundary consistency"

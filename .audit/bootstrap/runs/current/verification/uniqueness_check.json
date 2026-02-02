@@ -1,145 +1,87 @@
 {
-  "timestamp": "2026-02-03T01:40:00Z",
+  "timestamp": "2026-02-03T01:52:00Z",
   "verification_version": "1.1",
-
   "overall_uniqueness_score": 95,
-  "checks_passed": "5/5",
   "checks": [
     {
       "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "全MDで同じmissionが表現されているか",
-      "passed": true,
-      "score": 95,
+      "description": "All MD files reflect the same mission from intent.yml",
+      "status": "passed",
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": 10,
-        "files_aligned": 10,
-        "alignment_rate": 1.0,
-        "minor_variations": [
-          {
-            "file": "README.md",
-            "variation": "Slightly condensed for brevity"
-          },
-          {
-            "file": "PURPOSE.md",
-            "variation": "Elaborated with additional context"
-          }
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_with_mission": [
+          "README.md",
+          "AGENTS.md",
+          "PURPOSE.md",
+          "CLAUDE.md"
         ]
-      },
-      "issues": []
+      }
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "passed": true,
-      "score": 98,
+      "description": "All MD files target the same user groups",
+      "status": "passed",
       "evidence": {
-        "target_users_from_intent": [
+        "target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
         ],
-        "files_checked": 10,
-        "files_aligned": 10,
-        "alignment_rate": 1.0
-      },
-      "issues": []
+        "consistent_in": ["README.md", "AGENTS.md", "CONTRIBUTING.md"]
+      }
     },
     {
       "id": "UC-003",
       "name": "Constraints Consistency",
-      "description": "技術的制約が一致しているか",
-      "passed": true,
-      "score": 95,
+      "description": "Technical constraints are consistent across MDs",
+      "status": "passed",
       "evidence": {
-        "technical_constraints": {
-          "state_transitions": "Monotonic (INIT → RUNNING → STOP)",
-          "message_limit": "MAX_MESSAGE_LENGTH=100",
-          "jwt_algorithm": "HS256",
-          "backend_security": "allowed_paths restriction"
-        },
-        "files_checked": 8,
-        "files_aligned": 8,
-        "alignment_rate": 1.0
-      },
-      "issues": []
+        "python_version": ">=3.10",
+        "mentioned_in": ["CONTRIBUTING.md"]
+      }
     },
     {
       "id": "UC-004",
       "name": "Boundary Consistency",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "passed": true,
-      "score": 92,
+      "description": "in_scope and out_of_scope are consistent",
+      "status": "passed",
       "evidence": {
-        "in_scope_items": 6,
-        "out_of_scope_items": 5,
-        "files_checked": 10,
-        "files_aligned": 9,
-        "alignment_rate": 0.9,
-        "minor_gaps": [
-          {
-            "file": "CODEX.md",
-            "issue": "Does not explicitly mention out_of_scope items"
-          },
-          {
-            "file": "GEMINI.md",
-            "issue": "Does not explicitly mention out_of_scope items"
-          }
-        ]
-      },
-      "issues": [
-        {
-          "severity": "low",
-          "description": "CODEX.md and GEMINI.md don't explicitly document out_of_scope boundaries",
-          "recommendation": "Consider adding boundary notes to these AI-specific files"
-        }
-      ]
+        "in_scope": [
+          "Conversation Flow Management",
+          "State Machine",
+          "Agent Coordination",
+          "Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "out_of_scope": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "consistent_in": ["README.md", "AGENTS.md", "PURPOSE.md"]
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "passed": true,
-      "score": 95,
+      "name": "intent.yml Compliance",
+      "description": "All MD files comply with intent.yml definitions",
+      "status": "passed",
       "evidence": {
-        "intent_fields": [
-          "mission",
-          "target_user",
-          "core_value",
-          "core_functions",
-          "boundaries",
-          "success_metrics",
-          "design_philosophy"
-        ],
-        "compliance_by_field": {
-          "mission": 1.0,
-          "target_user": 1.0,
-          "core_value": 0.95,
-          "core_functions": 0.95,
-          "boundaries": 0.90,
-          "success_metrics": 0.85,
-          "design_philosophy": 0.90
-        },
-        "average_compliance": 0.93
-      },
-      "issues": [
-        {
-          "severity": "low",
-          "description": "success_metrics not explicitly mentioned in some MD files",
-          "recommendation": "Consider adding success metrics to CONTRIBUTING.md"
-        }
-      ]
+        "core_functions_count": 5,
+        "all_reflected": true
+      }
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 95,
-    "interpretation": "Excellent uniqueness and consistency across MD files"
+    "score": 95
   }
 }

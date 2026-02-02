@@ -1,0 +1,176 @@
+{
+  "timestamp": "2026-02-03T01:40:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "verification_version": "1.1",
+
+  "overall_alignment_score": 92,
+
+  "term_usage_check": {
+    "total_term_occurrences": 85,
+    "canonical_used": 82,
+    "synonym_used": 0,
+    "unknown_terms": 3,
+    "alignment_rate": 0.965,
+    "evidence": {
+      "canonical_terms_in_docs": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
+      ],
+      "unknown_terms_found": [
+        {
+          "term": "GUI component",
+          "context": "Used in ARCHITECTURE.md to refer to Backend elements",
+          "suggestion": "Consider using canonical term 'Backend' or 'GuiComponent'"
+        },
+        {
+          "term": "Chat interface",
+          "context": "Used in README.md as user-facing description",
+          "suggestion": "Acceptable as user-facing language, not technical term"
+        },
+        {
+          "term": "Conversation buffer",
+          "context": "Used in ARCHITECTURE.md",
+          "suggestion": "Consider using canonical term 'Memory'"
+        }
+      ]
+    }
+  },
+
+  "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 95,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 90,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Connector"],
+      "issues": []
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 95,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 85,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Memory", "Connector", "Converter"],
+      "issues": [
+        {
+          "type": "unknown_term",
+          "found": "Conversation buffer",
+          "expected": "Memory",
+          "line": "unknown",
+          "status": "suggestion"
+        }
+      ]
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "issues": [],
+      "note": "Perfect alignment - generated from ontology.yml"
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 90,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 85,
+      "canonical_terms_used": ["Interpreter", "Agent", "State", "Backend", "Connector"],
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 90,
+      "canonical_terms_used": ["Interpreter", "State", "Agent", "Session"],
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 85,
+      "canonical_terms_used": ["Interpreter", "Agent", "State"],
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 85,
+      "canonical_terms_used": ["Interpreter", "Agent", "State"],
+      "issues": []
+    }
+  ],
+
+  "invariant_check": {
+    "total_invariants": 12,
+    "hard_invariants": 11,
+    "soft_invariants": 1,
+    "reflected_in_md": 11,
+    "missing": [
+      {
+        "invariant_id": "INV-BACKEND-001",
+        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+        "should_appear_in": ["CONTRIBUTING.md", "ARCHITECTURE.md"],
+        "priority": "medium",
+        "status": "partially_documented"
+      }
+    ],
+    "coverage_rate": 0.92
+  },
+
+  "auto_decision_check": {
+    "active_auto_decisions": 7,
+    "expired_auto_decisions": 2,
+    "total_auto_decisions": 9,
+    "noted_in_md": 9,
+    "format": "注記として記載（暫定仕様として扱う）",
+    "coverage_rate": 1.0,
+    "expired_decisions_documented": [
+      {
+        "decision": "AUTO:Security.secret_key:env_var_required",
+        "status": "expired",
+        "noted_in": ["CONTRIBUTING.md", "ARCHITECTURE.md"],
+        "critical": true,
+        "note": "EXPIRED but documented - requires action"
+      },
+      {
+        "decision": "AUTO:Session.jwt:decode_method_fix",
+        "status": "expired",
+        "noted_in": ["ARCHITECTURE.md"],
+        "critical": true,
+        "note": "EXPIRED but documented - requires action"
+      }
+    ]
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 5,
+    "reflected_as_notes": 5,
+    "missing_notes": 0,
+    "coverage_rate": 1.0
+  },
+
+  "summary": {
+    "overall_score": 92,
+    "term_alignment": 96.5,
+    "invariant_coverage": 92,
+    "auto_decision_coverage": 100,
+    "interpretation": "Excellent concept alignment with minor suggestions for improvement"
+  }
+}

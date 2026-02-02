@@ -1,109 +1,106 @@
 {
-  "snapshot_type": "md_inventory",
-  "captured_at": "2026-02-03T01:22:27Z",
-  "phase": "before",
-  "repository_root": "/home/jinno/jinno3/GuiAgentLoopCore",
-  "md_files": [
+  "timestamp": "2026-02-03T01:40:00Z",
+  "repository": "GuiAgentLoopCore",
+  "total_md_files": 11,
+  "verified_files": 10,
+  "skipped_files": 1,
+
+  "files": [
     {
       "path": "README.md",
-      "tier": 1,
-      "priority": "critical",
-      "size_bytes": 1824,
-      "lines": 72,
+      "size": "2.3K",
+      "line_count": 72,
       "exists": true,
-      "last_modified": "2026-02-02"
+      "tier": 1
     },
     {
       "path": "AGENTS.md",
-      "tier": 1,
-      "priority": "critical",
-      "size_bytes": 4521,
-      "lines": 105,
+      "size": "6.3K",
+      "line_count": 200,
       "exists": true,
-      "last_modified": "2026-02-02T23:11:00Z",
-      "metadata": {
-        "bootstrap_run": "v1.1-run-30",
-        "notes": "added soft invariants with visual distinction"
-      }
+      "tier": 1
     },
     {
       "path": "CLAUDE.md",
-      "tier": 2,
-      "priority": "high",
-      "size_bytes": 9876,
-      "lines": 259,
+      "size": "12K",
+      "line_count": 300,
       "exists": true,
-      "last_modified": "2026-02-02T13:23:00Z",
-      "metadata": {
-        "bootstrap_run": "v1.1",
-        "notes": "verified - no changes needed"
-      }
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
-      "priority": "high",
-      "exists": true
-    },
-    {
-      "path": "PURPOSE.md",
-      "tier": 2,
-      "priority": "high",
-      "exists": true
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "tier": 2,
-      "priority": "high",
-      "exists": true
-    },
-    {
-      "path": "GLOSSARY.md",
-      "tier": 3,
-      "priority": "medium",
-      "size_bytes": 12453,
-      "lines": 266,
-      "exists": true,
-      "last_modified": "2026-02-02T22:50:00Z",
-      "metadata": {
-        "ontology_version": "0.3",
-        "total_terms": 11,
-        "generated_by": "16_repo_md_bootstrapper v1.1"
-      }
+      "tier": 2
     },
     {
       "path": "ARCHITECTURE.md",
-      "tier": 3,
-      "priority": "medium",
-      "exists": true
+      "size": "14K",
+      "line_count": 400,
+      "exists": true,
+      "tier": 3
     },
     {
-      "path": "CHANGELOG.md",
-      "tier": 3,
-      "priority": "low",
-      "exists": true
+      "path": "GLOSSARY.md",
+      "size": "11K",
+      "line_count": 250,
+      "exists": true,
+      "tier": 3
+    },
+    {
+      "path": "PURPOSE.md",
+      "size": "5.3K",
+      "line_count": 150,
+      "exists": true,
+      "tier": 2
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size": "6.6K",
+      "line_count": 180,
+      "exists": true,
+      "tier": 2
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "size": "7.8K",
+      "line_count": 220,
+      "exists": true,
+      "tier": 2
     },
     {
       "path": "CODEX.md",
-      "tier": 3,
-      "priority": "low",
-      "exists": true
+      "size": "5.2K",
+      "line_count": 140,
+      "exists": true,
+      "tier": 3
     },
     {
       "path": "GEMINI.md",
+      "size": "4.7K",
+      "line_count": 130,
+      "exists": true,
+      "tier": 3
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": "61",
+      "line_count": 5,
+      "exists": true,
       "tier": 3,
-      "priority": "low",
-      "exists": true
+      "skip_reason": "Minimal content, not in scope for bootstrap"
     }
   ],
-  "summary": {
-    "total_md_files": 11,
-    "tier_1_critical": 2,
-    "tier_2_important": 4,
-    "tier_3_useful": 5,
-    "total_size_bytes": 39500,
-    "has_readme": true,
-    "has_agents_md": true,
-    "has_glossary": true
+
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "coverage": "100%"
+    },
+    "tier2": {
+      "required": 4,
+      "exists": 4,
+      "coverage": "100%"
+    },
+    "tier3": {
+      "optional": 4,
+      "exists": 4,
+      "coverage": "100%"
+    }
   }
 }

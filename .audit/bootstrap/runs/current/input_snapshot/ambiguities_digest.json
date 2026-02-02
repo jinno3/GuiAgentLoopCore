@@ -1,8 +1,7 @@
 {
-  "timestamp": "2026-02-03T01:40:00Z",
+  "timestamp": "2026-02-03T01:52:00Z",
   "source": ".concept/ambiguities.yml",
   "updated_at": "2026-02-02T05:57:38Z",
-
   "statistics": {
     "total_ambiguities": 9,
     "by_severity": {
@@ -10,104 +9,92 @@
       "medium": 2,
       "low": 5
     },
-    "by_status": {
-      "applied": 7,
+    "auto_decisions": {
+      "active": 7,
       "expired": 2
+    },
+    "by_term": {
+      "Agent": 1,
+      "Memory": 2,
+      "AutoChat": 1,
+      "Backend": 1,
+      "Message": 1,
+      "Security": 1,
+      "Session": 1,
+      "Connector": 1
     }
   },
-
   "active_auto_decisions": [
     {
       "id": "AMB-AGT-001",
       "term": "Agent",
-      "topic": "AgentとAgentTypeの関係",
       "decision_key": "AUTO:Agent.type:implementation_property",
       "chosen": "AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）",
-      "confidence_auto": 0.70,
-      "should_appear_in": ["AGENTS.md", "CLAUDE.md"]
+      "expires_after_runs": 20
     },
     {
       "id": "AMB-MEM-001",
       "term": "Memory",
-      "topic": "会話メモリのウィンドウサイズと最大長",
       "decision_key": "AUTO:Memory.specs:provisional",
       "chosen": "ウィンドウサイズk=10（rolling）、最大長100（hard limit）",
-      "confidence_auto": 0.50,
-      "should_appear_in": ["CLAUDE.md", "ARCHITECTURE.md"]
+      "expires_after_runs": 20
     },
     {
       "id": "AMB-AUTO-001",
       "term": "AutoChat",
-      "topic": "AUTO_CHAT_PROMPTのデフォルト値",
       "decision_key": "AUTO:AutoChat.prompt:default_continue",
       "chosen": "未設定時はデフォルト継続プロンプト使用（安全側）",
-      "confidence_auto": 0.55,
-      "should_appear_in": ["CLAUDE.md"]
+      "expires_after_runs": 20
     },
     {
       "id": "AMB-BE-001",
       "term": "Backend",
-      "topic": "Streamsyncサポートの有無と優先度",
       "decision_key": "AUTO:Backend.primary:gradio",
       "chosen": "Gradioが主要バックエンド（暫定）",
-      "confidence_auto": 0.70,
-      "should_appear_in": ["README.md", "ARCHITECTURE.md"]
+      "expires_after_runs": 20
     },
     {
       "id": "AMB-MSG-001",
       "term": "Message",
-      "topic": "Message Role types - TOOL vs FUNCTIONの意味論的違い",
       "decision_key": "AUTO:Message.roles:tool_function_separation",
       "chosen": "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）",
-      "confidence_auto": 0.60,
-      "should_appear_in": ["CLAUDE.md", "ARCHITECTURE.md"]
+      "expires_after_runs": 20
     },
     {
       "id": "AMB-MEM-002",
       "term": "Memory",
-      "topic": "デュアルメモリ実装 - LangChain vs カスタム",
       "decision_key": "AUTO:Memory.implementation:dual_provisional",
       "chosen": "両者は暫定的に共存（移行期間中とみなす）",
-      "confidence_auto": 0.50,
-      "should_appear_in": ["ARCHITECTURE.md", "CLAUDE.md"]
+      "expires_after_runs": 20
     },
     {
       "id": "AMB-CON-001",
       "term": "Connector",
-      "topic": "コネクタの正規名と抽象度",
       "decision_key": "AUTO:Connector.layer:domain",
       "chosen": "Connectorは正規概念（domain層）",
-      "confidence_auto": 0.80,
-      "should_appear_in": ["AGENTS.md", "CLAUDE.md"]
+      "expires_after_runs": 20
     }
   ],
-
   "expired_auto_decisions": [
     {
       "id": "AMB-SEC-001",
       "term": "Security",
-      "topic": "ハードコードされたシークレットキー vs 環境変数",
       "decision_key": "AUTO:Security.secret_key:env_var_required",
       "chosen": "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）",
-      "confidence_auto": 0.85,
+      "severity": "high",
+      "expires_after_runs": 10,
       "status": "expired",
-      "note": "EXPIRED for 20+ runs past expiration - CRITICAL SECURITY ISSUE",
-      "should_appear_in": ["CONTRIBUTING.md", "ARCHITECTURE.md"]
+      "action_required": "CRITICAL: Immediate action needed to migrate hardcoded secret key to environment variable"
     },
     {
       "id": "AMB-SEC-002",
       "term": "Session",
-      "topic": "JWTデコードメソッドの未定義変数バグ",
       "decision_key": "AUTO:Session.jwt:decode_method_fix",
       "chosen": "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要",
-      "confidence_auto": 0.75,
+      "severity": "high",
+      "expires_after_runs": 10,
       "status": "expired",
-      "note": "EXPIRED for 4+ runs past expiration - CRITICAL BUG",
-      "should_appear_in": ["CONTRIBUTING.md", "ARCHITECTURE.md"]
+      "action_required": "CRITICAL: Fix or remove undefined variables in jwt_decode_session() method"
     }
-  ],
-
-  "total_auto_decisions": 9,
-  "active_count": 7,
-  "expired_count": 2
+  ]
 }

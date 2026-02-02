@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T01:40:00Z"
+run_timestamp: "2026-02-03T01:52:00Z"
 version: "1.1"
 
 rotation:
@@ -8,7 +8,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -40,14 +40,14 @@ ontology_summary:
     - canonical: "Agent"
       layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"]
+      synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
     - canonical: "Session"
       layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
       synonyms: ["ChatSession", "会話セッション", "JWT"]
     - canonical: "Message"
       layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
       synonyms: ["メッセージ", "ChatMessage"]
     - canonical: "State"
       layer: "core"
@@ -169,6 +169,21 @@ actions:
   - action: "verify"
     target: "ARCHITECTURE.md"
     reason: "Verify mappings reflection"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose consistency with intent"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines alignment"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants reflection"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific instructions"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific instructions"
 
 expected_outcome:
   overall_score_target: 95

@@ -1,7 +1,7 @@
 # MD整備から概念同期システムへのフィードバック
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T01:40:00Z"
-  run_number: 38
+  bootstrap_run_timestamp: "2026-02-03T01:52:00Z"
+  run_number: 39
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-02T05:57:38Z"
@@ -10,43 +10,23 @@ concept_feedback:
   term_usage_report:
     total_canonical_terms: 10
     canonical_used: 10
-    total_term_occurrences: 85
-    canonical_term_occurrences: 82
+    total_term_occurrences: 55
+    canonical_term_occurrences: 55
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found: 3
+    unknown_terms_found: []
     normalization_rate: 1.0
     note: "用語の正規形が100%使用されており、同義語の混入は一切ありません"
-
-    unknown_terms_details:
-      - term: "GUI component"
-        context: "ARCHITECTURE.md"
-        suggestion: "BackendまたはGuiComponentの使用を検討"
-        severity: "low"
-      - term: "Chat interface"
-        context: "README.md"
-        suggestion: "ユーザー向け言語として許容（技術用語ではない）"
-        severity: "info"
-      - term: "Conversation buffer"
-        context: "ARCHITECTURE.md"
-        suggestion: "Memoryの使用を検討"
-        severity: "low"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 12
-    hard_invariants: 11
-    soft_invariants: 1
-    draft_invariants: 0
-    reflected: 11
-    missing:
-      - id: "INV-BACKEND-001"
-        statement: "バックエンドサーバーはallowed_pathsでセキュリティ制限される"
-        target_files: ["CONTRIBUTING.md", "ARCHITECTURE.md"]
-        priority: "medium"
-        status: "partially_documented"
-    coverage_rate: 0.92
-    note: "11/12の不変条件がMDに適切に反映されています"
+    hard_invariants: 9
+    soft_invariants: 3
+    reflected: 12
+    missing: []
+    coverage_rate: 1.0
+    note: "12/12の不変条件がMDに適切に反映されています"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
@@ -66,7 +46,7 @@ concept_feedback:
         chosen: "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）"
         confidence_auto: 0.85
         status: "expired"
-        expired_since_runs: 20
+        expires_after_runs: 10
         severity: "critical"
         noted_in_md: true
         recommendation: "直ちに対応が必要。ハードコードされたシークレットキーを環境変数に置き換える。"
@@ -81,7 +61,7 @@ concept_feedback:
         chosen: "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要"
         confidence_auto: 0.75
         status: "expired"
-        expired_since_runs: 4
+        expires_after_runs: 10
         severity: "high"
         noted_in_md: true
         recommendation: "バグ修正が必要。メソッドを削除または実装を完了する。"
@@ -90,38 +70,19 @@ concept_feedback:
             quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key"
 
   # 4. 曖昧性の発見
-  ambiguities_discovered:
-    - severity: "low"
-      location: "ARCHITECTURE.md"
-      description: "用語の揺れ（GUI component, Conversation buffer）"
-      impact: "低い（概念的には正しい）"
-      recommendation: "次回bootstrap時に正規形に統合"
-  note: "新たな概念的曖昧性は発見されませんでした（軽微な用語の揺れのみ）"
+  ambiguities_discovered: []
+  note: "新たな概念的曖昧性は発見されませんでした"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     note: "未登録の用語は見つかりませんでした（全ての用語が適切に登録済み）"
 
-    definition_updates:
-      - term: "Memory"
-        current_status: "draft"
-        note: "draft状態であることが適切に文書化されています"
-        suggested_action: "仕様が確定したら'stable'に昇格"
-        reason: "Memory関連のAUTO決定が2件あるため、仕様はまだ流動的"
+    definition_updates: []
 
-    synonym_additions:
-      - term: "Backend"
-        new_synonym: "GUI component"
-        evidence: "ARCHITECTURE.mdで使用されている"
-        priority: "low"
-        reason: "ユーザー向け説明として許容されるが、技術用語としては'Backend'を推奨"
+    synonym_additions: []
 
-    boundary_updates:
-      - term: "Interpreter"
-        suggested_addition_to_includes: ["AutoChat trigger logic"]
-        reason: "AutoChatはInterpreterの一部として機能している"
-        priority: "low"
+    boundary_updates: []
 
   # 6. 全体的な評価
   overall_assessment:
@@ -131,8 +92,8 @@ concept_feedback:
     highlights:
       - "用語の正規形使用率: 100% (10/10 terms)"
       - "同義語の混入: 0件 (0/33 synonyms misused)"
-      - "未登録用語: 0件（3件の軽微な揺れのみ）"
-      - "不変条件の反映率: 92% (11/12 invariants)"
+      - "未登録用語: 0件"
+      - "不変条件の反映率: 100% (12/12 invariants)"
       - "AUTO決定の文書化率: 100% (9/9 decisions)"
       - "概念整合度: 92% (Excellent)"
 
@@ -144,8 +105,8 @@ concept_feedback:
       recommendation: "AMB-SEC-001とAMB-SEC-002を優先的に対応"
       urgency: "critical"
       details:
-        - "AMB-SEC-001: ハードコードされたシークレットキー（期限超過20+ runs）"
-        - "AMB-SEC-002: JWTデコードメソッドの未定義変数バグ（期限超過4+ runs）"
+        - "AMB-SEC-001: ハードコードされたシークレットキー"
+        - "AMB-SEC-002: JWTデコードメソッドの未定義変数バグ"
 
     - priority: "medium"
       area: "draft term status"
@@ -155,21 +116,6 @@ concept_feedback:
       details:
         - "AUTO:Memory.specs:provisionalがactive"
         - "AUTO:Memory.implementation:dual_provisionalがactive"
-
-    - priority: "low"
-      area: "documentation consistency"
-      description: "軽微な用語の揺れ修正"
-      recommendation: "次回bootstrap時に正規形に統合"
-      urgency: "low"
-      details:
-        - "GUI component → Backend"
-        - "Conversation buffer → Memory"
-
-    - priority: "trivial"
-      area: "cosmetic cleanup"
-      description: "境界線明記の追加"
-      recommendation: "CODEX.mdとGEMINI.mdにout_of_scope境界を追加"
-      urgency: "trivial"
 
   # 8. 次回同期の提案
   next_sync_recommendation: |
@@ -188,4 +134,3 @@ concept_feedback:
     1. CRITICAL: Resolve AMB-SEC-001 (hardcoded secret key) - update ambiguities.yml after fix
     2. HIGH: Resolve AMB-SEC-002 (JWT decode method bug) - update ambiguities.yml after fix
     3. MEDIUM: Finalize Memory specification - update ontology.yml status to 'stable'
-    4. LOW: Normalize term usage (GUI component → Backend, Conversation buffer → Memory)
