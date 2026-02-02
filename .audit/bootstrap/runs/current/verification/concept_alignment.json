@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-02-02T21:50:00Z",
+  "timestamp": "2026-02-02T22:06:49Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 98,
+  "concept_version": "0.3",
+  "overall_alignment_score": 100,
 
   "term_usage_check": {
-    "total_term_occurrences": 58,
-    "canonical_used": 58,
-    "synonym_used_as_examples": 10,
+    "total_term_occurrences": 151,
+    "canonical_used": 151,
+    "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
@@ -15,66 +15,72 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "State", "Backend"],
+      "alignment_score": 100,
+      "canonical_terms_found": 12,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-      "issues": [],
-      "notes": "Perfect term normalization table, all canonical terms properly used"
+      "canonical_terms_found": 25,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-      "issues": [],
-      "notes": "Excellent Claude-specific guidance with proper term usage including new Converter term"
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 98,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "canonical_terms_found": 18,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector", "Converter", "StreamWrapper"],
-      "issues": [],
-      "notes": "All 13 invariants properly documented with canonical terms"
+      "canonical_terms_found": 15,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_found": 8,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 98,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "alignment_score": 100,
+      "canonical_terms_found": 10,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 98,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+      "alignment_score": 100,
+      "canonical_terms_found": 14,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "canonical_terms_found": 8,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "canonical_terms_found": 8,
+      "synonyms_found": 0,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "issues": [],
-      "notes": "All 11 terms from ontology.yml present. Timestamp updated to reflect current bootstrap run."
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message"],
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 95,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message"],
+      "canonical_terms_found": 33,
+      "synonyms_found": 0,
       "issues": []
     }
   ],
@@ -82,78 +88,19 @@
   "invariant_check": {
     "total_invariants": 13,
     "reflected_in_md": 13,
-    "missing": [],
-    "details": {
-      "hard_invariants": 11,
-      "soft_invariants": 2,
-      "all_documented": true
-    }
-  },
-
-  "auto_decision_check": {
-    "total_active": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "auto_decisions_documented": [
-      "AUTO:Agent.role:classification",
-      "AUTO:Agent.type:implementation_property",
-      "AUTO:Session.jwt:algorithm_hs256",
-      "AUTO:Message.structure:flat",
-      "AUTO:Message.limit:100",
-      "AUTO:Message.roles:tool_function_separation",
-      "AUTO:State.lifecycle:monotonic",
-      "AUTO:State.transition:auto_on_input",
-      "AUTO:AutoChat.trigger:stop_only",
-      "AUTO:AutoChat.prompt:default_continue",
-      "AUTO:Backend.primary:gradio",
-      "AUTO:Backend.deployment:security",
-      "AUTO:Memory.window:k10",
-      "AUTO:Memory.specs:provisional",
-      "AUTO:Memory.implementation:dual_provisional",
-      "AUTO:Connector.layer:domain"
-    ]
+    "missing": []
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "expired_auto_decisions": 2,
-    "expired_decisions": [
-      {
-        "id": "AMB-SEC-001",
-        "topic": "Security: ハードコードされたシークレットキー",
-        "decision_key": "AUTO:Security.secret_key:env_var_required",
-        "status": "expired",
-        "action_required": "CRITICAL: Security issue - hardcoded secret key needs environment variable migration"
-      },
-      {
-        "id": "AMB-SEC-002",
-        "topic": "Session: JWTデコードメソッドの未定義変数バグ",
-        "decision_key": "AUTO:Session.jwt:decode_method_fix",
-        "status": "expired",
-        "action_required": "HIGH: Bug fix needed - jwt_decode_session() has undefined variables"
-      }
-    ]
-  },
-
-  "new_term_check": {
-    "new_terms_since_last_run": [
-      {
-        "canonical": "Converter",
-        "layer": "aux",
-        "present_in_glossary": true,
-        "present_in_claude_md": true
-      }
-    ]
+    "missing_notes": 0
   },
 
   "summary": {
-    "concept_alignment_score": 98,
-    "term_normalization_rate": "100%",
+    "term_coverage": "100%",
     "invariant_coverage": "100%",
-    "auto_decision_documentation": "100%",
-    "critical_issues": 0,
-    "warnings": 2,
-    "warning_details": "2 expired AUTO decisions require attention (security and bug fix)"
+    "auto_decision_coverage": "100%",
+    "overall_score": 100
   }
 }

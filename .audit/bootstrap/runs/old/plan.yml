@@ -1,47 +1,61 @@
-run_timestamp: "2026-02-02T21:32:00Z"
+# MD整備実行計画 (Bootstrap Plan)
+run_timestamp: "2026-02-02T21:50:00Z"
 version: "1.1"
+run_id: "bootstrap-run-v1.1-20260202-215000"
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
+  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
+    intent_version: "1.0"
     constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
+    ontology_version: "0.3"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
   core_functions_count: 5
+  boundaries_count: 10
 
 ontology_summary:
-  version: "0.3"
-  total_terms: 10
-  core_terms: 5
-  domain_terms: 4
-  aux_terms: 1
+  total_terms: 11
+  by_layer:
+    core: 5
+    domain: 5
+    aux: 1
+  by_status:
+    stable: 10
+    draft: 1
+  new_terms_since_last_run:
+    - canonical: "Converter"
+      layer: "aux"
+      status: "stable"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
-      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -54,7 +68,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -69,78 +82,73 @@ term_normalization:
   "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_update"
     tier: 1
+    status: "exists_likely_good"
+    last_updated: "2026-02-02T21:32:00Z"
   - path: "AGENTS.md"
-    status: "exists_needs_update"
     tier: 1
+    status: "exists_likely_good"
+    last_updated: "2026-02-02T21:32:00Z"
   - path: "CLAUDE.md"
-    status: "exists_verified"
     tier: 2
+    status: "exists_likely_good"
+    last_updated: "2026-02-02T13:23:00Z"
   - path: "PURPOSE.md"
-    status: "exists_needs_update"
     tier: 2
+    status: "exists_likely_good"
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_update"
     tier: 2
+    status: "exists_likely_good"
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_update"
     tier: 2
+    status: "exists_likely_good"
   - path: "ARCHITECTURE.md"
-    status: "exists_needs_update"
     tier: 3
+    status: "exists_likely_good"
   - path: "GLOSSARY.md"
-    status: "exists_needs_update"
     tier: 3
+    status: "needs_update"
+    reason: "New term 'Converter' added to ontology - needs regeneration"
   - path: "GEMINI.md"
-    status: "missing"
     tier: 3
+    status: "exists_likely_good"
   - path: "CODEX.md"
-    status: "exists_verified"
     tier: 3
-  - path: "CHANGELOG.md"
-    status: "exists_no_action"
-    tier: 3
+    status: "exists_likely_good"
+
+previous_run_scores:
+  overall_score: 95
+  uniqueness_score: 95
+  concept_alignment_score: 95
+  clarity_score: 95
 
 actions:
-  - action: "update"
+  - action: "verify"
     target: "README.md"
-    reason: "Ensure existence clarity and concept alignment"
-
-  - action: "update"
+    reason: "Previously updated - verify concept alignment with updated ontology"
+  - action: "verify"
     target: "AGENTS.md"
-    reason: "Ensure terminology normalization and concept integration"
-
-  - action: "update"
-    target: "PURPOSE.md"
-    reason: "Align with intent.yml"
-
-  - action: "update"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Reflect hard invariants from invariants.yml"
-
-  - action: "update"
-    target: "CONTRIBUTING.md"
-    reason: "Include terminology guidelines and contribution rules"
-
-  - action: "update"
-    target: "ARCHITECTURE.md"
-    reason: "Reflect mappings.yml and component relationships"
-
+    reason: "Previously updated - verify concept alignment with updated ontology"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Previously verified - ensure still aligned"
   - action: "update"
     target: "GLOSSARY.md"
-    reason: "Regenerate from ontology.yml (current version)"
+    reason: "New term 'Converter' added - regenerate from ontology.yml"
+    condition: "ontology_updated"
+  - action: "verify"
+    target: "all_md_files"
+    reason: "Comprehensive uniqueness and concept alignment verification"
 
-  - action: "create"
-    target: "GEMINI.md"
-    reason: "Create Gemini-specific instructions (Tier 3 optional)"
+target_overall_score: 95
+max_iterations: 3

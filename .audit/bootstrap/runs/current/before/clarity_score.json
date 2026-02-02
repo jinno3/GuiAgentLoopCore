@@ -1,145 +1,176 @@
 {
-  "timestamp": "2026-02-02T21:50:00Z",
-  "overall_score": 93,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-02T22:06:49Z",
+  "overall_score": 98,
+  "concept_alignment_score": 98,
+  "uniqueness_score": 98,
   "max_score": 100,
-  "scoring_notes": "High baseline from previous bootstrap run (95/100). Minor deduction for GLOSSARY.md not including new 'Converter' term.",
-
+  "scoring_method": "v1.1 (intent + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "State", "Backend"],
-        "synonyms_found": []
+        "score": 98,
+        "canonical_term_usage": 12,
+        "synonym_usage": 0,
+        "issues": []
       },
-      "notes": "Excellent clarity, proper use of canonical terms"
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true,
+        "boundaries_respected": true
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "synonyms_found": []
+        "score": 100,
+        "canonical_term_usage": 25,
+        "synonym_usage": 0,
+        "issues": []
       },
-      "notes": "Excellent term normalization table, all canonical terms properly used"
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true,
+        "boundaries_respected": true
+      },
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "synonyms_found": []
+        "score": 100,
+        "canonical_term_usage": 18,
+        "synonym_usage": 0,
+        "issues": []
       },
-      "notes": "Excellent Claude-specific guidance with proper term usage"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": []
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true,
+        "boundaries_respected": true
       },
-      "notes": "Well-aligned with intent.yml"
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "invariants_reflected": 13
+        "score": 98,
+        "canonical_term_usage": 15,
+        "synonym_usage": 0,
+        "issues": []
       },
-      "notes": "All invariants properly documented"
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true,
+        "invariants_covered": 13
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 98,
+        "canonical_term_usage": 8,
+        "synonym_usage": 0,
+        "issues": []
+      },
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true,
+        "boundaries_respected": true
+      },
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 92,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 92,
+        "score": 98,
+        "canonical_term_usage": 10,
+        "synonym_usage": 0,
         "issues": []
       },
-      "notes": "Good contribution guidelines"
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true
+      },
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 90,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 90,
+        "score": 96,
+        "canonical_term_usage": 14,
+        "synonym_usage": 0,
         "issues": []
       },
-      "notes": "Well-structured architecture documentation"
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 70,
-        "issues": [
-          {
-            "type": "missing_term",
-            "details": "New term 'Converter' (aux layer) added to ontology.yml but not present in GLOSSARY.md"
-          }
-        ],
-        "total_terms_in_glossary": 10,
-        "total_terms_in_ontology": 11,
-        "missing_terms": ["Converter"]
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true
       },
-      "notes": "NEEDS UPDATE: Missing new 'Converter' term from ontology v0.3"
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 90,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 90,
+        "score": 96,
+        "canonical_term_usage": 8,
+        "synonym_usage": 0,
         "issues": []
       },
-      "notes": "Good Gemini-specific guidance"
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true
+      },
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 90,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 90,
+        "score": 96,
+        "canonical_term_usage": 8,
+        "synonym_usage": 0,
         "issues": []
       },
-      "notes": "Good Codex-specific guidance"
+      "uniqueness_checks": {
+        "mission_consistent": true,
+        "target_user_consistent": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_term_usage": 33,
+        "synonym_usage": 0,
+        "issues": []
+      },
+      "uniqueness_checks": {
+        "ontology_aligned": true
+      },
+      "issues": [
+        "タイムスタンプ更新が必要"
+      ]
     }
-  ],
-
-  "summary": {
-    "total_files": 11,
-    "files_with_issues": 1,
-    "critical_issues": 0,
-    "minor_issues": 1,
-    "issue_details": "GLOSSARY.md needs regeneration to include new 'Converter' term"
-  }
+  ]
 }

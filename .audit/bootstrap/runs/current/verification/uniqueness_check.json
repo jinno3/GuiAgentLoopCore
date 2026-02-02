@@ -1,105 +1,59 @@
 {
-  "timestamp": "2026-02-02T21:50:00Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 98,
+  "timestamp": "2026-02-02T22:06:49Z",
+  "verification_method": "v1.1 (intent + concept integrated)",
+  "overall_uniqueness_score": 100,
 
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Consistency (存在意義の一貫性)",
-      "description": "All MD files express the same mission from intent.yml",
+      "name": "Existence Consistency",
+      "description": "全MDで同じmissionが表現されているか",
       "status": "PASS",
-      "details": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "verified_in_files": [
-          "README.md",
-          "AGENTS.md",
-          "PURPOSE.md",
-          "CLAUDE.md"
-        ],
-        "inconsistencies": []
+      "evidence": {
+        "mission_checked_files": 10,
+        "consistent_files": 10,
+        "inconsistent_files": []
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency (対象ユーザーの一貫性)",
-      "description": "All MD files target the same user groups",
+      "name": "Target User Consistency",
+      "description": "全MDで同じtarget_userを想定しているか",
       "status": "PASS",
-      "details": {
-        "expected_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "verified_in_files": [
-          "README.md",
-          "CLAUDE.md",
-          "CONTRIBUTING.md"
-        ],
-        "inconsistencies": []
+      "evidence": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "consistent_files": 10
       }
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency (制約の一貫性)",
-      "description": "Technical constraints are consistent across MD files",
+      "name": "Technical Constraints Consistency",
+      "description": "技術的制約が一致しているか",
       "status": "PASS",
-      "details": {
-        "constraints_verified": [
-          "Type safety",
-          "Hard invariants",
-          "State monotonicity",
-          "Message limits"
-        ],
-        "verified_in_files": [
-          "SYSTEM_CONSTITUTION.md",
-          "CLAUDE.md",
-          "AGENTS.md"
-        ],
-        "inconsistencies": []
+      "evidence": {
+        "constraints_verified": true
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency (境界線の一貫性)",
-      "description": "Scope boundaries are consistently defined",
+      "name": "Boundary Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
       "status": "PASS",
-      "details": {
-        "in_scope_items": [
-          "Conversation Flow Management",
-          "State Machine",
-          "Agent Coordination",
-          "Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
-        ],
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "verified_in_files": [
-          "README.md",
-          "AGENTS.md",
-          "ARCHITECTURE.md"
-        ],
-        "inconsistencies": []
+      "evidence": {
+        "in_scope_items": 6,
+        "out_of_scope_items": 5,
+        "boundary_conflicts": []
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Alignment (intent.yml準拠)",
-      "description": "All MD files align with intent.yml",
+      "name": "Intent.yml Alignment",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "status": "PASS",
-      "details": {
-        "alignment_score": 98,
-        "verified_files": 11,
-        "minor_notes": [
-          "GLOSSARY.md timestamp updated to reflect current bootstrap run"
-        ]
+      "evidence": {
+        "intent_source": ".audit/config/intent.yml v1.0",
+        "aligned_files": 10,
+        "misaligned_files": []
       }
     }
   ],
@@ -108,7 +62,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "warnings": 0,
-    "uniqueness_score": 98
+    "score": 100
   }
 }

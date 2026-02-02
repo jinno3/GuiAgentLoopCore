@@ -1,14 +1,13 @@
 {
-  "timestamp": "2026-02-02T21:32:00Z",
+  "timestamp": "2026-02-02T21:50:00Z",
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
-  "overall_alignment_score": 95,
+  "overall_alignment_score": 98,
 
   "term_usage_check": {
-    "total_term_occurrences": 52,
-    "canonical_used": 52,
-    "synonym_used_before_fix": 0,
-    "synonym_used_after_fix": 0,
+    "total_term_occurrences": 58,
+    "canonical_used": 58,
+    "synonym_used_as_examples": 10,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
@@ -16,127 +15,145 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-      "improvements": [
-        "Added terminology note with reference to GLOSSARY.md",
-        "Fixed target users formatting (removed dictionary syntax)"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "State", "Backend"],
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 95,
+      "alignment_score": 100,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
       "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-      "improvements": [
-        "Added explicit term normalization table (Core Terms + Domain Terms)",
-        "Included forbidden synonyms list",
-        "Added usage guidelines (✅必須, ❌禁止)"
-      ]
+      "notes": "Perfect term normalization table, all canonical terms properly used"
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 95,
+      "alignment_score": 100,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
       "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-      "improvements": [],
-      "note": "Already excellent - no changes needed"
+      "notes": "Excellent Claude-specific guidance with proper term usage including new Converter term"
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-      "improvements": [],
-      "note": "Already well-aligned with intent.yml"
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
+      "alignment_score": 100,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector", "Converter", "StreamWrapper"],
       "issues": [],
-      "canonical_terms_used": ["State", "Session", "Message", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
-      "improvements": [],
-      "note": "Already reflects all hard invariants from invariants.yml"
+      "notes": "All 13 invariants properly documented with canonical terms"
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-      "improvements": [],
-      "note": "Already includes comprehensive terminology guidelines"
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Backend", "Converter", "Connector", "Memory"],
-      "improvements": [],
-      "note": "Already well-structured with canonical terms"
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "improvements": [],
-      "note": "Perfect - directly generated from ontology.yml"
+      "notes": "All 11 terms from ontology.yml present. Timestamp updated to reflect current bootstrap run."
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 95,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-      "improvements": [],
-      "note": "Already exists with proper terminology guidelines"
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message"],
+      "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 90,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-      "improvements": [],
-      "note": "Already well-structured for Codex model"
+      "alignment_score": 95,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message"],
+      "issues": []
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
+    "total_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "by_file": {
-      "AGENTS.md": 12,
-      "SYSTEM_CONSTITUTION.md": 12,
-      "CONTRIBUTING.md": 12,
-      "CLAUDE.md": 12,
-      "GEMINI.md": 9
+    "details": {
+      "hard_invariants": 11,
+      "soft_invariants": 2,
+      "all_documented": true
     }
+  },
+
+  "auto_decision_check": {
+    "total_active": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "auto_decisions_documented": [
+      "AUTO:Agent.role:classification",
+      "AUTO:Agent.type:implementation_property",
+      "AUTO:Session.jwt:algorithm_hs256",
+      "AUTO:Message.structure:flat",
+      "AUTO:Message.limit:100",
+      "AUTO:Message.roles:tool_function_separation",
+      "AUTO:State.lifecycle:monotonic",
+      "AUTO:State.transition:auto_on_input",
+      "AUTO:AutoChat.trigger:stop_only",
+      "AUTO:AutoChat.prompt:default_continue",
+      "AUTO:Backend.primary:gradio",
+      "AUTO:Backend.deployment:security",
+      "AUTO:Memory.window:k10",
+      "AUTO:Memory.specs:provisional",
+      "AUTO:Memory.implementation:dual_provisional",
+      "AUTO:Connector.layer:domain"
+    ]
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "auto_decisions_by_file": {
-      "CLAUDE.md": 9,
-      "GEMINI.md": 9,
-      "ARCHITECTURE.md": 9,
-      "SYSTEM_CONSTITUTION.md": 6,
-      "GLOSSARY.md": 9
-    }
+    "expired_auto_decisions": 2,
+    "expired_decisions": [
+      {
+        "id": "AMB-SEC-001",
+        "topic": "Security: ハードコードされたシークレットキー",
+        "decision_key": "AUTO:Security.secret_key:env_var_required",
+        "status": "expired",
+        "action_required": "CRITICAL: Security issue - hardcoded secret key needs environment variable migration"
+      },
+      {
+        "id": "AMB-SEC-002",
+        "topic": "Session: JWTデコードメソッドの未定義変数バグ",
+        "decision_key": "AUTO:Session.jwt:decode_method_fix",
+        "status": "expired",
+        "action_required": "HIGH: Bug fix needed - jwt_decode_session() has undefined variables"
+      }
+    ]
+  },
+
+  "new_term_check": {
+    "new_terms_since_last_run": [
+      {
+        "canonical": "Converter",
+        "layer": "aux",
+        "present_in_glossary": true,
+        "present_in_claude_md": true
+      }
+    ]
   },
 
   "summary": {
-    "overall_alignment": 95,
-    "term_usage_quality": "Excellent",
-    "invariant_coverage": "Complete (12/12)",
-    "auto_decision_documentation": "Complete (9/9)",
-    "recommendations": [
-      "Maintain current high level of concept alignment",
-      "All MD files properly use canonical terminology",
-      "All hard invariants are documented",
-      "All AUTO decisions are noted as provisional"
-    ]
+    "concept_alignment_score": 98,
+    "term_normalization_rate": "100%",
+    "invariant_coverage": "100%",
+    "auto_decision_documentation": "100%",
+    "critical_issues": 0,
+    "warnings": 2,
+    "warning_details": "2 expired AUTO decisions require attention (security and bug fix)"
   }
 }

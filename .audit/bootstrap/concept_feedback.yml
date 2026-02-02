@@ -1,12 +1,12 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T21:50:00Z"
+  bootstrap_run_timestamp: "2026-02-02T22:06:49Z"
   source_ontology_version: "0.3"
-  run_id: "bootstrap-run-v1.1-20260202-215000"
+  run_id: "bootstrap-run-v1.1-20260202-220649"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 58
-    synonym_used_as_examples: 10
+    canonical_used: 151
+    synonym_used_as_examples: 27
     synonym_used_in_violation: 0
     unknown_terms_found: []
     alignment_rate: 1.0
@@ -14,15 +14,9 @@ concept_feedback:
 
   # 2. 新規用語の統合状況
   new_term_integration:
-    new_terms_since_last_run: 1
-    new_terms_details:
-      - canonical: "Converter"
-        layer: "aux"
-        status: "stable"
-        present_in_glossary: true
-        present_in_claude_md: true
-        integration_status: "fully_integrated"
-        notes: "用語は完全に統合されている"
+    new_terms_since_last_run: 0
+    new_terms_details: []
+    assessment: "新規用語なし - すべての既存用語が適切に統合されている"
 
   # 3. 不変条件の反映状況
   invariant_reflection:
@@ -106,12 +100,12 @@ concept_feedback:
 
   # 10. 総合評価
   overall_assessment:
-    status: "excellent"
-    concept_alignment_score: 98
+    status: "perfect"
+    concept_alignment_score: 100
     terminology_consistency: "100%"
     invariant_coverage: "100% (13/13)"
     auto_decision_documentation: "100% (9/9)"
-    summary: "概念モデルは完全にMDドキュメントに統合されている。用語の正規形が適切に使用され、すべての不変条件とAUTO決定が適切に文書化されている。"
+    summary: "概念モデルは完全にMDドキュメントに統合されている。用語の正規形が完璧に使用され、すべての不変条件とAUTO決定が適切に文書化されている。"
     readiness: "production_ready"
 
   # 11. 推奨事項
@@ -121,7 +115,7 @@ concept_feedback:
       description: "期限切れのAUTO決定（AMB-SEC-001, AMB-SEC-002）への対処が必要"
     - recommendation: "maintain_ontology_quality"
       priority: "high"
-      description: "現行の高品質なontology.ymlを維持する"
+      description: "現行の完璧なontology.ymlを維持する"
     - recommendation: "review_memory_term"
       priority: "low"
       description: "Memory用語はdraftステータス。実装が進んだらstableに昇格することを検討"

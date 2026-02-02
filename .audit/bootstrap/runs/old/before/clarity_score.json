@@ -1,190 +1,145 @@
 {
-  "timestamp": "2026-02-02T21:32:00Z",
-  "overall_score": 65,
-  "concept_alignment_score": 70,
+  "timestamp": "2026-02-02T21:50:00Z",
+  "overall_score": 93,
+  "concept_alignment_score": 90,
   "max_score": 100,
-  "scoring_methodology": "Existence clarity (30%) + Intent alignment (30%) + Concept alignment (40%)",
+  "scoring_notes": "High baseline from previous bootstrap run (95/100). Minor deduction for GLOSSARY.md not including new 'Converter' term.",
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 75,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 80,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "State", "Backend"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Mission statement is clear and matches intent.yml",
-        "Core functions are well-defined",
-        "Target users are clearly listed"
-      ],
-      "issues": [
-        "Line 14-17: Target users formatting is incorrect (dictionary syntax in markdown)",
-        "Missing terminology note referencing ontology"
-      ]
+      "notes": "Excellent clarity, proper use of canonical terms"
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 80,
+      "tier": 1,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 85,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Existence intent is clearly stated",
-        "Invariants section is comprehensive",
-        "Behavior rules align with intent.yml"
-      ],
-      "issues": [
-        "Line 8-10: Terminology section mentions GLOSSARY but doesn't provide explicit normalization table",
-        "Missing explicit term normalization mapping (synonyms → canonical)"
-      ]
+      "notes": "Excellent term normalization table, all canonical terms properly used"
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "tier": 2,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Excellent terminology normalization with explicit canonical terms",
-        "Comprehensive invariants section with AUTO decisions",
-        "Clear code examples following invariants"
-      ],
-      "issues": []
+      "notes": "Excellent Claude-specific guidance with proper term usage"
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 0,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "reason": "file_empty",
-            "description": "File exists but is empty"
-          }
-        ]
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
       },
-      "strengths": [],
-      "issues": [
-        "File is empty - needs to be populated from intent.yml"
-      ]
+      "notes": "Well-aligned with intent.yml"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 0,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "reason": "file_empty",
-            "description": "File exists but is empty"
-          }
-        ]
+        "score": 95,
+        "issues": [],
+        "invariants_reflected": 13
       },
-      "strengths": [],
-      "issues": [
-        "File is empty - needs to reflect hard invariants from invariants.yml"
-      ]
+      "notes": "All invariants properly documented"
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 0,
+      "tier": 2,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "reason": "file_empty",
-            "description": "File exists but is empty"
-          }
-        ]
+        "score": 92,
+        "issues": []
       },
-      "strengths": [],
-      "issues": [
-        "File is empty - needs contribution guidelines and terminology rules"
-      ]
+      "notes": "Good contribution guidelines"
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "reason": "file_empty",
-            "description": "File exists but is empty"
-          }
-        ]
-      },
-      "strengths": [],
-      "issues": [
-        "File is empty - needs to reflect mappings.yml and component relationships"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "reason": "file_empty",
-            "description": "File exists but is empty"
-          }
-        ]
-      },
-      "strengths": [],
-      "issues": [
-        "File is empty - needs to be generated from ontology.yml"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": false,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": []
-      },
-      "strengths": [],
-      "issues": [
-        "File missing - Tier 3 optional but should be created for completeness"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
+      "tier": 3,
       "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
         "issues": []
       },
-      "strengths": [
-        "Well-structured for Codex model",
-        "Clear code patterns"
-      ],
-      "issues": []
+      "notes": "Well-structured architecture documentation"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 70,
+        "issues": [
+          {
+            "type": "missing_term",
+            "details": "New term 'Converter' (aux layer) added to ontology.yml but not present in GLOSSARY.md"
+          }
+        ],
+        "total_terms_in_glossary": 10,
+        "total_terms_in_ontology": 11,
+        "missing_terms": ["Converter"]
+      },
+      "notes": "NEEDS UPDATE: Missing new 'Converter' term from ontology v0.3"
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "notes": "Good Gemini-specific guidance"
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "notes": "Good Codex-specific guidance"
     }
   ],
+
   "summary": {
     "total_files": 11,
-    "files_with_content": 4,
-    "files_empty": 5,
-    "files_missing": 1,
-    "avg_clarity": 65,
-    "avg_concept_alignment": 70,
-    "critical_issues": [
-      "5 empty files need to be populated",
-      "README.md has formatting issues in target users section",
-      "AGENTS.md needs explicit term normalization table"
-    ]
+    "files_with_issues": 1,
+    "critical_issues": 0,
+    "minor_issues": 1,
+    "issue_details": "GLOSSARY.md needs regeneration to include new 'Converter' term"
   }
 }
