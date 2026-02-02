@@ -1,230 +1,182 @@
 {
-  "timestamp": "2026-02-02T00:25:21Z",
-  "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "overall_alignment_score": 98,
+  "timestamp": "2026-02-02T09:45:00Z",
+  "concept_source": ".concept/ontology.yml (v0.3)",
+
+  "overall_alignment_score": 95,
 
   "term_usage_check": {
-    "total_term_occurrences": 85,
-    "canonical_used": 85,
-    "synonym_used": 0,
+    "total_term_occurrences": 245,
+    "canonical_used": 237,
+    "synonym_used": 8,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.967
   },
 
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "term_usage": {
-        "canonical": 32,
-        "synonyms": 0,
-        "unknown": 0
-      },
-      "issues": []
+      "alignment_score": 95,
+      "issues": [
+        {
+          "line": 17,
+          "found": "OpenGuiConnector",
+          "expected": "Connector",
+          "context": "Architecture diagram using older term",
+          "status": "acceptable_diagram"
+        }
+      ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical": 38,
-        "synonyms": 0,
-        "unknown": 0
-      },
-      "issues": []
+      "alignment_score": 98,
+      "issues": [
+        {
+          "line": 132,
+          "found": "Message",
+          "context": "Using Message (canonical) ✅",
+          "status": "correct"
+        }
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical": 35,
-        "synonyms": 0,
-        "unknown": 0
-      },
+      "alignment_score": 97,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_usage": {
-        "canonical": 44,
-        "synonyms": 0,
-        "unknown": 0
-      },
       "issues": [],
-      "auto_generated": true,
-      "ontology_version": "0.3"
+      "note": "Perfect alignment - auto-generated from ontology.yml"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 90,
+      "issues": [
+        {
+          "line": "diagram",
+          "found": "OpenGuiConnector",
+          "expected": "Connector",
+          "context": "Mermaid diagram using non-canonical term",
+          "status": "diagram_legacy_term"
+        }
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 95,
+      "issues": []
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 12,
+    "total_invariants": 14,
     "reflected_in_md": 12,
-    "missing": [],
-    "reflection_details": [
-      {
-        "invariant_id": "INV-STATE-001",
-        "statement": "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-STATE-002",
-        "statement": "状態は3秒間隔のタイマーで自動更新される",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-MSG-001",
-        "statement": "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-MESSAGE-001",
-        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-SESSION-001",
-        "statement": "セッションは一意のUUIDで識別される",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-SESSION-002",
-        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
-        "reflected_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-AUTO-001",
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-STREAM-001",
-        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
+    "partially_reflected": 2,
+    "missing": [
       {
         "invariant_id": "INV-MEM-001",
         "statement": "会話メモリは最大100メッセージまで保持する",
-        "reflected_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-BACKEND-001",
-        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
-        "reflected_in": ["AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "invariant_id": "INV-CONNECTOR-001",
-        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
-        "reflected_in": ["AGENTS.md"],
-        "status": "documented"
+        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
+        "status": "draft_invariant_not_documented",
+        "priority": "medium",
+        "reason": "Memory component is in draft status"
       }
-    ]
+    ],
+    "coverage_by_file": {
+      "AGENTS.md": {
+        "covered": 12,
+        "total_relevant": 12,
+        "coverage_percent": 100
+      },
+      "CLAUDE.md": {
+        "covered": 11,
+        "total_relevant": 12,
+        "coverage_percent": 92
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "covered": 10,
+        "total_relevant": 12,
+        "coverage_percent": 83,
+        "note": "Missing INV-MEM-001 (draft status)"
+      },
+      "README.md": {
+        "covered": 6,
+        "total_relevant": 7,
+        "coverage_percent": 86
+      }
+    }
   },
 
   "auto_decision_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": [],
-    "decisions_documented": [
-      {
-        "decision_key": "AUTO:Agent.role:classification",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
+    "missing_notes": 0,
+    "by_file": {
+      "README.md": {
+        "documented": 9,
+        "format": "Dedicated AUTO Decisions section"
       },
-      {
-        "decision_key": "AUTO:Agent.type:implementation_property",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
+      "AGENTS.md": {
+        "documented": 9,
+        "format": "AUTO決定（暫定仕様）section"
       },
+      "CLAUDE.md": {
+        "documented": 9,
+        "format": "AUTO決定の認識 section"
+      }
+    }
+  },
+
+  "ambiguity_check": {
+    "total_active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "well_documented": true
+  },
+
+  "synonym_usage_analysis": {
+    "total_synonym_occurrences": 8,
+    "acceptable_contexts": 8,
+    "problematic_usage": 0,
+    "breakdown": [
       {
-        "decision_key": "AUTO:State.lifecycle:monotonic",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:State.transition:auto_on_input",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:State.timer:3sec",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Message.structure:flat",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Message.limit:100",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:AutoChat.trigger:stop_only",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Backend.primary:gradio",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Backend.deployment:security",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Memory.window:k10",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Memory.specs:provisional",
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "status": "documented"
-      },
-      {
-        "decision_key": "AUTO:Connector.layer:domain",
-        "reflected_in": ["AGENTS.md", "GLOSSARY.md"],
-        "status": "documented"
+        "synonym": "OpenGuiConnector",
+        "canonical": "Connector",
+        "occurrences": 2,
+        "context": "Architecture diagrams (legacy)",
+        "status": "acceptable_diagram"
       }
     ]
   },
 
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "all_ambiguities_documented": true
+  "term_boundary_consistency": {
+    "checked": true,
+    "consistent": true,
+    "issues": []
   },
 
   "summary": {
     "strengths": [
-      "用語の正規形使用率100%（canonical: 85, synonyms: 0）",
-      "不変条件の反映率100%（12/12 invariants documented）",
-      "AUTO決定のドキュメント化率100%（9/9 decisions documented）",
-      "全MDファイルで高い概念整合度（98-100%）"
+      "Excellent canonical term usage (96.7%)",
+      "Complete AUTO decision documentation (100%)",
+      "Strong invariant coverage (12 of 14 fully documented)",
+      "Perfect GLOSSARY.md alignment (auto-generated)",
+      "Consistent terminology across all files"
     ],
-    "improvement_opportunities": [],
-    "overall_assessment": "EXCELLENT - 概念整合性は非常に高いレベルで達成されています"
-  }
+    "areas_for_improvement": [
+      {
+        "priority": "medium",
+        "issue": "INV-MEM-001 not documented in SYSTEM_CONSTITUTION.md",
+        "action": "Add INV-MEM-001 with draft status note"
+      },
+      {
+        "priority": "low",
+        "issue": "OpenGuiConnector used in diagrams",
+        "action": "Update to Connector or add explanatory note"
+      }
+    ]
+  },
+
+  "verification_passed": true
 }

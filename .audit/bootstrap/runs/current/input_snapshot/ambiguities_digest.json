@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-02-02T00:53:30.834061+00:00",
+  "source": ".concept/ambiguities.yml",
+  "statistics": {
+    "total_ambiguities": 8,
+    "auto_decisions_applied": 8
+  },
+  "active_auto_decisions": [
+    {
+      "id": "AMB-AGT-001",
+      "term": "Agent",
+      "decision_key": "AUTO:Agent.type:implementation_property",
+      "chosen": "AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）",
+      "confidence": 0.7
+    },
+    {
+      "id": "AMB-MEM-001",
+      "term": "Memory",
+      "decision_key": "AUTO:Memory.specs:provisional",
+      "chosen": "ウィンドウサイズk=10（rolling）、最大長100（hard limit）",
+      "confidence": 0.5
+    },
+    {
+      "id": "AMB-AUTO-001",
+      "term": "AutoChat",
+      "decision_key": "AUTO:AutoChat.prompt:default_continue",
+      "chosen": "未設定時はデフォルト継続プロンプト使用（安全側）",
+      "confidence": 0.55
+    },
+    {
+      "id": "AMB-BE-001",
+      "term": "Backend",
+      "decision_key": "AUTO:Backend.primary:gradio",
+      "chosen": "Gradioが主要バックエンド（暫定）",
+      "confidence": 0.7
+    },
+    {
+      "id": "AMB-MSG-001",
+      "term": "Message",
+      "decision_key": "AUTO:Message.roles:tool_function_separation",
+      "chosen": "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）",
+      "confidence": 0.6
+    },
+    {
+      "id": "AMB-MEM-002",
+      "term": "Memory",
+      "decision_key": "AUTO:Memory.implementation:dual_provisional",
+      "chosen": "両者は暫定的に共存（移行期間中とみなす）",
+      "confidence": 0.5
+    },
+    {
+      "id": "AMB-SEC-001",
+      "term": "Security",
+      "decision_key": "AUTO:Security.secret_key:env_var_required",
+      "chosen": "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）",
+      "confidence": 0.85
+    },
+    {
+      "id": "AMB-CON-001",
+      "term": "Connector",
+      "decision_key": "AUTO:Connector.layer:domain",
+      "chosen": "Connectorは正規概念（domain層）",
+      "confidence": 0.8
+    }
+  ]
+}

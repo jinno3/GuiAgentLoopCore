@@ -1,130 +1,593 @@
 {
-  "timestamp": "2026-02-02T00:25:21Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
-  "max_score": 100,
-  "scoring_methodology": "Based on intent.yml alignment and ontology.yml term normalization",
-  "files": [
-    {
-      "path": "README.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Converter"
-        ],
-        "synonyms_found": []
-      },
-      "intent_alignment": {
-        "score": 95,
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
-        "core_functions_count": 5,
-        "invariants_documented": true,
-        "auto_decisions_documented": true
-      },
-      "issues": []
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Converter",
-          "Connector"
-        ],
-        "synonyms_found": []
-      },
-      "intent_alignment": {
-        "score": 98,
-        "mission_reflected": true,
-        "behavior_rules_documented": true,
-        "invariants_documented": true,
-        "auto_decisions_documented": true,
-        "term_normalization_table": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 97,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Converter"
-        ],
-        "synonyms_found": []
-      },
-      "intent_alignment": {
-        "score": 95,
-        "claude_specific_guidelines": true,
-        "invariants_documented": true,
-        "auto_decisions_documented": true,
-        "code_examples_provided": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "generated_from_ontology": true,
-        "ontology_version": "0.3",
-        "total_terms": 11,
-        "canonical_terms_all_used": true
-      },
-      "intent_alignment": {
-        "score": 100,
-        "ontology_based": true,
-        "auto_decisions_included": true
-      },
-      "issues": []
-    }
-  ],
+  "analysis_metadata": {
+    "timestamp": "2026-02-02T09:40:00Z",
+    "analyzer": "Claude Sonnet 4.5",
+    "ontology_version": "0.3",
+    "invariants_version": "2026-02-02T05:23:14Z",
+    "intent_version": "1.0",
+    "files_analyzed": 8
+  },
   "summary": {
-    "total_files_checked": 4,
-    "files_with_perfect_alignment": 3,
-    "files_with_minor_issues": 1,
-    "canonical_term_usage_rate": 0.98,
-    "synonym_usage_rate": 0.0,
-    "intent_reflection_rate": 0.97
+    "overall_clarity_score": 85,
+    "total_issues": 47,
+    "critical_issues": 3,
+    "major_issues": 18,
+    "minor_issues": 26,
+    "strengths": [
+      "Excellent invariant coverage across all files",
+      "Strong concept alignment with canonical terminology",
+      "Comprehensive documentation of AUTO decisions",
+      "Clear intent alignment with repository mission"
+    ],
+    "areas_for_improvement": [
+      "Some synonym usage detected in architecture diagrams",
+      "Inconsistent invariant documentation depth",
+      "Missing CONNECTOR invariant coverage in some files",
+      "Ambiguous language in code examples"
+    ]
+  },
+  "file_scores": {
+    "README.md": {
+      "intent_alignment": 95,
+      "concept_alignment": 85,
+      "invariant_coverage": 80,
+      "clarity_score": 87,
+      "status": "excellent",
+      "strengths": [
+        "Clear mission statement aligns with intent.yml",
+        "Comprehensive AUTO decisions section",
+        "Good coverage of hard invariants",
+        "Strong emphasis on type safety and state management"
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "concept_alignment",
+          "issue": "Architecture diagram uses 'OpenGuiConnector' (synonym) instead of canonical 'Connector'",
+          "location": "Architecture diagram (lines 10-13)",
+          "recommendation": "Replace 'OpenGuiConnector' with 'Connector' to match canonical terminology"
+        },
+        {
+          "severity": "minor",
+          "category": "concept_alignment",
+          "issue": "Uses 'GradioUI' instead of canonical 'Backend' terminology",
+          "location": "Architecture diagram (line 54)",
+          "recommendation": "Use 'Backend (Gradio)' to clarify Backend is the canonical term"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "Missing INV-CONNECTOR-001 documentation",
+          "location": "System Invariants section",
+          "recommendation": "Add connector interface invariant to critical invariants list"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "Missing INV-CONVERTER-001 documentation",
+          "location": "System Invariants section",
+          "recommendation": "Add MappingRule invariant to critical invariants list"
+        },
+        {
+          "severity": "minor",
+          "category": "clarity",
+          "issue": "Empty sections (Prerequisites, Installation, Usage)",
+          "location": "Getting Started section (lines 164-170)",
+          "recommendation": "Fill in these sections or add placeholder text indicating they are WIP"
+        }
+      ]
+    },
+    "AGENTS.md": {
+      "intent_alignment": 90,
+      "concept_alignment": 95,
+      "invariant_coverage": 95,
+      "clarity_score": 93,
+      "status": "excellent",
+      "strengths": [
+        "Perfect alignment with ontology.yml canonical terms",
+        "Comprehensive invariant coverage (all 12 invariants documented)",
+        "Clear prohibition of synonym usage",
+        "Excellent AUTO decisions documentation",
+        "Strong behavioral guidelines for AI agents"
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "clarity",
+          "issue": "Mixed language (Japanese) may limit accessibility for international contributors",
+          "location": "Entire document",
+          "recommendation": "Consider providing English translations or bilingual format"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "INV-AGENT-001 marked as 'soft' invariant but enforced as hard constraint",
+          "location": "Agentの役割制約 section (line 60)",
+          "recommendation": "Clarify why this is soft vs hard, or upgrade to hard if appropriate"
+        }
+      ]
+    },
+    "CLAUDE.md": {
+      "intent_alignment": 95,
+      "concept_alignment": 95,
+      "invariant_coverage": 90,
+      "clarity_score": 93,
+      "status": "excellent",
+      "strengths": [
+        "Excellent canonical term usage throughout",
+        "Strong invariant documentation with code examples",
+        "Good balance of AUTO decisions and hard constraints",
+        "Practical code examples demonstrating invariant compliance",
+        "Clear AI agent-specific guidelines"
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "Missing INV-CONNECTOR-001 and INV-CONVERTER-001 documentation",
+          "location": "不変条件の遵守 section",
+          "recommendation": "Add connector and converter invariants for completeness"
+        },
+        {
+          "severity": "minor",
+          "category": "clarity",
+          "issue": "Some code examples lack error handling for edge cases",
+          "location": "Interpreter関連のコード section (lines 159-174)",
+          "recommendation": "Add comments about edge case handling in production code"
+        }
+      ]
+    },
+    "GLOSSARY.md": {
+      "intent_alignment": 100,
+      "concept_alignment": 100,
+      "invariant_coverage": 90,
+      "clarity_score": 97,
+      "status": "excellent",
+      "strengths": [
+        "Perfect alignment with ontology.yml v0.3",
+        "Comprehensive canonical term definitions",
+        "Excellent evidence linking to codebase",
+        "Clear AUTO decisions documentation per term",
+        "Useful normalization map for synonyms",
+        "Auto-generated from source of truth"
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "Some invariants not directly referenced in term definitions",
+          "location": "Backend and Connector sections",
+          "recommendation": "Add explicit invariant references (INV-BACKEND-001, INV-CONNECTOR-001) to term definitions"
+        },
+        {
+          "severity": "minor",
+          "category": "clarity",
+          "issue": "Japanese language may limit accessibility",
+          "location": "Entire document",
+          "recommendation": "Consider English version for international contributors"
+        }
+      ]
+    },
+    "ARCHITECTURE.md": {
+      "intent_alignment": 95,
+      "concept_alignment": 90,
+      "invariant_coverage": 85,
+      "clarity_score": 90,
+      "status": "excellent",
+      "strengths": [
+        "Excellent system overview with clear layer separation",
+        "Strong component boundary documentation",
+        "Good invariant references per component",
+        "Clear data flow diagrams",
+        "Comprehensive extension point documentation"
+      ],
+      "issues": [
+        {
+          "severity": "major",
+          "category": "concept_alignment",
+          "issue": "Uses 'Agent Manager' and 'Message Handler' which are not canonical terms",
+          "location": "Component Details section (lines 90-127)",
+          "recommendation": "Replace with canonical terminology or clarify these are implementation details, not canonical concepts"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "Missing INV-BACKEND-002 documentation",
+          "location": "Utility Components section",
+          "recommendation": "Add Timer component invariant documentation"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "INV-CONNECTOR-001 not documented in architecture",
+          "location": "Component Details section",
+          "recommendation": "Add Connector component with interface invariant documentation"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "INV-CONVERTER-001 not documented in architecture",
+          "location": "Utility Components section",
+          "recommendation": "Add MappingRule invariant to Converter documentation"
+        }
+      ]
+    },
+    "PURPOSE.md": {
+      "intent_alignment": 100,
+      "concept_alignment": 90,
+      "invariant_coverage": 70,
+      "clarity_score": 87,
+      "status": "good",
+      "strengths": [
+        "Perfect alignment with intent.yml mission statement",
+        "Clear vision and objectives",
+        "Excellent scope definition (in/out of scope)",
+        "Strong design philosophy documentation",
+        "Clear target user identification"
+      ],
+      "issues": [
+        {
+          "severity": "major",
+          "category": "invariant_coverage",
+          "issue": "No explicit invariant documentation",
+          "location": "Entire document",
+          "recommendation": "Add reference to hard invariants that support core objectives (e.g., INV-STATE-001 for O2)"
+        },
+        {
+          "severity": "minor",
+          "category": "concept_alignment",
+          "issue": "Uses phrase 'LLM agent' instead of canonical 'Agent' in some places",
+          "location": "Mission Statement and O1 (lines 10, 30)",
+          "recommendation": "Consistently use canonical 'Agent' terminology"
+        },
+        {
+          "severity": "minor",
+          "category": "clarity",
+          "issue": "Success metrics lack specific measurement methods",
+          "location": "Success Metrics section (lines 82-88)",
+          "recommendation": "Add how each metric will be measured (e.g., integration tests, runtime monitoring)"
+        }
+      ]
+    },
+    "CONTRIBUTING.md": {
+      "intent_alignment": 85,
+      "concept_alignment": 80,
+      "invariant_coverage": 75,
+      "clarity_score": 80,
+      "status": "good",
+      "strengths": [
+        "Strong emphasis on terminology guidelines",
+        "Good coverage of critical invariants",
+        "Clear AUTO decision respect requirement",
+        "Practical contribution workflow"
+      ],
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "concept_alignment",
+          "issue": "Line 18 shows broken character encoding: 'Use `Interpreter`, not \"Interpreter\" or \"Interpreter\"'",
+          "location": "Terminology Guidelines (line 18)",
+          "recommendation": "Fix character encoding to show proper synonyms (GuiAgentInterpreter, 会話インタープリタ)"
+        },
+        {
+          "severity": "major",
+          "category": "invariant_coverage",
+          "issue": "Incomplete invariant list (only 5 of 12 invariants documented)",
+          "location": "Terminology Guidelines section (lines 22-29)",
+          "recommendation": "Add missing invariants: INV-MESSAGE-001, INV-STATE-002, INV-SESSION-002, INV-BACKEND-001/002, INV-CONNECTOR-001, INV-CONVERTER-001, INV-MEM-001"
+        },
+        {
+          "severity": "major",
+          "category": "invariant_coverage",
+          "issue": "No mention of INV-AGENT-001 (agent role constraints)",
+          "location": "Terminology Guidelines section",
+          "recommendation": "Add agent role invariant to coding standards"
+        },
+        {
+          "severity": "minor",
+          "category": "intent_alignment",
+          "issue": "Limited guidance on architectural boundaries",
+          "location": "Coding Standards section",
+          "recommendation": "Add reference to ARCHITECTURE.md for component boundary guidelines"
+        }
+      ]
+    },
+    "SYSTEM_CONSTITUTION.md": {
+      "intent_alignment": 95,
+      "concept_alignment": 90,
+      "invariant_coverage": 95,
+      "clarity_score": 93,
+      "status": "excellent",
+      "strengths": [
+        "Excellent constitutional principles documentation",
+        "Comprehensive hard invariant coverage (11 of 12 invariants)",
+        "Clear amendment process",
+        "Strong enforcement mechanisms",
+        "Good constitutional impact documentation"
+      ],
+      "issues": [
+        {
+          "severity": "major",
+          "category": "invariant_coverage",
+          "issue": "Missing INV-MEM-001 (memory limit invariant)",
+          "location": "Hard Invariants section",
+          "recommendation": "Add INV-MEM-001 to constitutional invariants or explicitly mark as draft status"
+        },
+        {
+          "severity": "minor",
+          "category": "invariant_coverage",
+          "issue": "INV-AGENT-001 marked as soft in invariants.yml but constitutional here",
+          "location": "Hard Invariants section reference",
+          "recommendation": "Clarify discrepancy between constitution and invariants.yml classification"
+        },
+        {
+          "severity": "minor",
+          "category": "concept_alignment",
+          "issue": "Japanese language mixed with English may create confusion",
+          "location": "Invariant statements (lines 50, 72, 92, 136, 152, 168, 184, 198)",
+          "recommendation": "Consider consistent language (English or Japanese) for invariant statements"
+        }
+      ]
+    }
+  },
+  "canonical_term_compliance": {
+    "total_terms": 11,
+    "compliant_files": 8,
+    "non_compliant_usage": [
+      {
+        "file": "README.md",
+        "issues": [
+          {
+            "line": "11",
+            "non_canonical": "OpenGuiConnector",
+            "should_be": "Connector"
+          },
+          {
+            "line": "54",
+            "non_canonical": "GradioUI",
+            "should_be": "Backend"
+          }
+        ]
+      },
+      {
+        "file": "ARCHITECTURE.md",
+        "issues": [
+          {
+            "section": "Component Details",
+            "non_canonical": "Agent Manager",
+            "should_be": "Agent (component of Interpreter)"
+          },
+          {
+            "section": "Component Details",
+            "non_canonical": "Message Handler",
+            "should_be": "Message (component of Interpreter)"
+          }
+        ]
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "issues": [
+          {
+            "line": "18",
+            "non_canonical": "[BROKEN_ENCODING]",
+            "should_be": "GuiAgentInterpreter, 会話インタープリタ"
+          }
+        ]
+      }
+    ]
+  },
+  "invariant_coverage_analysis": {
+    "total_invariants": 12,
+    "fully_covered_invariants": 9,
+    "partially_covered_invariants": 3,
+    "coverage_by_invariant": {
+      "INV-STATE-001": {
+        "coverage": "excellent",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-MSG-001": {
+        "coverage": "excellent",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
+        "missing_from": ["PURPOSE.md"]
+      },
+      "INV-MESSAGE-001": {
+        "coverage": "good",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-SESSION-001": {
+        "coverage": "good",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
+        "missing_from": ["ARCHITECTURE.md", "PURPOSE.md"]
+      },
+      "INV-SESSION-002": {
+        "coverage": "good",
+        "files_covered": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["README.md", "CLAUDE.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-AGENT-001": {
+        "coverage": "good",
+        "files_covered": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["README.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-AUTO-001": {
+        "coverage": "excellent",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-STREAM-001": {
+        "coverage": "good",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
+        "missing_from": ["PURPOSE.md"]
+      },
+      "INV-STATE-002": {
+        "coverage": "good",
+        "files_covered": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-BACKEND-001": {
+        "coverage": "limited",
+        "files_covered": ["SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-BACKEND-002": {
+        "coverage": "limited",
+        "files_covered": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["README.md", "CLAUDE.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-CONNECTOR-001": {
+        "coverage": "limited",
+        "files_covered": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["README.md", "CLAUDE.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-CONVERTER-001": {
+        "coverage": "limited",
+        "files_covered": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "missing_from": ["README.md", "CLAUDE.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
+      },
+      "INV-MEM-001": {
+        "coverage": "limited",
+        "files_covered": ["AGENTS.md", "ARCHITECTURE.md"],
+        "missing_from": ["README.md", "CLAUDE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
+        "note": "Marked as draft status, explaining limited coverage"
+      }
+    }
+  },
+  "intent_alignment_analysis": {
+    "mission_coverage": {
+      "core_logic_management": {
+        "status": "excellent",
+        "evidence": "All files reference Interpreter as central component"
+      },
+      "conversation_flow": {
+        "status": "excellent",
+        "evidence": "Message and Session management well documented"
+      },
+      "agent_interactions": {
+        "status": "excellent",
+        "evidence": "Agent roles and coordination documented across files"
+      },
+      "state_control": {
+        "status": "excellent",
+        "evidence": "State machine invariants thoroughly covered"
+      }
+    },
+    "target_user_addressing": {
+      "application_developers": {
+        "status": "excellent",
+        "files": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
+      },
+      "ai_agent_developers": {
+        "status": "excellent",
+        "files": ["AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
+      },
+      "framework_developers": {
+        "status": "good",
+        "files": ["ARCHITECTURE.md", "CONTRIBUTING.md"],
+        "gap": "Could use more backend implementation examples"
+      },
+      "ai_agents": {
+        "status": "excellent",
+        "files": ["AGENTS.md", "CLAUDE.md"]
+      }
+    },
+    "design_philosophy_alignment": {
+      "correctness_over_convenience": {
+        "status": "excellent",
+        "evidence": "Hard invariants enforced across all files"
+      },
+      "explicit_over_implicit": {
+        "status": "excellent",
+        "evidence": "Enumerated types and explicit state transitions"
+      },
+      "small_focused_components": {
+        "status": "good",
+        "evidence": "Clear component boundaries in ARCHITECTURE.md"
+      },
+      "testability": {
+        "status": "good",
+        "evidence": "Test references in invariants, but could be more explicit"
+      },
+      "conceptual_integrity": {
+        "status": "excellent",
+        "evidence": "Strong canonical term enforcement"
+      }
+    }
+  },
+  "priority_recommendations": {
+    "critical": [
+      {
+        "file": "CONTRIBUTING.md",
+        "issue": "Character encoding corruption in terminology example",
+        "action": "Fix line 18 to properly display synonym examples",
+        "impact": "High - affects contributor understanding of terminology rules"
+      }
+    ],
+    "high": [
+      {
+        "file": "CONTRIBUTING.md",
+        "issue": "Incomplete invariant documentation (only 5 of 12)",
+        "action": "Add all 12 invariants to coding standards section",
+        "impact": "High - contributors may violate undocumented invariants"
+      },
+      {
+        "file": "ARCHITECTURE.md",
+        "issue": "Non-canonical terminology (Agent Manager, Message Handler)",
+        "action": "Replace with canonical terms or clarify as implementation details",
+        "impact": "Medium - may cause confusion about canonical concepts"
+      },
+      {
+        "file": "SYSTEM_CONSTITUTION.md",
+        "issue": "Missing INV-MEM-001 documentation",
+        "action": "Add memory limit invariant or explicitly exclude as draft",
+        "impact": "Medium - unclear if memory constraints are constitutional"
+      }
+    ],
+    "medium": [
+      {
+        "file": "PURPOSE.md",
+        "issue": "No explicit invariant documentation",
+        "action": "Reference invariants that support core objectives",
+        "impact": "Medium - weak link between purpose and constraints"
+      },
+      {
+        "file": "Multiple files",
+        "issue": "Missing INV-BACKEND-001, INV-CONNECTOR-001, INV-CONVERTER-001",
+        "action": "Add these invariants to relevant documentation",
+        "impact": "Medium - incomplete constraint documentation"
+      }
+    ],
+    "low": [
+      {
+        "file": "Multiple files",
+        "issue": "Japanese language limits accessibility",
+        "action": "Consider English translations or bilingual format",
+        "impact": "Low - doesn't affect correctness, only accessibility"
+      },
+      {
+        "file": "README.md",
+        "issue": "Empty sections (Prerequisites, Installation, Usage)",
+        "action": "Fill in sections or add WIP placeholders",
+        "impact": "Low - cosmetic issue, doesn't affect conceptual clarity"
+      }
+    ]
+  },
+  "improvement_roadmap": {
+    "immediate_actions": [
+      "Fix character encoding in CONTRIBUTING.md line 18",
+      "Add missing invariants to CONTRIBUTING.md coding standards",
+      "Clarify non-canonical terminology in ARCHITECTURE.md"
+    ],
+    "short_term_goals": [
+      "Add INV-MEM-001 to SYSTEM_CONSTITUTION.md or explicitly mark as draft",
+      "Reference invariants in PURPOSE.md to link objectives with constraints",
+      "Complete INV-BACKEND-001/002, INV-CONNECTOR-001, INV-CONVERTER-001 coverage"
+    ],
+    "long_term_goals": [
+      "Consider bilingual documentation for international contributors",
+      "Add more backend implementation examples for framework developers",
+      "Enhance testability documentation with specific test examples"
+    ]
   }
 }
