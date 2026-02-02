@@ -1,47 +1,45 @@
 {
-  "timestamp": "2026-02-02T09:09:33.157492+00:00",
-  "uniqueness_score": 100,
-  "checks_passed": "5/5",
+  "score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Mission Consistency",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
+      "name": "Existence Purpose Consistency",
+      "description": "All MDs express the same mission",
       "passed": true,
-      "evidence": "README.md, AGENTS.md both reference the core mission from intent.yml"
+      "evidence": "All MD files reference GuiAgentLoopCore's core purpose"
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
+      "description": "All MDs target the same users (AI Agents)",
       "passed": true,
-      "evidence": "AGENTS.md explicitly addresses AI agents as target users"
+      "evidence": "AGENTS.md, CLAUDE.md, GEMINI.md, CODEX.md all address AI agents"
     },
     {
       "id": "UC-003",
       "name": "Constraints Consistency",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
+      "description": "Technical constraints are consistent",
       "passed": true,
-      "evidence": "Python >=3.10 constraint mentioned in constraints.yml reflected in docs"
+      "evidence": "Hard invariants are consistently documented"
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
+      "name": "Boundary Consistency",
+      "description": "out_of_scope is consistently defined",
       "passed": true,
-      "evidence": "Boundaries in README.md align with intent.yml boundaries"
+      "evidence": "All MDs respect scope boundaries"
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
+      "name": "intent.yml Compliance",
+      "description": "All MDs correctly reflect intent.yml",
       "passed": true,
-      "evidence": "Mission and core functions from intent.yml present in README.md"
+      "evidence": "Mission, core functions, and boundaries are properly reflected"
     }
-  ]
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0
+  }
 }

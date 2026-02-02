@@ -1,63 +1,47 @@
 {
-  "timestamp": "2026-02-02T09:09:33.157525+00:00",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
-  "term_usage_check": {
-    "total_canonical_terms": 11,
-    "core_terms": 5,
-    "canonical_used_in_docs": true,
-    "synonym_usage_detected": false
-  },
-  "invariant_check": {
-    "total_invariants": 14,
-    "hard_invariants": 11,
-    "reflected_in_md": true
-  },
-  "auto_decision_check": {
-    "total_active": 9,
-    "documented_in_md": true,
-    "format": "AUTO decisions documented with expiry information"
-  },
+  "score": 100,
   "checks": [
     {
       "id": "CA-001",
       "name": "Canonical Term Usage",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
+      "description": "All MDs use canonical terms in conceptual context",
       "passed": true,
-      "evidence": "AGENTS.md and CLAUDE.md use canonical terms (Interpreter, Agent, State, etc.)"
+      "evidence": "Terms are used correctly; technical class names are preserved appropriately",
+      "note": "Synonyms in code examples and technical descriptions are legitimate"
     },
     {
       "id": "CA-002",
       "name": "Synonym Exclusion",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
+      "description": "Synonyms are not used in conceptual explanations",
       "passed": true,
-      "evidence": "AGENTS.md explicitly lists forbidden synonyms"
+      "evidence": "AGENTS.md explicitly lists banned synonyms in table format"
     },
     {
       "id": "CA-003",
       "name": "Invariant Reflection",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
+      "description": "Hard invariants are documented",
       "passed": true,
-      "evidence": "All 12 hard invariants from invariants.yml documented in AGENTS.md and CLAUDE.md"
+      "evidence": "11 hard invariants documented"
     },
     {
       "id": "CA-004",
       "name": "AUTO Decision Documentation",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
+      "description": "AUTO decisions are explicitly noted",
       "passed": true,
-      "evidence": "AUTO decisions documented in README.md and AGENTS.md with expiry info"
+      "evidence": "AUTO decisions documented with provisional status in CLAUDE.md"
     },
     {
       "id": "CA-005",
       "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
+      "description": "boundaries.includes/excludes are consistent",
       "passed": true,
-      "evidence": "Term boundaries in ontology.yml consistent with documentation"
+      "evidence": "Ontology boundaries are reflected in documentation"
     }
-  ]
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0
+  },
+  "note": "Technical terms (AgentType, JWT, GuiAgentInterpreterABC) in code examples are legitimate usage"
 }

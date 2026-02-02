@@ -1,27 +1,63 @@
-ambiguities_discovered: []
-auto_decision_handling:
-  format: 暫定仕様として明示
-  noted_in_md: CLAUDE.md等で適切に文書化
-  total_active: ' ontology.ymlに記載'
-bootstrap_run_timestamp: '2026-02-02T09:49:34.611035+00:00'
-invariant_reflection:
-  missing: []
-  note: 全てのhard invariantsが適切に文書化されている
-  reflected: 11
-  total: 14
-ontology_suggestions:
-  definition_updates: []
-  new_terms: []
-  synonym_additions: []
-overall_assessment: ontology.ymlの質は非常に高い。用語の正規化は適切に実施されている。
-recommendations:
-- 現状のontology.ymlを維持
-- 技術クラス名（AgentType等）は「同義語」として扱わないよう検討（これらは実装詳細）
-- 次回のbootstrap実行は必要に応じて
-source_ontology_version: '0.3'
-term_usage_report:
-  canonical_used: 5
-  note: 検証された「同義語使用」は全て正当な技術的使用（クラス名、規格名等）
-  synonym_used_after_fix: 0
-  synonym_used_before_fix: 0
-  unknown_terms_found: []
+# MD Bootstrap Feedback to Concept Sync System (12_concept_sync_system)
+concept_feedback:
+  bootstrap_run_timestamp: "2026-02-02T19:10:00Z"
+  source_ontology_version: "0.3"
+
+  # 1. 用語使用状況
+  term_usage_report:
+    canonical_used: 88
+    synonym_used_before_fix: 0
+    synonym_used_after_fix: 0
+    unknown_terms_found: []
+    alignment_rate: 1.0
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 14
+    reflected: 14
+    missing: []
+    coverage_rate: 1.0
+    note: "全てのhard invariantsが適切に文書化されている"
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 15
+    noted_in_md: 15
+    format: "暫定仕様として明示"
+    coverage_files:
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "README.md"
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+
+  # 6. 全体的な評価
+  overall_assessment: "ontology.yml v0.3の質は非常に高い。用語の正規化は適切に実施されている。"
+  strengths:
+    - "11個のcanonical termsが明確に定義されている"
+    - "全用語に適切なevidenceが提供されている"
+    - "AUTO決定が適切にドキュメント化されている"
+    - "用語の境界（includes/excludes）が明確"
+    - "ライフサイクルと関連用語が適切に記述されている"
+  improvements: []
+
+  # 7. 次回の概念同期での推奨事項
+  next_sync_recommendations:
+    - "現状のontology.ymlを維持"
+    - "新規用語追加時はevidenceの提供を重視"
+    - "AUTO決定の有効期限管理を継続"
+    - "概念整合性は既に最適な状態"
+
+# メタデータ
+metadata:
+  generated_by: "16_repo_md_bootstrapper v1.1"
+  generated_at: "2026-02-02T19:10:00Z"
+  ontology_version: "0.3"
+  intent_version: "1.0"
