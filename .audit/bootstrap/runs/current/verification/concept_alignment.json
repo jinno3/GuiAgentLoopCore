@@ -1,99 +1,90 @@
 {
-  "timestamp": "2026-02-02T20:31:00Z",
+  "timestamp": "2026-02-02T11:47:55Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
   "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 0,
-    "canonical_used": 0,
-    "synonym_used_in_tables": 98,
-    "unknown_terms": 0,
-    "alignment_rate": 0.98
+    "total_term_occurrences": 150,
+    "canonical_used": 148,
+    "synonym_used": 0,
+    "unknown_terms": 2,
+    "alignment_rate": 0.987
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "issues": [],
-      "notes": "OpenGuiConnector was already a synonym in ontology, now normalized to Connector"
+      "alignment_score": 98,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": [],
-      "notes": "All terms used correctly, synonyms properly listed in table format"
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": [],
-      "notes": "Perfect alignment with ontology and invariants"
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": [],
-      "notes": "Auto-generated from ontology, perfect alignment"
+      "issues": []
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "issues": [],
-      "notes": "Good alignment with intent.yml"
+      "alignment_score": 98,
+      "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "issues": [],
-      "notes": "Good alignment with invariants"
+      "alignment_score": 98,
+      "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "notes": "Correct usage of GuiAgentInterpreterABC as interface name (not as synonym)"
+      "alignment_score": 95,
+      "issues": [
+        {
+          "line": 322,
+          "found": "AUTO:State.timer:3sec",
+          "note": "Duplicate entry in AUTO Decisions section (minor documentation issue)"
+        }
+      ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": [],
-      "notes": "Perfect alignment with invariants.yml"
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": [],
-      "notes": "Good alignment with ontology"
+      "alignment_score": 98,
+      "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
       "issues": [],
-      "notes": "Good alignment with ontology"
+      "note": "Codex-specific, lower priority"
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 95,
+      "issues": [],
+      "note": "Gemini-specific, lower priority"
     }
   ],
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
+    "total_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage": "100%"
+    "coverage": 100
   },
-  "auto_decision_handling": {
-    "total_active": 9,
+  "ambiguity_check": {
+    "active_auto_decisions": 9,
     "noted_in_md": 9,
-    "format": "Annotated as 'AUTO決定' with expiry tracking",
-    "coverage": "100%"
+    "missing_notes": 0,
+    "coverage": 100
   },
-  "synonym_usage": {
-    "canonical_terms_in_text": 10,
-    "synonyms_only_in_tables": true,
-    "no_synonym_leaks": true,
-    "status": "EXCELLENT"
-  },
-  "summary": {
-    "total_checks": 10,
-    "passed": 10,
-    "alignment_rate": 0.98,
-    "improvements_from_previous_run": "OpenGuiConnector normalized to Connector in README.md"
+  "term_boundary_check": {
+    "total_terms": 10,
+    "boundaries_defined": 10,
+    "boundaries_consistent": 10,
+    "inconsistencies": []
   }
 }

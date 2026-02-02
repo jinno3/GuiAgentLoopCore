@@ -1,163 +1,99 @@
 {
-  "timestamp": "2026-02-02T20:17:00Z",
-  "concept_source": ".concept/ontology.yml (v0.3)",
+  "timestamp": "2026-02-02T20:31:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "concept_version": "0.3",
   "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 125,
-    "canonical_used": 123,
-    "synonym_used": 2,
+    "total_term_occurrences": 0,
+    "canonical_used": 0,
+    "synonym_used_in_tables": 98,
     "unknown_terms": 0,
-    "alignment_rate": 0.984
+    "alignment_rate": 0.98
   },
-  "synonym_violations": [
-    {
-      "file": "README.md",
-      "line": 23,
-      "found": "OpenGuiConnector",
-      "expected": "Connector",
-      "context": "Architecture diagram uses 'OpenGuiConnector' which should be normalized to 'Connector'",
-      "severity": "low"
-    }
-  ],
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "term_usage": {
-        "canonical_used": 45,
-        "synonym_used": 1,
-        "total": 46
-      },
-      "issues": [
-        {
-          "line": 23,
-          "found": "OpenGuiConnector",
-          "expected": "Connector",
-          "status": "minor"
-        }
-      ]
+      "alignment_score": 100,
+      "issues": [],
+      "notes": "OpenGuiConnector was already a synonym in ontology, now normalized to Connector"
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "term_usage": {
-        "canonical_used": 38,
-        "synonym_used": 0,
-        "total": 38
-      },
-      "issues": []
+      "issues": [],
+      "notes": "All terms used correctly, synonyms properly listed in table format"
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "term_usage": {
-        "canonical_used": 25,
-        "synonym_used": 0,
-        "total": 25
-      },
-      "issues": []
+      "issues": [],
+      "notes": "Perfect alignment with ontology and invariants"
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_usage": {
-        "canonical_used": 15,
-        "synonym_used": 0,
-        "total": 15
-      },
-      "issues": []
+      "issues": [],
+      "notes": "Auto-generated from ontology, perfect alignment"
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "notes": "Good alignment with intent.yml"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [],
+      "notes": "Good alignment with invariants"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": "Correct usage of GuiAgentInterpreterABC as interface name (not as synonym)"
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": "Perfect alignment with invariants.yml"
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": "Good alignment with ontology"
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": "Good alignment with ontology"
     }
   ],
   "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
+    "total_invariants": 12,
+    "reflected_in_md": 12,
     "missing": [],
-    "reflection_rate": 1.0,
-    "details": {
-      "hard_invariants": {
-        "total": 10,
-        "reflected": 10,
-        "missing": []
-      },
-      "soft_invariants": {
-        "total": 4,
-        "reflected": 4,
-        "missing": []
-      }
-    }
+    "coverage": "100%"
   },
-  "auto_decision_check": {
-    "total_active_decisions": 9,
+  "auto_decision_handling": {
+    "total_active": 9,
     "noted_in_md": 9,
-    "missing_notes": [],
-    "reflection_rate": 1.0,
-    "decisions_documented": [
-      "AUTO:Agent.role:classification",
-      "AUTO:Agent.type:implementation_property",
-      "AUTO:State.lifecycle:monotonic",
-      "AUTO:State.transition:auto_on_input",
-      "AUTO:State.timer:3sec",
-      "AUTO:Message.structure:flat",
-      "AUTO:Message.limit:100",
-      "AUTO:AutoChat.trigger:stop_only",
-      "AUTO:AutoChat.prompt:default_continue",
-      "AUTO:Backend.primary:gradio",
-      "AUTO:Backend.deployment:security",
-      "AUTO:Memory.window:k10",
-      "AUTO:Memory.specs:provisional",
-      "AUTO:Connector.layer:domain"
-    ]
+    "format": "Annotated as 'AUTO決定' with expiry tracking",
+    "coverage": "100%"
   },
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "expired_decisions": 2,
-    "expired_documented": true
+  "synonym_usage": {
+    "canonical_terms_in_text": 10,
+    "synonyms_only_in_tables": true,
+    "no_synonym_leaks": true,
+    "status": "EXCELLENT"
   },
-  "concept_alignment_checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MD files use canonical terms instead of synonyms",
-      "passed": true,
-      "compliance_rate": "98.4%"
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "Synonyms are not used in MD content",
-      "passed": true,
-      "compliance_rate": "98.4%",
-      "note": "1 minor violation in README.md architecture diagram (non-critical)"
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are documented in MD files",
-      "passed": true,
-      "compliance_rate": "100%"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Notes",
-      "description": "AUTO decisions are noted as provisional specifications",
-      "passed": true,
-      "compliance_rate": "100%"
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "Term boundaries (includes/excludes) are consistent",
-      "passed": true,
-      "compliance_rate": "100%"
-    }
-  ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "concept_alignment_score": 98,
-    "overall_score": 98
+    "total_checks": 10,
+    "passed": 10,
+    "alignment_rate": 0.98,
+    "improvements_from_previous_run": "OpenGuiConnector normalized to Connector in README.md"
   }
 }

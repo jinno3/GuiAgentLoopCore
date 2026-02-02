@@ -1,59 +1,64 @@
 {
-  "timestamp": "2026-02-02T20:17:00Z",
-  "verification_version": "1.1",
-  "uniqueness_checks": [
+  "timestamp": "2026-02-02T20:31:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 95,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
-      "description": "All MD files express the same mission from intent.yml",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "details": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "consistency_rate": "100%"
+      "evidence": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "all_consistent": true
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MD files target the same user groups",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "details": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistency_rate": "100%"
+      "evidence": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "CODEX.md"],
+        "all_consistent": true
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints match across files",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
       "passed": true,
-      "details": {
-        "python_version": ">=3.10",
-        "max_message_length": 100,
-        "jwt_algorithm": "HS256",
-        "consistency_rate": "100%"
+      "evidence": {
+        "constraints_verified": ["Python", "State transitions", "Message types", "JWT encoding"],
+        "all_consistent": true
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "Out-of-scope items are consistently defined",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
       "passed": true,
-      "details": {
-        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistency_rate": "100%"
+      "evidence": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "properly_documented": true
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent Compliance",
-      "description": "All MD files correctly reflect intent.yml",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
       "passed": true,
-      "details": {
-        "core_functions_covered": ["Centralized Conversation Management", "State Machine with Monotonic Transitions", "Multi-Agent Coordination", "Structured Message Processing", "Backend Abstraction"],
-        "design_philosophy_covered": ["Correctness Over Convenience", "Explicit Over Implicit", "Small, Focused Components", "Testability", "Conceptual Integrity"],
-        "compliance_rate": "100%"
+      "evidence": {
+        "core_functions_reflected": true,
+        "design_philosophies_reflected": true,
+        "success_metrics_documented": true
       }
     }
   ],
@@ -61,6 +66,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100
+    "score": 100
   }
 }
