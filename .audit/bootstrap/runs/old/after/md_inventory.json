@@ -1,90 +1,127 @@
 {
-  "timestamp": "2026-02-03T07:45:00Z",
-  "root_mds": [
+  "timestamp": "2026-02-03T08:01:00Z",
+  "total_md_files": 11,
+  "files": [
     {
       "path": "README.md",
-      "exists": true,
-      "size_bytes": 3200,
+      "size_bytes": 3079,
+      "last_modified": "2026-02-03T08:01:00Z",
       "tier": 1,
-      "status": "verified",
-      "purpose": "Repository face and mission statement"
+      "exists": true,
+      "changes": [
+        "Added Converter to terminology note",
+        "Added AUTO:Connector.layer:domain to AUTO decisions list",
+        "Added AUTO:Backend.timer:3sec_interval to AUTO decisions list"
+      ]
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
-      "size_bytes": 6200,
+      "size_bytes": 7281,
+      "last_modified": "2026-02-03T08:01:00Z",
       "tier": 1,
-      "status": "verified",
-      "purpose": "AI Agent behavior guidelines"
+      "exists": true,
+      "changes": [
+        "Added Converter to auxiliary terms section",
+        "Added Converter AUTO decisions section",
+        "Updated timestamp to run #63"
+      ]
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
-      "size_bytes": 5400,
+      "size_bytes": 9274,
+      "last_modified": "2026-02-03T08:01:00Z",
       "tier": 2,
-      "status": "verified",
-      "purpose": "Claude-specific instructions"
+      "exists": true,
+      "changes": [
+        "Added 11 canonical terms note",
+        "Added AUTO:Message.roles:tool_function_separation",
+        "Added AUTO:Memory.limit:100 and AUTO:Memory.implementation:dual_provisional",
+        "Added AUTO:Connector.layer:domain",
+        "Fixed canonical terms count from 10 to 11",
+        "Fixed AUTO decisions count from 9 to 16",
+        "Updated timestamp to run #63"
+      ]
     },
     {
       "path": "GLOSSARY.md",
-      "exists": true,
-      "size_bytes": 8800,
+      "size_bytes": 11205,
+      "last_modified": "2026-02-03T06:40:00Z",
       "tier": 3,
-      "status": "verified",
-      "purpose": "Terminology (auto-generated from ontology)"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "size_bytes": 4100,
-      "tier": 2,
-      "status": "verified",
-      "purpose": "System constitution and invariants"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "size_bytes": 2800,
-      "tier": 2,
-      "status": "verified",
-      "purpose": "Detailed purpose explanation"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "size_bytes": 3500,
-      "tier": 2,
-      "status": "verified",
-      "purpose": "Contribution guidelines"
+      "changes": []
     },
     {
       "path": "ARCHITECTURE.md",
-      "exists": true,
-      "size_bytes": 5200,
+      "size_bytes": 13424,
+      "last_modified": "2026-02-02T11:07:00Z",
       "tier": 3,
-      "status": "verified",
-      "purpose": "Architecture overview"
+      "exists": true,
+      "changes": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "size_bytes": 5374,
+      "last_modified": "2026-02-02T23:47:00Z",
+      "tier": 2,
+      "exists": true,
+      "changes": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size_bytes": 7364,
+      "last_modified": "2026-02-03T06:27:00Z",
+      "tier": 2,
+      "exists": true,
+      "changes": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "size_bytes": 7943,
+      "last_modified": "2026-02-02T05:33:00Z",
+      "tier": 2,
+      "exists": true,
+      "changes": []
     },
     {
       "path": "GEMINI.md",
-      "exists": true,
-      "size_bytes": 3800,
+      "size_bytes": 4744,
+      "last_modified": "2026-02-02T00:57:00Z",
       "tier": 3,
-      "status": "verified",
-      "purpose": "Gemini-specific instructions"
+      "exists": true,
+      "changes": []
     },
     {
       "path": "CODEX.md",
-      "exists": true,
-      "size_bytes": 3600,
+      "size_bytes": 5224,
+      "last_modified": "2026-02-02T00:57:00Z",
       "tier": 3,
-      "status": "verified",
-      "purpose": "Codex-specific instructions"
+      "exists": true,
+      "changes": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 61,
+      "last_modified": "2026-02-01T21:56:00Z",
+      "tier": 3,
+      "exists": true,
+      "changes": []
     }
   ],
-  "total_tier1_coverage": "2/2 (100%)",
-  "total_tier2_coverage": "4/4 (100%)",
-  "total_tier3_coverage": "4/4 (100%)",
-  "overall_md_coverage": "10/10 (100%)",
-  "verified_count": 10
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "coverage": "100%"
+    },
+    "tier2": {
+      "required": 4,
+      "exists": 4,
+      "coverage": "100%"
+    },
+    "tier3": {
+      "optional": 5,
+      "exists": 5,
+      "coverage": "100%"
+    }
+  }
 }
