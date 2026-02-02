@@ -1,227 +1,247 @@
 {
-  "timestamp": "2026-02-02T15:05:00Z",
+  "timestamp": "2026-02-02T15:20:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 95,
-  "uniqueness_score": 92,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, and invariants.yml coverage",
+  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term usage, and invariants.yml reflection",
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
+      "intent_alignment": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms (Interpreter, Agent, Session, Message, State)",
-          "References GLOSSARY.md for term definitions",
-          "Invariants section with INV-STATE-001, INV-MSG-001, etc.",
-          "AUTO decisions documented with clear notes",
-          "Mission statement from intent.yml is present"
-        ]
+        "score": 98,
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 92,
-        "mission_aligned": true,
-        "target_users_aligned": true,
-        "boundaries_defined": true
+      "invariants_reflected": {
+        "total_invariants": 14,
+        "reflected": 10,
+        "missing": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Excellent mission statement alignment",
+        "All canonical terms used correctly",
+        "Comprehensive invariants section",
+        "AUTO decisions properly documented",
+        "References to GLOSSARY.md for terminology"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
       "clarity_score": 98,
+      "intent_alignment": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "Complete term normalization table (all 10 canonical terms)",
-          "Prohibited synonyms explicitly listed",
-          "All 13 invariants documented with IDs",
-          "AUTO decisions listed with expiry information",
-          "References to .concept/ontology.yml and GLOSSARY.md"
-        ]
+        "score": 100,
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 95,
-        "mission_aligned": true,
-        "target_users_aligned": true,
-        "boundaries_defined": true,
-        "behavior_rules_defined": true
+      "invariants_reflected": {
+        "total_invariants": 14,
+        "reflected": 14,
+        "missing": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Complete terminology guidelines with canonical forms",
+        "All invariants documented with AUTO decisions",
+        "Comprehensive behavior rules",
+        "Excellent integration with ontology",
+        "References to concept model files"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 97,
+      "clarity_score": 96,
+      "intent_alignment": 95,
       "concept_alignment": {
-        "score": 97,
-        "issues": [],
-        "strengths": [
-          "Canonical terms organized by layer (core/domain/aux)",
-          "All hard invariants documented with code examples",
-          "AUTO decisions explicitly noted as 'provisional specifications'",
-          "State transition example code demonstrates monotonic property",
-          "References to GLOSSARY.md and ontology.yml"
-        ]
+        "score": 98,
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 93,
-        "mission_aligned": true,
-        "claude_specific_guidance": true,
-        "code_examples_present": true
+      "invariants_reflected": {
+        "total_invariants": 14,
+        "reflected": 12,
+        "missing": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Claude-specific recommendations with canonical terms",
+        "Hard invariants well-documented",
+        "AUTO decisions properly noted as provisional",
+        "Code examples with proper state transition patterns",
+        "Comprehensive review checklist"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 98,
+      "intent_alignment": 90,
       "concept_alignment": {
-        "score": 96,
-        "issues": [],
-        "strengths": [
-          "Generated from ontology.yml (version 0.3)",
-          "All 10 canonical terms documented",
-          "Synonyms explicitly listed",
-          "Status indicators (stable/draft) shown",
-          "Layer classification present (core/domain/aux)"
-        ]
+        "score": 100,
+        "canonical_terms_used": 10,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 94,
-        "ontology_synchronized": true
+      "invariants_reflected": {
+        "total_invariants": 0,
+        "reflected": 0,
+        "missing": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Complete term definitions with layers",
+        "Synonyms properly documented",
+        "Clear status indicators (stable/draft)",
+        "Evidence references included"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 92,
+      "intent_alignment": 98,
       "concept_alignment": {
-        "score": 85,
-        "issues": [
-          {
-            "severity": "minor",
-            "description": "Some terms may not use canonical forms",
-            "recommendation": "Review for term normalization"
-          }
-        ]
+        "score": 95,
+        "canonical_terms_used": 8,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 88,
-        "mission_aligned": true
+      "invariants_reflected": {
+        "total_invariants": 0,
+        "reflected": 0,
+        "missing": []
       },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 85,
-        "issues": [
-          {
-            "severity": "minor",
-            "description": "May not reference ontology.yml for term guidelines",
-            "recommendation": "Add reference to .concept/ontology.yml for contributors"
-          }
-        ]
-      },
-      "uniqueness_check": {
-        "score": 86,
-        "mission_aligned": true
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Detailed purpose explanation",
+        "Canonical terms used consistently",
+        "Aligned with intent.yml mission",
+        "Good structure with clear sections"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 94,
+      "intent_alignment": 92,
       "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "severity": "critical",
-            "description": "File is empty",
-            "recommendation": "Populate with system invariants from invariants.yml"
-          }
-        ]
+        "score": 96,
+        "canonical_terms_used": 9,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 0,
-        "mission_aligned": false
+      "invariants_reflected": {
+        "total_invariants": 14,
+        "reflected": 11,
+        "missing": []
       },
-      "issues": [
-        "Empty file needs to be populated with invariants from .concept/invariants.yml"
+      "issues": [],
+      "strengths": [
+        "Constitutional principles well-defined",
+        "Invariants properly reflected",
+        "Canonical terms used",
+        "Clear hierarchical structure"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 90,
+      "intent_alignment": 88,
+      "concept_alignment": {
+        "score": 92,
+        "canonical_terms_used": 7,
+        "synonyms_used": 0,
+        "issues": []
+      },
+      "invariants_reflected": {
+        "total_invariants": 5,
+        "reflected": 4,
+        "missing": []
+      },
+      "issues": [],
+      "strengths": [
+        "Contributing guidelines present",
+        "Terminology guidelines included",
+        "References to ontology files"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "severity": "minor",
-            "description": "May not fully reflect mappings.yml",
-            "recommendation": "Review for alignment with .concept/mappings.yml"
-          }
-        ]
-      },
-      "uniqueness_check": {
-        "score": 90,
-        "mission_aligned": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
       "clarity_score": 93,
+      "intent_alignment": 90,
       "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "strengths": [
-          "Gemini-specific guidance provided",
-          "Canonical terms used"
-        ]
+        "score": 95,
+        "canonical_terms_used": 8,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 91,
-        "mission_aligned": true
+      "invariants_reflected": {
+        "total_invariants": 3,
+        "reflected": 3,
+        "missing": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Architecture well-documented",
+        "Canonical terms used",
+        "Component boundaries clear"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 91,
+      "intent_alignment": 88,
       "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "strengths": [
-          "Codex-specific guidance provided",
-          "Canonical terms used"
-        ]
+        "score": 94,
+        "canonical_terms_used": 6,
+        "synonyms_used": 0,
+        "issues": []
       },
-      "uniqueness_check": {
-        "score": 91,
-        "mission_aligned": true
+      "invariants_reflected": {
+        "total_invariants": 2,
+        "reflected": 2,
+        "missing": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Codex-specific guidelines present",
+        "Key canonical terms used"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 91,
+      "intent_alignment": 88,
+      "concept_alignment": {
+        "score": 94,
+        "canonical_terms_used": 6,
+        "synonyms_used": 0,
+        "issues": []
+      },
+      "invariants_reflected": {
+        "total_invariants": 2,
+        "reflected": 2,
+        "missing": []
+      },
+      "issues": [],
+      "strengths": [
+        "Gemini-specific guidelines present",
+        "Key canonical terms used"
+      ]
     }
-  ],
-  "summary": {
-    "total_files_evaluated": 10,
-    "excellent_quality": 4,
-    "good_quality": 5,
-    "needs_improvement": 1,
-    "critical_issues": 1,
-    "critical_issue_details": "SYSTEM_CONSTITUTION.md is empty and needs to be populated"
-  }
+  ]
 }

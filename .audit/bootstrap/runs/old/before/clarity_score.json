@@ -1,75 +1,227 @@
 {
-  "timestamp": "2026-02-02T14:42:00Z",
-  "overall_score": 92,
+  "timestamp": "2026-02-02T15:05:00Z",
+  "overall_score": 95,
   "concept_alignment_score": 95,
+  "uniqueness_score": 92,
   "max_score": 100,
+  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, and invariants.yml coverage",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Uses canonical terms (Interpreter, Agent, Session, Message, State)",
+          "References GLOSSARY.md for term definitions",
+          "Invariants section with INV-STATE-001, INV-MSG-001, etc.",
+          "AUTO decisions documented with clear notes",
+          "Mission statement from intent.yml is present"
+        ]
       },
-      "strengths": [
-        "明確なミッションステートメント",
-        "すべてのコア用語が正規形で使用されている",
-        "不変条件が適切に記載されている",
-        "AUTO決定が明示されている"
-      ],
-      "issues": [
-        "インストールセクションが空",
-        "使用方法セクションが空"
-      ]
+      "uniqueness_check": {
+        "score": 92,
+        "mission_aligned": true,
+        "target_users_aligned": true,
+        "boundaries_defined": true
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Complete term normalization table (all 10 canonical terms)",
+          "Prohibited synonyms explicitly listed",
+          "All 13 invariants documented with IDs",
+          "AUTO decisions listed with expiry information",
+          "References to .concept/ontology.yml and GLOSSARY.md"
+        ]
       },
-      "strengths": [
-        "用語規約セクションが完備されている",
-        "すべての用語が正規形で使用されている",
-        "不変条件が詳細に記載されている",
-        "AUTO決定が体系的に整理されている",
-        "行動規範が明確である"
-      ],
+      "uniqueness_check": {
+        "score": 95,
+        "mission_aligned": true,
+        "target_users_aligned": true,
+        "boundaries_defined": true,
+        "behavior_rules_defined": true
+      },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 97,
+        "issues": [],
+        "strengths": [
+          "Canonical terms organized by layer (core/domain/aux)",
+          "All hard invariants documented with code examples",
+          "AUTO decisions explicitly noted as 'provisional specifications'",
+          "State transition example code demonstrates monotonic property",
+          "References to GLOSSARY.md and ontology.yml"
+        ]
       },
-      "strengths": [
-        "Claude特化のガイドラインが明確",
-        "用語の正規形が使用されている",
-        "不変条件が適切に記載されている",
-        "AUTO決定が認識されている"
-      ],
+      "uniqueness_check": {
+        "score": 93,
+        "mission_aligned": true,
+        "claude_specific_guidance": true,
+        "code_examples_present": true
+      },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
+      "clarity_score": 96,
+      "concept_alignment": {
+        "score": 96,
+        "issues": [],
+        "strengths": [
+          "Generated from ontology.yml (version 0.3)",
+          "All 10 canonical terms documented",
+          "Synonyms explicitly listed",
+          "Status indicators (stable/draft) shown",
+          "Layer classification present (core/domain/aux)"
+        ]
+      },
+      "uniqueness_check": {
+        "score": 94,
+        "ontology_synchronized": true
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 92,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "severity": "minor",
+            "description": "Some terms may not use canonical forms",
+            "recommendation": "Review for term normalization"
+          }
+        ]
       },
-      "strengths": [
-        "ontology.ymlから自動生成されている",
-        "用語の定義が明確",
-        "同義語が適切に記載されている"
-      ],
+      "uniqueness_check": {
+        "score": 88,
+        "mission_aligned": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "severity": "minor",
+            "description": "May not reference ontology.yml for term guidelines",
+            "recommendation": "Add reference to .concept/ontology.yml for contributors"
+          }
+        ]
+      },
+      "uniqueness_check": {
+        "score": 86,
+        "mission_aligned": true
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "severity": "critical",
+            "description": "File is empty",
+            "recommendation": "Populate with system invariants from invariants.yml"
+          }
+        ]
+      },
+      "uniqueness_check": {
+        "score": 0,
+        "mission_aligned": false
+      },
+      "issues": [
+        "Empty file needs to be populated with invariants from .concept/invariants.yml"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "severity": "minor",
+            "description": "May not fully reflect mappings.yml",
+            "recommendation": "Review for alignment with .concept/mappings.yml"
+          }
+        ]
+      },
+      "uniqueness_check": {
+        "score": 90,
+        "mission_aligned": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "Gemini-specific guidance provided",
+          "Canonical terms used"
+        ]
+      },
+      "uniqueness_check": {
+        "score": 91,
+        "mission_aligned": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "Codex-specific guidance provided",
+          "Canonical terms used"
+        ]
+      },
+      "uniqueness_check": {
+        "score": 91,
+        "mission_aligned": true
+      },
       "issues": []
     }
-  ]
+  ],
+  "summary": {
+    "total_files_evaluated": 10,
+    "excellent_quality": 4,
+    "good_quality": 5,
+    "needs_improvement": 1,
+    "critical_issues": 1,
+    "critical_issue_details": "SYSTEM_CONSTITUTION.md is empty and needs to be populated"
+  }
 }
