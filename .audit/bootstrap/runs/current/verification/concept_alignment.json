@@ -1,86 +1,176 @@
 {
-  "timestamp": "2026-02-03T03:14:10Z",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 98,
+  "timestamp": "2026-02-03T03:28:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "invariants_source": ".concept/invariants.yml",
+
+  "overall_alignment_score": 95,
+  "uniqueness_score": 95,
+  "concept_alignment_score": 95,
+
   "term_usage_check": {
-    "total_term_occurrences": 50,
-    "canonical_used": 50,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-  "per_file": [
+
+  "per_file_alignment": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": [],
-      "notes": "全ての用語が正規形で使用されている"
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 98,
-      "issues": [],
-      "notes": "全てのコア用語とドメイン用語が正規形で使用されている"
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "notes": "全ての用語が正規形で使用されている"
+      "alignment_score": 95,
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": [
+        {
+          "type": "timestamp_update",
+          "note": "Last verified 2026-02-02T13:23:00Z - may benefit from re-verification",
+          "severity": "low"
+        }
+      ]
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 95,
-      "issues": [],
-      "notes": "ontology.ymlから自動生成されている"
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "issues": [],
-      "notes": "用語が一貫して使用されている"
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "issues": [],
-      "notes": "用語が一貫して使用されている"
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 98,
-      "issues": [],
-      "notes": "不変条件が正しく記載されている"
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_found": ["All 11 terms from ontology.yml"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": [
+        {
+          "type": "version_sync",
+          "note": "Last updated 2026-02-02T22:50:00Z - verify ontology v0.3 is current",
+          "severity": "low"
+        }
+      ]
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 95,
-      "issues": [],
-      "notes": "用語が一貫して使用されている"
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Converter", "Connector", "Memory"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": [
+        {
+          "type": "review_periodic",
+          "note": "Architecture documentation is well-aligned, periodic review recommended",
+          "severity": "low"
+        }
+      ]
     },
     {
-      "file": "CODEX.md",
-      "alignment_score": 98,
-      "issues": [],
-      "notes": "用語が一貫して使用されている"
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Connector", "Converter", "Memory", "Backend"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": []
     },
     {
-      "file": "GEMINI.md",
-      "alignment_score": 98,
-      "issues": [],
-      "notes": "用語が一貫して使用されている"
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "alignment_rate": 1.0
+      },
+      "issues": []
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
-    "missing": [],
-    "coverage_rate": 1.0
+    "total_invariants": 13,
+    "hard_invariants": 11,
+    "soft_invariants": 2,
+    "reflected_in_md": {
+      "agents_md": 13,
+      "claudemd": 11,
+      "contributing": 11,
+      "architecture": 11
+    },
+    "missing_hard_invariants": [],
+    "missing_soft_invariants": [
+      {
+        "invariant_id": "INV-BACKEND-002",
+        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
+        "strength": "soft",
+        "reflected_in": ["ARCHITECTURE.md"],
+        "not_in": ["CLAUDE.md", "CONTRIBUTING.md"],
+        "priority": "low",
+        "note": "Soft invariant, not critical for all MDs"
+      }
+    ]
   },
+
+  "auto_decision_handling": {
+    "total_active": 13,
+    "noted_in_claudemd": 13,
+    "noted_in_architecture": 13,
+    "noted_in_agents": 9,
+    "noted_in_contributing": 10,
+    "format": "Explicitly documented as AUTO decisions with expiry tracking",
+    "missing_notes": []
+  },
+
   "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
+    "active_auto_decisions": 13,
+    "reflected_as_notes": 13,
     "missing_notes": 0,
-    "coverage_rate": 1.0
+    "well_documented_in": ["CLAUDE.md", "ARCHITECTURE.md"]
+  },
+
+  "summary": {
+    "strengths": [
+      "All canonical terms used consistently across MDs",
+      "No prohibited synonyms found in core documentation",
+      "All hard invariants reflected in AGENTS.md and CLAUDE.md",
+      "AUTO decisions well documented in specialized MDs",
+      "Term boundaries consistent across all documentation",
+      "100% concept alignment rate for core terms"
+    ],
+    "minor_improvements": [
+      "Update verification timestamps in CLAUDE.md",
+      "Consider adding INV-BACKEND-002 to CONTRIBUTING.md (low priority)",
+      "Periodic re-verification recommended to maintain alignment"
+    ],
+    "overall_assessment": "Excellent - Concept integrity is well maintained across all MD files"
   }
 }

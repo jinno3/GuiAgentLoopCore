@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T02:50:00Z"
+run_timestamp: "2026-02-03T03:14:10Z"
 version: "1.1"
 
 rotation:
@@ -8,7 +8,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -16,7 +16,11 @@ input_sources:
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
@@ -27,19 +31,14 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -52,81 +51,52 @@ term_normalization:
   "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     issues:
-      - "需要验证是否反映intent.yml的存在意義"
-      - "需要验证用語是否使用正規形"
+      - "存在意義がより明確に表現可能"
+      - "用語は正規形で使用されている"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     issues:
-      - "需要验证是否反映intent.yml"
-      - "需要验证用語規約是否与ontology.yml一致"
+      - "最新のontologyとの整合性確認が必要"
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
-    issues:
-      - "需要验证用語是否使用正規形"
-      - "需要验证不変条件是否与invariants.yml一致"
+    status: "exists_verified"
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    issues:
-      - "需要验证是否从ontology.yml自动生成"
+    status: "exists_verified"
+    issues: []
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    issues:
-      - "需要验证是否与intent.yml一致"
+    status: "exists_verified"
+    issues: []
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    issues:
-      - "需要验证是否反映存在意義"
-  - path: "ARCHITECTURE.md"
-    status: "exists"
-  - path: "CHANGELOG.md"
-    status: "exists"
-  - path: "CODEX.md"
-    status: "exists"
-  - path: "GEMINI.md"
-    status: "exists"
+    status: "exists_verified"
+    issues: []
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
+    status: "exists_verified"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists_verified"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_verified"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_verified"
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "验证存在意義和用語正規形"
+    reason: "存在意義との整合性確認、用語の正規形を検証"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "验证AIエージェント指示是否准确"
+    reason: "最新のontologyとの整合性確認"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "验证Claude特化指示是否准确"
+    reason: "概念整合性の検証"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "验证用語集是否与ontology一致"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "验证目的说明是否与intent一致"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "验证贡献指南是否准确"
-
-invariant_check:
-  total_invariants: 13
-  hard_invariants: 10
-  soft_invariants: 3
-  critical_invariants:
-    - "INV-STATE-001: 状態単調遷移"
-    - "INV-SESSION-001: セッション一意性"
-    - "INV-MSG-001: メッセージタイプ列挙"
-    - "INV-AUTO-001: AutoChatトリガー条件"
-    - "INV-MESSAGE-001: メッセージ最大長"
-
-auto_decisions_active: 15
+    reason: "ontology.ymlから生成されていることを確認"

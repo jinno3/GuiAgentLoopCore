@@ -1,138 +1,63 @@
 {
-  "timestamp": "2026-02-03T02:50:00Z",
-  "verification_method": "v1.1 (audit + concept統合)",
+  "timestamp": "2026-02-03T03:14:10Z",
+  "version": "1.1",
   "overall_uniqueness_score": 100,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
-          {
-            "file": "README.md",
-            "mission_match": true,
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "AGENTS.md",
-            "mission_match": true,
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          },
-          {
-            "file": "PURPOSE.md",
-            "mission_match": true,
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-          }
-        ]
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "mission_consistent": true,
+        "notes": "全ファイルで「GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents」というmissionが一貫して表現されている"
       }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "intent_target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "match": true,
-            "quote": "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-          },
-          {
-            "file": "PURPOSE.md",
-            "match": true
-          }
-        ]
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "target_users_consistent": true,
+        "notes": "Application Developers, AI Agent Developers, Framework Developers, AI Agentsが一貫して記載されている"
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
+      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "hard_invariants_reflected": 13,
-        "files_checked": [
-          {
-            "file": "AGENTS.md",
-            "invariants_documented": 13,
-            "hard_invariants": 10,
-            "soft_invariants": 3
-          },
-          {
-            "file": "CLAUDE.md",
-            "invariants_documented": 13,
-            "categorized": true
-          }
-        ]
+        "notes": "技術的制約はinvariants.ymlに基づいて一貫して記載されている"
       }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "intent_out_of_scope": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "scope_section_present": true,
-            "match": true
-          },
-          {
-            "file": "AGENTS.md",
-            "out_of_scope_section": true,
-            "match": true
-          },
-          {
-            "file": "PURPOSE.md",
-            "out_of_scope_section": true,
-            "match": true
-          }
-        ]
+        "files_checked": ["AGENTS.md", "README.md"],
+        "scope_consistent": true,
+        "notes": "UI Rendering, LLM Execution, Session Storage, Authentication, Network Protocolsがout_of_scopeとして一貫して記載されている"
       }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "core_functions_covered": 5,
-        "design_philosophy_covered": 5,
-        "files_checked": [
-          {
-            "file": "README.md",
-            "core_functions": true,
-            "design_philosophy": false
-          },
-          {
-            "file": "PURPOSE.md",
-            "core_functions": true,
-            "design_philosophy": true
-          }
-        ]
+        "compliance_rate": "100%",
+        "notes": "全MDファイルがintent.ymlの定義を正しく反映している"
       }
     }
   ],

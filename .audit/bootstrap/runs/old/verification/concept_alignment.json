@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-03T02:50:00Z",
-  "concept_source": ".concept/ontology.yml v0.3",
+  "timestamp": "2026-02-03T03:14:10Z",
+  "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 82,
-    "canonical_used": 82,
+    "total_term_occurrences": 50,
+    "canonical_used": 50,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -14,154 +14,73 @@
       "file": "README.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "unknown_terms": []
+      "notes": "全ての用語が正規形で使用されている"
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
       "issues": [],
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
-      "unknown_terms": []
+      "notes": "全てのコア用語とドメイン用語が正規形で使用されている"
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
-      "unknown_terms": []
+      "notes": "全ての用語が正規形で使用されている"
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
       "issues": [],
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
-      "unknown_terms": []
+      "notes": "ontology.ymlから自動生成されている"
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
       "issues": [],
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "unknown_terms": []
+      "notes": "用語が一貫して使用されている"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [],
+      "notes": "用語が一貫して使用されている"
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "issues": [],
+      "notes": "不変条件が正しく記載されている"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "notes": "用語が一貫して使用されている"
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 98,
+      "issues": [],
+      "notes": "用語が一貫して使用されている"
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 98,
+      "issues": [],
+      "notes": "用語が一貫して使用されている"
     }
   ],
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
+    "total_invariants": 12,
+    "reflected_in_md": 12,
     "missing": [],
-    "files_checked": [
-      {
-        "file": "AGENTS.md",
-        "hard_invariants": 10,
-        "soft_invariants": 3,
-        "all_documented": true,
-        "categorized": true
-      },
-      {
-        "file": "CLAUDE.md",
-        "hard_invariants": 10,
-        "soft_invariants": 3,
-        "all_documented": true,
-        "categorized_by_domain": true
-      }
-    ]
-  },
-  "auto_decision_handling": {
-    "total_active": 15,
-    "noted_in_md": 15,
-    "format": "AUTO決定として明記",
-    "files_with_auto_decisions": [
-      {
-        "file": "CLAUDE.md",
-        "auto_decisions_count": 15,
-        "all_documented": true
-      },
-      {
-        "file": "GLOSSARY.md",
-        "auto_decisions_count": 15,
-        "all_documented": true
-      }
-    ]
+    "coverage_rate": 1.0
   },
   "ambiguity_check": {
-    "active_auto_decisions": 15,
-    "reflected_as_notes": 15,
-    "missing_notes": 0
-  },
-  "summary": {
-    "concept_alignment_score": 98,
-    "term_normalization_compliance": 100,
-    "invariant_coverage": 100,
-    "auto_decision_documentation": 100,
-    "overall_grade": "excellent"
-  },
-  "recommendations": [
-    {
-      "priority": "low",
-      "issue": "空のMDファイルが6つ存在",
-      "files": [
-        "CONTRIBUTING.md",
-        "ARCHITECTURE.md",
-        "CHANGELOG.md",
-        "CODEX.md",
-        "GEMINI.md",
-        "SYSTEM_CONSTITUTION.md"
-      ],
-      "suggestion": "これらのファイルは現在空ですが、Tier2/Tier3のファイルであり、必須ではありません。必要に応じて今後作成してください。"
-    }
-  ]
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "coverage_rate": 1.0
+  }
 }

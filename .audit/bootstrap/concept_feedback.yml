@@ -1,13 +1,15 @@
 # MD整備から概念同期システムへのフィードバック
 
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T03:14:10Z"
+  bootstrap_run_timestamp: "2026-02-03T03:28:00Z"
   source_ontology_version: "0.3"
-  run_number: 45
+  run_number: 46
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 50
+    total_canonical_terms: 11
+    canonical_used_in_mds: 11
+    total_occurrences: 55
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -15,16 +17,26 @@ concept_feedback:
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 12
-    hard: 10
-    soft: 2
-    reflected: 12
-    missing: []
+    total: 13
+    hard_invariants: 11
+    soft_invariants: 2
+    reflected_in_agents_md: 13
+    reflected_in_claudemd: 11
+    reflected_in_contributing: 11
+    reflected_in_architecture: 11
+    missing_hard: []
+    missing_soft:
+      - id: "INV-BACKEND-002"
+        priority: "low"
+        note: "Soft invariant, already in ARCHITECTURE.md"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 9
-    noted_in_md: 9
+    total_active: 13
+    noted_in_claudemd: 13
+    noted_in_architecture: 13
+    noted_in_agents: 9
+    noted_in_contributing: 10
     format: "AUTO決定として明記"
     missing_documentation: []
 
@@ -37,11 +49,17 @@ concept_feedback:
     definition_updates: []
     synonym_additions: []
     boundary_updates: []
+    status_changes:
+      - term: "Memory"
+        current_status: "draft"
+        suggested_status: "stable"
+        reason: "Well-documented across MDs with established invariants"
+        priority: "low"
 
   # 6. 総合評価
   overall_assessment:
     grade: "excellent"
-    concept_alignment_score: 98
+    concept_alignment_score: 95
     term_normalization_compliance: 100
     invariant_documentation_coverage: 100
     auto_decision_documentation_coverage: 100
@@ -53,4 +71,13 @@ concept_feedback:
     maintenance_advice: "この状態を維持することを推奨"
 
   # 8. 今後の改善提案
-  improvement_suggestions: []
+  improvement_suggestions:
+    - priority: "low"
+      action: "Consider promoting Memory from 'draft' to 'stable'"
+      reason: "Well-documented with INV-MEM-001 established"
+
+  # 9. 概念境界の整合性
+  boundary_consistency:
+    checked_terms: 11
+    consistent_boundaries: 11
+    inconsistent_boundaries: 0
