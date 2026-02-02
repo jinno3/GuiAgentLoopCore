@@ -1,58 +1,89 @@
 {
-  "timestamp": "2026-02-02T14:23:00Z",
-  "total_mds": 7,
-  "tier1_mds": 2,
-  "tier2_mds": 4,
-  "tier3_mds": 1,
+  "timestamp": "2026-02-02T14:42:00Z",
+  "total_md_files": 11,
   "files": [
     {
-      "path": "README.md",
-      "tier": 1,
+      "path": "AGENTS.md",
       "exists": true,
-      "size_bytes": 7124,
-      "last_modified": "2026-02-02T13:23:00Z"
+      "size_bytes": 11492,
+      "tier": "tier1_mandatory"
     },
     {
-      "path": "AGENTS.md",
-      "tier": 1,
+      "path": "ARCHITECTURE.md",
       "exists": true,
-      "size_bytes": 7234,
-      "last_modified": "2026-02-02T13:23:00Z"
+      "size_bytes": 13424,
+      "tier": "tier3_optional"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "size_bytes": 61,
+      "tier": "other"
     },
     {
       "path": "CLAUDE.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 8543,
-      "last_modified": "2026-02-02T13:23:00Z"
+      "size_bytes": 11652,
+      "tier": "tier2_recommended"
     },
     {
-      "path": "GLOSSARY.md",
-      "tier": 3,
+      "path": "CODEX.md",
       "exists": true,
-      "size_bytes": 6543,
-      "last_modified": "2026-02-02T13:23:00Z"
-    },
-    {
-      "path": "PURPOSE.md",
-      "tier": 2,
-      "exists": true,
-      "size_bytes": 4321,
-      "last_modified": "2026-02-02T13:23:00Z"
+      "size_bytes": 5224,
+      "tier": "tier3_optional"
     },
     {
       "path": "CONTRIBUTING.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 3456,
-      "last_modified": "2026-02-02T13:23:00Z"
+      "size_bytes": 5977,
+      "tier": "tier2_recommended"
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "size_bytes": 4744,
+      "tier": "tier3_optional"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "size_bytes": 11205,
+      "tier": "tier3_optional"
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "size_bytes": 5075,
+      "tier": "tier2_recommended"
+    },
+    {
+      "path": "README.md",
+      "exists": true,
+      "size_bytes": 9534,
+      "tier": "tier1_mandatory"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 2876,
-      "last_modified": "2026-02-02T13:23:00Z"
+      "size_bytes": 7943,
+      "tier": "tier2_recommended"
     }
-  ]
+  ],
+  "tier_coverage": {
+    "tier1_mandatory": {
+      "required": 2,
+      "present": 2,
+      "coverage": "100%"
+    },
+    "tier2_recommended": {
+      "required": 4,
+      "present": 4,
+      "coverage": "100%"
+    },
+    "tier3_optional": {
+      "required": 4,
+      "present": 5,
+      "coverage": "125%"
+    }
+  }
 }

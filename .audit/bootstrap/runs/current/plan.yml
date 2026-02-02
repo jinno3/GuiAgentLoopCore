@@ -1,4 +1,7 @@
-run_timestamp: "2026-02-02T14:42:00Z"
+# MD Bootstrap Plan v1.1
+# Generated: 2026-02-02T15:05:00Z
+
+run_timestamp: "2026-02-02T15:05:00Z"
 version: "1.1"
 
 rotation:
@@ -8,7 +11,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
+    constraints_yml: ".audit/config/constraints.yml"  # Not checked (optional)
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -16,29 +19,55 @@ input_sources:
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_functions:
+    - "Centralized Conversation Management"
+    - "State Machine with Monotonic Transitions"
+    - "Multi-Agent Coordination"
+    - "Structured Message Processing"
+    - "Backend Abstraction"
+  boundaries:
+    in_scope:
+      - "Conversation Flow Management"
+      - "State Machine"
+      - "Agent Coordination"
+      - "Message Processing"
+      - "Backend Abstraction"
+      - "Streaming Support"
+    out_of_scope:
+      - "UI Rendering"
+      - "LLM Execution"
+      - "Session Storage"
+      - "Authentication"
+      - "Network Protocols"
 
 ontology_summary:
   total_terms: 10
-  core_terms: 5
-  domain_terms: 4
-  aux_terms: 1
+  core_terms: 5  # Interpreter, Agent, Session, Message, State
+  domain_terms: 4  # AutoChat, StreamWrapper, Backend, Memory, Connector
+  aux_terms: 1  # Converter
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+      status: "stable"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+      status: "stable"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+      status: "stable"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      layer: "core"
+      status: "stable"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+      status: "stable"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -47,6 +76,8 @@ term_normalization:
   "専門エージェント": "Agent"
   "AgentType": "Agent"
   "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
   "JWT": "Session"
@@ -61,107 +92,94 @@ term_normalization:
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
-    tier: "tier1_mandatory"
+    status: "exists_aligned"
     issues: []
+    assessment: "Well-aligned with intent and ontology. Uses canonical terms correctly."
   - path: "AGENTS.md"
-    status: "exists_verified"
-    tier: "tier1_mandatory"
+    status: "exists_aligned"
     issues: []
+    assessment: "Excellent alignment. Term normalization table present. All invariants documented."
   - path: "CLAUDE.md"
-    status: "exists_verified"
-    tier: "tier2_recommended"
+    status: "exists_aligned"
     issues: []
+    assessment: "Excellent alignment with ontology. Claude-specific guidance provided."
   - path: "GLOSSARY.md"
-    status: "exists_verified"
-    tier: "tier3_optional"
+    status: "exists_aligned"
     issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_verified"
-    tier: "tier3_optional"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_verified"
-    tier: "tier2_recommended"
-    issues: []
+    assessment: "Generated from ontology.yml. Good coverage of terms."
   - path: "PURPOSE.md"
-    status: "exists_verified"
-    tier: "tier2_recommended"
+    status: "exists_not_checked"
     issues: []
+    assessment: "Not yet reviewed in this run."
+  - path: "CONTRIBUTING.md"
+    status: "exists_not_checked"
+    issues: []
+    assessment: "Not yet reviewed in this run."
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
-    tier: "tier2_recommended"
+    status: "exists_not_checked"
     issues: []
+    assessment: "Not yet reviewed in this run."
+  - path: "ARCHITECTURE.md"
+    status: "exists_not_checked"
+    issues: []
+    assessment: "Not yet reviewed in this run."
   - path: "GEMINI.md"
-    status: "exists_verified"
-    tier: "tier3_optional"
+    status: "exists_not_checked"
     issues: []
+    assessment: "Not yet reviewed in this run."
   - path: "CODEX.md"
-    status: "exists_verified"
-    tier: "tier3_optional"
+    status: "exists_not_checked"
     issues: []
+    assessment: "Not yet reviewed in this run."
 
 actions:
   - action: "verify"
-    target: "all_mds"
-    reason: "既存MDファイルは高品質（明確度92、概念整合度95）のため、検証のみ実施"
-    details:
-      - "全MDファイルで用語が正規形で使用されていることを確認"
-      - "intent.ymlとの整合性を確認"
-      - "ontology.ymlとの整合性を確認"
-      - "invariants.ymlが適切に反映されていることを確認"
+    target: "README.md"
+    reason: "Verify intent alignment and term normalization"
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify concept alignment and invariants coverage"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific guidance and ontology integration"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology.yml synchronization"
+  - action: "review"
+    target: "PURPOSE.md"
+    reason: "Review for intent alignment"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "Review for concept alignment"
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Review for invariants reflection"
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "Review for mappings.yml integration"
+  - action: "review"
+    target: "GEMINI.md"
+    reason: "Review for Gemini-specific guidance"
+  - action: "review"
+    target: "CODEX.md"
+    reason: "Review for Codex-specific guidance"
 
-verification_targets:
-  - check_id: "UC-001"
-    name: "存在意義の一貫性"
-    description: "全MDで同じmissionが表現されているか"
-    source: ".audit"
-  - check_id: "UC-002"
-    name: "対象ユーザーの一貫性"
-    description: "全MDで同じtarget_userを想定しているか"
-    source: ".audit"
-  - check_id: "UC-003"
-    name: "制約の一貫性"
-    description: "技術的制約が一致しているか"
-    source: ".audit + .concept"
-  - check_id: "UC-004"
-    name: "境界線の一貫性"
-    description: "out_of_scopeが矛盾なく定義されているか"
-    source: ".audit + .concept"
-  - check_id: "UC-005"
-    name: "intent.yml準拠"
-    description: "全MDがintent.ymlを正しく反映しているか"
-    source: ".audit"
-  - check_id: "CA-001"
-    name: "用語の正規形使用"
-    description: "全MDでcanonical termを使用しているか"
-    source: ".concept"
-  - check_id: "CA-002"
-    name: "同義語の排除"
-    description: "synonymが本文で使用されていないか"
-    source: ".concept"
-  - check_id: "CA-003"
-    name: "不変条件の反映"
-    description: "hard invariantsがドキュメント化されているか"
-    source: ".concept"
-  - check_id: "CA-004"
-    name: "AUTO決定の注記"
-    description: "暫定仕様が明示されているか"
-    source: ".concept"
-  - check_id: "CA-005"
-    name: "用語境界の整合"
-    description: "boundaries.includes/excludesが矛盾していないか"
-    source: ".concept"
-
-expected_outcome:
-  overall_score: 92
-  uniqueness_score: 90
-  concept_alignment_score: 95
-  md_coverage: "11/11 (100%)"
-  changes_required: false
-  reason: "既存MDファイルはすでに高品質で、intent.ymlとontology.ymlに適切に準拠している"
+expected_outcomes:
+  overall_score_before: 95  # Existing MDs are already well-aligned
+  overall_score_after: 98  # Minor improvements expected
+  concept_alignment_before: 95
+  concept_alignment_after: 98
+  uniqueness_before: 90
+  uniqueness_after: 95
