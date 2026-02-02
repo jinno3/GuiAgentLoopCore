@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T04:19:54Z",
+  "last_updated": "2026-02-02T04:36:04Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -13,16 +13,16 @@
   "draft_ratio": 0.09,
   "draft_ratio_limit": 0.3,
   "total_invariants": 14,
-  "total_ambiguities": 8,
+  "total_ambiguities": 9,
   "total_conflicts": 0,
   "queue_size": 12,
   "queue_pending": 0,
   "queue_merged": 7,
   "queue_accepted": 1,
   "queue_rejected": 4,
-  "claims_count": 152,
+  "claims_count": 158,
   "mappings_count": 11,
-  "decisions_active": 17,
+  "decisions_active": 18,
   "decisions_expired": 1,
   "decisions_md_lines": 154,
   "tombstones_count": 5,
@@ -48,27 +48,38 @@
     "reason": "No bloat control actions needed - ontology healthy"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T04:19:54Z",
-    "previous_run_id": "2026-02-02T04:08:11Z",
-    "run_count": 63,
-    "claims_added": 1,
-    "ambiguities_added": 0,
-    "auto_decisions_added": 0,
+    "run_id": "2026-02-02T04:36:04Z",
+    "previous_run_id": "2026-02-02T04:19:54Z",
+    "run_count": 64,
+    "claims_added": 6,
+    "ambiguities_added": 1,
+    "auto_decisions_added": 1,
     "auto_decisions_expired": 0,
     "queue_processed": 0,
     "conflicts_resolved": 0,
-    "files_analyzed": [],
+    "files_analyzed": [
+      "gui_agent_loop_core/core/interpreter_manager.py",
+      "gui_agent_loop_core/schema/core/schema.py",
+      "gui_agent_loop_core/schema/agent/schema.py",
+      "gui_agent_loop_core/schema/message/schema.py",
+      "gui_agent_loop_core/backend/server_impl_gradio.py",
+      "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py",
+      "gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py",
+      "gui_agent_loop_core/converter/request_converter.py"
+    ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #63 completed - Concept sync maintenance run via AI Hub instruction execution",
-      "No new source code changes detected since last run (2026-02-02T04:08:11Z)",
+      "Run #64 completed - Concept sync maintenance run with comprehensive codebase exploration",
+      "No new code changes detected since last run (2026-02-02T04:19:54Z)",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
       "Queue status: 0 pending, 7 merged, 4 rejected, 1 accepted",
       "decisions.md: 154 lines (within 200-line limit)",
       "14 hard invariants maintained",
-      "17 AUTO decisions active (1 CRITICAL security EXPIRED: AMB-SEC-001)",
-      "CRITICAL SECURITY: AMB-SEC-001 AUTO decision EXPIRED for 5 runs past expiration (expires_after_runs=10, decided at run ~48, current run=63). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY. This security vulnerability has persisted for 5 runs past expiration."
+      "18 AUTO decisions active (1 CRITICAL security EXPIRED: AMB-SEC-001)",
+      "CRITICAL SECURITY: AMB-SEC-001 AUTO decision EXPIRED for 16+ runs past expiration (expires_after_runs=10, decided at run ~48, current run=64). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY.",
+      "NEW CRITICAL BUG: AMB-SEC-002 - JWT decoding method jwt_decode_session() contains undefined variables (token, secret_key) causing runtime failure",
+      "Multiple TODO comments found indicating incomplete implementation (Message roles, Connector blocking, Backend image handling)"
     ]
   },
   "health_check": {
@@ -78,10 +89,13 @@
     "conflict_health": "healthy (0 conflicts)",
     "bootstrap_sync_quality": "EXCELLENT (100% alignment)",
     "architecture_doc_alignment": "EXCELLENT (100% alignment with ontology)",
-    "security_alert": "CRITICAL: AMB-SEC-001 EXPIRED for 5 runs past expiration (expires_after_runs=10, decided at run ~48, current run=63). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY. This security vulnerability has persisted for 5 runs past expiration."
+    "security_alert": "CRITICAL: AMB-SEC-001 EXPIRED for 16+ runs past expiration (expires_after_runs=10, decided at run ~48, current run=64). Hardcoded JWT secret in gui_agent_loop_core/core/interpreter_manager.py:77 must be migrated to environment variable IMMEDIATELY. NEW: AMB-SEC-002 JWT decoding bug discovered."
   },
   "next_steps": [
-    "CRITICAL: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED for 5 runs)",
+    "CRITICAL: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED for 16+ runs)",
+    "CRITICAL: Fix AMB-SEC-002 - Fix or remove jwt_decode_session() method with undefined variables",
+    "HIGH: Resolve TODO comments in message schema (FUNCTION/TOOL roles)",
+    "MEDIUM: Resolve TODO comments in connector and backend implementations",
     "Monitor draft terms: Memory (status: draft) for potential promotion or deprecation",
     "Continue regular ontology sync runs"
   ]
