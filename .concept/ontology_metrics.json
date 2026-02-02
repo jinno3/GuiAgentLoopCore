@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T01:34:46Z",
+  "last_updated": "2026-02-02T01:53:39Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -22,9 +22,9 @@
   "queue_rejected": 4,
   "claims_count": 148,
   "mappings_count": 11,
-  "decisions_active": 8,
+  "decisions_active": 17,
   "decisions_expired": 0,
-  "decisions_md_lines": 153,
+  "decisions_md_lines": 154,
   "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
@@ -37,7 +37,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 153,
+    "decisions_md_lines_current": 154,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -48,9 +48,9 @@
     "reason": "No bloat control actions needed - ontology healthy"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T01:34:46Z",
+    "run_id": "2026-02-02T01:53:39Z",
     "previous_run_id": "2026-02-02T01:34:22Z",
-    "run_count": 56,
+    "run_count": 57,
     "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
@@ -60,25 +60,25 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #57 completed - Concept sync maintenance run via AI Hub instruction execution",
+      "Run #58 completed - Concept sync maintenance run via AI Hub instruction execution",
       "No new code changes detected since last run",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
       "Queue status: 0 pending, 7 merged, 4 rejected, 1 accepted",
-      "decisions.md: 153 lines (within 200-line limit)",
+      "decisions.md: 154 lines (within 200-line limit)",
       "14 hard invariants maintained",
-      "8 active AUTO decisions across ontology",
-      "CRITICAL: AMB-SEC-001 AUTO decision EXPIRED. Hardcoded JWT secret remains unaddressed."
+      "17 active AUTO decisions across ontology",
+      "CRITICAL: AMB-SEC-001 AUTO decision (expires_after_runs=10) requires attention - hardcoded JWT secret"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (153/200 lines)",
+    "decisions_cache_health": "healthy (154/200 lines)",
     "queue_health": "healthy (0 pending, 7 merged, 4 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
     "bootstrap_sync_quality": "EXCELLENT (100% alignment)",
     "architecture_doc_alignment": "EXCELLENT (100% alignment with ontology)",
-    "security_alert": "CRITICAL: AMB-SEC-001 AUTO decision EXPIRED. Hardcoded JWT secret remains unaddressed."
+    "security_alert": "CRITICAL: AMB-SEC-001 AUTO decision EXPIRED. Hardcoded JWT secret remains unaddressed. Decision has expires_after_runs=10 but run_count=57."
   },
   "next_steps": [
     "CRITICAL: AMB-SEC-001 AUTO decision EXPIRED - Immediate action required",
