@@ -1,55 +1,33 @@
-feedback:
-  bootstrap_run_timestamp: "2026-02-02T10:20:00Z"
-  version: "1.1"
-
-  # 1. 存在意義の明確度評価
-  existence_clarity:
-    before: 95
-    after: 95
-    delta: 0
-    interpretation: "intent.ymlの定義が既に適切にMDに反映されている。改善の余地なし。"
-
-  # 2. 一意性評価
-  uniqueness_score:
-    score: 100
-    issues_found: 0
-    issues_resolved: 0
-    remaining_issues: []
-
-  # 3. MD網羅度
-  md_coverage:
-    tier1_coverage: "2/2 (100%)"
-    tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "5/5 (100%)"
-    total_coverage: "11/11 (100%)"
-
-  # 4. 発見した矛盾点
-  inconsistencies: []
-
-  # 5. intent.ymlへの提案
-  intent_suggestions: []
-
-  # 6. 概念モデルとの連携状況
-  concept_integration:
-    used: true
-    ontology_terms_used: 11
-    alignment_score: 98
-    new_term_candidates: []
-
-  # 7. 全体的な評価
-  overall_assessment:
-    rating: "excellent"
-    summary: "MDドキュメントは高品質に整備されており、intent.ymlとontology.ymlが適切に反映されている。"
-    strengths:
-      - "全MDで用語の正規形が100%使用されている"
-      - "12個全てのhard invariantsが適切に反映されている"
-      - "9個全てのAUTO決定が明記されている"
-      - "GLOSSARY.mdがontology.ymlから自動生成されている"
-      - "AIモデル向け指示（AGENTS.md, CLAUDE.md）が完備されている"
-    weaknesses: []
-
-  # 8. 推奨事項
-  recommendations:
-    - priority: "none"
-      action: "現状維持"
-      reason: "MD整備は既に高い基準を満たしており、改善の必要がない"
+bootstrap_run_timestamp: '2026-02-02T10:59:24Z'
+concept_integration:
+  alignment_score: 100
+  new_term_candidates: []
+  ontology_terms_used: 145
+  ontology_version: '0.3'
+  used: true
+existence_clarity:
+  after: 100
+  before: 95.8
+  delta: +4.2
+  interpretation: intent.ymlの定義により、ドキュメントは既に非常に明確だった。今回の更新で完全にした。
+inconsistencies: []
+intent_suggestions: []
+md_coverage:
+  tier1_coverage: 2/2 (100%)
+  tier1_all_excellent: true
+  tier2_coverage: 4/4 (100%)
+  tier2_all_excellent: true
+  tier3_coverage: 4/4 (100%)
+  tier3_all_excellent: true
+  total_coverage: 10/10 (100%)
+overall_assessment:
+  achieved_score: 100
+  message: 完全に成功。全てのドキュメントがExcellent品質。
+  status: excellent
+  target_score: 90
+uniqueness_score:
+  issues_found: 0
+  issues_resolved: 0
+  remaining_issues: []
+  score: 100
+version: '1.1'

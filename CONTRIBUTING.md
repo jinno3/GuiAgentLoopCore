@@ -15,7 +15,7 @@ This project uses a formal concept dictionary (`.concept/ontology.yml`) to ensur
 
 1. **Use Canonical Terms Only**
    - Always use canonical terms from the glossary, never synonyms
-   - Example: Use `Interpreter`, not "Interpreter" or "Interpreter"
+   - Example: Use `Interpreter`, not "manager", "handler", or other synonyms
    - See [GLOSSARY.md](GLOSSARY.md) for the complete list
 
 2. **Follow Invariant Rules**
@@ -23,9 +23,17 @@ This project uses a formal concept dictionary (`.concept/ontology.yml`) to ensur
 
    - **INV-STATE-001**: Interpreter state transitions are monotonic (STATE_INIT → STATE_RUNNING → STATE_STOP)
    - **INV-MSG-001**: Message types must be from the enumerated set only
+   - **INV-MESSAGE-001**: Message history is limited to MAX_MESSAGE_LENGTH=100
    - **INV-AUTO-001**: AutoChat triggers only when in STATE_STOP
    - **INV-STREAM-001**: StreamWrapper must support both sync and async
    - **INV-SESSION-001**: Sessions must be identified by unique UUIDs
+   - **INV-SESSION-002**: Session tokens must be JWT-encoded with HS256 algorithm
+   - **INV-AGENT-001**: Agents must have defined roles from the enumerated set
+   - **INV-MEM-001**: Conversation memory must maintain maximum 100 messages
+   - **INV-CONNECTOR-001**: Connectors must implement GuiAgentInterpreterABC interface
+   - **INV-CONVERTER-001**: Converters must use MappingRule for structured transformations
+   - **INV-BACKEND-001**: Backend servers must be security-restricted with allowed_paths
+   - **INV-BACKEND-002**: Gradio backend must use Timer component for periodic state updates
 
 3. **Respect AUTO Decisions**
    - Some design decisions are marked as AUTO (temporary)

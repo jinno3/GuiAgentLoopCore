@@ -1,151 +1,157 @@
 {
-  "timestamp": "2026-02-02T10:10:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-02T01:41:08.007194+00:00",
+  "overall_score": 65,
+  "concept_alignment_score": 90,
   "max_score": 100,
-  "scoring_method": "previous_run_extrapolation",
-  "previous_run_timestamp": "2026-02-02T00:56:31Z",
   "files": [
-    {
-      "path": "README.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Clear mission statement",
-        "Proper term normalization",
-        "Good structure with examples"
-      ]
-    },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "found": "jwt",
+            "should_be": "Session",
+            "line": 57
+          }
+        ]
       },
-      "strengths": [
-        "Comprehensive agent guidelines",
-        "Proper use of canonical terms",
-        "Clear invariants coverage"
-      ]
-    },
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Claude-specific recommendations",
-        "Good term normalization",
-        "Proper invariant coverage"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Auto-generated from ontology",
-        "Complete term coverage",
-        "Proper categorization"
+      "issues": [
+        "用語が正規形でない（1箇所）"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Good technical depth",
-        "Proper mapping to code",
-        "Clear component boundaries"
+      "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 40,
+      "concept_alignment": {
+        "score": 80,
+        "issues": []
+      },
+      "issues": [
+        "正規形用語が使用されていない",
+        "内容が薄い"
       ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 65,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 65,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Clear contribution guidelines",
-        "Proper term usage",
-        "Good workflow description"
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 65,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 20,
+        "issues": [
+          {
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "line": 55
+          },
+          {
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "line": 116
+          },
+          {
+            "found": "自動継続",
+            "should_be": "AutoChat",
+            "line": 116
+          },
+          {
+            "found": "guicomponent",
+            "should_be": "Backend",
+            "line": 152
+          },
+          {
+            "found": "会話メモリ",
+            "should_be": "Memory",
+            "line": 170
+          }
+        ]
+      },
+      "issues": [
+        "用語が正規形でない（8箇所）"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Aligned with intent.yml",
-        "Clear mission statement",
-        "Good target user definition"
-      ]
+      "issues": []
+    },
+    {
+      "path": "README.md",
+      "exists": true,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 65,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Comprehensive invariant coverage",
-        "Proper hard/soft distinction",
-        "Good rationale documentation"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Gemini-specific guidelines",
-        "Proper term usage",
-        "Good integration tips"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "strengths": [
-        "Codex-specific guidelines",
-        "Proper terminology",
-        "Clear code examples"
-      ]
+      "issues": []
     }
-  ],
-  "overall_assessment": "EXCELLENT - All MD files are well-maintained with high concept alignment"
+  ]
 }

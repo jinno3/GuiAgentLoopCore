@@ -1,162 +1,121 @@
-# MD Bootstrap Execution Plan v1.1
-run_timestamp: "2026-02-02T10:10:00Z"
-version: "1.1"
-
+actions:
+- action: update
+  reason: 存在意義の反映、用語の正規化
+  target: README.md
+- action: update
+  reason: 存在意義の反映、用語の正規化
+  target: AGENTS.md
+- action: update
+  condition: ontology_exists
+  reason: 概念辞書からの用語集生成
+  target: GLOSSARY.md
+existing_mds:
+- modified: '2026-02-01T15:57:10.545812+00:00'
+  path: CODEX.md
+  size: 5224
+- modified: '2026-02-01T20:33:18.142761+00:00'
+  path: SYSTEM_CONSTITUTION.md
+  size: 7943
+- modified: '2026-02-01T14:53:03.861920+00:00'
+  path: CONTRIBUTING.md
+  size: 5291
+- modified: '2026-02-01T18:12:01.519142+00:00'
+  path: README.md
+  size: 8595
+- modified: '2026-02-01T22:45:59.069031+00:00'
+  path: AGENTS.md
+  size: 11462
+- modified: '2026-02-01T12:56:10.174623+00:00'
+  path: CHANGELOG.md
+  size: 61
+- modified: '2026-02-01T15:57:10.521812+00:00'
+  path: GEMINI.md
+  size: 4744
+- modified: '2026-02-01T22:46:15.765260+00:00'
+  path: CLAUDE.md
+  size: 10291
+- modified: '2026-02-01T14:53:54.015603+00:00'
+  path: PURPOSE.md
+  size: 4965
+- modified: '2026-02-01T22:45:48.854892+00:00'
+  path: GLOSSARY.md
+  size: 11205
+- modified: '2026-02-01T23:50:30.182387+00:00'
+  path: ARCHITECTURE.md
+  size: 12443
+input_sources:
+  audit:
+    has_constraints: true
+    intent_yml: .audit/config/intent.yml
+  concept:
+    ambiguities_yml: .concept/ambiguities.yml
+    has_concept: true
+    invariants_yml: .concept/invariants.yml
+    ontology_yml: .concept/ontology.yml
+intent_summary:
+  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
+    with predictable state manage...
+  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
+    LLM agents, managing conver...
+  target_user:
+  - Application Developers: Building LLM-powered applications with GUI interfaces
+  - AI Agent Developers: Creating specialized agents for specific tasks
+  - Framework Developers: Building new GUI backend implementations
+  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
+ontology_summary:
+  by_layer:
+    aux: 1
+    core: 5
+    domain: 5
+  by_status:
+    draft: 1
+    stable: 10
+  key_terms:
+  - canonical: Interpreter
+    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント...
+  - canonical: Agent
+    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ...
+  - canonical: Session
+    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）...
+  - canonical: Message
+    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）...
+  - canonical: State
+    definition: インタープリタの実行状態を表す列挙型...
+  total_terms: 11
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
-input_sources:
-  audit:
-    intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
-    audit_version: "1.0"
-  concept:
-    ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
-    mappings_yml: ".concept/mappings.yml"
-    concept_version: "0.3"
-    has_concept: true
-
-intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  design_philosophies_count: 5
-
-ontology_summary:
-  total_terms: 11
-  by_layer:
-    core: 5  # Interpreter, Agent, Session, Message, State
-    domain: 5  # AutoChat, StreamWrapper, Backend, Memory, Connector
-    aux: 1  # Converter
-  by_status:
-    stable: 10
-    draft: 1  # Memory
-  key_terms:
-    - canonical: "Interpreter"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
-    - canonical: "Agent"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
-    - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
-  active_auto_decisions: 9
-
+run_timestamp: '2026-02-02T01:40:31.770327+00:00'
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-
-existing_mds:
-  - path: "README.md"
-    status: "exists_current"
-    tier: 1
-    last_modified: "2026-02-02T03:12:00Z"
-  - path: "AGENTS.md"
-    status: "exists_current"
-    tier: 1
-    last_modified: "2026-02-02T07:45:00Z"
-  - path: "CLAUDE.md"
-    status: "exists_current"
-    tier: 2
-    last_modified: "2026-02-02T07:46:00Z"
-  - path: "GLOSSARY.md"
-    status: "exists_current"
-    tier: 3
-    last_modified: "2026-02-02T07:45:00Z"
-  - path: "ARCHITECTURE.md"
-    status: "exists_current"
-    tier: 3
-    last_modified: "2026-02-02T08:50:00Z"
-  - path: "CONTRIBUTING.md"
-    status: "exists_current"
-    tier: 2
-    last_modified: "2026-02-01T23:53:00Z"
-  - path: "PURPOSE.md"
-    status: "exists_current"
-    tier: 2
-    last_modified: "2026-02-01T23:53:00Z"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_current"
-    tier: 2
-    last_modified: "2026-02-02T05:33:00Z"
-  - path: "GEMINI.md"
-    status: "exists_current"
-    tier: 3
-    last_modified: "2026-02-02T00:57:00Z"
-  - path: "CODEX.md"
-    status: "exists_current"
-    tier: 3
-    last_modified: "2026-02-02T00:57:00Z"
-
-actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "Verify intent reflection and term normalization"
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Verify agent-specific guidelines and term normalization"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and concept integration"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology alignment and completeness"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify mappings.yml reflection"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify invariants coverage"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify intent.yml alignment"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify hard invariants reflection"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify Gemini-specific guidelines"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify Codex-specific guidelines"
-
-previous_run_status:
-  overall_score: 100
-  uniqueness_score: 100
-  concept_alignment_score: 95
-  term_normalization_rate: 0.967
-  status: "EXCELLENT"
+  AIエージェント: Agent
+  AgentDefinition: Agent
+  AgentImage: Agent
+  AgentType: Agent
+  ChatMessage: Message
+  ChatSession: Session
+  ConnectorImplCodeinterpreterApi: Connector
+  ConnectorImplOpenInterpreter: Connector
+  ConversationBuffer: Memory
+  GUIバックエンド: Backend
+  GuiAgentInterpreter: Interpreter
+  GuiAgentInterpreterABC: Connector
+  GuiAgentStreamWrapper: StreamWrapper
+  GuiBackend: Backend
+  GuiComponent: Backend
+  InterpreterState: State
+  JWT: Session
+  TaskAgent: Agent
+  UIフレームワーク: Backend
+  インタープリタ状態: State
+  コネクタ: Connector
+  ストリームラッパー: StreamWrapper
+  マッパー: Converter
+  メッセージ: Message
+  会話インタープリタ: Interpreter
+  会話セッション: Session
+  会話メモリ: Memory
+  変換器: Converter
+  専門エージェント: Agent
+  自動チャット: AutoChat
+  自動継続: AutoChat
+version: '1.1'

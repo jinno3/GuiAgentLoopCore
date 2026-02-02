@@ -1,9 +1,7 @@
 {
-  "timestamp": "2026-02-02T10:20:00Z",
+  "timestamp": "2026-02-02T10:59:24Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
-  "updated_at": "2026-02-02T05:38:12Z",
-
   "statistics": {
     "total_terms": 11,
     "by_layer": {
@@ -16,7 +14,6 @@
       "draft": 1
     }
   },
-
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
@@ -30,7 +27,7 @@
       "layer": "core",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
       "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md", "CONTRIBUTING.md"]
     },
     {
       "canonical": "Session",
@@ -42,7 +39,7 @@
     {
       "canonical": "Message",
       "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
       "synonyms": ["メッセージ", "ChatMessage"],
       "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
     },
@@ -58,57 +55,43 @@
       "layer": "domain",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
-      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
-    },
-    {
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md"]
+      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Backend",
       "layer": "domain",
       "definition": "GUIフレームワーク実装（Gradio等）",
       "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
     },
     {
       "canonical": "Converter",
       "layer": "aux",
       "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
       "synonyms": ["変換器", "マッパー"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md"]
+      "should_use_in": ["ARCHITECTURE.md", "CONTRIBUTING.md"]
     },
     {
       "canonical": "Memory",
       "layer": "domain",
       "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": ["会話メモリ", "ConversationBuffer"],
       "status": "draft",
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "synonyms": ["会話メモリ", "ConversationBuffer"],
+      "should_use_in": ["ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Connector",
       "layer": "domain",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
-      "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md"]
+      "synonyms": ["コネクタ", "GuiAgentInterpreterABC"],
+      "should_use_in": ["ARCHITECTURE.md", "CONTRIBUTING.md"]
     }
   ],
-
-  "auto_decisions_count": 9,
-
-  "auto_decisions": [
-    {"key": "AUTO:Agent.role:classification", "description": "Agentはロールベースで分類される"},
-    {"key": "AUTO:Agent.type:implementation_property", "description": "AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）"},
-    {"key": "AUTO:Session.jwt:algorithm_hs256", "description": "JWTはHS256アルゴリズム使用（暫定）"},
-    {"key": "AUTO:Message.structure:flat", "description": "メッセージは再帰的にフラット化可能"},
-    {"key": "AUTO:Message.limit:100", "description": "MAX_MESSAGE_LENGTH=100はハードリミット"},
-    {"key": "AUTO:Message.roles:tool_function_separation", "description": "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）"},
-    {"key": "AUTO:State.lifecycle:monotonic", "description": "状態は単調遷移する（INIT → RUNNING → STOP）"},
-    {"key": "AUTO:State.transition:auto_on_input", "description": "ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移"},
-    {"key": "AUTO:AutoChat.trigger:stop_only", "description": "AutoChatはSTATE_STOP時のみ発火"}
+  "total_synonyms": 28,
+  "auto_decisions_active": 9,
+  "related_files": [
+    ".concept/invariants.yml",
+    ".concept/ambiguities.yml",
+    ".concept/mappings.yml"
   ]
 }

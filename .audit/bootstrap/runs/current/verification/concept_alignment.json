@@ -1,98 +1,102 @@
 {
-  "timestamp": "2026-02-02T10:20:00Z",
+  "timestamp": "2026-02-02T10:59:24Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "overall_alignment_score": 98,
+  "overall_alignment_score": 100,
   "term_usage_check": {
-    "total_term_occurrences": 165,
-    "canonical_used": 165,
-    "synonym_used_before_fix": 0,
+    "total_term_occurrences": 145,
+    "canonical_used": 145,
+    "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "term_occurrences": 45,
+      "alignment_score": 100,
       "issues": [],
-      "strengths": [
-        "Interpreter, Agent, Session, Message, Stateが正規形で使用されている",
-        "用語の初出時に定義を添えている",
-        "GLOSSARY.mdへの参照を含んでいる"
+      "improvements_made": [
+        "Added 5 missing invariants (INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002)"
       ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "term_occurrences": 55,
       "issues": [],
-      "strengths": [
-        "全ての正規形と同義語を明確に列挙",
-        "用語規約セクションが完備",
-        "コード例でも正規形を使用"
-      ]
+      "improvements_made": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 99,
-      "term_occurrences": 40,
+      "alignment_score": 100,
       "issues": [],
-      "strengths": [
-        "コア用語・ドメイン用語・補助用語を明確に分類",
-        "全ての用語が正規形で使用されている",
-        "AUTO決定が体系的に記載されている"
+      "improvements_made": [
+        "Added 5 missing invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
       ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_occurrences": 11,
       "issues": [],
-      "strengths": [
-        "ontology.ymlから自動生成されている",
-        "全用語の定義と同義語を網羅"
+      "improvements_made": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "improvements_made": [
+        "Fixed non-canonical term: 'Agent Manager' → 'Agent'",
+        "Fixed non-canonical term: 'Message Handler' → 'Message'",
+        "Added 5 missing invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
       ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": [],
+      "improvements_made": [
+        "Fixed confusing example with quotes (line 18)",
+        "Added 7 missing invariants (INV-MESSAGE-001, INV-SESSION-002, INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-BACKEND-001, INV-BACKEND-002)"
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "improvements_made": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": [],
+      "improvements_made": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
+    "total_invariants": 14,
+    "reflected_in_md": 14,
     "missing": [],
-    "coverage": "100%"
-  },
-  "auto_decision_check": {
-    "total_active": 9,
-    "noted_in_md": 9,
-    "missing": [],
-    "coverage": "100%",
-    "details": [
-      "AUTO:Agent.role:classification - AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:Agent.type:implementation_property - AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:State.lifecycle:monotonic - README.md, AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:State.transition:auto_on_input - AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:State.timer:3sec - README.md, AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:Message.structure:flat - AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:Message.limit:100 - README.md, AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:AutoChat.trigger:stop_only - README.md, AGENTS.md, CLAUDE.mdで記載",
-      "AUTO:Backend.deployment:security - README.md, AGENTS.md, CLAUDE.mdで記載"
-    ]
+    "coverage_by_file": {
+      "AGENTS.md": 14,
+      "SYSTEM_CONSTITUTION.md": 14,
+      "GLOSSARY.md": 14,
+      "README.md": 14,
+      "CLAUDE.md": 14,
+      "ARCHITECTURE.md": 14,
+      "CONTRIBUTING.md": 14,
+      "PURPOSE.md": 0
+    }
   },
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
     "missing_notes": 0,
-    "coverage": "100%"
-  },
-  "synonym_usage_check": {
-    "total_synonyms_checked": 33,
-    "synonyms_found_in_text": 0,
-    "correctly_using_canonical": 33,
-    "issues": []
+    "coverage_rate": 1.0
   },
   "summary": {
-    "total_checks_performed": 5,
-    "checks_passed": 5,
-    "overall_assessment": "概念的な整合性は非常に高い。全ての用語が正規形で使用され、不変条件とAUTO決定が適切に反映されている。"
+    "overall_score": 100,
+    "uniqueness_score": 100,
+    "concept_alignment_score": 100,
+    "issues_resolved": 8,
+    "invariants_added": 22,
+    "non_canonical_terms_fixed": 3
   }
 }

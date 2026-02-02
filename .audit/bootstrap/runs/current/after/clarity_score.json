@@ -1,82 +1,118 @@
 {
-  "timestamp": "2026-02-02T10:20:00Z",
-  "note": "No MD changes were made - scores remain identical to before snapshot",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-02T10:59:24Z",
+  "overall_score": 100,
+  "concept_alignment_score": 100,
   "max_score": 100,
-  "scoring_methodology": "v1.1 - intent準拠(60%) + 概念整合(40%)",
+  "scoring_method": "v1.1 (intent + concept integration)",
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 95,
-      "concept_alignment": 98,
-      "status": "verified_no_changes_needed"
+      "exists": true,
+      "tier": 1,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": [
+        "Added 5 missing invariants"
+      ]
     },
     {
       "path": "AGENTS.md",
-      "clarity_score": 98,
-      "concept_alignment": 100,
-      "status": "verified_no_changes_needed"
+      "exists": true,
+      "tier": 1,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": []
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 97,
-      "concept_alignment": 99,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "clarity_score": 90,
-      "concept_alignment": 95,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "PURPOSE.md",
-      "clarity_score": 92,
-      "concept_alignment": 95,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "clarity_score": 88,
-      "concept_alignment": 92,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "clarity_score": 93,
-      "concept_alignment": 96,
-      "status": "verified_no_changes_needed"
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": [
+        "Added 5 missing invariants"
+      ]
     },
     {
       "path": "GLOSSARY.md",
-      "clarity_score": 99,
-      "concept_alignment": 100,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "GEMINI.md",
-      "clarity_score": 90,
-      "concept_alignment": 95,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "CODEX.md",
-      "clarity_score": 90,
-      "concept_alignment": 95,
-      "status": "verified_no_changes_needed"
-    },
-    {
-      "path": "CHANGELOG.md",
+      "exists": true,
+      "tier": 3,
       "clarity_score": 100,
-      "concept_alignment": 100,
-      "status": "verified_no_changes_needed"
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": [
+        "Fixed 2 non-canonical terms",
+        "Added 5 missing invariants"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": [
+        "Fixed confusing example",
+        "Added 7 missing invariants"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "improvements": []
     }
   ],
   "summary": {
-    "total_files": 11,
-    "avg_clarity_score": 94,
-    "avg_concept_alignment": 97,
-    "overall_assessment": "全MDファイルは高品質に整備されており、概念整合性も非常に高い。改善の必要なし。"
+    "total_files_assessed": 8,
+    "excellent_files": 8,
+    "good_files": 0,
+    "fair_files": 0,
+    "poor_files": 0,
+    "total_improvements": 8,
+    "invariants_added": 22,
+    "non_canonical_terms_fixed": 3,
+    "invariant_coverage": "100% (14/14 invariants covered)"
   }
 }

@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T10:20:00Z"
+run_timestamp: "2026-02-02T10:59:24Z"
 version: "1.1"
 
 rotation:
@@ -23,18 +23,14 @@ intent_summary:
     - "Framework Developers"
     - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_function_count: 5
-  boundary_count: 11
+  core_functions_count: 5
 
 ontology_summary:
+  version: "0.3"
   total_terms: 11
-  by_layer:
-    core: 5
-    domain: 5
-    aux: 1
-  by_status:
-    stable: 10
-    draft: 1
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
       layer: "core"
@@ -100,120 +96,85 @@ term_normalization:
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
-    tier: 1
+    status: "exists_good"
+    clarity_score: 95
+    concept_alignment: 98
     issues:
-      - "用語の正規形を使用しているか確認が必要"
+      - "Missing 5 invariants (INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002)"
 
   - path: "AGENTS.md"
-    status: "exists_needs_review"
-    tier: 1
-    issues:
-      - "用語規約セクションの確認が必要"
+    status: "exists_excellent"
+    clarity_score: 100
+    concept_alignment: 100
+    issues: []
 
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
-    tier: 2
+    status: "exists_good"
+    clarity_score: 98
+    concept_alignment: 100
     issues:
-      - "不変条件の反映状況を確認"
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "不変条件の反映状況を確認"
-
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "存在意義との整合性を確認"
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "用語ガイドラインの確認"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "概念辞書との整合性を確認"
+      - "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
 
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "ontology.ymlから自動生成されているか確認"
+    status: "exists_excellent"
+    clarity_score: 100
+    concept_alignment: 100
+    issues: []
 
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
+  - path: "ARCHITECTURE.md"
+    status: "exists_good"
+    clarity_score: 92
+    concept_alignment: 95
     issues:
-      - "用語辞書の参照状況を確認"
+      - "Non-canonical terms: 'Agent Manager', 'Message Handler'"
+      - "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
 
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
+  - path: "CONTRIBUTING.md"
+    status: "exists_good"
+    clarity_score: 88
+    concept_alignment: 90
     issues:
-      - "用語辞書の参照状況を確認"
+      - "Confusing example with quotes"
+      - "Missing 6 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-001, INV-BACKEND-002)"
 
-  - path: "CHANGELOG.md"
-    status: "exists"
-    tier: 3
+  - path: "PURPOSE.md"
+    status: "exists_excellent"
+    clarity_score: 95
+    concept_alignment: 98
+    issues: []
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_excellent"
+    clarity_score: 98
+    concept_alignment: 100
     issues: []
 
 actions:
-  - action: "verify"
+  - action: "update"
     target: "README.md"
-    reason: "用語の正規形を使用しているか検証"
+    reason: "Add missing invariants to improve documentation coverage"
+    priority: "medium"
 
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "用語規約セクションの正確性を検証"
-
-  - action: "verify"
+  - action: "update"
     target: "CLAUDE.md"
-    reason: "不変条件の反映状況を検証"
+    reason: "Add missing invariants relevant for Claude"
+    priority: "medium"
 
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "不変条件の反映状況を検証"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "存在意義との整合性を検証"
-
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "用語ガイドラインを検証"
-
-  - action: "verify"
+  - action: "update"
     target: "ARCHITECTURE.md"
-    reason: "概念辞書との整合性を検証"
+    reason: "Fix non-canonical terms and add missing invariants"
+    priority: "medium"
 
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "ontology.ymlから正しく生成されているか検証"
+  - action: "update"
+    target: "CONTRIBUTING.md"
+    reason: "Fix confusing example and add missing invariants"
+    priority: "medium"
 
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "用語辞書の参照状況を検証"
-
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "用語辞書の参照状況を検証"
-
-metadata:
-  total_md_files: 11
-  tier1_count: 2
-  tier2_count: 4
-  tier3_count: 5
-  ontology_terms_count: 11
-  invariants_count: 12
-  auto_decisions_count: 9
+overall_assessment:
+  current_clarity_score: 95.8
+  current_concept_alignment: 97.6
+  target_score: 98
+  improvement_needed: "Minor - mostly adding missing invariants and fixing 3 non-canonical term usages"

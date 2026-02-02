@@ -1,198 +1,91 @@
 {
-  "timestamp": "2026-02-02T10:10:00Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "overall_alignment_score": 95,
-  "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
-  "per_file": [
+  "timestamp": "2026-02-02T01:42:10.759511+00:00",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 86,
+  "uniqueness_score": 100,
+  "concept_alignment_score": 66,
+  "checks": [
     {
-      "file": "README.md",
-      "alignment_score": 95,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "Memory"
-      ],
+      "id": "UC-001",
+      "name": "Mission Consistency",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
+      "passed": true,
       "issues": []
     },
     {
-      "file": "AGENTS.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Converter",
-        "Connector"
-      ],
-      "issues": [],
-      "strengths": [
-        "Complete term table with synonyms",
-        "All canonical terms properly used",
-        "Correct reference to ontology.yml"
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": false,
+      "issues": [
+        {
+          "file": "AGENTS.md",
+          "synonym": "jwt",
+          "should_be": "Session",
+          "line": 57
+        },
+        {
+          "file": "GLOSSARY.md",
+          "synonym": "インタープリタ状態",
+          "should_be": "State",
+          "line": 55
+        },
+        {
+          "file": "GLOSSARY.md",
+          "synonym": "自動チャット",
+          "should_be": "AutoChat",
+          "line": 116
+        }
       ]
     },
     {
-      "file": "CLAUDE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Converter"
-      ],
-      "issues": [],
-      "strengths": [
-        "Proper categorization of terms by layer",
-        "Clear invariant coverage",
-        "Good AUTO decision documentation"
-      ]
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "issues": []
     },
     {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Memory",
-        "Connector"
-      ],
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete with definitions and boundaries",
-        "Proper status indicators (stable/draft)"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "Backend",
-        "Converter",
-        "Connector"
-      ],
-      "issues": [],
-      "strengths": [
-        "Good technical depth",
-        "Proper mapping to code",
-        "Clear component boundaries"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 90,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Message",
-        "State",
-        "AutoChat",
-        "Session",
-        "Backend"
-      ],
-      "issues": [],
-      "strengths": [
-        "Clear terminology guidelines",
-        "Proper invariant coverage",
-        "Good reference to ontology"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Converter",
-        "Connector"
-      ],
-      "issues": [],
-      "strengths": [
-        "Comprehensive invariant coverage",
-        "Proper hard/soft distinction",
-        "Good rationale documentation"
-      ]
+      "id": "CA-005",
+      "name": "AUTO Decision Notation",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "issues": []
     }
   ],
+  "summary": {
+    "total_checks": 5,
+    "passed": 4,
+    "failed": 1,
+    "uc_score": "2/2",
+    "ca_score": "2/3"
+  },
+  "term_usage_check": {
+    "total_term_occurrences": 355,
+    "canonical_used": 355,
+    "synonym_found": 9,
+    "alignment_rate": 0.982
+  },
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
-    "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": {
-        "covered": 12,
-        "total": 12,
-        "percentage": 100
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "covered": 12,
-        "total": 12,
-        "percentage": 100
-      },
-      "README.md": {
-        "covered": 6,
-        "total": 12,
-        "percentage": 50,
-        "note": "Critical invariants covered"
-      },
-      "CONTRIBUTING.md": {
-        "covered": 5,
-        "total": 12,
-        "percentage": 42,
-        "note": "Essential invariants covered"
-      }
-    }
+    "total_invariants": 11,
+    "reflected_in_md": 11,
+    "missing": []
   },
   "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "coverage": 100
-  },
-  "summary": {
-    "overall_alignment": 95,
-    "term_normalization": "Excellent (100%)",
-    "invariant_coverage": "Complete (100%)",
-    "auto_decision_documentation": "Complete (100%)",
-    "status": "EXCELLENT"
+    "active_auto_decisions": 8,
+    "reflected_as_notes": 3,
+    "missing_notes": 0
   }
 }

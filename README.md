@@ -123,6 +123,24 @@ This project enforces strict invariants to ensure system safety and consistency.
 - **INV-SESSION-001**: `Session` must be identified by unique UUIDs
   - Prevents session collisions and ensures proper authentication
 
+- **INV-AGENT-001**: `Agent` must have defined roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
+  - Ensures role-based access control and separation of responsibilities
+  - Related AUTO decision: AUTO:Agent.role:classification
+
+- **INV-MEM-001**: Conversation memory maintains maximum 100 messages
+  - Limits memory usage and maintains performance
+  - Related AUTO decision: AUTO:Memory.limit:100 (provisional)
+
+- **INV-CONNECTOR-001**: `Connector` must implement GuiAgentInterpreterABC interface
+  - Ensures interface consistency across different implementations
+
+- **INV-CONVERTER-001**: `Converter` must use MappingRule for structured transformations
+  - Guarantees consistent data transformation patterns
+
+- **INV-SESSION-002**: Session tokens are JWT-encoded with HS256 algorithm
+  - Ensures secure session identification and verification
+  - Related AUTO decision: AUTO:Session.jwt:algorithm_hs256 (provisional)
+
 > **Note**: These invariants are enforced through code review and automated tests. Contributors must ensure their changes respect these constraints. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## AUTO Decisions (Provisional Specifications)

@@ -71,6 +71,10 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
 - **INV-SESSION-001**: セッションは一意のUUIDで識別される
   - セッションの衝突を防ぎ、正しい認証を実現する
 
+- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
+  - セキュアなセッション識別と検証を保証する
+  - **AUTO決定**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）
+
 #### エージェント管理（Agent Management）
 - **INV-AGENT-001**: エージェントは定義された役割を持つ
   - 許可される役割: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
@@ -89,6 +93,23 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
 - **INV-BACKEND-001**: バックエンドサーバーはallowed_pathsでセキュリティ制限される
   - ファイルアクセスを制限し、セキュリティを強化する
   - **AUTO決定**: AUTO:Backend.deployment:security（暫定仕様）
+
+- **INV-BACKEND-002**: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する
+  - UIと状態の同期メカニズムを保証する
+  - **AUTO決定**: AUTO:Backend.timer:3sec_interval（暫定仕様）
+
+#### メモリ管理（Memory Management）
+- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する
+  - メモリ使用量を制限し、パフォーマンスを維持する
+  - **AUTO決定**: AUTO:Memory.limit:100（暫定仕様）
+
+#### コネクタ管理（Connector Management）
+- **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
+  - 異なる実装間でのインターフェースの一貫性を保証する
+
+#### コンバータ管理（Converter Management）
+- **INV-CONVERTER-001**: コンバータは構造化変換のためにMappingRuleを使用する
+  - 一貫したデータ変換パターンを保証する
 
 ### 3. AUTO決定の認識
 

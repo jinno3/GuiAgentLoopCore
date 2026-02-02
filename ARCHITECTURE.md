@@ -35,7 +35,7 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 │                                                             │
 │  ┌──────────┐  ┌──────────┐  ┌──────────────────┐         │
 │  │  Agent   │  │ Message  │  │      State       │         │
-│  │ Manager  │  │ Handler  │  │    Machine       │         │
+│  │          │  │          │  │    Machine       │         │
 │  └──────────┘  └──────────┘  └──────────────────┘         │
 └────────────────────────┬────────────────────────────────────┘
                          │
@@ -87,7 +87,7 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 - INV-AUTO-001: AutoChat only triggers in STATE_STOP
 - INV-SESSION-001: Sessions have unique UUIDs
 
-#### Agent Manager
+#### Agent
 **Location**: `gui_agent_loop_core/schema/agent/`
 
 **Responsibilities**:
@@ -106,7 +106,7 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 **Invariants**:
 - INV-AGENT-001: Agents have defined roles
 
-#### Message Handler
+#### Message
 **Location**: `gui_agent_loop_core/schema/message/`
 
 **Responsibilities**:
@@ -124,6 +124,7 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 
 **Invariants**:
 - INV-MSG-001: Only enumerated message types allowed
+- INV-MESSAGE-001: Message history limited to MAX_MESSAGE_LENGTH=100
 
 ### Utility Components
 
@@ -145,6 +146,20 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 - Request format conversion
 - Dictionary flattening (recursive)
 - Code content extraction (format/language fields)
+
+**Invariants**:
+- INV-CONVERTER-001: Uses MappingRule for structured transformations
+
+#### Connector
+**Location**: `gui_agent_loop_core/connector_impl/`
+
+**Responsibilities**:
+- Interface implementation for agent connections
+- Abstract base class (GuiAgentInterpreterABC)
+- Concrete implementations for different agent types
+
+**Invariants**:
+- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface
 
 #### Memory Buffer
 **Location**: `gui_agent_loop_core/memory/` (planned)
@@ -301,8 +316,12 @@ This architecture incorporates several AUTO decisions that reflect provisional s
 - **AUTO:Backend.primary:gradio**: Gradio is the primary backend implementation
 - **AUTO:Backend.deployment:security**: Backend launches on 0.0.0.0 with allowed_paths security restrictions
   - **Affects**: Security architecture and deployment configuration
+  - **Related Invariant**: INV-BACKEND-001, INV-BACKEND-002
 
 ### State Management AUTO Decisions
+- **AUTO:State.timer:3sec**: State is auto-updated every 3 seconds via Gradio timer
+  - **Affects**: Timer-based polling mechanism in Backend layer
+  - **Related Invariant**: INV-STATE-002, INV-BACKEND-002
 - **AUTO:State.timer:3sec**: State is auto-updated every 3 seconds via Gradio timer
   - **Affects**: Timer-based polling mechanism in Backend layer
 - **AUTO:State.transition:auto_on_input**: User input automatically transitions to RUNNING
@@ -310,6 +329,12 @@ This architecture incorporates several AUTO decisions that reflect provisional s
 ### Connector Architecture
 - **AUTO:Connector.layer:domain**: Connector is a canonical domain concept
   - **Affects**: How connectors are abstracted and integrated
+  - **Related Invariant**: INV-CONNECTOR-001
+
+### Session Management
+- **AUTO:Session.jwt:algorithm_hs256**: HS256 algorithm is sufficiently secure (provisional)
+  - **Affects**: JWT token encoding/decoding
+  - **Related Invariant**: INV-SESSION-002
 
 > **Note**: These AUTO decisions are marked as "provisional" and may be refined. See [AGENTS.md](AGENTS.md) for complete AUTO decision documentation.
 

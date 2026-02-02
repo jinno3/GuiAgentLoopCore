@@ -1,148 +1,83 @@
-# MD Bootstrap Run Summary
+# MD整備実行サマリ
 
-## Execution Information
-- **Version**: 1.1 (audit + concept integrated)
-- **Execution Date**: 2026-02-02T10:10:00Z
-- **Rotation**: Completed successfully (old deleted → current→old moved → new current created)
-- **Status**: EXCELLENT - No changes required
+## 実行情報
+- バージョン: 1.1（audit + concept統合）
+- 実行日時: 2026-02-02T01:40:31.770327+00:00
+- ローテーション: old削除 → current→old移動 → new current作成
 
-## Input Sources
-- `.audit/config/intent.yml`: ✅ Used (v1.0)
-- `.audit/config/constraints.yml`: ✅ Used (v1.0)
-- `.concept/ontology.yml`: ✅ Used (v0.3, 11 terms)
-- `.concept/invariants.yml`: ✅ Used (12 invariants)
-- `.concept/ambiguities.yml`: ✅ Used (9 AUTO decisions)
-- `.concept/mappings.yml`: ✅ Used
+## 入力ソース
+- `.audit/config/intent.yml`: ✓ 使用
+- `.concept/ontology.yml`: ✓ 使用（11用語）
+- `.concept/invariants.yml`: ✓ 使用
+- `.concept/ambiguities.yml`: ✓ 使用
 
-## Before → After Comparison
+## Before → After
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| **Overall Clarity Score** | 100 | 100 | 0 (already max) |
-| **Uniqueness Score** | 100 | 100 | 0 (already max) |
-| **Concept Alignment Score** | 95 | 95 | 0 (already max) |
-| **Term Normalization Rate** | 96.7% | 100% | +3.3% |
-| **MD Coverage** | 10/10 (100%) | 10/10 (100%) | 0 (complete) |
+| 指標 | Before | After | 改善 |
+|------|--------|-------|------|
+| 明確度スコア | 65 | 79 | +14 |
+| 一意性スコア | 100 | 100 | 0 |
+| **概念整合度** | 90 | 94 | +4 |
+| 総合スコア | 75 | 85 | +10 |
+| MD網羅度 | 10/10 | 10/10 | 0 |
 
-## Execution Details
+## 用語正規化の状況
 
-### Phase 0: Rotation
-- ✅ Deleted old run directory
-- ✅ Moved current → old
-- ✅ Created new current directory
+- 総正規形使用回数: 355
+- 同義語使用: 9（主にGLOSSARY.md内での説明用）
+- アライメント率: 98.2%
 
-### Phase 1: Input Validation
-- ✅ Intent.yml validated (v1.0)
-- ✅ Ontology.yml validated (v0.3, 11 terms)
-- ✅ Invariants.yml validated (12 invariants)
-- ✅ All required inputs present
+## 実施内容
 
-### Phase 2: Input Snapshot
-- ✅ Created intent_digest.json
-- ✅ Created ontology_digest.json
-- ✅ Created invariants_digest.json
+### 分析対象ファイル
+- Tier 1（必須）: 2/2 存在
+  - README.md: ✓（存在意義の反映、用語の正規化）
+  - AGENTS.md: ✓（用語規約セクション、不変条件の明記）
+- Tier 2（推奨）: 4/4 存在
+  - CLAUDE.md: ✓（Claude向け特化指示）
+  - SYSTEM_CONSTITUTION.md: ✓（システム憲法）
+  - PURPOSE.md: ✓（目的の詳細説明）
+  - CONTRIBUTING.md: ✓（貢献ガイド）
+- Tier 3（オプション）: 4/4 存在
+  - GLOSSARY.md: ✓（概念辞書から自動生成）
+  - ARCHITECTURE.md: ✓（アーキテクチャ説明）
+  - GEMINI.md: ✓（Gemini向け特化指示）
+  - CODEX.md: ✓（Codex向け特化指示）
 
-### Phase 3: Before Snapshot
-- ✅ Created md_inventory.json (10 files)
-- ✅ Created clarity_score.json (baseline: 100/95)
+### 検証結果
+- 実行チェック: 4/5 通過
+  - UC-001（存在意義の一貫性）: ✓
+  - UC-002（対象ユーザーの一貫性）: ✓
+  - CA-001（用語の正規形使用）: △（同義語9件、主にGLOSSARY.md内）
+  - CA-003（不変条件の反映）: ✓
+  - CA-005（AUTO決定の注記）: ✓
 
-### Phase 4: MD Generation/Update
-- ✅ Verified all 10 MD files
-- ✅ No changes required - all files already excellent
-- ✅ README.md: Proper intent reflection, term normalization (100%)
-- ✅ AGENTS.md: Complete term table, invariant coverage (100%)
-- ✅ CLAUDE.md: Proper Claude-specific guidelines
-- ✅ GLOSSARY.md: Auto-generated from ontology
-- ✅ CONTRIBUTING.md: Clear terminology guidelines
-- ✅ ARCHITECTURE.md: Proper code mappings
-- ✅ SYSTEM_CONSTITUTION.md: Complete invariant coverage
-- ✅ PURPOSE.md: Aligned with intent.yml
-- ✅ GEMINI.md: Gemini-specific guidelines
-- ✅ CODEX.md: Codex-specific guidelines
+## 残課題
 
-### Phase 5: Verification
-- ✅ Uniqueness Check: 5/5 passed (100%)
-  - UC-001: Existence intent consistency ✅
-  - UC-002: Target user consistency ✅
-  - UC-003: Technical constraints consistency ✅
-  - UC-004: Boundary consistency ✅
-  - UC-005: intent.yml compliance ✅
+### 重要度：高
+- なし（全ての必須MDファイルが存在し、良好な状態）
 
-- ✅ Concept Alignment Check: 95/100 (EXCELLENT)
-  - Term normalization: 100% (55/55 occurrences)
-  - Invariant coverage: 100% (12/12 reflected)
-  - AUTO decision documentation: 100% (9/9 noted)
+### 重要度：中
+- GLOSSARY.md内での同義語使用は文脈上正当（用語の説明のため）
+- 一部のAUTO決定に関する証拠の追加收集（AMB-SEC-001: シークレットキー管理）
 
-### Phase 6: After Snapshot
-- ✅ Created md_inventory.json (verified)
-- ✅ Created clarity_score.json (maintained: 100/95)
+### 重要度：低
+- Memory機能の仕様がdraft状態（将来的な変更の可能性）
+- Streamsyncバックエンドの実装状況確認
 
-### Phase 7: Summary Generation
-- ✅ This summary created
+## 概念モデルへの提案
 
-### Phase 8: Feedback Generation
-- ✅ feedback_to_auditor.yml generated
-- ✅ concept_feedback.yml generated
+### 新語候補（term_queueへの追加推奨）
+- なし（既存の11用語で十分にカバー）
 
-## Key Achievements
+### 定義の更新提案
+- Memory: ステータスをdraft→stableへ昇格させる検討（実装が安定すれば）
 
-### Term Normalization
-- **100% alignment** with ontology.yml canonical terms
-- All 11 canonical terms properly used across MD files
-- Zero synonym usage in documentation
-
-### Invariant Coverage
-- **100% coverage** (12/12 invariants)
-- All hard invariants properly documented
-- Clear hard/soft distinction maintained
-
-### AUTO Decision Documentation
-- **100% coverage** (9/9 AUTO decisions)
-- All provisional specifications properly noted
-- Clear expiration tracking
-
-### Documentation Quality
-- All Tier 1 files (README.md, AGENTS.md): Excellent
-- All Tier 2 files (CLAUDE.md, CONTRIBUTING.md, PURPOSE.md, SYSTEM_CONSTITUTION.md): Excellent
-- All Tier 3 files (GLOSSARY.md, ARCHITECTURE.md, GEMINI.md, CODEX.md): Excellent/Good
-
-## Recommendations for Future Runs
-
-### High Priority
-None - all documentation is in excellent condition
-
-### Medium Priority
-- Monitor AUTO decision expiration (20 runs)
-- Review draft status terms (Memory) for stabilization
-
-### Low Priority
-- Consider adding more examples to README.md (Getting Started section)
-- Consider expanding ARCHITECTURE.md with more diagrams
-
-## Concept Model Feedback
-
-### Strengths
-- Ontology is well-maintained (v0.3)
-- Invariants are comprehensive and well-documented
-- AUTO decisions are properly tracked
-- Mappings to code are accurate
-
-### Opportunities
-- Memory term is still draft status - consider stabilization
-- Continue monitoring AUTO decision expiration
-
-## Conclusion
-
-This bootstrap run achieved **EXCELLENT** status with:
-- **100 overall score** (maximum)
-- **100 uniqueness score** (maximum)
-- **95 concept alignment score** (excellent)
-- **100% term normalization** (perfect)
-- **100% MD coverage** (complete)
-
-No changes were required to any MD files. The documentation ecosystem is healthy and well-maintained.
+### AUTO決定の再検討
+- AUTO:Security.secret_key:env_var_required（AMB-SEC-001）: 環境変数使用への移行計画立案
 
 ---
 
-**Run Completed**: 2026-02-02T10:10:00Z
-**Next Scheduled Run**: When concept model or intent changes significantly
+**生成日時**: 2026-02-02T01:42:54.145124+00:00Z
+**担当**: 16_repo_md_bootstrapper v1.1（audit + concept統合）
+**品質**: excellent（総合スコア85/100）
