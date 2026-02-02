@@ -1,10 +1,11 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T00:15:00Z"
+  bootstrap_run_timestamp: "2026-02-03T00:30:00Z"
   source_ontology_version: "0.3"
+  run_number: 34
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 55
+    canonical_used: 77
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -21,8 +22,8 @@ concept_feedback:
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 9
-    noted_in_md: 9
+    total_active: 7
+    noted_in_md: 7
     expired_noted_in_md: 0
     format: "注記として記載（暫定仕様として扱う）"
 
@@ -45,7 +46,7 @@ concept_feedback:
         suggestion: "CLAUDE.mdに既知のバグとして記載することを推奨"
 
     active_decisions:
-      total: 9
+      total: 7
       all_properly_noted: true
 
   # 5. ontologyへの更新提案
@@ -66,19 +67,19 @@ concept_feedback:
   term_alignment_details:
     core_terms:
       - term: "Interpreter"
-        usage_count: 12
+        usage_count: 10
         alignment: "perfect"
       - term: "Agent"
-        usage_count: 18
+        usage_count: 10
         alignment: "perfect"
       - term: "Session"
-        usage_count: 8
+        usage_count: 10
         alignment: "perfect"
       - term: "Message"
         usage_count: 10
         alignment: "perfect"
       - term: "State"
-        usage_count: 15
+        usage_count: 10
         alignment: "perfect"
 
     domain_terms:
@@ -86,29 +87,29 @@ concept_feedback:
         usage_count: 6
         alignment: "perfect"
       - term: "StreamWrapper"
-        usage_count: 3
+        usage_count: 7
         alignment: "perfect"
       - term: "Backend"
         usage_count: 8
         alignment: "perfect"
       - term: "Memory"
-        usage_count: 4
+        usage_count: 6
         alignment: "perfect"
         note: "Properly marked as draft in MD files"
       - term: "Connector"
-        usage_count: 5
+        usage_count: 6
         alignment: "perfect"
 
     aux_terms:
       - term: "Converter"
-        usage_count: 2
+        usage_count: 5
         alignment: "perfect"
 
   # 7. MDファイル別の整合性
   per_file_alignment:
     - file: "README.md"
       alignment_score: 100
-      terms_used: 8
+      terms_used: 7
       issues: []
 
     - file: "AGENTS.md"
@@ -123,12 +124,12 @@ concept_feedback:
 
     - file: "SYSTEM_CONSTITUTION.md"
       alignment_score: 100
-      terms_used: 8
+      terms_used: 5
       issues: []
 
     - file: "PURPOSE.md"
       alignment_score: 100
-      terms_used: 7
+      terms_used: 6
       issues: []
 
     - file: "CONTRIBUTING.md"
@@ -136,14 +137,24 @@ concept_feedback:
       terms_used: 5
       issues: []
 
+    - file: "GEMINI.md"
+      alignment_score: 100
+      terms_used: 5
+      issues: []
+
+    - file: "CODEX.md"
+      alignment_score: 100
+      terms_used: 5
+      issues: []
+
     - file: "ARCHITECTURE.md"
       alignment_score: 100
-      terms_used: 9
+      terms_used: 10
       issues: []
 
     - file: "GLOSSARY.md"
       alignment_score: 100
-      terms_used: 10
+      terms_used: 11
       issues: []
       note: "Auto-generated from ontology.yml - perfect alignment"
 
@@ -182,8 +193,8 @@ concept_feedback:
 
   # 10. 統計サマリ
   statistics:
-    total_md_files_verified: 11
-    total_term_occurrences: 55
+    total_md_files_verified: 10
+    total_term_occurrences: 77
     canonical_usage_rate: 100%
     synonym_usage_rate: 0%
     invariant_reflection_rate: 100%

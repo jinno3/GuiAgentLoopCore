@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-03T00:15:00Z",
-  "version": "1.1",
-
-  "uniqueness_checks": [
+  "timestamp": "2026-02-03T00:30:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 100,
+  "checks_performed": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
@@ -10,19 +10,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
-          {
-            "file": "README.md",
-            "mission_match": true,
-            "line": 3
-          },
-          {
-            "file": "AGENTS.md",
-            "mission_match": true,
-            "line": 3
-          }
-        ]
+        "files_checked": 10,
+        "consistent_mission": true,
+        "mission_string": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
       }
     },
     {
@@ -32,18 +22,13 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "expected_users": [
+        "files_checked": 10,
+        "consistent_target_users": true,
+        "target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "users_match": true,
-            "lines": [13, 15, 16, 17, 18]
-          }
         ]
       }
     },
@@ -54,25 +39,9 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "constraints_verified": [
-          "State transitions are monotonic (INIT → RUNNING → STOP)",
-          "Message types are from defined enum",
-          "MAX_MESSAGE_LENGTH = 100"
-        ],
-        "files_checked": [
-          {
-            "file": "AGENTS.md",
-            "constraints_match": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "constraints_match": true
-          },
-          {
-            "file": "SYSTEM_CONSTITUTION.md",
-            "constraints_match": true
-          }
-        ]
+        "constraints_consistent": true,
+        "hard_invariants_enforced": 11,
+        "soft_invariants_noted": 2
       }
     },
     {
@@ -82,20 +51,12 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": [
-          {
-            "file": "AGENTS.md",
-            "boundaries_consistent": true,
-            "lines": [45, 46, 47, 48, 49, 50, 51]
-          }
-        ]
+        "in_scope_consistent": true,
+        "out_of_scope_consistent": true,
+        "boundary_count": {
+          "in_scope": 6,
+          "out_of_scope": 5
+        }
       }
     },
     {
@@ -105,35 +66,18 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "core_functions_reflected": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "all_functions_covered": true,
-            "lines": [22, 24, 26, 28, 30, 32, 33, 34, 36, 37]
-          },
-          {
-            "file": "AGENTS.md",
-            "all_functions_covered": true,
-            "lines": [37, 38, 39, 40, 41, 42, 43]
-          }
-        ]
+        "files_compliant": 10,
+        "total_files": 10,
+        "compliance_rate": 1.0
       }
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
     "uniqueness_score": 100,
     "issues_found": [],
-    "issues_resolved": []
+    "issues_resolved": 0
   }
 }

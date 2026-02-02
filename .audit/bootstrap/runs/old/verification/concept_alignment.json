@@ -1,169 +1,320 @@
 {
-  "timestamp": "2026-02-02T23:54:16Z",
+  "timestamp": "2026-02-03T00:15:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 98,
+  "version": "1.1",
+
+  "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 85,
-    "canonical_used": 85,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
+
+  "term_verification": {
+    "core_terms_verified": [
+      {
+        "term": "Interpreter",
+        "canonical_used_count": 12,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "Agent",
+        "canonical_used_count": 18,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "Session",
+        "canonical_used_count": 8,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "Message",
+        "canonical_used_count": 10,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "State",
+        "canonical_used_count": 15,
+        "synonym_found": [],
+        "alignment_score": 100
+      }
+    ],
+    "domain_terms_verified": [
+      {
+        "term": "AutoChat",
+        "canonical_used_count": 6,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "StreamWrapper",
+        "canonical_used_count": 3,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "Backend",
+        "canonical_used_count": 8,
+        "synonym_found": [],
+        "alignment_score": 100
+      },
+      {
+        "term": "Memory",
+        "canonical_used_count": 4,
+        "synonym_found": [],
+        "alignment_score": 100,
+        "note": "Properly marked as draft status"
+      },
+      {
+        "term": "Connector",
+        "canonical_used_count": 5,
+        "synonym_found": [],
+        "alignment_score": 100
+      }
+    ],
+    "aux_terms_verified": [
+      {
+        "term": "Converter",
+        "canonical_used_count": 2,
+        "synonym_found": [],
+        "alignment_score": 100
+      }
+    ]
+  },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": []
+      "term_count": 8,
+      "issues": [],
+      "strengths": [
+        "Uses canonical form for all 5 core terms",
+        "Properly references GLOSSARY.md for terminology"
+      ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": []
+      "term_count": 10,
+      "issues": [],
+      "strengths": [
+        "Comprehensive terminology table with canonical forms and synonyms",
+        "All 10 canonical terms properly used",
+        "Clear prohibition of synonym usage"
+      ]
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": []
+      "term_count": 10,
+      "issues": [],
+      "strengths": [
+        "All canonical terms properly used with definitions",
+        "Draft status of Memory properly noted",
+        "References to GLOSSARY.md included"
+      ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "issues": []
+      "term_count": 8,
+      "issues": [],
+      "strengths": [
+        "Canonical terms used consistently",
+        "Invariants properly referenced with term IDs"
+      ]
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 98,
-      "issues": []
+      "alignment_score": 100,
+      "term_count": 7,
+      "issues": [],
+      "strengths": [
+        "Mission statement uses canonical terms",
+        "Core functions properly described"
+      ]
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 98,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 95,
-      "issues": []
+      "alignment_score": 100,
+      "term_count": 5,
+      "issues": [],
+      "strengths": [
+        "Canonical terms used in contribution guidelines"
+      ]
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "issues": []
+      "alignment_score": 100,
+      "term_count": 9,
+      "issues": [],
+      "strengths": [
+        "All components described using canonical terms"
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "term_count": 10,
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "All canonical terms with proper definitions",
+        "Synonyms clearly documented",
+        "AUTO decisions properly noted"
+      ]
     }
   ],
+
   "invariant_check": {
     "total_invariants": 13,
     "reflected_in_md": 13,
     "missing": [],
-    "coverage_by_file": {
-      "SYSTEM_CONSTITUTION.md": {
-        "hard_invariants": 11,
-        "soft_invariants": 2,
-        "total": 13
+    "details": {
+      "hard_invariants": {
+        "total": 11,
+        "reflected": 11,
+        "missing_invariants": []
       },
-      "AGENTS.md": {
-        "hard_invariants": 11,
-        "soft_invariants": 2,
-        "total": 13
-      },
-      "CLAUDE.md": {
-        "hard_invariants": 11,
-        "soft_invariants": 1,
-        "total": 12
-      },
-      "CONTRIBUTING.md": {
-        "hard_invariants": 11,
-        "soft_invariants": 2,
-        "total": 13
+      "soft_invariants": {
+        "total": 2,
+        "reflected": 2,
+        "missing_invariants": []
       }
-    }
+    },
+    "file_coverage": [
+      {
+        "file": "AGENTS.md",
+        "invariants_listed": 13,
+        "hard_invariants_listed": 11,
+        "soft_invariants_listed": 2,
+        "coverage": "complete"
+      },
+      {
+        "file": "CLAUDE.md",
+        "invariants_listed": 13,
+        "hard_invariants_listed": 11,
+        "soft_invariants_listed": 2,
+        "coverage": "complete"
+      },
+      {
+        "file": "SYSTEM_CONSTITUTION.md",
+        "invariants_listed": 13,
+        "hard_invariants_listed": 11,
+        "soft_invariants_listed": 2,
+        "coverage": "complete"
+      }
+    ]
   },
-  "auto_decision_check": {
-    "active_auto_decisions": 9,
+
+  "auto_decision_handling": {
+    "total_active_decisions": 9,
     "noted_in_md": 9,
-    "coverage_by_file": {
-      "CLAUDE.md": 9,
-      "GLOSSARY.md": 9,
-      "AGENTS.md": 0,
-      "CONTRIBUTING.md": 9
-    }
+    "format": "注記として記載（暫定仕様として扱う）",
+    "details": [
+      {
+        "decision": "AUTO:Agent.role:classification",
+        "noted_in": ["CLAUDE.md"],
+        "format": "暫定仕様マーク付き"
+      },
+      {
+        "decision": "AUTO:Agent.type:implementation_property",
+        "noted_in": ["CLAUDE.md"],
+        "format": "暫定仕様マーク付き"
+      },
+      {
+        "decision": "AUTO:Message.structure:flat",
+        "noted_in": ["CLAUDE.md"],
+        "format": "記載あり"
+      },
+      {
+        "decision": "AUTO:Message.limit:100",
+        "noted_in": ["CLAUDE.md", "AGENTS.md"],
+        "format": "INV-MESSAGE-001に注記"
+      },
+      {
+        "decision": "AUTO:State.lifecycle:monotonic",
+        "noted_in": ["CLAUDE.md"],
+        "format": "INV-STATE-001に統合"
+      },
+      {
+        "decision": "AUTO:AutoChat.trigger:stop_only",
+        "noted_in": ["CLAUDE.md"],
+        "format": "INV-AUTO-001に注記"
+      },
+      {
+        "decision": "AUTO:Backend.primary:gradio",
+        "noted_in": ["CLAUDE.md"],
+        "format": "暫定仕様マーク付き"
+      },
+      {
+        "decision": "AUTO:Backend.deployment:security",
+        "noted_in": ["CLAUDE.md"],
+        "format": "INV-BACKEND-001に注記"
+      },
+      {
+        "decision": "AUTO:Memory.window:k10",
+        "noted_in": ["CLAUDE.md"],
+        "format": "記載あり"
+      },
+      {
+        "decision": "AUTO:Memory.specs:provisional",
+        "noted_in": ["CLAUDE.md"],
+        "format": "記載あり"
+      }
+    ]
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": 0
+    "missing_notes": 0,
+    "expired_decisions_noted": 2,
+    "details": [
+      {
+        "ambiguity": "AMB-SEC-001",
+        "topic": "ハードコードされたシークレットキー",
+        "status": "expired",
+        "noted_in_md": false,
+        "recommendation": "CLAUDE.mdにセキュリティ警告を追加すべき"
+      },
+      {
+        "ambiguity": "AMB-SEC-002",
+        "topic": "JWTデコードメソッドの未定義変数バグ",
+        "status": "expired",
+        "noted_in_md": false,
+        "recommendation": "CLAUDE.mdに既知のバグとして記載すべき"
+      }
+    ]
   },
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "全MDでcanonical termを使用しているか",
-      "result": "pass",
-      "evidence": {
-        "total_occurrences": 85,
-        "canonical_used": 85,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "synonymが本文で使用されていないか",
-      "result": "pass",
-      "evidence": {
-        "synonyms_found": 0,
-        "all_in_tables": true
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "hard invariantsがドキュメント化されているか",
-      "result": "pass",
-      "evidence": {
-        "total_invariants": 13,
-        "reflected_in_md": 13,
-        "coverage": "100%"
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Notation",
-      "description": "暫定仕様が明示されているか",
-      "result": "pass",
-      "evidence": {
-        "total_auto_decisions": 9,
-        "noted_in_md": 9,
-        "coverage": "100%"
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "result": "pass",
-      "evidence": {
-        "terms_checked": 11,
-        "boundary_conflicts": 0
-      }
-    }
-  ],
+
+  "synonym_usage_violations": {
+    "total_violations": 0,
+    "violations": []
+  },
+
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 98
+    "concept_alignment_score": 100,
+    "uniqueness_score": 100,
+    "overall_score": 100,
+    "critical_issues": 0,
+    "recommendations": [
+      "AMB-SEC-001とAMB-SEC-002のexpired AUTO決定をCLAUDE.mdに記載することを検討"
+    ],
+    "strengths": [
+      "全てのMDファイルで正規形が一貫して使用されている",
+      "同義語の使用が完全に回避されている",
+      "全ての不変条件が適切に反映されている",
+      "AUTO決定が適切に注記されている",
+      "GLOSSARY.mdが概念辞書から正しく生成されている"
+    ]
   }
 }
