@@ -1,20 +1,16 @@
 {
-  "timestamp": "2026-02-03T05:30:00Z",
+  "timestamp": "2026-02-03T05:38:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
-
   "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-
   "target_users": [
     "Application Developers",
     "AI Agent Developers",
     "Framework Developers",
     "AI Agents"
   ],
-
   "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-
   "core_functions": [
     {
       "description": "Centralized Conversation Management",
@@ -37,43 +33,28 @@
       "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
     }
   ],
-
-  "in_scope": [
-    "Conversation Flow Management",
-    "State Machine",
-    "Agent Coordination",
-    "Message Processing",
-    "Backend Abstraction",
-    "Streaming Support"
-  ],
-
-  "out_of_scope": [
-    "UI Rendering",
-    "LLM Execution",
-    "Session Storage",
-    "Authentication",
-    "Network Protocols"
-  ],
-
+  "boundaries": {
+    "in_scope": [
+      "Conversation Flow Management",
+      "State Machine",
+      "Agent Coordination",
+      "Message Processing",
+      "Backend Abstraction",
+      "Streaming Support"
+    ],
+    "out_of_scope": [
+      "UI Rendering",
+      "LLM Execution",
+      "Session Storage",
+      "Authentication",
+      "Network Protocols"
+    ]
+  },
   "design_philosophy": [
     "Correctness Over Convenience",
     "Explicit Over Implicit",
     "Small, Focused Components",
     "Testability",
     "Conceptual Integrity"
-  ],
-
-  "success_metrics_count": 5,
-
-  "key_for_md_generation": {
-    "mission_statement": "Core logic for bridging GUI frameworks and LLM agents",
-    "primary_audience": "Application Developers, AI Agent Developers, Framework Developers, AI Agents",
-    "unique_value_proposition": "Reliable, type-safe, extensible foundation with predictable state management",
-    "core_differentiators": [
-      "Monotonic state transitions",
-      "Role-based agent coordination",
-      "Structured message processing",
-      "Backend abstraction"
-    ]
-  }
+  ]
 }

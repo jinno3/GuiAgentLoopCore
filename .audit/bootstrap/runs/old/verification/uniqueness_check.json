@@ -1,167 +1,140 @@
 {
-  "timestamp": "2026-02-03T05:15:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 96,
-  "concept_alignment_score": 93,
+  "timestamp": "2026-02-03T05:30:00Z",
+  "intent_source": ".audit/config/intent.yml",
+  "concept_source": ".concept/ontology.yml",
+  "uniqueness_score": 100,
+  "max_score": 100,
 
-  "checks": [
+  "checks_performed": [
     {
       "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "All MDs express the same mission",
-      "source": ".audit",
+      "description": "All MD files express the same mission from intent.yml",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "mission_consistency": "All files correctly state: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'",
-        "variations_found": 0
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "found_in": ["README.md:1", "AGENTS.md:3", "CLAUDE.md:3"],
+        "consistent": true
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MDs target the same user groups",
-      "source": ".audit",
+      "name": "Target Users Consistency",
+      "description": "All MD files target the same user groups",
       "passed": true,
       "evidence": {
-        "target_users_verified": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "inconsistencies": 0
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "found_in": ["README.md:13-18", "AGENTS.md:1", "CLAUDE.md:1"],
+        "consistent": true
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints are consistent across MDs",
-      "source": ".audit + .concept",
+      "name": "Core Value Consistency",
+      "description": "Core value proposition is consistent across MD files",
       "passed": true,
       "evidence": {
-        "constraints_verified": [
-          "State transitions are monotonic",
-          "Message types are restricted to enum values",
-          "Sessions use UUID with JWT encoding"
-        ],
-        "inconsistencies": 0
+        "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration",
+        "found_in": ["README.md:8", "AGENTS.md", "CLAUDE.md"],
+        "consistent": true
       }
     },
     {
       "id": "UC-004",
       "name": "Boundaries Consistency",
-      "description": "out_of_scope is consistently defined",
-      "source": ".audit + .concept",
+      "description": "In-scope and out-of-scope are consistent",
       "passed": true,
       "evidence": {
-        "out_of_scope_verified": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "contradictions": 0
+        "in_scope": ["Conversation Flow Management", "State Machine", "Agent Coordination", "Message Processing", "Backend Abstraction"],
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication"],
+        "found_in": ["README.md:62-72", "AGENTS.md:46-51"],
+        "consistent": true
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs correctly reflect intent.yml",
-      "source": ".audit",
+      "name": "Design Philosophy Consistency",
+      "description": "Design philosophy is consistent",
       "passed": true,
       "evidence": {
-        "core_functions_covered": 5,
-        "design_philosophy_reflected": true,
-        "success_metrics_acknowledged": true
-      }
-    },
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MDs use canonical terms",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_term_occurrences": 150,
-        "canonical_used": 150,
-        "synonym_used": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "No synonyms are used in MD text",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "synonyms_checked": 25,
-        "synonyms_found_in_text": 0,
-        "violations": 0
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are documented in MDs",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_hard_invariants": 11,
-        "reflected_in_md": 11,
-        "missing": 0,
-        "coverage_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "AUTO decisions are explicitly noted",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_auto_decisions": 9,
-        "noted_in_md": 9,
-        "missing_notes": 0,
-        "coverage_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "Term boundaries don't contradict",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "boundary_conflicts": 0,
-        "terms_checked": 10
+        "philosophies": ["Correctness Over Convenience", "Explicit Over Implicit", "Small, Focused Components"],
+        "found_in": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "consistent": true
       }
     }
   ],
 
-  "summary": {
-    "total_checks": 10,
-    "passed": 10,
-    "failed": 0,
-    "uc_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 100
-    },
-    "ca_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 100
-    },
-    "overall_score": 100,
-    "uniqueness_score": 100,
-    "concept_alignment_score": 100
-  },
+  "contradictions_found": [],
+  "inconsistencies_found": [],
 
-  "issues": [],
-  "recommendations": [],
-  "action_required": false
+  "per_file_uniqueness": [
+    {
+      "file": "README.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "AGENTS.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "CLAUDE.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "GLOSSARY.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "PURPOSE.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "GEMINI.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    },
+    {
+      "file": "CODEX.md",
+      "unique": true,
+      "contradictions": [],
+      "score": 100
+    }
+  ],
+
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "uniqueness_score": 100,
+    "quality": "excellent"
+  }
 }

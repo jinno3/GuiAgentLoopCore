@@ -1,140 +1,65 @@
 {
-  "timestamp": "2026-02-03T05:30:00Z",
-  "intent_source": ".audit/config/intent.yml",
-  "concept_source": ".concept/ontology.yml",
-  "uniqueness_score": 100,
-  "max_score": 100,
-
+  "timestamp": "2026-02-03T05:38:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 100,
   "checks_performed": [
     {
       "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "All MD files express the same mission from intent.yml",
-      "passed": true,
+      "description": "All MD files express the same mission",
+      "status": "passed",
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "found_in": ["README.md:1", "AGENTS.md:3", "CLAUDE.md:3"],
-        "consistent": true
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "mission_consistency": "All files correctly state: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'"
       }
     },
     {
       "id": "UC-002",
-      "name": "Target Users Consistency",
-      "description": "All MD files target the same user groups",
-      "passed": true,
+      "name": "Target User Consistency",
+      "description": "All MD files target the same users",
+      "status": "passed",
       "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
         "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "found_in": ["README.md:13-18", "AGENTS.md:1", "CLAUDE.md:1"],
-        "consistent": true
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-003",
-      "name": "Core Value Consistency",
-      "description": "Core value proposition is consistent across MD files",
-      "passed": true,
+      "name": "Technical Constraints Consistency",
+      "description": "Technical constraints are consistent across MD files",
+      "status": "passed",
       "evidence": {
-        "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration",
-        "found_in": ["README.md:8", "AGENTS.md", "CLAUDE.md"],
-        "consistent": true
+        "constraints_verified": ["Type safety", "State monotonicity", "Hard invariants"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "In-scope and out-of-scope are consistent",
-      "passed": true,
+      "name": "Boundary Consistency",
+      "description": "Out of scope is consistently defined",
+      "status": "passed",
       "evidence": {
-        "in_scope": ["Conversation Flow Management", "State Machine", "Agent Coordination", "Message Processing", "Backend Abstraction"],
-        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication"],
-        "found_in": ["README.md:62-72", "AGENTS.md:46-51"],
-        "consistent": true
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-005",
-      "name": "Design Philosophy Consistency",
-      "description": "Design philosophy is consistent",
-      "passed": true,
+      "name": "Intent.yml Compliance",
+      "description": "All MD files correctly reflect intent.yml",
+      "status": "passed",
       "evidence": {
-        "philosophies": ["Correctness Over Convenience", "Explicit Over Implicit", "Small, Focused Components"],
-        "found_in": ["AGENTS.md", "SYSTEM_CONSTITUTION.md"],
-        "consistent": true
+        "mission_reflected": true,
+        "core_functions_covered": true,
+        "design_philosophy_reflected": true
       }
     }
   ],
-
-  "contradictions_found": [],
-  "inconsistencies_found": [],
-
-  "per_file_uniqueness": [
-    {
-      "file": "README.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "AGENTS.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "CLAUDE.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "GLOSSARY.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "PURPOSE.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "GEMINI.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    },
-    {
-      "file": "CODEX.md",
-      "unique": true,
-      "contradictions": [],
-      "score": 100
-    }
-  ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100,
-    "quality": "excellent"
+    "score": 100
   }
 }
