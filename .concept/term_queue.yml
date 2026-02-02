@@ -1,4 +1,4 @@
-updated_at: "2026-02-02T05:23:14Z"
+updated_at: "2026-02-02T13:45:11Z"
 queue:
   - id: "TP-000005"
     proposed_canonical: "GuiComponent"
@@ -192,3 +192,34 @@ queue:
     merged_into: "Session"
     merge_reason: "JWT is the authentication mechanism used by Session (similarity 0.68 < 0.78 threshold). It's an implementation detail of session management, not a separate domain concept."
     decided_run: "2026-02-02T05:23:14Z"
+
+  - id: "TP-000013"
+    proposed_canonical: "GuiFramework"
+    proposed_layer: "domain"
+    term_raw_examples: ["GUI frameworks", "GUI framework"]
+    reason: "Generic category of GUI frameworks mentioned in README purpose statement"
+    evidence:
+      - source: "README.md:3"
+        quote: "bridging GUI frameworks and LLM agents"
+    auto_merge_candidates:
+      - term: "Backend"
+        similarity: 0.72
+    decision: "rejected"
+    rejection_reason: "GuiFramework is a generic external category, not a domain concept within this codebase. The actual concept is Backend (which implements specific frameworks like Gradio). Similarity 0.72 < 0.78 threshold confirms it should not be a separate term."
+    decided_run: "2026-02-02T13:45:11Z"
+
+  - id: "TP-000014"
+    proposed_canonical: "LlmAgent"
+    proposed_layer: "domain"
+    term_raw_examples: ["LLM agents", "LLM agent"]
+    reason: "Generic category of AI agents mentioned in README purpose statement"
+    evidence:
+      - source: "README.md:3"
+        quote: "bridging GUI frameworks and LLM agents"
+    auto_merge_candidates:
+      - term: "Agent"
+        similarity: 0.75
+    decision: "merged"
+    merged_into: "Agent"
+    merge_reason: "LlmAgent is a generic category that maps directly to the Agent concept (similarity 0.75 < 0.78 threshold). The Agent term already encompasses LLM-based agents with specific roles (AGENT_EXECUTOR, LLM_PLANNER, etc.)."
+    decided_run: "2026-02-02T13:45:11Z"
