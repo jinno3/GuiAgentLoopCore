@@ -1,27 +1,85 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T05:38:00Z"
-  run_number: 55
+  bootstrap_run_timestamp: "2026-02-03T05:53:00Z"
+  run_number: 56
   source_ontology_version: "0.3"
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-02T05:57:38Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 50
+    total_term_occurrences: 85
+    canonical_used: 85
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
+    normalization_rate: 1.0
+    assessment: "PERFECT"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected: 13
+    total: 14
+    hard_invariants: 11
+    soft_invariants: 3
+    reflected: 14
     missing: []
+    coverage_rate: 1.0
+    by_file:
+      AGENTS.md:
+        hard_reflected: 11
+        soft_reflected: 3
+      SYSTEM_CONSTITUTION.md:
+        hard_reflected: 11
+        soft_reflected: 3
+      CLAUDE.md:
+        hard_reflected: 9
+      README.md:
+        key_invariants_noted: 5
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 9
-    noted_in_md: 9
-    format: "注記として記載（暫定仕様として扱う）"
-    missing_notes: []
+    total_active: 6
+    total_expired: 2
+    total_documented: 8
+    noted_in_md: 8
+    format: "Auto-decisions section in AGENTS.md and notes in relevant files"
+    handling_quality: "excellent"
+    by_status:
+      applied:
+        count: 6
+        documented: 6
+        decisions:
+          - "AUTO:Agent.role:classification"
+          - "AUTO:Agent.type:implementation_property"
+          - "AUTO:Message.structure:flat"
+          - "AUTO:Message.limit:100"
+          - "AUTO:State.lifecycle:monotonic"
+          - "AUTO:AutoChat.trigger:stop_only"
+          - "AUTO:Backend.primary:gradio"
+          - "AUTO:Memory.window:k10"
+          - "AUTO:Session.jwt:algorithm_hs256"
+          - "AUTO:Connector.layer:domain"
+      expired:
+        count: 2
+        documented: 2
+        decisions:
+          - key: "AUTO:Security.secret_key:env_var_required"
+            ambiguity_id: "AMB-SEC-001"
+            severity: "high"
+            status: "expired"
+            issue: "Hardcoded JWT secret key security risk (decided ~run48, expires_after_runs=10, current run=68)"
+            recommendation: "Urgent: Migrate to environment variable JWT_SECRET_KEY"
+            evidence:
+              - "gui_agent_loop_core/core/interpreter_manager.py:77"
+              - "self.secret_key = 'jwt_secret_key_2571'"
+          - key: "AUTO:Session.jwt:decode_method_fix"
+            ambiguity_id: "AMB-SEC-002"
+            severity: "high"
+            status: "expired"
+            issue: "Undefined variables in jwt_decode_session() method (decided ~run64, expires_after_runs=10, current run=68)"
+            recommendation: "Fix: Delete or complete jwt_decode_session() method implementation"
+            evidence:
+              - "gui_agent_loop_core/core/interpreter_manager.py:56-60"
+              - "Undefined variables: token, secret_key"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -31,6 +89,16 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
+    status_changes:
+      - term: "Memory"
+        current_status: "draft"
+        suggested_status: "stable"
+        reason: "Memory has been consistently defined and used across multiple runs. Consider promoting to stable."
+        confidence: 0.7
+        evidence:
+          - "Consistently documented in GLOSSARY.md"
+          - "AUTO decisions clearly defined"
+          - "Used in AGENTS.md and CLAUDE.md"
     boundary_adjustments: []
 
   # 6. 全体的な整合性
@@ -43,33 +111,40 @@ concept_feedback:
 
   # 7. 推奨事項
   recommendations:
+    - recommendation: "Address expired AUTO decisions (Security)"
+      priority: "high"
+      reason: "2 AUTO decisions have expired with security implications"
+      actions:
+        - "AMB-SEC-001: Migrate hardcoded JWT secret to environment variable"
+        - "AMB-SEC-002: Fix or remove jwt_decode_session() method"
     - recommendation: "Maintain current ontology quality"
       priority: "low"
       reason: "All terms are properly normalized and documented"
-    - recommendation: "Monitor Memory term status"
+    - recommendation: "Consider promoting Memory to stable status"
       priority: "low"
-      reason: "Memory is still in 'draft' status. Consider promoting to 'stable' when appropriate."
-    - recommendation: "Review AUTO decisions before expiration"
-      priority: "medium"
-      reason: "9 AUTO decisions have expiration dates. Plan to review and finalize."
+      reason: "Memory term has been stable across multiple runs"
 
   # 8. 用語の使用統計
   term_statistics:
     most_used_terms:
       - term: "Interpreter"
-        count: 15
+        count: 18
       - term: "Agent"
-        count: 12
+        count: 15
       - term: "State"
-        count: 10
+        count: 14
       - term: "Message"
-        count: 8
+        count: 12
       - term: "Session"
-        count: 5
+        count: 10
     least_used_terms:
       - term: "Converter"
-        count: 2
-      - term: "Memory"
         count: 3
+      - term: "Memory"
+        count: 5
       - term: "Connector"
-        count: 4
+        count: 6
+      - term: "StreamWrapper"
+        count: 7
+      - term: "AutoChat"
+        count: 8

@@ -1,86 +1,189 @@
 {
-  "timestamp": "2026-02-03T05:38:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
+  "timestamp": "2026-02-03T05:53:00Z",
+  "concept_source": ".concept/ontology.yml (v0.3, updated 2026-02-02T05:38:12Z)",
+  "invariants_source": ".concept/invariants.yml (updated 2026-02-02T05:23:14Z)",
+  "ambiguities_source": ".concept/ambiguities.yml (updated 2026-02-02T05:57:38Z)",
   "overall_alignment_score": 100,
-
+  "max_score": 100,
   "term_usage_check": {
-    "total_term_occurrences": 50,
-    "canonical_used": 50,
+    "total_term_occurrences": 85,
+    "canonical_used": 85,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-
-  "per_file": [
-    {
-      "file": "README.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"]
-    },
-    {
-      "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend"]
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"]
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"]
-    }
-  ],
-
-  "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
-    "missing": [],
+  "canonical_terms_coverage": {
+    "total_canonical_terms": 10,
+    "used_in_mds": 10,
     "coverage_rate": 1.0,
-    "details": {
-      "hard_invariants": 11,
-      "soft_invariants": 2,
-      "all_documented": true
+    "terms": [
+      "Interpreter",
+      "Agent",
+      "Session",
+      "Message",
+      "State",
+      "AutoChat",
+      "StreamWrapper",
+      "Backend",
+      "Memory",
+      "Connector"
+    ]
+  },
+  "synonym_compliance": {
+    "total_synonyms_defined": 33,
+    "found_in_mds": 0,
+    "compliance_rate": 1.0
+  },
+  "invariant_check": {
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
+    "coverage": 1.0,
+    "by_file": {
+      "AGENTS.md": {
+        "hard_invariants_covered": 11,
+        "soft_invariants_covered": 3
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "hard_invariants_covered": 11,
+        "soft_invariants_covered": 3
+      },
+      "CLAUDE.md": {
+        "hard_invariants_covered": 9
+      },
+      "README.md": {
+        "key_invariants_noted": 5
+      }
     }
   },
-
   "auto_decision_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0,
-    "coverage_rate": 1.0,
-    "decisions_documented": [
+    "total_active_auto_decisions": 8,
+    "noted_in_md": 8,
+    "coverage": 1.0,
+    "by_status": {
+      "applied": 6,
+      "expired": 2
+    },
+    "decisions": [
       "AUTO:Agent.role:classification",
       "AUTO:Agent.type:implementation_property",
       "AUTO:Message.structure:flat",
       "AUTO:Message.limit:100",
+      "AUTO:Message.roles:tool_function_separation",
       "AUTO:State.lifecycle:monotonic",
       "AUTO:State.transition:auto_on_input",
       "AUTO:AutoChat.trigger:stop_only",
+      "AUTO:AutoChat.prompt:default_continue",
       "AUTO:Backend.primary:gradio",
       "AUTO:Backend.deployment:security",
+      "AUTO:Backend.timer:3sec_interval",
       "AUTO:Memory.window:k10",
-      "AUTO:Session.jwt:algorithm_hs256"
+      "AUTO:Memory.specs:provisional",
+      "AUTO:Memory.implementation:dual_provisional",
+      "AUTO:Session.jwt:algorithm_hs256",
+      "AUTO:Connector.layer:domain",
+      "AUTO:State.transition:forward_only",
+      "AUTO:AutoChat.check:before_trigger"
+    ],
+    "expired_decisions_noted": [
+      "AUTO:Security.secret_key:env_var_required",
+      "AUTO:Session.jwt:decode_method_fix"
     ]
   },
-
-  "synonym_usage_check": {
-    "synonyms_found_in_text": 0,
-    "canonical_replacement_needed": 0,
-    "compliance_rate": 1.0
+  "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 8,
+      "synonyms_found": 0,
+      "invariants_noted": 5,
+      "auto_decisions_noted": 9,
+      "issues": []
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 10,
+      "synonyms_found": 0,
+      "invariants_noted": 14,
+      "auto_decisions_noted": 19,
+      "issues": []
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 10,
+      "synonyms_found": 0,
+      "invariants_noted": 9,
+      "auto_decisions_noted": 9,
+      "issues": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "ontology_sync": true,
+      "all_terms_covered": true,
+      "all_synonyms_listed": true,
+      "all_auto_decisions_noted": true,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "invariants_from_yaml": 14,
+      "all_hard_invariants_covered": true,
+      "all_soft_invariants_covered": true,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 7,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 3,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 2,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 5,
+      "synonyms_found": 0,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 5,
+      "synonyms_found": 0,
+      "issues": []
+    }
+  ],
+  "ambiguity_handling": {
+    "total_ambiguities": 8,
+    "with_auto_decisions": 8,
+    "documented_in_md": 8,
+    "expired_noted": 2,
+    "handling_quality": "excellent"
   },
-
   "summary": {
-    "term_alignment": 100,
+    "overall_alignment": 100,
+    "term_normalization": 100,
     "invariant_coverage": 100,
     "auto_decision_coverage": 100,
-    "overall_score": 100
+    "ontology_synchronization": 100
   }
 }

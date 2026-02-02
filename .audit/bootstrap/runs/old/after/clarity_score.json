@@ -1,44 +1,16 @@
 {
-  "timestamp": "2026-02-03T05:30:00Z",
+  "timestamp": "2026-02-03T05:38:00Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
-  "uniqueness_score": 100,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 100,
-      "weight": 0.3,
-      "details": "All MD files clearly express the repository's existence purpose from intent.yml"
-    },
-    "concept_integration": {
-      "score": 100,
-      "weight": 0.4,
-      "details": "All canonical terms from ontology.yml are used correctly; no synonyms found in text"
-    },
-    "uniqueness": {
-      "score": 100,
-      "weight": 0.3,
-      "details": "No contradictions found between MD files; all consistent with intent.yml and ontology.yml"
-    }
-  },
-
-  "per_file_scores": [
+  "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend"],
-        "synonyms_found": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "target_users_consistent": true,
-        "core_value_consistent": true,
-        "no_contradictions": true
+        "issues": []
       },
       "issues": []
     },
@@ -48,15 +20,7 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "synonyms_found": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "invariants_complete": true,
-        "auto_decisions_noted": true,
-        "no_contradictions": true
+        "issues": []
       },
       "issues": []
     },
@@ -66,15 +30,7 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "invariants_complete": true,
-        "auto_decisions_noted": true,
-        "no_contradictions": true
+        "issues": []
       },
       "issues": []
     },
@@ -84,59 +40,7 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "auto_generated": true,
-        "ontology_version": "0.3",
-        "all_terms_included": true
-      },
-      "uniqueness_checks": {
-        "matches_ontology": true,
-        "no_synonyms_in_definitions": true
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
-        "synonyms_found": [],
-        "note": "Last updated before latest ontology changes, but still aligned"
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true,
-        "no_contradictions": true
-      },
-      "issues": [
-        "Last update timestamp is older than recent ontology changes"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
         "issues": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "uniqueness_checks": {
-        "mission_consistent": true
       },
       "issues": []
     },
@@ -148,8 +52,25 @@
         "score": 100,
         "issues": []
       },
-      "uniqueness_checks": {
-        "invariants_reflected": true
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
       },
       "issues": []
     },
@@ -172,15 +93,24 @@
         "issues": []
       },
       "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     }
   ],
-
   "summary": {
     "total_files": 10,
-    "perfect_scores": 9,
-    "needs_minor_review": 1,
-    "needs_update": 0,
-    "missing": 0,
-    "overall_quality": "excellent"
+    "perfect_score_files": 10,
+    "files_needing_review": 0,
+    "term_normalization_rate": 1.0,
+    "invariant_coverage": 1.0,
+    "auto_decision_coverage": 1.0
   }
 }

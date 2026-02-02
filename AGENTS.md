@@ -151,4 +151,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-03T04:53:00Z (bootstrap run v1.1 - run #52 - added AUTO decisions section)
+**最終更新**: 2026-02-03T05:53:00Z (bootstrap run v1.1 - run #56 - verified AUTO decisions with ambiguities.yml v2026-02-02T05:57:38Z)
