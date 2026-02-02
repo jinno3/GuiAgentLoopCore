@@ -1,8 +1,18 @@
 {
-  "timestamp": "2026-02-02T23:11:00Z",
-  "overall_score": 100,
+  "timestamp": "2026-02-02T23:24:00Z",
+  "overall_score": 95,
   "concept_alignment_score": 100,
   "max_score": 100,
+
+  "scoring_breakdown": {
+    "existence_intent_clarity": 100,
+    "target_user_consistency": 100,
+    "core_value_presentation": 100,
+    "terminology_consistency": 100,
+    "invariant_documentation": 85,
+    "boundary_clarity": 100
+  },
+
   "files": [
     {
       "path": "README.md",
@@ -10,38 +20,25 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "checks": {
-        "mission_present": true,
-        "target_users_present": true,
-        "core_value_present": true,
-        "canonical_terms_used": true,
-        "synonyms_avoided": true
-      }
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "checks": {
-        "term_normalization_table": true,
-        "behavior_rules": true,
-        "invariants_listed": true,
-        "canonical_terms_enforced": true
-      }
+      "issues": [
+        "INV-MEM-001 is marked as DRAFT - correctly noted in AGENTS.md"
+      ]
     },
     {
       "path": "CLAUDE.md",
@@ -49,18 +46,11 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "checks": {
-        "core_terms_section": true,
-        "invariants_section": true,
-        "auto_decisions_noted": true,
-        "claude_specific_guidance": true
-      }
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
@@ -68,18 +58,35 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
         "issues": []
       },
-      "checks": {
-        "auto_generated_notice": true,
-        "all_canonical_terms": true,
-        "synonym_mapping": true,
-        "evidence_cited": true
-      }
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
@@ -87,64 +94,23 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": [],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      }
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": [],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      }
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      }
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      }
+      "issues": []
     },
     {
       "path": "GEMINI.md",
@@ -152,12 +118,41 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": [],
+        "synonyms_found": [],
         "issues": []
       },
-      "intent_alignment": {
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": [],
+        "synonyms_found": [],
         "issues": []
-      }
+      },
+      "issues": []
     }
-  ]
+  ],
+
+  "overall_assessment": {
+    "strengths": [
+      "All Tier 1 MD files (README, AGENTS) present and aligned",
+      "Perfect concept alignment - no synonym usage detected",
+      "All canonical terms properly used across documentation",
+      "Comprehensive GLOSSARY.md generated from ontology",
+      "INV-MEM-001 correctly marked as DRAFT"
+    ],
+    "weaknesses": [
+      "Some AUTO decisions expired (AMB-SEC-001, AMB-SEC-002) - require code action",
+      "INV-MEM-01 is DRAFT status - correctly noted but limits invariant coverage"
+    ],
+    "recommendations": [
+      "Address expired AUTO decisions (AMB-SEC-001, AMB-SEC-002)",
+      "Consider promoting Memory from DRAFT to STABLE when ready"
+    ]
+  }
 }

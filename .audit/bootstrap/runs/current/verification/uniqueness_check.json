@@ -1,49 +1,113 @@
 {
-  "timestamp": "2026-02-02T23:11:00Z",
-  "run_number": 30,
-  "overall_score": 100,
+  "timestamp": "2026-02-02T23:24:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 100,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Mission Consistency",
+      "name": "Existence Intent Consistency",
       "description": "全MDで同じmissionが表現されているか",
-      "passed": true,
-      "evidence": "All MD files reference the same mission: bridging GUI frameworks and LLM agents",
-      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"]
+      "status": "passed",
+      "evidence": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": [
+          {
+            "file": "README.md",
+            "has_mission": true,
+            "match": true
+          },
+          {
+            "file": "AGENTS.md",
+            "has_mission": true,
+            "match": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "has_mission": true,
+            "match": true
+          }
+        ]
+      }
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
       "description": "全MDで同じtarget_userを想定しているか",
-      "passed": true,
-      "evidence": "Consistent target users across all MDs: Application Developers, AI Agent Developers, Framework Developers, AI Agents",
-      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      "status": "passed",
+      "evidence": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": [
+          {
+            "file": "README.md",
+            "mentions_users": true,
+            "consistent": true
+          },
+          {
+            "file": "AGENTS.md",
+            "mentions_users": true,
+            "consistent": true
+          }
+        ]
+      }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
+      "name": "Constraint Consistency",
       "description": "技術的制約が一致しているか",
-      "passed": true,
-      "evidence": "Type safety and monotonic state transitions consistently enforced",
-      "files_checked": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      "status": "passed",
+      "evidence": {
+        "constraints_verified": [
+          "Monotonic state transitions",
+          "Type-safe message handling",
+          "Hard invariants enforcement"
+        ],
+        "files_checked": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "inconsistencies_found": 0
+      }
     },
     {
       "id": "UC-004",
       "name": "Boundary Consistency",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "passed": true,
-      "evidence": "UI Rendering, LLM Execution, Session Storage consistently marked as out of scope",
-      "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"]
+      "status": "passed",
+      "evidence": {
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "files_checked": ["AGENTS.md", "README.md"],
+        "contradictions_found": 0
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "intent.yml Compliance",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "passed": true,
-      "evidence": "All core functions from intent.yml are reflected in documentation",
-      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      "status": "passed",
+      "evidence": {
+        "core_functions_reflected": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction"
+        ],
+        "design_philosophy_reflected": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
+        ],
+        "deviation_count": 0
+      }
     }
   ],
+
   "summary": {
     "total_checks": 5,
     "passed": 5,

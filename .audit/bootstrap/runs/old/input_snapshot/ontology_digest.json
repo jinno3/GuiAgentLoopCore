@@ -1,7 +1,8 @@
 {
-  "timestamp": "2026-02-02T22:51:29.821024",
+  "timestamp": "2026-02-02T23:11:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
+  "updated_at": "2026-02-02T05:38:12Z",
   "statistics": {
     "total_terms": 11,
     "by_layer": {
@@ -14,115 +15,57 @@
       "draft": 1
     }
   },
+  "canonical_terms": [
+    "Interpreter",
+    "Agent",
+    "Session",
+    "Message",
+    "State",
+    "AutoChat",
+    "StreamWrapper",
+    "Backend",
+    "Converter",
+    "Memory",
+    "Connector"
+  ],
+  "synonym_count": 34,
+  "auto_decisions_active": 15,
+  "hard_invariants": 12,
+  "soft_invariants": 3,
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
       "layer": "core",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": [
-        "GuiAgentInterpreter",
-        "会話インタープリタ"
-      ],
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
       "status": "stable"
     },
     {
       "canonical": "Agent",
       "layer": "core",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": [
-        "AIエージェント",
-        "専門エージェント",
-        "AgentType",
-        "AgentDefinition",
-        "TaskAgent",
-        "AgentImage"
-      ],
+      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
       "status": "stable"
     },
     {
       "canonical": "Session",
       "layer": "core",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
-      "synonyms": [
-        "ChatSession",
-        "会話セッション",
-        "JWT"
-      ],
+      "synonyms": ["ChatSession", "会話セッション", "JWT"],
       "status": "stable"
     },
     {
       "canonical": "Message",
       "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
-      "synonyms": [
-        "メッセージ",
-        "ChatMessage"
-      ],
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "synonyms": ["メッセージ", "ChatMessage"],
       "status": "stable"
     },
     {
       "canonical": "State",
       "layer": "core",
       "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": [
-        "InterpreterState",
-        "インタープリタ状態"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "AutoChat",
-      "layer": "domain",
-      "definition": "STATE_STOP時に自動的に会話を継続する機能",
-      "synonyms": [
-        "自動チャット",
-        "自動継続"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": [
-        "GuiAgentStreamWrapper",
-        "ストリームラッパー"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Backend",
-      "layer": "domain",
-      "definition": "GUIフレームワーク実装（Gradio等）",
-      "synonyms": [
-        "GUIバックエンド",
-        "UIフレームワーク",
-        "GuiBackend",
-        "GuiComponent"
-      ],
-      "status": "stable"
-    },
-    {
-      "canonical": "Memory",
-      "layer": "domain",
-      "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": [
-        "会話メモリ",
-        "ConversationBuffer"
-      ],
-      "status": "draft"
-    },
-    {
-      "canonical": "Connector",
-      "layer": "domain",
-      "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
-      "synonyms": [
-        "コネクタ",
-        "GuiAgentInterpreterABC",
-        "ConnectorImplCodeinterpreterApi",
-        "ConnectorImplOpenInterpreter",
-        "OpenGuiConnector"
-      ],
+      "synonyms": ["InterpreterState", "インタープリタ状態"],
       "status": "stable"
     }
   ]
