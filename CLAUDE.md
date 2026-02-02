@@ -249,7 +249,7 @@ if len(messages) > MAX_MESSAGE_LENGTH:
 
 ---
 
-**最終更新**: 2026-02-02T11:38:12Z (bootstrap run v1.1 - CLAUDE.md verified)
+**最終更新**: 2026-02-02T02:56:23Z (bootstrap run v1.1 - CLAUDE.md verified)
 **関連ドキュメント**:
 - [AGENTS.md](AGENTS.md) - 全AI Agent向け指示
 - [GLOSSARY.md](GLOSSARY.md) - 用語集

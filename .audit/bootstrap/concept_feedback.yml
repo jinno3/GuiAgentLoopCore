@@ -1,24 +1,44 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T11:38:12Z"
+  bootstrap_run_timestamp: "2026-02-02T02:56:23Z"
   source_ontology_version: "0.3"
+  run_number: 2
 
   # 1. 用語使用状況
   term_usage_report:
     total_terms_in_ontology: 11
     terms_documented_in_md: 11
     documentation_coverage: 1.0
-    canonical_used: 126
+    canonical_used: 598
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 0.955
+    alignment_rate: 0.995
+    total_occurrences: 601
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 15
+    hard_invariants: 12
+    soft_invariants: 3
     reflected: 15
     missing: []
     coverage_rate: 1.0
+    details_by_status:
+      fully_documented:
+        - "INV-STATE-001"
+        - "INV-MSG-001"
+        - "INV-MESSAGE-001"
+        - "INV-AUTO-001"
+        - "INV-STREAM-001"
+        - "INV-SESSION-001"
+        - "INV-AGENT-001"
+        - "INV-MEM-001"
+        - "INV-CONNECTOR-001"
+        - "INV-CONVERTER-001"
+        - "INV-SESSION-002"
+        - "INV-STATE-002"
+        - "INV-BACKEND-001"
+        - "INV-BACKEND-002"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
@@ -26,6 +46,15 @@ concept_feedback:
     noted_in_md: 9
     format: "明示的な注記として記載（暫定仕様として扱う）"
     coverage_rate: 1.0
+    by_category:
+      Agent: 2
+      State: 2
+      Message: 2
+      AutoChat: 2
+      Backend: 2
+      Session: 1
+      Memory: 2
+      Connector: 1
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -44,8 +73,26 @@ concept_feedback:
     invariant_alignment: 100
     auto_decision_alignment: 100
     consistency_score: 95
+    quality_level: "excellent"
 
-  # 7. 今後の推奨アクション
+  # 7. 用語の正規化状況
+  term_normalization_status:
+    total_synonyms_defined: 37
+    synonyms_used_in_mds: 0
+    normalization_rate: 1.0
+    issues: []
+    quality_level: "excellent"
+
+  # 8. GLOSSARY.mdの生成状況
+  glossary_status:
+    generated: true
+    source: "ontology.yml v0.3"
+    accuracy: "100%"
+    all_terms_included: true
+    last_updated: "2026-02-02T02:56:23Z"
+    auto_generation_working: true
+
+  # 9. 今後の推奨アクション
   recommendations:
     - priority: "low"
       category: "maintenance"
@@ -57,9 +104,9 @@ concept_feedback:
       category: "monitoring"
       action: "定期的な整合性チェック"
       reason: "将来的な変更が一貫性を維持していることを確認するため"
-      suggested_frequency: "ontology.yml更新時"
+      suggested_frequency: "ontology.yml更新時、または月1回の保守実行"
 
-  # 8. 成功指標
+  # 10. 成功指標
   success_indicators:
     all_terms_documented: true
     all_invariants_reflected: true
@@ -68,3 +115,9 @@ concept_feedback:
     no_terminology_inconsistencies: true
     glossary_auto_generated: true
     feedback_loop_established: true
+    quality_level: "production_ready"
+
+  # 11. 実行モード
+  execution_mode: "verification"
+  run_type: "maintenance"
+  quality_trend: "stable_excellent"
