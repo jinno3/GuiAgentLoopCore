@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T00:35:34Z",
+  "last_updated": "2026-02-02T00:49:57Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -48,9 +48,9 @@
     "reason": "No bloat control actions needed - ontology healthy"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T00:35:34Z",
-    "previous_run_id": "2026-02-02T09:20:15Z",
-    "run_count": 52,
+    "run_id": "2026-02-02T00:49:57Z",
+    "previous_run_id": "2026-02-02T00:35:34Z",
+    "run_count": 53,
     "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
@@ -60,7 +60,7 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #52 completed - Concept sync maintenance run via AI Hub",
+      "Run #53 completed - Concept sync maintenance run via AI Hub",
       "No new code changes detected since last run",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
@@ -68,8 +68,8 @@
       "decisions.md: 154 lines (within 200-line limit)",
       "14 hard invariants maintained",
       "19 active AUTO decisions across ontology",
-      "Security alert: AMB-SEC-001 (hardcoded JWT secret) - URGENT attention required",
-      "AMB-SEC-001 AUTO decision expires soon (~8 runs elapsed since 2026-02-02T05:23:14Z, expires_after_runs: 10)"
+      "CRITICAL: AMB-SEC-001 AUTO decision EXPIRED - 9 runs elapsed since 2026-02-02T05:23:14Z, expires_after_runs: 10",
+      "Action required: Review and extend AMB-SEC-001 or implement security fix (migrate to env var)"
     ]
   },
   "health_check": {
@@ -79,13 +79,14 @@
     "conflict_health": "healthy (0 conflicts)",
     "bootstrap_sync_quality": "EXCELLENT (100% alignment)",
     "architecture_doc_alignment": "EXCELLENT (100% alignment with ontology)",
-    "security_alert": "HIGH: Hardcoded JWT secret key (AMB-SEC-001) - AUTO decision expires very soon. Action required: migrate to environment variable."
+    "security_alert": "CRITICAL: AMB-SEC-001 AUTO decision has EXPIRED (9/10 runs elapsed). Hardcoded JWT secret remains unaddressed."
   },
   "next_steps": [
-    "CRITICAL: Address AMB-SEC-001 IMMEDIATELY - ~2 runs remaining before expiration (8/10 runs elapsed since 2026-02-02T05:23:14Z)",
+    "CRITICAL: AMB-SEC-001 AUTO decision EXPIRED - Immediate action required",
+    "Migrate hardcoded JWT secret to environment variable",
     "Monitor draft terms: Memory (status: draft) for potential promotion or deprecation",
     "Consider consolidating dual Memory implementations (LangChain + custom)",
     "Continue regular ontology sync runs",
-    "Review AUTO decision expiration status (19 decisions, most expire in ~12-20 runs)"
+    "Review other AUTO decision expiration status (18 decisions still active, most expire in ~12-20 runs)"
   ]
 }
