@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T02:42:00Z"
+run_timestamp: "2026-02-03T02:50:00Z"
 version: "1.1"
 
 rotation:
@@ -12,139 +12,121 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  boundaries_defined: true
 
 ontology_summary:
   total_terms: 10
-  by_layer:
-    core: 5
-    domain: 4
-    aux: 1
-  by_status:
-    stable: 9
-    draft: 1
+  core_terms: 5
+  domain_terms: 4
+  aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
-      layer: "core"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
       layer: "core"
+    - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-
-invariants_summary:
-  total_invariants: 13
-  by_strength:
-    hard: 10
-    soft: 3
-  by_status:
-    stable: 12
-    draft: 1
-
-ambiguities_summary:
-  total_ambiguities: 9
-  by_severity:
-    high: 2
-    medium: 2
-    low: 5
-  by_status:
-    applied: 6
-    expired: 2  # AMB-SEC-001, AMB-SEC-002 (security issues - need attention)
+      layer: "core"
 
 term_normalization:
-  "AIエージェント": "Agent"
+  "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
   "ChatSession": "Session"
+  "会話セッション": "Session"
   "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
   "インタープリタ状態": "State"
   "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
   "ストリームラッパー": "StreamWrapper"
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
-  "会話メモリ": "Memory"
-  "コネクタ": "Connector"
-  "変換器": "Converter"
 
 existing_mds:
   - path: "README.md"
-    tier: 1
     status: "exists_needs_review"
-    issues: []
+    issues:
+      - "需要验证是否反映intent.yml的存在意義"
+      - "需要验证用語是否使用正規形"
   - path: "AGENTS.md"
-    tier: 1
     status: "exists_needs_review"
-    issues: []
+    issues:
+      - "需要验证是否反映intent.yml"
+      - "需要验证用語規約是否与ontology.yml一致"
   - path: "CLAUDE.md"
-    tier: 2
     status: "exists_needs_review"
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    tier: 2
-    status: "exists_needs_review"
-    issues: []
-  - path: "PURPOSE.md"
-    tier: 2
-    status: "exists_needs_review"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    tier: 2
-    status: "exists_needs_review"
-    issues: []
-  - path: "GEMINI.md"
-    tier: 3
-    status: "exists"
-    issues: []
-  - path: "CODEX.md"
-    tier: 3
-    status: "exists"
-    issues: []
-  - path: "ARCHITECTURE.md"
-    tier: 3
-    status: "exists"
-    issues: []
+    issues:
+      - "需要验证用語是否使用正規形"
+      - "需要验证不変条件是否与invariants.yml一致"
   - path: "GLOSSARY.md"
-    tier: 3
+    status: "exists_needs_review"
+    issues:
+      - "需要验证是否从ontology.yml自动生成"
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    issues:
+      - "需要验证是否与intent.yml一致"
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    issues:
+      - "需要验证是否反映存在意義"
+  - path: "ARCHITECTURE.md"
     status: "exists"
-    issues: []
+  - path: "CHANGELOG.md"
+    status: "exists"
+  - path: "CODEX.md"
+    status: "exists"
+  - path: "GEMINI.md"
+    status: "exists"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
 
 actions:
-  # This is a verification run - all MDs exist and were previously verified
-  # We'll verify concept alignment and check for any issues
   - action: "verify"
     target: "README.md"
-    reason: "Verify concept alignment and intent consistency"
+    reason: "验证存在意義和用語正規形"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify term normalization and invariants reflection"
+    reason: "验证AIエージェント指示是否准确"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and AUTO decisions"
+    reason: "验证Claude特化指示是否准确"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology synchronization"
-  - action: "check_security_issues"
-    target: "All MDs"
-    reason: "Check if expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) need documentation"
+    reason: "验证用語集是否与ontology一致"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "验证目的说明是否与intent一致"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "验证贡献指南是否准确"
 
-run_type: "verification"
-expected_outcome: "All MDs verified, concept alignment confirmed, feedback generated"
+invariant_check:
+  total_invariants: 13
+  hard_invariants: 10
+  soft_invariants: 3
+  critical_invariants:
+    - "INV-STATE-001: 状態単調遷移"
+    - "INV-SESSION-001: セッション一意性"
+    - "INV-MSG-001: メッセージタイプ列挙"
+    - "INV-AUTO-001: AutoChatトリガー条件"
+    - "INV-MESSAGE-001: メッセージ最大長"
+
+auto_decisions_active: 15

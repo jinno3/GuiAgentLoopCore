@@ -1,20 +1,16 @@
 {
-  "timestamp": "2026-02-03T02:42:00Z",
+  "timestamp": "2026-02-03T03:14:10Z",
   "source": ".concept/invariants.yml",
   "updated_at": "2026-02-02T05:23:14Z",
-
-  "statistics": {
-    "total_invariants": 13,
-    "by_strength": {
-      "hard": 10,
-      "soft": 3
-    },
-    "by_status": {
-      "stable": 12,
-      "draft": 1
-    }
+  "total_invariants": 12,
+  "by_strength": {
+    "hard": 10,
+    "soft": 2
   },
-
+  "by_status": {
+    "stable": 11,
+    "draft": 1
+  },
   "hard_invariants": [
     {
       "id": "INV-STATE-001",
@@ -72,7 +68,6 @@
       "related_terms": ["Converter"]
     }
   ],
-
   "soft_invariants": [
     {
       "id": "INV-AGENT-001",
@@ -80,17 +75,9 @@
       "related_terms": ["Agent"]
     },
     {
-      "id": "INV-MEM-001",
-      "statement": "会話メモリは最大100メッセージまで保持する",
-      "related_terms": ["Memory", "Session"],
-      "status": "draft"
-    },
-    {
       "id": "INV-BACKEND-002",
       "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
       "related_terms": ["Backend", "State"]
     }
-  ],
-
-  "auto_decisions_in_invariants": 5
+  ]
 }

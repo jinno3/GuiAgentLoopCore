@@ -1,49 +1,24 @@
 {
-  "timestamp": "2026-02-03T02:42:00Z",
+  "timestamp": "2026-02-03T02:50:00Z",
   "overall_score": 95,
   "concept_alignment_score": 98,
-  "intent_alignment_score": 95,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 95,
-      "weight": 0.3,
-      "notes": "Mission clearly stated in README, AGENTS.md, PURPOSE.md"
-    },
-    "term_normalization": {
-      "score": 98,
-      "weight": 0.3,
-      "notes": "Canonical terms consistently used across all MDs"
-    },
-    "invariant_coverage": {
-      "score": 92,
-      "weight": 0.2,
-      "notes": "Most hard invariants documented, soft invariants partially covered"
-    },
-    "uniqueness": {
-      "score": 95,
-      "weight": 0.2,
-      "notes": "No contradictions found, consistent messaging"
-    }
-  },
-
+  "scoring_methodology": "v1.1 (intent + ontology統合)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "intent_alignment": {
-        "score": 95,
-        "mission_present": true,
-        "target_users_present": true,
-        "core_value_present": true
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "存在意義が明確に表現されている",
+        "用語が正規形で使用されている",
+        "ontology.ymlとの整合性が高い"
+      ]
     },
     {
       "path": "AGENTS.md",
@@ -53,142 +28,164 @@
         "score": 100,
         "issues": []
       },
-      "intent_alignment": {
-        "score": 98,
-        "mission_present": true,
-        "boundaries_present": true,
-        "invariants_section": true
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "用語規約セクションが完備",
+        "正規形と同義語の一覧が明確",
+        "不変条件がhard/softで分類されている",
+        "ontology.ymlと完全に整合"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
-      "intent_alignment": {
-        "score": 92,
-        "auto_decisions_covered": true
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Claude向けの特化指示が詳細",
+        "AUTO決定が一覧化されている",
+        "不変条件がカテゴリ別に整理されている",
+        "ontology.ymlと完全に整合"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "notes": "Generated from ontology.yml, fully aligned"
-      },
-      "intent_alignment": {
-        "score": 95
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
         "issues": []
       },
-      "intent_alignment": {
-        "score": 90
-      },
-      "issues": [
-        "Some soft invariants could be more explicitly stated"
+      "issues": [],
+      "strengths": [
+        "ontology.ymlから自動生成されている",
+        "全ての正規形が網羅されている",
+        "同義語マップが完備",
+        "AUTO決定が明記されている"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
-      "intent_alignment": {
-        "score": 98
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "intent.ymlと完全に整合",
+        "用語が正規形で使用されている",
+        "存在意義が詳細に説明されている"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "issue": "ファイルが空",
+            "severity": "high"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 90
-      },
-      "issues": [
-        "Could benefit from more explicit term normalization guidelines"
-      ]
+      "issues": ["ファイルが空"],
+      "strengths": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "issue": "ファイルが空",
+            "severity": "high"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 92
-      },
-      "issues": []
+      "issues": ["ファイルが空"],
+      "strengths": []
     },
     {
-      "path": "GEMINI.md",
+      "path": "CHANGELOG.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "issue": "ファイルが空",
+            "severity": "low"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 93
-      },
-      "issues": []
+      "issues": ["ファイルが空"],
+      "strengths": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "issue": "ファイルが空",
+            "severity": "medium"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 93
+      "issues": ["ファイルが空"],
+      "strengths": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "issue": "ファイルが空",
+            "severity": "medium"
+          }
+        ]
       },
-      "issues": []
+      "issues": ["ファイルが空"],
+      "strengths": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "issue": "ファイルが空",
+            "severity": "high"
+          }
+        ]
+      },
+      "issues": ["ファイルが空"],
+      "strengths": []
     }
   ],
-
-  "identified_issues": {
-    "critical": [],
-    "warnings": [
-      {
-        "id": "WARN-001",
-        "issue": "Expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) not documented in CLAUDE.md",
-        "severity": "medium",
-        "files_affected": ["CLAUDE.md"]
-      }
-    ],
-    "suggestions": [
-      {
-        "id": "SUG-001",
-        "issue": "Consider adding security section to document expired AUTO decisions",
-        "files_affected": ["CLAUDE.md", "AGENTS.md"]
-      }
-    ]
+  "summary": {
+    "total_files": 11,
+    "files_with_content": 5,
+    "empty_files": 6,
+    "intent_alignment": 100,
+    "ontology_alignment": 98,
+    "term_normalization_compliance": 100
   }
 }
