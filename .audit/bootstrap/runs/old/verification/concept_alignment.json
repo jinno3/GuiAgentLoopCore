@@ -1,102 +1,202 @@
 {
-  "timestamp": "2026-02-02T10:59:24Z",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
+  "timestamp": "2026-02-02T11:20:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_term_occurrences": 145,
-    "canonical_used": 145,
+    "total_term_occurrences": 125,
+    "canonical_used": 120,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 5,
+    "alignment_rate": 0.96
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": [
-        "Added 5 missing invariants (INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002)"
+      "alignment_score": 92,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Memory"],
+      "issues": [
+        {
+          "type": "minor",
+          "description": "Could add explicit reference to Connector term",
+          "status": "info"
+        }
       ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": []
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": [
-        "Added 5 missing invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
-      ]
+      "alignment_score": 97,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": [],
-      "improvements_made": []
+      "strengths": [
+        "Directly generated from ontology.yml",
+        "Complete coverage of all 11 canonical terms",
+        "Clear synonym mapping"
+      ]
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": [
-        "Fixed non-canonical term: 'Agent Manager' → 'Agent'",
-        "Fixed non-canonical term: 'Message Handler' → 'Message'",
-        "Added 5 missing invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
+      "alignment_score": 90,
+      "canonical_terms_found": ["Interpreter", "Agent", "Backend"],
+      "issues": [
+        {
+          "type": "info",
+          "description": "Could reference ontology more explicitly",
+          "status": "optional_improvement"
+        }
       ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": [
-        "Fixed confusing example with quotes (line 18)",
-        "Added 7 missing invariants (INV-MESSAGE-001, INV-SESSION-002, INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-BACKEND-001, INV-BACKEND-002)"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": [],
-      "improvements_made": []
+      "alignment_score": 88,
+      "canonical_terms_found": ["Interpreter", "Agent", "Message", "State"],
+      "issues": [
+        {
+          "type": "minor",
+          "description": "Good invariant coverage, could align more with ontology terminology",
+          "status": "optional_improvement"
+        }
+      ]
     }
   ],
   "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
+    "total_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "SYSTEM_CONSTITUTION.md": 14,
-      "GLOSSARY.md": 14,
-      "README.md": 14,
-      "CLAUDE.md": 14,
-      "ARCHITECTURE.md": 14,
-      "CONTRIBUTING.md": 14,
-      "PURPOSE.md": 0
+    "coverage_rate": 1.0,
+    "details": {
+      "INV-STATE-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-MSG-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-MESSAGE-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-AUTO-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-STREAM-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-SESSION-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-AGENT-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-MEM-001": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-CONNECTOR-001": {
+        "files": ["AGENTS.md"],
+        "properly_documented": true
+      },
+      "INV-CONVERTER-001": {
+        "files": ["AGENTS.md"],
+        "properly_documented": true
+      },
+      "INV-SESSION-002": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-STATE-002": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-BACKEND-001": {
+        "files": ["AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      },
+      "INV-BACKEND-002": {
+        "files": ["AGENTS.md", "CLAUDE.md"],
+        "properly_documented": true
+      }
+    }
+  },
+  "auto_decision_check": {
+    "total_active": 9,
+    "reflected_in_md": 9,
+    "missing": [],
+    "coverage_rate": 1.0,
+    "details": {
+      "AUTO:State.lifecycle:monotonic": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:State.transition:auto_on_input": {
+        "files": ["AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:State.timer:3sec": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:Message.structure:flat": {
+        "files": ["AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:Message.limit:100": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:Agent.role:classification": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:Agent.type:implementation_property": {
+        "files": ["AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:AutoChat.trigger:stop_only": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      },
+      "AUTO:Backend.primary:gradio": {
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "properly_noted": true
+      }
     }
   },
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
     "missing_notes": 0,
-    "coverage_rate": 1.0
+    "coverage": "complete"
   },
   "summary": {
-    "overall_score": 100,
-    "uniqueness_score": 100,
-    "concept_alignment_score": 100,
-    "issues_resolved": 8,
-    "invariants_added": 22,
-    "non_canonical_terms_fixed": 3
+    "strengths": [
+      "Excellent canonical term usage across all MD files",
+      "Complete invariant coverage (13/13)",
+      "Complete AUTO decision documentation (9/9)",
+      "GLOSSARY.md directly generated from ontology.yml",
+      "Strong consistency between README, AGENTS, and CLAUDE"
+    ],
+    "improvement_opportunities": [
+      "ARCHITECTURE.md could reference ontology more explicitly",
+      "SYSTEM_CONSTITUTION.md could align terminology more closely",
+      "README.md could add explicit Connector term reference"
+    ],
+    "overall_assessment": "Very High Quality - concept alignment is excellent across all critical MD files"
   }
 }

@@ -1,110 +1,143 @@
 {
-  "timestamp": "2026-02-02T11:20:00Z",
+  "timestamp": "2026-02-02T11:38:12Z",
   "overall_score": 85,
-  "concept_alignment_score": 88,
+  "concept_alignment_score": 78,
   "max_score": 100,
-  "scoring_criteria": {
-    "existence_clarity": 95,
-    "uniqueness_score": 82,
-    "concept_alignment": 88,
-    "md_coverage": "11/11 (100%)"
+  "scoring_breakdown": {
+    "existence_purpose": 90,
+    "uniqueness": 82,
+    "concept_consistency": 78,
+    "documentation_coverage": 85,
+    "term_normalization": 75
   },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 82,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Uses canonical terms consistently",
-          "Aligns with intent.yml mission",
-          "Clear explanation of core concepts"
+        "score": 75,
+        "issues": [
+          {
+            "type": "synonym_usage",
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "severity": "low",
+            "line": 15
+          },
+          {
+            "type": "synonym_usage",
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "severity": "low",
+            "line": 28
+          }
         ]
       },
-      "issues": []
+      "strengths": [
+        "Clear mission statement",
+        "Good structure with sections",
+        "Installation instructions present"
+      ],
+      "issues": [
+        "Some synonyms used instead of canonical terms",
+        "Could better reflect design philosophy",
+        "Missing explicit state management details"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 88,
+        "score": 80,
         "issues": [
           {
-            "type": "minor",
-            "description": "Some sections could reference ontology more explicitly"
+            "type": "missing_term_definition",
+            "missing": "AutoChat",
+            "context": "AutoChat functionality mentioned but not linked to glossary",
+            "severity": "low"
           }
-        ],
-        "strengths": [
-          "Good coverage of invariants",
-          "Strong behavioral guidelines",
-          "Uses canonical terms"
         ]
       },
-      "issues": []
+      "strengths": [
+        "Comprehensive agent instructions",
+        "Good coverage of invariants",
+        "Clear behavior rules"
+      ],
+      "issues": [
+        "Some AUTO decisions not explicitly noted",
+        "Could better reference ontology",
+        "Term consistency could be improved"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "strengths": [
-          "Excellent integration of ontology terms",
-          "Clear invariant documentation",
-          "Strong AUTO decision awareness"
-        ]
+        "score": 85,
+        "issues": []
       },
-      "issues": []
+      "strengths": [
+        "Excellent term normalization",
+        "Comprehensive invariant coverage",
+        "Good AUTO decision documentation"
+      ],
+      "issues": [
+        "Could expand on Memory (draft status)",
+        "Some backend-specific details could be clarified"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Directly generated from ontology.yml",
-          "Complete coverage of canonical terms",
-          "Clear structure and definitions"
+        "score": 82,
+        "issues": [
+          {
+            "type": "missing_term",
+            "missing": "Connector",
+            "reason": "Term exists in ontology but missing from glossary",
+            "severity": "medium"
+          }
         ]
       },
-      "issues": []
+      "strengths": [
+        "Good coverage of core terms",
+        "Clear structure by layer",
+        "Status indicators present"
+      ],
+      "issues": [
+        "Missing Connector term",
+        "Memory term needs draft status clarification",
+        "Could add cross-references between terms"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 82,
+      "clarity_score": 78,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "strengths": [
-          "Good technical depth",
-          "Consistent terminology"
+        "score": 72,
+        "issues": [
+          {
+            "type": "inconsistent_terminology",
+            "found": "UIフレームワーク",
+            "should_be": "Backend",
+            "severity": "medium"
+          }
         ]
       },
+      "strengths": [
+        "Good architectural overview",
+        "Clear component boundaries"
+      ],
       "issues": [
-        "Could benefit from more explicit ontology references"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 82,
-        "issues": [],
-        "strengths": [
-          "Strong focus on invariants",
-          "Clear principles"
-        ]
-      },
-      "issues": [
-        "Some content overlaps with AGENTS.md"
+        "Term consistency needs improvement",
+        "Could better reflect ontology structure",
+        "Missing some invariant references"
       ]
     }
   ]

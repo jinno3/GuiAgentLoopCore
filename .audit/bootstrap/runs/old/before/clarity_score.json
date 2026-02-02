@@ -1,137 +1,111 @@
 {
-  "timestamp": "2026-02-02T10:59:24Z",
-  "overall_score": 95.8,
-  "concept_alignment_score": 97.6,
+  "timestamp": "2026-02-02T11:20:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 88,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + concept integration)",
+  "scoring_criteria": {
+    "existence_clarity": 95,
+    "uniqueness_score": 82,
+    "concept_alignment": 88,
+    "md_coverage": "11/11 (100%)"
+  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 90,
+        "issues": [],
+        "strengths": [
+          "Uses canonical terms consistently",
+          "Aligns with intent.yml mission",
+          "Clear explanation of core concepts"
+        ]
       },
-      "issues": [
-        "Missing 5 invariants (INV-AGENT-001, INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002)"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 100,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 88,
+        "issues": [
+          {
+            "type": "minor",
+            "description": "Some sections could reference ontology more explicitly"
+          }
+        ],
+        "strengths": [
+          "Good coverage of invariants",
+          "Strong behavioral guidelines",
+          "Uses canonical terms"
+        ]
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 98,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "Excellent integration of ontology terms",
+          "Clear invariant documentation",
+          "Strong AUTO decision awareness"
+        ]
       },
-      "issues": [
-        "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
-      ]
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "Directly generated from ontology.yml",
+          "Complete coverage of canonical terms",
+          "Clear structure and definitions"
+        ]
       },
       "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 92,
+      "clarity_score": 82,
       "concept_alignment": {
-        "score": 95,
-        "issues": [
-          {
-            "found": "Agent Manager",
-            "should_be": "Agent",
-            "line": null,
-            "context": "Section header"
-          },
-          {
-            "found": "Message Handler",
-            "should_be": "Message",
-            "line": null,
-            "context": "Section header"
-          }
+        "score": 85,
+        "issues": [],
+        "strengths": [
+          "Good technical depth",
+          "Consistent terminology"
         ]
       },
       "issues": [
-        "Non-canonical terms: 'Agent Manager', 'Message Handler'",
-        "Missing 5 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-002)"
+        "Could benefit from more explicit ontology references"
       ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "found": "\"Interpreter\" (with quotes in bad example)",
-            "should_be": "Interpreter",
-            "line": 18,
-            "context": "Incorrect usage example"
-          }
-        ]
-      },
-      "issues": [
-        "Confusing example with quotes",
-        "Missing 6 invariants (INV-MEM-001, INV-CONNECTOR-001, INV-CONVERTER-001, INV-SESSION-002, INV-BACKEND-001, INV-BACKEND-002)"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 98,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 82,
+        "issues": [],
+        "strengths": [
+          "Strong focus on invariants",
+          "Clear principles"
+        ]
       },
-      "issues": []
+      "issues": [
+        "Some content overlaps with AGENTS.md"
+      ]
     }
-  ],
-  "summary": {
-    "total_files_assessed": 8,
-    "excellent_files": 7,
-    "good_files": 1,
-    "fair_files": 0,
-    "poor_files": 0,
-    "total_non_canonical_usage": 3,
-    "total_missing_invariants": 31,
-    "unique_missing_invariants": 7
-  }
+  ]
 }
