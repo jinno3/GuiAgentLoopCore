@@ -1,53 +1,183 @@
 {
-  "timestamp": "2026-02-02T04:53:47Z",
+  "timestamp": "2026-02-02T14:08:00Z",
   "version": "1.1",
-  "overall_score": 100,
+  "verification_run": 6,
+
+  "overall_uniqueness_score": 100,
+  "max_score": 100,
+  "checks_passed": "5/5",
+  "checks_failed": 0,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
+      "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": "All files consistently express the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
-      "source": ".audit/intent.yml"
+      "evidence": {
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_verified": [
+          {
+            "file": "README.md",
+            "mission_found": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+            "match": true
+          },
+          {
+            "file": "AGENTS.md",
+            "mission_found": "GUIとLLMエージェントのブリッジとなるコアロジックを提供",
+            "match": true,
+            "note": "Japanese translation, semantically equivalent"
+          },
+          {
+            "file": "PURPOSE.md",
+            "mission_found": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+            "match": true
+          }
+        ]
+      }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
+      "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": "All files consistently target: Application Developers, AI Agent Developers, Framework Developers, AI Agents",
-      "source": ".audit/intent.yml"
+      "evidence": {
+        "target_users": [
+          "Application Developers: Building LLM-powered applications with GUI interfaces",
+          "AI Agent Developers: Creating specialized agents for specific tasks",
+          "Framework Developers: Building new GUI backend implementations",
+          "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
+        ],
+        "files_verified": [
+          {
+            "file": "README.md",
+            "users_mentioned": true,
+            "match": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "users_mentioned": true,
+            "match": true
+          },
+          {
+            "file": "AGENTS.md",
+            "users_mentioned": true,
+            "note": "Specifically targets AI agents as audience"
+          }
+        ]
+      }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
+      "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
+      "source": ".audit/intent.yml + .concept/invariants.yml",
       "passed": true,
-      "evidence": "All files respect hard invariants and AUTO decisions from .concept/invariants.yml",
-      "source": ".audit + .concept"
+      "evidence": {
+        "invariants_consistent": true,
+        "invariants_count": 14,
+        "hard_invariants": 11,
+        "soft_invariants": 3,
+        "files_verified": [
+          {
+            "file": "README.md",
+            "invariants_covered": 11,
+            "all_hard_invariants_documented": true
+          },
+          {
+            "file": "AGENTS.md",
+            "invariants_covered": 14,
+            "all_invariants_documented": true
+          },
+          {
+            "file": "SYSTEM_CONSTITUTION.md",
+            "invariants_covered": 11,
+            "all_hard_invariants_documented": true,
+            "note": "Covers constitutional (hard) invariants only"
+          },
+          {
+            "file": "CLAUDE.md",
+            "invariants_covered": 14,
+            "all_invariants_documented": true
+          }
+        ]
+      }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
+      "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit/intent.yml + .concept/ontology.yml",
       "passed": true,
-      "evidence": "All files consistently define boundaries (in_scope: conversation flow, state management; out_of_scope: UI rendering, LLM execution)",
-      "source": ".audit + .concept"
+      "evidence": {
+        "in_scope_items": 6,
+        "out_of_scope_items": 5,
+        "files_verified": [
+          {
+            "file": "README.md",
+            "boundaries_consistent": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "boundaries_consistent": true,
+            "note": "Dedicated 'What We Don't Do' section"
+          }
+        ],
+        "no_contradictions": true
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": "Mission, core functions, design philosophy, and success metrics are consistently reflected across all documentation",
-      "source": ".audit/intent.yml"
+      "evidence": {
+        "core_functions_count": 5,
+        "design_philosophy_count": 5,
+        "files_verified": [
+          {
+            "file": "README.md",
+            "mission_reflected": true,
+            "core_values_reflected": true,
+            "design_philosophy_reflected": true
+          },
+          {
+            "file": "PURPOSE.md",
+            "mission_reflected": true,
+            "core_values_reflected": true,
+            "design_philosophy_reflected": true,
+            "note": "Perfect alignment with intent.yml"
+          },
+          {
+            "file": "AGENTS.md",
+            "mission_reflected": true,
+            "boundaries_reflected": true,
+            "invariants_reflected": true
+          }
+        ]
+      }
     }
   ],
+
+  "contradictions_found": [],
+  "inconsistencies_found": [],
+
   "summary": {
+    "overall_assessment": "PERFECT - 100% uniqueness score achieved",
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "key_strengths": [
+      "Perfect mission consistency across all MD files",
+      "Target users clearly identified in all relevant files",
+      "Invariants documentation is comprehensive and consistent",
+      "Boundaries are well-defined with no contradictions",
+      "All files perfectly align with intent.yml"
+    ],
+    "recommendations": [],
+    "next_run_focus": "Maintain current high standards"
   }
 }
