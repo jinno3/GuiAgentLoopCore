@@ -1,4 +1,7 @@
-run_timestamp: "2026-02-01T23:49:28Z"
+# MD Bootstrapper Execution Plan (v1.1)
+# Generated: 2026-02-02T08:57:00Z
+
+run_timestamp: "2026-02-02T08:57:00Z"
 version: "1.1"
 
 rotation:
@@ -9,6 +12,7 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    intent_exists: true
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -16,16 +20,20 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_users:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+    - "AI Agents (Claude, Gemini, Codex, etc.)"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_functions_count: 5
+  boundaries_scope_count: 6
+  boundaries_out_of_scope_count: 5
 
 ontology_summary:
   version: "0.3"
+  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 11
   by_layer:
     core: 5
@@ -55,6 +63,30 @@ ontology_summary:
       layer: "core"
       status: "stable"
       definition: "インタープリタの実行状態を表す列挙型"
+    - canonical: "AutoChat"
+      layer: "domain"
+      status: "stable"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+    - canonical: "StreamWrapper"
+      layer: "domain"
+      status: "stable"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+    - canonical: "Backend"
+      layer: "domain"
+      status: "stable"
+      definition: "GUIフレームワーク実装（Gradio等）"
+    - canonical: "Connector"
+      layer: "domain"
+      status: "stable"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+    - canonical: "Converter"
+      layer: "aux"
+      status: "stable"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+    - canonical: "Memory"
+      layer: "domain"
+      status: "draft"
+      definition: "会話履歴を保持するバッファ機構"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -67,7 +99,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -86,111 +117,148 @@ term_normalization:
   "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  by_strength:
+    hard: 11
+    soft: 3
+  by_status:
+    stable: 13
+    draft: 1
 
 existing_mds:
   - path: "README.md"
-    status: "exists_excellent"
-    concept_alignment_score: 95
+    tier: 1
+    status: "exists_Excellent"
     issues: []
+    strengths:
+      - "存在意義が明確に記載されている"
+      - "用語が正規形で使用されている"
+      - "invariantsへの言及がある"
+      - "AUTO決定が文書化されている"
+      - "GLOSSARY.mdへの参照がある"
 
   - path: "AGENTS.md"
-    status: "exists_excellent"
-    concept_alignment_score: 100
+    tier: 1
+    status: "exists_Excellent"
     issues: []
-
-  - path: "CLAUDE.md"
-    status: "exists_excellent"
-    concept_alignment_score: 100
-    issues: []
-
-  - path: "PURPOSE.md"
-    status: "exists_good"
-    concept_alignment_score: 85
-    issues: []
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_good"
-    concept_alignment_score: 90
-    issues: []
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_excellent"
-    concept_alignment_score: 100
-    issues: []
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_good"
-    concept_alignment_score: 90
-    issues:
-      - "No explicit mention of AUTO decisions"
+    strengths:
+      - "用語規約セクションが完備されている"
+      - "正規形と同義語のマップがある"
+      - "invariantsが詳細に記載されている"
+      - "AUTO決定が一覧化されている"
+      - "行動規範が明確である"
 
   - path: "GLOSSARY.md"
-    status: "exists_excellent"
-    concept_alignment_score: 100
+    tier: 2
+    status: "exists_Excellent"
     issues: []
+    strengths:
+      - "ontology.ymlから自動生成されている"
+      - "コア用語、ドメイン用語、補助用語が分類されている"
+      - "用語の正規化マップがある"
+      - "AUTO決定が記載されている"
+      - "証拠（evidence）が引用されている"
+
+  - path: "CLAUDE.md"
+    tier: 2
+    status: "exists_Excellent"
+    issues: []
+    strengths:
+      - "Claude向けの特化指示がある"
+      - "用語の一貫性セクションがある"
+      - "不変条件の遵守セクションがある"
+      - "AUTO決定の認識セクションがある"
+      - "コード例が豊富である"
+
+  - path: "PURPOSE.md"
+    tier: 2
+    status: "exists_needs_review"
+    issues:
+      - "intent.ymlとの整合性を確認する必要がある"
+    strengths:
+      - "プロジェクトの目的が詳細に記載されている"
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    tier: 2
+    status: "exists_needs_review"
+    issues:
+      - "invariants.ymlとの整合性を確認する必要がある"
+    strengths:
+      - "システム憲法としての原則が記載されている"
+
+  - path: "CONTRIBUTING.md"
+    tier: 2
+    status: "exists_needs_review"
+    issues:
+      - "用語規約の統合が必要である"
+    strengths:
+      - "貢献ガイドの基礎がある"
+
+  - path: "ARCHITECTURE.md"
+    tier: 3
+    status: "exists_needs_review"
+    issues:
+      - "ontology.ymlのmappings.ymlとの統合が必要である"
+    strengths:
+      - "アーキテクチャの概要がある"
 
   - path: "GEMINI.md"
+    tier: 3
     status: "exists_good"
-    concept_alignment_score: 95
     issues: []
+    strengths:
+      - "Gemini向けの特化指示がある"
 
   - path: "CODEX.md"
+    tier: 3
     status: "exists_good"
-    concept_alignment_score: 95
     issues: []
+    strengths:
+      - "Codex向けの特化指示がある"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Already excellent - verification only"
-    concept_alignment_score: 95
+    reason: "Excellent状態を維持し、intent.ymlとの整合性を検証"
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Already perfect - verification only"
-    concept_alignment_score: 100
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Already perfect - verification only"
-    concept_alignment_score: 100
-
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Already perfect - verification only"
-    concept_alignment_score: 100
+    reason: "Excellent状態を維持し、ontology.ymlとの整合性を検証"
 
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Already perfect - verification only"
-    concept_alignment_score: 100
-
-  - action: "minor_enhancement"
-    target: "ARCHITECTURE.md"
-    reason: "Add AUTO decisions reference"
-    concept_alignment_score: 90
+    reason: "Excellent状態を維持し、ontology.ymlから再生成するか検討"
 
   - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Excellent状態を維持し、最新のinvariants.ymlと整合性を検証"
+
+  - action: "review_and_update"
     target: "PURPOSE.md"
-    reason: "Appropriate for purpose document - verification only"
-    concept_alignment_score: 85
+    reason: "intent.ymlとの整合性を確認し、必要に応じて更新"
 
-  - action: "verify"
+  - action: "review_and_update"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "invariants.ymlとの整合性を確認し、必要に応じて更新"
+
+  - action: "review_and_update"
     target: "CONTRIBUTING.md"
-    reason: "Already good - verification only"
-    concept_alignment_score: 90
+    reason: "用語規約を統合し、最新化する"
 
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Already good - verification only"
-    concept_alignment_score: 95
+  - action: "review_and_update"
+    target: "ARCHITECTURE.md"
+    reason: "ontology.ymlのmappings.yml情報を統合する"
 
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Already good - verification only"
-    concept_alignment_score: 95
+target_scores:
+  clarity_score: 95
+  uniqueness_score: 90
+  concept_alignment_score: 95
+  overall_score: 93
 
-overall_assessment:
-  average_concept_alignment_score: 94.5
-  status: "excellent"
-  note: "Repository is in excellent state with all MD files properly aligned with ontology"
+iterations_allowed: 3

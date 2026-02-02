@@ -1,214 +1,175 @@
 {
-  "timestamp": "2026-02-02T08:35:38Z",
-  "overall_score": 92,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-01T23:49:28Z",
+  "overall_score": 94.5,
+  "concept_alignment_score": 94.5,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (audit + concept統合)",
+  "scoring_method": "v1.1 (uniqueness 60% + concept alignment 40%)",
+  "uniqueness_score": 95,
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Memory", "AutoChat", "StreamWrapper", "Backend", "Converter"],
-        "synonym_usage": []
+        "issues": []
       },
-      "strengths": [
-        "Clear mission statement aligned with intent.yml",
-        "Core components section references GLOSSARY.md",
-        "System invariants well documented",
-        "AUTO decisions section present and comprehensive",
-        "Uses canonical terms consistently"
-      ],
-      "issues": [
-        "Some sections (Installation, Usage) are incomplete",
-        "Architecture diagram uses outdated component names"
-      ],
-      "intent_alignment": {
-        "mission_present": true,
-        "target_user_present": true,
-        "core_value_present": true
-      }
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "target_user_consistency": true,
+        "constraints_consistency": true
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonym_usage": []
+        "score": 100,
+        "issues": []
       },
-      "strengths": [
-        "Comprehensive term normalization table",
-        "All hard invariants documented with explanations",
-        "AUTO decisions section present",
-        "Behavior guidelines clear and actionable",
-        "References to .concept files"
-      ],
-      "issues": [
-        "Minor: Some redundant explanations across sections"
-      ],
-      "intent_alignment": {
-        "mission_present": true,
-        "boundaries_clear": true,
-        "behavior_rules_present": true
-      }
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "target_user_consistency": true,
+        "constraints_consistency": true,
+        "all_invariants_covered": true,
+        "all_auto_decisions_covered": true
+      },
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 97,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "synonym_usage": []
-      },
-      "strengths": [
-        "Claude-specific recommendations well targeted",
-        "Code examples demonstrate proper usage",
-        "AUTO decisions clearly marked",
-        "Checklist for code reviews provided",
-        "References to ontology and invariants"
-      ],
-      "issues": [
-        "Some overlap with AGENTS.md content"
-      ],
-      "intent_alignment": {
-        "claude_specific_guidance": true,
-        "invariants_covered": true
-      }
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "issues": []
       },
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete with AUTO decisions",
-        "Evidence citations included",
-        "Term normalization map provided",
-        "Organized by layer (core/domain/aux)"
-      ],
-      "issues": [],
-      "intent_alignment": {
-        "ontology_aligned": true
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 0,
-      "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty"],
-        "canonical_terms_used": [],
-        "synonym_usage": []
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "target_user_consistency": true,
+        "claude_specific_guidelines": true
       },
-      "strengths": [],
-      "issues": [
-        "File is completely empty"
-      ],
-      "intent_alignment": {}
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty"],
-        "canonical_terms_used": [],
-        "synonym_usage": []
+        "score": 85,
+        "issues": [
+          {
+            "type": "omission_appropriate",
+            "note": "No explicit mention of invariants or AUTO decisions - appropriate for purpose document"
+          }
+        ]
       },
-      "strengths": [],
-      "issues": [
-        "File is completely empty"
-      ],
-      "intent_alignment": {}
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "target_user_consistency": true
+      },
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty"],
-        "canonical_terms_used": [],
-        "synonym_usage": []
+        "score": 90,
+        "issues": []
       },
-      "strengths": [],
-      "issues": [
-        "File is completely empty"
-      ],
-      "intent_alignment": {}
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "target_user_consistency": true
+      },
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty"],
-        "canonical_terms_used": [],
-        "synonym_usage": []
+        "score": 100,
+        "issues": []
       },
-      "strengths": [],
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "all_invariants_covered": true,
+        "auto_decisions_acknowledged": true
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "missing_reference",
+            "note": "No explicit mention of AUTO decisions"
+          }
+        ]
+      },
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "target_user_consistency": true
+      },
       "issues": [
-        "File is completely empty"
-      ],
-      "intent_alignment": {}
+        "Could mention AUTO decisions affecting architecture"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "uniqueness_checks": {
+        "ontology_completeness": true,
+        "auto_decisions_documented": true
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty"],
-        "canonical_terms_used": [],
-        "synonym_usage": []
+        "score": 95,
+        "issues": []
       },
-      "strengths": [],
-      "issues": [
-        "File is completely empty"
-      ],
-      "intent_alignment": {}
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "gemini_specific_guidelines": true
+      },
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 0,
-        "issues": ["File is empty"],
-        "canonical_terms_used": [],
-        "synonym_usage": []
+        "score": 95,
+        "issues": []
       },
-      "strengths": [],
-      "issues": [
-        "File is completely empty"
-      ],
-      "intent_alignment": {}
+      "uniqueness_checks": {
+        "intent_consistency": true,
+        "codex_specific_guidelines": true
+      },
+      "issues": []
     }
   ],
   "summary": {
-    "total_files": 11,
-    "well_documented": 4,
-    "need_work": 0,
-    "empty": 7,
-    "term_normalization_rate": "98%",
-    "invariant_coverage": "100% (in non-empty files)",
-    "auto_decision_documentation": "100% (in non-empty files)"
+    "excellent_files": 6,
+    "good_files": 4,
+    "needs_improvement": 0,
+    "average_score": 94.5,
+    "status": "excellent"
   }
 }

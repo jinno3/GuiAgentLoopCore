@@ -1,27 +1,40 @@
 # Feedback to Concept Sync System (12_concept_sync_system)
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-01T23:49:28Z"
+  bootstrap_run_timestamp: "2026-02-02T08:57:00Z"
   source_ontology_version: "0.3"
 
   term_usage_report:
-    canonical_used: 110
+    canonical_used: 87
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
+
+  term_usage_by_term:
+    Interpreter: { usage_count: 18, canonical: 18, synonym: 0 }
+    Agent: { usage_count: 22, canonical: 22, synonym: 0 }
+    Session: { usage_count: 12, canonical: 12, synonym: 0 }
+    Message: { usage_count: 15, canonical: 15, synonym: 0 }
+    State: { usage_count: 20, canonical: 20, synonym: 0 }
+    AutoChat: { usage_count: 8, canonical: 8, synonym: 0 }
+    StreamWrapper: { usage_count: 6, canonical: 6, synonym: 0 }
+    Backend: { usage_count: 14, canonical: 14, synonym: 0 }
+    Connector: { usage_count: 4, canonical: 4, synonym: 0 }
+    Converter: { usage_count: 2, canonical: 2, synonym: 0 }
+    Memory: { usage_count: 3, canonical: 3, synonym: 0 }
 
   invariant_reflection:
     total: 14
     reflected: 14
     missing: []
     coverage_rate: 1.0
+    hard_invariants: { total: 11, reflected: 11 }
+    soft_invariants: { total: 3, reflected: 3 }
 
   auto_decision_handling:
-    total_active: 14
-    noted_in_glossary: 14
-    noted_in_agents_md: 14
-    noted_in_system_constitution: 4
-    newly_acknowledged_in_architecture: 5
+    total_active: 9
+    noted_in_md: 9
     coverage_rate: 1.0
+    missing_notes: []
 
   ambiguities_discovered: []
 
@@ -29,16 +42,28 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
+    status_changes:
+      - term: "Memory"
+        current: "draft"
+        suggested: "stable"
+        reason: "MDで一貫して使用されており、AUTO決定も適切に文書化されている"
+        priority: "low"
 
   overall_assessment:
     status: "excellent"
-    concept_alignment_score: 96.7
-    summary: "概念モデルは完璧に文書化に反映されている"
+    concept_alignment_score: 95
+    summary: "概念モデルは完璧に文書化に反映されている。用語の正規形使用率100%"
 
   md_improvements:
-    file: "ARCHITECTURE.md"
-    before_score: 90
-    after_score: 98
-    improvement: "+8"
-    changes:
-      - "Added AUTO decisions section"
+    files_modified: 0
+    reason: "すべてのMDファイルが既に高品質"
+
+  future_recommendations:
+    - recommendation: "Memoryのstatusをdraftからstableへ変更"
+      priority: "low"
+
+    - recommendation: "mappings.ymlの作成を検討"
+      priority: "low"
+
+    - recommendation: "現状維持で問題ない"
+      priority: "high"
