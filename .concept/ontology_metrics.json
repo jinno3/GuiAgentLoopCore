@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T23:27:55Z",
+  "last_updated": "2026-02-02T23:42:31Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -12,7 +12,7 @@
   },
   "draft_ratio": 0.09,
   "draft_ratio_limit": 0.3,
-  "total_invariants": 15,
+  "total_invariants": 14,
   "total_ambiguities": 9,
   "total_conflicts": 0,
   "queue_size": 14,
@@ -22,9 +22,9 @@
   "queue_rejected": 5,
   "claims_count": 316,
   "mappings_count": 11,
-  "decisions_active": 16,
+  "decisions_active": 7,
   "decisions_expired": 2,
-  "decisions_md_lines": 146,
+  "decisions_md_lines": 145,
   "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
@@ -37,7 +37,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 146,
+    "decisions_md_lines_current": 145,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -45,12 +45,12 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Run #125 - Health check via AI Hub (no new changes)"
+    "reason": "Run #126 - Health check via AI Hub (no new changes)"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T23:27:55Z",
-    "previous_run_id": "2026-02-02T23:11:50Z",
-    "run_count": 125,
+    "run_id": "2026-02-02T23:42:31Z",
+    "previous_run_id": "2026-02-02T23:27:55Z",
+    "run_count": 126,
     "run_type": "health_check",
     "claims_added": 0,
     "ambiguities_added": 0,
@@ -62,38 +62,32 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #125 completed - Concept sync health check via AI Hub",
+      "Run #126 completed - Concept sync health check via AI Hub",
       "No new code or documentation changes detected",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
-      "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted (Connector)",
-      "decisions.md: 146 lines (within 200-line limit)",
-      "15 invariants maintained (13 hard, 2 soft)",
-      "16 AUTO decisions active (applied), 2 expired (security)",
+      "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted",
+      "decisions.md: 145 lines (within 200-line limit)",
+      "14 invariants maintained",
+      "7 AUTO decisions active (applied), 2 expired",
       "All budget limits within acceptable ranges",
       "No conflicts detected",
-      "Bloat control checks passed - no GC needed",
-      "CRITICAL SECURITY REMINDERS (from ambiguities.yml):",
-      "  - AMB-SEC-001: Hardcoded JWT secret at gui_agent_loop_core/core/interpreter_manager.py:77 (EXPIRED - URGENT)",
-      "  - AMB-SEC-002: Undefined variables in jwt_decode_session() at gui_agent_loop_core/core/interpreter_manager.py:56-60 (EXPIRED - URGENT)"
+      "Bloat control checks passed - no GC needed"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (146/200 lines)",
+    "decisions_cache_health": "healthy (145/200 lines)",
     "queue_health": "healthy (0 pending, 8 merged, 5 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
     "concept_alignment_score": "100/100 (perfect)",
-    "invariant_coverage_quality": "PERFECT (100% coverage (15/15): 13 hard + 2 soft)",
-    "semantic_check_status": "PASSED - no contradictions detected",
-    "security_alert": "CRITICAL: Two (2) security AUTO decisions remain EXPIRED in ambiguities.yml (AMB-SEC-001, AMB-SEC-002). IMMEDIATE ACTION REQUIRED to resolve these security issues."
+    "invariant_coverage_quality": "EXCELLENT",
+    "semantic_check_status": "PASSED - no contradictions detected"
   },
   "next_steps": [
-    "CRITICAL #1: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED - URGENT)",
-    "CRITICAL #2: Fix AMB-SEC-002 - Fix or remove jwt_decode_session() method with undefined variables (EXPIRED - URGENT)",
-    "MEDIUM: Resolve TODO comments in message schema (FUNCTION/TOOL roles)",
-    "MEDIUM: Resolve TODO comments in connector and backend implementations",
-    "LOW: Consider promoting Memory term from draft to stable status",
-    "Continue regular ontology sync runs to monitor security debt and AUTO decision expiration"
+    "Continue regular ontology sync runs to monitor concept drift",
+    "Monitor AUTO decision expiration (20-run cycle)",
+    "Review pending security issues if any",
+    "Consider promoting draft terms to stable when appropriate"
   ]
 }
