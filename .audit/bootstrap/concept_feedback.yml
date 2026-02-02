@@ -1,121 +1,35 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T22:06:49Z"
+  bootstrap_run_timestamp: "2026-02-02T22:33:00Z"
   source_ontology_version: "0.3"
-  run_id: "bootstrap-run-v1.1-20260202-220649"
 
-  # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 151
-    synonym_used_as_examples: 27
-    synonym_used_in_violation: 0
-    unknown_terms_found: []
-    alignment_rate: 1.0
-    assessment: "完璧 - すべてのMDファイルで正規形が使用されている"
+    canonical_terms_total: 10
+    canonical_used_in_md: 10
+    alignment_rate: 0.96
 
-  # 2. 新規用語の統合状況
-  new_term_integration:
-    new_terms_since_last_run: 0
-    new_terms_details: []
-    assessment: "新規用語なし - すべての既存用語が適切に統合されている"
-
-  # 3. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected: 13
-    missing: []
-    by_file:
-      AGENTS.md: 13
-      SYSTEM_CONSTITUTION.md: 13
-      CONTRIBUTING.md: 13
-      CLAUDE.md: 13
-      GEMINI.md: 9
-    assessment: "完全 - すべての不変条件が適切に文書化されている"
+    total_invariants: 13
+    reflected_in_md: 13
+    coverage_rate: 1.0
 
-  # 4. AUTO決定の扱い
-  auto_decision_handling:
-    total_active: 9
-    noted_in_md: 9
-    expired: 2
-    expired_details:
-      - id: "AMB-SEC-001"
-        topic: "Security: ハードコードされたシークレットキー"
-        decision_key: "AUTO:Security.secret_key:env_var_required"
-        status: "expired_critical"
-        action_required: "環境変数使用への移行が必須"
-      - id: "AMB-SEC-002"
-        topic: "Session: JWTデコードメソッドの未定義変数バグ"
-        decision_key: "AUTO:Session.jwt:decode_method_fix"
-        status: "expired_high"
-        action_required: "メソッドの修正または削除が必要"
-    format: "注記として記載（暫定仕様として扱う）"
-    assessment: "AUTO決定は適切に文書化されているが、2つの期限切れ決定への対処が必要"
+  expired_auto_decisions:
+    - id: "AMB-SEC-001"
+      severity: "high"
+      runs_past_expiration: 20+
+      urgency: "CRITICAL"
+    - id: "AMB-SEC-002"
+      severity: "high"
+      runs_past_expiration: 4+
+      urgency: "HIGH"
 
-  # 5. 曖昧性の発見
-  ambiguities_discovered: []
+  unknown_terms_found:
+    - term: "GUI frameworks"
+      suggestion: "GuiFrameworkとして追加"
+    - term: "LLM agents"
+      suggestion: "LlmAgentとして追加"
 
-  # 6. ontology.ymlへの更新提案
-  ontology_suggestions:
-    new_terms: []
-    definition_updates: []
-    synonym_additions: []
-    boundary_updates: []
-    assessment: "現行のontology.ymlは完全であり、更新は不要"
-
-  # 7. 用語境界の整合性チェック
-  term_boundary_check:
-    total_terms_checked: 11
-    boundaries_consistent: 11
-    inconsistencies: []
-    assessment: "完全 - すべての用語境界が一貫している"
-
-  # 8. レイヤー別使用状況
-  layer_usage:
-    core:
-      total_terms: 5
-      used_in_md: 5
-      usage_rate: 1.0
-      terms: ["Interpreter", "Agent", "Session", "Message", "State"]
-    domain:
-      total_terms: 5
-      used_in_md: 5
-      usage_rate: 1.0
-      terms: ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"]
-    aux:
-      total_terms: 1
-      used_in_md: 1
-      usage_rate: 1.0
-      terms: ["Converter"]
-
-  # 9. ステータス別使用状況
-  status_usage:
-    stable:
-      total_terms: 10
-      used_in_md: 10
-      usage_rate: 1.0
-    draft:
-      total_terms: 1
-      used_in_md: 1
-      usage_rate: 1.0
-      note: "Memory term is marked as draft, properly noted in MD files"
-
-  # 10. 総合評価
-  overall_assessment:
-    status: "perfect"
-    concept_alignment_score: 100
-    terminology_consistency: "100%"
-    invariant_coverage: "100% (13/13)"
-    auto_decision_documentation: "100% (9/9)"
-    summary: "概念モデルは完全にMDドキュメントに統合されている。用語の正規形が完璧に使用され、すべての不変条件とAUTO決定が適切に文書化されている。"
-    readiness: "production_ready"
-
-  # 11. 推奨事項
   recommendations:
-    - recommendation: "address_expired_auto_decisions"
-      priority: "critical"
-      description: "期限切れのAUTO決定（AMB-SEC-001, AMB-SEC-002）への対処が必要"
-    - recommendation: "maintain_ontology_quality"
-      priority: "high"
-      description: "現行の完璧なontology.ymlを維持する"
-    - recommendation: "review_memory_term"
-      priority: "low"
-      description: "Memory用語はdraftステータス。実装が進んだらstableに昇格することを検討"
+    - id: "CONCEPT-REC-001"
+      priority: "CRITICAL"
+      title: "エキスパイアしたAUTO決定の対応"
+      urgency: "即時対応推奨"

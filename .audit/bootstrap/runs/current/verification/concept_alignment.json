@@ -1,106 +1,100 @@
 {
-  "timestamp": "2026-02-02T22:06:49Z",
+  "timestamp": "2026-02-02T22:33:00Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "overall_alignment_score": 100,
+  "verification_type": "concept_alignment",
+  "overall_alignment_score": 96,
 
   "term_usage_check": {
-    "total_term_occurrences": 151,
-    "canonical_used": 151,
+    "total_term_occurrences": 52,
+    "canonical_used": 50,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 2,
+    "alignment_rate": 0.96
   },
 
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 12,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "synonyms_found": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 25,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 98,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+      "synonyms_found": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 18,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 15,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+      "synonyms_found": []
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 8,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 10,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 14,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 8,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "canonical_terms_found": 8,
-      "synonyms_found": 0,
-      "issues": []
+      "alignment_score": 90,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "State", "Message"],
+      "synonyms_found": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_found": 33,
-      "synonyms_found": 0,
-      "issues": []
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "synonyms_found": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
+      "synonyms_found": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": []
     }
   ],
 
   "invariant_check": {
     "total_invariants": 13,
     "reflected_in_md": 13,
-    "missing": []
+    "missing": [],
+    "coverage_rate": 1.0
   },
 
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
-    "missing_notes": 0
+  "auto_decision_check": {
+    "active_auto_decisions": 7,
+    "reflected_as_notes": 7,
+    "missing_notes": 0,
+    "coverage_rate": 1.0
   },
+
+  "unknown_terms_found": [
+    {
+      "term": "GUI frameworks",
+      "context": "README.md:3 - 'bridging GUI frameworks and LLM agents'",
+      "suggestion": "Consider adding to ontology as 'GuiFramework' (domain term)"
+    },
+    {
+      "term": "LLM agents",
+      "context": "README.md:3 - 'bridging GUI frameworks and LLM agents'",
+      "suggestion": "Consider adding to ontology as 'LlmAgent' (domain term)"
+    }
+  ],
 
   "summary": {
-    "term_coverage": "100%",
-    "invariant_coverage": "100%",
-    "auto_decision_coverage": "100%",
-    "overall_score": 100
+    "concept_alignment_score": 96,
+    "uniqueness_score": 95,
+    "overall_score": 96,
+    "status": "EXCELLENT"
   }
 }
