@@ -1,203 +1,184 @@
 {
-  "timestamp": "2026-02-03T07:16:00Z",
-  "overall_score": 95,
+  "timestamp": "2026-02-03T07:29:41Z",
+  "overall_score": 92,
   "concept_alignment_score": 95,
-  "uniqueness_score": 95,
+  "uniqueness_score": 90,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 100,
-      "weight": 0.3,
-      "notes": "All MD files clearly express the repository's mission from intent.yml"
-    },
-    "term_consistency": {
-      "score": 100,
-      "weight": 0.3,
-      "notes": "Perfect canonical term usage - 50/50 occurrences use canonical forms, 0 synonyms found"
-    },
-    "invariant_coverage": {
-      "score": 95,
-      "weight": 0.2,
-      "notes": "All 13 invariants (10 hard, 3 soft) documented across MD files"
-    },
-    "uniqueness": {
-      "score": 95,
-      "weight": 0.2,
-      "notes": "No contradictions found across MD files, perfect mission consistency"
-    }
-  },
-
+  "scoring_method": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "Mission statement matches intent.yml exactly",
-          "All 5 core functions from intent.yml documented",
-          "Canonical terms used correctly (Interpreter, Agent, Session, Message, State)",
-          "References to GLOSSARY.md"
-        ]
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend"],
+        "synonyms_found": [],
+        "issues": []
       },
       "intent_alignment": {
-        "score": 100
+        "score": 98,
+        "mission_reflected": true,
+        "target_users_correct": true,
+        "core_functions_covered": true
       },
-      "verification_checks": {
-        "UC-001": "pass",
-        "UC-002": "pass",
-        "CA-001": "pass",
-        "CA-002": "pass"
-      }
+      "invariant_documentation": {
+        "hard_invariants_listed": 5,
+        "total_hard_invariants": 10,
+        "coverage": "50%"
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "strengths": [
-          "Perfect term normalization table",
-          "All 10 canonical terms documented",
-          "Synonyms clearly marked as prohibited",
-          "References to ontology.yml"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": [],
+        "issues": []
       },
-      "verification_checks": {
-        "UC-001": "pass",
-        "UC-004": "pass",
-        "CA-001": "pass",
-        "CA-002": "pass",
-        "CA-003": "pass"
-      }
+      "intent_alignment": {
+        "score": 95,
+        "mission_reflected": true,
+        "boundaries_documented": true,
+        "behavior_rules_clear": true
+      },
+      "invariant_documentation": {
+        "hard_invariants_listed": 11,
+        "soft_invariants_listed": 3,
+        "total_documented": 14,
+        "coverage": "100%"
+      },
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "strengths": [
-          "All 9 AUTO decisions documented",
-          "All 13 invariants documented with code examples",
-          "Canonical terms properly categorized"
-        ]
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "issues": []
       },
-      "verification_checks": {
-        "CA-003": "pass",
-        "CA-004": "pass"
-      }
+      "intent_alignment": {
+        "score": 98,
+        "claude_specific_guidance": true,
+        "invariants_covered": true,
+        "auto_decisions_noted": 9
+      },
+      "invariant_documentation": {
+        "hard_invariants_listed": 10,
+        "soft_invariants_listed": 1,
+        "total_documented": 11,
+        "coverage": "92%"
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "notes": "Auto-generated from ontology.yml v0.3"
-      }
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 90
-      }
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95
-      }
+        "score": 95,
+        "ontology_source": ".concept/ontology.yml v0.3",
+        "total_terms": 11,
+        "all_canonical_terms_present": true
+      },
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 85
-      }
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 92
-      }
+        "score": 80,
+        "issues": [
+          {
+            "type": "missing_invariant_reference",
+            "detail": "Some hard invariants not explicitly referenced in contribution guidelines"
+          }
+        ]
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 90
-      }
+        "score": 70,
+        "issues": [
+          {
+            "type": "outdated_content",
+            "detail": "Last updated 2026-02-02, may need concept alignment refresh"
+          }
+        ]
+      },
+      "issues": ["May need ontology review for term normalization"]
     },
     {
       "path": "CODEX.md",
       "exists": true,
+      "clarity_score": 75,
+      "concept_alignment": {
+        "score": 70,
+        "issues": [
+          {
+            "type": "outdated_content",
+            "detail": "Last updated 2026-02-02, may need concept alignment refresh"
+          }
+        ]
+      },
+      "issues": ["May need ontology review for term normalization"]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 75,
+        "issues": [
+          {
+            "type": "potentially_outdated",
+            "detail": "Last updated 2026-02-02, should verify mappings.yml alignment"
+          }
+        ]
+      },
+      "issues": ["Verify mappings.yml reflection, concept alignment"]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 90
-      }
+        "score": 90,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 88,
+        "issues": []
+      },
+      "issues": []
     }
   ],
-
-  "verification_results": {
-    "uniqueness_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 95,
-      "checks": ["UC-001", "UC-002", "UC-003", "UC-004", "UC-005"]
-    },
-    "concept_alignment_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 95,
-      "checks": ["CA-001", "CA-002", "CA-003", "CA-004", "CA-005"]
-    }
-  },
-
-  "term_usage_analysis": {
-    "canonical_terms_used": 10,
-    "canonical_terms_found": 10,
-    "synonyms_used_in_docs": 0,
-    "unknown_terms_found": 0,
-    "alignment_rate": 1.0,
-    "improvement_from_before": 0
-  },
-
-  "invariant_coverage_analysis": {
-    "total_invariants": 13,
-    "hard_invariants": 10,
-    "soft_invariants": 3,
-    "documented_in_mds": 13,
-    "coverage_rate": 1.0,
-    "improvement_from_before": 0
-  },
-
-  "auto_decision_coverage": {
-    "total_auto_decisions": 9,
-    "documented": 9,
-    "coverage_rate": 1.0
-  },
-
   "summary": {
-    "status": "excellent",
-    "target_score_achieved": true,
-    "target_score": 90,
-    "actual_score": 95,
-    "major_issues": 0,
-    "minor_issues": 0,
-    "changes_applied": 0,
-    "recommendation": "Documentation is in excellent condition. All verification checks passed."
+    "total_files": 11,
+    "avg_clarity": 88.2,
+    "avg_concept_alignment": 87.3,
+    "excellent_files": 7,
+    "good_files": 3,
+    "needs_attention": 1,
+    "auto_decisions_documented": 9,
+    "hard_invariants_documented": 10,
+    "canonical_terms_coverage": "100%"
   }
 }
