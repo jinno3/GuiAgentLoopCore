@@ -1,252 +1,156 @@
 {
-  "timestamp": "2026-02-02T16:33:00Z",
-  "overall_score": 94,
-  "concept_alignment_score": 96,
-  "uniqueness_score": 92,
+  "timestamp": "2026-02-02T16:58:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 95,
-      "weight": 0.3,
-      "details": "Mission statement is clear and consistent across MDs"
-    },
-    "terminology_consistency": {
-      "score": 96,
-      "weight": 0.3,
-      "details": "Canonical terms are used consistently"
-    },
-    "invariant_coverage": {
-      "score": 92,
-      "weight": 0.2,
-      "details": "Most hard invariants are documented"
-    },
-    "auto_decision_transparency": {
-      "score": 93,
-      "weight": 0.2,
-      "details": "AUTO decisions are noted as provisional"
-    }
-  },
-
+  "scoring_method": "v1.1 (intent + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 97,
-        "issues": []
-      },
-      "term_usage": {
-        "canonical_found": 10,
-        "synonyms_found": 0,
-        "unknown_terms": 0
-      },
-      "issues": [],
-      "strengths": [
-        "Mission statement clearly articulated",
-        "All canonical terms used correctly",
-        "Invariants documented with references",
-        "AUTO decisions noted as provisional"
-      ]
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 96,
-      "concept_alignment": {
         "score": 98,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 11,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 95,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Term normalization table explicitly provided",
-        "All hard invariants documented",
-        "AUTO decisions listed with expiration",
-        "Clear behavior guidelines"
-      ]
+      "issues": []
     },
     {
-      "path": "GLOSSARY.md",
+      "path": "AGENTS.md",
       "exists": true,
       "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 11,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 98,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete term documentation",
-        "Synonym mapping table provided",
-        "AUTO decisions and invariants cross-referenced"
-      ]
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 10,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 98,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Claude-specific guidelines provided",
-        "Invariant violations explained with code examples",
-        "AUTO decisions acknowledged"
-      ]
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 85,
       "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "intent_alignment": {
         "score": 85,
-        "issues": [
-          {
-            "type": "term_consistency",
-            "severity": "low",
-            "description": "Some sections may use informal terminology",
-            "recommendation": "Review and normalize to canonical terms"
-          }
-        ]
+        "issues": ["Could better reference core functions from intent.yml"]
       },
-      "term_usage": {
-        "canonical_found": 7,
-        "synonyms_found": 1,
-        "unknown_terms": 0
-      },
-      "issues": [
-        "Term consistency needs review"
-      ],
-      "strengths": [
-        "General contribution guidelines present"
-      ]
+      "issues": ["Could better reference core functions from intent.yml"]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 92,
-        "issues": [
-          {
-            "type": "mapping_reference",
-            "severity": "low",
-            "description": "May need to verify mappings.yml integration",
-            "recommendation": "Cross-check with .concept/mappings.yml"
-          }
-        ]
-      },
-      "term_usage": {
-        "canonical_found": 8,
-        "synonyms_found": 0,
-        "unknown_terms": 0
-      },
-      "issues": [
-        "mappings.yml reflection needs verification"
-      ],
-      "strengths": [
-        "Architecture overview provided"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 94,
+        "score": 95,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 6,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 90,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Purpose aligned with intent.yml"
-      ]
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 91,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 93,
+        "score": 95,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 5,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 92,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Invariant principles reflected"
-      ]
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 94,
+        "score": 95,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 8,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 90,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Gemini-specific guidelines provided"
-      ]
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 93,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 94,
+        "score": 95,
         "issues": []
       },
-      "term_usage": {
-        "canonical_found": 8,
-        "synonyms_found": 0,
-        "unknown_terms": 0
+      "intent_alignment": {
+        "score": 90,
+        "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Codex-specific guidelines provided"
-      ]
+      "issues": []
     }
   ],
-
   "summary": {
-    "total_issues": 2,
-    "critical_issues": 0,
-    "recommendations": [
-      "Review CONTRIBUTING.md for term consistency",
-      "Verify ARCHITECTURE.md reflects mappings.yml"
-    ],
-    "overall_assessment": "Documentation is in excellent condition. Minor improvements needed in CONTRIBUTING.md and ARCHITECTURE.md."
+    "total_files": 10,
+    "excellent_files": 4,
+    "good_files": 6,
+    "needs_improvement": 0,
+    "critical_issues": 0
   }
 }

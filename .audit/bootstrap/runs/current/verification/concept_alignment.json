@@ -1,122 +1,239 @@
 {
-  "timestamp": "2026-02-02T16:58:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "invariant_source": ".concept/invariants.yml",
+  "timestamp": "2026-02-02T17:26:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
   "overall_alignment_score": 98,
+  "max_score": 100,
+  "target_score": 90,
+  "status": "PASSED",
+
   "term_usage_check": {
-    "total_term_occurrences": 85,
-    "canonical_used": 85,
+    "total_term_occurrences": 487,
+    "canonical_used": 487,
     "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 1.0,
+    "assessment": "PERFECT - 100% canonical term usage"
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 98,
-      "term_occurrences": 25,
-      "canonical_used": 25,
-      "synonym_used": 0,
+      "term_occurrences": 42,
+      "canonical": 42,
+      "synonyms": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "term_occurrences": 30,
-      "canonical_used": 30,
-      "synonym_used": 0,
+      "term_occurrences": 85,
+      "canonical": 85,
+      "synonyms": 0,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "term_occurrences": 28,
-      "canonical_used": 28,
-      "synonym_used": 0,
+      "term_occurrences": 52,
+      "canonical": 52,
+      "synonyms": 0,
       "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "term_occurrences": 10,
-      "canonical_used": 10,
-      "synonym_used": 0,
-      "issues": [],
-      "note": "Auto-generated from ontology.yml"
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "term_occurrences": 8,
-      "canonical_used": 8,
-      "synonym_used": 0,
-      "issues": []
+      "alignment_score": 90,
+      "term_occurrences": 28,
+      "canonical": 28,
+      "synonyms": 0,
+      "issues": [
+        {
+          "type": "enhancement_opportunity",
+          "description": "Could better reference core functions from intent.yml"
+        }
+      ]
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 95,
-      "term_occurrences": 15,
-      "canonical_used": 15,
-      "synonym_used": 0,
-      "issues": []
+      "term_occurrences": 65,
+      "canonical": 65,
+      "synonyms": 0,
+      "issues": [
+        {
+          "type": "enhancement_opportunity",
+          "description": "Could more explicitly map ontology.yml terms to code components"
+        }
+      ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 98,
-      "term_occurrences": 12,
-      "canonical_used": 12,
-      "synonym_used": 0,
+      "alignment_score": 95,
+      "term_occurrences": 35,
+      "canonical": 35,
+      "synonyms": 0,
       "issues": []
     },
     {
       "file": "PURPOSE.md",
       "alignment_score": 98,
-      "term_occurrences": 10,
-      "canonical_used": 10,
-      "synonym_used": 0,
+      "term_occurrences": 30,
+      "canonical": 30,
+      "synonyms": 0,
       "issues": []
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 95,
-      "term_occurrences": 8,
-      "canonical_used": 8,
-      "synonym_used": 0,
+      "term_occurrences": 25,
+      "canonical": 25,
+      "synonyms": 0,
       "issues": []
     },
     {
       "file": "CODEX.md",
       "alignment_score": 95,
-      "term_occurrences": 8,
-      "canonical_used": 8,
-      "synonym_used": 0,
+      "term_occurrences": 25,
+      "canonical": 25,
+      "synonyms": 0,
+      "issues": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "term_occurrences": 100,
+      "canonical": 100,
+      "synonyms": 0,
+      "auto_generated": true,
       "issues": []
     }
   ],
+
   "invariant_check": {
     "total_invariants": 13,
     "reflected_in_md": 13,
+    "coverage_rate": 1.0,
     "missing": [],
-    "coverage_by_file": {
-      "README.md": 12,
-      "AGENTS.md": 13,
-      "CLAUDE.md": 13,
-      "SYSTEM_CONSTITUTION.md": 10
+    "by_file": {
+      "README.md": {
+        "count": 13,
+        "all_hard_invariants": true
+      },
+      "AGENTS.md": {
+        "count": 13,
+        "all_hard_invariants": true,
+        "with_explanations": true
+      },
+      "CLAUDE.md": {
+        "count": 13,
+        "all_hard_invariants": true,
+        "with_code_examples": true
+      },
+      "CONTRIBUTING.md": {
+        "count": 13,
+        "all_hard_invariants": true
+      },
+      "ARCHITECTURE.md": {
+        "count": 13,
+        "all_hard_invariants": true,
+        "by_component": true
+      }
     }
   },
+
   "auto_decision_check": {
     "total_active": 9,
     "noted_in_md": 9,
+    "reflected_as_notes": 9,
+    "format": "provisional_specification",
+    "coverage_rate": 1.0,
     "missing_notes": [],
-    "coverage_by_file": {
-      "README.md": 9,
-      "AGENTS.md": 9,
-      "CLAUDE.md": 9
+    "by_file": {
+      "README.md": {
+        "count": 9,
+        "all_noted": true,
+        "marked_provisional": true
+      },
+      "AGENTS.md": {
+        "count": 9,
+        "all_noted": true,
+        "with_expiry_dates": true
+      },
+      "CLAUDE.md": {
+        "count": 9,
+        "all_acknowledged": true
+      },
+      "ARCHITECTURE.md": {
+        "count": 9,
+        "all_documented": true,
+        "by_component": true
+      }
     }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
-    "missing_notes": 0
+    "missing_notes": 0,
+    "expired_decisions": 2,
+    "expired_handled": [
+      {
+        "ambiguity_id": "AMB-SEC-001",
+        "term": "Security",
+        "topic": "ハードコードされたシークレットキー vs 環境変数",
+        "status": "expired",
+        "decision_key": "AUTO:Security.secret_key:env_var_required",
+        "action_required": "CRITICAL - Hardcoded secret key must be migrated to environment variable",
+        "expires_after_runs": 10,
+        "last_touched_run": "2026-02-02T05:57:38Z"
+      },
+      {
+        "ambiguity_id": "AMB-SEC-002",
+        "term": "Session",
+        "topic": "JWTデコードメソッドの未定義変数バグ",
+        "status": "expired",
+        "decision_key": "AUTO:Session.jwt:decode_method_fix",
+        "action_required": "HIGH - jwt_decode_session() method must be fixed or removed",
+        "expires_after_runs": 10,
+        "last_touched_run": "2026-02-02T05:57:38Z"
+      }
+    ]
+  },
+
+  "synonym_usage_check": {
+    "total_synonyms_defined": 31,
+    "synonyms_used_in_mds": 0,
+    "violations": [],
+    "compliance_rate": 1.0,
+    "assessment": "PERFECT - No synonyms used in documentation"
+  },
+
+  "summary": {
+    "concept_alignment_score": 98,
+    "term_normalization": "100% - Perfect canonical term usage",
+    "invariant_coverage": "100% - All 13 invariants documented",
+    "auto_decision_transparency": "100% - All 9 active AUTO decisions noted",
+    "synonym_compliance": "100% - No synonyms used",
+    "critical_issues": [
+      {
+        "type": "expired_auto_decision",
+        "count": 2,
+        "requires_action": true,
+        "items": [
+          "AMB-SEC-001: Hardcoded secret key (CRITICAL)",
+          "AMB-SEC-002: JWT decode method bug (HIGH)"
+        ]
+      }
+    ],
+    "enhancement_opportunities": [
+      {
+        "file": "CONTRIBUTING.md",
+        "suggestion": "Could better reference core functions from intent.yml"
+      },
+      {
+        "file": "ARCHITECTURE.md",
+        "suggestion": "Could more explicitly map ontology.yml terms to code components"
+      }
+    ]
   }
 }

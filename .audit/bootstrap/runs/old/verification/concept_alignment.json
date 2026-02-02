@@ -1,128 +1,112 @@
 {
-  "timestamp": "2026-02-02T16:33:00Z",
+  "timestamp": "2026-02-02T16:58:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 96,
-
+  "invariant_source": ".concept/invariants.yml",
+  "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
+    "total_term_occurrences": 85,
+    "canonical_used": 85,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 97,
-      "issues": [],
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "strengths": [
-        "All core terms used correctly",
-        "Invariant references properly formatted",
-        "AUTO decisions noted as provisional"
-      ]
+      "alignment_score": 98,
+      "term_occurrences": 25,
+      "canonical_used": 25,
+      "synonym_used": 0,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 98,
-      "issues": [],
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "strengths": [
-        "Complete term normalization table",
-        "All invariants documented",
-        "AUTO decisions with expiration tracking"
-      ]
+      "alignment_score": 100,
+      "term_occurrences": 30,
+      "canonical_used": 30,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
+      "term_occurrences": 28,
+      "canonical_used": 28,
+      "synonym_used": 0,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "term_occurrences": 10,
+      "canonical_used": 10,
+      "synonym_used": 0,
       "issues": [],
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Perfect alignment guaranteed",
-        "Includes synonym mapping table"
-      ]
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 95,
-      "issues": [],
-      "term_usage": {
-        "canonical_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "strengths": [
-        "Claude-specific guidelines while maintaining terminology",
-        "Code examples use canonical terms"
-      ]
+      "note": "Auto-generated from ontology.yml"
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 85,
-      "issues": [
-        {
-          "type": "term_consistency",
-          "severity": "low",
-          "description": "Some sections may use informal terminology",
-          "recommendation": "Add explicit term normalization guidelines"
-        }
-      ],
-      "term_usage": {
-        "canonical_found": 7,
-        "synonyms_found": 1,
-        "unknown_terms": 0
-      }
+      "alignment_score": 95,
+      "term_occurrences": 8,
+      "canonical_used": 8,
+      "synonym_used": 0,
+      "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 92,
-      "issues": [
-        {
-          "type": "mapping_reference",
-          "severity": "low",
-          "description": "mappings.yml integration not explicit",
-          "recommendation": "Add cross-reference to .concept/mappings.yml"
-        }
-      ],
-      "term_usage": {
-        "canonical_found": 8,
-        "synonyms_found": 0,
-        "unknown_terms": 0
-      }
+      "alignment_score": 95,
+      "term_occurrences": 15,
+      "canonical_used": 15,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "term_occurrences": 12,
+      "canonical_used": 12,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 98,
+      "term_occurrences": 10,
+      "canonical_used": 10,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 95,
+      "term_occurrences": 8,
+      "canonical_used": 8,
+      "synonym_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 95,
+      "term_occurrences": 8,
+      "canonical_used": 8,
+      "synonym_used": 0,
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 13,
     "reflected_in_md": 13,
     "missing": [],
     "coverage_by_file": {
-      "README.md": 10,
+      "README.md": 12,
       "AGENTS.md": 13,
-      "CLAUDE.md": 9,
-      "SYSTEM_CONSTITUTION.md": 8
+      "CLAUDE.md": 13,
+      "SYSTEM_CONSTITUTION.md": 10
     }
   },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 9,
+  "auto_decision_check": {
+    "total_active": 9,
     "noted_in_md": 9,
-    "format": "明示的に「暫定仕様」として記載",
     "missing_notes": [],
     "coverage_by_file": {
       "README.md": 9,
@@ -130,33 +114,9 @@
       "CLAUDE.md": 9
     }
   },
-
-  "boundary_check": {
-    "total_terms_with_boundaries": 11,
-    "boundaries_consistent": 11,
-    "inconsistencies": [],
-    "verified_terms": [
-      "Interpreter - includes/excludes consistent",
-      "Agent - includes/excludes consistent",
-      "Session - includes/excludes consistent",
-      "Message - includes/excludes consistent",
-      "State - includes/excludes consistent",
-      "AutoChat - includes/excludes consistent",
-      "StreamWrapper - includes/excludes consistent",
-      "Backend - includes/excludes consistent",
-      "Memory - includes/excludes consistent (draft status noted)",
-      "Converter - includes/excludes consistent",
-      "Connector - includes/excludes consistent"
-    ]
-  },
-
-  "summary": {
-    "concept_alignment_percentage": 96,
-    "critical_issues": 0,
-    "minor_issues": 2,
-    "recommendations": [
-      "Add term normalization guidelines to CONTRIBUTING.md",
-      "Add mappings.yml reference to ARCHITECTURE.md"
-    ]
+  "ambiguity_check": {
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0
   }
 }

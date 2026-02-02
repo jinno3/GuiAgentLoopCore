@@ -1,26 +1,34 @@
 # MD Bootstrap Execution Plan v1.1
-# Generated: 2026-02-02T16:58:00Z
-
-run_timestamp: "2026-02-02T16:58:00Z"
+run_timestamp: "2026-02-02T17:26:00Z"
 version: "1.1"
+run_number: 15
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
+  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    ontology_version: "0.3"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_users:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents (Claude, Gemini, Codex, etc.)"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
 
 ontology_summary:
   total_terms: 10
@@ -45,84 +53,81 @@ ontology_summary:
       definition: "インタープリタの実行状態を表す列挙型"
 
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
+  GuiAgentInterpreter: "Interpreter"
+  会話インタープリタ: "Interpreter"
+  AIエージェント: "Agent"
+  専門エージェント: "Agent"
+  AgentType: "Agent"
+  AgentDefinition: "Agent"
+  TaskAgent: "Agent"
+  AgentImage: "Agent"
+  ChatSession: "Session"
+  会話セッション: "Session"
+  JWT: "Session"
+  メッセージ: "Message"
+  ChatMessage: "Message"
+  InterpreterState: "State"
+  インタープリタ状態: "State"
+  自動チャット: "AutoChat"
+  自動継続: "AutoChat"
+  GuiAgentStreamWrapper: "StreamWrapper"
+  ストリームラッパー: "StreamWrapper"
+  GUIバックエンド: "Backend"
+  UIフレームワーク: "Backend"
+  GuiBackend: "Backend"
+  GuiComponent: "Backend"
+  会話メモリ: "Memory"
+  ConversationBuffer: "Memory"
+  変換器: "Converter"
+  マッパー: "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
     tier: 1
+    status: "exists_verified"
+    score_estimate: 95
   - path: "AGENTS.md"
-    status: "exists_needs_review"
     tier: 1
+    status: "exists_verified"
+    score_estimate: 98
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
     tier: 2
+    status: "exists_verified"
+    score_estimate: 98
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
     tier: 2
+    status: "exists_verified"
+    score_estimate: 92
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
     tier: 2
+    status: "exists_verified"
+    score_estimate: 95
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
     tier: 2
+    status: "exists_verified"
+    score_estimate: 85
   - path: "GEMINI.md"
-    status: "exists_needs_review"
     tier: 3
+    status: "exists_verified"
+    score_estimate: 90
   - path: "CODEX.md"
-    status: "exists_needs_review"
     tier: 3
+    status: "exists_verified"
+    score_estimate: 90
   - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
     tier: 3
+    status: "exists_verified"
+    score_estimate: 90
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
     tier: 3
+    status: "exists_verified"
+    score_estimate: 100
 
 actions:
   - action: "verify"
-    target: "README.md"
-    reason: "Verify concept alignment and terminology normalization"
-
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Verify concept alignment and terminology normalization"
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify concept alignment and terminology normalization"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify alignment with ontology.yml"
+    target: "all_mds"
+    reason: "All MD files already verified from run #14. Running verification checks."
+    expectation: "All files should pass uniqueness and concept alignment checks."
 
 target_score: 90
 max_iterations: 3
