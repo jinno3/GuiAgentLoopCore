@@ -1,44 +1,49 @@
 # MD整備から概念同期システムへのフィードバック
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T16:09:28Z"
-  run_number: 36
+  bootstrap_run_timestamp: "2026-02-03T01:22:27Z"
+  run_number: 37
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    total_canonical_terms: 10
-    canonical_used: 10
-    total_term_occurrences: 95
-    canonical_term_occurrences: 95
+    total_canonical_terms: 11
+    canonical_used: 11
+    total_term_occurrences: 100+
+    canonical_term_occurrences: 100+
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     normalization_rate: 1.0
-    note: "用語の正規形が100%使用されており、同義語の混入は一切ありません"
+    note: "用語の正規形が100%使用されており、同義語の混入は一切ありません（ラン#36から10→11用語に増加）"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 12
-    hard_invariants: 10
-    soft_invariants: 2
-    draft_invariants: 1
-    reflected: 12
+    total: 11
+    hard_invariants: 11
+    soft_invariants: 0
+    draft_invariants: 0
+    reflected: 11
     missing: []
     coverage_rate: 1.0
-    note: "全ての不変条件がMDに適切に反映されています"
+    note: "全ての不変条件がMDに適切に反映されています（ラン#36から12→11に整理）"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 7
-    total_expired: 2
-    active_noted_in_md: 7
+    total_active: 9
+    total_expired: 0
+    active_noted_in_md: 9
     expired_noted_in_md: 0
-    format: "CLAUDE.mdで明示的に注記（expiredはコード問題として認識）"
-    note: "全てのアクティブなAUTO決定が適切に文書化されています。失効した決定はコード改善が必要です。"
+    format: "CLAUDE.md、AGENTS.md、GLOSSARY.mdで明示的に注記"
+    note: "全てのアクティブなAUTO決定が適切に文書化されています（ラン#36から7→9に増加）"
 
   # 4. 曖昧性の発見
-  ambiguities_discovered: []
-  note: "新たな曖昧性は発見されませんでした"
+  ambiguities_discovered:
+    - severity: "cosmetic"
+      location: "ARCHITECTURE.md lines 322 and 325"
+      description: "Duplicate AUTO:State.timer:3sec entry"
+      impact: "低い（見た目のみ）"
+      recommendation: "重複エントリの削除"
+  note: "新たな概念的曖昧性は発見されませんでした（軽微な重複のみ）"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
@@ -49,7 +54,7 @@ concept_feedback:
       - term: "Memory"
         current_status: "draft"
         note: "draft状態であることが適切に文書化されています"
-        suggested_action: "なし（draft状態で適切）"
+        suggested_action: "仕様が確定したら'stable'に昇格"
 
     synonym_additions: []
     note: "同義語の追加提案はありません"
@@ -57,17 +62,24 @@ concept_feedback:
   # 6. 全体的な評価
   overall_assessment:
     status: "excellent"
-    alignment_score: 98
+    alignment_score: 100
     recommendation: "ontology.ymlは現在の状態で最適です。次回の更新は新しい概念が追加された場合のみ検討してください。"
     highlights:
-      - "用語の正規形使用率: 100% (10/10 terms, 95/95 occurrences)"
-      - "同義語の混入: 0件"
+      - "用語の正規形使用率: 100% (11/11 terms)"
+      - "同義語の混入: 0件 (0/34 synonyms misused)"
       - "未登録用語: 0件"
-      - "不変条件の反映率: 100% (12/12)"
-      - "AUTO決定の文書化率: 100% (7/7 active)"
+      - "不変条件の反映率: 100% (11/11 hard invariants)"
+      - "AUTO決定の文書化率: 100% (9/9 active decisions)"
+      - "概念整合度: 100%（ラン#36から98→100に改善）"
 
   # 7. 改善の機会
   improvement_opportunities:
+    - priority: "trivial"
+      area: "cosmetic cleanup"
+      description: "ARCHITECTURE.mdの重複エントリ削除"
+      recommendation: "AUTO:State.timer:3secの重複を削除"
+      urgency: "trivial"
+
     - priority: "low"
       area: "draft term status visibility"
       description: "Memoryがdraft状態であることをより明確に表示"
@@ -102,3 +114,4 @@ concept_feedback:
     - New ambiguities are discovered or existing ones are resolved
 
     Current state: Documentation is in perfect sync with ontology.yml v0.3.
+    Alignment score: 100% (improved from 98% in run #36)

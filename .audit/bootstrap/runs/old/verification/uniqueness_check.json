@@ -1,16 +1,20 @@
 {
-  "timestamp": "2026-02-03T00:55:07Z",
+  "timestamp": "2026-02-02T16:09:28Z",
+  "verification_type": "uniqueness_check",
   "version": "1.1",
-  "uniqueness_score": 95,
+
+  "overall_uniqueness_score": 95,
+
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
       "passed": true,
       "evidence": {
         "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "mission_consistent": true,
+        "mission_consistency": "All files express: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
         "variations_found": []
       }
     },
@@ -18,53 +22,82 @@
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md"],
-        "target_users_consistent": true,
-        "variations_found": []
+        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
+        "inconsistencies": []
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "constraints_consistent": true,
-        "variations_found": []
+        "constraints_yml_version": "1.0",
+        "python_version": ">=3.10",
+        "consistent_across": ["CONTRIBUTING.md", "README.md"],
+        "inconsistencies": []
       }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md"],
-        "boundaries_consistent": true,
-        "variations_found": []
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "consistent_across": ["README.md", "PURPOSE.md", "AGENTS.md"],
+        "contradictions": []
       }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "intent_reflected": true,
-        "missing_elements": []
+        "intent_yml_version": "1.0",
+        "core_functions_covered": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction"
+        ],
+        "design_philosophy_covered": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
+        ],
+        "missing_reflections": []
       }
     }
   ],
+
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "pass_rate": 1.0
-  },
-  "issues_found": [],
-  "issues_resolved": []
+    "score": 100,
+    "note": "Perfect uniqueness score - all MD files are consistent with intent.yml"
+  }
 }

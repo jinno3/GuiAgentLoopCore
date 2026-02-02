@@ -1,118 +1,109 @@
 {
-  "timestamp": "2026-02-02T16:09:28Z",
-  "repository": "/home/jinno/jinno3/GuiAgentLoopCore",
-
-  "summary": {
-    "total_md_files": 11,
-    "tier_1_mandatory": 2,
-    "tier_2_recommended": 4,
-    "tier_3_optional": 5
-  },
-
-  "files": [
+  "snapshot_type": "md_inventory",
+  "captured_at": "2026-02-03T01:22:27Z",
+  "phase": "before",
+  "repository_root": "/home/jinno/jinno3/GuiAgentLoopCore",
+  "md_files": [
     {
       "path": "README.md",
       "tier": 1,
-      "status": "exists",
-      "size_bytes": 2301,
-      "last_modified": "2026-02-02T21:34:00Z",
-      "purpose": "Repository face and primary entry point"
+      "priority": "critical",
+      "size_bytes": 1824,
+      "lines": 72,
+      "exists": true,
+      "last_modified": "2026-02-02"
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
-      "status": "exists",
-      "size_bytes": 6361,
-      "last_modified": "2026-02-02T23:16:00Z",
-      "purpose": "AI agent-facing instructions"
+      "priority": "critical",
+      "size_bytes": 4521,
+      "lines": 105,
+      "exists": true,
+      "last_modified": "2026-02-02T23:11:00Z",
+      "metadata": {
+        "bootstrap_run": "v1.1-run-30",
+        "notes": "added soft invariants with visual distinction"
+      }
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
-      "status": "exists",
-      "size_bytes": 11620,
-      "last_modified": "2026-02-02T23:16:00Z",
-      "purpose": "Claude-specific instructions"
+      "priority": "high",
+      "size_bytes": 9876,
+      "lines": 259,
+      "exists": true,
+      "last_modified": "2026-02-02T13:23:00Z",
+      "metadata": {
+        "bootstrap_run": "v1.1",
+        "notes": "verified - no changes needed"
+      }
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
-      "status": "exists",
-      "size_bytes": 7943,
-      "last_modified": "2026-02-02T05:33:00Z",
-      "purpose": "System constitution with invariant principles"
+      "priority": "high",
+      "exists": true
     },
     {
       "path": "PURPOSE.md",
       "tier": 2,
-      "status": "exists",
-      "size_bytes": 5374,
-      "last_modified": "2026-02-02T23:47:00Z",
-      "purpose": "Detailed purpose explanation"
+      "priority": "high",
+      "exists": true
     },
     {
       "path": "CONTRIBUTING.md",
       "tier": 2,
-      "status": "exists",
-      "size_bytes": 6727,
-      "last_modified": "2026-02-02T23:47:00Z",
-      "purpose": "Contribution guidelines"
-    },
-    {
-      "path": "GEMINI.md",
-      "tier": 3,
-      "status": "exists",
-      "size_bytes": 4744,
-      "last_modified": "2026-02-02T00:57:00Z",
-      "purpose": "Gemini-specific instructions"
-    },
-    {
-      "path": "CODEX.md",
-      "tier": 3,
-      "status": "exists",
-      "size_bytes": 4968,
-      "last_modified": "2026-02-02T00:57:00Z",
-      "purpose": "Codex-specific instructions"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "tier": 3,
-      "status": "exists",
-      "size_bytes": 13424,
-      "last_modified": "2026-02-02T11:07:00Z",
-      "purpose": "Architecture documentation"
+      "priority": "high",
+      "exists": true
     },
     {
       "path": "GLOSSARY.md",
       "tier": 3,
-      "status": "exists",
-      "size_bytes": 11205,
-      "last_modified": "2026-02-02T22:52:00Z",
-      "purpose": "Glossary generated from ontology"
+      "priority": "medium",
+      "size_bytes": 12453,
+      "lines": 266,
+      "exists": true,
+      "last_modified": "2026-02-02T22:50:00Z",
+      "metadata": {
+        "ontology_version": "0.3",
+        "total_terms": 11,
+        "generated_by": "16_repo_md_bootstrapper v1.1"
+      }
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "priority": "medium",
+      "exists": true
     },
     {
       "path": "CHANGELOG.md",
       "tier": 3,
-      "status": "exists",
-      "size_bytes": 61,
-      "last_modified": "2026-02-01T21:56:00Z",
-      "purpose": "Version history"
-    }
-  ],
-
-  "coverage": {
-    "tier_1_coverage": "2/2 (100%)",
-    "tier_2_coverage": "4/4 (100%)",
-    "tier_3_coverage": "5/6 (83%)",
-    "overall_coverage": "11/12 (92%)"
-  },
-
-  "missing_files": [
+      "priority": "low",
+      "exists": true
+    },
     {
-      "path": "API.md",
+      "path": "CODEX.md",
       "tier": 3,
       "priority": "low",
-      "note": "API documentation (optional)"
+      "exists": true
+    },
+    {
+      "path": "GEMINI.md",
+      "tier": 3,
+      "priority": "low",
+      "exists": true
     }
-  ]
+  ],
+  "summary": {
+    "total_md_files": 11,
+    "tier_1_critical": 2,
+    "tier_2_important": 4,
+    "tier_3_useful": 5,
+    "total_size_bytes": 39500,
+    "has_readme": true,
+    "has_agents_md": true,
+    "has_glossary": true
+  }
 }

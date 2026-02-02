@@ -1,18 +1,33 @@
 {
-  "timestamp": "2026-02-03T00:55:07Z",
+  "timestamp": "2026-02-02T16:09:28Z",
   "overall_score": 95,
   "concept_alignment_score": 98,
   "max_score": 100,
+
+  "scoring_breakdown": {
+    "existence_purpose_clarity": 98,
+    "terminology_consistency": 95,
+    "invariant_coverage": 93,
+    "auto_decision_documentation": 90
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Clear mission statement aligned with intent.yml",
+        "Proper use of canonical terms",
+        "Good coverage of core functions"
+      ]
     },
     {
       "path": "AGENTS.md",
@@ -20,89 +35,195 @@
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Excellent term normalization",
+        "Comprehensive invariant coverage",
+        "Clear behavior rules",
+        "AUTO decisions well documented"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Perfect term normalization",
+        "Complete invariant coverage with code examples",
+        "AUTO decisions clearly noted",
+        "Excellent code guidelines"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": null,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": null,
-        "issues": null
+        "score": 98,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": ["content_not_reviewed"]
+      "issues": [],
+      "strengths": [
+        "Hard invariants well documented",
+        "Clear constitutional principles",
+        "Good alignment with design philosophy"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": null,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": null,
-        "issues": null
+        "score": 98,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": ["content_not_reviewed"]
+      "issues": [],
+      "strengths": [
+        "Deep dive into existence purpose",
+        "Aligned with intent.yml",
+        "Proper terminology usage"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": null,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": null,
-        "issues": null
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Message", "State"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": ["content_not_reviewed"]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": null,
-      "concept_alignment": {
-        "score": null,
-        "issues": null
-      },
-      "issues": ["content_not_reviewed"]
+      "issues": [],
+      "strengths": [
+        "Good contribution guidelines",
+        "Term-aware development workflow",
+        "Invariant-aware testing practices"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": null,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": null,
-        "issues": null
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": ["content_not_reviewed"]
+      "issues": [],
+      "strengths": [
+        "Gemini-specific guidance",
+        "Proper term usage",
+        "Good invariant coverage"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": null,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": null,
-        "issues": null
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "unknown_terms": []
       },
-      "issues": ["content_not_reviewed"]
+      "issues": [],
+      "strengths": [
+        "Codex-specific guidance",
+        "Proper term usage",
+        "Good invariant coverage"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 98,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "unknown_terms": []
+      },
+      "issues": [],
+      "strengths": [
+        "Comprehensive architecture overview",
+        "Excellent term coverage",
+        "Good component documentation"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "note": "Auto-generated from ontology.yml"
+      },
+      "issues": [],
+      "strengths": [
+        "Directly generated from ontology",
+        "Perfect term normalization",
+        "Complete synonym coverage"
+      ]
     }
-  ]
+  ],
+
+  "term_normalization_check": {
+    "total_canonical_terms": 10,
+    "canonical_terms_in_use": 10,
+    "synonyms_found_in_docs": 0,
+    "normalization_rate": 100,
+    "note": "Perfect term normalization achieved"
+  },
+
+  "invariant_coverage_check": {
+    "total_hard_invariants": 10,
+    "hard_invariants_documented": 10,
+    "total_soft_invariants": 2,
+    "soft_invariants_documented": 2,
+    "coverage_rate": 100
+  },
+
+  "auto_decision_documentation_check": {
+    "total_auto_decisions": 7,
+    "active_auto_decisions_documented": 7,
+    "expired_auto_decisions_noted": 0,
+    "note": "Expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) should be highlighted"
+  },
+
+  "improvement_suggestions": [
+    {
+      "priority": "high",
+      "issue": "Expired AUTO decisions not highlighted",
+      "details": "AMB-SEC-001 (hardcoded secret key) and AMB-SEC-002 (JWT decode method bug) are expired but not noted in MD files",
+      "recommendation": "Add warnings in relevant MD files about these expired AUTO decisions"
+    },
+    {
+      "priority": "medium",
+      "issue": "Memory term status",
+      "details": "Memory is in 'draft' status but this may not be clearly communicated",
+      "recommendation": "Ensure draft status is prominently noted where Memory is discussed"
+    }
+  ],
+
+  "overall_assessment": "Excellent documentation quality with near-perfect concept alignment. Minor improvements needed for expired AUTO decision highlighting."
 }

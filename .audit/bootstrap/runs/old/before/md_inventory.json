@@ -1,95 +1,118 @@
 {
-  "timestamp": "2026-02-03T00:55:07Z",
-  "root_mds": [
+  "timestamp": "2026-02-02T16:09:28Z",
+  "repository": "/home/jinno/jinno3/GuiAgentLoopCore",
+
+  "summary": {
+    "total_md_files": 11,
+    "tier_1_mandatory": 2,
+    "tier_2_recommended": 4,
+    "tier_3_optional": 5
+  },
+
+  "files": [
     {
       "path": "README.md",
-      "exists": true,
       "tier": 1,
-      "size_lines": 72
+      "status": "exists",
+      "size_bytes": 2301,
+      "last_modified": "2026-02-02T21:34:00Z",
+      "purpose": "Repository face and primary entry point"
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
       "tier": 1,
-      "size_lines": 105
+      "status": "exists",
+      "size_bytes": 6361,
+      "last_modified": "2026-02-02T23:16:00Z",
+      "purpose": "AI agent-facing instructions"
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
       "tier": 2,
-      "size_lines": 162
+      "status": "exists",
+      "size_bytes": 11620,
+      "last_modified": "2026-02-02T23:16:00Z",
+      "purpose": "Claude-specific instructions"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
       "tier": 2,
-      "size_lines": null
+      "status": "exists",
+      "size_bytes": 7943,
+      "last_modified": "2026-02-02T05:33:00Z",
+      "purpose": "System constitution with invariant principles"
     },
     {
       "path": "PURPOSE.md",
-      "exists": true,
       "tier": 2,
-      "size_lines": null
+      "status": "exists",
+      "size_bytes": 5374,
+      "last_modified": "2026-02-02T23:47:00Z",
+      "purpose": "Detailed purpose explanation"
     },
     {
       "path": "CONTRIBUTING.md",
-      "exists": true,
       "tier": 2,
-      "size_lines": null
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "tier": 3,
-      "size_lines": 266
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "tier": 3,
-      "size_lines": null
+      "status": "exists",
+      "size_bytes": 6727,
+      "last_modified": "2026-02-02T23:47:00Z",
+      "purpose": "Contribution guidelines"
     },
     {
       "path": "GEMINI.md",
-      "exists": true,
       "tier": 3,
-      "size_lines": null
+      "status": "exists",
+      "size_bytes": 4744,
+      "last_modified": "2026-02-02T00:57:00Z",
+      "purpose": "Gemini-specific instructions"
     },
     {
       "path": "CODEX.md",
-      "exists": true,
       "tier": 3,
-      "size_lines": null
+      "status": "exists",
+      "size_bytes": 4968,
+      "last_modified": "2026-02-02T00:57:00Z",
+      "purpose": "Codex-specific instructions"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "status": "exists",
+      "size_bytes": 13424,
+      "last_modified": "2026-02-02T11:07:00Z",
+      "purpose": "Architecture documentation"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 3,
+      "status": "exists",
+      "size_bytes": 11205,
+      "last_modified": "2026-02-02T22:52:00Z",
+      "purpose": "Glossary generated from ontology"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "tier": 3,
+      "status": "exists",
+      "size_bytes": 61,
+      "last_modified": "2026-02-01T21:56:00Z",
+      "purpose": "Version history"
     }
   ],
-  "docs_dir_mds": [
+
+  "coverage": {
+    "tier_1_coverage": "2/2 (100%)",
+    "tier_2_coverage": "4/4 (100%)",
+    "tier_3_coverage": "5/6 (83%)",
+    "overall_coverage": "11/12 (92%)"
+  },
+
+  "missing_files": [
     {
-      "path": "docs/index.md",
-      "exists": true
-    },
-    {
-      "path": "docs/api.md",
-      "exists": true
-    },
-    {
-      "path": "docs/installation.md",
-      "exists": true
-    },
-    {
-      "path": "docs/usage.md",
-      "exists": true
-    },
-    {
-      "path": "docs/contributing.md",
-      "exists": true
-    },
-    {
-      "path": "docs/changelog.md",
-      "exists": true
+      "path": "API.md",
+      "tier": 3,
+      "priority": "low",
+      "note": "API documentation (optional)"
     }
-  ],
-  "total_root_mds": 10,
-  "tier1_coverage": "2/2 (100%)",
-  "tier2_coverage": "4/4 (100%)",
-  "tier3_coverage": "4/4 (100%)"
+  ]
 }
