@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-02T15:16:00Z",
+  "last_updated": "2026-02-02T06:35:16Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -45,12 +45,12 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Bloat control executed: decisions.md pruned from 163 to 146 lines (removed 2 EXPIRED security AUTO decisions from cache per v0.3 policy). Ontology remains healthy."
+    "reason": "No GC actions required - ontology healthy and within all limits"
   },
   "this_run_summary": {
-    "run_id": "2026-02-02T15:16:00Z",
-    "previous_run_id": "2026-02-02T05:57:38Z",
-    "run_count": 69,
+    "run_id": "2026-02-02T06:35:16Z",
+    "previous_run_id": "2026-02-02T15:16:00Z",
+    "run_count": 70,
     "run_type": "maintenance",
     "claims_added": 0,
     "ambiguities_added": 0,
@@ -59,39 +59,37 @@
     "queue_processed": 0,
     "conflicts_resolved": 0,
     "files_analyzed": [],
-    "bloat_control_triggered": true,
+    "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #69 completed - Concept sync maintenance run",
-      "No new code changes detected since last run (2026-02-02T05:57:38Z)",
-      "Recent commits: MD bootstrap verification runs continuing",
+      "Run #70 completed - Concept sync maintenance run",
+      "No new code changes detected since last run (2026-02-02T15:16:00Z)",
+      "Recent commits: MD bootstrap verification runs continuing (run #10 completed)",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
       "Queue status: 0 pending, 7 merged, 4 rejected, 1 accepted (Connector)",
-      "decisions.md: 146 lines (within 200-line limit, reduced from 163)",
-      "14 hard invariants maintained (13 hard, 1 soft)",
-      "17 AUTO decisions active (16 ACTIVE, 2 EXPIRED but preserved in ambiguities.yml)",
-      "BLOAT CONTROL EXECUTED: Removed 2 EXPIRED security AUTO decisions (AMB-SEC-001, AMB-SEC-002) from decisions.md cache per v0.3 policy",
-      "EXPIRED decisions remain tracked in ambiguities.yml with status=expired for historical reference",
-      "CRITICAL SECURITY REMINDERS (from ambiguities.yml):",
-      "  - AMB-SEC-001: Hardcoded JWT secret at gui_agent_loop_core/core/interpreter_manager.py:77 (EXPIRED for 20+ runs - URGENT)",
-      "  - AMB-SEC-002: Undefined variables in jwt_decode_session() at gui_agent_loop_core/core/interpreter_manager.py:56-60 (EXPIRED for 4+ runs - URGENT)",
+      "decisions.md: 146 lines (within 200-line limit)",
+      "14 invariants maintained (13 hard, 1 soft)",
+      "17 AUTO decisions active (16 applied, 2 expired)",
       "System health: All budget limits within acceptable ranges",
       "No conflicts detected",
-      "No new ambiguities detected in this run"
+      "No new ambiguities detected in this run",
+      "CRITICAL SECURITY REMINDERS (from ambiguities.yml):",
+      "  - AMB-SEC-001: Hardcoded JWT secret at gui_agent_loop_core/core/interpreter_manager.py:77 (EXPIRED - URGENT)",
+      "  - AMB-SEC-002: Undefined variables in jwt_decode_session() at gui_agent_loop_core/core/interpreter_manager.py:56-60 (EXPIRED - URGENT)"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (146/200 lines, optimized from 163)",
+    "decisions_cache_health": "healthy (146/200 lines)",
     "queue_health": "healthy (0 pending, 7 merged, 4 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
     "bootstrap_sync_quality": "EXCELLENT (98% alignment from MD bootstrap v1.1)",
     "architecture_doc_alignment": "EXCELLENT (100% alignment with ontology)",
-    "security_alert": "CRITICAL: Two (2) security AUTO decisions remain EXPIRED in ambiguities.yml (AMB-SEC-001, AMB-SEC-002). These have been pruned from decisions.md cache but remain in ambiguities.yml for tracking. IMMEDIATE ACTION REQUIRED to resolve these security issues."
+    "security_alert": "CRITICAL: Two (2) security AUTO decisions remain EXPIRED in ambiguities.yml (AMB-SEC-001, AMB-SEC-002). IMMEDIATE ACTION REQUIRED to resolve these security issues."
   },
   "next_steps": [
-    "CRITICAL #1: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED for 20+ runs past expiration - URGENT)",
-    "CRITICAL #2: Fix AMB-SEC-002 - Fix or remove jwt_decode_session() method with undefined variables (EXPIRED for 4+ runs past expiration - URGENT)",
+    "CRITICAL #1: Fix AMB-SEC-001 - Migrate hardcoded JWT secret to environment variable (EXPIRED - URGENT)",
+    "CRITICAL #2: Fix AMB-SEC-002 - Fix or remove jwt_decode_session() method with undefined variables (EXPIRED - URGENT)",
     "MEDIUM: Resolve TODO comments in message schema (FUNCTION/TOOL roles)",
     "MEDIUM: Resolve TODO comments in connector and backend implementations",
     "LOW: Consider promoting Memory term from draft to stable status",
