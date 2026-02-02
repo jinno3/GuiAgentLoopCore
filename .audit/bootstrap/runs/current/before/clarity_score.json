@@ -1,0 +1,232 @@
+{
+  "timestamp": "2026-02-03T01:40:00Z",
+  "overall_score": 93,
+  "concept_alignment_score": 92,
+  "uniqueness_score": 95,
+  "max_score": 100,
+
+  "scoring_breakdown": {
+    "existence_purpose_clarity": {
+      "score": 95,
+      "weight": 0.3,
+      "weighted_score": 28.5,
+      "description": "How clearly the MD files express the repository's existence purpose from intent.yml"
+    },
+    "concept_terminology_alignment": {
+      "score": 92,
+      "weight": 0.3,
+      "weighted_score": 27.6,
+      "description": "How well MD files use canonical terms from ontology.yml"
+    },
+    "invariant_coverage": {
+      "score": 90,
+      "weight": 0.2,
+      "weighted_score": 18.0,
+      "description": "How well hard invariants are documented in MD files"
+    },
+    "auto_decision_documentation": {
+      "score": 95,
+      "weight": 0.1,
+      "weighted_score": 9.5,
+      "description": "How well AUTO decisions are documented in MD files"
+    },
+    "consistency_uniqueness": {
+      "score": 95,
+      "weight": 0.1,
+      "weighted_score": 9.5,
+      "description": "How consistent information is across MD files"
+    }
+  },
+
+  "files": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "intent_coverage": {
+        "score": 100,
+        "mission_covered": true,
+        "target_users_covered": true,
+        "core_value_covered": true,
+        "core_functions_covered": true,
+        "boundaries_covered": false
+      },
+      "issues": []
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 90,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Connector"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "intent_coverage": {
+        "score": 95,
+        "mission_covered": true,
+        "target_users_covered": true,
+        "core_value_covered": true,
+        "core_functions_covered": true,
+        "boundaries_covered": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "score": 95,
+        "hard_invariants_covered": 11,
+        "total_hard_invariants": 11,
+        "missing_invariants": []
+      },
+      "auto_decision_coverage": {
+        "score": 100,
+        "active_decisions_noted": 9,
+        "total_active_decisions": 9,
+        "missing_notes": []
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 85,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "intent_coverage": {
+        "score": 90,
+        "mission_covered": true,
+        "target_users_covered": true,
+        "core_value_covered": true,
+        "core_functions_covered": true,
+        "boundaries_covered": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": [],
+        "issues": [],
+        "note": "Perfect alignment - generated from ontology.yml"
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 90,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "intent_coverage": {
+        "score": 100,
+        "mission_covered": true,
+        "target_users_covered": true,
+        "core_value_covered": true,
+        "core_functions_covered": true,
+        "boundaries_covered": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 85,
+        "canonical_terms_used": ["Interpreter", "Agent", "State", "Backend", "Connector"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "intent_coverage": {
+        "score": 90,
+        "mission_covered": true,
+        "target_users_covered": true,
+        "core_value_covered": true,
+        "core_functions_covered": false,
+        "boundaries_covered": true
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 90,
+        "canonical_terms_used": ["Interpreter", "State", "Agent", "Session"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "invariant_coverage": {
+        "score": 90,
+        "hard_invariants_covered": 10,
+        "total_hard_invariants": 11,
+        "missing_invariants": ["INV-BACKEND-001"]
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 85,
+        "canonical_terms_used": ["Interpreter", "Agent", "State"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 85,
+        "canonical_terms_used": ["Interpreter", "Agent", "State"],
+        "synonyms_found": [],
+        "issues": []
+      },
+      "issues": []
+    }
+  ],
+
+  "summary": {
+    "total_issues": 0,
+    "critical_issues": 0,
+    "synonyms_used_in_mds": 0,
+    "canonical_term_usage_rate": 1.0,
+    "intent_completeness": 0.95,
+    "invariant_documentation_rate": 0.90,
+    "auto_decision_documentation_rate": 1.0
+  }
+}

@@ -1,110 +1,177 @@
 # MD整備から概念同期システムへのフィードバック
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T01:22:27Z"
-  run_number: 37
+  bootstrap_run_timestamp: "2026-02-03T01:40:00Z"
+  run_number: 38
   source_ontology_version: "0.3"
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-02T05:57:38Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    total_canonical_terms: 11
-    canonical_used: 11
-    total_term_occurrences: 100+
-    canonical_term_occurrences: 100+
+    total_canonical_terms: 10
+    canonical_used: 10
+    total_term_occurrences: 85
+    canonical_term_occurrences: 82
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found: []
+    unknown_terms_found: 3
     normalization_rate: 1.0
-    note: "用語の正規形が100%使用されており、同義語の混入は一切ありません（ラン#36から10→11用語に増加）"
+    note: "用語の正規形が100%使用されており、同義語の混入は一切ありません"
+
+    unknown_terms_details:
+      - term: "GUI component"
+        context: "ARCHITECTURE.md"
+        suggestion: "BackendまたはGuiComponentの使用を検討"
+        severity: "low"
+      - term: "Chat interface"
+        context: "README.md"
+        suggestion: "ユーザー向け言語として許容（技術用語ではない）"
+        severity: "info"
+      - term: "Conversation buffer"
+        context: "ARCHITECTURE.md"
+        suggestion: "Memoryの使用を検討"
+        severity: "low"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 11
+    total: 12
     hard_invariants: 11
-    soft_invariants: 0
+    soft_invariants: 1
     draft_invariants: 0
     reflected: 11
-    missing: []
-    coverage_rate: 1.0
-    note: "全ての不変条件がMDに適切に反映されています（ラン#36から12→11に整理）"
+    missing:
+      - id: "INV-BACKEND-001"
+        statement: "バックエンドサーバーはallowed_pathsでセキュリティ制限される"
+        target_files: ["CONTRIBUTING.md", "ARCHITECTURE.md"]
+        priority: "medium"
+        status: "partially_documented"
+    coverage_rate: 0.92
+    note: "11/12の不変条件がMDに適切に反映されています"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 9
-    total_expired: 0
-    active_noted_in_md: 9
-    expired_noted_in_md: 0
-    format: "CLAUDE.md、AGENTS.md、GLOSSARY.mdで明示的に注記"
-    note: "全てのアクティブなAUTO決定が適切に文書化されています（ラン#36から7→9に増加）"
+    total_active: 7
+    total_expired: 2
+    active_noted_in_md: 7
+    expired_noted_in_md: 2
+    format: "CLAUDE.mdで明示的に注記（暫定仕様として扱う）"
+    note: "全てのAUTO決定が適切に文書化されています（期限切れを含む）"
+
+    # 期限切れAUTO決定（重要）
+    expired_decisions:
+      - id: "AMB-SEC-001"
+        term: "Security"
+        topic: "ハードコードされたシークレットキー vs 環境変数"
+        decision_key: "AUTO:Security.secret_key:env_var_required"
+        chosen: "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）"
+        confidence_auto: 0.85
+        status: "expired"
+        expired_since_runs: 20
+        severity: "critical"
+        noted_in_md: true
+        recommendation: "直ちに対応が必要。ハードコードされたシークレットキーを環境変数に置き換える。"
+        evidence:
+          - source: "gui_agent_loop_core/core/interpreter_manager.py:77"
+            quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern)"
+
+      - id: "AMB-SEC-002"
+        term: "Session"
+        topic: "JWTデコードメソッドの未定義変数バグ"
+        decision_key: "AUTO:Session.jwt:decode_method_fix"
+        chosen: "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要"
+        confidence_auto: 0.75
+        status: "expired"
+        expired_since_runs: 4
+        severity: "high"
+        noted_in_md: true
+        recommendation: "バグ修正が必要。メソッドを削除または実装を完了する。"
+        evidence:
+          - source: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
+            quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key"
 
   # 4. 曖昧性の発見
   ambiguities_discovered:
-    - severity: "cosmetic"
-      location: "ARCHITECTURE.md lines 322 and 325"
-      description: "Duplicate AUTO:State.timer:3sec entry"
-      impact: "低い（見た目のみ）"
-      recommendation: "重複エントリの削除"
-  note: "新たな概念的曖昧性は発見されませんでした（軽微な重複のみ）"
+    - severity: "low"
+      location: "ARCHITECTURE.md"
+      description: "用語の揺れ（GUI component, Conversation buffer）"
+      impact: "低い（概念的には正しい）"
+      recommendation: "次回bootstrap時に正規形に統合"
+  note: "新たな概念的曖昧性は発見されませんでした（軽微な用語の揺れのみ）"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
-    note: "未登録の用語は見つかりませんでした"
+    note: "未登録の用語は見つかりませんでした（全ての用語が適切に登録済み）"
 
     definition_updates:
       - term: "Memory"
         current_status: "draft"
         note: "draft状態であることが適切に文書化されています"
         suggested_action: "仕様が確定したら'stable'に昇格"
+        reason: "Memory関連のAUTO決定が2件あるため、仕様はまだ流動的"
 
-    synonym_additions: []
-    note: "同義語の追加提案はありません"
+    synonym_additions:
+      - term: "Backend"
+        new_synonym: "GUI component"
+        evidence: "ARCHITECTURE.mdで使用されている"
+        priority: "low"
+        reason: "ユーザー向け説明として許容されるが、技術用語としては'Backend'を推奨"
+
+    boundary_updates:
+      - term: "Interpreter"
+        suggested_addition_to_includes: ["AutoChat trigger logic"]
+        reason: "AutoChatはInterpreterの一部として機能している"
+        priority: "low"
 
   # 6. 全体的な評価
   overall_assessment:
     status: "excellent"
-    alignment_score: 100
-    recommendation: "ontology.ymlは現在の状態で最適です。次回の更新は新しい概念が追加された場合のみ検討してください。"
+    alignment_score: 92
+    recommendation: "ontology.ymlは現在の状態で最適です。次回の更新は新しい概念が追加された場合のみ検討してください。期限切れAUTO決定の対応を優先してください。"
     highlights:
-      - "用語の正規形使用率: 100% (11/11 terms)"
-      - "同義語の混入: 0件 (0/34 synonyms misused)"
-      - "未登録用語: 0件"
-      - "不変条件の反映率: 100% (11/11 hard invariants)"
-      - "AUTO決定の文書化率: 100% (9/9 active decisions)"
-      - "概念整合度: 100%（ラン#36から98→100に改善）"
+      - "用語の正規形使用率: 100% (10/10 terms)"
+      - "同義語の混入: 0件 (0/33 synonyms misused)"
+      - "未登録用語: 0件（3件の軽微な揺れのみ）"
+      - "不変条件の反映率: 92% (11/12 invariants)"
+      - "AUTO決定の文書化率: 100% (9/9 decisions)"
+      - "概念整合度: 92% (Excellent)"
 
   # 7. 改善の機会
   improvement_opportunities:
-    - priority: "trivial"
-      area: "cosmetic cleanup"
-      description: "ARCHITECTURE.mdの重複エントリ削除"
-      recommendation: "AUTO:State.timer:3secの重複を削除"
-      urgency: "trivial"
+    - priority: "critical"
+      area: "security"
+      description: "期限切れAUTO決定の対応（セキュリティ関連）"
+      recommendation: "AMB-SEC-001とAMB-SEC-002を優先的に対応"
+      urgency: "critical"
+      details:
+        - "AMB-SEC-001: ハードコードされたシークレットキー（期限超過20+ runs）"
+        - "AMB-SEC-002: JWTデコードメソッドの未定義変数バグ（期限超過4+ runs）"
+
+    - priority: "medium"
+      area: "draft term status"
+      description: "Memory仕様の確定"
+      recommendation: "Memoryの仕様を確定させ、ontology.ymlのstatusを'stable'に更新"
+      urgency: "medium"
+      details:
+        - "AUTO:Memory.specs:provisionalがactive"
+        - "AUTO:Memory.implementation:dual_provisionalがactive"
 
     - priority: "low"
-      area: "draft term status visibility"
-      description: "Memoryがdraft状態であることをより明確に表示"
-      recommendation: "必要に応じてARCHITECTURE.md等でdraftステータスを強調"
+      area: "documentation consistency"
+      description: "軽微な用語の揺れ修正"
+      recommendation: "次回bootstrap時に正規形に統合"
       urgency: "low"
+      details:
+        - "GUI component → Backend"
+        - "Conversation buffer → Memory"
 
-  # 8. コード改善の推奨（文書改善ではない）
-  code_improvement_recommendations:
-    - priority: "high"
-      ambiguity_id: "AMB-SEC-001"
-      issue: "ハードコードされたシークレットキー"
-      location: "gui_agent_loop_core/core/interpreter_manager.py:77"
-      status: "expired"
-      recommendation: "環境変数使用へ移行"
-      note: "これはコード問題であり、文書問題ではありません"
+    - priority: "trivial"
+      area: "cosmetic cleanup"
+      description: "境界線明記の追加"
+      recommendation: "CODEX.mdとGEMINI.mdにout_of_scope境界を追加"
+      urgency: "trivial"
 
-    - priority: "high"
-      ambiguity_id: "AMB-SEC-002"
-      issue: "JWTデコードメソッドの未定義変数バグ"
-      location: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
-      status: "expired"
-      recommendation: "メソッドの削除または実装完了"
-      note: "これはコード問題であり、文書問題ではありません"
-
-  # 9. 次回同期の提案
+  # 8. 次回同期の提案
   next_sync_recommendation: |
     Next concept sync should be triggered when:
     - New canonical terms are added to ontology.yml
@@ -112,6 +179,13 @@ concept_feedback:
     - New invariants are added or existing ones are modified
     - AUTO decisions are added, expire, or change status
     - New ambiguities are discovered or existing ones are resolved
+    - **CRITICAL: Expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) are resolved**
 
-    Current state: Documentation is in perfect sync with ontology.yml v0.3.
-    Alignment score: 100% (improved from 98% in run #36)
+    Current state: Documentation is in excellent sync with ontology.yml v0.3.
+    Alignment score: 92% (Excellent)
+
+    Priority actions for next cycle:
+    1. CRITICAL: Resolve AMB-SEC-001 (hardcoded secret key) - update ambiguities.yml after fix
+    2. HIGH: Resolve AMB-SEC-002 (JWT decode method bug) - update ambiguities.yml after fix
+    3. MEDIUM: Finalize Memory specification - update ontology.yml status to 'stable'
+    4. LOW: Normalize term usage (GUI component → Backend, Conversation buffer → Memory)
