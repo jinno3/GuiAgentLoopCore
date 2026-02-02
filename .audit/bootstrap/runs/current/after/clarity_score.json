@@ -1,58 +1,211 @@
 {
-  "timestamp": "2026-02-03T04:40:00Z",
-  "overall_score": 98,
-  "concept_alignment_score": 97,
-  "uniqueness_score": 98,
+  "timestamp": "2026-02-03T04:53:00Z",
+  "overall_score": 92,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "improvement_from_before": {
-    "overall_score_delta": +6,
-    "concept_alignment_delta": +2,
-    "uniqueness_score_delta": 0
+  "scoring_method": "v1.1 (audit + concept integration)",
+
+  "score_breakdown": {
+    "existence_clarity": 95,
+    "uniqueness": 95,
+    "concept_alignment": 95,
+    "completeness": 90,
+    "consistency": 90
   },
+
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 95,
-      "concept_alignment": 95,
-      "intent_alignment": 95,
-      "status": "verified_no_changes"
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "strengths": [
+        "Mission statement is clear and concise",
+        "Core functions well documented",
+        "Terms are normalized (uses canonical forms)",
+        "System Invariants section added",
+        "AUTO Decisions section added",
+        "Excellent concept integration"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
-      "clarity_score": 98,
-      "concept_alignment": 100,
-      "invariants_coverage": 95,
-      "status": "verified_no_changes"
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [
+        "Excellent term normalization table",
+        "Comprehensive invariants documentation",
+        "Clear behavior guidelines",
+        "Perfect concept alignment",
+        "Complete AUTO decisions documentation (all 9 decisions)",
+        "Updated timestamp"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 92,
-      "concept_alignment": 98,
-      "status": "timestamp_updated",
-      "changes": [
-        "Updated timestamp to reflect bootstrap verification run #51"
-      ]
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [
+        "Perfect term normalization (all canonical forms used)",
+        "All 9 AUTO decisions documented",
+        "Comprehensive invariants documentation",
+        "Excellent concept alignment"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
-      "clarity_score": 100,
-      "concept_alignment": 100,
-      "status": "verified_properly_generated",
-      "changes": [],
-      "notes": [
-        "File was already properly generated from ontology.yml v0.3",
-        "All 11 terms documented with full details",
-        "AUTO decisions properly noted",
-        "Normalization map present"
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Perfect concept alignment",
+        "Comprehensive term documentation",
+        "Includes AUTO decisions and evidence",
+        "Updated timestamp"
+      ],
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "verification_needed",
+            "description": "Concept alignment not verified against mappings.yml",
+            "severity": "medium"
+          }
+        ]
+      },
+      "strengths": [
+        "Comprehensive architecture overview"
+      ],
+      "issues": [
+        "Should verify alignment with mappings.yml"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "strengths": [
+        "Good contribution guidelines",
+        "Minor improvements in terminology consistency"
+      ],
+      "issues": [
+        "Could benefit from more explicit invariants references"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "strengths": [
+        "Clear purpose documentation",
+        "Aligned with intent.yml"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 82,
+        "issues": []
+      },
+      "strengths": [
+        "System principles documented",
+        "Aligned with invariants.yml"
+      ],
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "verification_needed",
+            "description": "Concept alignment not verified",
+            "severity": "low"
+          }
+        ]
+      },
+      "strengths": [],
+      "issues": [
+        "Should verify alignment with ontology.yml"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "type": "verification_needed",
+            "description": "Concept alignment not verified",
+            "severity": "low"
+          }
+        ]
+      },
+      "strengths": [],
+      "issues": [
+        "Should verify alignment with ontology.yml"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 60,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [],
+      "issues": [
+        "Minimal content (61 bytes)"
       ]
     }
   ],
+
   "summary": {
-    "total_files_verified": 11,
-    "files_updated": 1,
-    "term_normalization_rate": "100%",
-    "invariant_documentation_rate": "100%",
-    "auto_decision_documentation_rate": "100%",
-    "ontology_integration": "complete"
+    "total_files": 11,
+    "excellent_files": 4,
+    "good_files": 4,
+    "needs_improvement": 3,
+    "critical_issues": 0
   }
 }

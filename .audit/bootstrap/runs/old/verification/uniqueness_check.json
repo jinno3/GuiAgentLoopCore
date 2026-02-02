@@ -1,85 +1,81 @@
 {
-  "timestamp": "2026-02-03T04:06:55Z",
-  "verification_type": "uniqueness_verification",
-  "intent_source": ".audit/config/intent.yml",
-  "concept_source": ".concept/ontology.yml",
-  "overall_uniqueness_score": 100,
-  "max_score": 100,
+  "timestamp": "2026-02-03T04:40:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 98,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
       "passed": true,
-      "score": 100,
-      "evidence": [
-        "README.md line 3: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'",
-        "AGENTS.md line 3: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'",
-        "PURPOSE.md line 10: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
-      ],
-      "issues": []
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md"],
+        "mission_consistent": true,
+        "variations_found": []
+      }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
       "passed": true,
-      "score": 100,
-      "evidence": [
-        "README.md: 'Application Developers', 'AI Agent Developers', 'Framework Developers', 'AI Agents'",
-        "AGENTS.md: 'Application Developers', 'AI Agent Developers', 'Framework Developers', 'AI Agents'",
-        "PURPOSE.md: 'Application Developers', 'AI Agent Developers', 'Framework Developers', 'AI Agents'"
-      ],
-      "issues": []
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md"],
+        "target_users_consistent": true,
+        "variations_found": []
+      }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "score": 100,
-      "evidence": [
-        "All MD files reference invariants.yml constraints consistently",
-        "Hard invariants are uniformly documented across AGENTS.md, CLAUDE.md, SYSTEM_CONSTITUTION.md"
-      ],
-      "issues": []
+      "evidence": {
+        "constraints_yml": ".audit/config/constraints.yml",
+        "python_version_consistent": ">=3.10",
+        "dependencies_consistent": true
+      }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "score": 100,
-      "evidence": [
-        "README.md: Out of scope = 'UI Rendering', 'LLM Execution', 'Session Storage', 'Authentication', 'Network Protocols'",
-        "AGENTS.md: Out of scope = 'UI Rendering', 'LLM Execution', 'Session Storage', 'Authentication', 'Network Protocols'",
-        "PURPOSE.md: Out of scope = 'UI Rendering', 'LLM Execution', 'Session Storage', 'Authentication', 'Network Protocols'"
-      ],
-      "issues": []
+      "evidence": {
+        "in_scope": [
+          "Conversation Flow Management",
+          "State Machine",
+          "Agent Coordination",
+          "Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "out_of_scope": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "contradictions": []
+      }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
-      "score": 100,
-      "evidence": [
-        "All core_functions from intent.yml are reflected in README.md",
-        "All design_philosophy from intent.yml are reflected in PURPOSE.md",
-        "All boundaries from intent.yml are reflected in AGENTS.md"
-      ],
-      "issues": []
+      "evidence": {
+        "mission_reflected": true,
+        "core_functions_reflected": true,
+        "design_philosophy_reflected": true
+      }
     }
   ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score_percentage": 100
+    "score": 100
   }
 }

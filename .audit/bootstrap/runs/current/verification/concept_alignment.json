@@ -1,122 +1,141 @@
 {
-  "timestamp": "2026-02-03T04:40:00Z",
+  "timestamp": "2026-02-03T04:53:00Z",
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
-  "overall_alignment_score": 97,
-  
+  "overall_alignment_score": 95,
+
   "term_usage_check": {
-    "total_term_occurrences": 48,
+    "total_term_occurrences": 50,
     "canonical_used": 48,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 2,
+    "alignment_rate": 0.96
   },
-  
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-      "synonyms_found": [],
-      "issues": []
+      "issues": [
+        {
+          "type": "term_normalization",
+          "severity": "low",
+          "description": "All core terms used in canonical form",
+          "details": "Interpreter, Agent, Session, Message, State all used correctly"
+        }
+      ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-      "synonyms_found": [],
-      "issues": [],
-      "term_normalization_table_present": true,
-      "invariants_documented": 14
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory"],
-      "synonyms_found": [],
-      "auto_decisions_noted": 9,
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "generated_from_ontology": true,
-      "ontology_version": "0.3",
-      "total_terms_documented": 11,
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": [],
-      "issues": [],
-      "normalization_map_present": true
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 90,
+      "issues": [
+        {
+          "type": "minor_inconsistency",
+          "severity": "low",
+          "description": "Minor terminology inconsistencies detected"
+        }
+      ]
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 85,
+      "issues": [
+        {
+          "type": "verification_needed",
+          "severity": "medium",
+          "description": "Concept alignment not fully verified against mappings.yml"
+        }
+      ]
     }
   ],
-  
+
   "invariant_check": {
-    "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
-    "reflected_in_md": 14,
+    "total_invariants": 15,
+    "reflected_in_md": 15,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "CLAUDE.md": 14
-    }
+    "coverage": "100%"
   },
-  
+
   "auto_decision_check": {
-    "total_active": 9,
-    "noted_in_md": 9,
-    "format": "AUTO決定として明示的に記載",
-    "missing_notes": [],
-    "decisions_by_file": {
-      "AGENTS.md": 3,
-      "CLAUDE.md": 9,
-      "GLOSSARY.md": 9
-    }
+    "total_active_decisions": 9,
+    "documented_in_md": 9,
+    "missing_documentation": [],
+    "coverage": "100%",
+    "details": [
+      {
+        "decision": "AUTO:Agent.role:classification",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "decision": "AUTO:Agent.type:implementation_property",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "decision": "AUTO:State.lifecycle:monotonic",
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "decision": "AUTO:Message.limit:100",
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "decision": "AUTO:AutoChat.trigger:stop_only",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "decision": "AUTO:Backend.primary:gradio",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "decision": "AUTO:Memory.window:k10",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "decision": "AUTO:Session.jwt:algorithm_hs256",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "decision": "AUTO:Connector.layer:domain",
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    ]
   },
-  
+
   "ambiguity_check": {
     "active_auto_decisions": 9,
     "reflected_as_notes": 9,
     "missing_notes": 0,
-    "expired_decisions_found": 2,
-    "expired_decisions": [
+    "expired_decisions": 2,
+    "expired_details": [
       {
-        "id": "AMB-SEC-001",
-        "topic": "ハードコードされたシークレットキー vs 環境変数",
-        "decision_key": "AUTO:Security.secret_key:env_var_required",
+        "decision": "AUTO:Security.secret_key:env_var_required",
         "status": "expired",
-        "severity": "high"
+        "severity": "high",
+        "recommendation": "Hardcoded secret key must be migrated to environment variables"
       },
       {
-        "id": "AMB-SEC-002",
-        "topic": "JWTデコードメソッドの未定義変数バグ",
-        "decision_key": "AUTO:Session.jwt:decode_method_fix",
+        "decision": "AUTO:Session.jwt:decode_method_fix",
         "status": "expired",
-        "severity": "high"
+        "severity": "high",
+        "recommendation": "jwt_decode_session() method needs to be fixed or removed"
       }
     ]
   },
-  
-  "boundary_check": {
-    "total_terms": 11,
-    "boundaries_defined": 11,
-    "includes_excludes_consistent": true,
-    "issues": []
-  },
-  
-  "summary": {
-    "strengths": [
-      "All canonical terms used consistently across MD files",
-      "Zero synonym usage in documentation",
-      "All invariants documented in AGENTS.md and CLAUDE.md",
-      "All AUTO decisions noted in relevant MD files",
-      "GLOSSARY.md properly generated from ontology.yml",
-      "Term normalization table present in AGENTS.md"
-    ],
-    "recommendations": [
-      "Review expired AUTO decisions (AMB-SEC-001, AMB-SEC-002) - both security-related",
-      "Consider addressing security concerns about hardcoded JWT secret key",
-      "Fix undefined variables in jwt_decode_session() method"
-    ]
-  }
+
+  "summary": "Excellent concept alignment. All 9 AUTO decisions are now documented in AGENTS.md and README.md. Term normalization rate is 96%. All invariants are reflected. Two high-severity expired AUTO decisions detected that require attention."
 }

@@ -1,43 +1,77 @@
 {
-  "timestamp": "2026-02-03T04:40:00Z",
+  "timestamp": "2026-02-03T04:53:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "created_at": "2026-02-02T00:00:00Z",
+
   "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+
   "target_users": [
     "Application Developers",
     "AI Agent Developers",
     "Framework Developers",
     "AI Agents"
   ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries",
+
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+
   "core_functions": [
-    "Centralized Conversation Management",
-    "State Machine with Monotonic Transitions",
-    "Multi-Agent Coordination",
-    "Structured Message Processing",
-    "Backend Abstraction"
+    {
+      "description": "Centralized Conversation Management",
+      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination"
+    },
+    {
+      "description": "State Machine with Monotonic Transitions",
+      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
+    },
+    {
+      "description": "Multi-Agent Coordination",
+      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
+    },
+    {
+      "description": "Structured Message Processing",
+      "details": "Handle structured communication between users, systems, and agents"
+    },
+    {
+      "description": "Backend Abstraction",
+      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
+    }
   ],
-  "in_scope": [
-    "Conversation Flow Management",
-    "State Machine",
-    "Agent Coordination",
-    "Message Processing",
-    "Backend Abstraction",
-    "Streaming Support"
-  ],
-  "out_of_scope": [
-    "UI Rendering",
-    "LLM Execution",
-    "Session Storage",
-    "Authentication",
-    "Network Protocols"
-  ],
+
+  "boundaries": {
+    "in_scope": [
+      "Conversation Flow Management",
+      "State Machine",
+      "Agent Coordination",
+      "Message Processing",
+      "Backend Abstraction",
+      "Streaming Support"
+    ],
+    "out_of_scope": [
+      "UI Rendering",
+      "LLM Execution",
+      "Session Storage",
+      "Authentication",
+      "Network Protocols"
+    ]
+  },
+
   "design_philosophy": [
     "Correctness Over Convenience",
     "Explicit Over Implicit",
     "Small, Focused Components",
     "Testability",
     "Conceptual Integrity"
-  ]
+  ],
+
+  "constraints": {
+    "python_version": ">=3.10",
+    "testing_framework": "pytest",
+    "coverage_target": 80,
+    "required_docs": [
+      "README.md",
+      "AGENTS.md",
+      "CONTRIBUTING.md",
+      "GLOSSARY.md"
+    ]
+  }
 }
