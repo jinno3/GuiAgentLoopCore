@@ -1,5 +1,6 @@
-run_timestamp: "2026-02-03T02:07:00Z"
+run_timestamp: "2026-02-03T02:20:00Z"
 version: "1.1"
+run_number: 41
 
 rotation:
   deleted_old: true
@@ -8,21 +9,23 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
+    intent_version: "1.0"
     constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
+    ontology_version: "0.3"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
   core_functions_count: 5
   in_scope_count: 6
   out_of_scope_count: 5
@@ -32,46 +35,28 @@ ontology_summary:
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
+  by_status:
+    stable: 10
+    draft: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      synonyms: ["GuiAgentInterpreter", "会話インタープリタ"]
+      layer: "core"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
+      layer: "core"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      synonyms: ["ChatSession", "会話セッション", "JWT"]
+      layer: "core"
     - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
       layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
-      synonyms: ["メッセージ", "ChatMessage"]
     - canonical: "State"
-      layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-      synonyms: ["InterpreterState", "インタープリタ状態"]
+      layer: "core"
     - canonical: "Connector"
-      layer: "domain"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      synonyms: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
-
-invariants_summary:
-  total_invariants: 12
-  hard_invariants: 9
-  soft_invariants: 3
-  stable_invariants: 11
-  draft_invariants: 1
-
-ambiguities_summary:
-  total_ambiguities: 9
-  active_auto_decisions: 9
-  expired_auto_decisions: 0
-  high_severity: 2
-  medium_severity: 2
-  low_severity: 5
+      layer: "domain"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -97,6 +82,8 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
@@ -104,109 +91,91 @@ term_normalization:
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
     status: "exists_verified"
-    size: "2.3K"
-    issues: []
-    concept_alignment: 95
+    tier: 1
+    size_bytes: 2301
   - path: "AGENTS.md"
     status: "exists_verified"
-    size: "6.3K"
-    issues: []
-    concept_alignment: 90
+    tier: 1
+    size_bytes: 6361
   - path: "CLAUDE.md"
     status: "exists_verified"
-    size: "12K"
-    issues: []
-    concept_alignment: 95
-  - path: "ARCHITECTURE.md"
-    status: "exists_verified"
-    size: "14K"
-    issues: []
-    concept_alignment: 85
+    tier: 2
+    size_bytes: 11620
   - path: "GLOSSARY.md"
     status: "exists_verified"
-    size: "11K"
-    issues: []
-    concept_alignment: 100
+    tier: 3
+    size_bytes: 11205
+  - path: "ARCHITECTURE.md"
+    status: "exists_verified"
+    tier: 3
+    size_bytes: 13424
   - path: "PURPOSE.md"
     status: "exists_verified"
-    size: "5.3K"
-    issues: []
-    concept_alignment: 90
+    tier: 2
+    size_bytes: 5374
   - path: "CONTRIBUTING.md"
     status: "exists_verified"
-    size: "6.6K"
-    issues: []
-    concept_alignment: 85
+    tier: 2
+    size_bytes: 6727
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_verified"
-    size: "7.8K"
-    issues: []
-    concept_alignment: 90
+    tier: 2
+    size_bytes: 7943
   - path: "CODEX.md"
     status: "exists_verified"
-    size: "5.2K"
-    issues: []
-    concept_alignment: 85
+    tier: 3
+    size_bytes: 5224
   - path: "GEMINI.md"
     status: "exists_verified"
-    size: "4.7K"
-    issues: []
-    concept_alignment: 85
+    tier: 3
+    size_bytes: 4744
   - path: "CHANGELOG.md"
-    status: "exists_skip"
-    size: "61"
-    issues: []
+    status: "exists_skipped"
+    tier: 0
+    size_bytes: 61
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent reflection and concept alignment"
+    reason: "存在意義の反映、用語の正規化を検証"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify terminology normalization and invariants"
+    reason: "AIエージェント向け指示と概念整合を検証"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and concept alignment"
+    reason: "Claude向け特化指示と概念整合を検証"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology consistency and Connector term inclusion"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify mappings reflection"
+    reason: "ontology.ymlとの同期を検証"
   - action: "verify"
     target: "PURPOSE.md"
-    reason: "Verify purpose consistency with intent"
+    reason: "目的詳細説明の一貫性を検証"
   - action: "verify"
     target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines alignment"
+    reason: "貢献ガイドの整合性を検証"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection"
+    reason: "不変条件の反映を検証"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "アーキテクチャ説明の整合性を検証"
   - action: "verify"
     target: "CODEX.md"
-    reason: "Verify Codex-specific instructions"
+    reason: "Codex向け指示を検証"
   - action: "verify"
     target: "GEMINI.md"
-    reason: "Verify Gemini-specific instructions"
+    reason: "Gemini向け指示を検証"
 
-expected_outcome:
-  overall_score_target: 95
-  uniqueness_score_target: 95
-  concept_alignment_target: 95
-  verification_checks:
-    - "UC-001: Existence purpose consistency"
-    - "UC-002: Target user consistency"
-    - "UC-003: Constraints consistency"
-    - "UC-004: Boundary consistency"
-    - "UC-005: intent.yml compliance"
-    - "CA-001: Canonical term usage"
-    - "CA-002: Synonym exclusion"
-    - "CA-003: Invariant reflection"
-    - "CA-004: AUTO decision notation"
-    - "CA-005: Term boundary consistency"
+target_score: 90
+max_iterations: 3
+
+previous_run:
+  timestamp: "2026-02-03T02:07:00Z"
+  overall_score: 94
+  uniqueness_score: 95
+  concept_alignment_score: 93
+  status: "verified"
