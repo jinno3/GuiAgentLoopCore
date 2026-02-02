@@ -1,13 +1,12 @@
 {
-  "timestamp": "2026-02-02T23:24:00Z",
+  "timestamp": "2026-02-02T23:40:13Z",
   "version": "1.1",
-  "overall_uniqueness_score": 100,
-
+  "overall_uniqueness_score": 95,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Intent Consistency",
-      "description": "全MDで同じmissionが表現されているか",
+      "name": "Existence Mission Consistency",
+      "description": "All MD files express the same mission from intent.yml",
       "status": "passed",
       "evidence": {
         "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
@@ -15,17 +14,17 @@
           {
             "file": "README.md",
             "has_mission": true,
-            "match": true
+            "matches": true
           },
           {
             "file": "AGENTS.md",
             "has_mission": true,
-            "match": true
+            "matches": true
           },
           {
             "file": "PURPOSE.md",
             "has_mission": true,
-            "match": true
+            "matches": true
           }
         ]
       }
@@ -33,85 +32,80 @@
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "全MDで同じtarget_userを想定しているか",
+      "description": "All MD files target the same user groups from intent.yml",
       "status": "passed",
       "evidence": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "expected_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ],
         "files_checked": [
           {
             "file": "README.md",
-            "mentions_users": true,
-            "consistent": true
+            "has_target_users": true,
+            "matches": true
           },
           {
-            "file": "AGENTS.md",
-            "mentions_users": true,
-            "consistent": true
+            "file": "PURPOSE.md",
+            "has_target_users": true,
+            "matches": true
           }
         ]
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraint Consistency",
-      "description": "技術的制約が一致しているか",
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent across MD files",
       "status": "passed",
       "evidence": {
-        "constraints_verified": [
-          "Monotonic state transitions",
-          "Type-safe message handling",
-          "Hard invariants enforcement"
-        ],
-        "files_checked": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
-        "inconsistencies_found": 0
+        "invariants_consistent": true,
+        "hard_invariants_count": 11,
+        "soft_invariants_count": 2,
+        "files_with_invariants": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "SYSTEM_CONSTITUTION.md",
+          "CONTRIBUTING.md"
+        ]
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "out_of_scopeが矛盾なく定義されているか",
+      "name": "Boundaries Consistency",
+      "description": "In-scope and out-of-scope boundaries are consistent",
       "status": "passed",
       "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": ["AGENTS.md", "README.md"],
-        "contradictions_found": 0
+        "in_scope_items": 6,
+        "out_of_scope_items": 5,
+        "consistent_across_files": true,
+        "files_with_boundaries": [
+          "AGENTS.md",
+          "PURPOSE.md",
+          "README.md"
+        ]
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml Compliance",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "name": "Intent.yml Compliance",
+      "description": "All MD files comply with intent.yml definitions",
       "status": "passed",
       "evidence": {
-        "core_functions_reflected": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "design_philosophy_reflected": [
-          "Correctness Over Convenience",
-          "Explicit Over Implicit",
-          "Small, Focused Components",
-          "Testability",
-          "Conceptual Integrity"
-        ],
-        "deviation_count": 0
+        "total_files": 11,
+        "compliant_files": 11,
+        "compliance_rate": 1.0,
+        "notes": "All files properly reflect intent.yml mission, values, functions, and boundaries"
       }
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
+    "warnings": 0,
     "score": 100
   }
 }

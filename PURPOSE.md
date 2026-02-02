@@ -134,6 +134,10 @@ All terminology is normalized and defined in a formal ontology. No ambiguity.
 
 ---
 
-**Last Updated**: 2026-02-02T13:09:00Z (bootstrap run v1.1)
+**Last Updated**: 2026-02-02T23:40:13Z (bootstrap run v1.1 - verified ontology alignment)
 **Next Review**: 2026-02-03
 **Synced With**: `.audit/config/intent.yml` v1.0, `.concept/ontology.yml` v0.3
+
+---
+
+**Note**: This document uses canonical terminology as defined in `.concept/ontology.yml`. All key concepts (`Interpreter`, `Agent`, `Session`, `Message`, `State`) are aligned with the formal ontology. See [GLOSSARY.md](GLOSSARY.md) for complete term definitions.

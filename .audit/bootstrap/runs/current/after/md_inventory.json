@@ -1,105 +1,116 @@
 {
-  "timestamp": "2026-02-02T23:25:00Z",
-  "scan_root": "/home/jinno/jinno3/GuiAgentLoopCore",
-
+  "timestamp": "2026-02-02T23:40:13Z",
   "total_md_files": 11,
-  "tier1_count": 2,
-  "tier2_count": 4,
-  "tier3_count": 4,
-  "tier0_count": 1,
-
+  "files_modified": 2,
+  "modified_files": [
+    "PURPOSE.md",
+    "CONTRIBUTING.md"
+  ],
   "files": [
     {
-      "path": "README.md",
-      "tier": 1,
-      "status": "verified",
-      "size_bytes": 2301,
-      "last_modified": "2026-02-02T21:34:00Z"
-    },
-    {
       "path": "AGENTS.md",
-      "tier": 1,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 6361,
-      "last_modified": "2026-02-02T23:16:00Z"
+      "tier": "tier1_required",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "ARCHITECTURE.md",
-      "tier": 3,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 13424,
-      "last_modified": "2026-02-02T11:07:00Z"
+      "tier": "tier3_optional",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "CHANGELOG.md",
-      "tier": 0,
-      "status": "verified_skip",
+      "exists": true,
       "size_bytes": 61,
-      "last_modified": "2026-02-01T21:56:00Z",
-      "skip_reason": "Tier 0 - out of scope"
+      "tier": "unspecified",
+      "modified": false,
+      "status": "unrelated"
     },
     {
       "path": "CLAUDE.md",
-      "tier": 2,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 11620,
-      "last_modified": "2026-02-02T23:16:00Z"
+      "tier": "tier2_recommended",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "CODEX.md",
-      "tier": 3,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 5224,
-      "last_modified": "2026-02-02T00:57:00Z"
+      "tier": "tier3_optional",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "CONTRIBUTING.md",
-      "tier": 2,
-      "status": "verified",
-      "size_bytes": 5977,
-      "last_modified": "2026-02-02T11:07:00Z"
+      "exists": true,
+      "size_bytes": 6290,
+      "tier": "tier2_recommended",
+      "modified": true,
+      "status": "updated"
     },
     {
       "path": "GEMINI.md",
-      "tier": 3,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 4744,
-      "last_modified": "2026-02-02T00:57:00Z"
+      "tier": "tier3_optional",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "GLOSSARY.md",
-      "tier": 3,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 11205,
-      "last_modified": "2026-02-02T22:52:00Z"
+      "tier": "tier3_optional",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "PURPOSE.md",
-      "tier": 2,
-      "status": "verified",
-      "size_bytes": 5075,
-      "last_modified": "2026-02-02T13:12:00Z"
+      "exists": true,
+      "size_bytes": 5355,
+      "tier": "tier2_recommended",
+      "modified": true,
+      "status": "updated"
+    },
+    {
+      "path": "README.md",
+      "exists": true,
+      "size_bytes": 2301,
+      "tier": "tier1_required",
+      "modified": false,
+      "status": "verified"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
-      "status": "verified",
+      "exists": true,
       "size_bytes": 7943,
-      "last_modified": "2026-02-02T05:33:00Z"
+      "tier": "tier2_recommended",
+      "modified": false,
+      "status": "verified"
     }
   ],
-
-  "coverage": {
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "4/4 (100%)",
-    "overall_coverage": "10/10 (100%) - excluding Tier 0"
-  },
-
-  "changes_from_before": {
-    "files_updated": 0,
-    "files_created": 0,
-    "files_deleted": 0,
-    "files_verified": 10
+  "tier_coverage": {
+    "tier1_required": {
+      "total": 2,
+      "exists": 2,
+      "coverage": "100%"
+    },
+    "tier2_recommended": {
+      "total": 4,
+      "exists": 4,
+      "coverage": "100%"
+    },
+    "tier3_optional": {
+      "total": 4,
+      "exists": 4,
+      "coverage": "100%"
+    }
   }
 }

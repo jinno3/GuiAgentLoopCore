@@ -1,127 +1,122 @@
 {
-  "timestamp": "2026-02-02T23:11:00Z",
+  "timestamp": "2026-02-02T23:24:00Z",
+  "version": "1.1",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
   "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
+    "total_term_occurrences": 85,
+    "canonical_used": 85,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-  "canonical_terms_verified": [
-    {
-      "term": "Interpreter",
+
+  "canonical_terms_verification": {
+    "Interpreter": {
+      "expected_usage": true,
       "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["GuiAgentInterpreter", "会話インタープリタ"]
+      "synonyms_found": [],
+      "status": "perfect"
     },
-    {
-      "term": "Agent",
+    "Agent": {
+      "expected_usage": true,
       "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["AIエージェント", "専門エージェント", "AgentType"]
+      "synonyms_found": [],
+      "status": "perfect"
     },
-    {
-      "term": "Session",
+    "Session": {
+      "expected_usage": true,
       "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["ChatSession", "会話セッション"]
+      "synonyms_found": [],
+      "status": "perfect"
     },
-    {
-      "term": "Message",
+    "Message": {
+      "expected_usage": true,
       "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["ChatMessage", "メッセージ"]
+      "synonyms_found": [],
+      "status": "perfect"
     },
-    {
-      "term": "State",
+    "State": {
+      "expected_usage": true,
       "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["InterpreterState", "インタープリタ状態"]
+      "synonyms_found": [],
+      "status": "perfect"
     },
-    {
-      "term": "AutoChat",
+    "AutoChat": {
+      "expected_usage": true,
       "found_in_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["自動チャット", "自動継続"]
+      "synonyms_found": [],
+      "status": "perfect"
     },
-    {
-      "term": "StreamWrapper",
+    "StreamWrapper": {
+      "expected_usage": true,
+      "found_in_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "synonyms_found": [],
+      "status": "perfect"
+    },
+    "Backend": {
+      "expected_usage": true,
+      "found_in_files": ["README.md", "AGENTS.md", "GLOSSARY.md"],
+      "synonyms_found": [],
+      "status": "perfect"
+    },
+    "Memory": {
+      "expected_usage": true,
+      "found_in_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "synonyms_found": [],
+      "status": "perfect",
+      "note": "Correctly marked as DRAFT status"
+    },
+    "Connector": {
+      "expected_usage": true,
+      "found_in_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "synonyms_found": [],
+      "status": "perfect"
+    },
+    "Converter": {
+      "expected_usage": true,
       "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["GuiAgentStreamWrapper", "ストリームラッパー"]
-    },
-    {
-      "term": "Backend",
-      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["GUIバックエンド", "UIフレームワーク"]
-    },
-    {
-      "term": "Converter",
-      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["変換器", "マッパー"]
-    },
-    {
-      "term": "Memory",
-      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["会話メモリ", "ConversationBuffer"],
-      "noted_as_draft": true
-    },
-    {
-      "term": "Connector",
-      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
-      "correct_usage": true,
-      "synonyms_avoided": ["コネクタ", "GuiAgentInterpreterABC"]
+      "synonyms_found": [],
+      "status": "perfect"
     }
-  ],
-  "invariant_check": {
-    "total_invariants": 15,
-    "hard_invariants": 12,
-    "soft_invariants": 3,
-    "reflected_in_md": 15,
-    "missing": [],
-    "improvements": [
-      "Added visual distinction (🔒 vs ⚠️) for hard vs soft invariants in AGENTS.md",
-      "Added [DRAFT] marker to INV-MEM-001 in AGENTS.md"
-    ]
   },
-  "auto_decision_handling": {
-    "total_active": 15,
-    "noted_in_md": 15,
-    "format": "明示的にAUTO決定として記載",
-    "missing_notes": []
-  },
-  "per_file_scores": [
+
+  "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "StreamWrapper"],
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": [],
-      "improvements": [
-        "Added soft invariants section with visual distinction",
-        "Updated timestamp to reflect run #30"
-      ]
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": [],
-      "improvements": [
-        "Marked INV-AGENT-001 as soft invariant"
-      ]
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
       "issues": []
     },
     {
@@ -135,12 +130,7 @@
       "issues": []
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
+      "file": "GEMINI.md",
       "alignment_score": 100,
       "issues": []
     },
@@ -148,11 +138,81 @@
       "file": "CODEX.md",
       "alignment_score": 100,
       "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": []
     }
-  ]
+  ],
+
+  "invariant_check": {
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": [],
+    "reflection_rate": 1.0,
+    "details": {
+      "hard_invariants": {
+        "total": 11,
+        "reflected": 11,
+        "missing": []
+      },
+      "soft_invariants": {
+        "total": 3,
+        "reflected": 3,
+        "missing": []
+      }
+    }
+  },
+
+  "auto_decision_check": {
+    "active_auto_decisions": 9,
+    "reflected_in_md": 9,
+    "missing": [],
+    "details": {
+      "documented_in_claude_md": [
+        "AUTO:Agent.role:classification",
+        "AUTO:Agent.type:implementation_property",
+        "AUTO:Session.jwt:algorithm_hs256",
+        "AUTO:Message.structure:flat",
+        "AUTO:Message.limit:100",
+        "AUTO:State.lifecycle:monotonic",
+        "AUTO:State.transition:auto_on_input",
+        "AUTO:State.timer:3sec",
+        "AUTO:AutoChat.trigger:stop_only",
+        "AUTO:AutoChat.prompt:default_continue",
+        "AUTO:Backend.primary:gradio",
+        "AUTO:Backend.deployment:security",
+        "AUTO:Memory.window:k10",
+        "AUTO:Memory.specs:provisional",
+        "AUTO:Backend.timer:3sec_interval"
+      ]
+    }
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 9,
+    "reflected_as_notes": 9,
+    "missing_notes": 0,
+    "expired_decisions": [
+      {
+        "id": "AMB-SEC-001",
+        "severity": "high",
+        "topic": "Secret key hardcoding",
+        "status": "expired",
+        "requires_code_action": true
+      },
+      {
+        "id": "AMB-SEC-002",
+        "severity": "high",
+        "topic": "JWT decode method bug",
+        "status": "expired",
+        "requires_code_action": true
+      }
+    ]
+  },
+
+  "summary": {
+    "total_ca_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "concept_alignment_score": 100,
+    "uniqueness_score": 100,
+    "overall_score": 100
+  }
 }

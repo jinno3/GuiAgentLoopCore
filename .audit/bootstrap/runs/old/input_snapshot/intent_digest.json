@@ -1,42 +1,82 @@
 {
-  "timestamp": "2026-02-02T23:11:00Z",
+  "timestamp": "2026-02-02T23:24:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+  "created_at": "2026-02-02T00:00:00Z",
+
+  "mission": {
+    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "state control"]
+  },
+
   "target_users": [
     "Application Developers",
     "AI Agent Developers",
     "Framework Developers",
     "AI Agents"
   ],
+
   "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+
   "core_functions": [
-    "Centralized Conversation Management",
-    "State Machine with Monotonic Transitions",
-    "Multi-Agent Coordination",
-    "Structured Message Processing",
-    "Backend Abstraction"
+    {
+      "description": "Centralized Conversation Management",
+      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination",
+      "example": "interpreter_manager.py manages chat sessions and state transitions"
+    },
+    {
+      "description": "State Machine with Monotonic Transitions",
+      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants",
+      "example": "change_state_running() ensures state transitions are monotonic"
+    },
+    {
+      "description": "Multi-Agent Coordination",
+      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries",
+      "example": "AgentName enum defines roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
+    },
+    {
+      "description": "Structured Message Processing",
+      "details": "Handle structured communication between users, systems, and agents",
+      "example": "MessageTypeEnum defines: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+    },
+    {
+      "description": "Backend Abstraction",
+      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
+      "example": "GuiBackendType enum: GRADIO, STREAMSYNC"
+    }
   ],
-  "in_scope": [
-    "Conversation Flow Management",
-    "State Machine",
-    "Agent Coordination",
-    "Message Processing",
-    "Backend Abstraction",
-    "Streaming Support"
-  ],
-  "out_of_scope": [
-    "UI Rendering",
-    "LLM Execution",
-    "Session Storage",
-    "Authentication",
-    "Network Protocols"
-  ],
+
+  "boundaries": {
+    "in_scope": [
+      "Conversation Flow Management",
+      "State Machine",
+      "Agent Coordination",
+      "Message Processing",
+      "Backend Abstraction",
+      "Streaming Support"
+    ],
+    "out_of_scope": [
+      "UI Rendering",
+      "LLM Execution",
+      "Session Storage",
+      "Authentication",
+      "Network Protocols"
+    ]
+  },
+
   "design_philosophy": [
     "Correctness Over Convenience",
     "Explicit Over Implicit",
     "Small, Focused Components",
     "Testability",
     "Conceptual Integrity"
+  ],
+
+  "success_metrics": [
+    "Integration Time",
+    "Bug-Free State Transitions",
+    "Agent Compatibility",
+    "Type Safety",
+    "Documentation Clarity"
   ]
 }
