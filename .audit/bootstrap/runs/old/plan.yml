@@ -1,128 +1,74 @@
-# MD Bootstrap Execution Plan v1.1
-# Generated: 2026-02-02T16:58:00Z
-
-run_timestamp: "2026-02-02T16:58:00Z"
-version: "1.1"
-
+run_timestamp: '2026-02-02T09:07:14.507844Z'
+version: '1.1'
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
 input_sources:
   audit:
-    intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
+    intent_yml: .audit/config/intent.yml
+    constraints_yml: .audit/config/constraints.yml
   concept:
-    ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
+    ontology_yml: .concept/ontology.yml
+    invariants_yml: .concept/invariants.yml
     has_concept: true
-
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-
+  mission: GuiAgentLoopCore provides core logic for bridging GUI frameworks and LLM
+    agents
+  target_user:
+  - Application Developers
+  - AI Agent Developers
+  - Framework Developers
+  - AI Agents
+  core_value: Reliable, type-safe, extensible foundation with predictable state management
 ontology_summary:
-  total_terms: 10
+  total_terms: 11
   core_terms: 5
-  domain_terms: 4
+  domain_terms: 5
   aux_terms: 1
   key_terms:
-    - canonical: "Interpreter"
-      layer: "core"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-    - canonical: "Agent"
-      layer: "core"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    - canonical: "Session"
-      layer: "core"
-      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-    - canonical: "Message"
-      layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
-      layer: "core"
-      definition: "インタープリタの実行状態を表す列挙型"
-
-term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-
+  - canonical: Interpreter
+    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
+  - canonical: Agent
+    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
+  - canonical: State
+    definition: インタープリタの実行状態を表す列挙型
 existing_mds:
-  - path: "README.md"
-    status: "exists_needs_review"
-    tier: 1
-  - path: "AGENTS.md"
-    status: "exists_needs_review"
-    tier: 1
-  - path: "CLAUDE.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-  - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    tier: 3
-
+- path: README.md
+  status: exists_verified
+  issues: []
+- path: AGENTS.md
+  status: exists_verified
+  issues: []
+- path: CLAUDE.md
+  status: exists_verified
+  issues: []
+- path: GLOSSARY.md
+  status: exists_verified
+  issues: []
+- path: PURPOSE.md
+  status: exists_to_review
+  issues:
+  - Needs verification against intent.yml
+- path: CONTRIBUTING.md
+  status: exists_to_review
+  issues:
+  - Needs verification for concept alignment
 actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "Verify concept alignment and terminology normalization"
-
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Verify concept alignment and terminology normalization"
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify concept alignment and terminology normalization"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify alignment with ontology.yml"
-
-target_score: 90
-max_iterations: 3
+- action: verify
+  target: README.md
+  reason: Already well-aligned with intent and ontology
+- action: verify
+  target: AGENTS.md
+  reason: Already aligned with ontology.yml and invariants.yml
+- action: verify
+  target: CLAUDE.md
+  reason: Already aligned with ontology.yml and invariants.yml
+- action: verify
+  target: GLOSSARY.md
+  reason: Auto-generated from ontology.yml, verified
+- action: review
+  target: PURPOSE.md
+  reason: Verify alignment with intent.yml
+- action: review
+  target: CONTRIBUTING.md
+  reason: Verify concept alignment and terminology

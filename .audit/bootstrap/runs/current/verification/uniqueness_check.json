@@ -1,113 +1,45 @@
 {
-  "timestamp": "2026-02-02T17:26:00Z",
-  "verification_version": "v1.1",
-  "overall_uniqueness_score": 100,
-  "max_score": 100,
-  "target_score": 90,
-  "status": "PASSED",
-
-  "uniqueness_checks": [
+  "score": 100,
+  "checks": [
     {
       "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "All MD files must consistently express the mission from intent.yml",
-      "source": ".audit/intent.yml",
-      "status": "PASSED",
-      "score": 100,
-      "details": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "checked_files": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md",
-          "PURPOSE.md",
-          "CONTRIBUTING.md",
-          "ARCHITECTURE.md"
-        ],
-        "consistency_rate": "100%",
-        "inconsistencies": []
-      }
+      "description": "All MDs express the same mission",
+      "passed": true,
+      "evidence": "All MD files reference GuiAgentLoopCore's core purpose"
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MD files must address the same target users defined in intent.yml",
-      "source": ".audit/intent.yml",
-      "status": "PASSED",
-      "score": 100,
-      "details": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents (Claude, Gemini, Codex, etc.)"
-        ],
-        "checked_files": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md",
-          "CONTRIBUTING.md"
-        ],
-        "consistency_rate": "100%",
-        "inconsistencies": []
-      }
+      "description": "All MDs target the same users (AI Agents)",
+      "passed": true,
+      "evidence": "AGENTS.md, CLAUDE.md, GEMINI.md, CODEX.md all address AI agents"
     },
     {
       "id": "UC-003",
       "name": "Constraints Consistency",
-      "description": "Technical constraints must be consistent across all MDs",
-      "source": ".audit/constraints.yml + .concept/invariants.yml",
-      "status": "PASSED",
-      "score": 100,
-      "details": {
-        "hard_invariants_count": 13,
-        "invariants_documented_in_tier1": 13,
-        "coverage_rate": "100%",
-        "inconsistencies": []
-      }
+      "description": "Technical constraints are consistent",
+      "passed": true,
+      "evidence": "Hard invariants are consistently documented"
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "Out-of-scope items must be consistently defined",
-      "source": ".audit/intent.yml + .concept/ontology.yml",
-      "status": "PASSED",
-      "score": 100,
-      "details": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistency_rate": "100%",
-        "contradictions": []
-      }
+      "name": "Boundary Consistency",
+      "description": "out_of_scope is consistently defined",
+      "passed": true,
+      "evidence": "All MDs respect scope boundaries"
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs must accurately reflect intent.yml specifications",
-      "source": ".audit/intent.yml",
-      "status": "PASSED",
-      "score": 100,
-      "details": {
-        "core_functions_count": 5,
-        "core_functions_covered": 5,
-        "design_philosophy_count": 5,
-        "design_philosophy_covered": 5,
-        "compliance_rate": "100%"
-      }
+      "name": "intent.yml Compliance",
+      "description": "All MDs correctly reflect intent.yml",
+      "passed": true,
+      "evidence": "Mission, core functions, and boundaries are properly reflected"
     }
   ],
-
   "summary": {
-    "total_checks": 5,
+    "total": 5,
     "passed": 5,
-    "failed": 0,
-    "warnings": 0,
-    "overall_score": 100,
-    "assessment": "EXCELLENT - All uniqueness checks passed"
+    "failed": 0
   }
 }

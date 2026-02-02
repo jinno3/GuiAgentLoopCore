@@ -1,225 +1,737 @@
 {
-  "timestamp": "2026-02-02T17:26:00Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-02T09:51:53.849312+00:00",
+  "overall_score": 92,
+  "concept_alignment_score": 55,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (intent + concept integration)",
   "files": [
     {
       "path": "README.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 42,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Excellent use of canonical terms (Interpreter, Agent, Session, Message, State)",
-        "All 13 invariants properly documented",
-        "9 AUTO decisions noted with provisional status",
-        "Clear structure with ontology reference",
-        "Core functions from intent.yml well covered"
+      "clarity_score": 100,
+      "concept_alignment_score": 60,
+      "issues": [
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 163
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 140
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 142
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 134
+        }
       ]
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 85,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Complete terminology table with all 10 canonical terms",
-        "Perfect synonym exclusion (0 synonyms used)",
-        "All 13 invariants documented with explanations",
-        "All 9 AUTO decisions noted with expiry",
-        "Clear behavior guidelines for AI agents"
+      "clarity_score": 80,
+      "concept_alignment_score": 0,
+      "issues": [
+        {
+          "found": "GuiAgentInterpreter",
+          "should_be": "Interpreter",
+          "line": 15
+        },
+        {
+          "found": "会話インタープリタ",
+          "should_be": "Interpreter",
+          "line": 15
+        },
+        {
+          "found": "AIエージェント",
+          "should_be": "Agent",
+          "line": 16
+        },
+        {
+          "found": "専門エージェント",
+          "should_be": "Agent",
+          "line": 16
+        },
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 16
+        },
+        {
+          "found": "AgentDefinition",
+          "should_be": "Agent",
+          "line": 16
+        },
+        {
+          "found": "TaskAgent",
+          "should_be": "Agent",
+          "line": 16
+        },
+        {
+          "found": "AgentImage",
+          "should_be": "Agent",
+          "line": 16
+        },
+        {
+          "found": "ChatSession",
+          "should_be": "Session",
+          "line": 17
+        },
+        {
+          "found": "会話セッション",
+          "should_be": "Session",
+          "line": 17
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 17
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 57
+        },
+        {
+          "found": "メッセージ",
+          "should_be": "Message",
+          "line": 18
+        },
+        {
+          "found": "ChatMessage",
+          "should_be": "Message",
+          "line": 18
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 19
+        },
+        {
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "line": 19
+        },
+        {
+          "found": "自動チャット",
+          "should_be": "AutoChat",
+          "line": 20
+        },
+        {
+          "found": "自動継続",
+          "should_be": "AutoChat",
+          "line": 20
+        },
+        {
+          "found": "GuiAgentStreamWrapper",
+          "should_be": "StreamWrapper",
+          "line": 21
+        },
+        {
+          "found": "ストリームラッパー",
+          "should_be": "StreamWrapper",
+          "line": 21
+        },
+        {
+          "found": "GUIバックエンド",
+          "should_be": "Backend",
+          "line": 22
+        },
+        {
+          "found": "UIフレームワーク",
+          "should_be": "Backend",
+          "line": 22
+        },
+        {
+          "found": "GuiBackend",
+          "should_be": "Backend",
+          "line": 22
+        },
+        {
+          "found": "GuiComponent",
+          "should_be": "Backend",
+          "line": 22
+        },
+        {
+          "found": "変換器",
+          "should_be": "Converter",
+          "line": 24
+        },
+        {
+          "found": "マッパー",
+          "should_be": "Converter",
+          "line": 24
+        },
+        {
+          "found": "会話メモリ",
+          "should_be": "Memory",
+          "line": 23
+        },
+        {
+          "found": "ConversationBuffer",
+          "should_be": "Memory",
+          "line": 23
+        },
+        {
+          "found": "コネクタ",
+          "should_be": "Connector",
+          "line": 25
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 25
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 77
+        },
+        {
+          "found": "ConnectorImplCodeinterpreterApi",
+          "should_be": "Connector",
+          "line": 25
+        },
+        {
+          "found": "ConnectorImplOpenInterpreter",
+          "should_be": "Connector",
+          "line": 25
+        }
       ]
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 52,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Claude-specific guidelines with code examples",
-        "Perfect canonical term usage",
-        "All invariants covered with code examples",
-        "AUTO decisions properly acknowledged",
-        "Excellent integration with ontology"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "canonical_term_usage": 28,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
+      "clarity_score": 100,
+      "concept_alignment_score": 0,
       "issues": [
-        "Could better reference core functions from intent.yml",
-        "Could include more explicit concept usage guidelines"
-      ],
-      "strengths": [
-        "Good terminology guidelines section",
-        "All 13 invariants listed",
-        "AUTO decisions mentioned",
-        "Clear contribution process"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_term_usage": 65,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [
-        "Could more explicitly map ontology.yml terms to code components"
-      ],
-      "strengths": [
-        "Excellent component organization",
-        "Clear invariant documentation per component",
-        "AUTO decisions well documented",
-        "Good use of canonical terms throughout"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_term_usage": 35,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Good constitutional approach",
-        "Invariants well covered",
-        "Canonical terms used consistently"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 98,
-        "canonical_term_usage": 30,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Excellent alignment with intent.yml",
-        "Canonical terms used properly",
-        "Clear purpose articulation"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_term_usage": 25,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Good Gemini-specific guidelines",
-        "Canonical terms used correctly",
-        "Invariants covered"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_term_usage": 25,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Good Codex-specific guidelines",
-        "Canonical terms used correctly",
-        "Invariants covered"
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 203
+        },
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 208
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 77
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 47
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 48
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 56
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 183
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 187
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 191
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 195
+        },
+        {
+          "found": "自動チャット",
+          "should_be": "AutoChat",
+          "line": 84
+        }
       ]
     },
     {
       "path": "GLOSSARY.md",
-      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment_score": 0,
+      "issues": [
+        {
+          "found": "GuiAgentInterpreter",
+          "should_be": "Interpreter",
+          "line": 19
+        },
+        {
+          "found": "GuiAgentInterpreter",
+          "should_be": "Interpreter",
+          "line": 230
+        },
+        {
+          "found": "会話インタープリタ",
+          "should_be": "Interpreter",
+          "line": 19
+        },
+        {
+          "found": "会話インタープリタ",
+          "should_be": "Interpreter",
+          "line": 231
+        },
+        {
+          "found": "AIエージェント",
+          "should_be": "Agent",
+          "line": 34
+        },
+        {
+          "found": "AIエージェント",
+          "should_be": "Agent",
+          "line": 232
+        },
+        {
+          "found": "専門エージェント",
+          "should_be": "Agent",
+          "line": 34
+        },
+        {
+          "found": "専門エージェント",
+          "should_be": "Agent",
+          "line": 233
+        },
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 34
+        },
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 234
+        },
+        {
+          "found": "AgentDefinition",
+          "should_be": "Agent",
+          "line": 34
+        },
+        {
+          "found": "AgentDefinition",
+          "should_be": "Agent",
+          "line": 235
+        },
+        {
+          "found": "TaskAgent",
+          "should_be": "Agent",
+          "line": 34
+        },
+        {
+          "found": "TaskAgent",
+          "should_be": "Agent",
+          "line": 236
+        },
+        {
+          "found": "AgentImage",
+          "should_be": "Agent",
+          "line": 34
+        },
+        {
+          "found": "AgentImage",
+          "should_be": "Agent",
+          "line": 237
+        },
+        {
+          "found": "ChatSession",
+          "should_be": "Session",
+          "line": 53
+        },
+        {
+          "found": "ChatSession",
+          "should_be": "Session",
+          "line": 64
+        },
+        {
+          "found": "ChatSession",
+          "should_be": "Session",
+          "line": 238
+        },
+        {
+          "found": "会話セッション",
+          "should_be": "Session",
+          "line": 53
+        },
+        {
+          "found": "会話セッション",
+          "should_be": "Session",
+          "line": 239
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 53
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 61
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 64
+        },
+        {
+          "found": "メッセージ",
+          "should_be": "Message",
+          "line": 71
+        },
+        {
+          "found": "メッセージ",
+          "should_be": "Message",
+          "line": 240
+        },
+        {
+          "found": "ChatMessage",
+          "should_be": "Message",
+          "line": 71
+        },
+        {
+          "found": "ChatMessage",
+          "should_be": "Message",
+          "line": 241
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 91
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 103
+        },
+        {
+          "found": "InterpreterState",
+          "should_be": "State",
+          "line": 242
+        },
+        {
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "line": 55
+        },
+        {
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "line": 91
+        },
+        {
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "line": 243
+        },
+        {
+          "found": "自動チャット",
+          "should_be": "AutoChat",
+          "line": 116
+        },
+        {
+          "found": "自動チャット",
+          "should_be": "AutoChat",
+          "line": 244
+        },
+        {
+          "found": "自動継続",
+          "should_be": "AutoChat",
+          "line": 116
+        },
+        {
+          "found": "自動継続",
+          "should_be": "AutoChat",
+          "line": 245
+        },
+        {
+          "found": "GuiAgentStreamWrapper",
+          "should_be": "StreamWrapper",
+          "line": 134
+        },
+        {
+          "found": "GuiAgentStreamWrapper",
+          "should_be": "StreamWrapper",
+          "line": 142
+        },
+        {
+          "found": "GuiAgentStreamWrapper",
+          "should_be": "StreamWrapper",
+          "line": 246
+        },
+        {
+          "found": "ストリームラッパー",
+          "should_be": "StreamWrapper",
+          "line": 134
+        },
+        {
+          "found": "ストリームラッパー",
+          "should_be": "StreamWrapper",
+          "line": 247
+        },
+        {
+          "found": "GUIバックエンド",
+          "should_be": "Backend",
+          "line": 149
+        },
+        {
+          "found": "GUIバックエンド",
+          "should_be": "Backend",
+          "line": 248
+        },
+        {
+          "found": "UIフレームワーク",
+          "should_be": "Backend",
+          "line": 149
+        },
+        {
+          "found": "UIフレームワーク",
+          "should_be": "Backend",
+          "line": 249
+        },
+        {
+          "found": "GuiBackend",
+          "should_be": "Backend",
+          "line": 149
+        },
+        {
+          "found": "GuiBackend",
+          "should_be": "Backend",
+          "line": 250
+        },
+        {
+          "found": "GuiComponent",
+          "should_be": "Backend",
+          "line": 149
+        },
+        {
+          "found": "GuiComponent",
+          "should_be": "Backend",
+          "line": 152
+        },
+        {
+          "found": "GuiComponent",
+          "should_be": "Backend",
+          "line": 251
+        },
+        {
+          "found": "変換器",
+          "should_be": "Converter",
+          "line": 212
+        },
+        {
+          "found": "変換器",
+          "should_be": "Converter",
+          "line": 254
+        },
+        {
+          "found": "マッパー",
+          "should_be": "Converter",
+          "line": 212
+        },
+        {
+          "found": "マッパー",
+          "should_be": "Converter",
+          "line": 255
+        },
+        {
+          "found": "会話メモリ",
+          "should_be": "Memory",
+          "line": 170
+        },
+        {
+          "found": "会話メモリ",
+          "should_be": "Memory",
+          "line": 252
+        },
+        {
+          "found": "ConversationBuffer",
+          "should_be": "Memory",
+          "line": 170
+        },
+        {
+          "found": "ConversationBuffer",
+          "should_be": "Memory",
+          "line": 253
+        },
+        {
+          "found": "コネクタ",
+          "should_be": "Connector",
+          "line": 188
+        },
+        {
+          "found": "コネクタ",
+          "should_be": "Connector",
+          "line": 256
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 188
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 199
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 200
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 201
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 257
+        },
+        {
+          "found": "ConnectorImplCodeinterpreterApi",
+          "should_be": "Connector",
+          "line": 188
+        },
+        {
+          "found": "ConnectorImplCodeinterpreterApi",
+          "should_be": "Connector",
+          "line": 199
+        },
+        {
+          "found": "ConnectorImplCodeinterpreterApi",
+          "should_be": "Connector",
+          "line": 258
+        },
+        {
+          "found": "ConnectorImplOpenInterpreter",
+          "should_be": "Connector",
+          "line": 188
+        },
+        {
+          "found": "ConnectorImplOpenInterpreter",
+          "should_be": "Connector",
+          "line": 200
+        },
+        {
+          "found": "ConnectorImplOpenInterpreter",
+          "should_be": "Connector",
+          "line": 259
+        }
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
       "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "canonical_term_usage": 100,
-        "synonym_usage": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "issues": [],
-        "auto_generated": true,
-        "source": ".concept/ontology.yml"
-      },
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Perfect canonical term representation",
-        "All synonyms documented",
-        "All invariants linked"
+      "concept_alignment_score": 60,
+      "issues": [
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 335
+        },
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 336
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 158
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 162
+        }
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "clarity_score": 100,
+      "concept_alignment_score": 80,
+      "issues": [
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 30
+        },
+        {
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "clarity_score": 80,
+      "concept_alignment_score": 100,
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "clarity_score": 80,
+      "concept_alignment_score": 90,
+      "issues": [
+        {
+          "found": "JWT",
+          "should_be": "Session",
+          "line": 176
+        }
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "clarity_score": 100,
+      "concept_alignment_score": 80,
+      "issues": [
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 86
+        },
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "clarity_score": 100,
+      "concept_alignment_score": 80,
+      "issues": [
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 87
+        },
+        {
+          "found": "AgentType",
+          "should_be": "Agent",
+          "line": 92
+        }
       ]
     }
-  ],
-  "summary": {
-    "total_files": 10,
-    "excellent_files": 8,
-    "good_files": 2,
-    "needs_improvement": 0,
-    "overall_alignment": "98% - Excellent",
-    "term_normalization": "100% - No synonyms used across all MDs",
-    "invariant_coverage": "100% - All 13 invariants documented in Tier 1 files",
-    "auto_decision_transparency": "100% - All 9 AUTO decisions noted"
-  }
+  ]
 }

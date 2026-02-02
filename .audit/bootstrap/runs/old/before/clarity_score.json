@@ -1,20 +1,18 @@
 {
-  "timestamp": "2026-02-02T16:58:00Z",
+  "timestamp": "2026-02-02T09:08:27.140115+00:00",
   "overall_score": 95,
-  "concept_alignment_score": 98,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + concept integration)",
+  "files_analyzed": 4,
+  "files_with_perfect_alignment": 2,
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "intent_alignment": {
         "score": 95,
+        "synonym_count": 0,
         "issues": []
       },
       "issues": []
@@ -22,27 +20,30 @@
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "synonym_count": 1,
+        "issues": [
+          {
+            "line": 77,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- **INV-CONNECTOR-001**: コネクタは必ず`GuiAgentInterpreterABC`インターフェースを実装する"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "issues": []
+      "issues": [
+        "Minor: Some synonym usage detected"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 98,
+        "score": 95,
+        "synonym_count": 0,
         "issues": []
       },
       "issues": []
@@ -50,107 +51,46 @@
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 85,
-        "issues": ["Could better reference core functions from intent.yml"]
-      },
-      "issues": ["Could better reference core functions from intent.yml"]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 92,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
-      },
-      "intent_alignment": {
         "score": 95,
-        "issues": []
+        "synonym_count": 9,
+        "issues": [
+          {
+            "line": 55,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "- **含まない**: UI状態, インタープリタ状態"
+          },
+          {
+            "line": 116,
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "context": "- **同義語**: 自動チャット, 自動継続"
+          },
+          {
+            "line": 116,
+            "found": "自動継続",
+            "should_be": "AutoChat",
+            "context": "- **同義語**: 自動チャット, 自動継続"
+          },
+          {
+            "line": 152,
+            "found": "GuiComponent",
+            "should_be": "Backend",
+            "context": "- **関連用語**: Interpreter, Session, GuiComponent"
+          },
+          {
+            "line": 170,
+            "found": "会話メモリ",
+            "should_be": "Memory",
+            "context": "- **同義語**: 会話メモリ, ConversationBuffer"
+          }
+        ]
       },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "intent_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "issues": []
+      "issues": [
+        "Minor: Some synonym usage detected"
+      ]
     }
-  ],
-  "summary": {
-    "total_files": 10,
-    "excellent_files": 4,
-    "good_files": 6,
-    "needs_improvement": 0,
-    "critical_issues": 0
-  }
+  ]
 }
