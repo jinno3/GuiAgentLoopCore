@@ -1,0 +1,158 @@
+{
+  "timestamp": "2026-02-02T23:11:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
+  "overall_alignment_score": 100,
+  "term_usage_check": {
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+  "canonical_terms_verified": [
+    {
+      "term": "Interpreter",
+      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["GuiAgentInterpreter", "会話インタープリタ"]
+    },
+    {
+      "term": "Agent",
+      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["AIエージェント", "専門エージェント", "AgentType"]
+    },
+    {
+      "term": "Session",
+      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["ChatSession", "会話セッション"]
+    },
+    {
+      "term": "Message",
+      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["ChatMessage", "メッセージ"]
+    },
+    {
+      "term": "State",
+      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["InterpreterState", "インタープリタ状態"]
+    },
+    {
+      "term": "AutoChat",
+      "found_in_files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["自動チャット", "自動継続"]
+    },
+    {
+      "term": "StreamWrapper",
+      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["GuiAgentStreamWrapper", "ストリームラッパー"]
+    },
+    {
+      "term": "Backend",
+      "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["GUIバックエンド", "UIフレームワーク"]
+    },
+    {
+      "term": "Converter",
+      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["変換器", "マッパー"]
+    },
+    {
+      "term": "Memory",
+      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["会話メモリ", "ConversationBuffer"],
+      "noted_as_draft": true
+    },
+    {
+      "term": "Connector",
+      "found_in_files": ["CLAUDE.md", "GLOSSARY.md"],
+      "correct_usage": true,
+      "synonyms_avoided": ["コネクタ", "GuiAgentInterpreterABC"]
+    }
+  ],
+  "invariant_check": {
+    "total_invariants": 15,
+    "hard_invariants": 12,
+    "soft_invariants": 3,
+    "reflected_in_md": 15,
+    "missing": [],
+    "improvements": [
+      "Added visual distinction (🔒 vs ⚠️) for hard vs soft invariants in AGENTS.md",
+      "Added [DRAFT] marker to INV-MEM-001 in AGENTS.md"
+    ]
+  },
+  "auto_decision_handling": {
+    "total_active": 15,
+    "noted_in_md": 15,
+    "format": "明示的にAUTO決定として記載",
+    "missing_notes": []
+  },
+  "per_file_scores": [
+    {
+      "file": "README.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "issues": [],
+      "improvements": [
+        "Added soft invariants section with visual distinction",
+        "Updated timestamp to reflect run #30"
+      ]
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "improvements": [
+        "Marked INV-AGENT-001 as soft invariant"
+      ]
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": []
+    }
+  ]
+}

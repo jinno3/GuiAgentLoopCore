@@ -52,6 +52,9 @@
 
 ### 不変条件（絶対に破ってはいけない）
 
+#### Hard Invariants（強制不変条件）
+これらの不変条件はシステムの正しさと安全性を保証するため、絶対に違反してはなりません。
+
 - 🔒 **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP
 - 🔒 **INV-SESSION-001**: セッションは一意のUUIDで識別される
 - 🔒 **INV-MSG-001**: メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION
@@ -63,6 +66,13 @@
 - 🔒 **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
 - 🔒 **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
 - 🔒 **INV-CONVERTER-001**: コンバータは構造化変換のためにMappingRuleを使用する
+
+#### Soft Invariants（推奨不変条件）
+これらの不変条件はベストプラクティスとして推奨されますが、例外的な状況では緩和される可能性があります。
+
+- ⚠️ **INV-AGENT-001**: エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
+- ⚠️ **INV-MEM-001** [DRAFT]: 会話メモリは最大100メッセージまで保持する（Memory機能はdraft状態）
+- ⚠️ **INV-BACKEND-002**: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する
 
 ## 開発ガイドライン
 
@@ -91,4 +101,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-02T22:50:00Z (bootstrap run v1.1 - run #29 verification complete)
+**最終更新**: 2026-02-02T23:11:00Z (bootstrap run v1.1 - run #30 - added soft invariants with visual distinction)

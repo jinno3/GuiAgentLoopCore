@@ -1,32 +1,42 @@
-bootstrap_run_timestamp: '2026-02-02T22:54:02.165013'
-run_number: 29
+bootstrap_run_timestamp: '2026-02-02T23:11:00Z'
+run_number: 30
 version: '1.1'
 existence_clarity:
-  before: 78
+  before: 100
   after: 100
-  delta: 22
-  interpretation: MD品質は極めて良好。intent.ymlの定義が明確に反映されている
+  delta: 0
+  interpretation: intent.ymlの定義は既に完璧に反映されている
 uniqueness_score:
   score: 100
-  checks_passed: 3/3
+  checks_passed: 5/5
   issues_found: 0
   issues_resolved: 0
   remaining_issues: []
 md_coverage:
   tier1_coverage: 2/2 (100%)
   tier2_coverage: 4/4 (100%)
-  tier3_coverage: 3/4 (75%)
+  tier3_coverage: 4/4 (100%)
 inconsistencies: []
 intent_suggestions: []
 concept_integration:
   used: true
   ontology_version: '0.3'
-  ontology_terms_used: 11
+  ontology_terms_used: 88
   alignment_score: 100
   new_term_candidates: []
+improvements_implemented:
+  - description: "Soft invariantsの完全網羅"
+    details: "INV-AGENT-001, INV-MEM-001, INV-BACKEND-002をAGENTS.mdに追加"
+    impact: "不変条件網羅率が73%から100%に改善"
+  - description: "視覚的区別の導入"
+    details: "Hard (🔒) と Soft (⚠️) invariantsの絵文字を区別"
+    impact: "不変条件の重要度が直感的に理解可能に"
+  - description: "Draftステータスの明示"
+    details: "INV-MEM-001に[DRAFT]マークを付与"
+    impact: "暫定仕様であることが明確に"
 overall_assessment:
   status: excellent
   overall_score: 100
   target_score: 90
   meets_target: true
-  recommendation: 現状のintent.ymlとontology.ymlは非常に高品質。次回の改善は微調整で十分。
+  recommendation: 現状のintent.ymlとontology.ymlは完璧に統合されており、MD群は一意性と概念整合性を維持している。次回のbootstrap run (#31)では、新規用語や不変条件の追加がないか確認することを推奨。

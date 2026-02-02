@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-02-02T23:11:00Z",
+  "run_number": 30,
+  "overall_score": 100,
+  "checks": [
+    {
+      "id": "UC-001",
+      "name": "Existence Mission Consistency",
+      "description": "全MDで同じmissionが表現されているか",
+      "passed": true,
+      "evidence": "All MD files reference the same mission: bridging GUI frameworks and LLM agents",
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"]
+    },
+    {
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "passed": true,
+      "evidence": "Consistent target users across all MDs: Application Developers, AI Agent Developers, Framework Developers, AI Agents",
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"]
+    },
+    {
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "description": "技術的制約が一致しているか",
+      "passed": true,
+      "evidence": "Type safety and monotonic state transitions consistently enforced",
+      "files_checked": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+    },
+    {
+      "id": "UC-004",
+      "name": "Boundary Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "passed": true,
+      "evidence": "UI Rendering, LLM Execution, Session Storage consistently marked as out of scope",
+      "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"]
+    },
+    {
+      "id": "UC-005",
+      "name": "Intent.yml Compliance",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "passed": true,
+      "evidence": "All core functions from intent.yml are reflected in documentation",
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"]
+    }
+  ],
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 100
+  }
+}

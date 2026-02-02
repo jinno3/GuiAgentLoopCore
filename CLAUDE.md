@@ -77,8 +77,9 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
   - **AUTO決定**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）
 
 #### エージェント管理（Agent Management）
-- **INV-AGENT-001**: エージェントは定義された役割を持つ
+- **INV-AGENT-001** [soft]: エージェントは定義された役割を持つ
   - 許可される役割: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
+  - 役割ベースのアクセス制御と責任分離
   - **AUTO決定**: AUTO:Agent.role:classification（暫定仕様）
 
 #### AutoChat（AutoChat）

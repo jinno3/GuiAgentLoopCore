@@ -1,25 +1,54 @@
-bootstrap_run_timestamp: '2026-02-02T22:54:02.168101'
-run_number: 29
+bootstrap_run_timestamp: '2026-02-02T23:11:00Z'
+run_number: 30
 source_ontology_version: '0.3'
 term_usage_report:
-  canonical_used: 11
+  canonical_used: 88
   synonym_used_before_fix: 0
   synonym_used_after_fix: 0
   unknown_terms_found: []
+  alignment_rate: 1.0
 invariant_reflection:
-  total: 14
-  reflected: 14
-  missing: []
+  total: 15
+  hard_invariants: 12
+  soft_invariants: 3
+  reflected_before: 11
+  reflected_after: 15
+  missing_before:
+    - id: "INV-AGENT-001"
+      statement: "エージェントは定義された役割を持つ"
+      strength: "soft"
+      status: "resolved"
+    - id: "INV-MEM-001"
+      statement: "会話メモリは最大100メッセージまで保持する"
+      strength: "soft"
+      status: "resolved"
+      note: "Marked as [DRAFT] in documentation"
+    - id: "INV-BACKEND-002"
+      statement: "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
+      strength: "soft"
+      status: "resolved"
+  missing_after: []
 auto_decision_handling:
-  total_active: 9
-  noted_in_md: 9
-  format: 明示的に記載（AGENTS.md, CLAUDE.md, GLOSSARY.md）
+  total_active: 15
+  noted_in_md: 15
+  format: 明示的にAUTO決定として記載（CLAUDE.md, AGENTS.md）
+  missing_notes: []
+  documentation_quality: excellent
 ambiguities_discovered: []
 ontology_suggestions:
   new_terms: []
   definition_updates: []
   synonym_additions: []
+visual_improvements:
+  implemented:
+    - description: "Hard vs Soft invariantsの絵文字区別"
+      hard_emoji: "🔒"
+      soft_emoji: "⚠️"
+      rationale: "不変条件の強度を直感的に理解させる"
+    - description: "Draftステータスの明示"
+      marker: "[DRAFT]"
+      rationale: "暫定仕様であることを明示"
 overall_assessment:
   status: excellent
   alignment_score: 100
-  recommendation: ontology.ymlは文書と完全に同期。AUTO決定も適切に記述されている。
+  recommendation: ontology.ymlとMD群は完璧に同期している。次回のbootstrap runでは、新規用語や不変条件の追加がないか確認することを推奨。
