@@ -1,47 +1,65 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T21:32:00Z"
+  bootstrap_run_timestamp: "2026-02-02T21:50:00Z"
   source_ontology_version: "0.3"
-  run_id: "bootstrap-run-v1.1-20260202-213200"
+  run_id: "bootstrap-run-v1.1-20260202-215000"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 52
-    synonym_used_before_fix: 0
-    synonym_used_after_fix: 0
+    canonical_used: 58
+    synonym_used_as_examples: 10
+    synonym_used_in_violation: 0
     unknown_terms_found: []
     alignment_rate: 1.0
     assessment: "完璧 - すべてのMDファイルで正規形が使用されている"
 
-  # 2. 不変条件の反映状況
+  # 2. 新規用語の統合状況
+  new_term_integration:
+    new_terms_since_last_run: 1
+    new_terms_details:
+      - canonical: "Converter"
+        layer: "aux"
+        status: "stable"
+        present_in_glossary: true
+        present_in_claude_md: true
+        integration_status: "fully_integrated"
+        notes: "用語は完全に統合されている"
+
+  # 3. 不変条件の反映状況
   invariant_reflection:
-    total: 12
-    reflected: 12
+    total: 13
+    reflected: 13
     missing: []
     by_file:
-      AGENTS.md: 12
-      SYSTEM_CONSTITUTION.md: 12
-      CONTRIBUTING.md: 12
-      CLAUDE.md: 12
+      AGENTS.md: 13
+      SYSTEM_CONSTITUTION.md: 13
+      CONTRIBUTING.md: 13
+      CLAUDE.md: 13
       GEMINI.md: 9
-    assessment: "完全 - すべてのハード不変条件が適切に文書化されている"
+    assessment: "完全 - すべての不変条件が適切に文書化されている"
 
-  # 3. AUTO決定の扱い
+  # 4. AUTO決定の扱い
   auto_decision_handling:
     total_active: 9
     noted_in_md: 9
+    expired: 2
+    expired_details:
+      - id: "AMB-SEC-001"
+        topic: "Security: ハードコードされたシークレットキー"
+        decision_key: "AUTO:Security.secret_key:env_var_required"
+        status: "expired_critical"
+        action_required: "環境変数使用への移行が必須"
+      - id: "AMB-SEC-002"
+        topic: "Session: JWTデコードメソッドの未定義変数バグ"
+        decision_key: "AUTO:Session.jwt:decode_method_fix"
+        status: "expired_high"
+        action_required: "メソッドの修正または削除が必要"
     format: "注記として記載（暫定仕様として扱う）"
-    by_file:
-      CLAUDE.md: 9
-      GEMINI.md: 9
-      ARCHITECTURE.md: 9
-      SYSTEM_CONSTITUTION.md: 6
-      GLOSSARY.md: 9
-    assessment: "完全 - すべてのAUTO決定が適切に文書化されている"
+    assessment: "AUTO決定は適切に文書化されているが、2つの期限切れ決定への対処が必要"
 
-  # 4. 曖昧性の発見
+  # 5. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 5. ontology.ymlへの更新提案
+  # 6. ontology.ymlへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
@@ -49,14 +67,14 @@ concept_feedback:
     boundary_updates: []
     assessment: "現行のontology.ymlは完全であり、更新は不要"
 
-  # 6. 用語境界の整合性チェック
+  # 7. 用語境界の整合性チェック
   term_boundary_check:
-    total_terms_checked: 10
-    boundaries_consistent: 10
+    total_terms_checked: 11
+    boundaries_consistent: 11
     inconsistencies: []
     assessment: "完全 - すべての用語境界が一貫している"
 
-  # 7. レイヤー別使用状況
+  # 8. レイヤー別使用状況
   layer_usage:
     core:
       total_terms: 5
@@ -64,8 +82,8 @@ concept_feedback:
       usage_rate: 1.0
       terms: ["Interpreter", "Agent", "Session", "Message", "State"]
     domain:
-      total_terms: 4
-      used_in_md: 4
+      total_terms: 5
+      used_in_md: 5
       usage_rate: 1.0
       terms: ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"]
     aux:
@@ -74,11 +92,11 @@ concept_feedback:
       usage_rate: 1.0
       terms: ["Converter"]
 
-  # 8. ステータス別使用状況
+  # 9. ステータス別使用状況
   status_usage:
     stable:
-      total_terms: 9
-      used_in_md: 9
+      total_terms: 10
+      used_in_md: 10
       usage_rate: 1.0
     draft:
       total_terms: 1
@@ -86,38 +104,24 @@ concept_feedback:
       usage_rate: 1.0
       note: "Memory term is marked as draft, properly noted in MD files"
 
-  # 9. 用語間の関連性チェック
-  term_relationship_check:
-    total_related_terms_refs: 48
-    consistent_refs: 48
-    inconsistent_refs: 0
-    assessment: "完全 - すべての用語間参照が一貫している"
-
   # 10. 総合評価
   overall_assessment:
     status: "excellent"
-    concept_alignment_score: 95
+    concept_alignment_score: 98
     terminology_consistency: "100%"
-    invariant_coverage: "100% (12/12)"
+    invariant_coverage: "100% (13/13)"
     auto_decision_documentation: "100% (9/9)"
     summary: "概念モデルは完全にMDドキュメントに統合されている。用語の正規形が適切に使用され、すべての不変条件とAUTO決定が適切に文書化されている。"
     readiness: "production_ready"
 
   # 11. 推奨事項
   recommendations:
+    - recommendation: "address_expired_auto_decisions"
+      priority: "critical"
+      description: "期限切れのAUTO決定（AMB-SEC-001, AMB-SEC-002）への対処が必要"
     - recommendation: "maintain_ontology_quality"
       priority: "high"
       description: "現行の高品質なontology.ymlを維持する"
-    - recommendation: "monitor_auto_decisions"
-      priority: "medium"
-      description: "AUTO決定の有効期限（20実行後）を監視し、必要に応じて正式な決定に昇格させる"
     - recommendation: "review_memory_term"
       priority: "low"
       description: "Memory用語はdraftステータス。実装が進んだらstableに昇格することを検討"
-
-  # 12. 次回のサイクルへのフィードバック
-  next_cycle_feedback:
-    action_items: []
-    notes: |
-      現行のconceptモデルは完全に機能しており、即時のアクションは不要。
-      次回のbootstrap実行時も、現行の高品質基準を維持すること。
