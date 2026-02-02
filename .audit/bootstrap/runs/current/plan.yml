@@ -1,5 +1,6 @@
-run_timestamp: "2026-02-02T04:53:47Z"
+run_timestamp: "2026-02-02T14:08:00Z"
 version: "1.1"
+run_number: 6
 
 rotation:
   deleted_old: true
@@ -9,33 +10,77 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    audit_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
+    concept_version: "0.3"
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers: Building LLM-powered applications with GUI interfaces"
+    - "AI Agent Developers: Creating specialized agents for specific tasks"
+    - "Framework Developers: Building new GUI backend implementations"
+    - "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
   core_functions_count: 5
+  success_metrics_count: 5
 
 ontology_summary:
   total_terms: 10
   core_terms: 5
   domain_terms: 4
   aux_terms: 1
+  stable_terms: 10
+  draft_terms: 1  # Memory is draft status
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+      status: "stable"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+      status: "stable"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+      status: "stable"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
+      status: "stable"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+      status: "stable"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+      status: "stable"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+      status: "stable"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+      status: "stable"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+      status: "stable"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
+      status: "stable"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -68,72 +113,103 @@ term_normalization:
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
 
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  stable_invariants: 13
+  draft_invariants: 1  # INV-MEM-001 is draft
+
+auto_decisions_summary:
+  active_auto_decisions: 9
+  expired_critical: 2  # AMB-SEC-001 and AMB-SEC-002 expired
+  agent_related: 2
+  state_related: 3
+  message_related: 3
+  autochat_related: 2
+  backend_related: 3
+  memory_related: 2
+  connector_related: 1
+  security_related: 2  # CRITICAL: Need attention
+
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 1
+    last_verified: "2026-02-02T04:53:47Z"
     issues:
-      - "Needs verification for intent alignment"
-      - "Needs verification for term normalization"
+      - "Verify intent alignment after latest updates"
+      - "Verify term normalization consistency"
+      - "Check AUTO decisions documentation (especially expired security-related ones)"
 
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 1
+    last_verified: "2026-02-02T13:23:00Z"
     issues:
-      - "Needs verification for intent alignment"
-      - "Needs verification for term normalization"
+      - "Verify intent alignment"
+      - "Verify invariants documentation is complete"
+      - "Update AUTO decisions list (check for expired decisions)"
 
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 2
+    last_verified: "2026-02-02T13:23:00Z"
     issues:
-      - "Needs verification for intent alignment"
-      - "Needs verification for term normalization"
+      - "Verify Claude-specific guidelines alignment"
+      - "Check invariants and AUTO decisions documentation"
 
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 2
+    last_verified: "unknown"
     issues:
-      - "Needs verification for intent alignment"
-      - "Needs invariants reflection check"
+      - "Verify invariants reflection completeness"
+      - "Check for missing hard invariants"
 
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 2
+    last_verified: "unknown"
     issues:
-      - "Needs verification for intent alignment"
+      - "Verify purpose alignment with intent.yml"
 
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 2
+    last_verified: "unknown"
     issues:
-      - "Needs verification for intent alignment"
+      - "Verify contribution guidelines alignment"
 
   - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 3
+    last_verified: "unknown"
     issues:
-      - "Needs verification for intent alignment"
-      - "Needs mappings.yml reflection check"
+      - "Verify mappings.yml reflection"
+      - "Check architectural accuracy"
 
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 3
+    last_verified: "unknown"
     issues:
-      - "Needs verification against ontology.yml"
-      - "Auto-generated from ontology - should be up-to-date"
+      - "Verify ontology.yml alignment (auto-generated)"
+      - "Check for missing terms (especially Memory with draft status)"
 
   - path: "GEMINI.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 3
+    last_verified: "unknown"
     issues:
-      - "Needs verification for intent alignment"
+      - "Verify Gemini-specific guidelines"
 
   - path: "CODEX.md"
-    status: "exists_needs_review"
+    status: "exists_needs_verification"
     tier: 3
+    last_verified: "unknown"
     issues:
-      - "Needs verification for intent alignment"
+      - "Verify Codex-specific guidelines"
 
 actions:
   - action: "verify"
@@ -143,28 +219,33 @@ actions:
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify intent alignment and term normalization (Tier 1 required)"
+    reason: "Verify intent alignment, invariants documentation, and AUTO decisions (Tier 1 required)"
     priority: "high"
 
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify intent alignment and term normalization (Tier 2 recommended)"
+    reason: "Verify Claude-specific guidelines, invariants, and AUTO decisions (Tier 2 recommended)"
     priority: "medium"
 
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection (Tier 2 recommended)"
+    reason: "Verify invariants reflection completeness (Tier 2 recommended)"
     priority: "medium"
 
   - action: "verify"
     target: "PURPOSE.md"
-    reason: "Verify intent alignment (Tier 2 recommended)"
+    reason: "Verify purpose alignment with intent.yml (Tier 2 recommended)"
     priority: "medium"
 
   - action: "verify"
     target: "CONTRIBUTING.md"
-    reason: "Verify intent alignment (Tier 2 recommended)"
+    reason: "Verify contribution guidelines (Tier 2 recommended)"
     priority: "medium"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology.yml alignment, especially Memory (draft) term (Tier 3 optional)"
+    priority: "low"
 
   - action: "verify"
     target: "ARCHITECTURE.md"
@@ -172,16 +253,26 @@ actions:
     priority: "low"
 
   - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology.yml alignment (Tier 3 optional)"
-    priority: "low"
-
-  - action: "verify"
     target: "GEMINI.md"
-    reason: "Verify intent alignment (Tier 3 optional)"
+    reason: "Verify Gemini-specific guidelines (Tier 3 optional)"
     priority: "low"
 
   - action: "verify"
     target: "CODEX.md"
-    reason: "Verify intent alignment (Tier 3 optional)"
+    reason: "Verify Codex-specific guidelines (Tier 3 optional)"
     priority: "low"
+
+critical_issues:
+  - issue: "Expired AUTO decisions in ambiguities.yml"
+    details:
+      - "AMB-SEC-001: Hardcoded secret key - EXPIRED (decided ~run48, expires_after_runs=10, current run=64)"
+      - "AMB-SEC-002: JWT decode method bug - EXPIRED (decided ~run48, expires_after_runs=10, current run=64)"
+    severity: "high"
+    recommendation: "Security issues require immediate attention. These AUTO decisions have expired 16+ runs ago."
+    action_required: "Review and resolve security-related AUTO decisions"
+
+expected_outcomes:
+  overall_score_target: 98
+  uniqueness_score_target: 100
+  concept_alignment_target: 98
+  notes: "Verification run - MD files are in excellent state. Focus on verifying AUTO decisions documentation and checking for any expired security-related decisions."
