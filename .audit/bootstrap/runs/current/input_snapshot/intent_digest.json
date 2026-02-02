@@ -1,79 +1,55 @@
 {
-  "timestamp": "2026-02-02T08:57:00Z",
+  "timestamp": "2026-02-02T09:15:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+
+  "mission_summary": {
+    "full": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "agent interactions", "state control"]
+  },
+
   "target_users": [
     "Application Developers",
     "AI Agent Developers",
     "Framework Developers",
     "AI Agents"
   ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+
+  "core_value_summary": {
+    "full": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+    "keywords": ["type-safe", "extensible", "state management", "component boundaries"]
+  },
+
+  "core_functions_count": 5,
   "core_functions": [
     {
       "description": "Centralized Conversation Management",
-      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination",
-      "example": "interpreter_manager.py manages chat sessions and state transitions"
+      "key_component": "Interpreter"
     },
     {
       "description": "State Machine with Monotonic Transitions",
-      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants",
-      "example": "change_state_running() ensures state transitions are monotonic"
+      "key_component": "State"
     },
     {
       "description": "Multi-Agent Coordination",
-      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries",
-      "example": "AgentName enum defines roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
+      "key_component": "Agent"
     },
     {
       "description": "Structured Message Processing",
-      "details": "Handle structured communication between users, systems, and agents",
-      "example": "MessageTypeEnum defines: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+      "key_component": "Message"
     },
     {
       "description": "Backend Abstraction",
-      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
-      "example": "GuiBackendType enum: GRADIO, STREAMSYNC"
+      "key_component": "Backend"
     }
   ],
+
   "boundaries": {
-    "in_scope": [
-      "Conversation Flow Management",
-      "State Machine",
-      "Agent Coordination",
-      "Message Processing",
-      "Backend Abstraction",
-      "Streaming Support"
-    ],
-    "out_of_scope": [
-      "UI Rendering",
-      "LLM Execution",
-      "Session Storage",
-      "Authentication",
-      "Network Protocols"
-    ]
-  },
-  "success_metrics": [
-    {"metric": "Integration Time", "target": "New applications can integrate GuiAgentLoopCore in < 1 hour"},
-    {"metric": "Bug-Free State Transitions", "target": "Zero state transition bugs in production"},
-    {"metric": "Agent Compatibility", "target": "New agents can be added without core modifications"},
-    {"metric": "Type Safety", "target": "Zero runtime type errors in message handling"},
-    {"metric": "Documentation Clarity", "target": "All concepts have unambiguous definitions"}
-  ],
-  "design_philosophy": [
-    {"philosophy": "Correctness Over Convenience", "description": "Prioritize system correctness over developer convenience"},
-    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined"},
-    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility"},
-    {"philosophy": "Testability", "description": "All behavior is testable with automated tests for hard invariants"},
-    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology"}
-  ],
-  "statistics": {
-    "total_functions": 5,
     "in_scope_count": 6,
-    "out_of_scope_count": 5,
-    "success_metrics_count": 5,
-    "design_philosophies_count": 5
-  }
+    "out_of_scope_count": 5
+  },
+
+  "success_metrics_count": 5,
+  "design_principles_count": 5
 }
