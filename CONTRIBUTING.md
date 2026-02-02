@@ -22,6 +22,7 @@ This project uses a formal concept dictionary (`.concept/ontology.yml`) to ensur
    The following hard invariants MUST NEVER be violated:
 
    - **INV-STATE-001**: Interpreter state transitions are monotonic (STATE_INIT → STATE_RUNNING → STATE_STOP)
+   - **INV-STATE-002**: State is automatically updated by a 3-second interval timer
    - **INV-MSG-001**: Message types must be from the enumerated set only
    - **INV-MESSAGE-001**: Message history is limited to MAX_MESSAGE_LENGTH=100
    - **INV-AUTO-001**: AutoChat triggers only when in STATE_STOP

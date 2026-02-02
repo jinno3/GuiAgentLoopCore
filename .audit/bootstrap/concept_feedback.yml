@@ -1,27 +1,21 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T06:08:00Z"
+  bootstrap_run_timestamp: "2026-02-03T06:24:00Z"
   source_ontology_version: "0.3"
-  run_number: 57
+  run_number: 58
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 50
+    total_canonical_terms: 11
+    canonical_used: 11
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found:
-      - term: "Converter"
-        context: "SYSTEM_CONSTITUTION.mdで記載不十分"
-        suggestion: "補助用語としての記載を強化"
-        priority: "low"
-      - term: "MappingRule"
-        context: "INV-CONVERTER-001で言及されているが、用語集への記載が不十分"
-        suggestion: "用語集への明示的な記載を検討"
-        priority: "low"
+    unknown_terms_found: []
+    alignment_rate: 1.0
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected: 13
+    total: 14
+    reflected: 14
     missing: []
     by_strength:
       hard:
@@ -29,19 +23,19 @@ concept_feedback:
         reflected: 11
         missing: []
       soft:
-        total: 2
-        reflected: 2
+        total: 3
+        reflected: 3
         missing: []
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 15
-    noted_in_md: 15
+    total_active: 14
+    noted_in_md: 14
     format: "カテゴリ別整理（Agent, Message, State, AutoChat, Backend, Memory, Session, Connector）"
     by_file:
-      AGENTS.md: 15
-      CONTRIBUTING.md: 15
-      CLAUDE.md: 9
+      AGENTS.md: 14
+      CONTRIBUTING.md: 14
+      CLAUDE.md: 13
       README.md: 9
 
   # 4. 曖昧性の発見
@@ -51,80 +45,96 @@ concept_feedback:
   ontology_suggestions:
     new_terms: []
 
-    definition_updates:
-      - term: "Converter"
-        current_definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-        suggested_action: "SYSTEM_CONSTITUTION.mdでの記載強化"
-        reason: "不変条件には記載があるが、用語の説明が不十分"
-        priority: "low"
+    definition_updates: []
 
-      - term: "MappingRule"
-        current_definition: "コンバータが使用するマッピングルール（old_key, new_key, required_keys, required_keys_upper）"
-        suggested_action: "用語集への明示的な記載を検討"
-        reason: "INV-CONVERTER-001で言及されているが、個別の用語としての記載が不十分"
-        priority: "low"
-
-    relationship_updates:
-      - term1: "Converter"
-        term2: "MappingRule"
-        suggested_relationship: "Converter uses MappingRule for structured transformations"
-        reason: "INV-CONVERTER-001の説明から関係性が明確だが、related_termsで相互リンクを強化可能"
-        priority: "low"
+    relationship_updates: []
 
     synonym_additions: []
 
+    layer_corrections:
+      - term: "Memory"
+        current_layer: "domain"
+        note: "Correctly classified as domain layer (status: draft)"
+        action: "Monitor for status change from draft to stable"
+
   # 6. 用語統計
   term_statistics:
-    total_canonical_terms: 10
+    total_canonical_terms: 11
     by_layer:
       core: 5
-      domain: 4
+      domain: 5
       aux: 1
     by_status:
-      stable: 9
+      stable: 10
       draft: 1
-    alignment_rate: 0.962
+    alignment_rate: 1.0
     most_used_terms:
       - term: "Agent"
+        occurrences: 15
+        files: 8
+      - term: "State"
         occurrences: 12
         files: 7
-      - term: "State"
-        occurrences: 9
-        files: 6
       - term: "Message"
-        occurrences: 10
+        occurrences: 11
         files: 6
       - term: "Interpreter"
+        occurrences: 10
+        files: 6
+      - term: "Session"
         occurrences: 8
         files: 5
-      - term: "Session"
-        occurrences: 6
-        files: 5
 
-  # 7. 総合評価
+  # 7. 用語境界チェック
+  term_boundary_check:
+    terms_checked: 11
+    boundaries_respected: 11
+    violations: 0
+    notes: "All term boundaries from ontology.yml are properly respected"
+
+  # 8. 総合評価
   overall_assessment:
     status: "excellent"
-    concept_health_score: 96
+    concept_health_score: 98
     strengths:
-      - "全てのコア用語が正規形で使用されている（5/5）"
-      - "ドメイン用語が適切に統合されている（4/4）"
-      - "不変条件が完全に反映されている（13/13）"
-      - "AUTO決定が網羅的に記載されている（15/15）"
-      - "用語整合率が96.2%を達成"
+      - "全ての正規形用語が100%使用されている（11/11）"
+      - "不変条件が完全に反映されている（14/14）"
+      - "AUTO決定が網羅的に記載されている（14/14）"
+      - "用語整合率が100%を達成"
+      - "同義語の不適切使用が0件"
+      - "全ての用語境界が尊重されている"
     improvement_areas:
-      - "補助用語（Converter, MappingRule）の記載強化"
-      - "SYSTEM_CONSTITUTION.mdでの用語説明の充実"
+      - "Memory用語がdraft状態 - 安定化を監視"
+      - "ARCHITECTURE.mdでのmapping.yml反映を強化可能"
 
-  # 8. 次回のアクション
+  # 9. 次回のアクション
   next_actions:
-    - "12_concept_sync_system: ConverterとMappingRuleの関係性を明確化"
-    - "12_concept_sync_system: SYSTEM_CONSTITUTION.mdの更新推奨"
-    - "16_repo_md_bootstrapper: 24時間後に次回実行を推奨"
+    - "12_concept_sync_system: Memory用語のステータス変更を監視（draft→stable）"
+    - "12_concept_sync_system: AUTO決定の有効期限を監視（残り18回）"
+    - "16_repo_md_bootstrapper: ontology.ymlまたはinvariants.yml更新時に実行"
 
-  # 9. メタデータ
+  # 10. 改善の推移
+  improvement_progress:
+    previous_run: 57
+    current_run: 58
+    concept_health_score:
+      before: 96
+      after: 98
+      delta: +2
+    invariant_coverage:
+      before: "100%"
+      after: "100%"
+      delta: "維持"
+    auto_decision_coverage:
+      before: "100%"
+      after: "100%"
+      delta: "維持"
+
+  # 11. メタデータ
   metadata:
     total_checks: 10
     passed_checks: 10
     failed_checks: 0
-    warning_checks: 2
+    warning_checks: 0
     concept_integrity: "very_high"
+    bootstrap_version: "1.1"

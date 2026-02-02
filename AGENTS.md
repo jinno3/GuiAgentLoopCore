@@ -151,4 +151,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-03T05:53:00Z (bootstrap run v1.1 - run #56 - verified AUTO decisions with ambiguities.yml v2026-02-02T05:57:38Z)
+**最終更新**: 2026-02-03T06:24:00Z (bootstrap run v1.1 - run #58 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z)

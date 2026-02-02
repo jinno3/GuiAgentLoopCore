@@ -36,6 +36,9 @@ Handle structured communication between users, systems, and agents
 ### Backend Abstraction
 Enable multiple GUI framework implementations (Gradio, extensible to others)
 
+### Streaming Support
+Unified handling of both sync and async streaming responses through StreamWrapper
+
 
 ## Installation
 

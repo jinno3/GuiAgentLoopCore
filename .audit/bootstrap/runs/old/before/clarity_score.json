@@ -1,187 +1,138 @@
 {
-  "timestamp": "2026-02-03T05:53:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
+  "timestamp": "2026-02-03T06:08:00Z",
+  "overall_score": 85,
+  "concept_alignment_score": 92,
   "max_score": 100,
-  "scoring_methodology": "v1.1 - Concept-integrated scoring",
+  "scoring_method": "v1.1 (uniqueness 60% + concept 40%)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory"],
-        "synonyms_found": [],
-        "unknown_terms": []
+        "score": 95,
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_functions_covered": true
-      },
-      "issues": []
+      "issues": [
+        "存在意義は明確だが、より強調可能"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
+        "score": 90,
+        "issues": [
+          {
+            "severity": "low",
+            "description": "用語規約セクションの強化余地"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 100,
-        "mission_reflected": true,
-        "boundaries_defined": true,
-        "invariants_covered": true,
-        "auto_decisions_noted": true
-      },
-      "issues": []
+      "issues": [
+        "不変条件の明記が必要"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "intent_alignment": {
-        "score": 100,
-        "claude_specific_guidance": true,
-        "invariants_covered": true,
-        "auto_decisions_noted": true
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "invariants_from_yaml": 11,
-        "hard_invariants_covered": 11,
-        "soft_invariants_covered": 3
-      },
-      "intent_alignment": {
-        "score": 100,
-        "constitutional_principles_defined": true,
-        "amendment_process_defined": true
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session"]
-      },
-      "intent_alignment": {
-        "score": 100,
-        "mission_detailed": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "term_usage_guidelines": true
-      },
-      "intent_alignment": {
-        "score": 100,
-        "contribution_process_defined": true
+        "score": 98,
+        "issues": []
       },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "ontology_version_sync": "0.3",
-        "total_terms": 10,
-        "all_canonical_terms_covered": true,
-        "all_synonyms_listed": true,
-        "all_auto_decisions_noted": true
-      },
-      "intent_alignment": {
-        "score": 100,
-        "generated_from_ontology": true
+        "issues": []
       },
       "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "issues": [
+        "一部のAUTO決定が反映されていない可能性"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 88,
+        "issues": []
+      },
+      "issues": [
+        "intent.ymlとの整合性確認が必要"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 80,
+      "concept_alignment": {
+        "score": 85,
+        "issues": []
+      },
+      "issues": [
+        "不変条件の明記が必要"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"]
+        "score": 80,
+        "issues": [
+          {
+            "severity": "medium",
+            "description": "mappings.ymlの反映が不十分"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 100,
-        "architecture_described": true
-      },
-      "issues": []
+      "issues": [
+        "概念モデルとの整合性に改善余地"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"]
-      },
-      "intent_alignment": {
-        "score": 100,
-        "gemini_specific_guidance": true
+        "score": 90,
+        "issues": []
       },
       "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"]
-      },
-      "intent_alignment": {
-        "score": 100,
-        "codex_specific_guidance": true
+        "score": 90,
+        "issues": []
       },
       "issues": []
     }
   ],
   "summary": {
-    "total_files": 10,
-    "perfect_scores": 10,
-    "files_with_issues": 0,
-    "term_normalization_rate": 1.0,
-    "invariant_coverage": 1.0,
-    "auto_decision_coverage": 1.0
+    "total_files": 11,
+    "excellent_files": 4,
+    "good_files": 5,
+    "needs_improvement": 2,
+    "critical_issues": 0
   }
 }
