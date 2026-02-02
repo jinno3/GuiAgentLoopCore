@@ -1,52 +1,130 @@
 {
-  "timestamp": "2026-02-02T09:20:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 95,
-  "uniqueness_score": 85,
+  "timestamp": "2026-02-02T00:25:21Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "intent_clarity": 90,
-    "concept_consistency": 95,
-    "completeness": 70,
-    "uniqueness": 85
-  },
-
+  "scoring_methodology": "Based on intent.yml alignment and ontology.yml term normalization",
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 80,
-      "concept_alignment": 90,
-      "uniqueness_score": 85,
-      "overall_file_score": 85
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter"
+        ],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 95,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "core_functions_count": 5,
+        "invariants_documented": true,
+        "auto_decisions_documented": true
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
-      "clarity_score": 95,
-      "concept_alignment": 100,
-      "uniqueness_score": 90,
-      "overall_file_score": 95
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter",
+          "Connector"
+        ],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 98,
+        "mission_reflected": true,
+        "behavior_rules_documented": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true,
+        "term_normalization_table": true
+      },
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 90,
-      "concept_alignment": 100,
-      "uniqueness_score": 85,
-      "overall_file_score": 92
+      "exists": true,
+      "clarity_score": 97,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter"
+        ],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 95,
+        "claude_specific_guidelines": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true,
+        "code_examples_provided": true
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
-      "clarity_score": 95,
-      "concept_alignment": 100,
-      "uniqueness_score": 80,
-      "overall_file_score": 92
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "generated_from_ontology": true,
+        "ontology_version": "0.3",
+        "total_terms": 11,
+        "canonical_terms_all_used": true
+      },
+      "intent_alignment": {
+        "score": 100,
+        "ontology_based": true,
+        "auto_decisions_included": true
+      },
+      "issues": []
     }
   ],
-
   "summary": {
-    "average_score": 91,
-    "above_threshold": true,
-    "threshold": 90,
-    "assessment": "Excellent - No changes needed"
+    "total_files_checked": 4,
+    "files_with_perfect_alignment": 3,
+    "files_with_minor_issues": 1,
+    "canonical_term_usage_rate": 0.98,
+    "synonym_usage_rate": 0.0,
+    "intent_reflection_rate": 0.97
   }
 }

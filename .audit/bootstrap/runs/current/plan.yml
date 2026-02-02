@@ -1,7 +1,4 @@
-# MD Bootstrap Execution Plan (v1.1)
-# Generated: 2026-02-02T09:15:00Z
-
-run_timestamp: "2026-02-02T09:15:00Z"
+run_timestamp: "2026-02-02T00:25:21Z"
 version: "1.1"
 
 rotation:
@@ -15,36 +12,67 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
-  total_core_functions: 5
-  total_boundaries: 6
+  core_functions:
+    - "Centralized Conversation Management"
+    - "State Machine with Monotonic Transitions"
+    - "Multi-Agent Coordination"
+    - "Structured Message Processing"
+    - "Backend Abstraction"
 
 ontology_summary:
-  version: "0.3"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      status: "stable"
+      layer: "core"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      status: "stable"
-    - canonical: "State"
       layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
+    - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
-      status: "stable"
+      layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 term_normalization:
+  # From ontology.yml synonyms
   "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
@@ -55,6 +83,7 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -79,36 +108,45 @@ term_normalization:
 existing_mds:
   - path: "README.md"
     status: "exists_needs_review"
-    tier: 1
-    issues:
-      - "Content appears good but needs verification against intent.yml"
-      - "Concept terminology check needed"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_excellent"
-    tier: 1
+    status: "exists_needs_review"
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_excellent"
-    tier: 2
+    status: "exists_needs_review"
     issues: []
   - path: "GLOSSARY.md"
-    status: "exists_excellent"
-    tier: 3
+    status: "exists_needs_review"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists"
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and concept normalization"
+    reason: "用語の正規形と概念整合性を検証"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept terminology consistency"
+    reason: "用語規約と不変条件の整合性を検証"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify concept terminology consistency"
+    reason: "Claude向け指示の概念整合性を検証"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify it matches ontology.yml v0.3"
-
-target_score: 90
-max_iterations: 3
+    reason: "ontology.ymlからの生成整合性を検証"

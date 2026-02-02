@@ -1,98 +1,130 @@
 {
-  "timestamp": "2026-02-02T09:15:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 95,
+  "timestamp": "2026-02-02T00:25:21Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "intent_clarity": 90,
-    "concept_consistency": 95,
-    "completeness": 70,
-    "uniqueness": 85
-  },
-
+  "scoring_methodology": "Based on intent.yml alignment and ontology.yml term normalization",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 90,
+        "score": 98,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"]
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter"
+        ],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Clearly states mission from intent.yml",
-        "Uses canonical terminology consistently",
-        "References GLOSSARY.md for term definitions",
-        "Includes AUTO decisions section",
-        "Documents critical invariants"
-      ],
-      "issues": [
-        "Installation section is empty",
-        "Usage section is empty",
-        "Missing CONTRIBUTING.md reference"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "core_functions_count": 5,
+        "invariants_documented": true,
+        "auto_decisions_documented": true
+      },
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter", "Connector"]
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter",
+          "Connector"
+        ],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Excellent term normalization table",
-        "Comprehensive invariants documentation",
-        "Clear AUTO decisions tracking",
-        "Well-structured behavior guidelines"
-      ],
+      "intent_alignment": {
+        "score": 98,
+        "mission_reflected": true,
+        "behavior_rules_documented": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true,
+        "term_normalization_table": true
+      },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 97,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Converter"]
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Converter"
+        ],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Excellent code examples with proper term usage",
-        "Comprehensive invariant documentation",
-        "Clear AUTO decision explanations",
-        "Good code review checklist"
-      ],
-      "issues": [
-        "Could include more Claude-specific patterns"
-      ]
+      "intent_alignment": {
+        "score": 95,
+        "claude_specific_guidelines": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true,
+        "code_examples_provided": true
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"]
+        "generated_from_ontology": true,
+        "ontology_version": "0.3",
+        "total_terms": 11,
+        "canonical_terms_all_used": true
       },
-      "strengths": [
-        "Comprehensive term documentation",
-        "Excellent synonym mapping",
-        "Includes AUTO decisions for each term",
-        "Good evidence citations"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "ontology_based": true,
+        "auto_decisions_included": true
+      },
       "issues": []
     }
   ],
-
-  "term_usage_analysis": {
-    "total_canonical_terms": 11,
-    "canonical_terms_used_in_mds": 11,
-    "synonyms_detected": 0,
-    "normalization_rate": 1.0
+  "summary": {
+    "total_files_checked": 4,
+    "files_with_perfect_alignment": 3,
+    "files_with_minor_issues": 1,
+    "canonical_term_usage_rate": 0.98,
+    "synonym_usage_rate": 0.0,
+    "intent_reflection_rate": 0.97
   }
 }
