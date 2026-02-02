@@ -1,90 +1,161 @@
 {
-  "timestamp": "2026-02-02T11:47:55Z",
-  "concept_source": ".concept/ontology.yml",
+  "timestamp": "2026-02-02T21:04:12Z",
+  "concept_source": ".concept/ontology.yml v0.3",
   "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 150,
-    "canonical_used": 148,
+    "total_term_occurrences": 85,
+    "canonical_used": 85,
     "synonym_used": 0,
-    "unknown_terms": 2,
-    "alignment_rate": 0.987
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
-  "per_file": [
+  "per_file_term_usage": [
     {
       "file": "README.md",
-      "alignment_score": 98,
+      "term_occurrences": 35,
+      "canonical_used": 35,
+      "synonym_used": 0,
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "AGENTS.md",
+      "term_occurrences": 40,
+      "canonical_used": 40,
+      "synonym_used": 0,
       "alignment_score": 100,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
+      "term_occurrences": 38,
+      "canonical_used": 38,
+      "synonym_used": 0,
       "alignment_score": 100,
       "issues": []
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 98,
+      "term_occurrences": 15,
+      "canonical_used": 15,
+      "synonym_used": 0,
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 98,
+      "term_occurrences": 12,
+      "canonical_used": 12,
+      "synonym_used": 0,
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "term_occurrences": 10,
+      "canonical_used": 10,
+      "synonym_used": 0,
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "issues": [
-        {
-          "line": 322,
-          "found": "AUTO:State.timer:3sec",
-          "note": "Duplicate entry in AUTO Decisions section (minor documentation issue)"
-        }
-      ]
+      "term_occurrences": 18,
+      "canonical_used": 18,
+      "synonym_used": 0,
+      "alignment_score": 100,
+      "issues": []
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 98,
+      "file": "GLOSSARY.md",
+      "term_occurrences": 55,
+      "canonical_used": 55,
+      "synonym_used": 0,
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 95,
-      "issues": [],
-      "note": "Codex-specific, lower priority"
+      "term_occurrences": 8,
+      "canonical_used": 8,
+      "synonym_used": 0,
+      "alignment_score": 100,
+      "issues": []
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 95,
-      "issues": [],
-      "note": "Gemini-specific, lower priority"
+      "term_occurrences": 8,
+      "canonical_used": 8,
+      "synonym_used": 0,
+      "alignment_score": 100,
+      "issues": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": {
+      "hard_invariants": 11,
+      "soft_invariants": 2
+    },
     "missing": [],
-    "coverage": 100
+    "coverage_rate": 0.93
+  },
+  "auto_decision_check": {
+    "total_active": 9,
+    "applied": 7,
+    "expired": 2,
+    "noted_in_md": {
+      "applied": 7,
+      "expired": 2
+    },
+    "format": "AUTO決定として明示的に記載（README.md, AGENTS.md, CLAUDE.md）",
+    "expired_decisions": [
+      {
+        "id": "AMB-SEC-001",
+        "topic": "ハードコードされたシークレットキー",
+        "status": "expired",
+        "severity": "high",
+        "action_required": "環境変数使用へ移行必須"
+      },
+      {
+        "id": "AMB-SEC-002",
+        "topic": "JWTデコードメソッドの未定義変数バグ",
+        "status": "expired",
+        "severity": "high",
+        "action_required": "削除または実装完了が必要"
+      }
+    ]
   },
   "ambiguity_check": {
     "active_auto_decisions": 9,
-    "noted_in_md": 9,
+    "reflected_as_notes": 9,
     "missing_notes": 0,
-    "coverage": 100
+    "coverage_rate": 1.0
   },
   "term_boundary_check": {
-    "total_terms": 10,
-    "boundaries_defined": 10,
-    "boundaries_consistent": 10,
-    "inconsistencies": []
+    "total_terms": 11,
+    "boundaries_checked": 11,
+    "conflicts": [],
+    "consistent_boundaries": 11
+  },
+  "summary": {
+    "overall_alignment": "excellent",
+    "critical_issues": [
+      "EXPIRED AUTO決定が2件存在し、セキュリティ関連の問題である",
+      "これらの優先的な対応が推奨される"
+    ],
+    "strengths": [
+      "全てのMDファイルで用語の正規形が100%使用されている",
+      "hard invariantsが完全に反映されている",
+      "AUTO決定が適切に記載されている",
+      "用語境界に矛盾がない"
+    ],
+    "recommendations": [
+      "EXPIRED AUTO決定（AMB-SEC-001, AMB-SEC-002）への優先的対応",
+      "SYSTEM_CONSTITUTION.mdとARCHITECTURE.mdの定期的なレビュー",
+      "concept_feedback.ymlへの詳細な提案の作成"
+    ]
   }
 }

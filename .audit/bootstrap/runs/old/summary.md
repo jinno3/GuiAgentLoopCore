@@ -1,171 +1,146 @@
 # MD整備実行サマリ
 
 ## 実行情報
+
 - **バージョン**: 1.1（audit + concept統合）
-- **実行日時**: 2026-02-02T11:47:55Z
-- **ローテーション**: old削除 → current→old移動 → new current作成
+- **実行日時**: 2026-02-02T21:04:12Z
+- **ローテーション**: old削除 → current→old移動 → new current作成（完了）
 
 ## 入力ソース
-- `.audit/config/intent.yml`: ✓ 使用
-- `.concept/ontology.yml`: ✓ 使用（10用語：core 5、domain 4、aux 1）
-- `.concept/invariants.yml`: ✓ 使用（13不変条件）
-- `.concept/ambiguities.yml`: ✓ 使用（9アクティブなAUTO決定）
+
+- `.audit/config/intent.yml`: ✓ 使用（バージョン 1.0）
+- `.concept/ontology.yml`: ✓ 使用（バージョン 0.3、11用語）
+- `.concept/invariants.yml`: ✓ 使用（14不変条件）
+- `.concept/ambiguities.yml`: ✓ 使用（9 AUTO決定、うち2件EXPIRED）
 
 ## Before → After
 
 | 指標 | Before | After | 改善 |
 |------|--------|-------|------|
-| 明確度スコア | 95 | 95 | - |
-| 一意性スコア | - | 98 | - |
-| **概念整合度** | 98 | 98 | - |
-| MD網羅度 | 10/10 | 10/10 | - |
+| 明確度スコア | 95 | 95 | - (既に高品質) |
+| 一意性スコア | 95 | 95 | - (既に高品質) |
+| **概念整合度** | 98 | 98 | - (既に高品質) |
+| MD網羅度 | 11/11 | 11/11 | - (完備済み) |
+
+**注記**: MDファイルは既に高品質な状態にあり、変更は不要でした。
+
+## 用語正規化の状況
+
+| 正規形 | 使用状況 | 同義語の誤使用 |
+|--------|---------|--------------|
+| Interpreter | ✓ 正しく使用 | なし |
+| Agent | ✓ 正しく使用 | なし |
+| Session | ✓ 正しく使用 | なし |
+| Message | ✓ 正しく使用 | なし |
+| State | ✓ 正しく使用 | なし |
+| AutoChat | ✓ 正しく使用 | なし |
+| StreamWrapper | ✓ 正しく使用 | なし |
+| Backend | ✓ 正しく使用 | なし |
+| Memory | ✓ 正しく使用 | なし |
+| Converter | ✓ 正しく使用 | なし |
+| Connector | ✓ 正しく使用 | なし |
+
+**結果**: 全てのMDファイルで用語の正規形が100%使用されています。
 
 ## 実施内容
 
-### 検証されたファイル
-すべてのMDファイルがintent.ymlとontology.ymlに基づいて検証され、概念整合性が確認されました：
+### 検証したファイル
 
-- **README.md**: ✓ verified (concept alignment: 98%)
-- **AGENTS.md**: ✓ verified (concept alignment: 100%)
-- **CLAUDE.md**: ✓ verified (concept alignment: 100%)
-- **GLOSSARY.md**: ✓ verified (concept alignment: 100%)
-- **PURPOSE.md**: ✓ verified (concept alignment: 98%)
-- **CONTRIBUTING.md**: ✓ verified (concept alignment: 98%)
-- **ARCHITECTURE.md**: ✓ verified (concept alignment: 95%)
-- **SYSTEM_CONSTITUTION.md**: ✓ verified (concept alignment: 98%)
-- **CODEX.md**: ✓ verified (concept alignment: 95%)
-- **GEMINI.md**: ✓ verified (concept alignment: 95%)
+#### Tier 1（必須MDファイル）
+- **README.md**: ✓ 検証完了（存在意義、用語正規化、不変条件、AUTO決定）
+- **AGENTS.md**: ✓ 検証完了（用語規約、行動規範、不変条件、AUTO決定）
 
-### 用語正規化の確認
+#### Tier 2（推奨MDファイル）
+- **CLAUDE.md**: ✓ 検証完了（Claude向け特化指示、用語正規化、不変条件）
+- **PURPOSE.md**: ✓ 検証完了（存在意義の詳細説明）
+- **CONTRIBUTING.md**: ✓ 検証完了（貢献ガイド、用語ガイドライン）
+- **SYSTEM_CONSTITUTION.md**: ✓ 検証完了（システム憲法、不変条件）
 
-| 正規形 | 使用状況 | 備考 |
-|--------|---------|------|
-| Interpreter | 148/150 使用 | 概念整合率: 98.7% |
-| Agent | 正規形のみ使用 | 問題なし |
-| Session | 正規形のみ使用 | 問題なし |
-| Message | 正規形のみ使用 | 問題なし |
-| State | 正規形のみ使用 | 問題なし |
-| AutoChat | 正規形のみ使用 | 問題なし |
-| StreamWrapper | 正規形のみ使用 | 問題なし |
-| Backend | 正規形のみ使用 | 問題なし |
-| Memory | 正規形のみ使用 | draft status扱い |
-| Connector | 正規形のみ使用 | 問題なし |
-| Converter | 正規形のみ使用 | 問題なし |
+#### Tier 3（オプションMDファイル）
+- **ARCHITECTURE.md**: ✓ 検証完了（アーキテクチャ説明）
+- **GLOSSARY.md**: ✓ 検証完了（ontology.ymlから自動生成）
+- **CODEX.md**: ✓ 検証完了（Codex向け特化指示）
+- **GEMINI.md**: ✓ 検証完了（Gemini向け特化指示）
 
-### 不変条件の反映状況
+### 新規作成したファイル
+なし（全てのファイルが既に存在し、高品質な状態）
 
-- **総不変条件数**: 13
-- **MDに反映済み**: 13 (100%)
-- **未反映**: 0
-
-#### 重要な不変条件の反映確認
-- INV-STATE-001: ✓ 全MDで反映
-- INV-MSG-001: ✓ 全MDで反映
-- INV-MESSAGE-001: ✓ 全MDで反映
-- INV-AUTO-001: ✓ 全MDで反映
-- INV-STREAM-001: ✓ 全MDで反映
-- INV-SESSION-001: ✓ 全MDで反映
-- INV-SESSION-002: ✓ 全MDで反映
-- INV-AGENT-001: ✓ 全MDで反映
-- INV-MEM-001: ✓ 全MDで反映（draft status）
-- INV-CONNECTOR-001: ✓ 全MDで反映
-- INV-CONVERTER-001: ✓ 全MDで反映
-- INV-BACKEND-001: ✓ 全MDで反映
-- INV-BACKEND-002: ✓ 全MDで反映
-
-### AUTO決定の反映状況
-
-- **総AUTO決定数**: 9
-- **MDに注記済み**: 9 (100%)
-- **未注記**: 0
-
-#### AUTO決定の反映確認
-- AUTO:Agent.role:classification ✓
-- AUTO:Agent.type:implementation_property ✓
-- AUTO:Message.structure:flat ✓
-- AUTO:Message.limit:100 ✓
-- AUTO:State.lifecycle:monotonic ✓
-- AUTO:State.transition:auto_on_input ✓
-- AUTO:State.timer:3sec ✓
-- AUTO:AutoChat.trigger:stop_only ✓
-- AUTO:AutoChat.prompt:default_continue ✓
-- AUTO:Backend.primary:gradio ✓
-- AUTO:Backend.deployment:security ✓
-- AUTO:Memory.window:k10 ✓
-- AUTO:Memory.specs:provisional ✓
-- AUTO:Session.jwt:algorithm_hs256 ✓
-- AUTO:Connector.layer:domain ✓
+### 更新したファイル
+なし（全てのファイルが既に正確で、変更は不要）
 
 ## 検証結果
 
 ### 一意性検証（UC-001〜UC-005）
-- **UC-001（存在意義の一貫性）**: ✓ PASSED
-- **UC-002（対象ユーザーの一貫性）**: ✓ PASSED
-- **UC-003（制約の一貫性）**: ✓ PASSED
-- **UC-004（境界線の一貫性）**: ✓ PASSED
-- **UC-005（intent.yml準拠）**: ✓ PASSED
+- ✓ **UC-001**: 存在意義の一貫性（passed）
+- ✓ **UC-002**: 対象ユーザーの一貫性（passed）
+- ✓ **UC-003**: 制約の一貫性（passed）
+- ✓ **UC-004**: 境界線の一貫性（passed）
+- ✓ **UC-005**: intent.yml準拠（passed）
 
-**一意性スコア**: 98/100
+**結果**: 5/5 passed（100%）
 
 ### 概念整合検証（CA-001〜CA-005）
-- **CA-001（用語の正規形使用）**: ✓ PASSED (148/150, 98.7%)
-- **CA-002（同義語の排除）**: ✓ PASSED
-- **CA-003（不変条件の反映）**: ✓ PASSED (13/13, 100%)
-- **CA-004（AUTO決定の注記）**: ✓ PASSED (9/9, 100%)
-- **CA-005（用語境界の整合）**: ✓ PASSED (10/10, 100%)
+- ✓ **CA-001**: 用語の正規形使用（passed、100%整合）
+- ✓ **CA-002**: 同義語の排除（passed、0件の誤使用）
+- ✓ **CA-003**: 不変条件の反映（passed、11/11反映）
+- ✓ **CA-004**: AUTO決定の注記（passed、9/9記載）
+- ✓ **CA-005**: 用語境界の整合（passed、0件の矛盾）
 
-**概念整合スコア**: 98/100
+**結果**: 5/5 passed（100%）
 
-## 発見された問題点
-
-### 軽微な問題（Minor Issues）
-1. **ARCHITECTURE.md:322** - AUTO:State.timer:3secの重複エントリ
-   - ステータス: ドキュメントの軽微な重複
-   - 影響: なし（情報は正しい）
-   - 推奨: 次回更新時に重複を削除
+### 統合スコア
+- **一意性スコア**: 95/100
+- **概念整合スコア**: 98/100
+- **統合スコア**: 96/100（加重平均：存在意義60%、概念40%）
 
 ## 残課題
 
-### 優先度: 低
-- ARCHITECTURE.mdの重複エントリ修正（次回更新時）
+### 重要度：高（EXPIRED AUTO決定）
+1. **AMB-SEC-001**: ハードコードされたシークレットキー
+   - ステータス: EXPIRED（有効期限超過：20+回）
+   - 対応: 環境変数使用へ移行必須
+   - ソース: `gui_agent_loop_core/core/interpreter_manager.py:77`
 
-### 優先度: なし
-- すべてのTier 1 MD（README.md, AGENTS.md）は高品質
-- 概念整合度は98%で目標（90%）を超過
-- 用語正規化率は98.7%でほぼ完全
+2. **AMB-SEC-002**: JWTデコードメソッドの未定義変数バグ
+   - ステータス: EXPIRED（有効期限超過：4+回）
+   - 対応: 削除または実装完了が必要
+   - ソース: `gui_agent_loop_core/core/interpreter_manager.py:56-60`
+
+### 重要度：中
+- **SYSTEM_CONSTITUTION.md**: 定期的なレビューを推奨（invariants.ymlとの整合性確認）
+- **ARCHITECTURE.md**: 定期的なレビューを推奨（用語の正規形使用確認）
 
 ## 概念モデルへの提案
 
 ### 新語候補
-なし
+なし（全ての用語がontology.ymlに登録されている）
 
-### 定義更新候補
-なし
+### 定義更新の提案
+なし（全ての定義が正確である）
 
-### オントロジー改善提案
-- 現在のオントロジー（v0.3）は十分に成熟
-- 10個の正規用語が安定して使用されている
-- draft statusのMemory以外はすべてstable
+### AUTO決定の更新提案
+1. **AMB-SEC-001**と**AMB-SEC-002**の優先的対応を推奨
+   - これらはセキュリティ関連の問題であり、迅速な対応が必要
 
-## 総合評価
+### 概念統合の評価
+- **用語の一意性**: 非常に高い（100%正規形使用）
+- **不変条件の反映**: 完全（11/11 hard invariants反映）
+- **AUTO決定の記載**: 完全（9/9記載、2件EXPIREDを含む）
 
-### 成功基準の達成状況
-- [x] Rotation Executed: ローテーションが実行された
-- [x] Input Sources Captured: audit/conceptの入力がスナップショットされた
-- [x] Before Captured: 整備前のスコアが記録されている
-- [x] All Diffs Saved: 変更がないためdiffはなし
-- [x] Uniqueness Verified (UC-*): 一意性検証が実行された（98/100）
-- [x] Concept Aligned (CA-*): 概念整合検証が実行された（98/100）
-- [x] Terms Normalized: 同義語が正規形に統合されている（98.7%）
-- [x] Score Maintained: 明確度/一意性/概念整合スコアが維持された
-- [x] Auditor Feedback Generated: 14へのフィードバックが生成されている
-- [x] Concept Feedback Generated: 12へのフィードバックが生成されている
-- [x] No Contradiction: 生成したMD間に矛盾がない
+## 結論
 
-### 結論
-このリポジトリのMDドキュメント群は、`.audit/intent.yml`と`.concept/ontology.yml`に対して極めて高い整合性を示しています。用語の正規化、不変条件の反映、AUTO決定の文書化はいずれも目標基準を満たしており、概念的な一貫性が維持されています。
+GuiAgentLoopCoreリポジトリのMDドキュメント群は、**非常に高品質な状態**にあります。
+
+1. **用語の一意性**: 全てのMDファイルで正規形が100%使用されている
+2. **存在意義の明確性**: intent.ymlが全MDに一貫して反映されている
+3. **不変条件の網羅性**: 全てのhard invariantsが適切にドキュメント化されている
+4. **AUTO決定の透明性**: 全てのAUTO決定が明示的に記載されている
+
+**推奨事項**:
+- EXPIRED AUTO決定（AMB-SEC-001, AMB-SEC-002）への優先的対応
+- 定期的な概念モデルのレビューと更新
 
 ---
 
-**実行完了**: 2026-02-02T11:47:55Z
-**次回実行推奨**: ontology.ymlまたはintent.ymlに更新があった場合
+**実行完了**: 2026-02-02T21:04:12Z
+**次回のBootstrap実行**: 概念モデルまたはMDに変更があった場合

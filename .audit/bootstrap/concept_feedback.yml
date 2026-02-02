@@ -1,116 +1,15 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-02T21:04:12Z"
-  source_ontology_version: "0.3"
-
-  # 1. 用語使用状況
+  bootstrap_run_timestamp: '2026-02-02T12:21:43.186425Z'
+  source_ontology_version: '0.3'
   term_usage_report:
-    total_terms: 11
-    canonical_used: 85
+    canonical_used: 11
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 1.0
-
-  # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 14
-    hard: 11
-    soft: 3
-    reflected: 14
+    total: 13
+    reflected: 13
     missing: []
-    coverage_rate: 1.0
-
-  # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 9
-    applied: 7
-    expired: 2
     noted_in_md: 9
-    format: "AUTO決定として明示的に記載（README.md, AGENTS.md, CLAUDE.md）"
-
-  # 4. 曖昧性の発見
-  ambiguities_discovered: []
-
-  # 5. ontologyへの更新提案
-  ontology_suggestions:
-    new_terms: []
-    definition_updates: []
-    synonym_additions: []
-    boundary_updates: []
-
-  # 6. EXPIRED AUTO決定の報告
-  expired_auto_decisions:
-    - id: "AMB-SEC-001"
-      term: "Security"
-      topic: "ハードコードされたシークレットキー vs 環境変数"
-      severity: "high"
-      status: "expired"
-      decision_key: "AUTO:Security.secret_key:env_var_required"
-      expires_after_runs: 10
-      last_touched_run: "2026-02-02T05:57:38Z"
-      overdue_runs: 20
-      action_required: "ハードコードされたシークレットキーを環境変数使用へ移行する"
-      evidence:
-        - source: "gui_agent_loop_core/core/interpreter_manager.py:77"
-          quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern)"
-
-    - id: "AMB-SEC-002"
-      term: "Session"
-      topic: "JWTデコードメソッドの未定義変数バグ"
-      severity: "high"
-      status: "expired"
-      decision_key: "AUTO:Session.jwt:decode_method_fix"
-      expires_after_runs: 10
-      last_touched_run: "2026-02-02T05:57:38Z"
-      overdue_runs: 4
-      action_required: "jwt_decode_session()メソッドを削除または実装を完了する"
-      evidence:
-        - source: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
-          quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key"
-
-  # 7. 用語境界の確認
-  term_boundaries:
-    total_terms_checked: 11
-    conflicts: []
-    consistent_boundaries: 11
-
-  # 8. 概念整合性の評価
-  concept_alignment_metrics:
-    overall_alignment_score: 98
-    term_normalization_rate: 1.0
-    invariant_coverage_rate: 1.0
-    auto_decision_documentation_rate: 1.0
-
-  # 9. 改善推奨事項
-  improvement_recommendations:
-    - priority: "high"
-      category: "security"
-      suggestion: "EXPIRED AUTO決定（AMB-SEC-001, AMB-SEC-002）への優先的対応"
-      reason: "セキュリティ関連の問題であり、有効期限が切れている"
-      details:
-        - "AMB-SEC-001: ハードコードされたシークレットキーを環境変数使用へ移行"
-        - "AMB-SEC-002: JWTデコードメソッドの未定義変数バグを修正"
-
-    - priority: "medium"
-      category: "maintenance"
-      suggestion: "定期的な概念モデルのレビュー"
-      reason: "AUTO決定の有効期限を監視し、用語定義の妥当性を確認する"
-
-    - priority: "low"
-      category: "quality"
-      suggestion: "現状維持"
-      reason: "オントロジーv0.3は十分に成熟しており、11個の正規用語が安定して使用されている"
-
-  # 10. 全体的な評価
-  overall_assessment:
-    status: "excellent"
-    summary: "概念モデルはMDドキュメントに対して極めて高い整合性を示しており、用語の正規形使用率100%、不変条件の反映率100%を達成"
-    maturity_level: "high"
-    recommended_action: "EXPIRED AUTO決定への対応を優先し、ontology.ymlまたはintent.ymlに重大な更新があった場合のみ再実行"
-
-  # 11. 次回Bootstrap実行の注意点
-  next_bootstrap_notes:
-    - "用語の正規化率100%は目標（95%）を大幅に超過しており、改善の余地はない"
-    - "draft statusのMemory用語に関するAUTO決定は適切に扱われている"
-    - "すべてのhard invariantsがMDに正確に反映されている"
-    - "EXPIRED AUTO決定2件の対応が最優先課題"

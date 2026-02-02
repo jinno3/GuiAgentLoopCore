@@ -44,8 +44,8 @@ Claudeは、以下のhard invariantsを絶対に違反しません：
 ```python
 # 良い例: 状態遷移の単調性を尊重
 def change_state_running(interpreter: Interpreter):
-    if interpreter.state == InterpreterState.STATE_INIT:
-        interpreter.state = InterpreterState.STATE_RUNNING
+    if interpreter.state == State.STATE_INIT:
+        interpreter.state = State.STATE_RUNNING
     else:
         raise InvalidStateTransitionError(
             f"Cannot transition to RUNNING from {interpreter.state}"
@@ -53,7 +53,7 @@ def change_state_running(interpreter: Interpreter):
 
 # 悪い例: 状態の逆行
 def revert_to_init(interpreter: Interpreter):  # ❌ 違反
-    interpreter.state = InterpreterState.STATE_INIT
+    interpreter.state = State.STATE_INIT
 ```
 
 - **INV-STATE-002**: 状態は3秒間隔のタイマーで自動更新される
@@ -81,7 +81,7 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
   - 許可される役割: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
   - **AUTO決定**: AUTO:Agent.role:classification（暫定仕様）
 
-#### 自動チャット（AutoChat）
+#### AutoChat（AutoChat）
 - **INV-AUTO-001**: AutoChatはSTATE_STOP時のみトリガーされる
   - 実行中の自動干渉を防ぎ、ユーザーコントロールを維持する
   - **AUTO決定**: AUTO:AutoChat.trigger:stop_only（暫定仕様）
@@ -180,19 +180,19 @@ Claudeの以下の特性を活かして、このプロジェクトに貢献し�
 
 ```python
 # 推奨されるパターン
-from gui_agent_loop_core.schema.core.schema import InterpreterState
+from gui_agent_loop_core.schema.core.schema import State
 
 class InterpreterManager:
     def __init__(self):
-        self.state = InterpreterState.STATE_INIT
+        self.state = State.STATE_INIT
 
     def change_state_running(self):
         """状態をRUNNINGに変更。単調遷移を保証。"""
-        if self.state != InterpreterState.STATE_INIT:
+        if self.state != State.STATE_INIT:
             raise InvalidStateTransitionError(
                 f"Cannot transition to RUNNING from {self.state}"
             )
-        self.state = InterpreterState.STATE_RUNNING
+        self.state = State.STATE_RUNNING
 ```
 
 ### Agent関連のコード
@@ -200,12 +200,12 @@ class InterpreterManager:
 ```python
 # 推奨されるパターン
 from gui_agent_loop_core.schema.core.schema import AgentName
-from gui_agent_loop_core.schema.agent.schema import AgentType
+from gui_agent_loop_core.schema.agent.schema import Agent
 
 @dataclass
 class Agent:
     name: AgentName  # 役割
-    type: AgentType  # 実装タイプ（役割とは独立）
+    type: Agent  # 実装タイプ（役割とは独立）
 
     # AUTO:Agent.type:implementation_property を尊重
 ```

@@ -1,95 +1,18 @@
-feedback:
-  bootstrap_run_timestamp: "2026-02-02T21:04:12Z"
-  version: "1.1"
-
-  # 1. 存在意義の明確度評価
-  existence_clarity:
-    before: 95
-    after: 95
-    delta: 0
-    interpretation: "MDファイルは既に高品質な状態にあり、intent.ymlの定義が適切に反映されている"
-
-  # 2. 一意性評価
-  uniqueness_score:
-    score: 95
-    issues_found: 0
-    issues_resolved: 0
-    remaining_issues: []
-
-  # 3. MD網羅度
-  md_coverage:
-    tier1_coverage: "3/2 (150% - README, AGENTS, CLAUDE exist and verified)"
-    tier2_coverage: "4/4 (100% - PURPOSE, CONTRIBUTING, SYSTEM_CONSTITUTION all verified)"
-    tier3_coverage: "4/4 (100% - ARCHITECTURE, GLOSSARY, CODEX, GEMINI all verified)"
-
-  # 4. 発見した矛盾点
-  inconsistencies: []
-
-  # 5. intent.ymlへの提案
-  intent_suggestions: []
-
-  # 6. 概念モデルとの連携状況
-  concept_integration:
-    used: true
-    ontology_version: "0.3"
-    ontology_terms_used: 11
-    alignment_score: 98
-    new_term_candidates: []
-
-  # 7. 全体的な評価
-  overall_assessment:
-    quality: "excellent"
-    action_taken: "verification_only"
-    reason: "All MD files were already in excellent condition with high concept alignment"
-    summary: "MDドキュメント群はintent.ymlに対して極めて高い整合性を示している"
-    recommendations:
-      - priority: "high"
-        action: "EXPIRED AUTO decisions (AMB-SEC-001, AMB-SEC-002) の対応"
-        reason: "セキュリティ関連の問題であり、有効期限が切れている"
-      - priority: "medium"
-        action: "SYSTEM_CONSTITUTION.md と ARCHITECTURE.md の定期的レビュー"
-        reason: "invariants.ymlとの整合性確認"
-      - priority: "low"
-        action: "現状維持"
-        reason: "目標スコア（90%）を大幅に上回る95-98%を達成"
-
-  # 8. 推奨事項
-  recommendations:
-    - priority: "high"
-      item: "EXPIRED AUTO decisions (AMB-SEC-001, AMB-SEC-002) should be addressed urgently"
-      details:
-        - "AMB-SEC-001: Hardcoded secret key - migrate to environment variable"
-        - "AMB-SEC-002: JWT decode method bug with undefined variables - fix or remove"
-
-    - priority: "medium"
-      item: "Periodic review of SYSTEM_CONSTITUTION.md and ARCHITECTURE.md"
-      details:
-        - "Ensure alignment with invariants.yml"
-        - "Verify term normalization"
-
-    - priority: "low"
-      item: "Maintain current high quality of documentation"
-      details:
-        - "Continue using canonical terminology"
-        - "Keep AUTO decisions documented"
-        - "Maintain invariant documentation"
-
-  # 9. 次回のBootstrap実行の推奨タイミング
-  next_bootstrap_trigger:
-    - "概念モデル（ontology.yml）に変更があった場合"
-    - "不変条件（invariants.yml）に変更があった場合"
-    - "AUTO決定（ambiguities.yml）に重要な更新があった場合"
-    - "intent.ymlに重要な変更があった場合"
-
-  # 10. 成功基準の確認
-  success_criteria:
-    rotation_executed: true
-    input_sources_captured: true
-    before_captured: true
-    diffs_saved: true
-    uniqueness_verified: true
-    concept_aligned: true
-    terms_normalized: true
-    score_maintained: true
-    feedback_generated: true
-    no_contradiction: true
+bootstrap_run_timestamp: '2026-02-02T12:21:43.186425Z'
+version: '1.1'
+existence_clarity:
+  score: 60
+  interpretation: intent.ymlとontology.ymlの統合により高い整合性
+uniqueness_score:
+  score: 60
+  issues_found: 0
+  issues_resolved: 0
+  remaining_issues: []
+md_coverage:
+  tier1_coverage: 2/2 (100%)
+  tier2_coverage: 4/4 (100%)
+  tier3_coverage: 3/4 (75%)
+concept_integration:
+  used: true
+  ontology_terms_used: 11
+  alignment_score: 60
