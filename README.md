@@ -7,8 +7,8 @@
 ```mermaid
 graph LR
     User((<i class="fas fa-user"></i>))---UI
-    UI --- OpenGuiConnector
-    OpenGuiConnector --- Agent
+    UI --- Connector
+    Connector --- Agent
     Agent --- Agent1
     Agent --- Agent2
     Agent1 --- LLM
@@ -20,7 +20,7 @@ graph LR
     end
 
     subgraph Processing_Layer
-    OpenGuiConnector(OpenGuiConnector<br>- Event handling<br>- I/O conversion<br>- Multimodal support)
+    Connector(Connector<br>- Event handling<br>- I/O conversion<br>- Multimodal support)
     end
 
     subgraph Task_Management_Layer

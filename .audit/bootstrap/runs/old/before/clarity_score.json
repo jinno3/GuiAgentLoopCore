@@ -1,200 +1,173 @@
 {
-  "timestamp": "2026-02-02T19:58:00Z",
-  "overall_score": 92,
-  "concept_alignment_score": 95,
-  "intent_alignment_score": 90,
+  "timestamp": "2026-02-02T20:17:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "intent_alignment": {
-      "weight": 0.5,
-      "score": 90,
-      "factors": [
-        {"name": "Mission clarity", "score": 95},
-        {"name": "Target users defined", "score": 100},
-        {"name": "Core value articulated", "score": 85},
-        {"name": "Success metrics present", "score": 80}
-      ]
-    },
-    "concept_alignment": {
-      "weight": 0.3,
-      "score": 95,
-      "factors": [
-        {"name": "Canonical terms used", "score": 98},
-        {"name": "Synonyms avoided", "score": 95},
-        {"name": "Invariants documented", "score": 92},
-        {"name": "AUTO decisions noted", "score": 90}
-      ]
-    },
-    "documentation_quality": {
-      "weight": 0.2,
-      "score": 92,
-      "factors": [
-        {"name": "Completeness", "score": 100},
-        {"name": "Accuracy", "score": 90},
-        {"name": "Maintainability", "score": 85}
-      ]
-    }
-  },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": 88,
-      "concept_alignment": 92,
-      "issues": [
-        "Mission statement could be more explicit from intent.yml",
-        "Invariants section is good but could better reference ontology",
-        "Missing some design philosophy elements from intent"
-      ],
+      "tier": 1,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 98,
+        "issues": [
+          {
+            "line": 0,
+            "found": "None",
+            "should_be": "None",
+            "note": "File uses canonical terms correctly"
+          }
+        ]
+      },
       "strengths": [
-        "Well-structured with clear sections",
-        "Canonical terms used consistently",
-        "Good invariants documentation",
-        "AUTO decisions properly noted"
+        "Mission statement matches intent.yml exactly",
+        "Core components use canonical terms (Interpreter, Agent, Session, Message, State)",
+        "Invariants are properly documented with correct IDs",
+        "AUTO decisions are noted as provisional",
+        "References to GLOSSARY.md and AGENTS.md"
+      ],
+      "issues": [
+        "Some sections (Installation, Usage) are incomplete",
+        "Architecture diagram uses 'OpenGuiConnector' which should be normalized to 'Connector'"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 98,
-      "intent_alignment": 95,
-      "concept_alignment": 100,
-      "issues": [],
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
       "strengths": [
-        "Excellent canonical term usage",
-        "Comprehensive invariants documentation",
-        "AUTO decisions well referenced",
-        "Clear behavioral guidelines",
-        "Proper ontology.yml references"
-      ]
+        "Terminology section with complete normalization table",
+        "All invariants documented with correct terminology",
+        "AUTO decisions listed with expiration information",
+        "Canonical terms used consistently throughout",
+        "References to .concept/ files"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
+      "tier": 2,
       "clarity_score": 98,
-      "intent_alignment": 95,
-      "concept_alignment": 100,
-      "issues": [],
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
       "strengths": [
-        "Perfect alignment with ontology",
-        "Excellent invariants documentation",
-        "AUTO decisions well tracked",
-        "Model-specific guidelines"
-      ]
+        "Canonical terms prioritized correctly",
+        "Hard invariants documented with examples",
+        "AUTO decisions marked as provisional",
+        "Code examples follow invariants",
+        "References to ontology.yml and invariants.yml"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
-      "intent_alignment": 85,
-      "concept_alignment": 100,
-      "issues": [
-        "Auto-generated from ontology - verified in sync"
-      ],
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
       "strengths": [
-        "Complete ontology sync",
-        "Well-structured term definitions",
-        "Proper layer classification"
+        "Generated from ontology.yml",
+        "Complete normalization map",
+        "AUTO decisions documented",
+        "Evidence sources provided",
+        "Status indicators (stable/draft)"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [
+        "Hard invariants reflected correctly",
+        "Constitutional principles match invariants",
+        "Amendment process documented",
+        "References to .concept/invariants.yml"
+      ],
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "note": "File needs review for invariant alignment"
+          }
+        ]
+      },
+      "strengths": [
+        "Development guidelines present"
+      ],
+      "issues": [
+        "Needs verification against invariants.yml"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 85,
-      "intent_alignment": 80,
-      "concept_alignment": 90,
-      "issues": [
-        "Should better align with intent.yml mission",
-        "Could reference ontology more explicitly"
-      ],
+      "tier": 2,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "note": "Needs alignment check with intent.yml"
+          }
+        ]
+      },
       "strengths": [
-        "Good foundational content",
-        "Uses canonical terms"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 85,
-      "intent_alignment": 82,
-      "concept_alignment": 88,
-      "issues": [
-        "Should include invariants compliance guidelines",
-        "Could reference ontology for terminology"
+        "Purpose documentation exists"
       ],
-      "strengths": [
-        "Good contribution guidelines",
-        "Clear process documentation"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 88,
-      "intent_alignment": 85,
-      "concept_alignment": 90,
       "issues": [
-        "Should reflect invariants.yml more explicitly",
-        "Could reference design philosophy from intent"
-      ],
-      "strengths": [
-        "Good constitutional approach",
-        "Uses canonical terms"
+        "Should align with intent.yml mission statement"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": 88,
-      "concept_alignment": 92,
-      "issues": [
-        "Should reflect mappings.yml better",
-        "Could reference ontology terms more consistently"
-      ],
+      "tier": 3,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "note": "Should verify mappings.yml is reflected"
+          }
+        ]
+      },
       "strengths": [
-        "Good architectural diagrams",
-        "Mostly uses canonical terms"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": 88,
-      "concept_alignment": 92,
-      "issues": [
-        "Model-specific (optional)"
+        "Architecture documentation present"
       ],
-      "strengths": [
-        "Good model-specific guidelines",
-        "References ontology"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": 88,
-      "concept_alignment": 92,
       "issues": [
-        "Model-specific (optional)"
-      ],
-      "strengths": [
-        "Good model-specific guidelines",
-        "References ontology"
+        "Should reflect mappings.yml"
       ]
     }
   ],
-
   "summary": {
-    "total_files": 11,
-    "excellent_quality": 3,
-    "good_quality": 7,
-    "needs_improvement": 1,
-    "overall_assessment": "High quality documentation with excellent concept alignment"
+    "total_strengths": 30,
+    "total_issues": 8,
+    "critical_issues": 0,
+    "recommendation": "MD files are in excellent alignment with intent.yml and ontology.yml. Minor updates needed for CONTRIBUTING.md and PURPOSE.md."
   }
 }
