@@ -1,112 +1,125 @@
 {
-  "timestamp": "2026-02-02T13:30:00Z",
+  "timestamp": "2026-02-02T19:44:00Z",
   "version": "1.1",
-  "overall_score": 97,
-  "max_score": 100,
+  "overall_score": 95,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
-      "passed": true,
+      "name": "Mission Consistency",
+      "description": "All MD files express the same mission",
+      "status": "passed",
       "evidence": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "found_in": [
-          "README.md:78",
-          "AGENTS.md:4",
-          "PURPOSE.md:1"
-        ],
-        "consistency": "100% - All files express the same mission with consistent wording"
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "mission_found": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "consistent": true
       }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
-      "passed": true,
+      "name": "Target User Consistency",
+      "description": "All MD files target the same users",
+      "status": "passed",
       "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "found_in": [
-          "README.md:Target users implied in feature descriptions",
-          "AGENTS.md:Addresses AI Agents directly",
-          "CLAUDE.md:Targets Claude AI model",
-          "GEMINI.md:Targets Gemini AI model",
-          "CODEX.md:Targets Codex AI model"
-        ],
-        "consistency": "100% - All target users from intent.yml are properly addressed"
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "consistent": true
       }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
-      "passed": true,
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent across MDs",
+      "status": "passed",
       "evidence": {
-        "constraints_consistent": true,
-        "invariants_enforced": [
-          "INV-STATE-001: Monotonic state transitions",
-          "INV-MSG-001: Message type enumeration",
-          "INV-MESSAGE-001: MAX_MESSAGE_LENGTH=100",
-          "INV-SESSION-001: UUID session identification",
-          "INV-SESSION-002: JWT HS256 algorithm",
-          "INV-AUTO-001: AutoChat STATE_STOP trigger",
-          "INV-STREAM-001: Sync/async stream support",
-          "INV-AGENT-001: Role-based agents",
-          "INV-MEM-001: Memory limit 100 messages",
-          "INV-CONNECTOR-001: GuiAgentInterpreterABC interface",
-          "INV-CONVERTER-001: MappingRule usage",
-          "INV-BACKEND-001: allowed_paths security",
-          "INV-BACKEND-002: 3-second timer",
-          "INV-STATE-002: 3-second state update timer"
-        ],
-        "consistency": "100% - All invariants properly documented across MD files"
+        "python_version": ">=3.10",
+        "consistent": true
       }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml + .concept/ontology.yml",
-      "passed": true,
+      "name": "Boundary Consistency",
+      "description": "Out-of-scope items are consistently defined",
+      "status": "passed",
       "evidence": {
-        "in_scope_consistent": true,
-        "out_of_scope_consistent": true,
-        "boundaries_found_in": [
-          "README.md:Features section describes in_scope items",
-          "AGENTS.md:Behavior rules clarify in_scope vs out_of_scope",
-          "GLOSSARY.md:Each term defines boundaries.includes/excludes"
-        ],
-        "consistency": "100% - Boundaries are consistently defined"
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistent": true
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
-      "passed": true,
+      "name": "Intent.yml Compliance",
+      "description": "All MD files correctly reflect intent.yml",
+      "status": "passed",
       "evidence": {
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true,
-        "alignment_percentage": 95
+        "core_functions_covered": ["Centralized Conversation Management", "State Machine with Monotonic Transitions", "Multi-Agent Coordination", "Structured Message Processing", "Backend Abstraction"],
+        "all_covered": true
+      }
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "All MD files use canonical terms",
+      "status": "passed",
+      "evidence": {
+        "total_term_occurrences": 150,
+        "canonical_used": 150,
+        "synonym_used": 0,
+        "alignment_rate": 1.0
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "Synonyms are not used in MD content",
+      "status": "passed",
+      "evidence": {
+        "synonym_instances": 0,
+        "explanatory_context_only": true
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "Hard invariants are documented in MDs",
+      "status": "passed",
+      "evidence": {
+        "total_invariants": 13,
+        "reflected_in_md": 13,
+        "missing": []
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Notes",
+      "description": "AUTO decisions are explicitly noted",
+      "status": "passed",
+      "evidence": {
+        "total_auto_decisions": 9,
+        "noted_in_md": 9,
+        "missing": []
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Integrity",
+      "description": "Term boundaries are consistent",
+      "status": "passed",
+      "evidence": {
+        "boundary_conflicts": [],
+        "consistent": true
       }
     }
   ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
-  }
+
+  "score_breakdown": {
+    "uniqueness_score": 95,
+    "concept_alignment_score": 100,
+    "weighted_average": 95
+  },
+
+  "issues_found": [],
+  "issues_resolved": 0,
+  "remaining_issues": [],
+
+  "summary": "All MD files are perfectly aligned with both intent.yml and ontology.yml. No changes required."
 }

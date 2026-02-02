@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T13:30:00Z"
+run_timestamp: "2026-02-02T19:42:00Z"
 version: "1.1"
 
 rotation:
@@ -16,34 +16,48 @@ input_sources:
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries"
 
 ontology_summary:
-  total_terms: 11
+  total_terms: 10
   core_terms: 5
-  domain_terms: 5
+  domain_terms: 4
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
+      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
     - canonical: "Agent"
+      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
     - canonical: "Session"
+      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
       layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
     - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
+      definition: "インタープリタの実行状態を表す列挙型"
+    - canonical: "AutoChat"
+      layer: "domain"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+    - canonical: "StreamWrapper"
+      layer: "domain"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+    - canonical: "Backend"
+      layer: "domain"
+      definition: "GUIフレームワーク実装（Gradio等）"
+    - canonical: "Converter"
+      layer: "aux"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+    - canonical: "Memory"
+      layer: "domain"
+      definition: "会話履歴を保持するバッファ機構"
+    - canonical: "Connector"
+      layer: "domain"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -56,6 +70,7 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -68,10 +83,10 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
   "変換器": "Converter"
   "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
@@ -80,94 +95,104 @@ term_normalization:
 existing_mds:
   - path: "README.md"
     status: "exists_needs_review"
+    tier: 1
     issues:
-      - "既にintent.ymlとconcept統合済みの内容で高品質"
-      - "用語も正規形で使用されている"
-      - "System Invariantsセクションで不変条件を適切に記述"
-      - "AUTO Decisionsセクションで暫定仕様を適切に記述"
+      - "Verify alignment with intent.yml mission statement"
+      - "Check term normalization (canonical forms used)"
+
   - path: "AGENTS.md"
     status: "exists_needs_review"
+    tier: 1
     issues:
-      - "用語規約セクションで正規形を適切に使用"
-      - "不変条件を適切に記述"
-      - "AUTO決定を適切に記述"
-      - "行動規範セクションで明確な指示を提供"
+      - "Verify AI agent behavior rules match intent.core_functions"
+      - "Check term normalization"
+
   - path: "CLAUDE.md"
     status: "exists_needs_review"
+    tier: 2
     issues:
-      - "Claude向けの特化指示を提供"
-      - "用語の正規形を適切に使用"
-      - "不変条件を遵守するよう指示"
-      - "AUTO決定の認識を促進"
-  - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    issues:
-      - "ontology.ymlから自動生成済み"
-      - "全用語を適切にカテゴライズ"
-      - "用語の正規化マップを提供"
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    issues:
-      - "アーキテクチャの詳細を記述"
-      - "概念整合性の確認が必要"
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    issues:
-      - "貢献ガイドを提供"
-      - "概念整合性の確認が必要"
+      - "Verify Claude-specific guidelines match ontology"
+      - "Check invariants coverage"
+
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
+    tier: 2
     issues:
-      - "システム憲法を提供"
-      - "概念整合性の確認が必要"
+      - "Verify invariants from invariants.yml are reflected"
+
   - path: "PURPOSE.md"
     status: "exists_needs_review"
+    tier: 2
     issues:
-      - "目的の詳細説明を提供"
-      - "概念整合性の確認が必要"
+      - "Verify detailed purpose matches intent.mission"
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Verify contribution guidelines align with intent.design_philosophy"
+
   - path: "GEMINI.md"
     status: "exists_needs_review"
+    tier: 3
     issues:
-      - "Gemini向け特化指示"
-      - "概念整合性の確認が必要"
+      - "Verify Gemini-specific guidelines"
+
   - path: "CODEX.md"
     status: "exists_needs_review"
+    tier: 3
     issues:
-      - "Codex向け特化指示"
-      - "概念整合性の確認が必要"
-  - path: "CHANGELOG.md"
-    status: "exists_skip"
+      - "Verify Codex-specific guidelines"
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
     issues:
-      - "変更履歴はbootstrap対象外"
+      - "Verify architecture reflects intent.boundaries.in_scope"
+
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Verify generated from ontology.yml"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "既に高品質なMDとして整備済み、概念整合性検証を実施"
+    reason: "Verify mission alignment and term normalization"
+
   - action: "verify"
     target: "AGENTS.md"
-    reason: "既に高品質なMDとして整備済み、概念整合性検証を実施"
+    reason: "Verify behavior rules and term normalization"
+
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "既に高品質なMDとして整備済み、概念整合性検証を実施"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "ontology.ymlから自動生成済み、概念整合性検証を実施"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "概念整合性検証を実施"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "概念整合性検証を実施"
+    reason: "Verify Claude guidelines match ontology and invariants"
+
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "概念整合性検証を実施"
+    reason: "Verify invariants reflection"
+
   - action: "verify"
     target: "PURPOSE.md"
-    reason: "概念整合性検証を実施"
+    reason: "Verify purpose matches mission"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify guidelines match design philosophy"
+
   - action: "verify"
     target: "GEMINI.md"
-    reason: "概念整合性検証を実施"
+    reason: "Verify Gemini-specific guidelines"
+
   - action: "verify"
     target: "CODEX.md"
-    reason: "概念整合性検証を実施"
+    reason: "Verify Codex-specific guidelines"
+
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify architecture reflects scope"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify generated from ontology"

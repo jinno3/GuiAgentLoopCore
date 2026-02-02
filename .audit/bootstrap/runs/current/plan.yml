@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-02T19:42:00Z"
+run_timestamp: "2026-02-02T19:58:00Z"
 version: "1.1"
 
 rotation:
@@ -12,12 +12,23 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries"
+  core_functions:
+    - "Centralized Conversation Management"
+    - "State Machine with Monotonic Transitions"
+    - "Multi-Agent Coordination"
+    - "Structured Message Processing"
+    - "Backend Abstraction"
 
 ontology_summary:
   total_terms: 10
@@ -40,24 +51,6 @@ ontology_summary:
     - canonical: "State"
       layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-    - canonical: "AutoChat"
-      layer: "domain"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-    - canonical: "StreamWrapper"
-      layer: "domain"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-    - canonical: "Backend"
-      layer: "domain"
-      definition: "GUIフレームワーク実装（Gradio等）"
-    - canonical: "Converter"
-      layer: "aux"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-    - canonical: "Memory"
-      layer: "domain"
-      definition: "会話履歴を保持するバッファ機構"
-    - canonical: "Connector"
-      layer: "domain"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -83,10 +76,10 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
@@ -94,105 +87,67 @@ term_normalization:
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
-    tier: 1
+    status: "exists_needs_update"
     issues:
-      - "Verify alignment with intent.yml mission statement"
-      - "Check term normalization (canonical forms used)"
-
+      - "Missing explicit mission statement from intent.yml"
+      - "Using canonical terms correctly"
+      - "Invariants section is good but could reference ontology better"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
-    tier: 1
+    status: "exists_verified"
     issues:
-      - "Verify AI agent behavior rules match intent.core_functions"
-      - "Check term normalization"
-
+      - "Well-structured with canonical terms"
+      - "Invariants properly documented"
+      - "AUTO decisions properly referenced"
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
-    tier: 2
+    status: "exists_verified"
     issues:
-      - "Verify Claude-specific guidelines match ontology"
-      - "Check invariants coverage"
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
+      - "Excellent alignment with ontology"
+      - "Invariants properly documented"
+  - path: "GLOSSARY.md"
+    status: "exists_verified"
     issues:
-      - "Verify invariants from invariants.yml are reflected"
-
+      - "Auto-generated from ontology.yml"
+      - "Properly structured"
   - path: "PURPOSE.md"
     status: "exists_needs_review"
-    tier: 2
     issues:
-      - "Verify detailed purpose matches intent.mission"
-
+      - "Should align with intent.yml mission"
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
-    tier: 2
     issues:
-      - "Verify contribution guidelines align with intent.design_philosophy"
-
-  - path: "GEMINI.md"
+      - "Should include invariants compliance guidelines"
+  - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
-    tier: 3
     issues:
-      - "Verify Gemini-specific guidelines"
-
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "Verify Codex-specific guidelines"
-
+      - "Should reflect invariants.yml"
   - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
-    tier: 3
     issues:
-      - "Verify architecture reflects intent.boundaries.in_scope"
-
-  - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    tier: 3
+      - "Should reflect mappings.yml"
+  - path: "GEMINI.md"
+    status: "exists_optional"
     issues:
-      - "Verify generated from ontology.yml"
+      - "Optional: Gemini-specific instructions"
+  - path: "CODEX.md"
+    status: "exists_optional"
+    issues:
+      - "Optional: Codex-specific instructions"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify mission alignment and term normalization"
-
+    reason: "Check concept alignment with ontology.yml"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify behavior rules and term normalization"
-
+    reason: "Verify canonical terms and invariants alignment"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude guidelines match ontology and invariants"
-
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify purpose matches mission"
-
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify guidelines match design philosophy"
-
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify Gemini-specific guidelines"
-
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify Codex-specific guidelines"
-
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify architecture reflects scope"
-
+    reason: "Check AI model-specific alignment"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify generated from ontology"
+    reason: "Verify ontology sync"
+  - action: "skip"
+    target: "Create new MDs"
+    reason: "All required Tier 1 and most Tier 2 MDs exist and are well-structured"
+
+target_score: 90

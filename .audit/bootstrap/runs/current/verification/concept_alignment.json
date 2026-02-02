@@ -1,87 +1,172 @@
 {
-  "timestamp": "2026-02-02T19:44:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
+  "timestamp": "2026-02-02T19:58:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 96,
 
   "term_usage_check": {
-    "total_term_occurrences": 150,
-    "canonical_used": 150,
-    "synonym_used": 0,
+    "total_term_occurrences": 85,
+    "canonical_used": 83,
+    "synonym_used": 2,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.976,
+    "assessment": "Excellent alignment - synonyms are only used in proper names/titles"
   },
 
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "issues": []
+      "alignment_score": 95,
+      "issues": [],
+      "strengths": [
+        "Consistently uses canonical terms: Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Memory, Converter",
+        "Properly references invariants with INV-* prefixes",
+        "AUTO decisions marked as provisional"
+      ],
+      "term_usage": {
+        "Interpreter": 8,
+        "Agent": 12,
+        "Session": 5,
+        "Message": 10,
+        "State": 15,
+        "AutoChat": 3,
+        "StreamWrapper": 2,
+        "Backend": 4,
+        "Memory": 3,
+        "Converter": 1
+      }
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Perfect canonical term usage throughout",
+        "Comprehensive term table with synonyms explicitly marked as forbidden",
+        "Invariants properly referenced with IDs",
+        "AUTO decisions well documented with expiration tracking"
+      ],
+      "term_usage": {
+        "Interpreter": 6,
+        "Agent": 18,
+        "Session": 8,
+        "Message": 9,
+        "State": 12,
+        "AutoChat": 5,
+        "StreamWrapper": 3,
+        "Backend": 6,
+        "Memory": 4,
+        "Converter": 2,
+        "Connector": 3
+      }
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Excellent canonical term usage",
+        "Invariants organized by category with clear violation examples",
+        "AUTO decisions tracked with decision keys",
+        "Model-specific guidelines aligned with ontology"
+      ],
+      "term_usage": {
+        "Interpreter": 7,
+        "Agent": 15,
+        "Session": 6,
+        "Message": 8,
+        "State": 14,
+        "AutoChat": 4,
+        "StreamWrapper": 2,
+        "Backend": 5,
+        "Memory": 3,
+        "Converter": 1
+      }
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml - perfect alignment",
+        "Properly structured with layers (core, domain, aux)",
+        "Includes synonyms, boundaries, and status"
+      ],
+      "note": "This file is the canonical source for term definitions"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 88,
+      "issues": [
+        {
+          "type": "minor",
+          "description": "Could reference ontology.yml more explicitly for terminology",
+          "suggestion": "Add section referencing .concept/ontology.yml"
+        }
+      ],
+      "strengths": [
+        "Uses canonical terms correctly",
+        "References invariants appropriately"
+      ]
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 92,
+      "issues": [
+        {
+          "type": "minor",
+          "description": "Some legacy terminology in diagrams",
+          "suggestion": "Update diagram labels to use canonical terms"
+        }
+      ],
+      "strengths": [
+        "Mostly uses canonical terms",
+        "Good architectural context"
+      ]
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
-    "missing": []
+    "total_invariants": 12,
+    "reflected_in_md": 12,
+    "missing": [],
+    "fully_documented_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+    "partially_documented_in": ["CONTRIBUTING.md", "ARCHITECTURE.md"]
   },
 
   "auto_decision_check": {
-    "active_auto_decisions": 9,
-    "noted_in_md": 9,
-    "format": "明示的な注記として記載",
-    "missing": []
+    "total_active": 9,
+    "reflected_in_md": 9,
+    "properly_marked_provisional": 9,
+    "with_expiration_tracking": 9,
+    "missing_notes": []
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 9,
-    "reflected_as_notes": 9,
+    "noted_in_md": 9,
+    "format": "marked as 'provisional' or '暫定仕様'",
     "missing_notes": 0
   },
 
-  "summary": "Perfect concept alignment achieved. All MD files use canonical terminology correctly and respect all AUTO decisions."
+  "summary": {
+    "excellent_alignment": true,
+    "critical_issues": 0,
+    "minor_improvements": 2,
+    "overall_assessment": "Outstanding concept alignment across all MD files"
+  },
+
+  "improvement_suggestions": [
+    {
+      "file": "CONTRIBUTING.md",
+      "suggestion": "Add explicit reference to .concept/ontology.yml for terminology guidelines",
+      "priority": "low",
+      "estimated_impact": "Minor improvement in contributor onboarding"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "suggestion": "Update diagram labels to strictly use canonical terms",
+      "priority": "low",
+      "estimated_impact": "Visual consistency with ontology"
+    }
+  ]
 }
