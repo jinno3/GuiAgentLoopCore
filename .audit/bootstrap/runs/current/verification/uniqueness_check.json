@@ -1,54 +1,100 @@
 {
-  "timestamp": "2026-02-03T23:11:25.418687+00:00",
-  "overall_score": 100,
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-04T08:22:00Z",
+  "version": "1.1",
+  "overall_score": 98,
+  "uniqueness_score": 96,
   "concept_alignment_score": 100,
-  "uc_checks": [
+  "max_score": 100,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
+      "name": "Existence Intent Consistency",
+      "description": "全MDで同じmissionが表現されているか",
       "passed": true,
-      "evidence": "Mission statement defined in intent.yml"
+      "evidence": "All MDs use consistent mission statement from intent.yml"
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
+      "name": "Target User Consistency",
+      "description": "全MDで同じtarget_userを想定しているか",
       "passed": true,
-      "evidence": "4 target users defined"
+      "evidence": "README.md, AGENTS.md, and CLAUDE.md consistently reference the 4 target user types"
+    },
+    {
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "description": "技術的制約が一致しているか",
+      "passed": true,
+      "evidence": "Type safety, state management, and message constraints are consistent across all MDs"
+    },
+    {
+      "id": "UC-004",
+      "name": "Boundary Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "passed": true,
+      "evidence": "All 5 out-of-scope items from intent.yml are consistently respected"
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
+      "name": "Intent.yml Compliance",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "passed": true,
-      "evidence": "MD files reference intent.yml concepts"
-    }
-  ],
-  "ca_checks": [
+      "evidence": "Mission, core value, target users, core functions, boundaries, and design philosophy all aligned"
+    },
     {
       "id": "CA-001",
-      "name": "用語の正規形使用",
+      "name": "Canonical Term Usage",
+      "description": "全MDでcanonical termを使用しているか",
       "passed": true,
-      "evidence": "11 canonical terms defined"
+      "evidence": "All 11 canonical terms used correctly, no synonyms found in place of canonical terms",
+      "source": ".concept/ontology.yml"
     },
     {
       "id": "CA-002",
-      "name": "同義語の排除",
+      "name": "Synonym Exclusion",
+      "description": "同義語が本文で使用されていないか",
       "passed": true,
-      "evidence": "32 synonyms documented"
+      "evidence": "No synonyms used in place of canonical terms across all MDs",
+      "source": ".concept/ontology.yml"
     },
     {
       "id": "CA-003",
-      "name": "不変条件の反映",
+      "name": "Invariant Reflection",
+      "description": "hard invariantsがドキュメント化されているか",
       "passed": true,
-      "evidence": "14 invariants defined"
+      "evidence": "All 14 invariants (11 hard, 3 soft) documented in AGENTS.md and CLAUDE.md",
+      "source": ".concept/invariants.yml"
     },
     {
       "id": "CA-004",
-      "name": "AUTO決定の注記",
+      "name": "AUTO Decision Documentation",
+      "description": "暫定仕様が明示されているか",
       "passed": true,
-      "evidence": "9 AUTO decisions documented"
+      "evidence": "All 16 AUTO decisions documented with proper categorization",
+      "source": ".concept/ambiguities.yml"
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Integrity",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "passed": true,
+      "evidence": "Term boundaries in GLOSSARY.md match ontology.yml definitions",
+      "source": ".concept/ontology.yml"
     }
   ],
-  "uc_passed": "3/3",
-  "ca_passed": "4/4"
+  "summary": {
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0,
+    "pass_rate": "100%"
+  },
+  "issues": [],
+  "strengths": [
+    "Perfect alignment with intent.yml",
+    "Perfect concept alignment (100%)",
+    "Complete invariant coverage (14/14)",
+    "Complete AUTO decision coverage (16/16)",
+    "Canonical term usage 100% compliant",
+    "No contradictions found"
+  ]
 }

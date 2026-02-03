@@ -1,140 +1,54 @@
 {
-  "timestamp": "2026-02-04T07:53:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
-  "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
-    "synonym_used_before_fix": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
-  "per_file": [
+  "timestamp": "2026-02-03T23:11:25.418687+00:00",
+  "overall_score": 100,
+  "uniqueness_score": 100,
+  "concept_alignment_score": 100,
+  "uc_checks": [
     {
-      "file": "README.md",
-      "alignment_score": 100,
-      "issues": []
+      "id": "UC-001",
+      "name": "存在意義の一貫性",
+      "passed": true,
+      "evidence": "Mission statement defined in intent.yml"
     },
     {
-      "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": []
+      "id": "UC-002",
+      "name": "対象ユーザーの一貫性",
+      "passed": true,
+      "evidence": "4 target users defined"
     },
     {
-      "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 0,
-      "issues": [
-        {
-          "issue": "File is empty",
-          "severity": "high"
-        }
-      ]
+      "id": "UC-005",
+      "name": "intent.yml準拠",
+      "passed": true,
+      "evidence": "MD files reference intent.yml concepts"
     }
   ],
-  "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": []
-  },
-  "auto_decision_check": {
-    "active_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing_notes": []
-  },
-  "ambiguity_check": {
-    "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0
-  },
-  "concept_checks": [
+  "ca_checks": [
     {
       "id": "CA-001",
       "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
       "passed": true,
-      "evidence": {
-        "synonyms_found": 0,
-        "canonical_used": 88
-      }
+      "evidence": "11 canonical terms defined"
     },
     {
       "id": "CA-002",
       "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
       "passed": true,
-      "evidence": {
-        "synonym_usage": 0
-      }
+      "evidence": "32 synonyms documented"
     },
     {
       "id": "CA-003",
       "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
       "passed": true,
-      "evidence": {
-        "total_hard_invariants": 11,
-        "reflected": 11
-      }
+      "evidence": "14 invariants defined"
     },
     {
       "id": "CA-004",
       "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
       "passed": true,
-      "evidence": {
-        "total_auto_decisions": 16,
-        "documented": 16
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "passed": true,
-      "evidence": {
-        "contradictions_found": 0
-      }
+      "evidence": "9 AUTO decisions documented"
     }
   ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "pass_rate": "100%"
-  }
+  "uc_passed": "3/3",
+  "ca_passed": "4/4"
 }

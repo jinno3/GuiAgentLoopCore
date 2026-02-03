@@ -1,116 +1,100 @@
-run_timestamp: "2026-02-04T07:53:00Z"
-version: "1.1"
-
+actions:
+- action: verify
+  reason: Verification run - check alignment
+  target: README.md
+- action: verify
+  reason: Verification run - check alignment
+  target: AGENTS.md
+- action: verify
+  reason: Verification run - check alignment
+  target: CLAUDE.md
+- action: verify
+  reason: Verification run - check alignment
+  target: GLOSSARY.md
+- action: verify
+  reason: Verification run - check alignment
+  target: SYSTEM_CONSTITUTION.md
+- action: verify
+  reason: Verification run - check alignment
+  target: PURPOSE.md
+- action: verify
+  reason: Verification run - check alignment
+  target: CONTRIBUTING.md
+- action: verify
+  reason: Verification run - check alignment
+  target: GEMINI.md
+- action: verify
+  reason: Verification run - check alignment
+  target: CODEX.md
+- action: note
+  reason: File is empty - needs content
+  target: ARCHITECTURE.md
+ambiguities_summary:
+  auto_decisions: 9
+  total: 9
+existing_mds:
+- path: README.md
+  status: exists_verified
+- path: AGENTS.md
+  status: exists_verified
+- path: CLAUDE.md
+  status: exists_verified
+- path: GLOSSARY.md
+  status: exists_verified
+- path: SYSTEM_CONSTITUTION.md
+  status: exists_verified
+- path: PURPOSE.md
+  status: exists_verified
+- path: CONTRIBUTING.md
+  status: exists_verified
+- path: GEMINI.md
+  status: exists_verified
+- path: CODEX.md
+  status: exists_verified
+- path: ARCHITECTURE.md
+  status: exists_empty
+input_sources:
+  audit:
+    constraints_yml: .audit/config/constraints.yml
+    intent_yml: .audit/config/intent.yml
+    version: '1.0'
+  concept:
+    ambiguities_version: '2026-02-03T12:21:29Z'
+    ambiguities_yml: .concept/ambiguities.yml
+    has_concept: true
+    invariants_version: '2026-02-02T05:23:14Z'
+    invariants_yml: .concept/invariants.yml
+    ontology_version: '0.3'
+    ontology_yml: .concept/ontology.yml
+intent_summary:
+  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
+    with predictable state manage...
+  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
+    LLM agents, managing conver...
+  target_users: 4
+invariants_summary:
+  hard: 11
+  soft: 3
+  total: 14
+ontology_summary:
+  aux_terms: 1
+  core_terms: 5
+  domain_terms: 5
+  key_terms:
+  - canonical: Interpreter
+    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
+  - canonical: Agent
+    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
+  - canonical: Session
+    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）
+  - canonical: Message
+    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）
+  - canonical: State
+    definition: インタープリタの実行状態を表す列挙型
+  total_terms: 11
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
-input_sources:
-  audit:
-    intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
-  concept:
-    ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
-    has_concept: true
-
-intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
-
-ontology_summary:
-  total_terms: 11
-  core_terms: 5
-  domain_terms: 5
-  aux_terms: 1
-  key_terms:
-    - canonical: "Interpreter"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-    - canonical: "Agent"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    - canonical: "Session"
-      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-    - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
-
-term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-
-existing_mds:
-  - path: "README.md"
-    status: "exists_verified"
-    issues: []
-  - path: "AGENTS.md"
-    status: "exists_verified"
-    issues: []
-  - path: "CLAUDE.md"
-    status: "exists_verified"
-    issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_verified"
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_content"
-    issues:
-      - "File is empty - needs content"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
-    issues: []
-  - path: "PURPOSE.md"
-    status: "exists_verified"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_verified"
-    issues: []
-  - path: "GEMINI.md"
-    status: "exists_verified"
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_verified"
-    issues: []
-
-actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "Already aligned with intent and ontology - verify consistency"
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "Already aligned with intent and ontology - verify consistency"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Already aligned with intent and ontology - verify consistency"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Already generated from ontology.yml - verify completeness"
-  - action: "update_timestamp"
-    target: "All MD files"
-    reason: "Update bootstrap timestamp to track verification run"
-
-before_snapshot:
-  overall_score: 100
-  concept_alignment_score: 100
-  tier1_coverage: "2/2 (100%)"
-  tier2_coverage: "4/4 (100%)"
-  tier3_coverage: "4/4 (100%)"
-
-target_outcome:
-  expected_overall_score: 100
-  expected_concept_alignment: 100
-  expected_coverage: "10/10 (100%)"
+run_number: 91
+run_timestamp: '2026-02-03T23:10:34.542459+00:00'
+version: '1.1'

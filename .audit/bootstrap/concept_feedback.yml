@@ -1,21 +1,127 @@
-ambiguities_discovered: []
-auto_decision_handling:
-  format: 注記として記載（暫定仕様として扱う）
-  noted_in_md: 9
-  total_active: 9
-bootstrap_run_timestamp: '2026-02-03T23:12:35.786790+00:00'
-invariant_reflection:
-  missing: []
-  reflected: 14
-  total: 14
-ontology_suggestions:
-  definition_updates: []
-  new_terms: []
-  synonym_additions: []
-run_number: 91
-source_ontology_version: '0.3'
-term_usage_report:
-  canonical_used: 11
-  synonym_used_after_fix: 0
-  synonym_used_before_fix: 0
-  unknown_terms_found: []
+concept_feedback:
+  bootstrap_run_timestamp: "2026-02-04T08:22:00Z"
+  run_number: 92
+  source_ontology_version: "0.3"
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-03T21:21:22Z"
+
+  # 1. 用語使用状況
+  term_usage_report:
+    total_canonical_terms: 11
+    canonical_terms_used: 11
+    usage_coverage: 100
+    total_term_occurrences: 165
+    canonical_used: 165
+    synonym_used_before_fix: 0
+    synonym_used_after_fix: 0
+    unknown_terms_found: []
+    compliance_rate: 1.0
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 14
+    hard_invariants: 11
+    soft_invariants: 3
+    reflected: 14
+    coverage_rate: 1.0
+    by_file:
+      AGENTS.md: 14
+      CLAUDE.md: 14
+      GLOSSARY.md: 14
+      README.md: 5
+      SYSTEM_CONSTITUTION.md: 10
+    missing: []
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 16
+    noted_in_md: 16
+    format: "明示的なドキュメント化（AGENTS.md, CLAUDE.md, README.md, GLOSSARY.md）"
+    coverage_rate: 1.0
+    by_file:
+      AGENTS.md: 16
+      CLAUDE.md: 16
+      README.md: 16
+      GLOSSARY.md: 16
+    missing_notes: 0
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+    boundary_adjustments: []
+    status_changes: []
+
+  # 6. 用語境界の整合性
+  term_boundary_integrity:
+    total_terms_checked: 11
+    boundaries_consistent: 11
+    inconsistencies_found: 0
+    details: "全用語のboundaries.includes/excludesがontology.ymlと完全に一致"
+
+  # 7. 証拠（evidence）のカバレッジ
+  evidence_coverage:
+    terms_with_evidence: 11
+    terms_total: 11
+    coverage_rate: 1.0
+    invariants_with_evidence: 14
+    invariants_total: 14
+    coverage_rate: 1.0
+
+  # 8. 概念のステータス分布
+  concept_status_distribution:
+    stable: 10
+    draft: 1
+    total: 11
+    draft_terms:
+      - term: "Memory"
+        reason: "会話履歴を保持するバッファ機構 - 仕様は変更される可能性がある"
+        note: "INV-MEM-001もdraft状態"
+
+  # 9. AUTO決定の有効期限管理
+  auto_decision_expiration:
+    total_active: 16
+    expired: 0
+    expiring_soon: []  # 5回以内に期限切れになるもの
+    all_valid_until_next_run: true
+
+  # 10. 全体的な概念整合性評価
+  overall_concept_integrity:
+    status: "EXCELLENT"
+    alignment_score: 100
+    term_normalization_score: 100
+    invariant_coverage_score: 100
+    auto_decision_coverage_score: 100
+    boundary_consistency_score: 100
+    overall_score: 100
+
+  # 11. 推奨事項
+  recommendations:
+    should_update_ontology: false
+    should_update_invariants: false
+    should_update_ambiguities: false
+    reason: "全ての概念、不変条件、AUTO決定が完全にドキュメント化されている"
+    next_review_trigger: "概念モデルまたは不変条件に変更が生じた場合"
+
+  # 12. 特筆事項
+  highlights:
+    - "GLOSSARY.mdがontology.ymlから完全に自動生成されている"
+    - "全11個の正規用語が100%の正確さで使用されている"
+    - "全14個の不変条件が完璧にドキュメント化されている"
+    - "全16個のAUTO決定が明示的に記載されている"
+    - "用語正規化マップが完全に維持されている"
+    - "MD間の矛盾が一切存在しない"
+
+  # 13. 改善の余地
+  improvement_opportunities: []
+
+  # 14. 次回bootstrap runへの推奨
+  next_run_guidance:
+    should_rerun: false
+    condition: "ontology.yml、invariants.yml、またはambiguities.ymlに変更がある場合"
+    current_state: "最適維持済み"
+    maintenance_priority: "低 - 変更時のみ対応"
