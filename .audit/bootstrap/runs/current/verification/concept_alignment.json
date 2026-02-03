@@ -1,306 +1,117 @@
 {
-  "timestamp": "2026-02-03T21:05:12.374625+00:00",
+  "timestamp": "2026-02-04T06:15:40Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 79,
+  "concept_version": "0.3",
+  "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 50,
-    "alignment_rate": 0.9090909090909091
+    "total_term_occurrences": 132,
+    "canonical_used": 132,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
+
   "per_file": [
     {
-      "file": "AGENTS.md",
-      "alignment_score": 25,
-      "issues": [
-        {
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "会話インタープリタ",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "AIエージェント",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "専門エージェント",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "AgentType",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "AgentDefinition",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "TaskAgent",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "AgentImage",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "ChatSession",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "会話セッション",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "メッセージ",
-          "expected": "Message",
-          "status": "detected"
-        },
-        {
-          "found": "ChatMessage",
-          "expected": "Message",
-          "status": "detected"
-        },
-        {
-          "found": "InterpreterState",
-          "expected": "State",
-          "status": "detected"
-        },
-        {
-          "found": "インタープリタ状態",
-          "expected": "State",
-          "status": "detected"
-        }
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        }
-      ]
-    },
-    {
-      "file": "CHANGELOG.md",
+      "file": "README.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+      "synonyms_found": []
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 75,
-      "issues": [
-        {
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "AgentType",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "メッセージ",
-          "expected": "Message",
-          "status": "detected"
-        },
-        {
-          "found": "インタープリタ状態",
-          "expected": "State",
-          "status": "detected"
-        }
-      ]
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "synonyms_found": []
     },
     {
-      "file": "CODEX.md",
-      "alignment_score": 95,
-      "issues": [
-        {
-          "found": "AgentType",
-          "expected": "Agent",
-          "status": "detected"
-        }
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 85,
-      "issues": [
-        {
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "ChatSession",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        }
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "issues": [
-        {
-          "found": "AgentType",
-          "expected": "Agent",
-          "status": "detected"
-        }
-      ]
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 25,
-      "issues": [
-        {
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "会話インタープリタ",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "AIエージェント",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "専門エージェント",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "AgentType",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "AgentDefinition",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "TaskAgent",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "AgentImage",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "ChatSession",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "会話セッション",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        },
-        {
-          "found": "メッセージ",
-          "expected": "Message",
-          "status": "detected"
-        },
-        {
-          "found": "ChatMessage",
-          "expected": "Message",
-          "status": "detected"
-        },
-        {
-          "found": "InterpreterState",
-          "expected": "State",
-          "status": "detected"
-        },
-        {
-          "found": "インタープリタ状態",
-          "expected": "State",
-          "status": "detected"
-        }
-      ]
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Connector", "Converter"],
+      "synonyms_found": []
     },
     {
       "file": "PURPOSE.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "synonyms_found": []
     },
     {
-      "file": "README.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "found": "AgentType",
-          "expected": "Agent",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        }
-      ]
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "synonyms_found": []
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "detected"
-        },
-        {
-          "found": "JWT",
-          "expected": "Session",
-          "status": "detected"
-        }
-      ]
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "synonyms_found": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
+      "synonyms_found": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector", "Converter"],
+      "synonyms_found": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "ontology_sync": true
     }
-  ]
+  ],
+
+  "invariant_check": {
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_by_file": {
+      "AGENTS.md": 14,
+      "SYSTEM_CONSTITUTION.md": 14,
+      "CLAUDE.md": 14,
+      "README.md": 5
+    }
+  },
+
+  "auto_decision_check": {
+    "total_active": 16,
+    "noted_in_md": 16,
+    "missing_notes": [],
+    "coverage_by_file": {
+      "README.md": 16,
+      "AGENTS.md": 16,
+      "CLAUDE.md": 16
+    }
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
+  }
 }

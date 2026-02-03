@@ -1,22 +1,79 @@
 concept_feedback:
-  ambiguities_discovered: []
-  auto_decision_handling:
-    format: 注記として記載（CLAUDE.md等）
-    noted_in_md: 16
-    total_active: 16
-  bootstrap_run_timestamp: '2026-02-03T21:05:12.383786+00:00'
-  invariant_reflection:
-    missing: []
-    reflected: 14
-    total: 14
-  ontology_suggestions:
-    definition_updates: []
-    new_terms: []
-    synonym_additions: []
-  run_number: 82
-  source_ontology_version: '0.3'
+  bootstrap_run_timestamp: "2026-02-04T06:15:40Z"
+  source_ontology_version: "0.3"
+  run_type: "verification"
+
+  # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 50
-    synonym_used_after_fix: 0
+    canonical_used: 132
     synonym_used_before_fix: 0
+    synonym_used_after_fix: 0
     unknown_terms_found: []
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 14
+    reflected: 14
+    missing: []
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 16
+    noted_in_md: 16
+    format: "注記として記載（README.md, AGENTS.md, CLAUDE.md）"
+    missing_notes: []
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+    boundary_updates: []
+
+  # 6. 概念整合性評価
+  concept_alignment_assessment:
+    overall_score: 100
+    term_normalization_score: 100
+    invariant_coverage_score: 100
+    auto_decision_coverage_score: 100
+
+  # 7. 用語カバレッジ
+  term_coverage:
+    core_terms_documented: 5
+    core_terms_in_ontology: 5
+    domain_terms_documented: 5
+    domain_terms_in_ontology: 5
+    aux_terms_documented: 1
+    aux_terms_in_ontology: 1
+
+  # 8. GLOSSARY.mdの整合性
+  glossary_sync:
+    last_updated: "2026-02-04T05:30:00Z"
+    ontology_version: "0.3"
+    sync_status: "perfect"
+    missing_terms: []
+    extra_terms: []
+
+  # 9. 推奨事項
+  recommendations:
+    - priority: "none"
+      category: "ontology"
+      action: "maintain_current_state"
+      details: "ontology.yml v0.3は完全にMDドキュメントと整合している"
+    - priority: "low"
+      category: "monitoring"
+      action: "periodic_verification"
+      details: "次回のbootstrap実行は、コードベースまたはontologyの更新時に行うことを推奨"
+
+  # 10. 実行の要約
+  execution_summary:
+    ontology_terms_verified: 11
+    invariants_verified: 14
+    auto_decisions_verified: 16
+    md_files_verified: 10
+    issues_found: 0
+    issues_resolved: 0
+    changes_required: false
