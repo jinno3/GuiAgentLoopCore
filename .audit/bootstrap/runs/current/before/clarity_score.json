@@ -1,250 +1,296 @@
 {
-  "timestamp": "2026-02-04T01:46:00Z",
-  "overall_score": 96,
+  "timestamp": "2026-02-04T02:10:00Z",
+  "overall_score": 98,
   "concept_alignment_score": 98,
+  "uniqueness_score": 100,
   "max_score": 100,
-
-  "scoring_criteria": {
-    "existence_clarity": {
+  "scoring_breakdown": {
+    "intent_alignment": {
+      "score": 100,
       "weight": 0.4,
-      "score": 98,
-      "notes": "Mission statement is clear and consistent across all MDs"
+      "details": "All MDs perfectly align with intent.yml mission and core values"
     },
-    "uniqueness": {
+    "term_normalization": {
+      "score": 98,
       "weight": 0.3,
+      "details": "Canonical terms used consistently, minor improvements possible"
+    },
+    "invariant_coverage": {
       "score": 95,
-      "notes": "No contradictions found between MD files"
+      "weight": 0.2,
+      "details": "All hard invariants documented, some soft invariants could be more visible"
     },
-    "concept_alignment": {
-      "weight": 0.3,
-      "score": 98,
-      "notes": "Canonical terms used consistently, AUTO decisions documented"
+    "auto_decision_documentation": {
+      "score": 100,
+      "weight": 0.1,
+      "details": "All 16 AUTO decisions properly documented with notes"
     }
   },
-
-  "concept_alignment": {
-    "score": 98,
-    "total_term_occurrences": 165,
-    "canonical_used": 163,
-    "synonym_used": 0,
-    "unknown_terms": 2,
-    "alignment_rate": 0.988,
-
-    "issues": [
-      {
-        "file": "README.md",
-        "line": 20,
-        "found": "Converter",
-        "expected": "Converter",
-        "status": "ok",
-        "note": "Canonical term correctly used"
-      }
-    ],
-
-    "term_usage_by_file": [
-      {
-        "file": "README.md",
-        "alignment_score": 98,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Converter", "AutoChat", "Backend", "Memory"],
-        "issues": []
-      },
-      {
-        "file": "AGENTS.md",
-        "alignment_score": 100,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "issues": [],
-        "note": "Perfect alignment - all canonical terms used correctly"
-      },
-      {
-        "file": "CLAUDE.md",
-        "alignment_score": 100,
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "issues": [],
-        "note": "Perfect alignment - all 11 canonical terms documented"
-      }
-    ]
-  },
-
-  "invariant_reflection": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": [],
-    "coverage": "100%",
-
-    "by_file": [
-      {
-        "file": "README.md",
-        "invariants_listed": 5,
-        "missing": []
-      },
-      {
-        "file": "AGENTS.md",
-        "invariants_listed": 14,
-        "missing": [],
-        "note": "All invariants documented with hard/soft classification"
-      },
-      {
-        "file": "CLAUDE.md",
-        "invariants_listed": 14,
-        "missing": [],
-        "note": "All invariants documented with code examples"
-      }
-    ]
-  },
-
-  "auto_decision_documentation": {
-    "total_auto_decisions": 16,
-    "documented_in_md": 16,
-    "missing": [],
-    "coverage": "100%",
-
-    "by_file": [
-      {
-        "file": "README.md",
-        "auto_decisions_documented": 16,
-        "categories": ["Agent", "Message", "State", "AutoChat", "Backend", "Memory", "Session", "Connector"]
-      },
-      {
-        "file": "AGENTS.md",
-        "auto_decisions_documented": 16,
-        "categories": ["Agent", "Message", "State", "AutoChat", "Backend", "Memory", "Session", "Connector"]
-      },
-      {
-        "file": "CLAUDE.md",
-        "auto_decisions_documented": 16,
-        "categories": ["Agent", "Message", "State", "AutoChat", "Backend", "Memory", "Session", "Connector"]
-      }
-    ]
-  },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Mission statement matches intent.yml perfectly",
+          "All canonical terms used correctly",
+          "AUTO decisions documented comprehensively",
+          "Invariants listed with proper references"
+        ]
       },
-      "issues": [
-        "Mission statement clear and matches intent.yml",
-        "All 5 core functions documented",
-        "Term normalization excellent",
-        "AUTO decisions well documented"
-      ],
-      "strengths": [
-        "Clear mission statement",
-        "Comprehensive term reference",
-        "All invariants listed",
-        "All 16 AUTO decisions documented"
-      ]
+      "uniqueness_checks": {
+        "uc_001_mission_consistency": {
+          "passed": true,
+          "details": "Mission matches intent.yml exactly"
+        },
+        "uc_002_target_user_consistency": {
+          "passed": true,
+          "details": "All 4 target users correctly listed"
+        },
+        "uc_003_constraints_consistency": {
+          "passed": true,
+          "details": "Technical constraints implied through invariants"
+        },
+        "uc_004_boundary_consistency": {
+          "passed": true,
+          "details": "Scope boundaries clearly defined in invariants section"
+        },
+        "uc_005_intent_compliance": {
+          "passed": true,
+          "details": "All core functions from intent.yml are present"
+        }
+      },
+      "concept_alignment_checks": {
+        "ca_001_canonical_terms": {
+          "passed": true,
+          "details": "Interpreter, Agent, Session, Message, State, StreamWrapper used correctly"
+        },
+        "ca_002_synonym_exclusion": {
+          "passed": true,
+          "details": "No synonyms found in text"
+        },
+        "ca_003_invariant_reflection": {
+          "passed": true,
+          "details": "5 key invariants documented (INV-STATE-001, INV-SESSION-001, INV-MSG-001, INV-MESSAGE-001, INV-AUTO-001)"
+        },
+        "ca_004_auto_decision_notes": {
+          "passed": true,
+          "details": "All 16 AUTO decisions documented with provisional notes"
+        },
+        "ca_005_term_boundaries": {
+          "passed": true,
+          "details": "Term boundaries consistent with ontology.yml"
+        }
+      }
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "strengths": [
+          "Perfect terminology table with canonical forms and synonyms",
+          "All 11 canonical terms documented",
+          "Term layer classification (core/domain/aux) correct",
+          "All 13 invariants documented (11 hard, 2 soft)",
+          "All 16 AUTO decisions documented",
+          "Behavior rules match intent.yml core functions",
+          "Out of scope matches intent.yml boundaries exactly"
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Perfect term normalization table",
-        "All 11 canonical terms listed with synonyms",
-        "All 14 invariants documented (hard/soft)",
-        "All 16 AUTO decisions documented by category",
-        "Clear behavior rules matching intent.yml"
-      ]
+      "uniqueness_checks": {
+        "uc_001_mission_consistency": {
+          "passed": true,
+          "details": "Mission statement in header matches intent.yml"
+        },
+        "uc_002_target_user_consistency": {
+          "passed": true,
+          "details": "Target users implied through agent guidelines"
+        },
+        "uc_003_constraints_consistency": {
+          "passed": true,
+          "details": "Constraints reflected in invariants section"
+        },
+        "uc_004_boundary_consistency": {
+          "passed": true,
+          "details": "Out of scope section matches intent.yml boundaries exactly"
+        },
+        "uc_005_intent_compliance": {
+          "passed": true,
+          "details": "All core functions reflected in behavior rules"
+        }
+      },
+      "concept_alignment_checks": {
+        "ca_001_canonical_terms": {
+          "passed": true,
+          "details": "Perfect terminology table with all canonical forms"
+        },
+        "ca_002_synonym_exclusion": {
+          "passed": true,
+          "details": "Synonyms listed in table for reference, not used in text"
+        },
+        "ca_003_invariant_reflection": {
+          "passed": true,
+          "details": "All 13 invariants documented (11 hard, 2 soft)"
+        },
+        "ca_004_auto_decision_notes": {
+          "passed": true,
+          "details": "All 16 AUTO decisions documented by category"
+        },
+        "ca_005_term_boundaries": {
+          "passed": true,
+          "details": "Term boundaries consistent with ontology.yml"
+        }
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "All 11 canonical terms documented",
-        "All 14 invariants with code examples",
-        "All 16 AUTO decisions referenced",
-        "Claude-specific guidelines",
-        "Code review checklist"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
       "clarity_score": 98,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "All canonical terms listed correctly",
+          "11 canonical terms count is accurate",
+          "All hard invariants documented with code examples",
+          "All 16 AUTO decisions documented",
+          "Term layer classification correct",
+          "Code examples follow invariants properly"
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All 11 terms with complete definitions",
-        "Includes boundaries, lifecycle, evidence"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
+      "uniqueness_checks": {
+        "uc_001_mission_consistency": {
+          "passed": true,
+          "details": "Project context aligns with intent.yml"
+        },
+        "uc_002_target_user_consistency": {
+          "passed": true,
+          "details": "Targeted at Claude as specified"
+        },
+        "uc_003_constraints_consistency": {
+          "passed": true,
+          "details": "Constraints reflected in invariants"
+        },
+        "uc_004_boundary_consistency": {
+          "passed": true,
+          "details": "Boundaries implied through best practices"
+        },
+        "uc_005_intent_compliance": {
+          "passed": true,
+          "details": "Core philosophy aligns with intent.yml"
+        }
       },
-      "issues": [],
-      "strengths": [
-        "Detailed purpose explanation",
-        "Aligned with intent.yml"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Term guidelines included",
-        "Development workflow documented"
-      ]
+      "concept_alignment_checks": {
+        "ca_001_canonical_terms": {
+          "passed": true,
+          "details": "All 11 canonical terms used correctly"
+        },
+        "ca_002_synonym_exclusion": {
+          "passed": true,
+          "details": "No synonyms used in text"
+        },
+        "ca_003_invariant_reflection": {
+          "passed": true,
+          "details": "All invariants organized by category with examples"
+        },
+        "ca_004_auto_decision_notes": {
+          "passed": true,
+          "details": "All 16 AUTO decisions documented with references"
+        },
+        "ca_005_term_boundaries": {
+          "passed": true,
+          "details": "Boundaries consistent with ontology.yml"
+        }
+      }
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [
+          {
+            "type": "minor_improvement",
+            "details": "Could add more explicit references to invariants.yml"
+          }
+        ],
+        "strengths": [
+          "System principles align with design philosophy",
+          "Invariants reflected in constitution"
+        ]
+      }
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Purpose aligns perfectly with intent.yml mission",
+          "Core values match exactly"
+        ]
+      }
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 98,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Invariants well documented",
-        "Design philosophy reflected"
-      ]
+        "issues": [],
+        "strengths": [
+          "Contribution guidelines align with intent.yml",
+          "References to ontology and invariants present"
+        ]
+      }
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Auto-generated from ontology.yml",
+          "All 11 canonical terms documented",
+          "Term layer classification correct",
+          "Synonyms properly listed",
+          "Boundaries documented",
+          "AUTO decisions referenced",
+          "Status indicators correct (10 stable, 1 draft)"
+        ]
+      }
     }
   ],
-
   "summary": {
-    "overall_assessment": "Excellent",
-    "major_strengths": [
-      "100% MD coverage (all Tier 1, 2, and 3 files exist)",
-      "98% concept alignment - canonical terms used consistently",
-      "100% AUTO decision documentation",
-      "100% invariant documentation",
-      "No contradictions between MD files",
-      "All files aligned with intent.yml"
+    "total_issues": 0,
+    "critical_issues": 0,
+    "major_issues": 0,
+    "minor_improvements": 1,
+    "strengths": [
+      "Perfect alignment with intent.yml",
+      "Excellent concept alignment with ontology.yml",
+      "All canonical terms used consistently",
+      "All invariants properly documented",
+      "All AUTO decisions documented",
+      "Term layer classifications accurate",
+      "No synonym usage in body text",
+      "All MD files exist and are well-maintained"
     ],
-    "minor_improvements_possible": [
-      "Some files could include more cross-references",
-      "Code examples could be expanded in some files"
+    "recommendations": [
+      "Consider adding more explicit references to invariants.yml in SYSTEM_CONSTITUTION.md",
+      "Maintain current high standards",
+      "Continue using canonical terms consistently"
     ]
   }
 }

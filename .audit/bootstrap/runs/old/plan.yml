@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T01:35:00Z"
+run_timestamp: "2026-02-04T01:46:00Z"
 version: "1.1"
 
 rotation:
@@ -16,15 +16,18 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
     - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
+  boundaries_count: 11
 
 ontology_summary:
+  version: "0.3"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
@@ -48,9 +51,6 @@ ontology_summary:
     - canonical: "AutoChat"
       definition: "STATE_STOP時に自動的に会話を継続する機能"
       layer: "domain"
-    - canonical: "StreamWrapper"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-      layer: "domain"
     - canonical: "Backend"
       definition: "GUIフレームワーク実装（Gradio等）"
       layer: "domain"
@@ -58,12 +58,6 @@ ontology_summary:
       definition: "会話履歴を保持するバッファ機構"
       layer: "domain"
       status: "draft"
-    - canonical: "Connector"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      layer: "domain"
-    - canonical: "Converter"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      layer: "aux"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -71,12 +65,8 @@ term_normalization:
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -87,103 +77,111 @@ term_normalization:
   "ストリームラッパー": "StreamWrapper"
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-  "ConnectorImplCodeinterpreterApi": "Connector"
-  "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_good"
+    status: "exists_needs_update"
     tier: 1
-    issues: []
+    issues:
+      - "Need to verify term normalization (synonyms usage)"
+      - "Need to verify intent.yml alignment"
+
   - path: "AGENTS.md"
-    status: "exists_good"
+    status: "exists_needs_update"
     tier: 1
-    issues: []
+    issues:
+      - "Need to verify term normalization"
+      - "Need to verify invariants reflection"
+
   - path: "CLAUDE.md"
-    status: "exists_good"
+    status: "exists_needs_update"
     tier: 2
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_good"
-    tier: 2
-    issues: []
+    issues:
+      - "Need to verify AUTO decisions documentation"
+      - "Need to verify term normalization"
+
   - path: "PURPOSE.md"
-    status: "exists_good"
+    status: "exists_needs_review"
     tier: 2
-    issues: []
+    issues:
+      - "Verify alignment with intent.yml"
+
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
     tier: 2
     issues:
-      - "概念整合性の確認が必要"
-  - path: "GEMINI.md"
-    status: "exists_good"
-    tier: 3
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_good"
-    tier: 3
-    issues: []
+      - "Verify term guidelines"
+
   - path: "GLOSSARY.md"
-    status: "exists_good"
-    tier: 3
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "missing"
+    status: "exists_needs_update"
     tier: 3
     issues:
-      - "mappings.ymlの反映が必要"
+      - "Should be auto-generated from ontology.yml"
+      - "Verify all terms are included"
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Verify mappings.yml reflection"
+
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Gemini-specific instructions"
+
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues:
+      - "Codex-specific instructions"
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Verify invariants reflection"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "存在意義の反映、用語の正規化を確認"
+    reason: "Verify intent alignment and term normalization"
+    priority: "high"
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "AIエージェント向け指示の概念整合性を確認"
+    reason: "Verify term normalization and invariants reflection"
+    priority: "high"
 
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Claude向け特化指示の整合性を確認"
-
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "不変条件の反映を確認"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "目的の詳細説明の整合性を確認"
-
-  - action: "review"
-    target: "CONTRIBUTING.md"
-    reason: "用語ガイドラインの整合性をレビュー"
-
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Gemini向け指示の整合性を確認"
-
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Codex向け指示の整合性を確認"
+    reason: "Verify AUTO decisions and term normalization"
+    priority: "high"
 
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "用語集がontology.ymlから正しく生成されているか確認"
+    reason: "Verify ontology completeness"
+    priority: "medium"
 
-metadata:
-  ontology_version: "0.3"
-  invariants_version: "2026-02-02T05:23:14Z"
-  ambiguities_version: "2026-02-03T21:21:22Z"
-  total_auto_decisions: 16
-  total_hard_invariants: 11
-  total_soft_invariants: 3
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify intent.yml alignment"
+    priority: "medium"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify term guidelines"
+    priority: "low"
+
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants reflection"
+    priority: "medium"
+
+auto_decisions_active: 16
+invariants_count: 14
+hard_invariants: 11
+soft_invariants: 3
