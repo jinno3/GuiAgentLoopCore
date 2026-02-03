@@ -1,76 +1,60 @@
 {
-  "timestamp": "2026-02-04T01:00:00Z",
-  "note": "No changes made - existing MDs already well-aligned",
-  "total_mds": 11,
-  "tier1_count": 2,
-  "tier2_count": 4,
-  "tier3_count": 5,
-  "files": [
+  "timestamp": "2026-02-04T01:10:00Z",
+  "total_mds": 8,
+
+  "tier1_required": [
     {
       "path": "README.md",
-      "tier": 1,
       "exists": true,
-      "status": "verified_no_changes"
+      "status": "verified"
     },
     {
       "path": "AGENTS.md",
-      "tier": 1,
       "exists": true,
-      "status": "verified_no_changes"
-    },
+      "status": "verified"
+    }
+  ],
+
+  "tier2_recommended": [
     {
       "path": "CLAUDE.md",
-      "tier": 2,
       "exists": true,
-      "status": "verified_no_changes"
+      "status": "verified"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
       "exists": true,
-      "status": "verified_no_changes"
+      "status": "present"
     },
     {
       "path": "PURPOSE.md",
-      "tier": 2,
       "exists": true,
-      "status": "verified_no_changes"
+      "status": "present"
     },
     {
       "path": "CONTRIBUTING.md",
-      "tier": 2,
       "exists": true,
-      "status": "verified_no_changes"
-    },
+      "status": "present"
+    }
+  ],
+
+  "tier3_optional": [
     {
       "path": "GLOSSARY.md",
-      "tier": 3,
       "exists": true,
-      "status": "verified_no_changes"
+      "status": "verified"
     },
     {
       "path": "ARCHITECTURE.md",
-      "tier": 3,
       "exists": true,
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "CODEX.md",
-      "tier": 3,
-      "exists": true,
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "GEMINI.md",
-      "tier": 3,
-      "exists": true,
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "CHANGELOG.md",
-      "tier": 3,
-      "exists": true,
-      "status": "verified_no_changes"
+      "status": "present"
     }
-  ]
+  ],
+
+  "coverage": {
+    "tier1": "2/2 (100%)",
+    "tier2": "4/4 (100%)",
+    "tier3": "2/4 (50%)",
+    "overall": "8/10 (80%)"
+  }
 }

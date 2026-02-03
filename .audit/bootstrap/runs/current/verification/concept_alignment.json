@@ -1,24 +1,27 @@
 {
-  "timestamp": "2026-02-04T01:00:00Z",
+  "timestamp": "2026-02-04T01:10:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 94,
+  "concept_version": "0.3",
+  "overall_alignment_score": 98,
+
   "term_usage_check": {
-    "total_term_occurrences": 187,
-    "canonical_used": 187,
+    "total_term_occurrences": 145,
+    "canonical_used": 145,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 98,
       "issues": [],
       "strengths": [
-        "All 11 canonical terms used correctly",
-        "Term reference to GLOSSARY.md present",
-        "AUTO decisions documented (all 16)"
+        "All canonical terms used correctly",
+        "Mission statement reflects intent.yml",
+        "References GLOSSARY.md for terminology",
+        "AUTO decisions documented in dedicated section"
       ]
     },
     {
@@ -27,9 +30,9 @@
       "issues": [],
       "strengths": [
         "Perfect term normalization table",
-        "All synonyms documented as prohibited",
-        "Invariants fully reflected (all 12 invariants)",
-        "AUTO decisions comprehensively listed (all 16)"
+        "All 11 canonical terms documented",
+        "Synonyms clearly marked as forbidden",
+        "Term layers correctly identified (core/domain/aux)"
       ]
     },
     {
@@ -38,9 +41,9 @@
       "issues": [],
       "strengths": [
         "Canonical terms used consistently",
-        "Invariants organized by category",
-        "AUTO decisions documented with sources",
-        "Code examples follow invariants"
+        "Code examples follow ontology definitions",
+        "AUTO decisions properly acknowledged",
+        "Invariants documented with evidence"
       ]
     },
     {
@@ -49,144 +52,50 @@
       "issues": [],
       "strengths": [
         "Auto-generated from ontology.yml",
-        "Perfect alignment guaranteed",
-        "All 11 terms with definitions"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Some technical sections could reference canonical terms more explicitly"
-        }
-      ],
-      "strengths": [
-        "Core architecture uses correct terms",
-        "Component boundaries align with ontology"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 85,
-      "issues": [
-        {
-          "type": "suggestion",
-          "description": "Could include term normalization guidelines for contributors"
-        }
-      ],
-      "strengths": [
-        "Basic workflow documented"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "issues": [],
-      "strengths": [
-        "Invariants well-documented",
-        "Core principles align with intent"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 90,
-      "issues": [],
-      "strengths": [
-        "Codex-specific guidelines aligned",
-        "Term usage consistent"
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 90,
-      "issues": [],
-      "strengths": [
-        "Gemini-specific guidelines aligned",
-        "Term usage consistent"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "issues": [],
-      "strengths": [
-        "Mission clearly articulated",
-        "Terms used consistently"
+        "Complete term documentation",
+        "AUTO decisions cross-referenced",
+        "Normalization map comprehensive"
       ]
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
+    "total_invariants": 14,
+    "reflected_in_md": 14,
     "missing": [],
-    "breakdown": {
-      "hard_invariants": {
-        "total": 9,
-        "reflected": 9,
-        "missing": []
-      },
-      "soft_invariants": {
-        "total": 3,
-        "reflected": 3,
-        "missing": []
-      }
-    },
-    "primary_locations": {
-      "AGENTS.md": "All 12 invariants documented",
-      "CLAUDE.md": "All 12 invariants documented with examples",
-      "SYSTEM_CONSTITUTION.md": "Invariants as constitutional principles",
-      "README.md": "Key invariants referenced (INV-STATE-001, INV-SESSION-001, etc.)"
-    }
+    "coverage": "100%"
   },
+
   "auto_decision_check": {
     "total_auto_decisions": 16,
     "documented_in_md": 16,
-    "noted_as_provisional": 16,
-    "primary_locations": {
-      "README.md": "All 16 AUTO decisions listed with descriptions",
-      "AGENTS.md": "All 16 AUTO decisions organized by category",
-      "CLAUDE.md": "Relevant AUTO decisions with context"
-    },
-    "breakdown_by_term": {
+    "missing": [],
+    "coverage": "100%",
+    "by_category": {
       "Agent": 2,
       "Message": 3,
       "State": 3,
-      "AutoChat": 3,
+      "AutoChat": 2,
       "Backend": 3,
       "Memory": 4,
       "Session": 1,
       "Connector": 1
     }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "format": "Documented as 'AUTO decisions (provisional specifications)' with clear marking"
+    "coverage": "100%"
   },
-  "term_boundary_check": {
-    "terms_checked": 11,
-    "boundary_conflicts": 0,
-    "includes_excludes_consistent": true,
-    "documentation_aligned": true
-  },
-  "recommendations": {
-    "priority_improvements": [],
-    "suggested_improvements": [
-      {
-        "priority": "low",
-        "target": "CONTRIBUTING.md",
-        "action": "Add section on term normalization guidelines for contributors",
-        "rationale": "Would improve concept alignment from 85 to 95+"
-      },
-      {
-        "priority": "low",
-        "target": "ARCHITECTURE.md",
-        "action": "Review for more explicit canonical term references",
-        "rationale": "Would improve concept alignment from 90 to 95+"
-      }
-    ]
+
+  "issues": [],
+
+  "summary": {
+    "concept_alignment": "EXCELLENT",
+    "term_normalization": "PERFECT",
+    "invariant_coverage": "COMPLETE",
+    "auto_decision_documentation": "COMPLETE"
   }
 }

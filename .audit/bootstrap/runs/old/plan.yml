@@ -1,7 +1,4 @@
-# MD Bootstrap Execution Plan (v1.1)
-# Generated: 2026-02-04T00:45:00Z
-
-run_timestamp: "2026-02-04T00:45:00Z"
+run_timestamp: "2026-02-04T01:00:00Z"
 version: "1.1"
 
 rotation:
@@ -15,82 +12,38 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  boundaries_defined: true
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
-  version: "0.3"
-  updated_at: "2026-02-03T12:21:29Z"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
-  invariants_count: 14
-  active_auto_decisions: 16
-
-key_terms:
-  - canonical: "Interpreter"
-    layer: "core"
-    definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-    synonyms: ["GuiAgentInterpreter", "会話インタープリタ"]
-
-  - canonical: "Agent"
-    layer: "core"
-    definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"]
-
-  - canonical: "Session"
-    layer: "core"
-    definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-    synonyms: ["ChatSession", "会話セッション", "JWT"]
-
-  - canonical: "Message"
-    layer: "core"
-    definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    synonyms: ["メッセージ", "ChatMessage"]
-
-  - canonical: "State"
-    layer: "core"
-    definition: "インタープリタの実行状態を表す列挙型"
-    synonyms: ["InterpreterState", "インタープリタ状態"]
-
-  - canonical: "AutoChat"
-    layer: "domain"
-    definition: "STATE_STOP時に自動的に会話を継続する機能"
-    synonyms: ["自動チャット", "自動継続"]
-
-  - canonical: "StreamWrapper"
-    layer: "domain"
-    definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-    synonyms: ["GuiAgentStreamWrapper", "ストリームラッパー"]
-
-  - canonical: "Backend"
-    layer: "domain"
-    definition: "GUIフレームワーク実装（Gradio等）"
-    synonyms: ["GUIバックエンド", "UIフレームワーク", "GuiBackend"]
-
-  - canonical: "Memory"
-    layer: "domain"
-    status: "draft"
-    definition: "会話履歴を保持するバッファ機構"
-    synonyms: ["会話メモリ", "ConversationBuffer"]
-
-  - canonical: "Connector"
-    layer: "domain"
-    definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-    synonyms: ["コネクタ", "GuiAgentInterpreterABC"]
-
-  - canonical: "Converter"
-    layer: "aux"
-    definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-    synonyms: ["変換器", "マッパー"]
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -115,6 +68,7 @@ term_normalization:
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
@@ -124,70 +78,80 @@ term_normalization:
 
 existing_mds:
   - path: "README.md"
-    status: "exists"
-    tier: 1
-
+    status: "exists_aligned"
+    issues: []
+    clarity_score: 95
+    concept_alignment: 98
   - path: "AGENTS.md"
-    status: "exists"
-    tier: 1
-
+    status: "exists_aligned"
+    issues: []
+    clarity_score: 98
+    concept_alignment: 100
   - path: "CLAUDE.md"
-    status: "exists"
-    tier: 2
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
-    tier: 2
-
-  - path: "PURPOSE.md"
-    status: "exists"
-    tier: 2
-
-  - path: "CONTRIBUTING.md"
-    status: "exists"
-    tier: 2
-
-  - path: "GEMINI.md"
-    status: "exists"
-    tier: 3
-
-  - path: "CODEX.md"
-    status: "exists"
-    tier: 3
-
+    status: "exists_aligned"
+    issues: []
+    clarity_score: 95
+    concept_alignment: 100
+  - path: "GLOSSARY.md"
+    status: "exists_aligned"
+    issues: []
+    clarity_score: 100
+    concept_alignment: 100
   - path: "ARCHITECTURE.md"
     status: "exists"
-    tier: 3
-
-  - path: "GLOSSARY.md"
+    issues: []
+    clarity_score: 85
+    concept_alignment: 90
+  - path: "CONTRIBUTING.md"
     status: "exists"
-    tier: 3
-
+    issues: []
+    clarity_score: 80
+    concept_alignment: 85
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
+    clarity_score: 85
+    concept_alignment: 90
+  - path: "PURPOSE.md"
+    status: "exists"
+    issues: []
+    clarity_score: 90
+    concept_alignment: 95
   - path: "CHANGELOG.md"
     status: "exists"
-    tier: 3
+    issues: []
+    clarity_score: 75
+    concept_alignment: 70
+  - path: "CODEX.md"
+    status: "exists_aligned"
+    issues: []
+    clarity_score: 85
+    concept_alignment: 90
+  - path: "GEMINI.md"
+    status: "exists_aligned"
+    issues: []
+    clarity_score: 85
+    concept_alignment: 90
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent alignment and term normalization"
-
+    reason: "Verify intent reflection and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify intent alignment and term normalization"
-
+    reason: "Verify intent reflection and term normalization"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify intent alignment and term normalization"
-
+    reason: "Verify intent reflection and term normalization"
   - action: "verify"
     target: "GLOSSARY.md"
     reason: "Verify ontology alignment"
-
-  - action: "verify"
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "Review for concept alignment improvements"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "Review for concept alignment improvements"
+  - action: "review"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection"
-
-  - action: "verify"
-    target: "all"
-    reason: "Verify concept alignment and term normalization"
+    reason: "Review for concept alignment improvements"
