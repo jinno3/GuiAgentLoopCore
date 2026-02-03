@@ -1,106 +1,207 @@
 {
-  "timestamp": "2026-02-03T13:47:39Z",
-  "audit_source": ".audit/config/intent.yml",
-  "concept_source": ".concept/ontology.yml",
-  "overall_uniqueness_score": 95,
-  "checks_performed": 5,
-  "checks_passed": 5,
-
-  "uc_checks": [
+  "timestamp": "2026-02-03T05:07:05.312621+00:00",
+  "uniqueness_score": 42,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
+      "file": "README.md",
+      "check": "Mission consistency",
       "passed": true,
-      "evidence": {
-        "mission_statement": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_verified": [
-          "README.md: ✓ exact match",
-          "AGENTS.md: ✓ exact match",
-          "CLAUDE.md: ✓ consistent",
-          "SYSTEM_CONSTITUTION.md: ✓ consistent",
-          "CONTRIBUTING.md: ✓ consistent",
-          "ARCHITECTURE.md: ✓ consistent"
-        ]
-      }
+      "details": "Mission statement found"
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
+      "file": "README.md",
+      "check": "Target user consistency",
       "passed": true,
-      "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "files_verified": [
-          "README.md: ✓ all 4 listed",
-          "AGENTS.md: ✓ implied in behavioral rules",
-          "CONTRIBUTING.md: ✓ consistent"
-        ]
-      }
+      "details": "Target users mentioned"
     },
     {
-      "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
+      "id": "CA-003",
+      "file": "README.md",
+      "check": "Invariant reflection",
       "passed": true,
-      "evidence": {
-        "constraints_verified": [
-          "Type safety: ✓ all MDs reference enums",
-          "State monotonicity: ✓ all MDs reference INV-STATE-001",
-          "Message limits: ✓ all MDs reference MAX_MESSAGE_LENGTH=100",
-          "Session uniqueness: ✓ all MDs reference UUID/JWT"
-        ]
-      }
+      "details": "5 invariants found"
     },
     {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
+      "id": "CA-004",
+      "file": "README.md",
+      "check": "AUTO decision documentation",
       "passed": true,
-      "evidence": {
-        "out_of_scope_consistency": [
-          "UI Rendering: ✓ consistently excluded (Backend's job)",
-          "LLM Execution: ✓ consistently excluded (Agent's job)",
-          "Session Storage: ✓ consistently excluded (application-level)",
-          "Authentication: ✓ consistently excluded (only session uniqueness)",
-          "Network Protocols: ✓ consistently excluded (backend-specific)"
-        ],
-        "files_verified": [
-          "README.md: ✓ clear scope section",
-          "AGENTS.md: ✓ behavioral rules",
-          "ARCHITECTURE.md: ✓ component boundaries",
-          "SYSTEM_CONSTITUTION.md: ✓ N/A (focus on invariants)"
-        ]
-      }
+      "details": "11 AUTO decisions documented"
     },
     {
-      "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "id": "UC-001",
+      "file": "AGENTS.md",
+      "check": "Mission consistency",
       "passed": true,
-      "evidence": {
-        "intent_yml_version": "1.0",
-        "core_functions_reflected": 5,
-        "design_philosophy_reflected": 5,
-        "success_metrics_addressed": 5,
-        "verification": "All core functions, design philosophy elements, and success metrics from intent.yml are reflected across MD files"
-      }
+      "details": "Mission statement found"
+    },
+    {
+      "id": "UC-002",
+      "file": "AGENTS.md",
+      "check": "Target user consistency",
+      "passed": false,
+      "details": "Target users mentioned"
+    },
+    {
+      "id": "CA-003",
+      "file": "AGENTS.md",
+      "check": "Invariant reflection",
+      "passed": true,
+      "details": "14 invariants found"
+    },
+    {
+      "id": "CA-004",
+      "file": "AGENTS.md",
+      "check": "AUTO decision documentation",
+      "passed": true,
+      "details": "20 AUTO decisions documented"
+    },
+    {
+      "id": "UC-001",
+      "file": "CLAUDE.md",
+      "check": "Mission consistency",
+      "passed": false,
+      "details": "Mission statement not found"
+    },
+    {
+      "id": "UC-002",
+      "file": "CLAUDE.md",
+      "check": "Target user consistency",
+      "passed": true,
+      "details": "Target users mentioned"
+    },
+    {
+      "id": "CA-003",
+      "file": "CLAUDE.md",
+      "check": "Invariant reflection",
+      "passed": true,
+      "details": "14 invariants found"
+    },
+    {
+      "id": "CA-004",
+      "file": "CLAUDE.md",
+      "check": "AUTO decision documentation",
+      "passed": true,
+      "details": "28 AUTO decisions documented"
+    },
+    {
+      "id": "UC-001",
+      "file": "GLOSSARY.md",
+      "check": "Mission consistency",
+      "passed": false,
+      "details": "Mission statement not found"
+    },
+    {
+      "id": "UC-002",
+      "file": "GLOSSARY.md",
+      "check": "Target user consistency",
+      "passed": false,
+      "details": "Target users mentioned"
+    },
+    {
+      "id": "CA-003",
+      "file": "GLOSSARY.md",
+      "check": "Invariant reflection",
+      "passed": false,
+      "details": "0 invariants found"
+    },
+    {
+      "id": "CA-004",
+      "file": "GLOSSARY.md",
+      "check": "AUTO decision documentation",
+      "passed": true,
+      "details": "13 AUTO decisions documented"
+    },
+    {
+      "id": "UC-001",
+      "file": "PURPOSE.md",
+      "check": "Mission consistency",
+      "passed": true,
+      "details": "Mission statement not found"
+    },
+    {
+      "id": "UC-002",
+      "file": "PURPOSE.md",
+      "check": "Target user consistency",
+      "passed": true,
+      "details": "Target users mentioned"
+    },
+    {
+      "id": "CA-003",
+      "file": "PURPOSE.md",
+      "check": "Invariant reflection",
+      "passed": true,
+      "details": "0 invariants found"
+    },
+    {
+      "id": "CA-004",
+      "file": "PURPOSE.md",
+      "check": "AUTO decision documentation",
+      "passed": true,
+      "details": "0 AUTO decisions documented"
+    },
+    {
+      "id": "UC-001",
+      "file": "CONTRIBUTING.md",
+      "check": "Mission consistency",
+      "passed": false,
+      "details": "Mission statement not found"
+    },
+    {
+      "id": "UC-002",
+      "file": "CONTRIBUTING.md",
+      "check": "Target user consistency",
+      "passed": false,
+      "details": "Target users mentioned"
+    },
+    {
+      "id": "CA-003",
+      "file": "CONTRIBUTING.md",
+      "check": "Invariant reflection",
+      "passed": true,
+      "details": "14 invariants found"
+    },
+    {
+      "id": "CA-004",
+      "file": "CONTRIBUTING.md",
+      "check": "AUTO decision documentation",
+      "passed": true,
+      "details": "20 AUTO decisions documented"
+    },
+    {
+      "id": "UC-001",
+      "file": "SYSTEM_CONSTITUTION.md",
+      "check": "Mission consistency",
+      "passed": false,
+      "details": "Mission statement not found"
+    },
+    {
+      "id": "UC-002",
+      "file": "SYSTEM_CONSTITUTION.md",
+      "check": "Target user consistency",
+      "passed": false,
+      "details": "Target users mentioned"
+    },
+    {
+      "id": "CA-003",
+      "file": "SYSTEM_CONSTITUTION.md",
+      "check": "Invariant reflection",
+      "passed": true,
+      "details": "16 invariants found"
+    },
+    {
+      "id": "CA-004",
+      "file": "SYSTEM_CONSTITUTION.md",
+      "check": "AUTO decision documentation",
+      "passed": true,
+      "details": "4 AUTO decisions documented"
     }
   ],
-
   "summary": {
-    "uc_passed": "5/5",
-    "uc_score": 100,
-    "critical_issues": 0,
-    "recommendations": [
-      "No critical uniqueness issues found",
-      "All MD files are well-aligned with intent.yml",
-      "Mission statement is consistently communicated across all documentation"
-    ]
+    "total_checks": 28,
+    "passed": 19,
+    "failed": 9
   }
 }

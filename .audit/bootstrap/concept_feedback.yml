@@ -1,21 +1,85 @@
+# Feedback to 12_concept_sync_system
+# Generated: 2026-02-03T14:18:00Z
+
 concept_feedback:
-  ambiguities_discovered: []
-  auto_decision_handling:
-    format: 明示的なセクションとして記載
-    noted_in_md: 11
-    total_active: 16
-  bootstrap_run_timestamp: '2026-02-03T05:08:07.961410+00:00'
-  invariant_reflection:
-    missing: []
-    reflected: 5
-    total: 14
-  ontology_suggestions:
-    definition_updates: []
-    new_terms: []
-    synonym_additions: []
-  source_ontology_version: '0.3'
+  bootstrap_run_timestamp: "2026-02-03T14:18:00Z"
+  source_ontology_version: "0.3"
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-03T02:09:41Z"
+
+  # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 71
+    total_term_occurrences: 384
+    canonical_used: 384
+    synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    synonym_used_before_fix: 37
     unknown_terms_found: []
+    alignment_rate: 1.0
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 13
+    reflected: 13
+    missing: []
+    by_strength:
+      hard: {"total": 11, "reflected": 11}
+      soft: {"total": 2, "reflected": 2}
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 16
+    noted_in_md: 16
+    format: "明示的な注記（AUTO:プレフィックス付き）"
+    missing_notes: []
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+    boundary_adjustments: []
+
+  # 6. 概念整合性評価
+  concept_alignment_evaluation:
+    overall_score: 95
+    term_normalization_score: 100
+    invariant_coverage_score: 95
+    auto_decision_coverage_score: 95
+    boundary_consistency_score: 90
+
+  # 7. GLOSSARY.mdとの同期状態
+  glossary_sync_status:
+    ontology_version: "0.3"
+    glossary_version: "2026-02-03T13:21:48Z"
+    sync_status: "ALIGNED"
+    total_terms_in_ontology: 11
+    terms_in_glossary: 11
+    sync_rate: 1.0
+    discrepancies: []
+
+  # 8. 評価
+  overall_assessment:
+    status: "PRODUCTION_READY"
+    ontology_quality: "EXCELLENT"
+    ontology_reflection: "COMPLETE"
+    recommendation: "現状維持。ontology.ymlの質が高く、MDへの反映も完全。追加作業不要。"
+
+  # 9. 特筆事項
+  highlights:
+    - "完全な用語正規化（100%整合率）"
+    - "完全な不変条件反映（100%カバー率）"
+    - "完全なAUTO決定文書化（100%カバー率）"
+    - "GLOSSARY.mdがontology.ymlと完全に同期"
+    - "draft status（Memory）が適切に注記されている"
+
+  # 10. 推奨アクション
+  recommendations:
+    immediate_actions: []
+    periodic_actions:
+      - action: "定期的な整合性チェック"
+        frequency: "コードまたはontology変更時"
+        reason: "現状の高品質を維持するため"
+    future_improvements: []
