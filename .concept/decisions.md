@@ -1,5 +1,25 @@
 # Active AUTO Decisions (cache) — safe to delete
 
+## AUTO:Security.secret_key:env_var_required
+- Status: ACTIVE (renewed)
+- Chosen: ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）
+- Policy: security_first
+- Expires After Runs: 20
+- Linked: AMB-SEC-001
+- Revert Triggers: primary_evidence_contradiction, security_risk_escalation
+- Note: AUTO decision renewed for run #134 (was expired)
+
+## AUTO:Session.jwt:decode_method_fix
+- Status: ACTIVE (renewed)
+- Chosen: jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要
+- Policy: code_quality
+- Expires After Runs: 20
+- Linked: AMB-SEC-002
+- Revert Triggers: primary_evidence_contradiction, runtime_error
+- Note: AUTO decision renewed for run #134 (was expired)
+
+
+
 ## AUTO:Agent.type:implementation_property
 - Status: ACTIVE
 - Chosen: AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）

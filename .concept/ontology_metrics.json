@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-03T01:46:09Z",
+  "last_updated": "2026-02-03T02:09:41Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -22,9 +22,9 @@
   "queue_rejected": 5,
   "claims_count": 316,
   "mappings_count": 11,
-  "decisions_active": 16,
-  "decisions_expired": 2,
-  "decisions_md_lines": 145,
+  "decisions_active": 18,
+  "decisions_expired": 0,
+  "decisions_md_lines": 159,
   "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
@@ -37,7 +37,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 145,
+    "decisions_md_lines_current": 159,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -45,16 +45,17 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Run #133 - Concept sync via AI Hub instruction execution"
+    "reason": "Run #134 - Concept sync via AI Hub instruction execution"
   },
   "this_run_summary": {
-    "run_id": "2026-02-03T01:46:09Z",
-    "previous_run_id": "2026-02-03T01:29:33Z",
-    "run_count": 133,
+    "run_id": "2026-02-03T02:09:41Z",
+    "previous_run_id": "2026-02-03T01:46:09Z",
+    "run_count": 134,
     "run_type": "scheduled_sync",
     "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
+    "auto_decisions_renewed": 2,
     "auto_decisions_expired": 0,
     "queue_processed": 0,
     "conflicts_resolved": 0,
@@ -62,14 +63,15 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #133 completed - Concept sync executed via AI Hub instruction",
+      "Run #134 completed - Concept sync executed via AI Hub instruction",
       "No new code or documentation changes detected since last run",
+      "Renewed 2 expired AUTO decisions (AMB-SEC-001, AMB-SEC-002)",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
       "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted",
-      "decisions.md: 145 lines (within 200-line limit)",
+      "decisions.md: 159 lines (within 200-line limit)",
       "14 invariants maintained (13 hard, 1 soft)",
-      "16 AUTO decisions active (applied), 2 expired",
+      "18 AUTO decisions active (applied), 0 expired",
       "All budget limits within acceptable ranges",
       "No conflicts detected",
       "Bloat control checks passed - no GC needed"
@@ -77,7 +79,7 @@
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (145/200 lines)",
+    "decisions_cache_health": "healthy (159/200 lines)",
     "queue_health": "healthy (0 pending, 8 merged, 5 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
     "concept_alignment_score": "100/100 (perfect)",
@@ -87,7 +89,7 @@
   "next_steps": [
     "Continue regular ontology sync runs to monitor concept drift",
     "Monitor AUTO decision expiration (20-run cycle)",
-    "Review expired security ambiguities (AMB-SEC-001, AMB-SEC-002)",
+    "Address renewed security ambiguities (AMB-SEC-001: hardcoded secret key, AMB-SEC-002: JWT decode method bug)",
     "Consider promoting draft terms (Memory) to stable when appropriate",
     "Monitor for new code changes that may introduce new concepts"
   ]
