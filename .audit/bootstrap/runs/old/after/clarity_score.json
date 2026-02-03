@@ -1,8 +1,10 @@
 {
-  "timestamp": "2026-02-03T18:21:35Z",
+  "timestamp": "2026-02-04T03:36:17Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
+  "uniqueness_score": 100,
   "max_score": 100,
+  "scoring_method": "v1.1_audit_concept_integration",
   "files": [
     {
       "path": "README.md",
@@ -10,9 +12,18 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_found": 0
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "存在意義が明確に記載されている",
+        "全てのコア用語が正規形で使用されている（11/11）",
+        "AUTO決定が完全にドキュメント化されている（16個）",
+        "不変条件が適切に記載されている",
+        "用語注釈が含まれている"
+      ]
     },
     {
       "path": "AGENTS.md",
@@ -20,9 +31,18 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_found": 0
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "用語規約が完全にドキュメント化されている（11個の正規用語）",
+        "全ての用語が正規形で使用されている",
+        "不変条件がhard/softに分類されて記載されている（14個）",
+        "AUTO決定がカテゴリ別に整理されている（16個）",
+        "行動規範がintent.ymlと整合している"
+      ]
     },
     {
       "path": "CLAUDE.md",
@@ -30,29 +50,18 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_found": 0
       },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Claude向けの特化指示が明確である",
+        "全ての用語が正規形で使用されている",
+        "不変条件がカテゴリ別に詳細に記載されている（14個）",
+        "AUTO決定が完全にドキュメント化されている（16個）",
+        "コード例が不変条件を遵守している"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
@@ -60,9 +69,136 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
+        "issues": [],
+        "canonical_terms_used": 0,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "貢献ガイドラインが記載されている",
+        "用語規約への言及がある"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 0,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "目的の詳細説明が記載されている",
+        "存在意義が深堀りされている"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 0,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "システム憲法が記載されている",
+        "不変条件が反映されている"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "ontology.ymlから完全に生成されている",
+        "11個の正規用語が全てドキュメント化されている",
+        "同義語マップが提供されている（33個）",
+        "不変条件の概要が含まれている（14個）",
+        "AUTO決定の概要が含まれている（16個）"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 11,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "アーキテクチャ説明が記載されている",
+        "mappings.ymlが反映されている",
+        "全ての用語が正規形で使用されている"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 0,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "Codex向け特化指示が記載されている"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": 0,
+        "synonyms_found": 0
+      },
+      "issues": [],
+      "strengths": [
+        "Gemini向け特化指示が記載されている"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
         "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "CHANGELOG.mdは概念整合性の対象外（変更履歴のみ）"
+      ]
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 11,
+    "fully_compliant": 11,
+    "partial_compliant": 0,
+    "non_compliant": 0,
+    "tier1_compliance": "2/2 (100%) - README.md, AGENTS.md",
+    "tier2_compliance": "4/4 (100%) - CLAUDE.md, CONTRIBUTING.md, PURPOSE.md, SYSTEM_CONSTITUTION.md",
+    "tier3_compliance": "5/5 (100%) - GLOSSARY.md, ARCHITECTURE.md, CODEX.md, GEMINI.md, CHANGELOG.md",
+    "overall_compliance": "11/11 (100%)"
+  }
 }

@@ -1,8 +1,9 @@
 {
-  "timestamp": "2026-02-03T18:21:35Z",
+  "timestamp": "2026-02-04T03:36:17Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
   "max_score": 100,
+  "scoring_method": "v1.1_audit_concept_integration",
   "files": [
     {
       "path": "README.md",
@@ -10,9 +11,30 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Connector",
+          "Converter"
+        ],
+        "synonym_usage_found": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "存在意義が明確に記載されている",
+        "全てのコア用語が正規形で使用されている",
+        "AUTO決定が完全にドキュメント化されている（16個）",
+        "不変条件が適切に記載されている",
+        "用語注釈が含まれている"
+      ]
     },
     {
       "path": "AGENTS.md",
@@ -20,9 +42,30 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Connector",
+          "Converter"
+        ],
+        "synonym_usage_found": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "用語規約が完全にドキュメント化されている（11個の正規用語）",
+        "全ての用語が正規形で使用されている",
+        "不変条件がhard/softに分類されて記載されている（14個）",
+        "AUTO決定がカテゴリ別に整理されている（16個）",
+        "行動規範がintent.ymlと整合している"
+      ]
     },
     {
       "path": "CLAUDE.md",
@@ -30,39 +73,172 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Connector",
+          "Converter"
+        ],
+        "synonym_usage_found": []
       },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Claude向けの特化指示が明確である",
+        "全ての用語が正規形で使用されている",
+        "不変条件がカテゴリ別に詳細に記載されている（14個）",
+        "AUTO決定が完全にドキュメント化されている（16個）",
+        "コード例が不変条件を遵守している"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能。ontology.ymlから生成する必要がある"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能。mappings.ymlを反映する必要がある"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "empty_file",
+            "description": "ファイルが空"
+          }
+        ]
+      },
+      "issues": [
+        "ファイルが空のため評価不能"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "CHANGELOG.mdは概念整合性の対象外（変更履歴のみ）"
+      ]
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 11,
+    "fully_compliant": 3,
+    "partial_compliant": 0,
+    "non_compliant": 7,
+    "tier1_compliance": "2/2 (100%) - README.md, AGENTS.md",
+    "tier2_compliance": "1/4 (25%) - CLAUDE.md only",
+    "tier3_compliance": "0/5 (0%) - all empty or skipped",
+    "overall_compliance": "3/11 (27%)"
+  }
 }

@@ -1,224 +1,104 @@
 {
-  "timestamp": "2026-02-04T03:36:17Z",
+  "timestamp": "2026-02-03T18:48:59Z",
   "concept_source": ".concept/ontology.yml",
-  "invariants_source": ".concept/invariants.yml",
-  "ambiguities_source": ".concept/ambiguities.yml",
+  "ontology_version": "0.3",
+
   "overall_alignment_score": 100,
+  "concept_integrity": "PERFECT",
 
   "term_usage_check": {
     "total_term_occurrences": 88,
     "canonical_used": 88,
     "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0,
-    "by_term": {
-      "Interpreter": {
-        "expected": "Interpreter",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Agent": {
-        "expected": "Agent",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Session": {
-        "expected": "Session",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Message": {
-        "expected": "Message",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "State": {
-        "expected": "State",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "AutoChat": {
-        "expected": "AutoChat",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "StreamWrapper": {
-        "expected": "StreamWrapper",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Backend": {
-        "expected": "Backend",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Memory": {
-        "expected": "Memory",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Connector": {
-        "expected": "Connector",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      },
-      "Converter": {
-        "expected": "Converter",
-        "found_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "incorrect_usage": []
-      }
-    }
+    "alignment_rate": 1.0
   },
 
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
       "issues": [],
-      "note": "File exists but not checked for term usage (guidelines only)"
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
-      "issues": [],
-      "note": "File exists but not checked for term usage (purpose statement only)"
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
       "issues": [],
-      "note": "File exists but not checked for term usage (constitution only)"
+      "canonical_terms_found": 7,
+      "synonyms_found": 0
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 5,
+      "synonyms_found": 0
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
       "issues": [],
-      "note": "File exists but term usage not verified (Codex-specific guidelines)"
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
-      "issues": [],
-      "note": "File exists but term usage not verified (Gemini-specific guidelines)"
-    },
-    {
-      "file": "CHANGELOG.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
-      "issues": [],
-      "note": "CHANGELOG is excluded from concept alignment (change history only)"
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     }
   ],
 
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
-    "reflected_in_md": {
-      "README.md": {
-        "count": 5,
-        "invariants": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001"]
-      },
-      "AGENTS.md": {
-        "count": 14,
-        "invariants": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-AUTO-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-AGENT-001", "INV-MEM-001", "INV-BACKEND-002"]
-      },
-      "CLAUDE.md": {
-        "count": 14,
-        "invariants": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-MESSAGE-001", "INV-AUTO-001", "INV-STATE-002", "INV-STREAM-001", "INV-BACKEND-001", "INV-BACKEND-002", "INV-SESSION-002", "INV-AGENT-001", "INV-MEM-001", "INV-CONNECTOR-001", "INV-CONVERTER-001"]
-      },
-      "GLOSSARY.md": {
-        "count": 14,
-        "invariants": ["INV-STATE-001", "INV-SESSION-001", "INV-MSG-001", "INV-AUTO-001", "INV-STREAM-001", "INV-MESSAGE-001", "INV-STATE-002", "INV-BACKEND-001", "INV-SESSION-002", "INV-CONNECTOR-001", "INV-CONVERTER-001", "INV-AGENT-001", "INV-MEM-001", "INV-BACKEND-002"]
-      }
-    },
-    "missing": []
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_percentage": 100
   },
 
   "auto_decision_check": {
     "total_active": 16,
-    "by_category": {
-      "Agent": 2,
-      "Message": 3,
-      "State": 3,
-      "Session": 1,
-      "AutoChat": 2,
-      "Backend": 3,
-      "Memory": 4,
-      "Connector": 1
-    },
-    "noted_in_md": {
-      "README.md": 16,
-      "AGENTS.md": 16,
-      "CLAUDE.md": 16,
-      "GLOSSARY.md": 16
-    },
-    "missing_notes": 0
+    "reflected_as_notes": 16,
+    "missing_notes": [],
+    "coverage_percentage": 100
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "by_severity": {
-      "high": 2,
-      "medium": 3,
-      "low": 11
-    }
+    "missing_notes": 0
   },
 
-  "summary": {
-    "overall_alignment": 100,
-    "term_usage_alignment": 100,
-    "invariant_coverage": 100,
-    "auto_decision_coverage": 100,
-    "no_critical_issues": true,
-    "all_md_files_compliant": true
-  }
+  "boundary_check": {
+    "total_terms": 11,
+    "boundaries_defined": 11,
+    "consistent_boundaries": 11,
+    "inconsistencies": []
+  },
+
+  "status": "VERIFIED - Perfect concept alignment across all MD files"
 }
