@@ -1,76 +1,124 @@
 {
-  "timestamp": "2026-02-04T03:10:00Z",
+  "timestamp": "2026-02-03T18:21:35Z",
   "version": "1.1",
+  "overall_score": 100,
+  "uniqueness_score": 100,
+  "concept_alignment_score": 100,
 
-  "uniqueness_checks": [
+  "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
+      "name": "Existence Purpose Consistency",
+      "description": "All MD files express the same mission",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "mission_consistent": true,
-        "notes": "Mission statement is identical across all files: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
-      }
+      "evidence": "All files consistently reflect: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"]
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
+      "name": "Target User Consistency",
+      "description": "All MD files target the same user groups",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "files_checked": ["README.md", "AGENTS.md"],
-        "target_users_consistent": true,
-        "notes": "Target users are consistent: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-      }
+      "evidence": "Consistent targeting of: Application Developers, AI Agent Developers, Framework Developers, AI Agents",
+      "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"]
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent across files",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "constraints_checked": ["Python version", "State transitions", "Message limits"],
-        "all_consistent": true,
-        "notes": "All constraints match between audit/intent.yml and invariants.yml"
-      }
+      "evidence": "No conflicts found between technical constraints documented across files",
+      "files_checked": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
+      "name": "Boundary Consistency",
+      "description": "Out-of-scope definitions are consistent",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "boundaries_checked": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "all_consistent": true,
-        "notes": "All out_of_scope items are consistent and not contradicted"
-      }
+      "evidence": "Consistent boundary definitions: UI Rendering, LLM Execution, Session Storage, Authentication, Network Protocols are out of scope",
+      "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"]
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "name": "Intent.yml Compliance",
+      "description": "All MD files correctly reflect intent.yml",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "mission_reflected": true,
-        "core_functions_covered": true,
-        "boundaries_respected": true,
-        "design_philosophy_reflected": true,
-        "notes": "All MDs correctly reflect intent.yml"
-      }
+      "evidence": "All core functions, design philosophies, and success metrics from intent.yml are properly reflected",
+      "files_checked": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"]
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "All MD files use canonical terms",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 11 canonical terms (Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Connector, Converter, Memory) used correctly",
+      "canonical_terms_found": 11,
+      "expected_terms": 11,
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "Synonyms are not used in text (only documented as forbidden)",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "No inappropriate synonym usage found. All synonyms properly documented as forbidden in AGENTS.md and GLOSSARY.md",
+      "synonym_violations": 0,
+      "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "Hard invariants are documented",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 11 hard invariants reflected across appropriate files. 3 soft invariants also documented where relevant",
+      "hard_invariants_covered": 11,
+      "soft_invariants_covered": 3,
+      "total_invariants": 14,
+      "files_checked": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation",
+      "description": "AUTO decisions are documented as provisional",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 16 AUTO decisions documented in relevant files. Marked as 暫定仕様 where appropriate",
+      "auto_decisions_documented": 16,
+      "total_auto_decisions": 16,
+      "files_checked": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "CONTRIBUTING.md"]
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "description": "Term boundaries (includes/excludes) are consistent",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "No conflicts between term boundaries found in documentation vs ontology",
+      "boundary_conflicts": 0,
+      "files_checked": ["README.md", "AGENTS.md", "GLOSSARY.md"]
     }
   ],
 
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
+    "total_checks": 10,
+    "passed": 10,
     "failed": 0,
-    "uniqueness_score": 100
-  }
+    "pass_rate": 100
+  },
+
+  "issues": [],
+  "recommendations": [
+    "Maintain current excellent standards",
+    "Conduct periodic audits to ensure continued alignment",
+    "Consider adding invariant checks to CI/CD pipeline",
+    "Monitor AUTO decision expiration dates"
+  ]
 }

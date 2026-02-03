@@ -1,5 +1,4 @@
-# MD Bootstrap Plan (v1.1)
-run_timestamp: "2026-02-04T03:10:00Z"
+run_timestamp: "2026-02-03T18:21:35Z"
 version: "1.1"
 
 rotation:
@@ -13,25 +12,18 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
-  version: "0.3"
-  updated_at: "2026-02-03T12:21:29Z"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
-  total_invariants: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  total_auto_decisions: 16
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
@@ -57,16 +49,16 @@ ontology_summary:
     - canonical: "Backend"
       definition: "GUIフレームワーク実装（Gradio等）"
       layer: "domain"
-    - canonical: "Memory"
-      definition: "会話履歴を保持するバッファ機構"
-      layer: "domain"
-      status: "draft"
     - canonical: "Connector"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
       layer: "domain"
     - canonical: "Converter"
       definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
       layer: "aux"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -79,6 +71,7 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -91,89 +84,67 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
   "変換器": "Converter"
   "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
-    issues: []
-    notes: "Already aligned with intent and ontology. All terms use canonical forms."
-
+    status: "exists_needs_review"
+    tier: 1
   - path: "AGENTS.md"
-    status: "exists_verified"
-    issues: []
-    notes: "Already aligned with intent and ontology. All 16 AUTO decisions documented."
-
-  - path: "GLOSSARY.md"
-    status: "exists_verified"
-    issues: []
-    notes: "Auto-generated from ontology.yml. Up to date with v0.3."
-
+    status: "exists_needs_review"
+    tier: 1
   - path: "CLAUDE.md"
-    status: "exists_verified"
-    issues: []
-    notes: "Claude-specific instructions with term normalization."
-
-  - path: "PURPOSE.md"
-    status: "exists"
-    notes: "Mission and purpose documentation."
-
+    status: "exists_needs_review"
+    tier: 2
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
-    notes: "System constitution and invariants."
-
+    status: "exists_needs_review"
+    tier: 2
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
   - path: "CONTRIBUTING.md"
-    status: "exists"
-    notes: "Contribution guidelines."
-
-  - path: "ARCHITECTURE.md"
-    status: "exists"
-    notes: "Architecture documentation."
-
+    status: "exists_needs_review"
+    tier: 2
   - path: "GEMINI.md"
-    status: "exists"
-    notes: "Gemini-specific instructions."
-
+    status: "exists_needs_review"
+    tier: 3
   - path: "CODEX.md"
-    status: "exists"
-    notes: "Codex-specific instructions."
+    status: "exists_needs_review"
+    tier: 3
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    tier: 3
+  - path: "CHANGELOG.md"
+    status: "exists_no_action"
+    tier: 4
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology.yml (already aligned)"
-
+    reason: "Verify concept alignment and intent consistency"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify alignment with intent.yml and ontology.yml (already aligned)"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify alignment with ontology.yml (already aligned)"
-
+    reason: "Verify concept alignment and term normalization"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify alignment with ontology.yml (already aligned)"
-
+    reason: "Verify Claude-specific instructions and concept references"
   - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify alignment with intent.yml"
-
+    target: "GLOSSARY.md"
+    reason: "Verify ontology consistency"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify alignment with invariants.yml"
-
-expected_outcomes:
-  clarity_score_before: 100
-  clarity_score_after: 100
-  concept_alignment_before: 100
-  concept_alignment_after: 100
-  uniqueness_score_before: 100
-  uniqueness_score_after: 100
+    reason: "Verify invariants reflection"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines alignment"
