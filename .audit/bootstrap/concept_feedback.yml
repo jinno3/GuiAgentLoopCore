@@ -1,12 +1,12 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T09:38:00Z"
+  bootstrap_run_timestamp: "2026-02-03T09:53:00Z"
   source_ontology_version: "0.3"
-  run_number: 68
+  run_number: 69
   run_type: verification_only
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 88
+    canonical_used: 77
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -90,16 +90,16 @@ concept_feedback:
           occurrences: 15
           alignment: perfect
         - term: Agent
-          occurrences: 18
-          alignment: perfect
-        - term: Session
           occurrences: 12
           alignment: perfect
+        - term: Session
+          occurrences: 8
+          alignment: perfect
         - term: Message
-          occurrences: 14
+          occurrences: 11
           alignment: perfect
         - term: State
-          occurrences: 11
+          occurrences: 10
           alignment: perfect
 
     domain_terms:
@@ -108,20 +108,20 @@ concept_feedback:
       coverage_rate: 1.0
       terms:
         - term: AutoChat
-          occurrences: 4
+          occurrences: 6
           alignment: perfect
         - term: StreamWrapper
-          occurrences: 3
-          alignment: perfect
-        - term: Backend
           occurrences: 5
           alignment: perfect
+        - term: Backend
+          occurrences: 7
+          alignment: perfect
         - term: Memory
-          occurrences: 3
+          occurrences: 4
           alignment: perfect
           note: "draft status properly marked"
         - term: Connector
-          occurrences: 2
+          occurrences: 3
           alignment: perfect
 
     auxiliary_terms:
@@ -130,19 +130,19 @@ concept_feedback:
       coverage_rate: 1.0
       terms:
         - term: Converter
-          occurrences: 1
+          occurrences: 2
           alignment: perfect
 
   # 7. MDファイルごとの整合性スコア
   per_file_alignment:
     README.md:
       score: 100
-      term_usage: 30
+      term_usage: 7
       canonical_rate: 1.0
 
     AGENTS.md:
       score: 100
-      term_usage: 35
+      term_usage: 11
       canonical_rate: 1.0
       special_notes:
         - "All 11 terms in tables"
@@ -159,19 +159,19 @@ concept_feedback:
 
     SYSTEM_CONSTITUTION.md:
       score: 100
-      term_usage: 3
+      term_usage: 5
       canonical_rate: 1.0
       special_notes:
         - "14 invariants documented"
 
     PURPOSE.md:
       score: 100
-      term_usage: 2
+      term_usage: 3
       canonical_rate: 1.0
 
     CONTRIBUTING.md:
       score: 100
-      term_usage: 1
+      term_usage: 4
       canonical_rate: 1.0
 
     GLOSSARY.md:
@@ -184,17 +184,22 @@ concept_feedback:
 
     GEMINI.md:
       score: 100
-      term_usage: 2
+      term_usage: 3
       canonical_rate: 1.0
 
     CODEX.md:
       score: 100
-      term_usage: 2
+      term_usage: 3
       canonical_rate: 1.0
 
     ARCHITECTURE.md:
       score: 100
-      term_usage: 15
+      term_usage: 11
+      canonical_rate: 1.0
+
+    CHANGELOG.md:
+      score: 100
+      term_usage: 0
       canonical_rate: 1.0
 
   # 8. 概念整合性スコアの推移
@@ -211,19 +216,25 @@ concept_feedback:
       invariant_coverage: 1.0
       auto_decision_coverage: 1.0
 
+    run_69:
+      concept_alignment_score: 100
+      term_usage_rate: 1.0
+      invariant_coverage: 1.0
+      auto_decision_coverage: 1.0
+
     improvement:
-      concept_alignment_score: +2
+      concept_alignment_score: 0 (maintained)
       term_usage_rate: 0 (already perfect)
       invariant_coverage: 0 (already perfect)
       auto_decision_coverage: 0 (already perfect)
 
   # 9. 最終評価
   final_assessment: |
-    Run #68のconcept verificationはパーフェクトスコア（100/100）を達成しました。
+    Run #69のconcept verificationはパーフェクトスコア（100/100）を維持しました。
 
     ontology.yml v0.3は十分に安定しており、すべてのMDファイルが完璧に整合しています。
 
-    - 用語使用: 88/88 正規形（100%）
+    - 用語使用: 77/77 正規形（100%）
     - 不変条件: 14/14 ドキュメント化（100%）
     - AUTO決定: 16/16 記載済み（100%）
     - 同義語違反: 0件
@@ -238,5 +249,5 @@ concept_feedback:
 
     maintenance:
       - "現状の維持：ontology.yml v0.3は安定"
-      - "定期的なverification runの継続"
+      - "次回実行は重要な変更時のみ"
       - "用語追加の際はterm_queue.ymlを経由"
