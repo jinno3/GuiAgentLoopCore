@@ -1,65 +1,42 @@
 {
-  "timestamp": "2026-02-04T00:00:00Z",
+  "timestamp": "2026-02-03T15:12:33Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
 
-  "mission": {
-    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "agent interactions", "state control"]
-  },
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
 
   "target_users": [
-    {
-      "category": "Application Developers",
-      "description": "Building LLM-powered applications with GUI interfaces"
-    },
-    {
-      "category": "AI Agent Developers",
-      "description": "Creating specialized agents for specific tasks"
-    },
-    {
-      "category": "Framework Developers",
-      "description": "Building new GUI backend implementations"
-    },
-    {
-      "category": "AI Agents",
-      "description": "Claude, Gemini, Codex, and other AI models working with this codebase"
-    }
+    "Application Developers: Building LLM-powered applications with GUI interfaces",
+    "AI Agent Developers: Creating specialized agents for specific tasks",
+    "Framework Developers: Building new GUI backend implementations",
+    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
   ],
 
-  "core_value": {
-    "statement": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-    "keywords": ["reliable", "type-safe", "extensible", "predictable state management", "clear boundaries"]
-  },
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
 
   "core_functions": [
     {
-      "id": "CF-001",
       "description": "Centralized Conversation Management",
       "details": "Interpreter component centralizes conversation flow, state management, and agent coordination",
       "example": "interpreter_manager.py manages chat sessions and state transitions"
     },
     {
-      "id": "CF-002",
       "description": "State Machine with Monotonic Transitions",
       "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants",
       "example": "change_state_running() ensures state transitions are monotonic"
     },
     {
-      "id": "CF-003",
       "description": "Multi-Agent Coordination",
       "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries",
       "example": "AgentName enum defines roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
     },
     {
-      "id": "CF-004",
       "description": "Structured Message Processing",
       "details": "Handle structured communication between users, systems, and agents",
       "example": "MessageTypeEnum defines: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
     },
     {
-      "id": "CF-005",
       "description": "Backend Abstraction",
       "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
       "example": "GuiBackendType enum: GRADIO, STREAMSYNC"
@@ -85,56 +62,28 @@
   },
 
   "success_metrics": [
-    {
-      "metric": "Integration Time",
-      "target": "New applications can integrate GuiAgentLoopCore in < 1 hour"
-    },
-    {
-      "metric": "Bug-Free State Transitions",
-      "target": "Zero state transition bugs in production"
-    },
-    {
-      "metric": "Agent Compatibility",
-      "target": "New agents can be added without core modifications"
-    },
-    {
-      "metric": "Type Safety",
-      "target": "Zero runtime type errors in message handling"
-    },
-    {
-      "metric": "Documentation Clarity",
-      "target": "All concepts have unambiguous definitions"
-    }
+    {"metric": "Integration Time", "target": "New applications can integrate GuiAgentLoopCore in < 1 hour"},
+    {"metric": "Bug-Free State Transitions", "target": "Zero state transition bugs in production"},
+    {"metric": "Agent Compatibility", "target": "New agents can be added without core modifications"},
+    {"metric": "Type Safety", "target": "Zero runtime type errors in message handling"},
+    {"metric": "Documentation Clarity", "target": "All concepts have unambiguous definitions"}
   ],
 
   "design_philosophy": [
-    {
-      "philosophy": "Correctness Over Convenience",
-      "description": "We prioritize system correctness over developer convenience. Hard invariants cannot be bypassed."
-    },
-    {
-      "philosophy": "Explicit Over Implicit",
-      "description": "All state transitions, message types, and agent roles are explicitly defined. No magic behavior."
-    },
-    {
-      "philosophy": "Small, Focused Components",
-      "description": "Each component has a single, well-defined responsibility. Clear boundaries between components."
-    },
-    {
-      "philosophy": "Testability",
-      "description": "All behavior is testable. Hard invariants have automated tests."
-    },
-    {
-      "philosophy": "Conceptual Integrity",
-      "description": "All terminology is normalized and defined in a formal ontology. No ambiguity."
-    }
+    {"philosophy": "Correctness Over Convenience", "description": "We prioritize system correctness over developer convenience. Hard invariants cannot be bypassed."},
+    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined. No magic behavior."},
+    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility. Clear boundaries between components."},
+    {"philosophy": "Testability", "description": "All behavior is testable. Hard invariants have automated tests."},
+    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology. No ambiguity."}
   ],
 
-  "constraints": {
-    "python_version": ">=3.10",
-    "dependencies": ["langchain", "langgraph", "gradio", "pydantic"],
-    "testing_framework": "pytest",
-    "coverage_target": 80,
-    "max_message_length": 100
+  "statistics": {
+    "mission_length": 162,
+    "num_target_users": 4,
+    "num_core_functions": 5,
+    "num_in_scope": 6,
+    "num_out_of_scope": 5,
+    "num_success_metrics": 5,
+    "num_design_philosophies": 5
   }
 }

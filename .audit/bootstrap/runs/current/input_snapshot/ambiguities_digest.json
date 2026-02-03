@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-02-04T00:30:00Z",
+  "source": ".concept/ambiguities.yml",
+  "updated_at": "2026-02-03T12:21:29Z",
+
+  "statistics": {
+    "total_ambiguities": 10,
+    "active_auto_decisions": 10,
+    "by_severity": {
+      "high": 2,
+      "medium": 2,
+      "low": 6
+    }
+  },
+
+  "auto_decisions": [
+    {
+      "id": "AUTO:Agent.type:implementation_property",
+      "term": "Agent",
+      "topic": "AgentとAgentTypeの関係",
+      "chosen": "AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）",
+      "confidence_auto": 0.70,
+      "severity": "low",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Memory.specs:provisional",
+      "term": "Memory",
+      "topic": "会話メモリのウィンドウサイズと最大長",
+      "chosen": "ウィンドウサイズk=10（rolling）、最大長100（hard limit）",
+      "confidence_auto": 0.50,
+      "severity": "low",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:AutoChat.prompt:default_continue",
+      "term": "AutoChat",
+      "topic": "AUTO_CHAT_PROMPTのデフォルト値",
+      "chosen": "未設定時はデフォルト継続プロンプト使用（安全側）",
+      "confidence_auto": 0.55,
+      "severity": "low",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Backend.primary:gradio",
+      "term": "Backend",
+      "topic": "Streamsyncサポートの有無と優先度",
+      "chosen": "Gradioが主要バックエンド（暫定）",
+      "confidence_auto": 0.70,
+      "severity": "low",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Message.roles:tool_function_separation",
+      "term": "Message",
+      "topic": "Message Role types - TOOL vs FUNCTIONの意味論的違い",
+      "chosen": "TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）",
+      "confidence_auto": 0.60,
+      "severity": "medium",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Memory.implementation:dual_provisional",
+      "term": "Memory",
+      "topic": "デュアルメモリ実装 - LangChain vs カスタム",
+      "chosen": "両者は暫定的に共存（移行期間中とみなす）",
+      "confidence_auto": 0.50,
+      "severity": "medium",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Security.secret_key:env_var_required",
+      "term": "Security",
+      "topic": "ハードコードされたシークレットキー vs 環境変数",
+      "chosen": "ハードコードされたシークレットキーはセキュリティリスク（環境変数使用へ移行必須）",
+      "confidence_auto": 0.85,
+      "severity": "high",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Session.jwt:decode_method_fix",
+      "term": "Session",
+      "topic": "JWTデコードメソッドの未定義変数バグ",
+      "chosen": "jwt_decode_session()メソッドは未使用または未完成のため削除または実装完了が必要",
+      "confidence_auto": 0.75,
+      "severity": "high",
+      "status": "applied"
+    },
+    {
+      "id": "AUTO:Connector.layer:domain",
+      "term": "Connector",
+      "topic": "コネクタの正規名と抽象度",
+      "chosen": "Connectorは正規概念（domain層）",
+      "confidence_auto": 0.80,
+      "severity": "low",
+      "status": "applied"
+    }
+  ],
+
+  "key_ambiguities": [
+    {
+      "id": "AMB-SEC-001",
+      "severity": "high",
+      "topic": "ハードコードされたシークレットキー",
+      "auto_decision": "環境変数使用へ移行必須"
+    },
+    {
+      "id": "AMB-SEC-002",
+      "severity": "high",
+      "topic": "JWTデコードメソッドの未定義変数バグ",
+      "auto_decision": "削除または実装完了が必要"
+    },
+    {
+      "id": "AMB-MSG-001",
+      "severity": "medium",
+      "topic": "TOOL vs FUNCTIONの意味論的違い",
+      "auto_decision": "異なるセマンティクスを持つ（暫定）"
+    },
+    {
+      "id": "AMB-MEM-002",
+      "severity": "medium",
+      "topic": "デュアルメモリ実装",
+      "auto_decision": "暫定的に共存（移行期間中）"
+    }
+  ]
+}
