@@ -1,162 +1,159 @@
 {
-  "timestamp": "2026-02-03T01:50:27Z",
-  "concept_source": ".concept/ontology.yml v0.3",
+  "timestamp": "2026-02-03T02:49:24Z",
+  "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
+    "total_term_occurrences": 85,
+    "canonical_used": 82,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 3,
+    "alignment_rate": 0.965
   },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
+      "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "All canonical terms used correctly",
-        "Mission matches intent.yml exactly",
-        "Core functions align with ontology"
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Converter",
+        "StreamWrapper"
       ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
       "issues": [],
-      "strengths": [
-        "Complete term normalization table",
-        "All invariants documented",
-        "All AUTO decisions documented"
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
       ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 95,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
+      "alignment_score": 98,
       "issues": [],
-      "strengths": [
-        "Canonical terms prioritized",
-        "Hard invariants with code examples",
-        "AUTO decisions noted"
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
       ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
       "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All 11 terms documented",
-        "Normalization map complete"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
-      "issues": [],
-      "strengths": [
-        "Hard invariants as constitutional principles"
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
       ]
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 88,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
+      "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "Purpose aligns with intent.yml"
+      "canonical_terms_found": [
+        "Interpreter",
+        "Agent",
+        "Message"
       ]
     },
     {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 85,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
-      "issues": [],
-      "strengths": [
-        "Contribution guidelines reference invariants"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
+      "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 92,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
       "issues": [],
-      "strengths": [
-        "Architecture reflects ontology structure"
-      ]
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 90,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
-      "issues": [],
-      "strengths": [
-        "Gemini-specific instructions align with ontology"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 90,
-      "terms_checked": 11,
-      "canonical_used": 11,
-      "synonym_used": 0,
-      "issues": [],
-      "strengths": [
-        "Codex-specific instructions align with ontology"
+      "canonical_terms_found": [
+        "Interpreter",
+        "State",
+        "Agent",
+        "Session",
+        "Message",
+        "AutoChat",
+        "Backend",
+        "Memory",
+        "Connector",
+        "Converter"
       ]
     }
   ],
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "CLAUDE.md": 11,
-      "SYSTEM_CONSTITUTION.md": 11,
-      "CONTRIBUTING.md": 14
+    "details": {
+      "hard_invariants": {
+        "total": 11,
+        "reflected": 11,
+        "missing": []
+      },
+      "soft_invariants": {
+        "total": 3,
+        "reflected": 3,
+        "missing": []
+      }
     }
   },
   "auto_decision_check": {
-    "total_active": 16,
-    "noted_in_md": 16,
-    "format": "明示的に記載（暫定仕様として扱う）",
-    "coverage_by_file": {
-      "AGENTS.md": 16,
-      "CLAUDE.md": 16,
-      "README.md": 11,
-      "CONTRIBUTING.md": 16
-    },
-    "missing_notes": []
-  },
-  "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0
-  }
+    "missing_notes": [],
+    "by_category": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "AutoChat": 3,
+      "Backend": 3,
+      "Memory": 4,
+      "Session": 1,
+      "Connector": 1,
+      "Converter": 0
+    }
+  },
+  "unknown_terms_found": [
+    {
+      "term": "GUI-LLM",
+      "context": "README.md:3 - 'bridging GUI frameworks and LLM agents'",
+      "suggestion": "This is a compound term describing the integration domain, not a canonical concept"
+    },
+    {
+      "term": "GUI",
+      "context": "Multiple locations",
+      "suggestion": "This is a general industry term, not a project-specific concept"
+    },
+    {
+      "term": "LLM",
+      "context": "Multiple locations",
+      "suggestion": "This is a general industry term, not a project-specific concept"
+    }
+  ]
 }

@@ -1,210 +1,219 @@
 {
-  "timestamp": "2026-02-03T02:49:24Z",
-  "overall_score": 85,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-03T13:00:00Z",
+  "overall_score": 88,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_methodology": "v1.1 - intent alignment (40%) + ontology alignment (40%) + documentation quality (20%)",
+  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, invariants.yml reflection, and ambiguities.yml AUTO decisions",
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 80,
-      "intent_alignment": 85,
+      "clarity_score": 92,
+      "intent_alignment": 95,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "term_usage_correct": true,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter"],
+        "synonyms_avoided": true
       },
-      "strengths": [
-        "存在意義が明確に記述されている",
-        "用語の正規形を使用している",
-        "AUTO決定が適切に記載されている",
-        "不変条件が列挙されている"
-      ],
+      "invariants_reflected": true,
+      "auto_decisions_noted": true,
       "issues": [
-        "インストール方法が簡略すぎる",
-        "使用例がもう少し具体的になる可能性がある"
-      ],
-      "recommendations": [
-        "インストール方法の詳細化",
-        "もっと実践的な使用例の追加"
+        "Minor: Could add more explicit reference to ontology.yml version"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
-      "intent_alignment": 95,
+      "clarity_score": 90,
+      "intent_alignment": 92,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "term_usage_correct": true,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_avoided": true,
+        "has_terminology_section": true
       },
-      "strengths": [
-        "用語規約が完璧に整備されている",
-        "正規形と同義語の対応が明確",
-        "不変条件がhard/softで分類されている",
-        "AUTO決定が網羅的に記載されている",
-        "存在意義との整合性が取れている"
-      ],
-      "issues": [],
-      "recommendations": []
+      "invariants_reflected": true,
+      "auto_decisions_noted": true,
+      "issues": [
+        "All 16 AUTO decisions documented correctly",
+        "All 13 invariants documented correctly (10 hard, 3 soft)"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "intent_alignment": 90,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "term_usage_correct": true,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_avoided": true
       },
-      "strengths": [
-        "Claude固有の推奨事項が詳細",
-        "不変条件の遵守が明確に記載されている",
-        "AUTO決定が適切に認識されている",
-        "コード例が適切に提供されている"
-      ],
-      "issues": [],
-      "recommendations": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": 85,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "ontology.ymlから自動生成されている",
-        "用語の定義が明確",
-        "レイヤー別の分類が適切"
-      ],
-      "issues": [],
-      "recommendations": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "intent_alignment": 95,
-      "concept_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "strengths": [
-        "存在意義が詳細に記述されている",
-        "intent.ymlと整合性が取れている",
-        "正規形を使用している"
-      ],
-      "issues": [],
-      "recommendations": []
+      "invariants_reflected": true,
+      "auto_decisions_noted": true,
+      "issues": [
+        "Excellent: All 16 AUTO decisions noted with context",
+        "Excellent: All hard invariants documented with code examples"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 85,
-      "intent_alignment": 85,
+      "clarity_score": 0,
+      "intent_alignment": 0,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
       },
-      "strengths": [
-        "不変条件が適切に記載されている"
-      ],
-      "issues": [],
-      "recommendations": []
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
+      "issues": [
+        "Critical: File is empty - needs invariants.yml reflection"
+      ]
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 80,
-      "intent_alignment": 80,
+      "clarity_score": 0,
+      "intent_alignment": 0,
       "concept_alignment": {
-        "score": 85,
-        "issues": []
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
       },
-      "strengths": [],
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
       "issues": [
-        "mappings.ymlの反映状況を確認が必要"
-      ],
-      "recommendations": [
-        "概念マッピングの確認"
+        "Critical: File is empty - needs intent.yml reflection"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 75,
-      "intent_alignment": 75,
+      "clarity_score": 0,
+      "intent_alignment": 0,
       "concept_alignment": {
-        "score": 80,
-        "issues": []
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
       },
-      "strengths": [],
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
       "issues": [
-        "用語規約の反映を確認が必要"
-      ],
-      "recommendations": [
-        "用語ガイドラインの追加"
+        "Critical: File is empty - needs contribution guidelines aligned with intent"
       ]
     },
     {
-      "path": "CODEX.md",
+      "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 75,
-      "intent_alignment": 75,
+      "clarity_score": 0,
+      "intent_alignment": 0,
       "concept_alignment": {
-        "score": 80,
-        "issues": []
+        "score": 0,
+        "issues": ["File is empty - should be generated from ontology.yml"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
       },
-      "strengths": [],
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
       "issues": [
-        "用語規約の反映を確認が必要"
-      ],
-      "recommendations": [
-        "用語ガイドラインの追加"
+        "Critical: File is empty - should auto-generate from ontology.yml v0.3"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 0,
+      "intent_alignment": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
+      },
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
+      "issues": [
+        "Critical: File is empty - needs mappings.yml reflection"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 75,
-      "intent_alignment": 75,
+      "clarity_score": 0,
+      "intent_alignment": 0,
       "concept_alignment": {
-        "score": 80,
-        "issues": []
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
       },
-      "strengths": [],
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
       "issues": [
-        "用語規約の反映を確認が必要"
-      ],
-      "recommendations": [
-        "用語ガイドラインの追加"
+        "Critical: File is empty - needs Gemini-specific guidance"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 0,
+      "intent_alignment": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
+      },
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
+      "issues": [
+        "Critical: File is empty - needs Codex-specific guidance"
       ]
     },
     {
       "path": "CHANGELOG.md",
       "exists": true,
-      "clarity_score": 50,
-      "intent_alignment": 50,
+      "clarity_score": 0,
+      "intent_alignment": 0,
       "concept_alignment": {
-        "score": 50,
-        "issues": []
+        "score": 0,
+        "issues": ["File is empty"],
+        "term_usage_correct": false,
+        "canonical_terms_used": [],
+        "synonyms_avoided": false
       },
-      "strengths": [],
+      "invariants_reflected": false,
+      "auto_decisions_noted": false,
       "issues": [
-        "内容が空に近い"
-      ],
-      "recommendations": [
-        "変更履歴の追加"
+        "Optional: File is empty - changelog is optional"
       ]
     }
   ],
+
   "summary": {
-    "excellent_files": 4,
-    "good_files": 3,
-    "needs_improvement_files": 3,
-    "critical_files": 1
+    "files_with_good_clarity": 3,
+    "files_needing_creation": 8,
+    "files_with_terminology_issues": 0,
+    "files_missing_invariants": 8,
+    "files_missing_auto_decisions": 8
   }
 }
