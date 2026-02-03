@@ -1,24 +1,79 @@
 {
-  "timestamp": "2026-02-03T12:37:50.063263+00:00",
+  "timestamp": "2026-02-03T21:51:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.\n",
+  "created_at": "2026-02-02T00:00:00Z",
+
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+
   "target_users": [
+    "Application Developers",
+    "AI Agent Developers",
+    "Framework Developers",
+    "AI Agents"
+  ],
+
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+
+  "core_functions": [
     {
-      "Application Developers": "Building LLM-powered applications with GUI interfaces"
+      "description": "Centralized Conversation Management",
+      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination",
+      "example": "interpreter_manager.py manages chat sessions and state transitions"
     },
     {
-      "AI Agent Developers": "Creating specialized agents for specific tasks"
+      "description": "State Machine with Monotonic Transitions",
+      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants",
+      "example": "change_state_running() ensures state transitions are monotonic"
     },
     {
-      "Framework Developers": "Building new GUI backend implementations"
+      "description": "Multi-Agent Coordination",
+      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries",
+      "example": "AgentName enum defines roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
     },
     {
-      "AI Agents": "Claude, Gemini, Codex, and other AI models working with this codebase"
+      "description": "Structured Message Processing",
+      "details": "Handle structured communication between users, systems, and agents",
+      "example": "MessageTypeEnum defines: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+    },
+    {
+      "description": "Backend Abstraction",
+      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
+      "example": "GuiBackendType enum: GRADIO, STREAMSYNC"
     }
   ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.\n",
-  "core_functions_count": 5,
-  "in_scope_count": 6,
-  "out_of_scope_count": 5
+
+  "boundaries": {
+    "in_scope": [
+      "Conversation Flow Management",
+      "State Machine",
+      "Agent Coordination",
+      "Message Processing",
+      "Backend Abstraction",
+      "Streaming Support"
+    ],
+    "out_of_scope": [
+      "UI Rendering",
+      "LLM Execution",
+      "Session Storage",
+      "Authentication",
+      "Network Protocols"
+    ]
+  },
+
+  "success_metrics": [
+    {"metric": "Integration Time", "target": "New applications can integrate GuiAgentLoopCore in < 1 hour"},
+    {"metric": "Bug-Free State Transitions", "target": "Zero state transition bugs in production"},
+    {"metric": "Agent Compatibility", "target": "New agents can be added without core modifications"},
+    {"metric": "Type Safety", "target": "Zero runtime type errors in message handling"},
+    {"metric": "Documentation Clarity", "target": "All concepts have unambiguous definitions"}
+  ],
+
+  "design_philosophy": [
+    {"philosophy": "Correctness Over Convenience", "description": "Prioritize system correctness over developer convenience"},
+    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined"},
+    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility"},
+    {"philosophy": "Testability", "description": "All behavior is testable. Hard invariants have automated tests"},
+    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology"}
+  ]
 }

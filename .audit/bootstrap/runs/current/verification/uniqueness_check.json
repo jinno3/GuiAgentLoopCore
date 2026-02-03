@@ -1,81 +1,74 @@
 {
-  "timestamp": "2026-02-03T21:51:00Z",
+  "timestamp": "2026-02-03T22:00:00Z",
   "version": "1.1",
-
   "overall_uniqueness_score": 95,
-  "uc_checks_passed": "5/5",
-
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "mission_consistency": "All files consistently state: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
-        "variations": []
-      }
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "README.md",
+          "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+        },
+        {
+          "file": "AGENTS.md",
+          "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+        },
+        {
+          "file": "PURPOSE.md",
+          "mission": "一致"
+        }
+      ]
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistency": "100%"
-      }
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "README.md",
+          "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+        },
+        {
+          "file": "AGENTS.md",
+          "target_users": "AI Agents"
+        },
+        {
+          "file": "CONTRIBUTING.md",
+          "target_users": "開発者"
+        }
+      ]
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": {
-        "python_version": ">=3.10 consistently referenced",
-        "dependencies": ["langchain", "langgraph", "gradio", "pydantic"] consistently mentioned",
-        "max_message_length": "100 consistently enforced across files"
-      }
+      "status": "passed",
+      "evidence": "全MDでPython、型安全性、状態遷移の制約が一致"
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistency": "Consistently defined across AGENTS.md, README.md, and SYSTEM_CONSTITUTION.md"
-      }
+      "status": "passed",
+      "evidence": "UI Rendering, LLM Execution, Session Storage, Authentication, Network Protocolsが一貫してout_of_scope"
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "core_functions_mapped": "5/5 core functions reflected in README.md",
-        "design_philosophy_aligned": "All 5 design philosophies reflected in SYSTEM_CONSTITUTION.md",
-        "boundaries_respected": "in_scope and out_of_scope consistently applied"
-      }
+      "status": "passed",
+      "evidence": "mission, target_user, core_value, core_functions, boundariesが全て反映されている"
     }
   ],
-
-  "issues_found": 0,
-  "issues_resolved": 0,
-  "remaining_issues": [],
-
-  "summary": "All uniqueness checks passed. MD documentation is highly consistent with intent.yml."
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 95
+  }
 }
