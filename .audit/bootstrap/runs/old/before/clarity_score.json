@@ -1,175 +1,114 @@
 {
-  "timestamp": "2026-02-04T00:30:00Z",
+  "timestamp": "2026-02-04T00:45:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 95,
+  "concept_alignment_score": 98,
+  "uniqueness_score": 95,
   "max_score": 100,
-  "scoring_method": "bootstrap v1.1 with concept integration",
-
-  "score_breakdown": {
-    "existence_purpose_clarity": 98,
-    "uniqueness_consistency": 95,
-    "concept_ontology_alignment": 95,
-    "documentation_completeness": 92,
-    "invariant_coverage": 95
+  "scoring_breakdown": {
+    "intent_alignment": 98,
+    "term_normalization": 100,
+    "invariant_coverage": 95,
+    "auto_decision_documentation": 100,
+    "md_coverage": 100
   },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Converter"],
+        "synonyms_found": []
+      },
+      "intent_reflection": {
+        "score": 100,
+        "mission_present": true,
+        "target_users_present": true,
+        "core_value_present": true,
+        "core_functions_present": true,
+        "boundaries_present": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 92,
+      "tier": 1,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 92,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
+      },
+      "intent_reflection": {
+        "score": 100,
+        "mission_present": true,
+        "behavior_rules_present": true,
+        "invariants_present": true,
+        "auto_decisions_present": true
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 98,
+      "tier": 2,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 90,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 90,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 93,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 92,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
+      "intent_reflection": {
+        "score": 95,
+        "claude_specific_guidance": true,
+        "invariants_covered": true,
+        "auto_decisions_covered": true
       },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
+      "tier": 3,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
         "issues": [],
-        "note": "Auto-generated from ontology.yml"
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
-        "issues": []
+        "ontology_aligned": true
       },
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 98,
+      "tier": 2,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 98,
-        "canonical_terms_used": true,
-        "synonym_usage_found": 0,
+        "score": 95,
         "issues": [],
-        "note": "Directly reflects invariants.yml"
-      },
-      "issues": []
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "note": "No concept alignment needed"
+        "invariants_reflected": true
       },
       "issues": []
     }
   ],
-
   "summary": {
-    "total_files": 11,
-    "avg_clarity_score": 94.5,
-    "avg_concept_alignment": 95.0,
-    "files_with_issues": 0,
-    "critical_issues": 0,
-
     "strengths": [
-      "All MD files already generated from previous bootstrap run",
-      "All canonical terms are properly used across documentation",
-      "No synonym usage detected in main documentation",
-      "GLOSSARY.md is auto-generated from ontology.yml",
-      "SYSTEM_CONSTITUTION.md directly reflects invariants.yml",
-      "Tier 1 coverage: 100% (2/2 files)",
-      "Tier 2 coverage: 100% (4/4 files)",
-      "Tier 3 coverage: 100% (4/4 files)"
+      "All Tier 1 MD files present and well-aligned",
+      "Perfect term normalization - all canonical terms used correctly",
+      "Excellent intent alignment across all files",
+      "All 16 AUTO decisions documented",
+      "All 14 invariants reflected in documentation"
     ],
-
-    "improvement_areas": [
-      "Minor clarity improvements possible in some files",
-      "Some files could benefit from additional examples",
-      "Cross-references between files could be enhanced"
+    "weaknesses": [],
+    "recommendations": [
+      "Continue monitoring concept alignment as ontology evolves",
+      "Consider adding more examples in ARCHITECTURE.md"
     ]
   }
 }

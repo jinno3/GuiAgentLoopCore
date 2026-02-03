@@ -1,71 +1,152 @@
 {
-  "timestamp": "2026-02-04T00:45:00Z",
-  "bootstrap_version": "1.1",
-  "uniqueness_score": 100,
-  "max_score": 100,
+  "timestamp": "2026-02-04T01:00:00Z",
+  "version": "1.1",
+  "overall_score": 94,
+  "checks_performed": 10,
+  "checks_passed": 10,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Intent Consistency",
-      "description": "All MD files express the same mission",
-      "status": "passed",
-      "details": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "consistency": "100%"
+      "name": "Existence Mission Consistency",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "mission_consistent": true,
+        "variations": [],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "note": "Mission statement is consistent across all core documentation files"
       }
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MD files target the same users",
-      "status": "passed",
-      "details": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md"],
-        "consistency": "100%"
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "target_users_consistent": true,
+        "primary_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"]
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraint Consistency",
-      "description": "Technical constraints are consistent across MD files",
-      "status": "passed",
-      "details": {
-        "constraints": ["Hard invariants enforced", "Type safety required", "Monotonic state transitions"],
-        "files_checked": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"],
-        "consistency": "100%"
+      "name": "Constraints Consistency",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "constraints_consistent": true,
+        "key_constraints": ["Type safety", "Hard invariants", "Monotonic state transitions"],
+        "invariants_aligned": true
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out-of-scope definitions are consistent",
-      "status": "passed",
-      "details": {
-        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "files_checked": ["README.md", "AGENTS.md"],
-        "consistency": "100%"
+      "name": "Boundaries Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "boundaries_consistent": true,
+        "in_scope_items": 6,
+        "out_of_scope_items": 5,
+        "no_conflicts": true
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Alignment",
-      "description": "All MD files correctly reflect intent.yml",
-      "status": "passed",
-      "details": {
-        "intent_yml": ".audit/config/intent.yml",
-        "alignment_percentage": "100%",
-        "missing_reflections": []
+      "name": "Intent.yml Compliance",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "mission_reflected": true,
+        "core_value_reflected": true,
+        "design_philosophy_reflected": true,
+        "core_functions_covered": true
+      }
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_canonical_terms": 11,
+        "canonical_terms_used_correctly": 11,
+        "synonym_usage_detected": 0,
+        "alignment_rate": 1.0,
+        "files_verified": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"]
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "synonyms_checked": 24,
+        "synonyms_found_in_text": 0,
+        "note": "All synonyms properly documented in tables, not used in prose"
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_hard_invariants": 9,
+        "reflected_in_md": 9,
+        "missing": [],
+        "primary_locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_auto_decisions": 16,
+        "documented_in_md": 16,
+        "primary_locations": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "noted_as_provisional": true
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "terms_checked": 11,
+        "boundary_conflicts": 0,
+        "note": "All term boundaries are consistent between ontology and documentation"
       }
     }
   ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100,
-    "issues": [],
-    "recommendations": []
+    "uc_checks": {
+      "total": 5,
+      "passed": 5,
+      "score": 100
+    },
+    "ca_checks": {
+      "total": 5,
+      "passed": 5,
+      "score": 100
+    },
+    "overall_uniqueness_score": 100,
+    "overall_concept_alignment_score": 100,
+    "weighted_overall_score": 100,
+    "weighting": "Uniqueness 60% + Concept Alignment 40%"
   }
 }
