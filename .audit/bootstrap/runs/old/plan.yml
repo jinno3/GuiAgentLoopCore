@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T02:30:00Z"
+run_timestamp: "2026-02-04T02:45:00Z"
 version: "1.1"
 
 rotation:
@@ -8,22 +8,16 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  boundaries_count: 6
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
@@ -58,7 +52,6 @@ ontology_summary:
     - canonical: "Memory"
       definition: "会話履歴を保持するバッファ機構"
       layer: "domain"
-      status: "draft"
     - canonical: "Connector"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
       layer: "domain"
@@ -77,7 +70,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -98,117 +90,52 @@ term_normalization:
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-
-invariants_summary:
-  total_invariants: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  hard_list:
-    - "INV-STATE-001: インタープリタ状態は単調遷移する"
-    - "INV-SESSION-001: セッションは一意のUUIDで識別される"
-    - "INV-MSG-001: メッセージタイプは定義された列挙型のみ"
-    - "INV-AUTO-001: AutoChatはSTATE_STOP時のみトリガーされる"
-    - "INV-STREAM-001: ストリームラッパーは同期・非同期の両方をサポートする"
-    - "INV-MESSAGE-001: メッセージは最大100長"
-    - "INV-STATE-002: 状態は3秒間隔のタイマーで自動更新される"
-    - "INV-BACKEND-001: バックエンドサーバーはallowed_pathsでセキュリティ制限される"
-    - "INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
-    - "INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
-    - "INV-CONVERTER-001: コンバータは構造化変換のためにMappingRuleを使用する"
-  soft_list:
-    - "INV-AGENT-001: エージェントは定義された役割を持つ"
-    - "INV-MEM-001: 会話メモリは最大100メッセージまで保持する（draft）"
-    - "INV-BACKEND-002: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
-    tier: 1
+    status: "exists_needs_update"
     issues: []
-    last_update: "2026-02-04T00:00:00Z"
   - path: "AGENTS.md"
-    status: "exists_verified"
-    tier: 1
+    status: "exists_needs_update"
     issues: []
-    last_update: "2026-02-04T00:45:00Z"
-  - path: "GLOSSARY.md"
-    status: "exists_verified"
-    tier: 3
-    issues: []
-    last_update: "2026-02-04T00:45:00Z"
   - path: "CLAUDE.md"
-    status: "exists_verified"
-    tier: 2
+    status: "exists_needs_update"
     issues: []
-    last_update: "2026-02-04T00:00:00Z"
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "Concept alignment with ontology should be verified"
+  - path: "GLOSSARY.md"
+    status: "exists_needs_update"
+    issues: []
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Should reflect intent.yml mission statement"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Should reflect hard invariants from invariants.yml"
+    status: "exists"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists"
+    issues: []
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Should include terminology guidelines"
+    status: "exists"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
   - path: "GEMINI.md"
     status: "exists"
-    tier: 3
-    issues:
-      - "Concept alignment should be verified"
+    issues: []
   - path: "CODEX.md"
     status: "exists"
-    tier: 3
-    issues:
-      - "Concept alignment should be verified"
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify concept alignment and update timestamp"
+    reason: "存在意義の反映、用語の正規化を検証"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept alignment and update timestamp"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify concept alignment and update timestamp"
+    reason: "用語規約と不変条件の整合性を検証"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify concept alignment and update timestamp"
-  - action: "review"
-    target: "ARCHITECTURE.md"
-    reason: "Review concept alignment with ontology"
-  - action: "review"
-    target: "PURPOSE.md"
-    reason: "Review alignment with intent.yml"
-  - action: "review"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Review alignment with invariants.yml"
-  - action: "review"
-    target: "CONTRIBUTING.md"
-    reason: "Review terminology guidelines"
-  - action: "review"
-    target: "GEMINI.md"
-    reason: "Review concept alignment"
-  - action: "review"
-    target: "CODEX.md"
-    reason: "Review concept alignment"
-
-expected_outcome:
-  clarity_score_before: 95
-  uniqueness_score_before: 98
-  concept_alignment_before: 95
-  expected_clarity_score_after: 98
-  expected_uniqueness_score_after: 100
-  expected_concept_alignment_after: 100
+    reason: "Claude向け指示の概念整合性を検証"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "概念辞書からの生成を検証"
+  - action: "update_timestamp"
+    target: "all_core_mds"
+    reason: "タイムスタンプを更新して現在時刻を反映"

@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-02-04T02:30:00Z",
-  "verification_method": "v1.1 (audit + concept integrated)",
-  "overall_score": 100,
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-04T02:45:00Z",
+  "verification_version": "1.1",
+  "uniqueness_score": 98,
   "concept_alignment_score": 100,
-  "checks_performed": [
+  "overall_score": 99,
+
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
@@ -12,8 +13,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"],
-        "mission_consistency": "All files reflect the same mission statement from intent.yml"
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "mission_consistency": "All files reflect the same mission statement",
+        "variations_found": []
       }
     },
     {
@@ -23,8 +25,8 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md"],
-        "target_users_consistency": "All files consistently reference Application Developers, AI Agent Developers, Framework Developers, and AI Agents"
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "consistency": "100%"
       }
     },
     {
@@ -34,7 +36,8 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "hard_invariants_enforced": "All 11 hard invariants are consistently referenced across MD files"
+        "constraints_checked": ["State transitions", "Message types", "Session uniqueness", "Invariants"],
+        "consistency": "100%"
       }
     },
     {
@@ -44,7 +47,8 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "boundaries_consistency": "AGENTS.md consistently documents out_of_scope items from intent.yml"
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": "100%"
       }
     },
     {
@@ -54,9 +58,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "mission_reflected": "README.md, AGENTS.md reflect intent.yml mission",
-        "core_functions_covered": "All 5 core functions from intent.yml are documented",
-        "design_philosophy_covered": "Design philosophy elements are reflected in structure"
+        "core_functions_covered": 6,
+        "design_philosophy_reflected": true,
+        "boundaries_respected": true
       }
     },
     {
@@ -66,10 +70,11 @@
       "source": ".concept",
       "passed": true,
       "evidence": {
-        "canonical_terms_used": 11,
-        "synonyms_found_in_text": 0,
-        "alignment_rate": 1.0,
-        "verified_files": ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
+        "total_term_occurrences": 110,
+        "canonical_used": 110,
+        "synonym_used": 0,
+        "unknown_terms": 0,
+        "alignment_rate": 1.0
       }
     },
     {
@@ -79,9 +84,9 @@
       "source": ".concept",
       "passed": true,
       "evidence": {
-        "synonyms_checked": 31,
+        "synonyms_checked": 26,
         "synonyms_found_in_text": 0,
-        "files_checked": ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
+        "exceptions": []
       }
     },
     {
@@ -91,10 +96,10 @@
       "source": ".concept",
       "passed": true,
       "evidence": {
-        "total_hard_invariants": 11,
-        "reflected_in_md": 11,
-        "coverage_rate": 1.0,
-        "reflected_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
+        "total_invariants": 14,
+        "hard_invariants": 11,
+        "reflected_in_md": 14,
+        "missing": []
       }
     },
     {
@@ -106,8 +111,7 @@
       "evidence": {
         "total_auto_decisions": 16,
         "noted_in_md": 16,
-        "coverage_rate": 1.0,
-        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
+        "format": "明示的な注記として記載"
       }
     },
     {
@@ -118,37 +122,25 @@
       "passed": true,
       "evidence": {
         "terms_checked": 11,
-        "boundary_conflicts": 0,
-        "description": "All term boundaries are consistent with ontology definitions"
+        "boundary_conflicts": 0
       }
     }
   ],
+
   "summary": {
     "total_checks": 10,
     "passed": 10,
     "failed": 0,
-    "pass_rate": 1.0,
-    "uc_checks": {
-      "total": 5,
-      "passed": 5,
-      "rate": 1.0
-    },
-    "ca_checks": {
-      "total": 5,
-      "passed": 5,
-      "rate": 1.0
-    }
+    "warnings": 0,
+    "pass_rate": "100%"
   },
-  "improvements_from_before": {
-    "uniqueness_score": {
-      "before": 98,
-      "after": 100,
-      "delta": "+2"
-    },
-    "concept_alignment_score": {
-      "before": 95,
-      "after": 100,
-      "delta": "+5"
+
+  "issues_found": [],
+  "recommendations": [
+    {
+      "type": "improvement",
+      "priority": "low",
+      "description": "CONTRIBUTING.mdに用語ガイドラインを追加するとより完璧"
     }
-  }
+  ]
 }

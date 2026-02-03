@@ -1,26 +1,17 @@
-# MD Bootstrapper → Concept Sync Feedback
-# Generated: 2026-02-04T02:30:00Z
-# Version: 1.1
-
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T02:45:00Z"
-  run_id: 73
+  bootstrap_run_timestamp: "2026-02-04T02:56:00Z"
   source_ontology_version: "0.3"
-  source_invariants_version: "2026-02-02T05:23:14Z"
-
+  
   # 1. 用語使用状況
   term_usage_report:
     canonical_used: 110
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 1.0
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 14
-    hard_invariants: 11
-    soft_invariants: 3
     reflected: 14
     missing: []
 
@@ -28,8 +19,7 @@ concept_feedback:
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    format: "各MDファイルに適切な形式で記載（AGENTS.md, CLAUDE.md, GLOSSARY.md, README.md）"
-    missing_notes: 0
+    format: "明示的なドキュメント化（各MDファイルで完璧に記載）"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -37,135 +27,26 @@ concept_feedback:
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
+    
     definition_updates: []
+    
     synonym_additions: []
 
-  # 6. 全体的評価
+  # 6. 全体的な評価
   overall_assessment:
-    status: "perfect"
-    summary: "ontology.yml v0.3は適切に定義されており、すべてのMDファイルで完璧に使用されています"
+    status: "excellent"
+    summary: "概念辞書とMDドキュメントの整合性は完璧"
     strengths:
-      - "完璧な用語定義（11個の正規用語）"
-      - "明確な用語境界"
-      - "適切なAUTO決定の文書化（16件）"
-      - "包括的な不変条件の定義（14件）"
-      - "100%の用語正規化達成（110/110 occurrences）"
-      - "同義語の完全排除（0件）"
-    areas_for_improvement:
-      - "CONTRIBUTING.mdに用語ガイドラインを追加すると更に完璧"
+      - "全ての用語が正規形で使用されている（100%）"
+      - "全ての不変条件がMDに適切に反映されている"
+      - "全てのAUTO決定がMDに明示的に記載されている"
+      - "未知の用語や同義語の使用がゼロ"
+    concerns: []
 
-  # 7. 用語カバレッジの詳細
-  term_coverage_details:
-    total_canonical_terms: 11
-    terms_used_in_md:
-      - term: "Interpreter"
-        layer: "core"
-        used_in: ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Agent"
-        layer: "core"
-        used_in: ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Session"
-        layer: "core"
-        used_in: ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Message"
-        layer: "core"
-        used_in: ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "State"
-        layer: "core"
-        used_in: ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "AutoChat"
-        layer: "domain"
-        used_in: ["AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "StreamWrapper"
-        layer: "domain"
-        used_in: ["README.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Backend"
-        layer: "domain"
-        used_in: ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Memory"
-        layer: "domain"
-        status: "draft"
-        used_in: ["AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Connector"
-        layer: "domain"
-        used_in: ["AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-      - term: "Converter"
-        layer: "aux"
-        used_in: ["README.md", "GLOSSARY.md", "CLAUDE.md"]
-
-  # 8. AUTO決定カバレッジの詳細
-  auto_decision_coverage_details:
-    total_auto_decisions: 16
-    decisions_documented_in_md:
-      - category: "Agent"
-        count: 2
-        decisions: ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property"]
-      - category: "Message"
-        count: 3
-        decisions: ["AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:Message.roles:tool_function_separation"]
-      - category: "State"
-        count: 3
-        decisions: ["AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input", "AUTO:State.timer:3sec"]
-      - category: "AutoChat"
-        count: 3
-        decisions: ["AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.check:before_trigger", "AUTO:AutoChat.prompt:default_continue"]
-      - category: "Backend"
-        count: 3
-        decisions: ["AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security", "AUTO:Backend.timer:3sec_interval"]
-      - category: "Memory"
-        count: 4
-        decisions: ["AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Memory.limit:100", "AUTO:Memory.implementation:dual_provisional"]
-      - category: "Session"
-        count: 1
-        decisions: ["AUTO:Session.jwt:algorithm_hs256"]
-      - category: "Connector"
-        count: 1
-        decisions: ["AUTO:Connector.layer:domain"]
-
-  # 9. 不変条件カバレッジの詳細
-  invariant_coverage_details:
-    total_invariants: 14
-    hard_invariants_documented:
-      - id: "INV-STATE-001"
-        statement: "インタープリタ状態は単調遷移する"
-        reflected_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-SESSION-001"
-        statement: "セッションは一意のUUIDで識別される"
-        reflected_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-MSG-001"
-        statement: "メッセージタイプは定義された列挙型のみ"
-        reflected_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-AUTO-001"
-        statement: "AutoChatはSTATE_STOP時のみトリガーされる"
-        reflected_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-STREAM-001"
-        statement: "ストリームラッパーは同期・非同期の両方をサポートする"
-        reflected_in: ["CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-MESSAGE-001"
-        statement: "メッセージは最大100長"
-        reflected_in: ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-STATE-002"
-        statement: "状態は3秒間隔のタイマーで自動更新される"
-        reflected_in: ["CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-BACKEND-001"
-        statement: "バックエンドサーバーはallowed_pathsでセキュリティ制限される"
-        reflected_in: ["CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-SESSION-002"
-        statement: "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
-        reflected_in: ["CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-CONNECTOR-001"
-        statement: "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
-        reflected_in: ["CLAUDE.md", "GLOSSARY.md"]
-      - id: "INV-CONVERTER-001"
-        statement: "コンバータは構造化変換のためにMappingRuleを使用する"
-        reflected_in: ["CLAUDE.md", "GLOSSARY.md"]
-    soft_invariants_documented:
-      - id: "INV-AGENT-001"
-        statement: "エージェントは定義された役割を持つ"
-        reflected_in: ["AGENTS.md", "GLOSSARY.md"]
-      - id: "INV-MEM-001"
-        statement: "会話メモリは最大100メッセージまで保持する（draft）"
-        reflected_in: ["AGENTS.md", "GLOSSARY.md"]
-      - id: "INV-BACKEND-002"
-        statement: "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
-        reflected_in: ["GLOSSARY.md"]
+  # 7. 次回の実行推奨事項
+  next_run_recommendations:
+    priority: "low"
+    suggestions:
+      - "現状の維持: 用語の正規化は完璧な状態"
+      - "新語の追加: 必要に応じてterm_queue.ymlを通じて追加"
+      - "AUTO決定の見直し: 16個のAUTO決定は適切にドキュメント化済み"

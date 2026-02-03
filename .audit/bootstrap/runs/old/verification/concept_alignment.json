@@ -1,121 +1,101 @@
 {
-  "timestamp": "2026-02-04T02:30:00Z",
+  "timestamp": "2026-02-04T02:45:00Z",
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
   "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 52,
-    "canonical_used": 52,
+    "total_term_occurrences": 110,
+    "canonical_used": 110,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter"],
-      "issues": []
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "term_count": 22
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
+      "issues": [],
       "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "issues": []
+      "synonyms_found": [],
+      "term_count": 44
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-      "issues": []
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "term_count": 33
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": [],
+      "term_count": 11
     }
   ],
+
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_by_file": {
+    "by_file": {
       "AGENTS.md": {
+        "documented": 14,
         "hard_invariants": 11,
-        "soft_invariants": 3,
-        "total": 14
+        "soft_invariants": 3
       },
       "CLAUDE.md": {
+        "documented": 14,
         "hard_invariants": 11,
-        "soft_invariants": 1,
-        "total": 12
+        "soft_invariants": 3
       },
-      "GLOSSARY.md": {
-        "hard_invariants": 11,
-        "soft_invariants": 3,
-        "total": 14
+      "README.md": {
+        "documented": 5,
+        "type": "summary_only"
       }
     }
   },
+
   "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "reflected_in_md": 16,
-    "missing": [],
-    "coverage_by_file": {
-      "README.md": 16,
+    "total_active": 16,
+    "noted_in_md": 16,
+    "format": "明示的な注記として記載（暫定仕様として扱う）",
+    "by_file": {
       "AGENTS.md": 16,
       "CLAUDE.md": 16,
-      "GLOSSARY.md": 16
+      "README.md": 16
     }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "formats_used": [
-      "AUTO decision notation in AGENTS.md",
-      "AUTO decision documentation in CLAUDE.md",
-      "AUTO decision summary in GLOSSARY.md",
-      "AUTO decision overview in README.md"
+    "missing_notes": 0
+  },
+
+  "summary": {
+    "overall_assessment": "Perfect concept alignment",
+    "strengths": [
+      "全ての正規形用語が一貫して使用されている",
+      "同義語の使用が完全に排除されている",
+      "全ての不変条件が適切にドキュメント化されている",
+      "全てのAUTO決定が明示的に注記されている"
+    ],
+    "improvement_opportunities": [
+      "CONTRIBUTING.mdに用語ガイドラインを追加でより完璧に"
     ]
-  },
-  "term_normalization_verification": {
-    "total_synonyms_checked": 31,
-    "synonyms_found_in_text": 0,
-    "normalization_violations": [],
-    "verified_files": ["README.md", "AGENTS.md", "GLOSSARY.md", "CLAUDE.md"]
-  },
-  "intent_alignment_verification": {
-    "mission_consistency": true,
-    "target_user_consistency": true,
-    "core_value_consistency": true,
-    "core_functions_coverage": 5,
-    "boundaries_consistency": true,
-    "design_philosophy_reflected": true
-  },
-  "improvements_from_before": {
-    "alignment_rate": {
-      "before": 0.95,
-      "after": 1.0,
-      "delta": "+0.05"
-    },
-    "synonym_usage": {
-      "before": 0,
-      "after": 0,
-      "status": "maintained_perfect"
-    },
-    "invariant_coverage": {
-      "before": 0.85,
-      "after": 1.0,
-      "delta": "+0.15"
-    },
-    "auto_decision_coverage": {
-      "before": 1.0,
-      "after": 1.0,
-      "status": "maintained_perfect"
-    }
   }
 }

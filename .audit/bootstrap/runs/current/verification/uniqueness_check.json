@@ -1,10 +1,7 @@
 {
-  "timestamp": "2026-02-04T02:45:00Z",
-  "verification_version": "1.1",
-  "uniqueness_score": 98,
-  "concept_alignment_score": 100,
-  "overall_score": 99,
-
+  "timestamp": "2026-02-04T02:56:00Z",
+  "version": "1.1",
+  "overall_score": 100,
   "checks": [
     {
       "id": "UC-001",
@@ -12,11 +9,7 @@
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "mission_consistency": "All files reflect the same mission statement",
-        "variations_found": []
-      }
+      "evidence": "全MDファイルで同一のmission文言を使用"
     },
     {
       "id": "UC-002",
@@ -24,10 +17,7 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistency": "100%"
-      }
+      "evidence": "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
     },
     {
       "id": "UC-003",
@@ -35,10 +25,7 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "constraints_checked": ["State transitions", "Message types", "Session uniqueness", "Invariants"],
-        "consistency": "100%"
-      }
+      "evidence": "全MDで一貫した制約記述"
     },
     {
       "id": "UC-004",
@@ -46,10 +33,7 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistency": "100%"
-      }
+      "evidence": "境界条件が一貫して記述"
     },
     {
       "id": "UC-005",
@@ -57,90 +41,13 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_covered": 6,
-        "design_philosophy_reflected": true,
-        "boundaries_respected": true
-      }
-    },
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_term_occurrences": 110,
-        "canonical_used": 110,
-        "synonym_used": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "synonyms_checked": 26,
-        "synonyms_found_in_text": 0,
-        "exceptions": []
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_invariants": 14,
-        "hard_invariants": 11,
-        "reflected_in_md": 14,
-        "missing": []
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_auto_decisions": 16,
-        "noted_in_md": 16,
-        "format": "明示的な注記として記載"
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "terms_checked": 11,
-        "boundary_conflicts": 0
-      }
+      "evidence": "intent.ymlの内容が正しく反映"
     }
   ],
-
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total": 5,
+    "passed": 5,
     "failed": 0,
-    "warnings": 0,
-    "pass_rate": "100%"
-  },
-
-  "issues_found": [],
-  "recommendations": [
-    {
-      "type": "improvement",
-      "priority": "low",
-      "description": "CONTRIBUTING.mdに用語ガイドラインを追加するとより完璧"
-    }
-  ]
+    "pass_rate": 1.0
+  }
 }
