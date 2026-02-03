@@ -1,92 +1,88 @@
 {
-  "timestamp": "2026-02-03T20:23:00Z",
-  "total_files": 11,
+  "timestamp": "2026-02-03T20:39:10Z",
+  "total_md_files": 11,
+  "tier1_coverage": {
+    "required": ["README.md", "AGENTS.md"],
+    "present": ["README.md", "AGENTS.md"],
+    "coverage": "2/2 (100%)"
+  },
+  "tier2_coverage": {
+    "recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "present": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "tier3_coverage": {
+    "optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "present": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "other_files": ["CHANGELOG.md"],
   "files": [
     {
       "path": "README.md",
-      "tier": 1,
-      "size_bytes": 3689,
-      "line_count": 130,
+      "tier": "tier1",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "AGENTS.md",
-      "tier": 1,
-      "size_bytes": 5987,
-      "line_count": 165,
+      "tier": "tier1",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "CLAUDE.md",
-      "tier": 2,
-      "size_bytes": 10342,
-      "line_count": 273,
+      "tier": "tier2",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
-      "size_bytes": 8547,
-      "line_count": 240,
-      "last_modified": "2026-02-03T13:47:39Z"
+      "tier": "tier2",
+      "status": "exists",
+      "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "PURPOSE.md",
-      "tier": 2,
-      "size_bytes": 4321,
-      "line_count": 120,
+      "tier": "tier2",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "CONTRIBUTING.md",
-      "tier": 2,
-      "size_bytes": 3210,
-      "line_count": 89,
+      "tier": "tier2",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
-      "path": "GLOSSARY.md",
-      "tier": 3,
-      "size_bytes": 7890,
-      "line_count": 220,
-      "last_modified": "2026-02-03T01:11:16Z"
-    },
-    {
       "path": "GEMINI.md",
-      "tier": 3,
-      "size_bytes": 6543,
-      "line_count": 182,
+      "tier": "tier3",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "CODEX.md",
-      "tier": 3,
-      "size_bytes": 5432,
-      "line_count": 151,
+      "tier": "tier3",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "ARCHITECTURE.md",
-      "tier": 3,
-      "size_bytes": 8765,
-      "line_count": 244,
+      "tier": "tier3",
+      "status": "exists",
+      "last_modified": "2026-02-03T13:21:48Z"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": "tier3",
+      "status": "exists",
       "last_modified": "2026-02-03T13:21:48Z"
     },
     {
       "path": "CHANGELOG.md",
-      "tier": 4,
-      "size_bytes": 1234,
-      "line_count": 34,
-      "last_modified": "2026-02-03T13:21:48Z",
-      "note": "Not a target for bootstrap"
+      "tier": "other",
+      "status": "exists",
+      "last_modified": "2026-02-03T13:21:48Z"
     }
-  ],
-  "tier_summary": {
-    "tier1_count": 2,
-    "tier2_count": 4,
-    "tier3_count": 4,
-    "tier4_count": 1
-  },
-  "total_size_bytes": 64960,
-  "total_line_count": 1792
+  ]
 }

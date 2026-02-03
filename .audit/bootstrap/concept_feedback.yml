@@ -1,10 +1,16 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T20:39:10Z"
+  bootstrap_run_timestamp: "2026-02-03T20:54:00Z"
   source_ontology_version: "0.3"
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-03T02:09:41Z"
+  run_id: "#84"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 88
+    canonical_terms_count: 11
+    canonical_used_in_mds: 11
+    usage_rate: 1.0
+    total_occurrences: 88
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -14,12 +20,17 @@ concept_feedback:
     total: 14
     reflected: 14
     missing: []
+    coverage_rate: 1.0
+    hard_invariants_documented: 11
+    soft_invariants_documented: 3
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 16
-    noted_in_md: 16
-    format: "注記として記載（暫定仕様として扱う）"
+    total_active: 17
+    noted_in_md: 17
+    format: "注記として記載（AUTO:カテゴリ:項目名 format）"
+    notation_style: "consistent"
+    expiration_policy_noted: true
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -29,17 +40,30 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
+    boundary_updates: []
 
-  # 6. 全体的な評価
+  # 6. AUTO Decision Expiration Review
+  auto_decision_expiration_review:
+    approaching_expiration: []
+    recommendations:
+      - "All AUTO decisions have sufficient remaining runs"
+      - "Security AUTO decisions（AMB-SEC-001, AMB-SEC-002）may need user-facing documentation before expiration"
+
+  # 7. 全体的な評価
   overall_assessment:
     status: "excellent"
     summary: "オントロジーは完全にMDドキュメントに反映されている"
-    alignment_score: 100
+    alignment_score: 99
+    concept_model_health: "healthy"
+    changes_required: false
+    recommendation: "maintain_current_standard"
     recommendations:
       - "現在のオントロジー品質を維持してください"
       - "新規用語の追加時はGLOSSARY.mdの自動生成を推奨"
+      - "Memory用語がdraftからstableへの移行を監視してください"
+      - "セキュリティAUTO決定のユーザー向けドキュメント化を検討してください（優先度：低）"
 
-  # 7. 詳細メトリクス
+  # 8. 詳細メトリクス
   metrics:
     core_terms_documented: 5
     domain_terms_documented: 5
@@ -47,4 +71,7 @@ concept_feedback:
     total_terms_documented: 11
     hard_invariants_documented: 11
     soft_invariants_documented: 3
-    auto_decisions_documented: 16
+    auto_decisions_documented: 17
+    canonical_term_usage_rate: 1.0
+    synonym_violations: 0
+    invariant_coverage: 1.0

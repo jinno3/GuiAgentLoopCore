@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-03T20:23:00Z",
+  "timestamp": "2026-02-03T20:39:10Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
   "updated_at": "2026-02-02T05:38:12Z",
@@ -15,27 +15,45 @@
       "draft": 1
     }
   },
+  "canonical_terms": {
+    "core": [
+      "Interpreter",
+      "Agent",
+      "Session",
+      "Message",
+      "State"
+    ],
+    "domain": [
+      "AutoChat",
+      "StreamWrapper",
+      "Backend",
+      "Memory",
+      "Connector"
+    ],
+    "aux": [
+      "Converter"
+    ]
+  },
+  "synonym_count": 30,
+  "auto_decisions_count": 16,
   "key_terms_for_md": [
     {
       "canonical": "Interpreter",
       "layer": "core",
-      "status": "stable",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
       "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Agent",
       "layer": "core",
-      "status": "stable",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
       "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Session",
       "layer": "core",
-      "status": "stable",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
       "synonyms": ["ChatSession", "会話セッション", "JWT"],
       "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
@@ -43,68 +61,40 @@
     {
       "canonical": "Message",
       "layer": "core",
-      "status": "stable",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
       "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "State",
       "layer": "core",
-      "status": "stable",
       "definition": "インタープリタの実行状態を表す列挙型",
       "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "AutoChat",
       "layer": "domain",
-      "status": "stable",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
       "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
     },
     {
-      "canonical": "StreamWrapper",
-      "layer": "domain",
-      "status": "stable",
-      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
-      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md"]
-    },
-    {
       "canonical": "Backend",
       "layer": "domain",
-      "status": "stable",
       "definition": "GUIフレームワーク実装（Gradio等）",
       "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
-    },
-    {
-      "canonical": "Converter",
-      "layer": "aux",
-      "status": "stable",
-      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
-      "synonyms": ["変換器", "マッパー"],
       "should_use_in": ["README.md", "ARCHITECTURE.md"]
-    },
-    {
-      "canonical": "Memory",
-      "layer": "domain",
-      "status": "draft",
-      "definition": "会話履歴を保持するバッファ機構",
-      "synonyms": ["会話メモリ", "ConversationBuffer"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CLAUDE.md"]
     },
     {
       "canonical": "Connector",
       "layer": "domain",
-      "status": "stable",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
       "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
       "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
     }
   ],
-  "total_synonyms": 35,
-  "auto_decisions_attached": 16
+  "invariants_count": 14,
+  "hard_invariants_count": 11,
+  "soft_invariants_count": 3
 }

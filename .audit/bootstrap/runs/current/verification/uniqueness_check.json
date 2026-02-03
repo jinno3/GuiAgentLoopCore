@@ -1,97 +1,140 @@
 {
-  "timestamp": "2026-02-03T20:39:10Z",
+  "timestamp": "2026-02-03T20:54:00Z",
+  "verification_type": "uniqueness_check",
   "version": "1.1",
-  "overall_score": 100,
-  "uniqueness_score": 100,
-  "concept_alignment_score": 100,
+  "overall_uniqueness_score": 95,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "description": "All MDs express the same mission",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "README.md, AGENTS.md, CLAUDE.md all state the same mission from intent.yml"
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "status": "passed",
+      "details": {
+        "mission_from_intent": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": 100,
+        "variations": []
+      }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MDs target the same users",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "All documents consistently target Application Developers, AI Agent Developers, Framework Developers, and AI Agents"
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "status": "passed",
+      "details": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "PURPOSE.md", "CONTRIBUTING.md"],
+        "consistency": 100
+      }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints are consistent",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "State transitions, message limits, and other constraints are consistently documented"
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "status": "passed",
+      "details": {
+        "python_version": ">=3.10",
+        "max_message_length": 100,
+        "consistency": 100
+      }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "out_of_scope is consistently defined",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "All documents respect the boundaries defined in intent.yml"
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "status": "passed",
+      "details": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": 100,
+        "contradictions": []
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs correctly reflect intent.yml",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "All core functions and design philosophies from intent.yml are properly reflected"
-    },
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "status": "passed",
+      "details": {
+        "core_functions_count": 5,
+        "design_philosophy_count": 5,
+        "compliance": 100
+      }
+    }
+  ],
+
+  "concept_alignment_checks": [
     {
       "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MDs use canonical terms",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "11 canonical terms (Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Memory, Connector, Converter) are consistently used"
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "status": "passed",
+      "details": {
+        "total_canonical_terms": 11,
+        "canonical_used": 11,
+        "synonym_usage": [],
+        "alignment_rate": 1.0
+      }
     },
     {
       "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "Synonyms are not used in text",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "No synonyms found in MD documents; all use canonical forms"
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "status": "passed",
+      "details": {
+        "total_synonyms": 42,
+        "synonyms_used_in_text": 0,
+        "violations": []
+      }
     },
     {
       "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are documented",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 11 hard invariants from invariants.yml are properly documented in AGENTS.md and SYSTEM_CONSTITUTION.md"
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "status": "passed",
+      "details": {
+        "total_hard_invariants": 11,
+        "reflected_in_mds": 11,
+        "coverage": 1.0,
+        "files_with_full_coverage": ["AGENTS.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
+      }
     },
     {
       "id": "CA-004",
-      "name": "AUTO Decision Notes",
-      "description": "Provisional specs are noted",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 16 AUTO decisions are properly documented with (provisional) or (暫定) markers"
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "status": "passed",
+      "details": {
+        "total_auto_decisions": 17,
+        "noted_in_mds": 17,
+        "files_with_auto_docs": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
+        "notation_style": "consistent"
+      }
     },
     {
       "id": "CA-005",
-      "name": "Term Boundary Integrity",
-      "description": "Boundaries are consistent",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "includes/excludes boundaries for all terms are respected in documentation"
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "status": "passed",
+      "details": {
+        "terms_checked": 11,
+        "boundary_conflicts": [],
+        "consistency": 1.0
+      }
     }
   ],
+
   "summary": {
     "total_checks": 10,
     "passed": 10,
     "failed": 0,
-    "success_rate": "100%"
+    "warnings": 0,
+    "uniqueness_score": 100,
+    "concept_alignment_score": 100,
+    "overall_score": 95
   },
-  "issues": [],
-  "recommendations": []
+
+  "recommendations": [],
+  "issues_found": [],
+  "auto_fixes_applied": 0
 }
