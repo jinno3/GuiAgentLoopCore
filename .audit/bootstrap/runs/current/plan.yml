@@ -1,5 +1,4 @@
-# MD Bootstrapper Execution Plan v1.1
-run_timestamp: "2026-02-03T19:55:00Z"
+run_timestamp: "2026-02-03T20:07:00Z"
 version: "1.1"
 
 rotation:
@@ -13,21 +12,15 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
 
 ontology_summary:
-  version: "0.3"
-  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
@@ -35,124 +28,101 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-  "ConnectorImplCodeinterpreterApi": "Connector"
-  "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_current"
-    tier: 1
-    last_updated: "2026-02-03T13:21:48Z"
+    status: "exists_needs_update"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_current"
-    tier: 1
-    last_updated: "2026-02-03T13:21:48Z"
+    status: "exists"
+    issues: []
   - path: "CLAUDE.md"
-    status: "exists_current"
-    tier: 2
-    last_updated: "2026-02-03T13:21:48Z"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_current"
-    tier: 2
-    last_updated: "2026-02-03T13:21:48Z"
-  - path: "PURPOSE.md"
-    status: "exists_current"
-    tier: 2
-    last_updated: "2026-02-03T13:21:48Z"
-  - path: "CONTRIBUTING.md"
-    status: "exists_current"
-    tier: 2
-    last_updated: "2026-02-03T13:21:48Z"
-  - path: "GLOSSARY.md"
-    status: "exists_current"
-    tier: 3
-    last_updated: "2026-02-03T13:21:48Z"
+    status: "exists"
+    issues: []
   - path: "GEMINI.md"
-    status: "exists_current"
-    tier: 3
-    last_updated: "2026-02-03T13:21:48Z"
+    status: "exists"
+    issues: []
   - path: "CODEX.md"
-    status: "exists_current"
-    tier: 3
-    last_updated: "2026-02-03T13:21:48Z"
+    status: "exists"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists"
+    issues: []
   - path: "ARCHITECTURE.md"
-    status: "exists_current"
-    tier: 3
-    last_updated: "2026-02-03T13:21:48Z"
+    status: "exists"
+    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists"
+    issues: []
+  - path: "CHANGELOG.md"
+    status: "exists"
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent alignment and term normalization"
+    reason: "Verify concept alignment and terminology usage"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify term normalization and AUTO decisions coverage"
+    reason: "Verify concept alignment and terminology usage"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and AUTO decisions"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology alignment"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants coverage"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify intent alignment"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines"
+    reason: "Verify concept alignment and terminology usage"
   - action: "verify"
     target: "GEMINI.md"
-    reason: "Verify Gemini-specific instructions"
+    reason: "Verify concept alignment and terminology usage"
   - action: "verify"
     target: "CODEX.md"
-    reason: "Verify Codex-specific instructions"
+    reason: "Verify concept alignment and terminology usage"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants are properly documented"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose aligns with intent.yml"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify terminology guidelines"
   - action: "verify"
     target: "ARCHITECTURE.md"
-    reason: "Verify architecture documentation"
+    reason: "Verify architecture reflects invariants"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify glossary matches ontology.yml"
+  - action: "skip"
+    target: "CHANGELOG.md"
+    reason: "Changelog is project-specific"
 
-expected_outcomes:
-  overall_score_target: 95
-  uniqueness_score_target: 95
-  concept_alignment_target: 95
+execution_mode: "verify_only"
+expected_outcome: "All MD files already verified and aligned - minimal to no changes expected"

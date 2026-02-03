@@ -1,198 +1,203 @@
 {
-  "timestamp": "2026-02-03T19:30:00Z",
+  "timestamp": "2026-02-03T19:55:00Z",
   "overall_score": 92,
   "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 90,
+      "clarity_score": 92,
       "concept_alignment": {
         "score": 95,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper"],
-        "synonyms_found": []
-      },
-      "intent_reflection": {
-        "score": 95,
-        "mission_present": true,
-        "target_users_present": true,
-        "core_value_present": true,
-        "core_functions_count": 6,
-        "invariants_documented": 5
+        "strengths": [
+          "Uses canonical terms consistently (Interpreter, Agent, Session, Message, State)",
+          "References GLOSSARY.md for terminology",
+          "AUTO decisions are documented and referenced",
+          "Intent alignment is excellent"
+        ]
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 95,
+      "clarity_score": 94,
       "concept_alignment": {
         "score": 98,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
+        "strengths": [
+          "Complete term normalization table with synonyms",
+          "All 11 canonical terms correctly listed",
+          "Hard invariants fully documented (11 items)",
+          "All 16 AUTO decisions documented",
+          "Prohibitions and requirements clearly stated"
+        ]
       },
-      "intent_reflection": {
-        "score": 95,
-        "mission_present": true,
-        "target_users_present": true,
-        "core_functions_documented": true,
-        "boundaries_documented": true,
-        "invariants_documented": 13
-      },
-      "issues": [],
-      "verified_bootstrap": "v1.1"
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 98,
+        "score": 97,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "strengths": [
+          "Canonical terms prioritized correctly",
+          "All hard invariants documented with code examples",
+          "All 16 AUTO decisions acknowledged",
+          "Stateful operation cautions documented"
+        ]
       },
-      "intent_reflection": {
-        "score": 92,
-        "claude_specific_guidance": true,
-        "invariants_documented": 16,
-        "auto_decisions_noted": 16
-      },
-      "issues": [],
-      "verified_bootstrap": "v1.1"
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 88,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 90,
+        "score": 95,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": []
-      },
-      "intent_reflection": {
-        "score": 85,
-        "invariants_reflected": true
+        "strengths": [
+          "All 14 invariants documented (11 hard + 3 soft)",
+          "Constitutional principles clearly defined",
+          "Amendment process specified"
+        ]
       },
       "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
+      "clarity_score": 91,
       "concept_alignment": {
-        "score": 92,
+        "score": 94,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": []
-      },
-      "intent_reflection": {
-        "score": 95,
-        "mission_detailed": true,
-        "target_users_detailed": true
+        "strengths": [
+          "Intent alignment excellent",
+          "Canonical terms used (Interpreter, Agent)",
+          "Scope clearly defined"
+        ]
       },
       "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 85,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Message"],
-        "synonyms_found": []
+        "score": 70,
+        "issues": [
+          {
+            "found": "Generic contribution guidelines",
+            "should_be": "Project-specific term normalization guidelines",
+            "line": 1
+          }
+        ],
+        "strengths": [
+          "Basic contribution process documented"
+        ]
       },
-      "intent_reflection": {
-        "score": 82,
-        "contribution_guidelines_align": true
-      },
-      "issues": []
+      "issues": [
+        "Missing term normalization guidelines",
+        "Missing reference to ontology.yml",
+        "Missing AUTO decision handling guidelines"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "generated_from_ontology": true,
-        "all_canonical_terms_present": true
+        "strengths": [
+          "Auto-generated from ontology.yml",
+          "All 11 canonical terms documented",
+          "Complete normalization map",
+          "AUTO decisions documented",
+          "Evidence provided for each term"
+        ]
       },
-      "intent_reflection": {
-        "score": 90
-      },
-      "issues": [],
-      "verified_bootstrap": "v1.0"
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 82,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message"],
-        "synonyms_found": []
+        "score": 75,
+        "issues": [
+          {
+            "found": "Generic Gemini guidelines",
+            "should_be": "Project-specific canonical terms and invariants",
+            "line": 1
+          }
+        ],
+        "strengths": [
+          "Basic Gemini-specific instructions"
+        ]
       },
-      "intent_reflection": {
-        "score": 80
-      },
-      "issues": ["Last updated before v1.1 bootstrap - may need review"]
+      "issues": [
+        "Missing canonical term requirements",
+        "Missing hard invariant documentation",
+        "Missing AUTO decision references"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 82,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session"],
-        "synonyms_found": []
+        "score": 75,
+        "issues": [
+          {
+            "found": "Generic Codex guidelines",
+            "should_be": "Project-specific canonical terms and invariants",
+            "line": 1
+          }
+        ],
+        "strengths": [
+          "Basic Codex-specific instructions"
+        ]
       },
-      "intent_reflection": {
-        "score": 80
-      },
-      "issues": ["Last updated before v1.1 bootstrap - may need review"]
+      "issues": [
+        "Missing canonical term requirements",
+        "Missing hard invariant documentation",
+        "Missing AUTO decision references"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 88,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
-        "synonyms_found": []
+        "score": 85,
+        "issues": [
+          {
+            "found": "Generic architecture description",
+            "should_be": "Canonical terms usage (Interpreter, Agent, etc.)",
+            "line": "various"
+          }
+        ],
+        "strengths": [
+          "Architecture patterns documented"
+        ]
       },
-      "intent_reflection": {
-        "score": 85
-      },
-      "issues": ["Last updated before v1.1 bootstrap - may need review"]
+      "issues": [
+        "Could improve canonical term usage",
+        "Could reference ontology.yml for term definitions"
+      ]
     }
   ],
   "summary": {
-    "total_files": 11,
-    "tier1_average_score": 92.5,
-    "tier2_average_score": 89.6,
-    "tier3_average_score": 85.4,
-    "canonical_terms_usage_rate": 0.98,
-    "synonyms_found_count": 0,
-    "intent_alignment_rate": 0.90
+    "total_issues": 5,
+    "critical_issues": 0,
+    "missing_canonical_terms": 0,
+    "term_normalization_violations": 0,
+    "missing_invariant_docs": 0,
+    "missing_auto_decision_docs": 3
   }
 }
