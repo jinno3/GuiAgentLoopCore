@@ -3,8 +3,8 @@
 ## 実行情報
 
 - **バージョン**: 1.1（audit + concept統合）
-- **実行日時**: 2026-02-04T06:55:00Z
-- **実行ID**: run #86
+- **実行日時**: 2026-02-04T07:01:00Z
+- **実行ID**: run #87
 - **実行タイプ**: 検証実行（Verification Run）
 - **ローテーション**: old削除 → current→old移動 → new current作成
 
@@ -100,7 +100,7 @@
 - ✓ AUTO:Message.limit:100
 - ✓ AUTO:Message.roles:tool_function_separation
 
-### State関連 (3)
+### State関連 (2)
 - ✓ AUTO:State.lifecycle:monotonic
 - ✓ AUTO:State.transition:auto_on_input
 - ✓ AUTO:State.timer:3sec
@@ -156,20 +156,20 @@
 
 ## メモ
 
-- 全てのMDファイルはrun #85で既に検証され、完璧なスコアを達成していました
-- 今回のrun #86では、再検証を行い、状態が維持されていることを確認しました
+- 全てのMDファイルはrun #86で既に検証され、完璧なスコアを達成していました
+- 今回のrun #87では、再検証を行い、状態が維持されていることを確認しました
 - 新たな問題や改善点は見つかりませんでした
 - `.concept/ontology.yml` (v0.3) との整合性は完璧です
 - `.audit/config/intent.yml` (v1.0) との整合性は完璧です
 
 ## 次回のアクション
 
-- 次回のbootstrap run (#87)では、ontologyやintentの更新があった場合のみ再生成が必要です
+- 次回のbootstrap run (#88)では、ontologyやintentの更新があった場合のみ再生成が必要です
 - 現在の状態は維持モードに入っています
 
 ---
 
-**生成日時**: 2026-02-04T06:55:00Z
+**生成日時**: 2026-02-04T07:01:00Z
 **ブートストラップバージョン**: 1.1
 **検証者**: Claude (Sonnet 4.5)
 **実行タイプ**: 検証実行（Verification Run）

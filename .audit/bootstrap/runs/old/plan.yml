@@ -1,5 +1,6 @@
-run_timestamp: "2026-02-04T06:40:00Z"
+run_timestamp: "2026-02-04T06:55:00Z"
 version: "1.1"
+run_number: 86
 
 rotation:
   deleted_old: true
@@ -9,11 +10,15 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    audit_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
+    ontology_version: "0.3"
+    invariants_version: "2026-02-02T05:23:14Z"
+    ambiguities_version: "2026-02-03T21:21:22Z"
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
@@ -191,25 +196,25 @@ auto_decisions_count: 16
 existing_mds:
   - path: "README.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
+    last_bootstrap_run: 85
     last_update: "2026-02-04T06:30:00Z"
     issues: []
 
   - path: "AGENTS.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
+    last_bootstrap_run: 85
     last_update: "2026-02-04T06:30:00Z"
     issues: []
 
   - path: "CLAUDE.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
+    last_bootstrap_run: 85
     last_update: "2026-02-04T06:30:00Z"
     issues: []
 
   - path: "GLOSSARY.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
+    last_bootstrap_run: 85
     last_update: "2026-02-04T06:31:00Z"
     issues: []
 
@@ -252,22 +257,46 @@ existing_mds:
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Already verified in run #84, re-verifying concept alignment"
+    reason: "Already verified in run #85, re-verifying concept alignment"
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Already verified in run #84, re-verifying concept alignment"
+    reason: "Already verified in run #85, re-verifying concept alignment"
 
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Already verified in run #84, re-verifying concept alignment"
+    reason: "Already verified in run #85, re-verifying concept alignment"
 
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Already verified in run #84, re-verifying ontology alignment"
+    reason: "Already verified in run #85, re-verifying ontology alignment"
+
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Re-verifying architecture documentation"
+
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Re-verifying purpose documentation"
+
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Re-verifying constitution documentation"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Re-verifying contributing documentation"
+
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Re-verifying Gemini-specific instructions"
+
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Re-verifying Codex-specific instructions"
 
 assessment:
-  overall_status: "verified"
+  overall_status: "verification_run"
   clarity_score_before: 100
   uniqueness_score_before: 100
   concept_alignment_score_before: 100
@@ -278,6 +307,7 @@ assessment:
   tier2_coverage: "4/4 (100%)"
   tier3_coverage: "4/4 (100%)"
   notes:
-    - "All MD files are already well-maintained from bootstrap run #84"
+    - "All MD files are already well-maintained from bootstrap run #85"
     - "Concept alignment is already excellent"
     - "No updates needed, only verification required"
+    - "This is a maintenance verification run"

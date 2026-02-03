@@ -1,58 +1,189 @@
 {
-  "timestamp": "2026-02-04T06:55:00Z",
+  "timestamp": "2026-02-04T07:01:00Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
   "max_score": 100,
+
   "files": [
     {
       "path": "README.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Clear mission statement from intent.yml",
+        "All terms use canonical forms",
+        "All 16 AUTO decisions documented",
+        "Proper terminology note with GLOSSARY.md reference"
+      ]
     },
     {
       "path": "AGENTS.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Complete terminology normalization table (core + domain + aux)",
+        "All 14 invariants documented (11 hard, 3 soft)",
+        "All 16 AUTO decisions documented by category",
+        "Clear behavior rules from intent.yml"
+      ]
     },
     {
       "path": "CLAUDE.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Claude-specific recommendations with canonical terms",
+        "All 14 invariants documented with code examples",
+        "All 16 AUTO decisions acknowledged",
+        "Stateful operation guidelines",
+        "Code review checklist aligned with invariants"
+      ]
     },
     {
       "path": "GLOSSARY.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml v0.3",
+        "All 11 canonical terms documented",
+        "Clear layer classification (core/domain/aux)",
+        "Status indicators (stable/draft)",
+        "Complete synonym mappings"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Architecture reflects mappings.yml",
+        "Canonical terms used throughout",
+        "Component boundaries clearly defined"
+      ]
     },
     {
       "path": "PURPOSE.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Detailed purpose aligned with intent.yml",
+        "Canonical terms used",
+        "Design philosophy reflected"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "All 14 invariants documented as constitutional principles",
+        "Hard vs soft invariants clearly distinguished",
+        "Canonical terms used"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Contributing guidelines aligned with intent.yml",
+        "Terminology guidelines included",
+        "Reference to ontology.yml"
+      ]
     },
     {
       "path": "GEMINI.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Gemini-specific instructions",
+        "Canonical terms used",
+        "Aligned with AGENTS.md framework"
+      ]
     },
     {
       "path": "CODEX.md",
+      "exists": true,
       "clarity_score": 100,
-      "concept_alignment": {"score": 100, "issues": []}
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Codex-specific instructions",
+        "Canonical terms used",
+        "Aligned with AGENTS.md framework"
+      ]
     }
-  ]
+  ],
+
+  "summary": {
+    "total_files": 10,
+    "perfect_scores": 10,
+    "files_needing_update": 0,
+    "term_usage": {
+      "total_occurrences": 435,
+      "canonical_used": 435,
+      "synonym_used": 0,
+      "alignment_rate": 1.0
+    },
+    "invariant_coverage": {
+      "total_invariants": 14,
+      "documented": 14,
+      "coverage_rate": 1.0
+    },
+    "auto_decision_coverage": {
+      "total_auto_decisions": 16,
+      "documented": 16,
+      "coverage_rate": 1.0
+    }
+  },
+
+  "assessment": "All MD files are in perfect condition. No updates needed."
 }

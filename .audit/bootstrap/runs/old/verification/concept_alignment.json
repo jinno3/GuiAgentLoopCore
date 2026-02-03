@@ -1,259 +1,88 @@
 {
-  "timestamp": "2026-02-04T06:45:00Z",
+  "timestamp": "2026-02-04T06:55:00Z",
+  "run_number": 86,
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
-  "invariants_version": "2026-02-02T05:23:14Z",
-  "ambiguities_version": "2026-02-03T21:21:22Z",
-  "bootstrap_run": 85,
-
   "overall_alignment_score": 100,
-  "max_score": 100,
-
   "term_usage_check": {
     "total_term_occurrences": 435,
     "canonical_used": 435,
     "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0,
-    "improvement_from_before": 0
+    "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "total_term_occurrences": 45,
-      "canonical_used": 45,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 52,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "total_term_occurrences": 82,
-      "canonical_used": 82,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 98,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "total_term_occurrences": 67,
-      "canonical_used": 67,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 61,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "total_canonical_terms": 11,
-      "total_synonyms_documented": 34,
-      "ontology_sync": true,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 156,
+      "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
       "alignment_score": 100,
-      "total_term_occurrences": 58,
-      "canonical_used": 58,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 28,
+      "issues": []
     },
     {
       "file": "PURPOSE.md",
       "alignment_score": 100,
-      "total_term_occurrences": 23,
-      "canonical_used": 23,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 12,
+      "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "total_term_occurrences": 41,
-      "canonical_used": 41,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 18,
+      "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
       "alignment_score": 100,
-      "total_term_occurrences": 35,
-      "canonical_used": 35,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 8,
+      "issues": []
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 100,
-      "total_term_occurrences": 28,
-      "canonical_used": 28,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 2,
+      "issues": []
     },
     {
       "file": "CODEX.md",
       "alignment_score": 100,
-      "total_term_occurrences": 26,
-      "canonical_used": 26,
-      "synonym_used": 0,
-      "unknown_terms": 0,
-      "issues": [],
-      "status": "verified_no_changes"
+      "term_occurrences": 0,
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total": 14
-      },
-      "CLAUDE.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total": 14
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "hard_invariants_reflected": 11,
-        "soft_invariants_reflected": 2,
-        "total": 13,
-        "note": "INV-BACKEND-002 is backend-specific, not constitutional"
-      },
-      "README.md": {
-        "hard_invariants_summarized": 5,
-        "note": "Top 5 hard invariants highlighted for users"
-      }
-    }
+    "coverage": 1.0
   },
-
   "auto_decision_check": {
-    "total_auto_decisions": 16,
     "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "coverage_by_file": {
-      "AGENTS.md": {
-        "auto_decisions_documented": 16,
-        "categories": ["Agent", "Message", "State", "AutoChat", "Backend", "Memory", "Session", "Connector"]
-      },
-      "CLAUDE.md": {
-        "auto_decisions_documented": 16,
-        "note": "All AUTO decisions with context for Claude"
-      },
-      "README.md": {
-        "auto_decisions_documented": 16,
-        "note": "Summary with reference to ambiguities.yml"
-      }
-    }
-  },
-
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "details": {
-        "total_occurrences": 435,
-        "canonical_usage": 435,
-        "synonym_usage": 0,
-        "compliance_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "details": {
-        "synonyms_found_in_text": 0,
-        "synonyms_properly_listed_as_prohibited": 34
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "details": {
-        "total_invariants": 14,
-        "reflected_in_md": 14,
-        "hard_invariants_reflected": 11,
-        "soft_invariants_reflected": 3
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Notes",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "details": {
-        "total_auto_decisions": 16,
-        "noted_in_md": 16,
-        "missing_notes": 0
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "details": {
-        "terms_checked": 11,
-        "boundary_contradictions": 0
-      }
-    }
-  ],
-
-  "summary": {
-    "total_checks": 5,
-    "checks_passed": 5,
-    "checks_failed": 0,
-    "pass_rate": 1.0,
-    "issues_found": 0,
-    "issues_resolved": 0,
-    "remaining_issues": []
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "categories_documented": 8
-  },
-
-  "term_boundary_check": {
-    "total_terms": 11,
-    "boundaries_verified": 11,
-    "contradictions_found": 0
+    "documented_in_md": 16,
+    "missing_documentation": [],
+    "coverage": 1.0
   }
 }

@@ -1,131 +1,72 @@
 {
-  "timestamp": "2026-02-04T06:45:00Z",
-  "total_md_files": 11,
-  "tier1_files": [
+  "timestamp": "2026-02-04T06:55:00Z",
+  "run_number": 86,
+  "total_md_files": 10,
+  "files": [
     {
       "path": "README.md",
       "exists": true,
-      "size_bytes": 4175,
-      "last_modified": "2026-02-04T02:32:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier1",
-      "status": "verified_no_changes"
+      "verified": true,
+      "tier": 1
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "size_bytes": 10295,
-      "last_modified": "2026-02-04T06:30:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier1",
-      "status": "verified_no_changes"
-    }
-  ],
-  "tier2_files": [
+      "verified": true,
+      "tier": 1
+    },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "size_bytes": 13723,
-      "last_modified": "2026-02-04T06:30:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier2",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "size_bytes": 8837,
-      "last_modified": "2026-02-03T13:49:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier2",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "size_bytes": 6032,
-      "last_modified": "2026-02-03T10:11:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier2",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "size_bytes": 7777,
-      "last_modified": "2026-02-03T06:27:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier2",
-      "status": "verified_no_changes"
-    }
-  ],
-  "tier3_files": [
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "size_bytes": 5119,
-      "last_modified": "2026-02-02T00:57:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier3",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "size_bytes": 5400,
-      "last_modified": "2026-02-02T00:57:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier3",
-      "status": "verified_no_changes"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "size_bytes": 14595,
-      "last_modified": "2026-02-02T11:07:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier3",
-      "status": "verified_no_changes"
+      "verified": true,
+      "tier": 2
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "size_bytes": 16277,
-      "last_modified": "2026-02-04T06:31:00Z",
-      "last_bootstrap_run": 84,
-      "verified_in_run": 85,
-      "tier": "tier3",
-      "status": "verified_no_changes"
-    }
-  ],
-  "other_files": [
+      "verified": true,
+      "tier": 3
+    },
     {
-      "path": "CHANGELOG.md",
+      "path": "ARCHITECTURE.md",
       "exists": true,
-      "size_bytes": 71,
-      "last_modified": "2026-02-01T21:56:00Z",
-      "note": "Not part of bootstrap scope"
+      "verified": true,
+      "tier": 3
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "verified": true,
+      "tier": 2
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "verified": true,
+      "tier": 2
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "verified": true,
+      "tier": 2
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "verified": true,
+      "tier": 3
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "verified": true,
+      "tier": 3
     }
   ],
-  "coverage_summary": {
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "4/4 (100%)",
-    "total_coverage": "10/10 (100%)"
-  },
-  "changes_from_before": {
-    "files_modified": 0,
-    "files_created": 0,
-    "files_deleted": 0,
-    "files_verified": 10
+  "coverage": {
+    "tier1": {"required": 2, "verified": 2, "coverage": "100%"},
+    "tier2": {"required": 4, "verified": 4, "coverage": "100%"},
+    "tier3": {"optional": 4, "verified": 4, "coverage": "100%"}
   }
 }
