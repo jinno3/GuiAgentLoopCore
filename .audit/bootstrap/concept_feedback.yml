@@ -1,197 +1,56 @@
-# Feedback to Concept Sync System (12_concept_sync_system)
-# Generated: 2026-02-04T05:00:00Z
-# Bootstrap run: #79 (v1.1)
-
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T05:00:00Z"
-  run_id: "79"
+  bootstrap_run_timestamp: "2026-02-04T05:20:00Z"
   source_ontology_version: "0.3"
-
-  # 1. 用語使用状況
+  
   term_usage_report:
-    total_term_occurrences: 132
-    canonical_used: 132
+    canonical_used: 11
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 1.0
-    assessment: "Perfect term normalization - 100% accuracy"
-
-  # 2. 同義語違反の詳細
-  synonym_violations: []
-  assessment: "No synonym violations found - perfect compliance"
-
-  # 3. 不変条件の反映状況
+    
   invariant_reflection:
     total: 14
-    hard_invariants: 11
-    soft_invariants: 3
     reflected: 14
     missing: []
-    coverage_rate: 1.0
-    details:
-      AGENTS.md:
-        hard_documented: 11
-        soft_documented: 3
-        total: 14
-        status: "complete"
-      CLAUDE.md:
-        hard_documented: 11
-        soft_documented: 3
-        total: 14
-        status: "complete"
-      SYSTEM_CONSTITUTION.md:
-        status: "needs_verification"
-      README.md:
-        hard_documented: 5
-        soft_documented: 0
-        total: 5
-        status: "summary_with_references"
-    assessment: "Complete invariant coverage in primary documentation files"
-
-  # 4. AUTO決定の扱い
+    
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    format: "documented as AUTO decisions with provisional status"
-    coverage_rate: 1.0
-    details:
-      README.md:
-        documented: 16
-        format: "dedicated section with categorization by term"
-        status: "excellent"
-      AGENTS.md:
-        documented: 16
-        format: "categorized by term with detailed explanations"
-        status: "excellent"
-      CLAUDE.md:
-        documented: 16
-        format: "integrated in usage guidance with code examples"
-        status: "excellent"
-    assessment: "Perfect AUTO decision documentation - all 16 decisions noted as provisional"
-
-  # 5. 曖昧性の発見
-  ambiguities_discovered: []
-  assessment: "No new ambiguities discovered - ontology definitions are clear"
-
-  # 6. ontologyへの更新提案
+    format: "AUTO decisions documented with provisional status"
+    
+  ambiguities_discovered:
+    critical:
+      - id: "AMB-SEC-001"
+        severity: "high"
+        term: "Security"
+        topic: "ハードコードされたシークレットキー vs 環境変数"
+        auto_decision: "AUTO:Security.secret_key:env_var_required"
+        recommendation: "Migrate hardcoded secret_key to environment variable"
+        target_file: "gui_agent_loop_core/core/interpreter_manager.py"
+        
+      - id: "AMB-SEC-002"
+        severity: "high"
+        term: "Session"
+        topic: "JWTデコードメソッドの未定義変数バグ"
+        auto_decision: "AUTO:Session.jwt:decode_method_fix"
+        recommendation: "Fix undefined variables in jwt_decode_session()"
+        target_file: "gui_agent_loop_core/core/interpreter_manager.py"
+        
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
-    boundary_changes: []
-    status: "no changes needed"
-    assessment: "ontology.yml v0.3 is comprehensive and well-defined"
-
-  # 7. 用語階層の状況
-  term_layer_status:
-    core_terms:
-      total: 5
-      stable: 5
-      draft: 0
-      terms: ["Interpreter", "Agent", "Session", "Message", "State"]
-      status: "all_stable"
-    domain_terms:
-      total: 5
-      stable: 4
-      draft: 1
-      terms: ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"]
-      status: "mostly_stable"
-    aux_terms:
-      total: 1
-      stable: 1
-      draft: 0
-      terms: ["Converter"]
-      status: "stable"
-    assessment: "Healthy term distribution across layers"
-
-  # 8. 成果
-  achievements:
-    - "Perfect term normalization: 100% (132/132 canonical terms used, 0 synonyms)"
-    - "Zero synonym violations across all MD files"
-    - "Complete invariant reflection: 14/14 invariants documented"
-    - "Complete AUTO decision documentation: 16/16 noted as provisional"
-    - "Perfect concept alignment score: 100%"
-    - "Zero unknown terms found"
-    - "Excellent integration with audit system (intent.yml)"
-    - "All 11 canonical terms properly documented in GLOSSARY.md"
-
-  # 9. 推奨事項
-  recommendations:
-    - priority: "none"
-      action: "Maintain current ontology quality"
-      reason: "v0.3 is working excellently with MD documentation"
-      impact: "none"
-    - priority: "medium"
-      action: "Monitor AUTO decision expiration"
-      reason: "16 AUTO decisions will expire after 20 runs"
-      details: "Consider which decisions should be promoted to stable vs renewed"
-    - priority: "low"
-      action: "Consider promoting Memory from draft to stable"
-      reason: "Memory term is well-defined and consistently used"
-      condition: "After implementation is complete"
-    - priority: "low"
-      action: "Expand README.md invariant coverage"
-      reason: "Currently 5/11 hard invariants (optional improvement)"
-      impact: "minor"
-
-  # 10. 統合の成功
-  integration_success:
-    audit_concept_integration: "excellent"
-    intent_ontology_alignment: "perfect"
-    md_quality: "excellent"
-    overall_score: 100
-    interpretation: "概念モデル（ontology.yml v0.3）と監査結果（intent.yml）が完璧に統合され、最高品質のMDドキュメントが生成されている"
-
-  # 11. 用語定義の品質評価
-  term_definition_quality:
-    total_terms: 11
-    terms_with_evidence: 11
-    terms_with_related_terms: 11
-    terms_with_boundaries: 11
-    terms_with_lifecycle: 2
-    completeness_score: 100
-    assessment: "All terms have comprehensive definitions with evidence, boundaries, and related terms"
-
-  # 12. AUTO決定の品質評価
-  auto_decision_quality:
-    total_decisions: 16
-    decisions_with_evidence: 16
-    decisions_with_expiration: 16
-    documented_in_md: 16
-    marked_as_provisional: 16
-    completeness_score: 100
-    assessment: "All AUTO decisions are well-documented with evidence and marked as provisional"
-
-  # 13. 全体的な評価
+    
   overall_assessment:
-    grade: "excellent"
-    concept_alignment_score: 100
-    term_normalization_score: 100
-    invariant_coverage_score: 100
-    auto_decision_score: 100
-    overall_score: 100
-    strengths:
-      - "完璧な用語正規化（100% - 132/132正規形使用、同義語0）"
-      - "全11用語が適切に定義され、evidenceとboundaries完備"
-      - "全14の不変条件がMDファイルに完全に反映"
-      - "全16のAUTO決定が暫定仕様として適切に文書化"
-      - "intent.ymlとの完全な整合性"
-      - "用語階層（core/domain/aux）の適切な分類"
-      - "GLOSSARY.mdがontology.ymlから自動生成され、完全"
-    weaknesses: []
-    summary: "概念モデルは極めて良好な状態にあり、MDドキュメントへの統合も完璧である。次回のconcept sync実行は不要。"
-
-# Metadata
-metadata:
-  generated_by: "16_repo_md_bootstrapper v1.1"
-  ontology_version: "0.3"
-  invariants_version: "2026-02-02T05:23:14Z"
-  ambiguities_version: "2026-02-03T21:21:22Z"
-  run_number: 79
-  execution_mode: "verification"
-  files_verified: 11
-  files_modified: 0
-  changes_required: false
-  ontology_comprehensive: true
-  ready_for_production: true
+    status: "EXCELLENT"
+    alignment_score: 100
+    message: "ontology.yml (v0.3) は完全にMDファイルに統合されています"
+    
+  recommendations:
+    - priority: "HIGH"
+      action: "Fix security-related AUTO decisions (AMB-SEC-001, AMB-SEC-002)"
+      target: "code"
+      
+    - priority: "NONE"
+      action: "ontology updates not needed"
+      reason: "Current ontology (v0.3) is comprehensive and well-integrated"

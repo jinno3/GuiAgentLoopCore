@@ -1,96 +1,173 @@
-actions:
-- action: verify
-  reason: Check alignment with intent and ontology
-  target: README.md
-- action: verify
-  reason: Check alignment with intent and ontology
-  target: AGENTS.md
-- action: verify
-  reason: Check alignment with intent and ontology
-  target: CLAUDE.md
-- action: verify
-  reason: Check alignment with ontology
-  target: GLOSSARY.md
-- action: verify
-  reason: Check alignment with invariants
-  target: SYSTEM_CONSTITUTION.md
-- action: verify
-  reason: Check alignment with intent
-  target: PURPOSE.md
-existing_mds:
-- path: README.md
-  status: exists
-- path: AGENTS.md
-  status: exists
-- path: CLAUDE.md
-  status: exists
-- path: GLOSSARY.md
-  status: exists
-- path: ARCHITECTURE.md
-  status: exists
-- path: CONTRIBUTING.md
-  status: exists
-- path: SYSTEM_CONSTITUTION.md
-  status: exists
-- path: PURPOSE.md
-  status: exists
-- path: GEMINI.md
-  status: exists
-- path: CODEX.md
-  status: exists
-input_sources:
-  audit:
-    constraints_yml: .audit/config/constraints.yml
-    intent_yml: .audit/config/intent.yml
-  concept:
-    has_concept: true
-    invariants_yml: .concept/invariants.yml
-    ontology_yml: .concept/ontology.yml
-intent_summary:
-  core_value: Reliable, type-safe, and extensible foundation for...
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
-  target_user:
-    Application Developers: Building LLM-powered applications with GUI interfaces
-ontology_summary:
-  core_terms: 5
-  domain_terms: 5
-  total_terms: 11
+# MD Bootstrap Plan v1.1
+run_timestamp: "2026-02-04T05:00:00Z"
+version: "1.1"
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
-run_timestamp: '2026-02-03T19:55:47.770998Z'
+
+input_sources:
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: null
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    has_concept: true
+
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
+  design_principles_count: 5
+
+ontology_summary:
+  total_terms: 11
+  by_layer:
+    core: 5
+    domain: 5
+    aux: 1
+  by_status:
+    stable: 10
+    draft: 1
+  key_terms:
+    - canonical: "Interpreter"
+      layer: "core"
+      status: "stable"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    - canonical: "Agent"
+      layer: "core"
+      status: "stable"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "Session"
+      layer: "core"
+      status: "stable"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    - canonical: "Message"
+      layer: "core"
+      status: "stable"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+    - canonical: "State"
+      layer: "core"
+      status: "stable"
+      definition: "インタープリタの実行状態を表す列挙型"
+
+invariants_summary:
+  total_invariants: 14
+  by_strength:
+    hard: 11
+    soft: 3
+  by_status:
+    stable: 13
+    draft: 1
+
 term_normalization:
-  AIエージェント: Agent
-  AgentDefinition: Agent
-  AgentImage: Agent
-  AgentType: Agent
-  ChatMessage: Message
-  ChatSession: Session
-  ConnectorImplCodeinterpreterApi: Connector
-  ConnectorImplOpenInterpreter: Connector
-  ConversationBuffer: Memory
-  GUIバックエンド: Backend
-  GuiAgentInterpreter: Interpreter
-  GuiAgentInterpreterABC: Connector
-  GuiAgentStreamWrapper: StreamWrapper
-  GuiBackend: Backend
-  GuiComponent: Backend
-  InterpreterState: State
-  JWT: Session
-  OpenGuiConnector: Connector
-  TaskAgent: Agent
-  UIフレームワーク: Backend
-  インタープリタ状態: State
-  コネクタ: Connector
-  ストリームラッパー: StreamWrapper
-  マッパー: Converter
-  メッセージ: Message
-  会話インタープリタ: Interpreter
-  会話セッション: Session
-  会話メモリ: Memory
-  変換器: Converter
-  専門エージェント: Agent
-  自動チャット: AutoChat
-  自動継続: AutoChat
-version: '1.1'
+  GuiAgentInterpreter: "Interpreter"
+  会話インタープリタ: "Interpreter"
+  AIエージェント: "Agent"
+  専門エージェント: "Agent"
+  AgentType: "Agent"
+  AgentDefinition: "Agent"
+  TaskAgent: "Agent"
+  AgentImage: "Agent"
+  ChatSession: "Session"
+  会話セッション: "Session"
+  JWT: "Session"
+  メッセージ: "Message"
+  ChatMessage: "Message"
+  InterpreterState: "State"
+  インタープリタ状態: "State"
+  自動チャット: "AutoChat"
+  自動継続: "AutoChat"
+  GuiAgentStreamWrapper: "StreamWrapper"
+  ストリームラッパー: "StreamWrapper"
+  GUIバックエンド: "Backend"
+  UIフレームワーク: "Backend"
+  GuiBackend: "Backend"
+  GuiComponent: "Backend"
+  会話メモリ: "Memory"
+  ConversationBuffer: "Memory"
+  コネクタ: "Connector"
+  GuiAgentInterpreterABC: "Connector"
+  ConnectorImplCodeinterpreterApi: "Connector"
+  ConnectorImplOpenInterpreter: "Connector"
+  OpenGuiConnector: "Connector"
+  変換器: "Converter"
+  マッパー: "Converter"
+
+existing_mds:
+  - path: "README.md"
+    status: "exists_verified"
+    tier: 1
+    issues: []
+
+  - path: "AGENTS.md"
+    status: "exists_verified"
+    tier: 1
+    issues: []
+
+  - path: "CLAUDE.md"
+    status: "exists_verified"
+    tier: 2
+    issues: []
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_verified"
+    tier: 2
+    issues: []
+
+  - path: "PURPOSE.md"
+    status: "exists_verified"
+    tier: 2
+    issues: []
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_verified"
+    tier: 2
+    issues: []
+
+  - path: "GEMINI.md"
+    status: "exists_verified"
+    tier: 3
+    issues: []
+
+  - path: "CODEX.md"
+    status: "exists_verified"
+    tier: 3
+    issues: []
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_verified"
+    tier: 3
+    issues: []
+
+  - path: "GLOSSARY.md"
+    status: "exists_verified"
+    tier: 3
+    issues: []
+
+actions:
+  - action: "verify"
+    target: "README.md"
+    reason: "Verify concept alignment and term normalization"
+
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify concept alignment and term normalization"
+
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify concept alignment and AUTO decisions documentation"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology alignment"
+
+  - action: "update_timestamps"
+    target: "all_verified_mds"
+    reason: "Update bootstrap run timestamps and verification status"
+
+target_score: 90
+max_iterations: 3

@@ -1,546 +1,630 @@
 {
-  "timestamp": "2026-02-03T19:59:06.368887+00:00",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-03T20:11:03.577113Z",
+  "overall_score": 82,
+  "clarity_score": 91,
+  "concept_alignment_score": 73,
   "max_score": 100,
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 100,
-        "issues_count": 0,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "line": 20,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "> **Note**: This repository uses normalized terminology for consistency. Key ter"
+          },
+          {
+            "line": 83,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "- **AUTO:Agent.type:implementation_property** - AgentType is an implementation p"
+          },
+          {
+            "line": 111,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **AUTO:Session.jwt:algorithm_hs256** - JWT uses HS256 algorithm (provisional)"
+          }
+        ]
       },
-      "intent_issues_count": 0,
-      "intent_issues": []
+      "issues": [
+        "Found 3 term(s) not using canonical form (excluding explanatory context)"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 45,
+      "clarity_score": 68,
       "concept_alignment": {
         "score": 0,
-        "issues_count": 11,
         "issues": [
           {
-            "term": "Agent",
-            "line": 1,
+            "line": 14,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "line": 14,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "line": 15,
             "found": "AIエージェント",
             "should_be": "Agent",
-            "context": "# AGENTS.md - AIエージェント向け指示"
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
           },
           {
-            "term": "Session",
-            "line": 72,
+            "line": 15,
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 15,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 15,
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 15,
+            "found": "TaskAgent",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 15,
+            "found": "AgentImage",
+            "should_be": "Agent",
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "line": 16,
+            "found": "ChatSession",
+            "should_be": "Session",
+            "context": "| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト（JWT認証使用） |"
+          },
+          {
+            "line": 16,
+            "found": "会話セッション",
+            "should_be": "Session",
+            "context": "| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト（JWT認証使用） |"
+          },
+          {
+            "line": 16,
             "found": "JWT",
             "should_be": "Session",
-            "context": "- 🔒 **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+            "context": "| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト（JWT認証使用） |"
           },
           {
-            "term": "Message",
-            "line": 66,
+            "line": 17,
             "found": "メッセージ",
             "should_be": "Message",
-            "context": "- 🔒 **INV-MSG-001**: メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+            "context": "| `Message` | メッセージ, ChatMessage | ユーザー、システム、エージェント間の構造化された通信単位 |"
           },
           {
-            "term": "Message",
-            "line": 69,
-            "found": "メッセージ",
+            "line": 17,
+            "found": "ChatMessage",
             "should_be": "Message",
-            "context": "- 🔒 **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+            "context": "| `Message` | メッセージ, ChatMessage | ユーザー、システム、エージェント間の構造化された通信単位 |"
           },
           {
-            "term": "Message",
-            "line": 80,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- ⚠️ **INV-MEM-001** [DRAFT]: 会話メモリは最大100メッセージまで保持する（Memory機能はdraft状態）"
+            "line": 18,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "| `State` | InterpreterState, インタープリタ状態 | インタープリタの実行状態を表す列挙型 |"
           },
           {
-            "term": "Message",
-            "line": 142,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "2. **メッセージタイプ**: 定義された列挙型のみ使用する"
-          },
-          {
-            "term": "State",
-            "line": 64,
+            "line": 18,
             "found": "インタープリタ状態",
             "should_be": "State",
-            "context": "- 🔒 **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+            "context": "| `State` | InterpreterState, インタープリタ状態 | インタープリタの実行状態を表す列挙型 |"
           },
           {
-            "term": "State",
-            "line": 141,
-            "found": "インタープリタ状態",
-            "should_be": "State",
-            "context": "1. **状態遷移の単調性**: インタープリタ状態は常に単調遷移する (STATE_INIT → STATE_RUNNING → STATE_STOP)"
+            "line": 24,
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "context": "| `AutoChat` | 自動チャット, 自動継続 | STATE_STOP時に自動的に会話を継続する機能 |"
           },
           {
-            "term": "StreamWrapper",
-            "line": 68,
+            "line": 24,
+            "found": "自動継続",
+            "should_be": "AutoChat",
+            "context": "| `AutoChat` | 自動チャット, 自動継続 | STATE_STOP時に自動的に会話を継続する機能 |"
+          },
+          {
+            "line": 25,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper",
+            "context": "| `StreamWrapper` | GuiAgentStreamWrapper, ストリームラッパー | 同期・非同期ストリーミング応答を統一的に扱うユーテ"
+          },
+          {
+            "line": 25,
             "found": "ストリームラッパー",
             "should_be": "StreamWrapper",
-            "context": "- 🔒 **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする"
+            "context": "| `StreamWrapper` | GuiAgentStreamWrapper, ストリームラッパー | 同期・非同期ストリーミング応答を統一的に扱うユーテ"
           },
           {
-            "term": "Connector",
-            "line": 73,
+            "line": 26,
+            "found": "GUIバックエンド",
+            "should_be": "Backend",
+            "context": "| `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GUIフレームワーク実装（Grad"
+          },
+          {
+            "line": 26,
+            "found": "UIフレームワーク",
+            "should_be": "Backend",
+            "context": "| `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GUIフレームワーク実装（Grad"
+          },
+          {
+            "line": 26,
+            "found": "GuiBackend",
+            "should_be": "Backend",
+            "context": "| `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GUIフレームワーク実装（Grad"
+          },
+          {
+            "line": 26,
+            "found": "GuiComponent",
+            "should_be": "Backend",
+            "context": "| `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GUIフレームワーク実装（Grad"
+          },
+          {
+            "line": 27,
+            "found": "会話メモリ",
+            "should_be": "Memory",
+            "context": "| `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 (**status: draft**) |"
+          },
+          {
+            "line": 27,
+            "found": "ConversationBuffer",
+            "should_be": "Memory",
+            "context": "| `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 (**status: draft**) |"
+          },
+          {
+            "line": 28,
             "found": "コネクタ",
             "should_be": "Connector",
-            "context": "- 🔒 **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+            "context": "| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, C"
+          },
+          {
+            "line": 28,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, C"
+          },
+          {
+            "line": 28,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector",
+            "context": "| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, C"
+          },
+          {
+            "line": 28,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector",
+            "context": "| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, C"
+          },
+          {
+            "line": 28,
+            "found": "OpenGuiConnector",
+            "should_be": "Connector",
+            "context": "| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, C"
+          },
+          {
+            "line": 34,
+            "found": "変換器",
+            "should_be": "Converter",
+            "context": "| `Converter` | 変換器, マッパー | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |"
+          },
+          {
+            "line": 34,
+            "found": "マッパー",
+            "should_be": "Converter",
+            "context": "| `Converter` | 変換器, マッパー | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |"
           }
         ]
       },
-      "intent_issues_count": 0,
-      "intent_issues": []
+      "issues": [
+        "Found 32 term(s) not using canonical form (excluding explanatory context)"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 30,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 0,
-        "issues_count": 11,
-        "issues": [
-          {
-            "term": "Session",
-            "line": 80,
-            "found": "JWT",
-            "should_be": "Session",
-            "context": "- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
-          },
-          {
-            "term": "Message",
-            "line": 68,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ使用"
-          },
-          {
-            "term": "Message",
-            "line": 70,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- タイプ安全性を保証し、予期しないメッセージ処理を防ぐ"
-          },
-          {
-            "term": "Message",
-            "line": 72,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
-          },
-          {
-            "term": "Message",
-            "line": 109,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する"
-          },
-          {
-            "term": "Message",
-            "line": 174,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- メッセージは再帰的にフラット化可能"
-          },
-          {
-            "term": "State",
-            "line": 45,
-            "found": "インタープリタ状態",
-            "should_be": "State",
-            "context": "- **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
-          },
-          {
-            "term": "StreamWrapper",
-            "line": 96,
-            "found": "ストリームラッパー",
-            "should_be": "StreamWrapper",
-            "context": "- **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする"
-          },
-          {
-            "term": "Memory",
-            "line": 109,
-            "found": "会話メモリ",
-            "should_be": "Memory",
-            "context": "- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する"
-          },
-          {
-            "term": "Connector",
-            "line": 114,
-            "found": "コネクタ",
-            "should_be": "Connector",
-            "context": "- **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
+      "issues": []
     },
     {
-      "path": "GLOSSARY.md",
+      "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 0,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 0,
-        "issues_count": 28,
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 97,
+      "concept_alignment": {
+        "score": 85,
         "issues": [
           {
-            "term": "Session",
-            "line": 55,
+            "line": 31,
             "found": "JWT",
             "should_be": "Session",
-            "context": "- **定義**: 一意のIDで管理される会話コンテキスト（JWT認証使用）"
+            "context": "- **INV-SESSION-002**: Session tokens must be JWT-encoded with HS256 algorithm"
           },
           {
-            "term": "Session",
-            "line": 57,
-            "found": "JWT",
+            "line": 34,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- **INV-CONNECTOR-001**: Connectors must implement GuiAgentInterpreterABC interf"
+          },
+          {
+            "line": 62,
+            "found": "ChatSession",
             "should_be": "Session",
-            "context": "- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）"
-          },
-          {
-            "term": "Session",
-            "line": 301,
-            "found": "JWT",
-            "should_be": "Session",
-            "context": "- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
-          },
-          {
-            "term": "Message",
-            "line": 22,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **含む**: 状態管理, セッション管理, メッセージルーティング"
-          },
-          {
-            "term": "Message",
-            "line": 57,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）"
-          },
-          {
-            "term": "Message",
-            "line": 142,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **含まない**: メッセージ変換, 状態管理"
-          },
-          {
-            "term": "Message",
-            "line": 178,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **含む**: メッセージ履歴, ウィンドウサイズ"
-          },
-          {
-            "term": "Message",
-            "line": 223,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **含まない**: メッセージ処理, 状態管理"
-          },
-          {
-            "term": "Message",
-            "line": 295,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ"
-          },
-          {
-            "term": "Message",
-            "line": 298,
-            "found": "メッセージ",
-            "should_be": "Message",
-            "context": "- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+            "context": "- Example: If you're about to use \"ChatSession\", use \"Session\" instead"
           }
         ]
       },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "line": 86,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "from gui_agent_loop_core.schema.agent.schema import AgentType"
+          },
+          {
+            "line": 91,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "type: AgentType  # 実装タイプ（役割とは独立）"
+          }
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "line": 87,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "from gui_agent_loop_core.schema.agent.schema import AgentType"
+          },
+          {
+            "line": 92,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "type: AgentType  # 実装タイプ（役割とは独立）"
+          }
+        ]
+      },
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 70,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 70,
-        "issues_count": 3,
+        "score": 85,
         "issues": [
           {
-            "term": "Session",
-            "line": 336,
-            "found": "JWT",
-            "should_be": "Session",
-            "context": "- **Affects**: JWT token encoding/decoding"
-          },
-          {
-            "term": "Connector",
             "line": 158,
             "found": "GuiAgentInterpreterABC",
             "should_be": "Connector",
             "context": "- Abstract base class (GuiAgentInterpreterABC)"
           },
           {
-            "term": "Connector",
             "line": 162,
             "found": "GuiAgentInterpreterABC",
             "should_be": "Connector",
             "context": "- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface"
-          }
-        ]
-      },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 100,
-        "issues_count": 0,
-        "issues": []
-      },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 70,
-      "concept_alignment": {
-        "score": 70,
-        "issues_count": 3,
-        "issues": [
+          },
           {
-            "term": "Session",
-            "line": 168,
+            "line": 336,
             "found": "JWT",
             "should_be": "Session",
-            "context": "### INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
-          },
-          {
-            "term": "Connector",
-            "line": 184,
-            "found": "コネクタ",
-            "should_be": "Connector",
-            "context": "### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
-          },
-          {
-            "term": "Connector",
-            "line": 184,
-            "found": "GuiAgentInterpreterABC",
-            "should_be": "Connector",
-            "context": "### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+            "context": "- **Affects**: JWT token encoding/decoding"
           }
         ]
       },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
+      "issues": []
     },
     {
-      "path": "PURPOSE.md",
+      "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 91,
+      "clarity_score": 60,
       "concept_alignment": {
-        "score": 100,
-        "issues_count": 0,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "line": 58,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "- **含まない**: UI状態, インタープリタ状態"
+          },
+          {
+            "line": 67,
+            "found": "ChatSession",
+            "should_be": "Session",
+            "context": "- `gui_agent_loop_core/core/interpreter_manager.py`: \"ChatSession: Individual co"
+          },
+          {
+            "line": 108,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "- `gui_agent_loop_core/schema/core/schema.py`: \"class InterpreterState(str, Enum"
+          },
+          {
+            "line": 148,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper",
+            "context": "- `gui_agent_loop_core/util/gui_agent_stream_wrapper.py`: \"GuiAgentStreamWrapper"
+          },
+          {
+            "line": 158,
+            "found": "GuiComponent",
+            "should_be": "Backend",
+            "context": "- **関連用語**: Interpreter, Session, GuiComponent"
+          },
+          {
+            "line": 208,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpret"
+          },
+          {
+            "line": 208,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector",
+            "context": "- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpret"
+          },
+          {
+            "line": 209,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpre"
+          },
+          {
+            "line": 209,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector",
+            "context": "- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpre"
+          },
+          {
+            "line": 210,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- `gui_agent_loop_core/schema/core/schema.py`: \"class GuiAgentInterpreterABC(ABC"
+          },
+          {
+            "line": 239,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "context": "| GuiAgentInterpreter | Interpreter |"
+          },
+          {
+            "line": 240,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "context": "| 会話インタープリタ | Interpreter |"
+          },
+          {
+            "line": 241,
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "| AIエージェント | Agent |"
+          },
+          {
+            "line": 242,
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "context": "| 専門エージェント | Agent |"
+          },
+          {
+            "line": 243,
+            "found": "AgentType",
+            "should_be": "Agent",
+            "context": "| AgentType | Agent |"
+          },
+          {
+            "line": 244,
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "context": "| AgentDefinition | Agent |"
+          },
+          {
+            "line": 245,
+            "found": "TaskAgent",
+            "should_be": "Agent",
+            "context": "| TaskAgent | Agent |"
+          },
+          {
+            "line": 246,
+            "found": "AgentImage",
+            "should_be": "Agent",
+            "context": "| AgentImage | Agent |"
+          },
+          {
+            "line": 247,
+            "found": "ChatSession",
+            "should_be": "Session",
+            "context": "| ChatSession | Session |"
+          },
+          {
+            "line": 248,
+            "found": "会話セッション",
+            "should_be": "Session",
+            "context": "| 会話セッション | Session |"
+          },
+          {
+            "line": 249,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "| メッセージ | Message |"
+          },
+          {
+            "line": 250,
+            "found": "ChatMessage",
+            "should_be": "Message",
+            "context": "| ChatMessage | Message |"
+          },
+          {
+            "line": 251,
+            "found": "InterpreterState",
+            "should_be": "State",
+            "context": "| InterpreterState | State |"
+          },
+          {
+            "line": 252,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "| インタープリタ状態 | State |"
+          },
+          {
+            "line": 253,
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "context": "| 自動チャット | AutoChat |"
+          },
+          {
+            "line": 254,
+            "found": "自動継続",
+            "should_be": "AutoChat",
+            "context": "| 自動継続 | AutoChat |"
+          },
+          {
+            "line": 255,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper",
+            "context": "| GuiAgentStreamWrapper | StreamWrapper |"
+          },
+          {
+            "line": 256,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper",
+            "context": "| ストリームラッパー | StreamWrapper |"
+          },
+          {
+            "line": 257,
+            "found": "GUIバックエンド",
+            "should_be": "Backend",
+            "context": "| GUIバックエンド | Backend |"
+          },
+          {
+            "line": 258,
+            "found": "UIフレームワーク",
+            "should_be": "Backend",
+            "context": "| UIフレームワーク | Backend |"
+          },
+          {
+            "line": 259,
+            "found": "GuiBackend",
+            "should_be": "Backend",
+            "context": "| GuiBackend | Backend |"
+          },
+          {
+            "line": 260,
+            "found": "GuiComponent",
+            "should_be": "Backend",
+            "context": "| GuiComponent | Backend |"
+          },
+          {
+            "line": 261,
+            "found": "会話メモリ",
+            "should_be": "Memory",
+            "context": "| 会話メモリ | Memory |"
+          },
+          {
+            "line": 262,
+            "found": "ConversationBuffer",
+            "should_be": "Memory",
+            "context": "| ConversationBuffer | Memory |"
+          },
+          {
+            "line": 263,
+            "found": "変換器",
+            "should_be": "Converter",
+            "context": "| 変換器 | Converter |"
+          },
+          {
+            "line": 264,
+            "found": "マッパー",
+            "should_be": "Converter",
+            "context": "| マッパー | Converter |"
+          },
+          {
+            "line": 265,
+            "found": "コネクタ",
+            "should_be": "Connector",
+            "context": "| コネクタ | Connector |"
+          },
+          {
+            "line": 266,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "| GuiAgentInterpreterABC | Connector |"
+          },
+          {
+            "line": 267,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector",
+            "context": "| ConnectorImplCodeinterpreterApi | Connector |"
+          },
+          {
+            "line": 268,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector",
+            "context": "| ConnectorImplOpenInterpreter | Connector |"
+          }
+        ]
       },
-      "intent_issues_count": 3,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        }
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 100,
-        "issues_count": 0,
-        "issues": []
-      },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 100,
-        "issues_count": 0,
-        "issues": []
-      },
-      "intent_issues_count": 5,
-      "intent_issues": [
-        {
-          "type": "missing_core_function",
-          "expected": "Centralized Conversation Management"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "State Machine with Monotonic Transitions"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Multi-Agent Coordination"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Structured Message Processing"
-        },
-        {
-          "type": "missing_core_function",
-          "expected": "Backend Abstraction"
-        }
-      ]
+      "issues": []
     }
   ]
 }

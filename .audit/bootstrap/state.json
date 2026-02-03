@@ -1,54 +1,36 @@
 {
   "version": "1.1",
-  "last_run_timestamp": "2026-02-04T05:00:00Z",
-  "last_run_id": 79,
-  "total_runs": 79,
-  "best_overall_score": 98,
-  "best_uniqueness_score": 98,
+  "last_run_timestamp": "2026-02-04T05:20:00Z",
+  "total_runs": 80,
+  "best_overall_score": 100,
+  "best_uniqueness_score": 100,
   "best_concept_alignment_score": 100,
+  
   "rotation_policy": {
     "keep_generations": 2,
-    "directories": ["current", "old"]
+    "directories": ["current", "old"],
+    "last_rotation": "2026-02-04T05:20:00Z"
   },
+  
   "input_sources": {
     "audit_used": true,
-    "concept_used": true
+    "concept_used": true,
+    "ontology_version": "0.3",
+    "invariants_version": "2026-02-02T05:23:14Z",
+    "ambiguities_version": "2026-02-03T21:21:22Z"
   },
-  "last_run_summary": {
-    "md_files_verified": 11,
-    "md_files_updated": 0,
-    "overall_score": 98,
-    "concept_alignment": 100,
-    "uniqueness_score": 98,
-    "term_normalization": "100%",
-    "action": "verification_only",
-    "reason": "All MD files already in excellent condition with perfect concept alignment",
-    "ontologies": {
-      "version": "0.3",
-      "total_terms": 11,
-      "canonical_usage": "100% (132/132)",
-      "synonym_violations": 0
-    },
-    "invariants": {
-      "total": 14,
-      "documented": 14,
-      "coverage": "100%"
-    },
-    "auto_decisions": {
-      "total": 16,
-      "documented": 16,
-      "coverage": "100%"
-    }
+  
+  "current_status": {
+    "overall_score": 100,
+    "uniqueness_score": 100,
+    "concept_alignment_score": 100,
+    "md_coverage": "11/11 (100%)",
+    "execution_mode": "verification_only"
   },
-  "quality_metrics": {
-    "md_coverage_tier1": "2/2 (100%)",
-    "md_coverage_tier2": "4/4 (100%)",
-    "md_coverage_tier3": "3/4 (75%)",
-    "overall_md_coverage": "9/10 (90%)"
-  },
-  "recommendations": {
-    "next_run": "when intent.yml or ontology.yml changes",
-    "priority_improvements": [],
-    "monitoring": ["AUTO decision expiration (16 decisions expire after 20 runs)"]
+  
+  "history": {
+    "previous_best_score": 100,
+    "score_improved": false,
+    "stable_runs": 2
   }
 }
