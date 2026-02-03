@@ -1,148 +1,43 @@
 {
-  "timestamp": "2026-02-03T22:15:00Z",
+  "timestamp": "2026-02-03T22:34:12.929970",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 96,
-
+  "overall_alignment_score": 80,
   "term_usage_check": {
-    "total_term_occurrences": 132,
-    "canonical_used": 128,
-    "synonym_used": 0,
-    "unknown_terms": 4,
-    "alignment_rate": 0.970
+    "total_canonical_terms": 11,
+    "core_terms": 5,
+    "documentation_coverage": "HIGH"
   },
-
+  "invariant_check": {
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "documented_in_agents": 11,
+    "documented_in_constitution": 11
+  },
+  "auto_decision_check": {
+    "total_active": 9,
+    "documented_in_readme": true,
+    "documented_in_agents": true
+  },
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 96,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "domain_terms_found": ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "aux_terms_found": ["Converter"]
-      },
+      "alignment_score": 95,
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "domain_terms_found": ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "aux_terms_found": ["Converter"]
-      },
       "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 95,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "domain_terms_found": ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "aux_terms_found": ["Converter"]
-      },
+      "alignment_score": 100,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "domain_terms_found": ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
-        "aux_terms_found": ["Converter"]
-      },
       "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "domain_terms_found": ["AutoChat", "Backend", "Connector"],
-        "aux_terms_found": []
-      },
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 90,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Message"],
-        "domain_terms_found": ["Backend"],
-        "aux_terms_found": []
-      },
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Could be more explicit about terminology normalization"
-        }
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 92,
-      "term_coverage": {
-        "core_terms_found": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "domain_terms_found": ["Backend", "Connector", "Converter"],
-        "aux_terms_found": ["Converter"]
-      },
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Could strengthen connection to ontology.yml"
-        }
-      ]
     }
-  ],
-
-  "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "CLAUDE.md": 14,
-      "SYSTEM_CONSTITUTION.md": 14,
-      "README.md": 5,
-      "CONTRIBUTING.md": 8,
-      "ARCHITECTURE.md": 10
-    }
-  },
-
-  "auto_decision_check": {
-    "total_active": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": [],
-    "coverage_by_file": {
-      "AGENTS.md": 16,
-      "CLAUDE.md": 16,
-      "README.md": 16,
-      "SYSTEM_CONSTITUTION.md": 5
-    },
-    "by_category": {
-      "Agent": 2,
-      "Message": 3,
-      "State": 4,
-      "AutoChat": 3,
-      "Backend": 3,
-      "Memory": 4,
-      "Session": 1,
-      "Connector": 1,
-      "Converter": 0
-    }
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0
-  },
-
-  "summary": {
-    "concept_alignment_checks_passed": 5,
-    "concept_alignment_checks_total": 5,
-    "term_normalization_rate": "97.0%",
-    "invariant_coverage": "100%",
-    "auto_decision_coverage": "100%"
-  }
+  ]
 }

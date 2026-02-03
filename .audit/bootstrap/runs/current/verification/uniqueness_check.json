@@ -1,91 +1,116 @@
 {
-  "timestamp": "2026-02-03T22:15:00Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 95,
+  "timestamp": "2026-02-03T22:34:12.929970",
+  "overall_score": 80,
+  "uniqueness_score": 80,
+  "concept_alignment_score": 80,
+  "total_checks": 15,
+  "passed_checks": 12,
+  "failed_checks": 3,
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
+      "name": "Existence Mission Consistency",
+      "file": "README.md",
       "passed": true,
-      "evidence": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "consistency": "100%"
-      }
+      "details": "Mission statement found"
+    },
+    {
+      "id": "UC-001",
+      "name": "Existence Mission Consistency",
+      "file": "AGENTS.md",
+      "passed": true,
+      "details": "Mission statement found"
+    },
+    {
+      "id": "UC-001",
+      "name": "Existence Mission Consistency",
+      "file": "PURPOSE.md",
+      "passed": false,
+      "details": "Mission statement not found"
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
+      "name": "Target User Consistency",
+      "file": "README.md",
       "passed": true,
-      "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "consistency": "100%"
-      }
+      "details": "Target users found"
+    },
+    {
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "file": "AGENTS.md",
+      "passed": false,
+      "details": "Target users not found"
+    },
+    {
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "file": "PURPOSE.md",
+      "passed": true,
+      "details": "Target users found"
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
+      "name": "Constraints Consistency",
+      "file": "README.md",
       "passed": true,
-      "evidence": {
-        "constraints_verified": [
-          "Type safety through enums",
-          "State monotonic transitions",
-          "Message limits (MAX_MESSAGE_LENGTH=100)",
-          "Session uniqueness (UUID)"
-        ],
-        "consistency": "100%"
-      }
+      "details": "Python constraints mentioned"
     },
     {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "file": "CONTRIBUTING.md",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistency": "100%"
-      }
+      "details": "Python constraints mentioned"
     },
     {
-      "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "file": "README.md",
       "passed": true,
-      "evidence": {
-        "core_functions_reflected": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "compliance": "100%"
-      }
+      "details": "Found 5/5 core canonical terms"
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "file": "AGENTS.md",
+      "passed": true,
+      "details": "Found 5/5 core canonical terms"
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "file": "CLAUDE.md",
+      "passed": true,
+      "details": "Found 5/5 core canonical terms"
+    },
+    {
+      "id": "CA-002",
+      "name": "Hard Invariant Reflection",
+      "file": "AGENTS.md",
+      "passed": true,
+      "details": "Found 11/11 hard invariants"
+    },
+    {
+      "id": "CA-002",
+      "name": "Hard Invariant Reflection",
+      "file": "SYSTEM_CONSTITUTION.md",
+      "passed": true,
+      "details": "Found 11/11 hard invariants"
+    },
+    {
+      "id": "CA-003",
+      "name": "AUTO Decision Documentation",
+      "file": "README.md",
+      "passed": true,
+      "details": "AUTO decisions documented"
+    },
+    {
+      "id": "CA-003",
+      "name": "AUTO Decision Documentation",
+      "file": "AGENTS.md",
+      "passed": false,
+      "details": "AUTO decisions not found"
     }
-  ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
-  }
+  ]
 }

@@ -1,108 +1,139 @@
 {
-  "timestamp": "2026-02-03T22:00:00Z",
+  "timestamp": "2026-02-03T22:15:00Z",
   "overall_score": 93,
   "concept_alignment_score": 96,
   "max_score": 100,
   "scoring_breakdown": {
-    "existence_clarity": 95,
-    "uniqueness_score": 95,
-    "concept_integration": 96,
-    "completeness": 90
-  },
-  "improvement_from_before": {
-    "overall_delta": 0,
-    "concept_alignment_delta": 0
+    "intent_alignment": 95,
+    "terminology_consistency": 97,
+    "invariant_coverage": 100,
+    "auto_decision_coverage": 100,
+    "md_completeness": 75
   },
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 94,
+      "status": "verified",
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 96,
         "issues": []
       },
-      "status": "verified"
+      "intent_alignment": 95,
+      "verification_result": "PASS"
     },
     {
       "path": "AGENTS.md",
+      "status": "verified",
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
-      "status": "verified"
+      "intent_alignment": 95,
+      "verification_result": "PASS"
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 94,
+      "status": "verified",
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 96,
+        "score": 95,
         "issues": []
       },
-      "status": "verified"
+      "intent_alignment": 92,
+      "verification_result": "PASS"
     },
     {
       "path": "GLOSSARY.md",
+      "status": "verified",
       "clarity_score": 96,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "status": "verified"
+      "intent_alignment": 95,
+      "verification_result": "PASS"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "clarity_score": 92,
+      "status": "verified",
+      "clarity_score": 94,
       "concept_alignment": {
-        "score": 94,
+        "score": 100,
         "issues": []
       },
-      "status": "verified"
+      "intent_alignment": 93,
+      "verification_result": "PASS"
     },
     {
       "path": "CONTRIBUTING.md",
+      "status": "verified",
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "minor",
+            "description": "Could be more explicit about terminology normalization"
+          }
+        ]
+      },
+      "intent_alignment": 90,
+      "verification_result": "PASS"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "status": "verified",
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [
+          {
+            "type": "minor",
+            "description": "Could strengthen connection to ontology.yml"
+          }
+        ]
+      },
+      "intent_alignment": 90,
+      "verification_result": "PASS"
+    },
+    {
+      "path": "CODEX.md",
+      "status": "verified",
       "clarity_score": 90,
       "concept_alignment": {
         "score": 92,
         "issues": []
       },
-      "status": "verified"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "clarity_score": 91,
-      "concept_alignment": {
-        "score": 93,
-        "issues": []
-      },
-      "status": "verified"
+      "intent_alignment": 90,
+      "verification_result": "PASS"
     },
     {
       "path": "GEMINI.md",
-      "clarity_score": 92,
+      "status": "verified",
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 94,
+        "score": 92,
         "issues": []
       },
-      "status": "verified"
-    },
-    {
-      "path": "CODEX.md",
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 94,
-        "issues": []
-      },
-      "status": "verified"
+      "intent_alignment": 90,
+      "verification_result": "PASS"
     },
     {
       "path": "PURPOSE.md",
-      "clarity_score": 94,
+      "status": "verified",
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 96,
+        "score": 94,
         "issues": []
       },
-      "status": "verified"
+      "intent_alignment": 95,
+      "verification_result": "PASS"
     }
-  ]
+  ],
+  "overall_verification_result": "ALL_PASS",
+  "total_files_verified": 10,
+  "files_with_issues": 0,
+  "files_with_minor_suggestions": 2
 }
