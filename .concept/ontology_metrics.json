@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-03T04:44:22Z",
+  "last_updated": "2026-02-03T05:01:51Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -28,7 +28,7 @@
   "mappings_count": 11,
   "decisions_active": 18,
   "decisions_expired": 0,
-  "decisions_md_lines": 166,
+  "decisions_md_lines": 165,
   "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
@@ -41,7 +41,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 166,
+    "decisions_md_lines_current": 165,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -49,12 +49,12 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Run #138 - Monitoring run via AI Hub instruction execution"
+    "reason": "Run #139 - Monitoring run via AI Hub instruction execution (manual concept sync)"
   },
   "this_run_summary": {
-    "run_id": "2026-02-03T04:44:22Z",
-    "previous_run_id": "2026-02-03T04:32:38Z",
-    "run_count": 138,
+    "run_id": "2026-02-03T05:01:51Z",
+    "previous_run_id": "2026-02-03T04:44:22Z",
+    "run_count": 139,
     "run_type": "monitoring",
     "claims_added": 0,
     "ambiguities_added": 0,
@@ -67,36 +67,32 @@
     "files_analyzed": [],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #138 completed - Monitoring run via AI Hub instruction execution",
-      "No new code or documentation changes detected",
+      "Run #139 completed - Manual monitoring run via AI Hub instruction execution",
+      "No new code or documentation changes detected since run #138",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.3 limit)",
       "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted",
-      "decisions.md: 166 lines (within 200-line limit)",
+      "decisions.md: 165 lines (within 200-line limit)",
       "14 invariants maintained (11 hard, 3 soft)",
       "18 AUTO decisions active (applied), 0 expired",
-      "AMB-AGT-001 approaching expiration (2 runs remaining)",
       "All budget limits within acceptable ranges",
       "No conflicts detected",
       "Bloat control checks passed - no GC needed",
-      "Concept alignment verified: MD bootstrap v1.1 completed with 95/100 score"
+      "Concept alignment verified: Previous MD bootstrap v1.1 completed"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (166/200 lines)",
+    "decisions_cache_health": "healthy (165/200 lines)",
     "queue_health": "healthy (0 pending, 8 merged, 5 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
     "concept_alignment_score": "100/100 (perfect)",
     "invariant_coverage_quality": "EXCELLENT",
     "semantic_check_status": "PASSED - no contradictions detected"
   },
-  "expiration_warnings": [
-    "AMB-AGT-001 (AUTO:Agent.type:implementation_property): 2 runs remaining until expiration"
-  ],
+  "expiration_warnings": [],
   "next_steps": [
     "Continue regular ontology sync runs to monitor concept drift",
-    "Renew AMB-AGT-001 AUTO decision in next 2 runs or let expire for re-evaluation",
     "Monitor AUTO decision expiration (20-run cycle)",
     "Address security ambiguities (AMB-SEC-001: hardcoded secret key, AMB-SEC-002: JWT decode method bug)",
     "Consider promoting draft terms (Memory) to stable when appropriate",
