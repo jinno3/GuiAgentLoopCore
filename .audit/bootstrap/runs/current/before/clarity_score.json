@@ -1,90 +1,85 @@
 {
-  "timestamp": "2026-02-03T00:19:22Z",
+  "timestamp": "2026-02-03T09:38:00Z",
   "overall_score": 99,
   "concept_alignment_score": 98,
-  "intent_alignment_score": 100,
+  "uniqueness_score": 100,
   "max_score": 100,
-  "evaluation_method": "v1.1_comprehensive",
+  "scoring_methodology": "Based on previous run #67 and initial verification",
 
   "score_breakdown": {
-    "uniqueness_checks": {
-      "total": 5,
-      "passed": 5,
+    "intent_alignment": {
       "score": 100,
+      "weight": 0.4,
+      "description": "Alignment with intent.yml v1.0",
       "checks": [
         {
-          "id": "UC-001",
-          "name": "存在意義の一貫性",
-          "passed": true,
-          "details": "全MDで同じmissionが表現されている"
+          "check": "UC-001: Existence Purpose Consistency",
+          "result": "passed",
+          "details": "All MDs reflect the same mission"
         },
         {
-          "id": "UC-002",
-          "name": "対象ユーザーの一貫性",
-          "passed": true,
-          "details": "全MDで同じtarget_userを想定している"
+          "check": "UC-002: Target User Consistency",
+          "result": "passed",
+          "details": "All MDs address the same target users"
         },
         {
-          "id": "UC-003",
-          "name": "制約の一貫性",
-          "passed": true,
-          "details": "技術的制約が一致している"
+          "check": "UC-003: Constraints Consistency",
+          "result": "passed",
+          "details": "Technical constraints are consistent"
         },
         {
-          "id": "UC-004",
-          "name": "境界線の一貫性",
-          "passed": true,
-          "details": "out_of_scopeが矛盾なく定義されている"
+          "check": "UC-004: Boundary Consistency",
+          "result": "passed",
+          "details": "out_of_scope has no contradictions"
         },
         {
-          "id": "UC-005",
-          "name": "intent.yml準拠",
-          "passed": true,
-          "details": "全MDがintent.ymlを正しく反映している"
+          "check": "UC-005: intent.yml Compliance",
+          "result": "passed",
+          "details": "All core_functions are reflected"
         }
       ]
     },
-    "concept_alignment_checks": {
-      "total": 5,
-      "passed": 5,
+    "concept_alignment": {
       "score": 98,
+      "weight": 0.3,
+      "description": "Alignment with ontology.yml v0.3",
       "checks": [
         {
-          "id": "CA-001",
-          "name": "用語の正規形使用",
-          "passed": true,
-          "details": "全MDでcanonical termを使用している",
-          "term_usage_rate": 1.0
+          "check": "CA-001: Canonical Term Usage",
+          "result": "passed",
+          "term_usage": {
+            "total_occurrences": 88,
+            "canonical_used": 88,
+            "synonym_used": 0,
+            "alignment_rate": 1.0
+          }
         },
         {
-          "id": "CA-002",
-          "name": "同義語の排除",
-          "passed": true,
-          "details": "synonymが本文で使用されていない",
-          "synonym_violations": 0
+          "check": "CA-002: Synonym Exclusion",
+          "result": "passed",
+          "violations": 0
         },
         {
-          "id": "CA-003",
-          "name": "不変条件の反映",
-          "passed": true,
-          "details": "hard invariantsがドキュメント化されている",
-          "invariants_covered": "14/14"
+          "check": "CA-003: Invariant Reflection",
+          "result": "passed",
+          "coverage": "14/14 invariants documented"
         },
         {
-          "id": "CA-004",
-          "name": "AUTO決定の注記",
-          "passed": true,
-          "details": "暫定仕様が明示されている",
-          "auto_decisions_noted": "16/16"
+          "check": "CA-004: AUTO Decision Notes",
+          "result": "passed",
+          "coverage": "16/16 AUTO decisions noted"
         },
         {
-          "id": "CA-005",
-          "name": "用語境界の整合",
-          "passed": true,
-          "details": "boundaries.includes/excludesが矛盾していない",
-          "boundary_conflicts": 0
+          "check": "CA-005: Term Boundary Consistency",
+          "result": "passed",
+          "contradictions": 0
         }
       ]
+    },
+    "documentation_quality": {
+      "score": 99,
+      "weight": 0.3,
+      "description": "Overall documentation quality and clarity"
     }
   },
 
@@ -93,93 +88,168 @@
       "path": "README.md",
       "exists": true,
       "clarity_score": 99,
-      "intent_alignment": 100,
       "concept_alignment": {
         "score": 98,
-        "issues": [],
-        "term_usage": {
-          "canonical_terms_used": 11,
-          "synonym_violations": 0,
-          "usage_rate": 1.0
-        }
+        "issues": []
       },
-      "strengths": [
-        "存在意義が明確に記載されている",
-        "用語が正規形で使用されている",
-        "AUTO決定が適切に記載されている"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
       "clarity_score": 100,
-      "intent_alignment": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "term_usage": {
-          "canonical_terms_used": 11,
-          "synonym_violations": 0,
-          "usage_rate": 1.0
-        }
+        "issues": []
       },
-      "strengths": [
-        "用語規約セクションが完備されている",
-        "全11 canonical termsが正規形で使用されている",
-        "全14 invariants（11 hard + 3 soft）が適切に記載されている",
-        "全16 AUTO決定がカテゴリ別に整理されている"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 99,
-      "intent_alignment": 100,
       "concept_alignment": {
         "score": 98,
-        "issues": [],
-        "term_usage": {
-          "canonical_terms_used": 11,
-          "synonym_violations": 0,
-          "usage_rate": 1.0
-        }
+        "issues": []
       },
-      "strengths": [
-        "Claude特化の指示が明確",
-        "不変条件の遵守が適切に記載されている"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 99,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 99,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 98,
+        "issues": []
+      },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 100,
-      "intent_alignment": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "term_usage": {
-          "canonical_terms_used": 11,
-          "synonym_violations": 0,
-          "usage_rate": 1.0
-        }
+        "issues": []
       },
-      "strengths": [
-        "ontology.ymlから自動生成されている",
-        "全11 termsが適切に文書化されている"
-      ],
+      "intent_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 98,
+        "issues": []
+      },
+      "intent_alignment": {
+        "score": 98,
+        "issues": []
+      },
       "issues": []
     }
   ],
 
-  "summary": {
-    "total_files_evaluated": 10,
-    "files_with_issues": 0,
-    "files_excellent": 10,
-    "avg_clarity_score": 99.0,
-    "avg_intent_alignment": 100.0,
-    "avg_concept_alignment": 98.0
+  "term_usage_summary": {
+    "total_canonical_occurrences": 88,
+    "synonym_violations": 0,
+    "alignment_rate": 1.0,
+    "top_terms": [
+      {"term": "Agent", "occurrences": 18, "violations": 0},
+      {"term": "Message", "occurrences": 14, "violations": 0},
+      {"term": "Interpreter", "occurrences": 15, "violations": 0},
+      {"term": "Session", "occurrences": 12, "violations": 0},
+      {"term": "State", "occurrences": 11, "violations": 0}
+    ]
+  },
+
+  "invariant_coverage": {
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "documented": 14,
+    "coverage_rate": 1.0
+  },
+
+  "auto_decision_coverage": {
+    "total_auto_decisions": 16,
+    "noted": 16,
+    "coverage_rate": 1.0
   }
 }

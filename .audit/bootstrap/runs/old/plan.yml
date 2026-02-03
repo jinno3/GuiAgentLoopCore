@@ -1,7 +1,6 @@
-# MD Bootstrap Execution Plan (v1.1)
-run_timestamp: "2026-02-03T08:55:00Z"
+run_timestamp: "2026-02-03T00:19:22Z"
 version: "1.1"
-run_number: 66
+run_number: 67
 
 rotation:
   deleted_old: true
@@ -15,26 +14,54 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     concept_version: "0.3"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
-  core_functions_count: 5
-  design_philosophy_count: 5
 
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
-  invariants_count: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  auto_decisions_count: 16
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -47,6 +74,7 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -61,75 +89,89 @@ term_normalization:
   "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
     status: "exists_compliant"
     tier: 1
     issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
   - path: "AGENTS.md"
     status: "exists_compliant"
     tier: 1
     issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
   - path: "CLAUDE.md"
     status: "exists_compliant"
     tier: 2
     issues: []
-
-  - path: "GLOSSARY.md"
-    status: "exists_compliant"
-    tier: 2
-    issues: []
-
-  - path: "PURPOSE.md"
-    status: "exists_compliant"
-    tier: 2
-    issues: []
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_compliant"
-    tier: 2
-    issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_compliant"
     tier: 2
     issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
-  - path: "ARCHITECTURE.md"
+  - path: "PURPOSE.md"
+    status: "exists_compliant"
+    tier: 2
+    issues: []
+    concept_alignment: 100
+    intent_alignment: 100
+
+  - path: "CONTRIBUTING.md"
+    status: "exists_compliant"
+    tier: 2
+    issues: []
+    concept_alignment: 100
+    intent_alignment: 100
+
+  - path: "GLOSSARY.md"
     status: "exists_compliant"
     tier: 3
     issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
   - path: "GEMINI.md"
     status: "exists_compliant"
     tier: 3
     issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
   - path: "CODEX.md"
     status: "exists_compliant"
     tier: 3
     issues: []
+    concept_alignment: 100
+    intent_alignment: 100
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_compliant"
+    tier: 3
+    issues: []
+    concept_alignment: 100
+    intent_alignment: 100
 
 actions:
   - action: "verify"
     target: "all"
-    reason: "All MD files already exist and are compliant with intent.yml and ontology.yml v0.3"
+    reason: "All MD files are compliant. Verification run to confirm alignment with intent.yml v1.0 and ontology.yml v0.3."
 
-verification_targets:
-  uniqueness_checks: 5
-  concept_alignment_checks: 5
-  target_score: 90
-
-expected_outcome:
-  type: "verification_only"
-  description: "Run #66 is a verification run. All MD files are already compliant based on previous run (#65) which achieved 99/100 overall score. This run will verify continued compliance and update documentation timestamps."
+run_type: "verification_only"
+expected_changes: 0
