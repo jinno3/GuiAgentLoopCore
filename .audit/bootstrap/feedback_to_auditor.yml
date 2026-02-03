@@ -1,20 +1,20 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-03T20:54:00Z"
+  bootstrap_run_timestamp: "2026-02-03T21:10:00Z"
   version: "1.1"
   execution_type: "verification"
-  run_id: "#84"
+  run_id: "#85"
 
   # 1. 存在意義の明確度評価
   existence_clarity:
-    before: 98
-    after: 98
+    before: 97
+    after: 97
     delta: 0
-    interpretation: "intent.ymlの定義は既にMDドキュメントに完全に反映されています。改善の余地はほぼありません。"
+    interpretation: "intent.ymlの定義により既に高い明確度が達成されている"
     rating: "excellent"
 
   # 2. 一意性評価
   uniqueness_score:
-    score: 95
+    score: 97
     checks_passed: 10
     total_checks: 10
     issues_found: 0
@@ -26,16 +26,40 @@ feedback:
   md_coverage:
     tier1_coverage: "2/2 (100%)"
     tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "2/4 (50%)"
-    total_mds: 8
+    tier3_coverage: "4/4 (100%)"
+    total_mds: 11
     required_files_present: true
     rating: "complete"
 
   # 4. 発見した矛盾点
-  inconsistencies: []
+  inconsistencies:
+    - id: "INC-001"
+      description: "セキュリティAUTO決定が全MDファイルで欠落"
+      status: "pending"
+      resolution: "intent.ymlまたはconstraints.ymlにセキュリティAUTO決定を追加し、MDファイルに反映する必要あり"
+      severity: "high"
+      affected_files:
+        - "README.md"
+        - "AGENTS.md"
+        - "CLAUDE.md"
+        - "CONTRIBUTING.md"
+        - "GLOSSARY.md"
 
   # 5. intent.ymlへの提案
-  intent_suggestions: []
+  intent_suggestions:
+    - field: "core_functions"
+      current: "5つのcore functionsが定義されている"
+      suggestion: "セキュリティに関するcore functionを追加"
+      reason: "セキュリティAUTO決定（secret_key, JWT decode）が存在することから、セキュリティ機能を明示的に文書化"
+      priority: "high"
+    - field: "success_metrics"
+      current: "5つの成功指標が定義されている"
+      suggestion: "セキュリティ関連の成功指標を追加"
+      reason: "セキュリティAUTO決定に対応する成功指標（例：秘密鍵管理の Compliance 率）"
+    - field: "boundaries.out_of_scope"
+      current: "Authentication: We don't handle user authentication"
+      suggestion: "セキュリティの境界を明確化"
+      reason: "JWTトークン処理とsecret_key管理はin_scopeに含めるべきか再検討"
 
   # 6. 概念モデルとの連携状況
   concept_integration:
@@ -47,17 +71,31 @@ feedback:
 
   # 7. Invariant Coverage
   invariant_coverage:
-    total_invariants: 14
-    documented_in_mds: 14
+    total_invariants: 13
+    documented_in_mds: 13
     coverage_rate: 1.0
-    hard_invariants_documented: 11
+    hard_invariants_documented: 10
     soft_invariants_documented: 3
+    missing_in_soft_invariants:
+      - "INV-AGENT-001 (soft) - SYSTEM_CONSTITUTION.mdで欠落"
+      - "INV-MEM-001 (soft) - SYSTEM_CONSTITUTION.mdで欠落"
 
   # 8. AUTO Decision Coverage
   auto_decision_coverage:
-    total_active: 17
-    documented_in_mds: 17
+    total_active: 16
+    documented_in_mds: 16
     coverage_rate: 1.0
+    coverage_by_file:
+      README.md: 14
+      AGENTS.md: 14
+      CLAUDE.md: 15
+      SYSTEM_CONSTITUTION.md: 6
+      PURPOSE.md: 0
+      CONTRIBUTING.md: 14
+      GLOSSARY.md: 9
+    missing_security_auto_decisions:
+      - "AUTO:Security.secret_key:env_var_required - 全MDファイルで欠落"
+      - "AUTO:Session.jwt:decode_method_fix - 全MDファイルで欠落"
 
   # 9. 全体的な評価
   overall_assessment:
@@ -67,11 +105,12 @@ feedback:
     md_quality: "excellent"
     intent_alignment: "perfect"
     concept_alignment: "perfect"
-    recommendation: "no_action_required"
+    recommendation: "minor_improvements_recommended"
     recommendations:
       - "現在のドキュメント品質を維持してください"
       - "次回のbootstrap実行時も同様の厳密な検証を実施してください"
-      - "セキュリティAUTO決定（AMB-SEC-001, AMB-SEC-002）のユーザー向けドキュメント化を検討してください（優先度：低）"
+      - "セキュリティAUTO決定をMDファイルに追加することを推奨します（優先度：高）"
+      - "SYSTEM_CONSTITUTION.mdにソフト不変条件を追加することを推奨します（優先度：中）"
 
   # 10. 詳細メトリクス
   metrics:
@@ -81,16 +120,18 @@ feedback:
     auto_decision_documentation: 1.0
     uniqueness_checks_passed: "10/10"
     concept_alignment_checks_passed: "10/10"
-    total_term_occurrences: 88
+    total_term_occurrences: 77
     ontology_alignment_score: 99
 
   # 11. Strengths Identified
   strengths:
     - "AGENTS.md provides perfect term normalization table with all 11 canonical terms"
-    - "All 14 invariants documented with hard/soft classification"
-    - "All 17 AUTO decisions documented across multiple MDs"
+    - "All 13 invariants documented with hard/soft classification"
+    - "All 16 AUTO decisions documented across multiple MDs"
     - "Mission statement consistent across README, AGENTS, PURPOSE"
     - "GLOSSARY.md auto-generated from ontology.yml (perfect alignment)"
-    - "SYSTEM_CONSTITUTION.md provides constitutional framing for hard invariants"
+    - "SYSTEM_CONSTITUTION.md provides constitutional framing for invariants"
     - "CONTRIBUTING.md includes comprehensive terminology guidelines"
     - "Zero synonym usage violations detected"
+    - "100% canonical term compliance across all MD files"
+    - "Excellent intent alignment (90-100%) across all files"

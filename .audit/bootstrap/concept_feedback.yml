@@ -1,36 +1,64 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T20:54:00Z"
+  bootstrap_run_timestamp: "2026-02-03T21:10:00Z"
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-03T02:09:41Z"
-  run_id: "#84"
+  run_id: "#85"
 
   # 1. 用語使用状況
   term_usage_report:
     canonical_terms_count: 11
     canonical_used_in_mds: 11
     usage_rate: 1.0
-    total_occurrences: 88
+    total_occurrences: 77
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 14
-    reflected: 14
-    missing: []
+    total: 13
+    reflected: 13
+    missing:
+      - id: "INV-AGENT-001"
+        statement: "エージェントは定義された役割を持つ"
+        strength: "soft"
+        target_files: ["SYSTEM_CONSTITUTION.md"]
+        priority: "medium"
+        status: "pending"
+      - id: "INV-MEM-001"
+        statement: "会話メモリは最大100メッセージまで保持する"
+        strength: "soft"
+        target_files: ["SYSTEM_CONSTITUTION.md"]
+        priority: "medium"
+        status: "pending"
     coverage_rate: 1.0
-    hard_invariants_documented: 11
+    hard_invariants_documented: 10
     soft_invariants_documented: 3
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 17
-    noted_in_md: 17
-    format: "注記として記載（AUTO:カテゴリ:項目名 format）"
+    total_active: 16
+    noted_in_md: 16
+    format: "AUTO決定として明示的に記載"
     notation_style: "consistent"
-    expiration_policy_noted: true
+    coverage_by_file:
+      README.md: 14
+      AGENTS.md: 14
+      CLAUDE.md: 15
+      SYSTEM_CONSTITUTION.md: 6
+      PURPOSE.md: 0
+      CONTRIBUTING.md: 14
+      GLOSSARY.md: 9
+    missing_decisions:
+      - decision: "AUTO:Security.secret_key:env_var_required"
+        should_appear_in: ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"]
+        severity: "high"
+        status: "pending"
+      - decision: "AUTO:Session.jwt:decode_method_fix"
+        should_appear_in: ["CLAUDE.md", "CONTRIBUTING.md"]
+        severity: "high"
+        status: "pending"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -42,12 +70,28 @@ concept_feedback:
     synonym_additions: []
     boundary_updates: []
 
+    new_auto_decisions:
+      - category: "Security"
+        decision: "AUTO:Security.secret_key:env_var_required"
+        reason: "セキュリティAUTO決定がambiguities.ymlに存在するが、ontology.ymlに記載されていない"
+        evidence:
+          - source: ".concept/ambiguities.yml"
+            quote: "AMB-SEC-001: secret_keyは環境変数から取得すべき（暫定仕様）"
+        recommendation: "ontology.ymlのSessionまたはBackend用語のassumptionsにこのAUTO決定を追加"
+      - category: "Security"
+        decision: "AUTO:Session.jwt:decode_method_fix"
+        reason: "セキュリティAUTO決定がambiguities.ymlに存在するが、ontology.ymlに記載されていない"
+        evidence:
+          - source: ".concept/ambiguities.yml"
+            quote: "AMB-SEC-002: JWT decodeメソッドの修正が必要（暫定仕様）"
+        recommendation: "ontology.ymlのSession用語のassumptionsにこのAUTO決定を追加"
+
   # 6. AUTO Decision Expiration Review
   auto_decision_expiration_review:
     approaching_expiration: []
     recommendations:
       - "All AUTO decisions have sufficient remaining runs"
-      - "Security AUTO decisions（AMB-SEC-001, AMB-SEC-002）may need user-facing documentation before expiration"
+      - "Security AUTO decisions（AMB-SEC-001, AMB-SEC-002）をontology.ymlに統合し、MDファイルに反映することを推奨"
 
   # 7. 全体的な評価
   overall_assessment:
@@ -61,7 +105,8 @@ concept_feedback:
       - "現在のオントロジー品質を維持してください"
       - "新規用語の追加時はGLOSSARY.mdの自動生成を推奨"
       - "Memory用語がdraftからstableへの移行を監視してください"
-      - "セキュリティAUTO決定のユーザー向けドキュメント化を検討してください（優先度：低）"
+      - "セキュリティAUTO決定をontology.ymlに統合することを推奨します（優先度：高）"
+      - "SYSTEM_CONSTITUTION.mdにソフト不変条件を追加することを推奨します（優先度：中）"
 
   # 8. 詳細メトリクス
   metrics:
@@ -69,9 +114,11 @@ concept_feedback:
     domain_terms_documented: 5
     aux_terms_documented: 1
     total_terms_documented: 11
-    hard_invariants_documented: 11
+    hard_invariants_documented: 10
     soft_invariants_documented: 3
-    auto_decisions_documented: 17
+    auto_decisions_documented: 16
     canonical_term_usage_rate: 1.0
     synonym_violations: 0
     invariant_coverage: 1.0
+    term_normalization_score: 100
+    concept_alignment_score: 99

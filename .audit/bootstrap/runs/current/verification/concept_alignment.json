@@ -1,182 +1,105 @@
 {
-  "timestamp": "2026-02-03T20:54:00Z",
+  "timestamp": "2026-02-03T21:10:22Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
   "overall_alignment_score": 99,
-
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
+    "total_term_occurrences": 77,
+    "canonical_used": 77,
     "synonym_used": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0,
-    "by_term": {
-      "Interpreter": {"canonical": 18, "synonyms": 0},
-      "Agent": {"canonical": 22, "synonyms": 0},
-      "Session": {"canonical": 12, "synonyms": 0},
-      "Message": {"canonical": 15, "synonyms": 0},
-      "State": {"canonical": 14, "synonyms": 0},
-      "AutoChat": {"canonical": 2, "synonyms": 0},
-      "StreamWrapper": {"canonical": 1, "synonyms": 0},
-      "Backend": {"canonical": 2, "synonyms": 0},
-      "Memory": {"canonical": 1, "synonyms": 0},
-      "Connector": {"canonical": 1, "synonyms": 0},
-      "Converter": {"canonical": 0, "synonyms": 0}
-    }
+    "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "Canonical terms used consistently",
-        "Reference to GLOSSARY.md for term definitions",
-        "AUTO decisions documented"
-      ]
+      "alignment_score": 98,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "Perfect term normalization table",
-        "All 11 canonical terms used",
-        "Comprehensive synonym listing"
-      ]
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "All canonical terms used",
-        "AUTO decisions properly noted",
-        "Code examples use correct terms"
-      ]
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Perfect alignment by design",
-        "Synonym normalization map provided"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": ["Interpreter", "Agent", "Message", "State"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "Core terms used correctly",
-        "Aligned with intent.yml"
-      ]
+      "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "All terms used correctly",
-        "Invariants reference proper terms"
-      ]
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "Comprehensive terminology guidelines",
-        "All invariants reference canonical terms"
-      ]
+      "alignment_score": 95,
+      "issues": []
     },
     {
-      "file": "ARCHITECTURE.md",
+      "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonym_usage": [],
-      "issues": [],
-      "strengths": [
-        "Component documentation uses canonical terms",
-        "Boundaries match ontology definitions"
-      ]
+      "issues": []
     }
   ],
-
   "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": [],
-    "coverage_by_file": {
-      "README.md": 5,
-      "AGENTS.md": 14,
-      "CLAUDE.md": 12,
-      "SYSTEM_CONSTITUTION.md": 14,
-      "CONTRIBUTING.md": 14,
-      "ARCHITECTURE.md": 8
+    "total_invariants": 13,
+    "hard_invariants": 10,
+    "soft_invariants": 3,
+    "reflected_in_md": {
+      "hard": 11,
+      "soft": 3
     },
-    "invariant_term_alignment": {
-      "correct_terms_used": 14,
-      "incorrect_terms": 0,
-      "alignment_rate": 1.0
-    }
-  },
-
-  "auto_decision_check": {
-    "total_active": 17,
-    "reflected_in_md": 17,
-    "files_with_auto_docs": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"],
-    "by_category": {
-      "Agent": {"total": 2, "documented": 2},
-      "Message": {"total": 3, "documented": 3},
-      "State": {"total": 3, "documented": 3},
-      "AutoChat": {"total": 3, "documented": 3},
-      "Backend": {"total": 3, "documented": 3},
-      "Memory": {"total": 4, "documented": 4},
-      "Session": {"total": 2, "documented": 2},
-      "Connector": {"total": 1, "documented": 1},
-      "Security": {"total": 2, "documented": 0}
-    },
-    "missing_documentation": [
+    "missing": [
       {
-        "category": "Security",
-        "auto_decisions": ["AUTO:Security.secret_key:env_var_required", "AUTO:Session.jwt:decode_method_fix"],
-        "recommendation": "Consider documenting security AUTO decisions in CONTRIBUTING.md or SECURITY.md"
+        "invariant_id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "strength": "soft",
+        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
+        "status": "pending"
+      },
+      {
+        "invariant_id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "strength": "soft",
+        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
+        "status": "pending"
       }
     ]
   },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 17,
-    "reflected_as_notes": 17,
-    "missing_notes": 0,
-    "notation_style": "consistent"
-  },
-
-  "summary": {
-    "overall_alignment": 99,
-    "term_normalization": "perfect (100%)",
-    "invariant_coverage": "complete (100%)",
-    "auto_decision_documentation": "excellent (100%)",
-    "recommendations": [
-      "Consider documenting security AUTO decisions (AMB-SEC-001, AMB-SEC-002) in a dedicated SECURITY.md file"
+  "auto_decision_check": {
+    "total_auto_decisions": 16,
+    "reflected_in_md": {
+      "README.md": 14,
+      "AGENTS.md": 14,
+      "CLAUDE.md": 15,
+      "SYSTEM_CONSTITUTION.md": 6,
+      "PURPOSE.md": 0,
+      "CONTRIBUTING.md": 14,
+      "GLOSSARY.md": 9
+    },
+    "missing": [
+      {
+        "decision": "AUTO:Security.secret_key:env_var_required",
+        "should_appear_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "severity": "high",
+        "status": "pending"
+      },
+      {
+        "decision": "AUTO:Session.jwt:decode_method_fix",
+        "should_appear_in": ["CLAUDE.md", "CONTRIBUTING.md"],
+        "severity": "high",
+        "status": "pending"
+      }
     ]
+  },
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
   }
 }
