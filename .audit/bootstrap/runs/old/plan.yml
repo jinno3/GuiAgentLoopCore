@@ -1,6 +1,6 @@
-run_timestamp: "2026-02-03T09:38:00Z"
+run_timestamp: "2026-02-03T09:53:00Z"
 version: "1.1"
-run_number: 68
+run_number: 69
 
 rotation:
   deleted_old: true
@@ -10,13 +10,11 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
-    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
-    ontology_version: "0.3"
-    invariants_version: "2026-02-02T05:23:14Z"
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
@@ -26,7 +24,6 @@ intent_summary:
     - "Framework Developers"
     - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
 
 ontology_summary:
   total_terms: 11
@@ -58,7 +55,6 @@ term_normalization:
   "AgentType": "Agent"
   "AgentDefinition": "Agent"
   "TaskAgent": "Agent"
-  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
   "JWT": "Session"
@@ -74,87 +70,77 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-  "ConnectorImplCodeinterpreterApi": "Connector"
-  "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
+
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 1
   - path: "AGENTS.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 1
   - path: "CLAUDE.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 2
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 2
   - path: "PURPOSE.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 2
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 2
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
   - path: "GLOSSARY.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 3
   - path: "GEMINI.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 3
   - path: "CODEX.md"
-    status: "exists_needs_verification"
+    status: "exists_needs_review"
     tier: 3
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_verification"
-    tier: 3
-
-baseline_scores:
-  previous_run: 67
-  previous_clarity_score: 99
-  previous_uniqueness_score: 100
-  previous_concept_alignment: 98
-  previous_overall_score: 99
 
 actions:
-  - action: "verify"
+  - action: "review"
     target: "README.md"
-    reason: "Verification run - check alignment with intent v1.0 and ontology v0.3"
-  - action: "verify"
+    reason: "Verify intent reflection and term normalization"
+  - action: "review"
     target: "AGENTS.md"
-    reason: "Verification run - check term normalization and invariant coverage"
-  - action: "verify"
+    reason: "Verify term normalization and invariant documentation"
+  - action: "review"
     target: "CLAUDE.md"
-    reason: "Verification run - check Claude-specific guidance"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verification run - check invariants documentation"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verification run - check purpose alignment"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verification run - check contributing guidelines"
-  - action: "verify"
+    reason: "Verify AUTO decisions documentation and term usage"
+  - action: "review"
     target: "GLOSSARY.md"
-    reason: "Verification run - check ontology alignment"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verification run - check Gemini-specific guidance"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verification run - check Codex-specific guidance"
-  - action: "verify"
+    reason: "Verify ontology.yml alignment"
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify hard invariants documentation"
+  - action: "review"
     target: "ARCHITECTURE.md"
-    reason: "Verification run - check architecture documentation"
+    reason: "Verify mappings.yml alignment"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines alignment"
+  - action: "review"
+    target: "PURPOSE.md"
+    reason: "Verify purpose alignment with intent"
+  - action: "review"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific guidance"
+  - action: "review"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific guidance"
 
 verification_targets:
   target_overall_score: 95
-  max_iterations: 3
+  target_uniqueness_score: 95
+  target_concept_alignment_score: 95

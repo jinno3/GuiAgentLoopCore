@@ -1,65 +1,75 @@
 {
-  "timestamp": "2026-02-03T09:53:00Z",
-  "verification_type": "uniqueness_check",
+  "timestamp": "2026-02-03T01:11:16Z",
   "overall_score": 100,
+  "uniqueness_score": 100,
+  "concept_alignment_score": 100,
+  "max_score": 100,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "mission_consistency": "All files reference the same mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'",
-        "variations_found": []
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
+        "mission_consistency": "All files contain the exact mission statement from intent.yml",
+        "mission_text": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
       }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistency": "All MD files consistently reference the same target users"
+        "files_checked": ["README.md", "PURPOSE.md", "AGENTS.md"],
+        "target_users_consistent": true,
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ]
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
         "constraints_consistent": true,
-        "invariants_aligned": true
+        "design_philosophy_aligned": "All 5 philosophy principles from intent.yml are reflected in PURPOSE.md"
       }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
         "in_scope_consistent": true,
         "out_of_scope_consistent": true,
-        "no_conflicts": true
+        "files_checked": ["README.md", "PURPOSE.md", "AGENTS.md"],
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ]
       }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
-        "mission_reflected": true,
-        "core_functions_reflected": true,
-        "boundaries_reflected": true,
-        "design_philosophy_reflected": true
+        "core_functions_count": 5,
+        "all_core_functions_documented": true,
+        "success_metrics_documented": true,
+        "design_philosophy_documented": true
       }
     }
   ],
@@ -67,6 +77,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100
+    "score": 100
   }
 }
