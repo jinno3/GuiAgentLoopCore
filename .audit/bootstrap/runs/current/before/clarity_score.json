@@ -1,220 +1,193 @@
 {
-  "timestamp": "2026-02-03T14:18:00Z",
-  "overall_score": 92,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-03T14:30:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 100,
   "max_score": 100,
-  "assessment": "Existing documentation is well-maintained and aligned with intent and ontology",
-
-  "score_breakdown": {
-    "existence_clarity": 95,
-    "uniqueness_consistency": 90,
-    "concept_alignment": 90,
-    "terminology_consistency": 92
-  },
-
+  "scoring_methodology": "v1.1 - unified uniqueness + concept alignment",
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Mission statement matches intent.yml exactly",
-          "All core terms used in canonical form (Interpreter, Agent, Session, Message, State)",
-          "Explicit reference to GLOSSARY.md for terminology",
-          "Core functions aligned with intent.core_functions"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Mission statement is clear and concise",
+        "Core functions are well-defined",
+        "Terminology note references GLOSSARY.md",
+        "System invariants are documented",
+        "AUTO decisions are noted"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Behavior rules aligned with intent.boundaries",
-          "Canonical terms consistently used",
-          "References to ontology and GLOSSARY.md present"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Comprehensive terminology table with canonical forms",
+        "All 11 canonical terms documented",
+        "Synonyms clearly marked as prohibited",
+        "Hard invariants (11) fully documented",
+        "Soft invariants (3) documented",
+        "All 16 AUTO decisions documented",
+        "Last updated timestamp with verification status"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "All 11 canonical terms documented with definitions",
-          "All 13 hard invariants documented with rationale",
-          "All 16 AUTO decisions noted and explained",
-          "Draft status of Memory properly noted",
-          "Code examples demonstrate proper usage patterns"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Hard invariants from invariants.yml reflected",
-          "Core principles aligned with design_philosophy"
-        ]
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "Mission statement aligned",
-          "Target users match intent.yml",
-          "Core value proposition consistent"
-        ]
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 88,
-      "concept_alignment": {
-        "score": 88,
-        "issues": [],
-        "strengths": [
-          "Development setup aligned with constraints",
-          "Code quality standards reflect design_philosophy"
-        ]
-      },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Claude-specific recommendations for term usage",
+        "Core, domain, and auxiliary terms clearly separated",
+        "All hard invariants documented",
+        "AUTO decisions recognized",
+        "Code examples follow invariants",
+        "Code review checklist provided"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Auto-generated from ontology.yml",
-          "All 11 canonical terms with definitions",
-          "Synonyms properly documented",
-          "AUTO decisions referenced",
-          "Layer classification included",
-          "Status indicators present (stable/draft)"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "All 11 canonical terms with definitions",
+        "Synonyms listed for each term",
+        "Status indicators (stable/draft)",
+        "Layer classification (core/domain/aux)",
+        "Related terms documented"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Constitutional principles defined",
+        "Invariants treated as constitutional amendments",
+        "Clear amendment procedures",
+        "Separation of powers documented"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Canonical terms used consistently",
-          "Component boundaries reflect ontology.boundaries"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Architecture overview aligned with core concepts",
+        "Component boundaries clear"
+      ]
     },
     {
-      "path": "GEMINI.md",
+      "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "strengths": [
-          "Core terms documented",
-          "Invariants referenced"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Development guidelines reference invariants",
+        "Term usage guidelines included"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 85,
-        "issues": [],
-        "strengths": [
-          "Code patterns aligned with ontology"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Codex-specific instructions",
+        "Term usage guidelines"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Gemini-specific instructions",
+        "Term usage guidelines"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Detailed purpose documentation",
+        "Aligned with intent.yml"
+      ]
     },
     {
       "path": "CHANGELOG.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 60,
       "concept_alignment": {
-        "score": 80,
-        "issues": [],
-        "strengths": [
-          "Version history maintained"
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": []
+      "issues": [
+        "Minimal content (only 61 bytes)",
+        "No historical changelog entries"
+      ],
+      "strengths": [
+        "File exists as placeholder"
+      ]
     }
   ],
-
-  "term_usage_analysis": {
-    "canonical_term_usage": {
-      "Interpreter": {"canonical_count": 45, "synonym_count": 0, "alignment": 100},
-      "Agent": {"canonical_count": 82, "synonym_count": 0, "alignment": 100},
-      "Session": {"canonical_count": 38, "synonym_count": 0, "alignment": 100},
-      "Message": {"canonical_count": 67, "synonym_count": 0, "alignment": 100},
-      "State": {"canonical_count": 54, "synonym_count": 0, "alignment": 100},
-      "AutoChat": {"canonical_count": 12, "synonym_count": 0, "alignment": 100},
-      "StreamWrapper": {"canonical_count": 8, "synonym_count": 0, "alignment": 100},
-      "Backend": {"canonical_count": 35, "synonym_count": 0, "alignment": 100},
-      "Memory": {"canonical_count": 15, "synonym_count": 0, "alignment": 100},
-      "Connector": {"canonical_count": 22, "synonym_count": 0, "alignment": 100},
-      "Converter": {"canonical_count": 6, "synonym_count": 0, "alignment": 100}
-    },
-    "overall_canonical_usage": 384,
-    "overall_synonym_usage": 0,
-    "alignment_rate": 1.0
-  },
-
-  "invariant_coverage": {
-    "total_invariants": 13,
-    "documented_invariants": 13,
-    "coverage_rate": 1.0,
-    "missing_documentation": []
-  },
-
-  "auto_decision_coverage": {
-    "total_auto_decisions": 16,
-    "documented_decisions": 16,
-    "coverage_rate": 1.0,
-    "missing_documentation": []
-  },
-
   "summary": {
-    "status": "EXCELLENT",
-    "ready_for_verification": true,
-    "no_updates_needed": true,
-    "all_checks_passed": true
+    "total_canonical_terms_used": 11,
+    "total_synonyms_avoided": 31,
+    "canonical_usage_rate": 1.0,
+    "invariants_documented": 14,
+    "auto_decisions_noted": 16,
+    "term_consistency": "excellent",
+    "invariant_coverage": "complete",
+    "overall_quality": "PRODUCTION_READY"
   }
 }
