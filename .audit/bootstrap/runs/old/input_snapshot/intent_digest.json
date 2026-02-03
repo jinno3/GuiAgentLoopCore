@@ -1,57 +1,24 @@
 {
-  "timestamp": "2026-02-03T21:25:46Z",
+  "timestamp": "2026-02-03T12:37:50.063263+00:00",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.\n",
   "target_users": [
-    "Application Developers: Building LLM-powered applications with GUI interfaces",
-    "AI Agent Developers: Creating specialized agents for specific tasks",
-    "Framework Developers: Building new GUI backend implementations",
-    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
-  ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-  "core_functions": [
     {
-      "description": "Centralized Conversation Management",
-      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination"
+      "Application Developers": "Building LLM-powered applications with GUI interfaces"
     },
     {
-      "description": "State Machine with Monotonic Transitions",
-      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
+      "AI Agent Developers": "Creating specialized agents for specific tasks"
     },
     {
-      "description": "Multi-Agent Coordination",
-      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
+      "Framework Developers": "Building new GUI backend implementations"
     },
     {
-      "description": "Structured Message Processing",
-      "details": "Handle structured communication between users, systems, and agents"
-    },
-    {
-      "description": "Backend Abstraction",
-      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
+      "AI Agents": "Claude, Gemini, Codex, and other AI models working with this codebase"
     }
   ],
-  "in_scope": [
-    "Conversation Flow Management",
-    "State Machine",
-    "Agent Coordination",
-    "Message Processing",
-    "Backend Abstraction",
-    "Streaming Support"
-  ],
-  "out_of_scope": [
-    "UI Rendering",
-    "LLM Execution",
-    "Session Storage",
-    "Authentication",
-    "Network Protocols"
-  ],
-  "design_philosophy": [
-    "Correctness Over Convenience",
-    "Explicit Over Implicit",
-    "Small, Focused Components",
-    "Testability",
-    "Conceptual Integrity"
-  ]
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.\n",
+  "core_functions_count": 5,
+  "in_scope_count": 6,
+  "out_of_scope_count": 5
 }

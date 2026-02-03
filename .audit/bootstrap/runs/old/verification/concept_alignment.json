@@ -1,77 +1,261 @@
 {
-  "timestamp": "2026-02-03T21:25:46Z",
+  "timestamp": "2026-02-03T12:38:34.636957+00:00",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
-  "overall_alignment_score": 98,
-  "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
+  "overall_alignment_score": 58,
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Converter"],
-        "synonyms_found": [],
-        "total_occurrences": 22
+      "exists": true,
+      "concept_alignment": {
+        "score": 80,
+        "issues_count": 2,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 83,
+            "context": "- **AUTO:Agent.type:implementation_property** - AgentType is an implementation p"
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 113,
+            "context": "- **AUTO:Session.jwt:algorithm_hs256** - JWT uses HS256 algorithm (provisional)"
+          }
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "missing_concepts": 0,
+        "issues": []
+      },
+      "invariants_coverage": {
+        "total_hard": 11,
+        "mentioned": 5,
+        "coverage": 0.45454545454545453
+      }
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "total_occurrences": 44
+      "exists": true,
+      "concept_alignment": {
+        "score": 0,
+        "issues_count": 33,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 14,
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 14,
+            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 15,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 15,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 15,
+            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
+          }
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "missing_concepts": 0,
+        "issues": []
+      },
+      "invariants_coverage": {
+        "total_hard": 11,
+        "mentioned": 11,
+        "coverage": 1.0
+      }
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "total_occurrences": 22
+      "exists": true,
+      "concept_alignment": {
+        "score": 80,
+        "issues_count": 2,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 82,
+            "context": "- **AUTO決定**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）"
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 154,
+            "context": "- **AUTO:Session.jwt:algorithm_hs256** - JWTはHS256アルゴリズム使用（暫定）"
+          }
+        ]
       },
-      "issues": []
+      "intent_alignment": {
+        "missing_concepts": 1,
+        "issues": [
+          {
+            "type": "missing_concept",
+            "concept": "conversation",
+            "reason": "Key concept 'conversation' from mission not found"
+          }
+        ]
+      },
+      "invariants_coverage": {
+        "total_hard": 11,
+        "mentioned": 11,
+        "coverage": 1.0
+      }
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "term_usage": {
-        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "total_occurrences": 0
+      "exists": true,
+      "concept_alignment": {
+        "score": 0,
+        "issues_count": 73,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 19,
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 19,
+            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 34,
+            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
+          }
+        ]
       },
-      "issues": [],
-      "note": "GLOSSARY.mdは用語定義ファイルであるため、同義語を正規形へのマッピングとして文書化している"
+      "intent_alignment": {
+        "missing_concepts": 0,
+        "issues": []
+      },
+      "invariants_coverage": {
+        "total_hard": 11,
+        "mentioned": 0,
+        "coverage": 0.0
+      }
+    },
+    {
+      "file": "PURPOSE.md",
+      "exists": true,
+      "concept_alignment": {
+        "score": 100,
+        "issues_count": 0,
+        "issues": []
+      },
+      "intent_alignment": {
+        "missing_concepts": 0,
+        "issues": []
+      },
+      "invariants_coverage": {
+        "total_hard": 11,
+        "mentioned": 0,
+        "coverage": 0.0
+      }
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "concept_alignment": {
+        "score": 90,
+        "issues_count": 1,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 176,
+            "context": "**AUTO Decision**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）"
+          }
+        ]
+      },
+      "intent_alignment": {
+        "missing_concepts": 2,
+        "issues": [
+          {
+            "type": "missing_concept",
+            "concept": "LLM",
+            "reason": "Key concept 'LLM' from mission not found"
+          },
+          {
+            "type": "missing_concept",
+            "concept": "conversation",
+            "reason": "Key concept 'conversation' from mission not found"
+          }
+        ]
+      },
+      "invariants_coverage": {
+        "total_hard": 11,
+        "mentioned": 11,
+        "coverage": 1.0
+      }
     }
   ],
-  "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": []
-  },
-  "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing": []
-  },
-  "ambiguity_check": {
-    "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0
-  },
-  "summary": {
-    "concept_checks_passed": "5/5",
-    "term_usage_perfect": true,
-    "invariants_complete": true,
-    "auto_decisions_documented": true
+  "term_normalization_map": {
+    "GuiAgentInterpreter": "Interpreter",
+    "会話インタープリタ": "Interpreter",
+    "AIエージェント": "Agent",
+    "専門エージェント": "Agent",
+    "AgentType": "Agent",
+    "AgentDefinition": "Agent",
+    "TaskAgent": "Agent",
+    "AgentImage": "Agent",
+    "ChatSession": "Session",
+    "会話セッション": "Session",
+    "JWT": "Session",
+    "メッセージ": "Message",
+    "ChatMessage": "Message",
+    "InterpreterState": "State",
+    "インタープリタ状態": "State",
+    "自動チャット": "AutoChat",
+    "自動継続": "AutoChat",
+    "GuiAgentStreamWrapper": "StreamWrapper",
+    "ストリームラッパー": "StreamWrapper",
+    "GUIバックエンド": "Backend",
+    "UIフレームワーク": "Backend",
+    "GuiBackend": "Backend",
+    "GuiComponent": "Backend",
+    "変換器": "Converter",
+    "マッパー": "Converter",
+    "会話メモリ": "Memory",
+    "ConversationBuffer": "Memory",
+    "コネクタ": "Connector",
+    "GuiAgentInterpreterABC": "Connector",
+    "ConnectorImplCodeinterpreterApi": "Connector",
+    "ConnectorImplOpenInterpreter": "Connector",
+    "OpenGuiConnector": "Connector"
   }
 }

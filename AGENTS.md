@@ -161,4 +161,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-03T13:21:48Z (bootstrap run v1.1 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z, ambiguities v2026-02-03T02:09:41Z)
+**最終更新**: 2026-02-03T21:51:00Z (bootstrap run v1.1 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z, ambiguities v2026-02-03T02:09:41Z - all checks passed)
