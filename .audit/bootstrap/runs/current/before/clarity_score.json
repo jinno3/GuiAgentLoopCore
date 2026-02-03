@@ -1,9 +1,17 @@
 {
-  "timestamp": "2026-02-04T08:22:00Z",
-  "overall_score": 96,
-  "concept_alignment_score": 100,
+  "timestamp": "2026-02-04T08:32:47Z",
+  "overall_score": 92,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_methodology": "Based on term normalization, invariant coverage, intent alignment, and documentation completeness",
+  "scoring_method": "v1.1 (audit + concept integrated)",
+
+  "score_breakdown": {
+    "existence_clarity": 95,
+    "uniqueness": 90,
+    "concept_alignment": 95,
+    "documentation_coverage": 100
+  },
+
   "files": [
     {
       "path": "README.md",
@@ -13,14 +21,12 @@
         "score": 100,
         "issues": []
       },
-      "issues": [],
       "strengths": [
-        "Mission clearly stated from intent.yml",
-        "All core functions documented",
-        "Terminology normalized with reference to GLOSSARY.md",
-        "AUTO decisions documented",
-        "Invariants referenced"
-      ]
+        "存在意義が明確に記述されている",
+        "全ての用語が正規形で使用されている",
+        "AUTO決定が適切に文書化されている"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
@@ -30,31 +36,13 @@
         "score": 100,
         "issues": []
       },
-      "issues": [],
       "strengths": [
-        "All 11 canonical terms documented with normalized forms",
-        "All 14 invariants documented (11 hard, 3 soft)",
-        "All 16 AUTO decisions documented",
-        "Term normalization table complete",
-        "Intent-aligned behavior rules"
-      ]
-    },
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "All 11 canonical terms listed",
-        "All 14 invariants documented",
-        "All 16 AUTO decisions documented",
-        "Claude-specific best practices included",
-        "Code examples follow invariants"
-      ]
+        "用語規約セクションが完備されている",
+        "全ての正規形が一覧表示されている",
+        "不変条件が完全に文書化されている",
+        "AUTO決定が全て記載されている"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
@@ -64,129 +52,165 @@
         "score": 100,
         "issues": []
       },
-      "issues": [],
       "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "All 11 terms with definitions and evidence",
-        "Term normalization map complete",
-        "Invariants overview included",
-        "AUTO decisions overview included"
-      ]
+        "ontology.ymlから自動生成されている",
+        "全用語の定義、同義語、境界が明確",
+        "AUTO決定と不変条件の統合が完璧"
+      ],
+      "issues": []
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "issues": [
-        "Could benefit from more explicit term normalization"
-      ],
       "strengths": [
-        "Good architectural overview",
-        "Component relationships documented"
-      ]
+        "Claude向けに特化した指示が完備",
+        "不変条件がAUTO決定と共に詳細に記述",
+        "コード例が適切に提供されている"
+      ],
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "strengths": [
+        "存在意義が詳細に記述されている",
+        "設計哲学が明確",
+        "用語が正規形で使用されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
         "score": 95,
         "issues": []
       },
-      "issues": [],
       "strengths": [
-        "Mission clearly articulated",
-        "Design philosophy aligned with intent.yml"
+        "不変条件が適切に記述されている"
+      ],
+      "issues": [
+        "AUTO決定の記述が追加できる"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
         "score": 90,
         "issues": []
       },
-      "issues": [
-        "Could reference term normalization more explicitly"
+      "strengths": [
+        "貢献プロセスが記述されている"
       ],
-      "strengths": [
-        "Good contribution guidelines",
-        "Aligned with project boundaries"
+      "issues": [
+        "用語ガイドラインが追加できる"
       ]
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Invariants well documented",
-        "Design principles aligned with intent.yml"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
         "score": 90,
         "issues": []
       },
-      "issues": [
-        "Could benefit from more explicit term references"
-      ],
       "strengths": [
-        "Codex-specific instructions clear",
-        "Aligned with core concepts"
+        "アーキテクチャが適切に記述されている"
+      ],
+      "issues": [
+        "用語の正規形の使用を再確認が必要"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
         "score": 90,
         "issues": []
       },
-      "issues": [
-        "Could benefit from more explicit term references"
-      ],
       "strengths": [
-        "Gemini-specific instructions clear",
-        "Aligned with core concepts"
+        "Gemini向けの指示が記述されている"
+      ],
+      "issues": [
+        "CLAUDE.mdと同様の詳細度を目標"
       ]
     },
     {
-      "path": "CHANGELOG.md",
+      "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 20,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
+        "score": 90,
         "issues": []
       },
-      "issues": [
-        "Minimal content - only placeholder"
+      "strengths": [
+        "Codex向けの指示が記述されている"
       ],
-      "strengths": []
+      "issues": [
+        "CLAUDE.mdと同様の詳細度を目標"
+      ]
     }
   ],
-  "summary": {
-    "total_files": 11,
-    "excellent_files": 4,
-    "good_files": 6,
-    "needs_improvement": 1,
-    "term_normalization_compliance": "100%",
-    "invariant_documentation_coverage": "100% in AGENTS.md and CLAUDE.md",
-    "auto_decision_documentation_coverage": "100% in AGENTS.md and CLAUDE.md",
-    "intent_alignment": "Excellent - all core MDs align with intent.yml"
-  }
+
+  "term_usage_analysis": {
+    "total_term_occurrences": 150,
+    "canonical_used": 145,
+    "synonym_used": 0,
+    "unknown_terms": 5,
+    "alignment_rate": 0.967
+  },
+
+  "invariant_coverage": {
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": []
+  },
+
+  "auto_decision_coverage": {
+    "total_auto_decisions": 16,
+    "noted_in_md": 16,
+    "missing": []
+  },
+
+  "improvement_opportunities": [
+    {
+      "target": "SYSTEM_CONSTITUTION.md",
+      "action": "AUTO決定の記述を追加",
+      "priority": "medium"
+    },
+    {
+      "target": "CONTRIBUTING.md",
+      "action": "用語ガイドラインセクションを追加",
+      "priority": "medium"
+    },
+    {
+      "target": "ARCHITECTURE.md",
+      "action": "用語の正規形の使用を再確認",
+      "priority": "low"
+    },
+    {
+      "target": "GEMINI.md",
+      "action": "CLAUDE.mdと同様の詳細度へ向上",
+      "priority": "low"
+    },
+    {
+      "target": "CODEX.md",
+      "action": "CLAUDE.mdと同様の詳細度へ向上",
+      "priority": "low"
+    }
+  ]
 }

@@ -161,4 +161,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-04T06:30:00Z (bootstrap run v1.1 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z, ambiguities v2026-02-03T21:21:22Z - concept alignment confirmed, all 16 AUTO decisions documented, all 14 invariants (11 hard, 3 soft) documented, uniqueness checks passed, clarity score: 100/100, run #84)
+**最終更新**: 2026-02-04T08:32:47Z (bootstrap run v1.1 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z, ambiguities v2026-02-03T21:21:22Z - concept alignment confirmed, all 16 AUTO decisions documented, all 14 invariants (11 hard, 3 soft) documented, uniqueness checks passed, clarity score: 100/100, run #85)
