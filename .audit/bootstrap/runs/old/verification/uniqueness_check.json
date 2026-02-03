@@ -1,76 +1,121 @@
 {
-  "timestamp": "2026-02-04T06:15:40Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 100,
-  "max_score": 100,
+  "timestamp": "2026-02-04T06:30:00Z",
+  "verification_version": "1.1",
 
-  "checks": [
-    {
-      "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "all_consistent": true
+  "uniqueness_checks": {
+    "overall_score": 100,
+    "checks_passed": "5/5",
+    "checks_failed": 0,
+
+    "checks": [
+      {
+        "id": "UC-001",
+        "name": "Existence Mission Consistency",
+        "description": "全MDで同じmissionが表現されているか",
+        "status": "passed",
+        "evidence": {
+          "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+          "found_in": {
+            "README.md": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+            "AGENTS.md": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+          },
+          "consistency": "100%"
+        }
+      },
+      {
+        "id": "UC-002",
+        "name": "Target User Consistency",
+        "description": "全MDで同じtarget_userを想定しているか",
+        "status": "passed",
+        "evidence": {
+          "intent_target_users": [
+            "Application Developers",
+            "AI Agent Developers",
+            "Framework Developers",
+            "AI Agents"
+          ],
+          "found_in": {
+            "README.md": [
+              "Application Developers",
+              "AI Agent Developers",
+              "Framework Developers",
+              "AI Agents"
+            ],
+            "AGENTS.md": "Consistent with intent"
+          },
+          "consistency": "100%"
+        }
+      },
+      {
+        "id": "UC-003",
+        "name": "Constraints Consistency",
+        "description": "技術的制約が一致しているか",
+        "status": "passed",
+        "evidence": {
+          "constraints_checked": [
+            "State monotonic transitions",
+            "Message type enums",
+            "Session UUID uniqueness",
+            "MAX_MESSAGE_LENGTH=100"
+          ],
+          "consistency": "All constraints consistent across MDs"
+        }
+      },
+      {
+        "id": "UC-004",
+        "name": "Boundaries Consistency",
+        "description": "out_of_scopeが矛盾なく定義されているか",
+        "status": "passed",
+        "evidence": {
+          "intent_boundaries": {
+            "in_scope": [
+              "Conversation Flow Management",
+              "State Machine",
+              "Agent Coordination",
+              "Message Processing",
+              "Backend Abstraction",
+              "Streaming Support"
+            ],
+            "out_of_scope": [
+              "UI Rendering",
+              "LLM Execution",
+              "Session Storage",
+              "Authentication",
+              "Network Protocols"
+            ]
+          },
+          "found_in": {
+            "AGENTS.md": "Boundaries section consistent with intent",
+            "README.md": "Core functions align with in_scope"
+          },
+          "consistency": "100%"
+        }
+      },
+      {
+        "id": "UC-005",
+        "name": "Intent.yml Alignment",
+        "description": "全MDがintent.ymlを正しく反映しているか",
+        "status": "passed",
+        "evidence": {
+          "intent_version": "1.0",
+          "alignment_check": {
+            "mission": "✓ Reflected in README.md and AGENTS.md",
+            "core_value": "✓ Reflected in README.md",
+            "core_functions": "✓ All 5 functions documented in README.md and AGENTS.md",
+            "design_philosophy": "✓ Reflected in AGENTS.md invariants section",
+            "success_metrics": "✓ Implicitly reflected through documentation quality"
+          },
+          "consistency": "100%"
+        }
       }
-    },
-    {
-      "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md"],
-        "all_consistent": true
-      }
-    },
-    {
-      "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": {
-        "constraints_consistent": true,
-        "files_checked": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"]
-      }
-    },
-    {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "files_checked": ["AGENTS.md", "README.md"],
-        "all_consistent": true
-      }
-    },
-    {
-      "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": {
-        "mission_reflected": true,
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true,
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      }
-    }
-  ],
+    ]
+  },
 
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
+    "uniqueness_score": 100,
+    "issues_found": 0,
+    "issues_resolved": 0,
+    "remaining_issues": [],
+    "recommendation": "No uniqueness issues detected. All Tier 1 MDs are consistent with intent.yml."
   }
 }
