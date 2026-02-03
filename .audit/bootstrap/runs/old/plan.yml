@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T23:00:00Z"
+run_timestamp: "2026-02-03T23:15:00Z"
 version: "1.1"
 
 rotation:
@@ -15,10 +15,9 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
-  core_functions_count: 5
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
 
 ontology_summary:
   total_terms: 11
@@ -27,14 +26,19 @@ ontology_summary:
   aux_terms: 1
   key_terms:
     - canonical: "Interpreter"
+      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
     - canonical: "Agent"
+      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
     - canonical: "Session"
+      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
+      layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
 
 term_normalization:
@@ -45,79 +49,92 @@ term_normalization:
   "AgentType": "Agent"
   "AgentDefinition": "Agent"
   "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
   "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_review"
+    issues:
+      - "Need to verify alignment with intent.yml mission statement"
+      - "Need to ensure term normalization (use canonical forms)"
   - path: "AGENTS.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_review"
+    issues:
+      - "Need to verify term normalization"
+      - "Need to check ontology alignment"
   - path: "CLAUDE.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_recent"
+    issues:
+      - "Recently updated (2026-02-03T13:24:48Z) - should verify alignment"
   - path: "GLOSSARY.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_recent"
+    issues:
+      - "Recently updated (2026-02-03T10:11:00Z) - should verify completeness"
   - path: "PURPOSE.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_review"
+    issues:
+      - "Need alignment check with intent.yml"
   - path: "CONTRIBUTING.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "GEMINI.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_review"
+    issues:
+      - "Need term normalization check"
   - path: "ARCHITECTURE.md"
-    status: "exists_aligned"
-    issues: []
+    status: "exists_needs_review"
+    issues:
+      - "Should align with mappings.yml"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    issues:
+      - "Should reflect hard invariants from invariants.yml"
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    issues:
+      - "Should align with AGENTS.md structure"
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    issues:
+      - "Should align with AGENTS.md structure"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology.yml"
-    status: "verification_only"
+    reason: "Verify mission alignment and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify all 11 canonical terms are properly documented"
-    status: "verification_only"
+    reason: "Verify concept alignment and term normalization"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify AUTO decisions and invariants alignment"
-    status: "verification_only"
+    reason: "Verify recent changes align with ontology v0.3"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify auto-generation from ontology.yml"
-    status: "verification_only"
-
-assessment:
-  overall_quality: "excellent"
-  clarity_score: 95
-  concept_alignment_score: 98
-  tier1_coverage: "2/2 (100%)"
-  tier2_coverage: "4/4 (100%)"
-  tier3_coverage: "4/4 (100%)"
-  total_md_files: 11
-
-decision: "no_updates_needed"
-justification:
-  - "All MD files already exist"
-  - "All Tier 1 files (README, AGENTS) are present and aligned"
-  - "All Tier 2 files (CLAUDE, SYSTEM_CONSTITUTION, PURPOSE, CONTRIBUTING) are present"
-  - "All Tier 3 files (GEMINI, CODEX, ARCHITECTURE, GLOSSARY) are present"
-  - "Concept alignment is excellent (98%)"
-  - "All 11 canonical terms are properly used"
-  - "All 16 AUTO decisions are documented"
-  - "All invariants are properly referenced"
-  - "Term normalization is consistently applied"
+    reason: "Verify completeness against ontology.yml"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify hard invariants are reflected"
+  - action: "verify"
+    target: "all_mds"
+    reason: "Run concept alignment verification"

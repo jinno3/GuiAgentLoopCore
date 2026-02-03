@@ -1,55 +1,27 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T23:15:00Z"
-  version: "1.1"
-  run_number: 12
+  bootstrap_run_timestamp: "2026-02-03T23:30:00Z"
   source_ontology_version: "0.3"
-  source_invariants_version: "2026-02-02T05:23:14Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    total_canonical_terms: 11
-    canonical_used: 11
-    total_term_occurrences: 150
-    canonical_used_count: 150
+    canonical_used: 44
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 1.0
-    breakdown:
-      core_terms: 5
-      domain_terms: 5
-      aux_terms: 1
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 12
-    reflected: 12
-    hard_invariants: 10
-    soft_invariants: 2
-    reflected_in_agents_md: 12
-    reflected_in_constitution_md: 12
-    reflected_in_claude_md: 12
+    total: 14
+    hard_invariants: 11
+    soft_invariants: 3
+    reflected: 14
     missing: []
-    coverage_percentage: 100
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    noted_in_readme: true
-    noted_in_agents: true
-    noted_in_claude: true
-    format: "AUTO決定セクションとして記載（README.md, AGENTS.md, CLAUDE.md）"
-    coverage_percentage: 100
-    per_category:
-      Agent: 2
-      Message: 3
-      State: 4
-      AutoChat: 3
-      Backend: 3
-      Memory: 4
-      Session: 1
-      Connector: 1
+    format: "カテゴライズされて記載（Agent/Message/State/AutoChat/Backend/Memory/Session/Connector）"
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -59,22 +31,13 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
-    status_changes: []
 
-  # 6. 概念整合性スコア
-  concept_alignment:
-    overall_score: 98
-    term_normalization_score: 100
-    invariant_reflection_score: 100
-    auto_decision_documentation_score: 100
-
-  # 7. 総合評価
+  # 6. 全体的評価
   overall_assessment:
-    grade: "A+"
-    status: "excellent"
-    concept_integrity: "maintained"
-    summary: "ontology.yml v0.3はMDドキュメント生成に完全に適切に使用されている。11個の正規用語が100%の整合率で一貫して使用され、12個の不変条件と16個のAUTO決定が100%反映されている。用語正規化は完璧。"
-    recommendation: "No changes needed to ontology.yml at this time"
-
-  # 8. 次回実行のタイミング
-  next_run_trigger: "When ontology.yml or ambiguities.yml changes"
+    status: "EXCELLENT"
+    message: "ontology.yml、invariants.yml、ambiguities.ymlはすべて適切に整備されています。全てのMDドキュメントで正規形が使用されており、不変条件とAUTO決定も完璧に反映されています。"
+    alignment_rate: 1.0
+    recommendations:
+      - "現状の品質を維持してください"
+      - "Memory用語がdraft状態のため、stableに昇格させる検討をしてください"
+      - "16個のAUTO決定について、証拠を収集して正式仕様に昇格させる検討をしてください"

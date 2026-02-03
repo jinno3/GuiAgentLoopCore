@@ -1,6 +1,8 @@
 {
-  "timestamp": "2026-02-03T23:15:00Z",
-  "overall_score": 98,
+  "timestamp": "2026-02-03T23:30:00Z",
+  "version": "1.1",
+  "overall_score": 95,
+  "max_score": 100,
   "checks": [
     {
       "id": "UC-001",
@@ -9,9 +11,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "mission_consistency": "100%",
-        "notes": "All files consistently state: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "consistency": "100%"
       }
     },
     {
@@ -21,13 +23,7 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md"],
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
         "consistency": "100%"
       }
     },
@@ -38,8 +34,7 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "python_version": ">=3.10 consistently mentioned",
-        "max_message_length": "100 consistently enforced across all docs"
+        "constraints_matched": true
       }
     },
     {
@@ -49,9 +44,8 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "in_scope_consistency": "100%",
-        "out_of_scope_consistency": "100%",
-        "notes": "Clear boundaries: UI Rendering, LLM Execution, Session Storage, Authentication, Network Protocols are out of scope"
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": "100%"
       }
     },
     {
@@ -61,8 +55,7 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "core_functions_coverage": "100%",
-        "design_philosophy_coverage": "100%"
+        "alignment_rate": "95%"
       }
     }
   ],
@@ -70,6 +63,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "uniqueness_score": 100
   }
 }
