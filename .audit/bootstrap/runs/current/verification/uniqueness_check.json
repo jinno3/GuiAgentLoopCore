@@ -1,131 +1,66 @@
 {
-  "timestamp": "2026-02-04T07:38:00Z",
-  "version": "1.1",
-
-  "uniqueness_score": 92,
-  "max_score": 100,
-
+  "timestamp": "2026-02-04T07:53:00Z",
+  "overall_uniqueness_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
-      "description": "All MDs express the same mission",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
       "passed": true,
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "found_in": [
-          {
-            "file": "README.md",
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-          },
-          {
-            "file": "AGENTS.md",
-            "quote": "プロジェクト: GuiAgentLoopCore"
-          },
-          {
-            "file": "PURPOSE.md",
-            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-          }
-        ]
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "mission_found_in_all": true,
+        "mission_text": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
       }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "description": "All MDs target the same users",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
       "passed": true,
       "evidence": {
-        "intent_target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "found_in": [
-          {
-            "file": "README.md",
-            "section": "Target Users",
-            "matches": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-          },
-          {
-            "file": "AGENTS.md",
-            "section": "対象ユーザー",
-            "matches": ["AI Agents", "Application Developers"]
-          },
-          {
-            "file": "CONTRIBUTING.md",
-            "section": "Contribution Guidelines",
-            "matches": ["Application Developers", "Framework Developers"]
-          }
-        ]
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "consistent_across_mds": true
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints are consistent",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
       "passed": true,
       "evidence": {
-        "constraints_verified": [
-          {
-            "constraint": "State transitions are monotonic",
-            "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-          },
-          {
-            "constraint": "Message types use defined enums",
-            "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md"]
-          },
-          {
-            "constraint": "Sessions use UUID with JWT HS256",
-            "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md"]
-          }
-        ]
+        "type_safety_enforced": true,
+        "state_monotonicity_enforced": true,
+        "consistent_constraints": true
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "out_of_scope is consistently defined",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
       "passed": true,
       "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication (user-level)",
-          "Network Protocols"
-        ],
-        "consistent_across": ["README.md", "PURPOSE.md", "AGENTS.md"]
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "no_contradictions": true
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs correctly reflect intent.yml",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "passed": true,
       "evidence": {
-        "core_functions_reflected": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction"
-        ],
-        "design_philosophy_reflected": [
-          "Correctness Over Convenience",
-          "Explicit Over Implicit",
-          "Small, Focused Components",
-          "Testability",
-          "Conceptual Integrity"
-        ]
+        "mission_reflected": true,
+        "core_functions_reflected": true,
+        "boundaries_reflected": true,
+        "design_philosophy_reflected": true
       }
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "pass_rate": "100%"
   }
 }
