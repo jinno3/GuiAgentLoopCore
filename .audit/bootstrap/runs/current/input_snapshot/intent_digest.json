@@ -1,18 +1,55 @@
 {
-  "timestamp": "2026-02-03T13:47:39Z",
+  "timestamp": "2026-02-03T05:06:18.691959+00:00",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "mission_summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.\n",
   "target_users": [
-    "Application Developers",
-    "AI Agent Developers",
-    "Framework Developers",
-    "AI Agents"
+    {
+      "Application Developers": "Building LLM-powered applications with GUI interfaces"
+    },
+    {
+      "AI Agent Developers": "Creating specialized agents for specific tasks"
+    },
+    {
+      "Framework Developers": "Building new GUI backend implementations"
+    },
+    {
+      "AI Agents": "Claude, Gemini, Codex, and other AI models working with this codebase"
+    }
   ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-  "core_functions_count": 5,
-  "in_scope_count": 6,
-  "out_of_scope_count": 5,
-  "design_philosophy_count": 5,
-  "success_metrics_count": 5
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.\n",
+  "core_functions": [
+    {
+      "description": "Centralized Conversation Management",
+      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination"
+    },
+    {
+      "description": "State Machine with Monotonic Transitions",
+      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
+    },
+    {
+      "description": "Multi-Agent Coordination",
+      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
+    },
+    {
+      "description": "Structured Message Processing",
+      "details": "Handle structured communication between users, systems, and agents"
+    },
+    {
+      "description": "Backend Abstraction",
+      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
+    }
+  ],
+  "boundaries": {
+    "in_scope": [
+      "Conversation Flow Management: Centralize how conversations flow through the system",
+      "State Machine: Provide reliable state transitions with monotonic guarantees",
+      "Agent Coordination: Manage multiple specialized agents with clear roles"
+    ],
+    "out_of_scope": [
+      "UI Rendering: We don't handle UI component rendering (that's the backend's job)",
+      "LLM Execution: We don't directly execute LLM models (we delegate to agents)",
+      "Session Storage: We don't persist sessions to databases (that's application-level)"
+    ]
+  }
 }

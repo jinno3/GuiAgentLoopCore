@@ -1,109 +1,136 @@
 {
-  "timestamp": "2026-02-03T13:35:00Z",
-  "concept_source": ".concept/ontology.yml (v0.3)",
-  "overall_alignment_score": 97,
+  "timestamp": "2026-02-03T13:47:39Z",
+  "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
+  "overall_alignment_score": 96,
+
   "term_usage_check": {
-    "total_term_occurrences": 132,
-    "canonical_used": 132,
+    "total_term_occurrences": 77,
+    "canonical_used": 77,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
-      "term_count": 11,
-      "issues": []
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "Converter"],
+      "issues": [],
+      "verification": "All 6 terms used are canonical. No synonyms found."
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "term_count": 11,
-      "issues": []
+      "alignment_score": 98,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": [],
+      "verification": "All 11 terms documented with canonical forms. Comprehensive term normalization table."
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "term_count": 11,
-      "issues": []
+      "alignment_score": 95,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "issues": [],
+      "verification": "All 11 terms used in canonical form. Well-documented AUTO decisions."
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_count": 11,
-      "issues": []
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "issues": [],
+      "verification": "Perfect alignment. Auto-generated from ontology.yml. All 11 terms with definitions."
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
-      "term_count": 11,
-      "issues": []
+      "alignment_score": 92,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
+      "issues": [
+        {
+          "type": "minor",
+          "description": "Could add more explicit references to domain terms (AutoChat, StreamWrapper, Memory, Connector) in principles"
+        }
+      ],
+      "verification": "10/11 canonical terms used. Hard invariants well-documented with AUTO decision references."
     },
     {
       "file": "CONTRIBUTING.md",
       "alignment_score": 95,
-      "term_count": 11,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 90,
-      "term_count": 8,
-      "issues": []
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "issues": [],
+      "verification": "All 11 terms referenced. Excellent AUTO decision documentation. Term normalization guidelines present."
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "term_count": 9,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 85,
-      "term_count": 7,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 85,
-      "term_count": 7,
-      "issues": []
+      "alignment_score": 94,
+      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Backend", "Converter", "Connector", "Memory"],
+      "issues": [
+        {
+          "type": "minor",
+          "description": "AutoChat not explicitly covered in architecture overview"
+        }
+      ],
+      "verification": "10/11 canonical terms used. Good alignment with ontology. References mappings.yml."
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": {
-      "AGENTS.md": 13,
-      "SYSTEM_CONSTITUTION.md": 11,
-      "CLAUDE.md": 13,
-      "CONTRIBUTING.md": 13
-    },
-    "missing": []
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_by_file": {
+      "AGENTS.md": 14,
+      "SYSTEM_CONSTITUTION.md": 14,
+      "CLAUDE.md": 14,
+      "CONTRIBUTING.md": 14,
+      "README.md": 5,
+      "ARCHITECTURE.md": 8
+    }
   },
+
   "auto_decision_check": {
-    "total_active": 16,
-    "reflected_in_md": {
+    "total_active_auto_decisions": 16,
+    "noted_in_md": 16,
+    "missing_notes": [],
+    "coverage_by_file": {
       "AGENTS.md": 16,
       "CLAUDE.md": 16,
+      "README.md": 11,
       "CONTRIBUTING.md": 16,
-      "README.md": 11
+      "ARCHITECTURE.md": 9,
+      "SYSTEM_CONSTITUTION.md": 6
     },
-    "missing_notes": []
+    "auto_decision_categories": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "AutoChat": 3,
+      "Backend": 3,
+      "Memory": 4,
+      "Session": 1,
+      "Connector": 1,
+      "Converter": 0
+    }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "all_marked_as_provisional": true
+    "verification": "All AUTO decisions from ambiguities.yml are properly noted in MD files"
   },
-  "ontology_completeness": {
-    "total_terms": 11,
-    "core_terms": 5,
-    "domain_terms": 5,
-    "aux_terms": 1,
-    "all_documented_in_glossary": true,
-    "all_used_in_mds": true
-  },
-  "summary": "Excellent concept alignment. All MDs use canonical terms correctly, document invariants comprehensively, and note AUTO decisions properly."
+
+  "summary": {
+    "ca_passed": "5/5",
+    "concept_alignment_score": 96,
+    "term_normalization_compliance": "100%",
+    "invariant_coverage": "100% (14/14)",
+    "auto_decision_coverage": "100% (16/16)",
+    "critical_issues": 0,
+    "minor_issues": 2,
+    "recommendations": [
+      "Consider adding AutoChat to ARCHITECTURE.md component overview",
+      "Consider expanding SYSTEM_CONSTITUTION.md principles to cover all domain terms"
+    ]
+  }
 }

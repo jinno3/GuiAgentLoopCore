@@ -1,174 +1,375 @@
 {
-  "timestamp": "2026-02-03T13:47:39Z",
-  "overall_score": 94,
-  "concept_alignment_score": 96,
+  "timestamp": "2026-02-03T05:06:33.848829+00:00",
+  "overall_score": 69,
+  "concept_alignment_score": 64,
+  "clarity_score": 75,
   "max_score": 100,
-  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, invariant coverage, and AUTO decision documentation",
-  "improvement_from_before": {
-    "overall_score_delta": "+2",
-    "concept_alignment_delta": "+1",
-    "reason": "Minor updates to SYSTEM_CONSTITUTION.md timestamp and verification count"
-  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Converter"],
-        "synonyms_found": []
+        "score": 90,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 82
+          },
+          {
+            "found": "JWT",
+            "should_be": "canonical form",
+            "line": 90
+          }
+        ]
       },
-      "strengths": [
-        "Mission clearly articulated from intent.yml",
-        "Target users well-defined",
-        "Core value statement present",
-        "Term normalization note references GLOSSARY.md",
-        "System invariants documented",
-        "AUTO decisions section with 11 key decisions listed"
-      ],
-      "issues": [],
-      "intent_alignment": 95,
-      "status": "verified"
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "AIエージェント",
+            "should_be": "canonical form",
+            "line": 1
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "canonical form",
+            "line": 14
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "canonical form",
+            "line": 14
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "canonical form",
+            "line": 15
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "canonical form",
+            "line": 15
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "canonical form",
+            "line": 15
+          },
+          {
+            "found": "TaskAgent",
+            "should_be": "canonical form",
+            "line": 15
+          },
+          {
+            "found": "AgentImage",
+            "should_be": "canonical form",
+            "line": 15
+          },
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 15
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "canonical form",
+            "line": 16
+          }
+        ]
       },
-      "strengths": [
-        "Comprehensive term normalization table (core, domain, aux)",
-        "All 11 canonical terms properly documented",
-        "Synonyms clearly marked as prohibited",
-        "Hard invariants (11) and soft invariants (3) documented",
-        "All 16 AUTO decisions documented by category",
-        "Behavior rules aligned with intent.yml",
-        "References to .concept files"
-      ],
-      "issues": [],
-      "intent_alignment": 98,
-      "status": "verified"
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "score": 5,
+        "issues": [
+          {
+            "found": "UIフレームワーク",
+            "should_be": "canonical form",
+            "line": 26
+          },
+          {
+            "found": "インタープリタ状態",
+            "should_be": "canonical form",
+            "line": 45
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "canonical form",
+            "line": 67
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "canonical form",
+            "line": 68
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "canonical form",
+            "line": 70
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "canonical form",
+            "line": 72
+          },
+          {
+            "found": "JWT",
+            "should_be": "canonical form",
+            "line": 80
+          },
+          {
+            "found": "ストリームラッパー",
+            "should_be": "canonical form",
+            "line": 96
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "canonical form",
+            "line": 109
+          },
+          {
+            "found": "会話メモリ",
+            "should_be": "canonical form",
+            "line": 109
+          }
+        ]
       },
-      "strengths": [
-        "Claude-specific recommendations clear",
-        "Core terms (5), Domain terms (5), Aux terms (1) well organized",
-        "Hard invariants with code examples",
-        "AUTO decisions noted with Claude context",
-        "Code review checklist includes term normalization"
-      ],
-      "issues": [],
-      "intent_alignment": 92,
-      "status": "verified"
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "会話インタープリタ",
+            "should_be": "canonical form",
+            "line": 19
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "canonical form",
+            "line": 19
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "canonical form",
+            "line": 20
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "TaskAgent",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "AgentImage",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "JWT",
+            "should_be": "canonical form",
+            "line": 52
+          }
+        ]
       },
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All 11 terms with definitions, synonyms, boundaries",
-        "Layer classification (core, domain, aux)",
-        "Status indicators (stable/draft)",
-        "Evidence sections with source quotes"
-      ],
-      "issues": [],
-      "intent_alignment": 88,
-      "status": "verified"
+      "issues": []
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Connector", "Converter"],
-        "synonyms_found": []
+        "score": 100,
+        "issues": []
       },
-      "strengths": [
-        "Constitutional principles clear",
-        "All 14 invariants documented (11 hard + 3 soft)",
-        "Updated timestamp with latest verification",
-        "AUTO decisions referenced in relevant invariants"
-      ],
-      "issues": [
-        "Could add more explicit references to domain terms (Memory) in principles"
-      ],
-      "intent_alignment": 90,
-      "status": "updated"
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
       "clarity_score": 85,
       "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
+        "score": 80,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "canonical form",
+            "line": 31
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "canonical form",
+            "line": 34
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "canonical form",
+            "line": 62
+          }
+        ]
       },
-      "strengths": [
-        "Development workflow documented",
-        "Excellent term normalization guidelines",
-        "Comprehensive AUTO decision documentation (all 16)",
-        "Clear invariant rules"
-      ],
-      "issues": [],
-      "intent_alignment": 85,
-      "status": "verified"
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 80,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "canonical form",
+            "line": 168
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "canonical form",
+            "line": 184
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "canonical form",
+            "line": 184
+          },
+          {
+            "found": "コネクタ",
+            "should_be": "canonical form",
+            "line": 184
+          }
+        ]
+      },
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 82,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 94,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Backend", "Converter", "Connector", "Memory"],
-        "synonyms_found": []
+        "score": 75,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "canonical form",
+            "line": 158
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "canonical form",
+            "line": 158
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "canonical form",
+            "line": 162
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "canonical form",
+            "line": 162
+          },
+          {
+            "found": "JWT",
+            "should_be": "canonical form",
+            "line": 336
+          }
+        ]
       },
-      "strengths": [
-        "Component relationships documented",
-        "References mappings.yml",
-        "AUTO decisions well-documented"
-      ],
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 87
+          },
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 92
+          }
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 86
+          },
+          {
+            "found": "AgentType",
+            "should_be": "canonical form",
+            "line": 91
+          }
+        ]
+      },
+      "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 35,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
       "issues": [
-        "Could add AutoChat to architecture overview"
-      ],
-      "intent_alignment": 82,
-      "status": "verified"
+        "Content too short"
+      ]
     }
-  ],
-  "summary": {
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "3/4 (75%)",
-    "total_issues": 2,
-    "critical_issues": 0,
-    "term_normalization_compliance": "100%",
-    "invariant_coverage": "100% (14 invariants documented)",
-    "auto_decision_coverage": "100% (16 AUTO decisions documented)"
-  }
+  ]
 }

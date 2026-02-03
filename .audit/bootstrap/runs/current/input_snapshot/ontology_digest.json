@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-03T13:47:39Z",
+  "timestamp": "2026-02-03T05:06:18.692457+00:00",
   "source": ".concept/ontology.yml",
   "version": "0.3",
   "statistics": {
@@ -19,56 +19,121 @@
       "canonical": "Interpreter",
       "layer": "core",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": [
+        "GuiAgentInterpreter",
+        "会話インタープリタ"
+      ],
+      "status": "stable"
     },
     {
       "canonical": "Agent",
       "layer": "core",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
-      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": [
+        "AIエージェント",
+        "専門エージェント",
+        "AgentType",
+        "AgentDefinition",
+        "TaskAgent",
+        "AgentImage"
+      ],
+      "status": "stable"
     },
     {
       "canonical": "Session",
       "layer": "core",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
-      "synonyms": ["ChatSession", "会話セッション", "JWT"],
-      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": [
+        "ChatSession",
+        "会話セッション",
+        "JWT"
+      ],
+      "status": "stable"
     },
     {
       "canonical": "Message",
       "layer": "core",
       "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
-      "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": [
+        "メッセージ",
+        "ChatMessage"
+      ],
+      "status": "stable"
     },
     {
       "canonical": "State",
       "layer": "core",
       "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": [
+        "InterpreterState",
+        "インタープリタ状態"
+      ],
+      "status": "stable"
+    },
+    {
+      "canonical": "AutoChat",
+      "layer": "domain",
+      "definition": "STATE_STOP時に自動的に会話を継続する機能",
+      "synonyms": [
+        "自動チャット",
+        "自動継続"
+      ],
+      "status": "stable"
+    },
+    {
+      "canonical": "StreamWrapper",
+      "layer": "domain",
+      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+      "synonyms": [
+        "GuiAgentStreamWrapper",
+        "ストリームラッパー"
+      ],
+      "status": "stable"
+    },
+    {
+      "canonical": "Backend",
+      "layer": "domain",
+      "definition": "GUIフレームワーク実装（Gradio等）",
+      "synonyms": [
+        "GUIバックエンド",
+        "UIフレームワーク",
+        "GuiBackend",
+        "GuiComponent"
+      ],
+      "status": "stable"
+    },
+    {
+      "canonical": "Converter",
+      "layer": "aux",
+      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+      "synonyms": [
+        "変換器",
+        "マッパー"
+      ],
+      "status": "stable"
+    },
+    {
+      "canonical": "Memory",
+      "layer": "domain",
+      "definition": "会話履歴を保持するバッファ機構",
+      "synonyms": [
+        "会話メモリ",
+        "ConversationBuffer"
+      ],
+      "status": "draft"
+    },
+    {
+      "canonical": "Connector",
+      "layer": "domain",
+      "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
+      "synonyms": [
+        "コネクタ",
+        "GuiAgentInterpreterABC",
+        "ConnectorImplCodeinterpreterApi",
+        "ConnectorImplOpenInterpreter",
+        "OpenGuiConnector"
+      ],
+      "status": "stable"
     }
-  ],
-  "total_auto_decisions": 16,
-  "auto_decision_categories": [
-    "Agent.role:classification",
-    "Agent.type:implementation_property",
-    "Message.structure:flat",
-    "Message.limit:100",
-    "Message.roles:tool_function_separation",
-    "State.lifecycle:monotonic",
-    "State.transition:auto_on_input",
-    "AutoChat.trigger:stop_only",
-    "AutoChat.prompt:default_continue",
-    "Backend.primary:gradio",
-    "Backend.deployment:security",
-    "Backend.timer:3sec_interval",
-    "Memory.window:k10",
-    "Memory.specs:provisional",
-    "Memory.limit:100",
-    "Session.jwt:algorithm_hs256",
-    "Connector.layer:domain"
   ]
 }
