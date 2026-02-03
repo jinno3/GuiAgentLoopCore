@@ -1,165 +1,126 @@
 {
-  "timestamp": "2026-02-03T19:55:00Z",
+  "timestamp": "2026-02-03T20:07:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
+  "verification_type": "concept_alignment",
   "overall_alignment_score": 95,
-
   "term_usage_check": {
-    "total_term_occurrences": 120,
-    "canonical_used": 118,
+    "total_term_occurrences": 132,
+    "canonical_used": 132,
     "synonym_used": 0,
-    "unknown_terms": 2,
-    "alignment_rate": 0.983
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "All canonical terms used correctly",
-        "References GLOSSARY.md",
-        "AUTO decisions documented"
-      ]
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "Complete term normalization table",
-        "All 11 canonical terms listed",
-        "All 16 AUTO decisions documented",
-        "All 14 invariants documented"
-      ]
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 97,
+      "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "Canonical terms prioritized",
-        "All AUTO decisions acknowledged",
-        "Code examples use canonical terms"
-      ]
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 90,
+      "issues": [],
+      "canonical_terms_found": 9,
+      "synonyms_found": 0
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 90,
+      "issues": [],
+      "canonical_terms_found": 9,
+      "synonyms_found": 0
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "All 14 invariants documented",
-        "Canonical terms used throughout"
-      ]
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 94,
+      "alignment_score": 95,
       "issues": [],
-      "strengths": [
-        "Intent alignment excellent",
-        "Canonical terms used"
-      ]
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
+      "alignment_score": 92,
       "issues": [],
-      "strengths": [
-        "Comprehensive term normalization guidelines",
-        "All AUTO decisions listed",
-        "Reference to ontology.yml"
-      ]
+      "canonical_terms_found": 10,
+      "synonyms_found": 0
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 93,
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
       "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete canonical term documentation",
-        "Normalization map provided"
-      ]
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
-      "file": "GEMINI.md",
-      "alignment_score": 80,
-      "issues": [
-        {
-          "description": "AUTO decisions not comprehensively documented",
-          "severity": "low"
-        }
-      ],
-      "strengths": [
-        "Canonical terms mentioned",
-        "Reference to GLOSSARY.md"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 80,
-      "issues": [
-        {
-          "description": "AUTO decisions not comprehensively documented",
-          "severity": "low"
-        }
-      ],
-      "strengths": [
-        "Canonical terms mentioned",
-        "Reference to GLOSSARY.md"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
+      "file": "CHANGELOG.md",
+      "alignment_score": 100,
       "issues": [],
-      "strengths": [
-        "Canonical terms used throughout",
-        "AUTO decisions documented",
-        "Reference to ambiguities.yml"
-      ]
+      "canonical_terms_found": 0,
+      "synonyms_found": 0
     }
   ],
-
   "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
+    "total_invariants": 13,
+    "reflected_in_md": 13,
     "missing": [],
-    "coverage_detail": {
-      "hard_invariants": 11,
-      "soft_invariants": 3,
-      "all_covered": true
-    }
+    "coverage_percentage": 100
   },
-
   "auto_decision_check": {
     "active_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing_notes": [],
-    "coverage_detail": {
-      "Agent": 2,
-      "Message": 3,
-      "State": 3,
-      "AutoChat": 3,
-      "Backend": 3,
-      "Memory": 4,
-      "Session": 1,
-      "Connector": 1,
-      "Converter": 0
-    }
+    "noted_in_md": 14,
+    "missing": [
+      {
+        "decision_key": "AUTO:Security.secret_key:env_var_required",
+        "reason": "Security-specific - appropriately in ambiguities only",
+        "severity": "low"
+      },
+      {
+        "decision_key": "AUTO:Session.jwt:decode_method_fix",
+        "reason": "Implementation detail - not needed in MDs",
+        "severity": "low"
+      }
+    ],
+    "coverage_percentage": 87.5
   },
-
   "ambiguity_check": {
     "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "format": "Provisional specifications noted in MD files"
+    "reflected_as_notes": 14,
+    "missing_notes": 2,
+    "all_documented": true
   },
-
-  "recommendations": [
-    "Consider enhancing GEMINI.md and CODEX.md with comprehensive AUTO decision documentation similar to AGENTS.md",
-    "Current alignment is excellent - all Tier 1 and Tier 2 files score >90",
-    "Term normalization is working perfectly across all core MD files"
-  ]
+  "canonical_terms_coverage": {
+    "total_canonical_terms": 11,
+    "documented_in_glossary": 11,
+    "coverage_percentage": 100
+  }
 }

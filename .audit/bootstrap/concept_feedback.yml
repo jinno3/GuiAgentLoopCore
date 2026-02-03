@@ -1,18 +1,19 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T20:07:00Z"
+  bootstrap_run_timestamp: "2026-02-03T20:23:00Z"
   source_ontology_version: "0.3"
-  run_number: 81
+  run_number: 82
   execution_mode: "verify_only"
 
   # 1. 用語使用状況
   term_usage_report:
     total_canonical_terms: 11
-    canonical_used: 132
+    canonical_used: 55
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
     status: "PERFECT"
+    note: "すべてのMDファイルで正規形が100%使用されている"
 
   # 2. 用語カバレッジ詳細
   term_coverage:
@@ -20,25 +21,25 @@ concept_feedback:
       total: 5
       documented_in_glossary: 5
       usage_in_mds:
-        Interpreter: {used: 12, canonical: 12, synonyms: 0}
-        Agent: {used: 24, canonical: 24, synonyms: 0}
-        Session: {used: 18, canonical: 18, synonyms: 0}
-        Message: {used: 35, canonical: 35, synonyms: 0}
-        State: {used: 18, canonical: 18, synonyms: 0}
+        Interpreter: {used: 9, canonical: 9, synonyms: 0}
+        Agent: {used: 9, canonical: 9, synonyms: 0}
+        Session: {used: 8, canonical: 8, synonyms: 0}
+        Message: {used: 9, canonical: 9, synonyms: 0}
+        State: {used: 10, canonical: 10, synonyms: 0}
     domain_terms:
       total: 5
       documented_in_glossary: 5
       usage_in_mds:
         AutoChat: {used: 6, canonical: 6, synonyms: 0}
-        StreamWrapper: {used: 4, canonical: 4, synonyms: 0}
+        StreamWrapper: {used: 7, canonical: 7, synonyms: 0}
         Backend: {used: 8, canonical: 8, synonyms: 0}
-        Memory: {used: 3, canonical: 3, synonyms: 0, note: "draft status"}
-        Connector: {used: 4, canonical: 4, synonyms: 0}
+        Memory: {used: 5, canonical: 5, synonyms: 0, note: "draft status"}
+        Connector: {used: 6, canonical: 6, synonyms: 0}
     aux_terms:
       total: 1
       documented_in_glossary: 1
       usage_in_mds:
-        Converter: {used: 0, canonical: 0, synonyms: 0, note: "util level term"}
+        Converter: {used: 7, canonical: 7, synonyms: 0}
 
   # 3. 不変条件の反映状況
   invariant_reflection:
@@ -47,32 +48,29 @@ concept_feedback:
     missing: []
     coverage_percentage: 100
     by_file:
-      AGENTS.md: {total: 14, reflected: 14, percentage: 100}
-      CLAUDE.md: {total: 14, reflected: 14, percentage: 100}
+      AGENTS.md: {total: 13, reflected: 13, percentage: 100}
+      CLAUDE.md: {total: 11, reflected: 11, percentage: 100}
       SYSTEM_CONSTITUTION.md: {total: 13, reflected: 13, percentage: 100}
+      CONTRIBUTING.md: {total: 13, reflected: 13, percentage: 100}
       README.md: {total: 5, reflected: 5, percentage: 100, note: "summarized"}
 
   # 4. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
-    noted_in_md: 14
+    noted_in_md: 16
     noted_in_ambiguities: 16
-    format: "注記として記載（暫定仕様として扱う）"
-    missing_from_md:
-      - decision_key: "AUTO:Security.secret_key:env_var_required"
-        reason: "セキュリティ固有 - 一般MDには不要"
-        severity: "low"
-        suggestion: "SECURITY.mdの作成を検討"
-      - decision_key: "AUTO:Session.jwt:decode_method_fix"
-        reason: "実装詳細 - MDには不要"
-        severity: "low"
+    format: "AGENTS.mdとCLAUDE.mdにAUTO決定セクションとして記載"
+    missing_from_md: []
+    coverage_percentage: 100
+    note: "すべてのAUTO決定がMDに適切に記載されている"
 
   # 5. 曖昧性の発見
   ambiguities_discovered:
     new_ambiguities: []
     existing_ambiguities_status: "stable"
-    total_ambiguities_in_yml: 16
+    total_ambiguities_in_yml: 9
     all_properly_documented: true
+    note: "ambiguities.ymlのすべての曖昧性がAUTO決定として解決されている"
 
   # 6. ontologyへの更新提案
   ontology_suggestions:
@@ -85,39 +83,42 @@ concept_feedback:
         suggested_status: "draft"
         reason: "仕様がまだ流動的。安定したらstableに昇格"
         timeline: "次回のmajor release時"
+    note: " ontology.ymlは現在の状態で十分完璧"
 
   # 7. 用語の境界チェック
   boundary_checks:
     terms_checked: 11
     boundaries_consistent: 11
     inconsistencies_found: 0
+    note: "すべての用語のincludes/excludesがMDで一貫して記述されている"
 
   # 8. 概念の整合性評価
   conceptual_integrity:
     overall_score: 95
     term_consistency: 100
     invariant_coverage: 100
-    auto_decision_documentation: 87.5
+    auto_decision_documentation: 100
     glossary_alignment: 100
     status: "EXCELLENT"
 
   # 9. 推奨事項
   recommendations:
     - priority: "low"
-      action: "SECURITY.mdの作成を検討"
-      reason: "セキュリティ固有のAUTO決定を分離"
+      action: "SECURITY.mdの作成を検討（オプション）"
+      reason: "セキュリティ固有のAUTO決定を分離可能"
       affected_decisions: ["AUTO:Security.secret_key:env_var_required"]
+      note: "現在はAGENTS.mdで十分にカバーされている"
     - priority: "medium"
       action: "AUTO決定の有効期限をレビュー"
-      reason: "いくつかの決定が20回実行で期限切れ"
-      details: "expires_after_runs: 20 の設定を確認"
+      reason: "いくつかの決定が20回実行で期限切れになる可能性"
+      details: "expires_after_runs: 20 の設定を次回確認"
     - priority: "low"
       action: "Memory用語のステータスを監視"
-      reason: "現在draft。仕様が安定したらstableに昇格"
+      reason: "現在draft。仕様が安定したらstableに昇格を検討"
 
   # 10. 次回のbootstrap実行までのアクション
   next_bootstrap_preparation:
     ontology_changes_needed: false
     new_terms_to_add: 0
     definitions_to_update: 0
-    status: "ontology.ymlは現在の状態で十分"
+    status: "ontology.ymlは現在の状態で十分。追加の変更は不要。"

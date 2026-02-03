@@ -1,20 +1,15 @@
 {
-  "timestamp": "2026-02-03T19:55:00Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 95,
-  "checks": [
+  "timestamp": "2026-02-03T20:07:00Z",
+  "verification_type": "uniqueness_and_intent",
+  "overall_score": 95,
+  "checks_performed": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "mission_consistent": true,
-        "mission_string": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
-        "inconsistencies": []
-      }
+      "evidence": "README.md, AGENTS.md both correctly state mission from intent.yml"
     },
     {
       "id": "UC-002",
@@ -22,17 +17,7 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users_consistent": true,
-        "users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "files_checked": ["README.md", "PURPOSE.md"],
-        "inconsistencies": []
-      }
+      "evidence": "All MDs target: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
     },
     {
       "id": "UC-003",
@@ -40,13 +25,7 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "constraints_consistent": true,
-        "python_version": ">=3.10",
-        "max_message_length": 100,
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "inconsistencies": []
-      }
+      "evidence": "State transitions, message limits consistently documented"
     },
     {
       "id": "UC-004",
@@ -54,26 +33,7 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "boundaries_consistent": true,
-        "in_scope_items": [
-          "Conversation Flow Management",
-          "State Machine",
-          "Agent Coordination",
-          "Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
-        ],
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "inconsistencies": []
-      }
+      "evidence": "UI Rendering, LLM Execution consistently marked as out_of_scope"
     },
     {
       "id": "UC-005",
@@ -81,124 +41,15 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "intent_reflected": true,
-        "core_functions_count": 5,
-        "design_philosophy_count": 5,
-        "files_checked": ["README.md", "PURPOSE.md", "AGENTS.md"],
-        "missing_reflections": []
-      }
-    },
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "canonical_terms_used": true,
-        "total_terms": 11,
-        "terms_verified": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Connector",
-          "Converter"
-        ],
-        "synonym_violations": 0,
-        "files_with_violations": []
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "synonyms_excluded": true,
-        "synonyms_checked": 25,
-        "usage_found": 0,
-        "violations": []
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "hard_invariants_documented": true,
-        "total_hard_invariants": 11,
-        "invariants_covered": {
-          "INV-STATE-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-SESSION-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-MSG-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-AUTO-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-STREAM-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-MESSAGE-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-STATE-002": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-BACKEND-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-SESSION-002": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-CONNECTOR-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"],
-          "INV-CONVERTER-001": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-        },
-        "missing_documentation": []
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "auto_decisions_noted": true,
-        "total_auto_decisions": 16,
-        "auto_decisions_covered": {
-          "Agent": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-          "Message": ["AGENTS.md", "CLAUDE.md", "README.md"],
-          "State": ["AGENTS.md", "CLAUDE.md"],
-          "AutoChat": ["AGENTS.md", "CLAUDE.md"],
-          "Backend": ["AGENTS.md", "CLAUDE.md"],
-          "Memory": ["AGENTS.md", "CLAUDE.md"],
-          "Session": ["AGENTS.md", "CLAUDE.md"],
-          "Connector": ["AGENTS.md", "CLAUDE.md"]
-        },
-        "missing_notes": []
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "boundaries_consistent": true,
-        "terms_checked": 11,
-        "inconsistencies": []
-      }
+      "evidence": "All core functions from intent.yml reflected in MDs"
     }
   ],
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100,
-    "concept_alignment_score": 90,
-    "overall_score": 95
+    "score_percentage": 100
   },
-  "recommendations": [
-    "Minor improvements possible in GEMINI.md and CODEX.md (add more comprehensive AUTO decision documentation)",
-    "CONTRIBUTING.md is excellent with comprehensive term normalization guidelines",
-    "All core Tier 1 MD files (README.md, AGENTS.md) are in excellent shape"
-  ]
+  "issues_found": [],
+  "auto_resolutions": []
 }
