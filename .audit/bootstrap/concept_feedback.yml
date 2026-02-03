@@ -1,10 +1,11 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T13:35:00Z"
+  bootstrap_run_timestamp: "2026-02-03T13:47:39Z"
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 132
+    total_occurrences: 77
+    canonical_used: 77
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -12,34 +13,38 @@ concept_feedback:
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    hard_invariants: 11
-    soft_invariants: 2
-    reflected_in_agents_md: 13
-    reflected_in_constitution_md: 11
-    reflected_in_claude_md: 13
-    reflected_in_contributing_md: 13
+    total: 14
+    hard: 11
+    soft: 3
+    reflected: 14
     missing: []
+    coverage_rate: 1.0
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
-    noted_in_agents_md: 16
-    noted_in_claude_md: 16
-    noted_in_contributing_md: 16
-    noted_in_readme_md: 11
-    format: "暫定仕様として記載（AUTO: キー付き）"
-    missing_notes: []
+    noted_in_md: 16
+    missing_notes: 0
+    format: "注記として記載（AUTO決定カテゴリ別に整理）"
 
   # 4. 曖昧性の発見
-  ambiguities_discovered: []
+  ambiguities_discovered:
+    - term: "なし"
+      issue: "新たな曖昧性は発見されなかった"
+      context: "全ての用語がontology.ymlで適切に定義され、MDファイルで一貫して使用されている"
+      suggestion: "現状の概念モデルを維持"
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
-    boundary_changes: []
+    status_changes:
+      - term: "Memory"
+        current_status: "draft"
+        suggested_status: "stable"
+        trigger: "Memory機能がproduction-readyになった時点"
+        reason: "INV-MEM-001がsoft invariantとして既に記載されているため、機能成熟後にstatusを更新"
 
   # 6. オントロジーの品質評価
   ontology_quality_assessment:
@@ -70,13 +75,13 @@ concept_feedback:
       documented_in_glossary: 5
       used_in_mds: 5
       status: "complete"
-
     domain_terms:
       total: 5
       documented_in_glossary: 5
       used_in_mds: 5
       status: "complete"
-
+      notes:
+        - "Memoryは現在draft状態。機能成熟後にstatusをstableへ更新推奨"
     aux_terms:
       total: 1
       documented_in_glossary: 1
@@ -90,44 +95,55 @@ concept_feedback:
       ontology_version: "0.3"
       alignment: "perfect"
       issues: []
-
     agents_md:
       term_table_complete: true
       invariants_complete: true
       auto_decisions_complete: true
       alignment: "perfect"
       issues: []
-
     claude_md:
       term_definitions_present: true
       invariants_documented: true
       auto_decisions_noted: true
       alignment: "perfect"
       issues: []
-
     contributing_md:
       term_guidelines_present: true
       invariants_listed: true
       auto_decisions_respected: true
       alignment: "excellent"
       issues: []
-
     readme_md:
       mission_aligned: true
       terms_used_correctly: true
       auto_decisions_noted: true
       alignment: "excellent"
       issues: []
+    architecture_md:
+      canonical_terms_used: true
+      mappings_yml_referenced: true
+      auto_decisions_noted: true
+      alignment: "excellent"
+      issues:
+        - type: "minor"
+          description: "AutoChatをアーキテクチャ概観図に追加可能"
+          priority: "low"
 
   # 9. 総合評価
   overall_evaluation:
     status: "excellent"
-    concept_alignment_score: 97
-    summary: "オントロジー（v0.3）はMDドキュメントに完全に統合されており、用語の一貫性が維持されている"
+    concept_alignment_score: 96
+    summary: "オントロジー（v0.3）はMDドキュメントに完全に統合されており、用語の一貫性が維持されている。全11用語がMDファイルで適切に使用され、14不変条件と16AUTO決定が適切に統合されている。"
     recommendations:
-      - "現状維持: オントロジーの変更時にのみMDを更新"
-      - "AUTO決定の有効期限管理: 20 run後に期限切れの決定をレビュー"
-      - "新語の追加プロセス: term_queue.ymlを通じて適切にレビュー"
+      - priority: "low"
+        action: "Memory機能の成熟を監視"
+        reason: "Memoryが現在draft状态。機能がstableになったらontology.ymlのstatusをstableに更新"
+      - priority: "low"
+        action: "現状維持"
+        reason: "概念モデルの質が非常に高い。頻繁な更新の必要性は低い"
+      - priority: "informational"
+        action: "次回の概念同期（12_concept_sync_system）実行時の参考"
+        reason: "今回のbootstrap実行で概念モデルの問題は発見されなかったため、次回のconcept_syncは軽微な確認のみで十分"
 
   # 10. 次回のconcept_sync推奨事項
   next_concept_sync_recommendation:

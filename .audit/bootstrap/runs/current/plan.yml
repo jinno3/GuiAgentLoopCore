@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T13:35:00Z"
+run_timestamp: "2026-02-03T13:47:39Z"
 version: "1.1"
 
 rotation:
@@ -8,9 +8,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
-    analysis_as_is_yml: ".audit/analysis/as_is.yml"
-    analysis_gap_yml: ".audit/analysis/gap.yml"
+    constraints_yml: null
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -18,20 +16,32 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
   core_functions_count: 5
-  design_philosophy_count: 5
 
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
-  stable_terms: 10
-  draft_terms: 1
-  auto_decisions: 16
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+  total_auto_decisions: 16
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -44,6 +54,9 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
   "自動チャット": "AutoChat"
@@ -58,104 +71,74 @@ term_normalization:
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
-    tier: 1
+    status: "exists_excellent"
+    clarity_score: 90
+    concept_alignment: 95
     issues: []
   - path: "AGENTS.md"
-    status: "exists_current"
-    tier: 1
+    status: "exists_excellent"
+    clarity_score: 95
+    concept_alignment: 98
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_current"
-    tier: 2
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues: []
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
+    status: "exists_excellent"
+    clarity_score: 92
+    concept_alignment: 95
     issues: []
   - path: "GLOSSARY.md"
-    status: "exists_current"
-    tier: 3
+    status: "exists_excellent"
+    clarity_score: 90
+    concept_alignment: 100
     issues: []
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues: []
-  - path: "CHANGELOG.md"
-    status: "exists_minimal"
-    tier: 3
-    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_good"
+    clarity_score: 88
+    concept_alignment: 90
+    issues:
+      - "Could expand to cover all domain and aux terms"
+  - path: "CONTRIBUTING.md"
+    status: "exists_good"
+    clarity_score: 85
+    concept_alignment: 85
+    issues:
+      - "Could add term normalization guidelines"
+      - "Could reference AUTO decisions more explicitly"
+  - path: "ARCHITECTURE.md"
+    status: "exists_good"
+    clarity_score: 80
+    concept_alignment: 82
+    issues:
+      - "Could align more closely with ontology.yml term definitions"
+      - "Could reference mappings.yml for implementation details"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology.yml v0.3"
+    reason: "Already excellent (90/95), verification only"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept alignment and AUTO decisions coverage"
+    reason: "Already excellent (95/98), verification only"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions are current"
+    reason: "Already excellent (92/95), verification only"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology alignment (11 terms)"
-  - action: "verify"
+    reason: "Already excellent (90/100), verification only"
+  - action: "minor_update"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants alignment (13 invariants)"
-  - action: "verify"
+    reason: "Add coverage for all domain and aux terms (88/90)"
+  - action: "minor_update"
     target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines match intent"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify purpose matches intent.yml mission"
-  - action: "verify"
+    reason: "Add term normalization guidelines and AUTO decision references (85/85)"
+  - action: "minor_update"
     target: "ARCHITECTURE.md"
-    reason: "Verify architecture reflects component boundaries"
-  - action: "review"
-    target: "GEMINI.md"
-    reason: "Review for Gemini-specific updates"
-  - action: "review"
-    target: "CODEX.md"
-    reason: "Review for Codex-specific updates"
+    reason: "Align with ontology.yml and reference mappings.yml (80/82)"
 
-tier_coverage:
-  tier1_required: 2
-  tier1_existing: 2
-  tier1_status: "complete"
-  tier2_required: 4
-  tier2_existing: 4
-  tier2_status: "complete"
-  tier3_optional: 5
-  tier3_existing: 5
-  tier3_status: "complete"
-
-verification_plan:
-  - check: "UC-001 - Existence consistency across MDs"
-  - check: "UC-002 - Target user consistency"
-  - check: "UC-003 - Constraint consistency"
-  - check: "UC-004 - Boundary consistency"
-  - check: "UC-005 - intent.yml compliance"
-  - check: "CA-001 - Canonical term usage"
-  - check: "CA-002 - Synonym exclusion"
-  - check: "CA-003 - Hard invariant reflection"
-  - check: "CA-004 - AUTO decision notation"
-  - check: "CA-005 - Term boundary integrity"
+execution_strategy: "verify_all_minor_updates_selective"
+target_overall_score: 95
+target_concept_alignment: 98

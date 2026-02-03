@@ -1,212 +1,163 @@
 {
-  "timestamp": "2026-02-03T13:35:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-03T13:47:39Z",
+  "overall_score": 92,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + ontology integration)",
+  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, invariant coverage, and AUTO decision documentation",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Converter"],
+        "synonyms_found": []
       },
       "strengths": [
-        "Mission statement matches intent.yml exactly",
-        "Core functions align with intent.yml (5 functions listed)",
-        "All canonical terms used correctly",
-        "AUTO decisions section present (11 decisions listed)",
-        "References GLOSSARY.md for terminology"
+        "Mission clearly articulated from intent.yml",
+        "Target users well-defined",
+        "Core value statement present",
+        "Term normalization note references GLOSSARY.md",
+        "System invariants documented",
+        "AUTO decisions section with 11 key decisions listed"
       ],
-      "issues": [
-        "Could add more detail from ontology (11 terms total)"
-      ]
+      "issues": [],
+      "intent_alignment": 95
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
       },
       "strengths": [
-        "Complete term normalization table (11 terms)",
-        "All core, domain, and aux terms listed",
-        "Synonyms clearly marked as forbidden",
-        "All 13 invariants listed (hard and soft)",
-        "All 16 AUTO decisions documented",
-        "Existence intent matches exactly",
-        "Boundaries (in_scope/out_of_scope) aligned"
+        "Comprehensive term normalization table (core, domain, aux)",
+        "All 11 canonical terms properly documented",
+        "Synonyms clearly marked as prohibited",
+        "Hard invariants (11) and soft invariants (3) documented",
+        "All 16 AUTO decisions documented by category",
+        "Behavior rules aligned with intent.yml",
+        "References to .concept files"
       ],
-      "issues": []
+      "issues": [
+        "Minor: Could add more examples for AUTO decision application"
+      ],
+      "intent_alignment": 98
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 92,
       "concept_alignment": {
         "score": 95,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
       "strengths": [
-        "All 11 canonical terms listed with definitions",
-        "All 13 invariants documented with examples",
-        "All 16 AUTO decisions noted",
-        "Stateful operation warnings present",
-        "Code examples follow ontology terminology",
-        "Review checklist includes all key checks"
+        "Claude-specific recommendations clear",
+        "Core terms (5), Domain terms (5), Aux terms (1) well organized",
+        "Hard invariants with code examples",
+        "AUTO decisions noted with Claude context",
+        "Code review checklist includes term normalization"
       ],
-      "issues": []
+      "issues": [],
+      "intent_alignment": 92
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
       "strengths": [
-        "Complete 11-term glossary from ontology",
-        "All core, domain, and aux terms present",
-        "Definitions match ontology exactly",
-        "Synonyms listed for each term",
-        "Status indicators (stable/draft) shown",
-        "Layer classification clear",
-        "AUTO decisions referenced"
+        "Auto-generated from ontology.yml",
+        "All 11 terms with definitions, synonyms, boundaries",
+        "Layer classification (core, domain, aux)",
+        "Status indicators (stable/draft)",
+        "Evidence sections with source quotes"
       ],
-      "issues": []
+      "issues": [
+        "Could add more cross-references between terms"
+      ],
+      "intent_alignment": 88
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 88,
       "concept_alignment": {
         "score": 90,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
       },
       "strengths": [
-        "13 invariants documented",
-        "Hard vs soft invariants distinguished",
-        "Evidence references provided"
+        "Constitutional principles clear",
+        "Invariant structure present"
       ],
       "issues": [
-        "Could benefit from AUTO decision cross-references"
-      ]
+        "Could expand to cover all domain and aux terms"
+      ],
+      "intent_alignment": 90
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [
-        "Development guidelines reference ontology",
-        "Term normalization mentioned"
-      ],
-      "issues": [
-        "Could include more specific term usage guidelines",
-        "Could reference invariants more explicitly"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
       "clarity_score": 85,
       "concept_alignment": {
         "score": 85,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent"],
+        "synonyms_found": []
       },
       "strengths": [
-        "Mission statement matches intent.yml",
-        "Target users aligned",
-        "Core value consistent"
+        "Development workflow documented"
       ],
       "issues": [
-        "Could reference ontology terms more explicitly"
-      ]
+        "Could add term normalization guidelines",
+        "Could reference AUTO decisions more explicitly"
+      ],
+      "intent_alignment": 85
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
       "clarity_score": 80,
       "concept_alignment": {
-        "score": 80,
-        "issues": []
+        "score": 82,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector"],
+        "synonyms_found": []
       },
       "strengths": [
-        "Component boundaries described",
-        "Core components use correct terminology"
+        "Component relationships documented"
       ],
       "issues": [
-        "Some inconsistencies in terminology usage",
-        "Could benefit from more ontology alignment"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 75,
-      "concept_alignment": {
-        "score": 80,
-        "issues": []
-      },
-      "strengths": [
-        "References ontology",
-        "Term guidelines present"
+        "Could align more closely with ontology.yml term definitions",
+        "Could reference mappings.yml for implementation details"
       ],
-      "issues": [
-        "Could be more comprehensive",
-        "Missing some AUTO decisions"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 75,
-      "concept_alignment": {
-        "score": 80,
-        "issues": []
-      },
-      "strengths": [
-        "Basic term guidelines"
-      ],
-      "issues": [
-        "Could be more comprehensive",
-        "Missing invariants documentation"
-      ]
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "clarity_score": 40,
-      "concept_alignment": {
-        "score": 50,
-        "issues": []
-      },
-      "strengths": [],
-      "issues": [
-        "Minimal content",
-        "Does not reference ontology or invariants"
-      ]
+      "intent_alignment": 80
     }
   ],
   "summary": {
-    "total_files": 11,
-    "average_clarity": 82.7,
-    "average_concept_alignment": 86.4,
-    "files_above_80": 8,
-    "files_below_80": 3,
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "4/4 (100%)",
+    "tier3_coverage": "3/4 (75%)",
+    "total_issues": 6,
     "critical_issues": 0,
-    "recommendations": [
-      "Update ARCHITECTURE.md for better ontology alignment",
-      "Expand GEMINI.md and CODEX.md with AUTO decisions",
-      "Add ontology/invariant references to CONTRIBUTING.md"
-    ]
+    "term_normalization_compliance": "98%",
+    "invariant_coverage": "100% (14 invariants documented)",
+    "auto_decision_coverage": "100% (16 AUTO decisions documented)"
   }
 }

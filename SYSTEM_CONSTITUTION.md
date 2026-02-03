@@ -2,7 +2,7 @@
 
 > **GuiAgentLoopCore System Constitution**
 > **Version**: 1.1
-> **Last Updated**: 2026-02-03T01:11:16Z (bootstrap run v1.1 - all 12 invariants verified)
+> **Last Updated**: 2026-02-03T13:47:39Z (bootstrap run v1.1 - all 14 invariants verified with ontology v0.3)
 
 This document defines the constitutional principles and invariants that govern the GuiAgentLoopCore system. These principles MUST NEVER be violated.
 
