@@ -1,117 +1,155 @@
-run_timestamp: '2026-02-03T22:32:47.274790'
-version: '1.1'
+run_timestamp: "2026-02-03T22:45:00Z"
+version: "1.1"
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
+
 input_sources:
   audit:
-    intent_yml: .audit/config/intent.yml
-    constraints_yml: .audit/config/constraints.yml
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
-    ontology_yml: .concept/ontology.yml
-    invariants_yml: .concept/invariants.yml
-    ambiguities_yyl: .concept/ambiguities.yml
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
     has_concept: true
+
 intent_summary:
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user:
-  - Application Developers: Building LLM-powered applications with GUI interfaces
-  - AI Agent Developers: Creating specialized agents for specific tasks
-  - Framework Developers: Building new GUI backend implementations
-  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
-  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
-    with predictable state manage...
-  total_core_functions: 5
-  total_boundaries: 6
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+
 ontology_summary:
-  version: '0.3'
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
   key_terms:
-  - canonical: Interpreter
-    layer: core
-    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
-  - canonical: Agent
-    layer: core
-    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
-  - canonical: Session
-    layer: core
-    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）
-  - canonical: Message
-    layer: core
-    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）
-  - canonical: State
-    layer: core
-    definition: インタープリタの実行状態を表す列挙型
-invariants_summary:
-  total: 14
-  hard: 11
-  soft: 3
-ambiguities_summary:
-  total_auto_decisions: 9
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+
+term_normalization:
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+
 existing_mds:
-- path: README.md
-  status: exists
-  size_bytes: 5316
-  modified: '2026-02-03T18:34:21.205525'
-- path: AGENTS.md
-  status: exists
-  size_bytes: 9569
-  modified: '2026-02-03T21:52:58.305667'
-- path: CLAUDE.md
-  status: exists
-  size_bytes: 12429
-  modified: '2026-02-03T13:24:53.275153'
-- path: GLOSSARY.md
-  status: exists
-  size_bytes: 11215
-  modified: '2026-02-03T10:11:45.932014'
-- path: PURPOSE.md
-  status: exists
-  size_bytes: 5379
-  modified: '2026-02-03T10:11:29.087822'
-- path: CONTRIBUTING.md
-  status: exists
-  size_bytes: 7364
-  modified: '2026-02-03T06:27:34.788956'
-- path: SYSTEM_CONSTITUTION.md
-  status: exists
-  size_bytes: 7964
-  modified: '2026-02-03T13:49:24.920845'
-- path: ARCHITECTURE.md
-  status: exists
-  size_bytes: 13424
-  modified: '2026-02-02T11:07:30.392846'
-- path: GEMINI.md
-  status: exists
-  size_bytes: 4744
-  modified: '2026-02-02T00:57:10.521812'
-- path: CODEX.md
-  status: exists
-  size_bytes: 5224
-  modified: '2026-02-02T00:57:10.545812'
+  - path: "README.md"
+    status: "exists_needs_verification"
+    tier: 1
+  - path: "AGENTS.md"
+    status: "exists_needs_verification"
+    tier: 1
+  - path: "CLAUDE.md"
+    status: "exists_needs_verification"
+    tier: 2
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_verification"
+    tier: 2
+  - path: "PURPOSE.md"
+    status: "exists_needs_verification"
+    tier: 2
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_verification"
+    tier: 2
+  - path: "GLOSSARY.md"
+    status: "exists_needs_verification"
+    tier: 3
+  - path: "GEMINI.md"
+    status: "exists_needs_verification"
+    tier: 3
+  - path: "CODEX.md"
+    status: "exists_needs_verification"
+    tier: 3
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_verification"
+    tier: 3
+
 actions:
-- action: verify
-  target: README.md
-  reason: 存在意義の反映、用語の正規化を確認
-- action: verify
-  target: AGENTS.md
-  reason: AIエージェント向け指示の整合性を確認
-- action: verify
-  target: CLAUDE.md
-  reason: Claude向け特化指示の概念整合性を確認
-- action: verify
-  target: GLOSSARY.md
-  reason: 用語集とontology.ymlの同期を確認
-- action: verify
-  target: PURPOSE.md
-  reason: 目的の詳細説明とintent.ymlの整合性を確認
-- action: verify
-  target: CONTRIBUTING.md
-  reason: 貢献ガイドと用語ガイドラインの整合性を確認
-- action: verify
-  target: SYSTEM_CONSTITUTION.md
-  reason: 不変条件の反映を確認
+  - action: "verify"
+    target: "README.md"
+    reason: "Verify alignment with intent.yml and ontology.yml v0.3"
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify concept alignment and AUTO decisions documentation"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific instructions reflect ontology v0.3"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants are reflected"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose aligns with intent.yml"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify glossary matches ontology.yml v0.3"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific instructions"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific instructions"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify architecture documentation"
+
+execution_mode: "verification"
+target_score: 90
+ontology_version: "0.3"
+invariants_version: "2026-02-02T05:23:14Z"
+ambiguities_version: "2026-02-03T02:09:41Z"
