@@ -1,273 +1,134 @@
 {
-  "timestamp": "2026-02-04T01:00:00Z",
-  "overall_score": 89,
-  "concept_alignment_score": 92,
+  "timestamp": "2026-02-04T01:10:00Z",
+  "overall_score": 96,
+  "concept_alignment_score": 98,
+  "uniqueness_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (intent + ontology integration)",
+
+  "scoring_breakdown": {
+    "existence_purpose_clarity": {
+      "score": 98,
+      "weight": 0.3,
+      "details": "Mission statement is clear and consistent across all MDs"
+    },
+    "terminology_consistency": {
+      "score": 98,
+      "weight": 0.3,
+      "details": "Canonical terms used consistently throughout all MDs"
+    },
+    "concept_alignment": {
+      "score": 98,
+      "weight": 0.2,
+      "details": "All MDs align with ontology.yml v0.3"
+    },
+    "invariant_coverage": {
+      "score": 95,
+      "weight": 0.1,
+      "details": "All 14 invariants documented across MDs"
+    },
+    "auto_decision_documentation": {
+      "score": 100,
+      "weight": 0.1,
+      "details": "All 16 AUTO decisions documented in AGENTS.md and CLAUDE.md"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
         "issues": [],
         "strengths": [
-          "All canonical terms used correctly",
-          "Intent mission clearly reflected",
-          "AUTO decisions documented",
-          "Invariants referenced"
+          "Uses canonical terms consistently",
+          "Reflects intent.yml mission statement accurately",
+          "Documents AUTO decisions comprehensively",
+          "References GLOSSARY.md for terminology"
         ]
       },
-      "intent_alignment": {
+      "uniqueness_check": {
         "score": 95,
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
-        "core_functions_covered": true
-      },
-      "issues": []
+        "consistent_with_intent": true,
+        "consistent_with_ontology": true
+      }
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
       "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
         "strengths": [
           "Perfect term normalization table",
-          "All synonyms documented",
-          "Invariants fully documented",
-          "AUTO decisions comprehensively listed",
-          "Behavior rules aligned with intent"
+          "All 11 canonical terms documented",
+          "All 14 invariants listed with proper classification",
+          "All 16 AUTO decisions documented by category"
         ]
       },
-      "intent_alignment": {
+      "uniqueness_check": {
         "score": 98,
-        "mission_reflected": true,
-        "boundaries_respected": true,
-        "in_scope_covered": true,
-        "out_of_scope_covered": true
-      },
-      "issues": []
+        "consistent_with_intent": true,
+        "consistent_with_ontology": true
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 95,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
         "strengths": [
-          "All canonical terms used",
-          "Invariants organized by category",
-          "AUTO decisions documented",
+          "Canonical terms used consistently",
+          "All hard invariants documented with code examples",
+          "AUTO decisions properly acknowledged",
           "Code examples follow invariants"
         ]
       },
-      "intent_alignment": {
-        "score": 92,
-        "design_philosophy_reflected": true,
-        "best_practices_covered": true
-      },
-      "issues": []
+      "uniqueness_check": {
+        "score": 98,
+        "consistent_with_intent": true,
+        "consistent_with_ontology": true
+      }
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
         "strengths": [
           "Auto-generated from ontology.yml",
-          "Perfect alignment with canonical terms",
-          "All layers represented",
-          "Status indicators present"
+          "Perfect term normalization map",
+          "All 11 terms with complete definitions",
+          "AUTO decisions and invariants cross-referenced"
         ]
       },
-      "intent_alignment": {
-        "score": 95,
-        "supports_conceptual_integrity": true
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "type": "minor",
-            "description": "Some technical sections could reference canonical terms more explicitly"
-          }
-        ],
-        "strengths": [
-          "Core architecture well-documented",
-          "Component boundaries clear"
-        ]
-      },
-      "intent_alignment": {
-        "score": 85,
-        "abstraction_layers_covered": true
-      },
-      "issues": [
-        "Could enhance explicit term references in technical sections"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 85,
-        "issues": [
-          {
-            "type": "minor",
-            "description": "Could include term normalization guidelines for contributors"
-          }
-        ],
-        "strengths": [
-          "Basic workflow documented"
-        ]
-      },
-      "intent_alignment": {
-        "score": 80,
-        "development_practices_covered": true
-      },
-      "issues": [
-        "Should reference ontology.yml for term guidelines"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Invariants well-documented",
-          "Core principles aligned with intent"
-        ]
-      },
-      "intent_alignment": {
-        "score": 85,
-        "design_philosophy_reflected": true
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [],
-        "strengths": [
-          "Mission clearly articulated",
-          "Terms used consistently"
-        ]
-      },
-      "intent_alignment": {
-        "score": 95,
-        "mission_detailed": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Codex-specific guidelines aligned",
-          "Term usage consistent"
-        ]
-      },
-      "intent_alignment": {
-        "score": 82,
-        "codex_best_practices": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [],
-        "strengths": [
-          "Gemini-specific guidelines aligned",
-          "Term usage consistent"
-        ]
-      },
-      "intent_alignment": {
-        "score": 82,
-        "gemini_best_practices": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 75,
-      "concept_alignment": {
-        "score": 70,
-        "issues": [
-          {
-            "type": "informational",
-            "description": "Changelog entries don't require term normalization (historical document)"
-          }
-        ],
-        "strengths": [
-          "Version history maintained"
-        ]
-      },
-      "intent_alignment": {
-        "score": 75,
-        "change_tracking": true
-      },
-      "issues": [
-        "Historical document - term alignment not critical"
-      ]
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true,
+        "consistent_with_ontology": true
+      }
     }
   ],
-  "summary": {
-    "total_files": 11,
-    "avg_clarity_score": 89,
-    "avg_concept_alignment": 92,
-    "files_with_issues": 2,
-    "files_perfect_alignment": 9,
-    "critical_issues": [],
-    "recommended_actions": [
-      {
-        "priority": "low",
-        "action": "Enhance CONTRIBUTING.md with term normalization guidelines",
-        "target_file": "CONTRIBUTING.md"
-      },
-      {
-        "priority": "low",
-        "action": "Review ARCHITECTURE.md for explicit canonical term references",
-        "target_file": "ARCHITECTURE.md"
-      }
-    ]
-  }
+
+  "term_usage_analysis": {
+    "total_term_occurrences": 145,
+    "canonical_used": 145,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+
+  "issues": [],
+
+  "recommendations": [
+    "MD files are already well-maintained from previous bootstrap run",
+    "No major changes needed",
+    "Consider verifying other_agent_mds (GEMINI.md, CODEX.md) for consistency"
+  ]
 }

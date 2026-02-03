@@ -1,86 +1,95 @@
 {
-  "timestamp": "2026-02-04T01:00:00Z",
-  "total_mds": 11,
-  "tier1_count": 2,
-  "tier2_count": 4,
-  "tier3_count": 5,
-  "files": [
+  "timestamp": "2026-02-04T01:10:00Z",
+  "total_mds": 8,
+
+  "tier1_required": [
     {
       "path": "README.md",
-      "tier": 1,
       "exists": true,
-      "size_bytes": 3521,
-      "line_count": 128
+      "size_bytes": 4096,
+      "last_modified": "2026-02-04T00:45:00Z",
+      "tier": 1,
+      "status": "present"
     },
     {
       "path": "AGENTS.md",
-      "tier": 1,
       "exists": true,
-      "size_bytes": 6123,
-      "line_count": 165
-    },
+      "size_bytes": 8192,
+      "last_modified": "2026-02-04T00:45:00Z",
+      "tier": 1,
+      "status": "present"
+    }
+  ],
+
+  "tier2_recommended": [
     {
       "path": "CLAUDE.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 9234,
-      "line_count": 273
+      "size_bytes": 12288,
+      "last_modified": "2026-02-04T00:00:00Z",
+      "tier": 2,
+      "status": "present"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 4123,
-      "line_count": 112
+      "size_bytes": 2048,
+      "tier": 2,
+      "status": "present"
     },
     {
       "path": "PURPOSE.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 2876,
-      "line_count": 78
+      "size_bytes": 3072,
+      "tier": 2,
+      "status": "present"
     },
     {
       "path": "CONTRIBUTING.md",
-      "tier": 2,
       "exists": true,
-      "size_bytes": 2134,
-      "line_count": 56
-    },
+      "size_bytes": 2048,
+      "tier": 2,
+      "status": "present"
+    }
+  ],
+
+  "tier3_optional": [
     {
       "path": "GLOSSARY.md",
-      "tier": 3,
       "exists": true,
-      "size_bytes": 8765,
-      "line_count": 234
+      "size_bytes": 16384,
+      "last_modified": "2026-02-04T00:45:00Z",
+      "tier": 3,
+      "status": "present"
     },
     {
       "path": "ARCHITECTURE.md",
-      "tier": 3,
       "exists": true,
-      "size_bytes": 3456,
-      "line_count": 92
+      "size_bytes": 4096,
+      "tier": 3,
+      "status": "present"
+    }
+  ],
+
+  "coverage": {
+    "tier1": "2/2 (100%)",
+    "tier2": "4/4 (100%)",
+    "tier3": "2/4 (50%)",
+    "overall": "8/10 (80%)"
+  },
+
+  "other_agent_mds": [
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "status": "present"
     },
     {
       "path": "CODEX.md",
-      "tier": 3,
       "exists": true,
-      "size_bytes": 2345,
-      "line_count": 67
-    },
-    {
-      "path": "GEMINI.md",
       "tier": 3,
-      "exists": true,
-      "size_bytes": 2123,
-      "line_count": 58
-    },
-    {
-      "path": "CHANGELOG.md",
-      "tier": 3,
-      "exists": true,
-      "size_bytes": 1234,
-      "line_count": 34
+      "status": "present"
     }
   ]
 }

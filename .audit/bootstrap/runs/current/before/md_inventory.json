@@ -1,95 +1,32 @@
 {
-  "timestamp": "2026-02-04T01:10:00Z",
-  "total_mds": 8,
-
-  "tier1_required": [
-    {
-      "path": "README.md",
-      "exists": true,
-      "size_bytes": 4096,
-      "last_modified": "2026-02-04T00:45:00Z",
-      "tier": 1,
-      "status": "present"
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "size_bytes": 8192,
-      "last_modified": "2026-02-04T00:45:00Z",
-      "tier": 1,
-      "status": "present"
-    }
-  ],
-
-  "tier2_recommended": [
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "size_bytes": 12288,
-      "last_modified": "2026-02-04T00:00:00Z",
-      "tier": 2,
-      "status": "present"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "size_bytes": 2048,
-      "tier": 2,
-      "status": "present"
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "size_bytes": 3072,
-      "tier": 2,
-      "status": "present"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "size_bytes": 2048,
-      "tier": 2,
-      "status": "present"
-    }
-  ],
-
-  "tier3_optional": [
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "size_bytes": 16384,
-      "last_modified": "2026-02-04T00:45:00Z",
-      "tier": 3,
-      "status": "present"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "size_bytes": 4096,
-      "tier": 3,
-      "status": "present"
-    }
-  ],
-
-  "coverage": {
-    "tier1": "2/2 (100%)",
-    "tier2": "4/4 (100%)",
-    "tier3": "2/4 (50%)",
-    "overall": "8/10 (80%)"
+  "timestamp": "2026-02-04T01:21:00Z",
+  "total_md_files": 11,
+  "tier1_files": {
+    "required": ["README.md", "AGENTS.md"],
+    "exists": ["README.md", "AGENTS.md"],
+    "coverage": "2/2 (100%)"
   },
-
-  "other_agent_mds": [
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "tier": 3,
-      "status": "present"
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "tier": 3,
-      "status": "present"
-    }
+  "tier2_files": {
+    "recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "exists": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "tier3_files": {
+    "optional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "exists": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+    "coverage": "4/4 (100%)"
+  },
+  "all_files": [
+    "README.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "SYSTEM_CONSTITUTION.md",
+    "PURPOSE.md",
+    "CONTRIBUTING.md",
+    "GEMINI.md",
+    "CODEX.md",
+    "ARCHITECTURE.md",
+    "GLOSSARY.md",
+    "CHANGELOG.md"
   ]
 }
