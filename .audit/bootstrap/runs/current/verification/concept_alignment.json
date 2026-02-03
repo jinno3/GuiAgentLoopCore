@@ -1,241 +1,331 @@
 {
-  "timestamp": "2026-02-04T04:29:00Z",
-  "concept_source": ".concept/ontology.yml v0.3",
-  "overall_alignment_score": 95,
-
+  "timestamp": "2026-02-03T19:57:36.926767+00:00",
+  "concept_source": ".concept/ontology.yml",
+  "overall_alignment_score": 64,
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 85,
-    "synonym_used": 3,
+    "total_term_occurrences": 36,
+    "canonical_used": 0,
+    "synonym_used": 36,
     "unknown_terms": 0,
-    "alignment_rate": 0.966
+    "alignment_rate": 0.964
   },
-
-  "synonym_violations": [
-    {
-      "file": "ARCHITECTURE.md",
-      "found": "GuiAgentInterpreter",
-      "expected": "Interpreter",
-      "occurrences": 2,
-      "severity": "low",
-      "status": "documented"
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "found": "ChatSession",
-      "expected": "Session",
-      "occurrences": 1,
-      "severity": "low",
-      "status": "documented"
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "found": "会話インタープリタ",
-      "expected": "Interpreter",
-      "occurrences": 1,
-      "severity": "low",
-      "status": "translation"
-    }
-  ],
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "alignment_score": 0,
+      "issues": [
+        {
+          "term": "Agent",
+          "line": 1,
+          "found": "AIエージェント",
+          "should_be": "Agent",
+          "context": "# AGENTS.md - AIエージェント向け指示"
+        },
+        {
+          "term": "Session",
+          "line": 72,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "- 🔒 **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+        },
+        {
+          "term": "Message",
+          "line": 66,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- 🔒 **INV-MSG-001**: メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+        },
+        {
+          "term": "Message",
+          "line": 69,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- 🔒 **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+        },
+        {
+          "term": "Message",
+          "line": 80,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- ⚠️ **INV-MEM-001** [DRAFT]: 会話メモリは最大100メッセージまで保持する（Memory機能はdraft状態）"
+        },
+        {
+          "term": "Message",
+          "line": 142,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "2. **メッセージタイプ**: 定義された列挙型のみ使用する"
+        },
+        {
+          "term": "State",
+          "line": 64,
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "context": "- 🔒 **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+        },
+        {
+          "term": "State",
+          "line": 141,
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "context": "1. **状態遷移の単調性**: インタープリタ状態は常に単調遷移する (STATE_INIT → STATE_RUNNING → STATE_STOP)"
+        },
+        {
+          "term": "StreamWrapper",
+          "line": 68,
+          "found": "ストリームラッパー",
+          "should_be": "StreamWrapper",
+          "context": "- 🔒 **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする"
+        },
+        {
+          "term": "Connector",
+          "line": 73,
+          "found": "コネクタ",
+          "should_be": "Connector",
+          "context": "- 🔒 **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+        }
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "alignment_score": 0,
+      "issues": [
+        {
+          "term": "Session",
+          "line": 80,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+        },
+        {
+          "term": "Message",
+          "line": 68,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ使用"
+        },
+        {
+          "term": "Message",
+          "line": 70,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- タイプ安全性を保証し、予期しないメッセージ処理を防ぐ"
+        },
+        {
+          "term": "Message",
+          "line": 72,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+        },
+        {
+          "term": "Message",
+          "line": 109,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する"
+        },
+        {
+          "term": "Message",
+          "line": 174,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- メッセージは再帰的にフラット化可能"
+        },
+        {
+          "term": "State",
+          "line": 45,
+          "found": "インタープリタ状態",
+          "should_be": "State",
+          "context": "- **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+        },
+        {
+          "term": "StreamWrapper",
+          "line": 96,
+          "found": "ストリームラッパー",
+          "should_be": "StreamWrapper",
+          "context": "- **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする"
+        },
+        {
+          "term": "Memory",
+          "line": 109,
+          "found": "会話メモリ",
+          "should_be": "Memory",
+          "context": "- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する"
+        },
+        {
+          "term": "Connector",
+          "line": 114,
+          "found": "コネクタ",
+          "should_be": "Connector",
+          "context": "- **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+        }
+      ]
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "alignment_score": 0,
+      "issues": [
+        {
+          "term": "Session",
+          "line": 55,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "- **定義**: 一意のIDで管理される会話コンテキスト（JWT認証使用）"
+        },
+        {
+          "term": "Session",
+          "line": 57,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）"
+        },
+        {
+          "term": "Session",
+          "line": 301,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+        },
+        {
+          "term": "Message",
+          "line": 22,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **含む**: 状態管理, セッション管理, メッセージルーティング"
+        },
+        {
+          "term": "Message",
+          "line": 57,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）"
+        },
+        {
+          "term": "Message",
+          "line": 142,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **含まない**: メッセージ変換, 状態管理"
+        },
+        {
+          "term": "Message",
+          "line": 178,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **含む**: メッセージ履歴, ウィンドウサイズ"
+        },
+        {
+          "term": "Message",
+          "line": 223,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **含まない**: メッセージ処理, 状態管理"
+        },
+        {
+          "term": "Message",
+          "line": 295,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ"
+        },
+        {
+          "term": "Message",
+          "line": 298,
+          "found": "メッセージ",
+          "should_be": "Message",
+          "context": "- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+        }
+      ]
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 85,
-      "canonical_terms_used": 9,
-      "synonyms_used": 3,
+      "alignment_score": 70,
       "issues": [
         {
-          "line": null,
-          "found": "GuiAgentInterpreter",
-          "expected": "Interpreter",
-          "status": "old_terminology"
+          "term": "Session",
+          "line": 336,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "- **Affects**: JWT token encoding/decoding"
         },
         {
-          "line": null,
-          "found": "ChatSession",
-          "expected": "Session",
-          "status": "old_terminology"
+          "term": "Connector",
+          "line": 158,
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "context": "- Abstract base class (GuiAgentInterpreterABC)"
+        },
+        {
+          "term": "Connector",
+          "line": 162,
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "context": "- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface"
         }
       ]
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 90,
-      "canonical_terms_used": 8,
-      "synonyms_used": 1,
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 70,
       "issues": [
         {
-          "line": null,
-          "found": "会話インタープリタ",
-          "expected": "Interpreter",
-          "status": "japanese_translation"
+          "term": "Session",
+          "line": 168,
+          "found": "JWT",
+          "should_be": "Session",
+          "context": "### INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+        },
+        {
+          "term": "Connector",
+          "line": 184,
+          "found": "コネクタ",
+          "should_be": "Connector",
+          "context": "### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+        },
+        {
+          "term": "Connector",
+          "line": 184,
+          "found": "GuiAgentInterpreterABC",
+          "should_be": "Connector",
+          "context": "### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
         }
       ]
     },
     {
       "file": "PURPOSE.md",
       "alignment_score": 100,
-      "canonical_terms_used": 10,
-      "synonyms_used": 0,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 10,
-      "synonyms_used": 1,
-      "issues": [
-        {
-          "line": null,
-          "found": "会話インタープリタ",
-          "expected": "Interpreter",
-          "status": "japanese_translation"
-        }
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 9,
-      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 100,
-      "canonical_terms_used": 9,
-      "synonyms_used": 0,
       "issues": []
     },
     {
-      "file": "CHANGELOG.md",
+      "file": "CODEX.md",
       "alignment_score": 100,
-      "canonical_terms_used": 0,
-      "synonyms_used": 0,
-      "issues": [],
-      "note": "Minimal content, no terminology usage"
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
     "reflected_in_md": 14,
-    "missing": [],
-    "coverage_rate": 100,
-    "details": {
-      "AGENTS.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "missing": []
-      },
-      "CLAUDE.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "missing": []
-      },
-      "SYSTEM_CONSTITUTION.md": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "missing": []
-      },
-      "README.md": {
-        "hard_invariants_documented": 5,
-        "soft_invariants_documented": 0,
-        "missing": [],
-        "note": "Summary with references to detailed docs"
-      }
-    }
+    "missing": []
   },
-
-  "auto_decision_check": {
-    "total_active": 16,
-    "reflected_in_md": 16,
-    "missing": [],
-    "coverage_rate": 100,
-    "details": {
-      "README.md": {
-        "documented": 16,
-        "format": "dedicated section",
-        "quality": "excellent"
-      },
-      "AGENTS.md": {
-        "documented": 16,
-        "format": "categorized by term",
-        "quality": "excellent"
-      },
-      "CLAUDE.md": {
-        "documented": 16,
-        "format": "integrated in guidance",
-        "quality": "excellent"
-      }
-    }
-  },
-
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "properly_marked_as_provisional": 16,
-    "evidence_references": 11,
-    "summary": "全てのAUTO決定が適切に文書化され、暫定仕様であることが明記されている"
-  },
-
-  "boundary_check": {
-    "total_terms": 11,
-    "boundaries_defined": 11,
-    "boundary_conflicts": 0,
-    "includes_excludes_consistent": true,
-    "summary": "全ての用語の境界線（includes/excludes）が一貫して定義されている"
-  },
-
-  "summary": {
-    "overall_score": 95,
-    "strengths": [
-      "全14の不変条件が適切に文書化されている",
-      "全16のAUTO決定が適切に文書化されている",
-      "主要なMDファイル（README, AGENTS, CLAUDE, GLOSSARY）で用語の正規形が100%使用されている",
-      "intent.ymlとの完全な整合性",
-      "概念定義の境界線が一貫している"
-    ],
-    "minor_issues": [
-      "ARCHITECTURE.mdで古い用語（GuiAgentInterpreter, ChatSession）が使用されている",
-      "CONTRIBUTING.mdとSYSTEM_CONSTITUTION.mdで日本語訳が使用されている"
-    ],
-    "recommendations": [
-      "ARCHITECTURE.mdの用語を正規形に更新することを推奨（優先度：低）",
-      "日本語訳は許容（ユーザビリティのため）"
-    ],
-    "overall_assessment": "概念整合性は極めて良好。全てのコアファイルで正規形が使用され、不変条件とAUTO決定が適切に文書化されている。"
+    "missing_notes": 0
   }
 }

@@ -1,4 +1,7 @@
-run_timestamp: "2026-02-04T04:15:00Z"
+# MD Bootstrap Execution Plan (v1.1)
+# Generated: 2026-02-04T04:42:00Z
+
+run_timestamp: "2026-02-04T04:42:00Z"
 version: "1.1"
 
 rotation:
@@ -8,46 +11,98 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"  # Not found, will use defaults
+    constraints_yml: ".audit/config/constraints.yml"
+    intent_exists: true
+    constraints_exists: true
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
+    ontology_exists: true
+    invariants_exists: true
+    ambiguities_exists: true
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_users:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
   core_functions_count: 5
+  design_philosophies_count: 5
 
 ontology_summary:
+  version: "0.3"
+  updated_at: "2026-02-03T12:21:29Z"
   total_terms: 11
-  core_terms: 5
-  domain_terms: 5
-  aux_terms: 1
-  total_invariants: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  total_auto_decisions: 16
+  by_layer:
+    core: 5
+    domain: 5
+    aux: 1
+  by_status:
+    stable: 10
+    draft: 1
   key_terms:
     - canonical: "Interpreter"
+      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
+      status: "stable"
     - canonical: "Agent"
+      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
+      status: "stable"
     - canonical: "Session"
+      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
+      status: "stable"
     - canonical: "Message"
+      layer: "core"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
+      status: "stable"
     - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
+      definition: "インタープリタの実行状態を表す列挙型"
+      status: "stable"
+    - canonical: "AutoChat"
+      layer: "domain"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      status: "stable"
+    - canonical: "StreamWrapper"
+      layer: "domain"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      status: "stable"
+    - canonical: "Backend"
+      layer: "domain"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      status: "stable"
+    - canonical: "Converter"
+      layer: "aux"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      status: "stable"
+    - canonical: "Memory"
+      layer: "domain"
+      definition: "会話履歴を保持するバッファ機構"
+      status: "draft"
+    - canonical: "Connector"
+      layer: "domain"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      status: "stable"
+
+invariants_summary:
+  updated_at: "2026-02-02T05:23:14Z"
+  total_invariants: 14
+  by_strength:
+    hard: 11
+    soft: 3
+  by_status:
+    stable: 13
+    draft: 1
 
 term_normalization:
+  # From ontology.yml synonyms
   "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
@@ -58,6 +113,7 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -70,93 +126,151 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
   "変換器": "Converter"
   "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_good"
+    status: "exists_needs_update"
     tier: 1
-    issues: []
-  - path: "AGENTS.md"
-    status: "exists_good"
-    tier: 1
-    issues: []
-  - path: "CLAUDE.md"
-    status: "exists_good"
-    tier: 2
-    issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_good"
-    tier: 3
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
+    size: "5.3K"
+    modified: "2026-02-04T02:32:00Z"
     issues:
-      - "May need ontology alignment verification"
+      - "Need to verify alignment with latest intent.yml"
+      - "Need to verify term normalization (canonical form usage)"
+
+  - path: "AGENTS.md"
+    status: "exists_needs_update"
+    tier: 1
+    size: "9.5K"
+    modified: "2026-02-04T04:18:00Z"
+    issues:
+      - "Need to verify alignment with latest intent.yml"
+      - "Need to verify term normalization"
+
+  - path: "CLAUDE.md"
+    status: "exists_needs_update"
+    tier: 2
+    size: "13K"
+    modified: "2026-02-04T04:18:00Z"
+    issues:
+      - "Need to verify alignment with latest intent.yml and ontology.yml"
+      - "Need to verify all 16 AUTO decisions are documented"
+
+  - path: "GLOSSARY.md"
+    status: "exists_needs_update"
+    tier: 3
+    size: "15K"
+    modified: "2026-02-04T04:18:00Z"
+    issues:
+      - "Need to regenerate from ontology.yml (v0.3)"
+      - "Should include all 11 canonical terms"
+
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
     tier: 2
+    size: "7.8K"
+    modified: "2026-02-03T13:49:00Z"
     issues:
-      - "Should reflect all invariants from .concept/invariants.yml"
+      - "Need to verify invariants.yml (14 invariants) are reflected"
+
   - path: "PURPOSE.md"
     status: "exists_needs_review"
     tier: 2
+    size: "5.3K"
+    modified: "2026-02-03T10:11:00Z"
     issues:
-      - "Should align with intent.yml"
+      - "Should align with intent.yml mission statement"
+
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
     tier: 2
+    size: "7.2K"
+    modified: "2026-02-03T06:27:00Z"
     issues:
-      - "Should include term usage guidelines"
+      - "Should reflect term normalization guidelines"
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    size: "14K"
+    modified: "2026-02-02T11:07:00Z"
+    issues:
+      - "Should reflect mappings.yml if available"
+
   - path: "GEMINI.md"
-    status: "exists_good"
+    status: "exists_ok"
     tier: 3
+    size: "4.7K"
+    modified: "2026-02-02T00:57:00Z"
     issues: []
+
   - path: "CODEX.md"
-    status: "exists_good"
+    status: "exists_ok"
     tier: 3
+    size: "5.2K"
+    modified: "2026-02-02T00:57:00Z"
     issues: []
+
   - path: "CHANGELOG.md"
-    status: "exists_optional"
-    tier: 3
+    status: "exists_skip"
+    tier: 0
+    size: "61B"
+    modified: "2026-02-01T21:56:00Z"
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml and ontology.yml"
+    reason: "Verify alignment with intent.yml and term normalization"
     priority: "high"
+
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify all invariants and AUTO decisions are documented"
+    reason: "Verify alignment with intent.yml and term normalization"
     priority: "high"
+
   - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify it matches ontology.yml v0.3"
-    priority: "high"
-  - action: "review"
     target: "CLAUDE.md"
-    reason: "Verify concept alignment and AUTO decision documentation"
-    priority: "medium"
-  - action: "review"
+    reason: "Verify all 16 AUTO decisions and 14 invariants are documented"
+    priority: "high"
+
+  - action: "regenerate"
+    target: "GLOSSARY.md"
+    reason: "Regenerate from ontology.yml v0.3 (11 terms)"
+    priority: "high"
+    condition: "ontology_exists"
+
+  - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify all 14 invariants are reflected"
-    priority: "medium"
-  - action: "review"
-    target: "PURPOSE.md"
-    reason: "Verify alignment with intent.yml mission statement"
+    reason: "Verify 14 invariants are reflected"
     priority: "medium"
 
-expected_outcomes:
-  overall_score_before: 95
-  expected_overall_score_after: 98
-  concept_alignment_before: 100
-  expected_concept_alignment_after: 100
-  uniqueness_score_before: 90
-  expected_uniqueness_score_after: 95
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify alignment with intent.yml"
+    priority: "medium"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify term normalization guidelines"
+    priority: "medium"
+
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify mappings.yml reflection"
+    priority: "low"
+
+target_score:
+  overall_score: 90
+  uniqueness_score: 90
+  concept_alignment_score: 90
+
+max_iterations: 3

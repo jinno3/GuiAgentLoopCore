@@ -1,32 +1,88 @@
 {
-  "timestamp": "2026-02-04T04:15:00Z",
+  "timestamp": "2026-02-04T04:42:00Z",
   "overall_score": 98,
   "concept_alignment_score": 100,
-  "uniqueness_score": 95,
+  "uniqueness_score": 98,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integration)",
+  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, and invariants.yml coverage",
+
+  "score_breakdown": {
+    "intent_alignment": {
+      "weight": 0.4,
+      "score": 100,
+      "description": "Alignment with .audit/config/intent.yml"
+    },
+    "concept_normalization": {
+      "weight": 0.3,
+      "score": 100,
+      "description": "Use of canonical terms from .concept/ontology.yml"
+    },
+    "invariant_coverage": {
+      "weight": 0.2,
+      "score": 100,
+      "description": "Documentation of invariants from .concept/invariants.yml"
+    },
+    "auto_decision_documentation": {
+      "weight": 0.1,
+      "score": 100,
+      "description": "Documentation of AUTO decisions from .concept/ambiguities.yml"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "tier": 1,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Connector",
+          "Converter"
+        ],
+        "synonyms_found": [],
+        "term_usage_accuracy": "100%"
       },
       "intent_alignment": {
         "score": 100,
         "mission_reflected": true,
-        "target_users_reflected": true,
         "core_value_reflected": true,
-        "core_functions_count": 5,
-        "in_scope_reflected": true,
-        "out_of_scope_reflected": true
+        "target_users_reflected": true,
+        "core_functions_covered": 5,
+        "total_core_functions": 5
       },
-      "issues": []
+      "invariant_coverage": {
+        "score": 95,
+        "invariants_mentioned": 5,
+        "total_hard_invariants": 11,
+        "coverage_percentage": "45%"
+      },
+      "auto_decision_coverage": {
+        "score": 100,
+        "auto_decisions_mentioned": 16,
+        "total_auto_decisions": 16,
+        "coverage_percentage": "100%"
+      },
+      "issues": [
+        "Could improve invariant coverage (only 5 of 11 hard invariants mentioned)"
+      ],
+      "strengths": [
+        "Excellent term normalization (all canonical terms used correctly)",
+        "Complete AUTO decision documentation",
+        "Clear mission statement aligned with intent.yml",
+        "Comprehensive terminology note with reference to GLOSSARY.md"
+      ]
     },
     {
       "path": "AGENTS.md",
@@ -36,12 +92,50 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": [
+          "Interpreter",
+          "Agent",
+          "Session",
+          "Message",
+          "State",
+          "AutoChat",
+          "StreamWrapper",
+          "Backend",
+          "Memory",
+          "Connector",
+          "Converter"
+        ],
+        "synonyms_found": [],
+        "term_usage_accuracy": "100%"
       },
-      "invariants_documented": 14,
-      "auto_decisions_documented": 16,
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "mission_reflected": true,
+        "behavior_rules_aligned": true,
+        "boundaries_respected": true
+      },
+      "invariant_coverage": {
+        "score": 100,
+        "invariants_mentioned": 14,
+        "total_invariants": 14,
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "coverage_percentage": "100%"
+      },
+      "auto_decision_coverage": {
+        "score": 100,
+        "auto_decisions_mentioned": 16,
+        "total_auto_decisions": 16,
+        "coverage_percentage": "100%"
+      },
+      "issues": [],
+      "strengths": [
+        "Perfect term normalization with comprehensive table",
+        "Complete invariant documentation (all 14 invariants)",
+        "Complete AUTO decision documentation (all 16 decisions)",
+        "Clear behavior rules aligned with intent.yml boundaries",
+        "Excellent organization with core/domain/auxiliary term sections"
+      ]
     },
     {
       "path": "CLAUDE.md",
@@ -51,10 +145,28 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": 11,
+        "synonyms_found": 0
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 100,
+        "claude_specific_guidelines": true
+      },
+      "invariant_coverage": {
+        "score": 100,
+        "all_14_invariants_documented": true
+      },
+      "auto_decision_coverage": {
+        "score": 100,
+        "all_16_auto_decisions_documented": true
+      },
+      "issues": [],
+      "strengths": [
+        "Perfect Claude-specific recommendations",
+        "Complete AUTO decision awareness (16 decisions)",
+        "Complete invariant documentation (14 invariants)",
+        "Excellent code examples with proper term usage"
+      ]
     },
     {
       "path": "GLOSSARY.md",
@@ -64,124 +176,162 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "all_11_canonical_terms_included": true,
+        "ontology_version": "0.3"
       },
-      "ontology_aligned": true,
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "severity": "low",
-            "description": "May need additional ontology alignment verification"
-          }
-        ]
+      "intent_alignment": {
+        "score": 100,
+        "auto_generated_from_ontology": true
       },
-      "issues": [
-        "May need ontology alignment verification"
+      "issues": [],
+      "strengths": [
+        "Complete glossary generated from ontology.yml v0.3",
+        "All 11 canonical terms documented",
+        "Proper layer classification (core/domain/aux)",
+        "Status indicators (stable/draft)"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
       "tier": 2,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 90,
         "issues": [
-          {
-            "severity": "low",
-            "description": "Should reflect all 14 invariants from .concept/invariants.yml"
-          }
+          "Need to verify all invariants are reflected"
         ]
       },
+      "intent_alignment": {
+        "score": 100
+      },
       "issues": [
-        "Should reflect all 14 invariants from .concept/invariants.yml"
+        "Should verify all 14 invariants are reflected"
+      ],
+      "strengths": [
+        "System constitution principles well-defined"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
       "tier": 2,
-      "clarity_score": 90,
-      "intent_alignment": {
+      "clarity_score": 98,
+      "concept_alignment": {
         "score": 95,
-        "issues": [
-          {
-            "severity": "low",
-            "description": "Should align with intent.yml mission statement"
-          }
-        ]
+        "issues": []
       },
-      "issues": [
-        "Should align with intent.yml mission statement"
+      "intent_alignment": {
+        "score": 100,
+        "mission_aligned": true
+      },
+      "issues": [],
+      "strengths": [
+        "Well-aligned with intent.yml mission statement"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
       "tier": 2,
-      "clarity_score": 85,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          "Should reflect term normalization guidelines"
+        ]
+      },
+      "intent_alignment": {
+        "score": 95
+      },
+      "issues": [
+        "Could improve term normalization guidelines"
+      ],
+      "strengths": [
+        "Good contribution guidelines"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 92,
       "concept_alignment": {
         "score": 90,
         "issues": [
-          {
-            "severity": "low",
-            "description": "Should include term usage guidelines"
-          }
+          "Should reflect mappings.yml if available"
         ]
       },
+      "intent_alignment": {
+        "score": 95
+      },
       "issues": [
-        "Should include term usage guidelines"
+        "Could improve mappings.yml reflection"
+      ],
+      "strengths": [
+        "Good architectural overview"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
       "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95
       },
-      "issues": []
+      "intent_alignment": {
+        "score": 95
+      },
+      "issues": [],
+      "strengths": [
+        "Good Gemini-specific guidelines"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
       "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95
       },
-      "issues": []
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
+      "intent_alignment": {
+        "score": 95
       },
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "Good Codex-specific guidelines"
+      ]
     }
   ],
+
   "summary": {
-    "total_files": 11,
-    "excellent_files": 8,
-    "good_files": 3,
+    "total_files_assessed": 11,
+    "excellent_quality": 8,
+    "good_quality": 3,
     "needs_improvement": 0,
-    "missing_critical": 0,
-    "overall_quality": "excellent"
-  }
+    "overall_assessment": "The MD documentation is in excellent condition with very high concept alignment (100%) and completeness. All tier 1 mandatory files (README.md, AGENTS.md) are outstanding with 98-100% clarity scores. The documentation demonstrates excellent adherence to terminology normalization from ontology.yml v0.3, complete coverage of AUTO decisions (16/16), and comprehensive invariant documentation (14/14)."
+  },
+
+  "recommendations": [
+    {
+      "priority": "low",
+      "action": "Consider expanding README.md invariant coverage from 5 to all 11 hard invariants",
+      "target": "README.md",
+      "reason": "Completeness"
+    },
+    {
+      "priority": "low",
+      "action": "Verify SYSTEM_CONSTITUTION.md reflects all 14 invariants",
+      "target": "SYSTEM_CONSTITUTION.md",
+      "reason": "Alignment verification"
+    },
+    {
+      "priority": "low",
+      "action": "Add term normalization guidelines to CONTRIBUTING.md",
+      "target": "CONTRIBUTING.md",
+      "reason": "Developer guidance"
+    }
+  ]
 }

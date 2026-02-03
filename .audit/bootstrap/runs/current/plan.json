@@ -1,0 +1,139 @@
+{
+  "run_timestamp": "2026-02-03T19:55:47.770998Z",
+  "version": "1.1",
+  "rotation": {
+    "deleted_old": true,
+    "moved_current_to_old": true
+  },
+  "input_sources": {
+    "audit": {
+      "intent_yml": ".audit/config/intent.yml",
+      "constraints_yml": ".audit/config/constraints.yml"
+    },
+    "concept": {
+      "ontology_yml": ".concept/ontology.yml",
+      "invariants_yml": ".concept/invariants.yml",
+      "has_concept": true
+    }
+  },
+  "intent_summary": {
+    "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conver...",
+    "target_user": {
+      "Application Developers": "Building LLM-powered applications with GUI interfaces"
+    },
+    "core_value": "Reliable, type-safe, and extensible foundation for..."
+  },
+  "ontology_summary": {
+    "total_terms": 11,
+    "core_terms": 5,
+    "domain_terms": 5
+  },
+  "term_normalization": {
+    "GuiAgentInterpreter": "Interpreter",
+    "会話インタープリタ": "Interpreter",
+    "AIエージェント": "Agent",
+    "専門エージェント": "Agent",
+    "AgentType": "Agent",
+    "AgentDefinition": "Agent",
+    "TaskAgent": "Agent",
+    "AgentImage": "Agent",
+    "ChatSession": "Session",
+    "会話セッション": "Session",
+    "JWT": "Session",
+    "メッセージ": "Message",
+    "ChatMessage": "Message",
+    "InterpreterState": "State",
+    "インタープリタ状態": "State",
+    "自動チャット": "AutoChat",
+    "自動継続": "AutoChat",
+    "GuiAgentStreamWrapper": "StreamWrapper",
+    "ストリームラッパー": "StreamWrapper",
+    "GUIバックエンド": "Backend",
+    "UIフレームワーク": "Backend",
+    "GuiBackend": "Backend",
+    "GuiComponent": "Backend",
+    "変換器": "Converter",
+    "マッパー": "Converter",
+    "会話メモリ": "Memory",
+    "ConversationBuffer": "Memory",
+    "コネクタ": "Connector",
+    "GuiAgentInterpreterABC": "Connector",
+    "ConnectorImplCodeinterpreterApi": "Connector",
+    "ConnectorImplOpenInterpreter": "Connector",
+    "OpenGuiConnector": "Connector"
+  },
+  "existing_mds": [
+    {
+      "path": "README.md",
+      "status": "exists"
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "exists"
+    },
+    {
+      "path": "CLAUDE.md",
+      "status": "exists"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "status": "exists"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "status": "exists"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "status": "exists"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "status": "exists"
+    },
+    {
+      "path": "PURPOSE.md",
+      "status": "exists"
+    },
+    {
+      "path": "GEMINI.md",
+      "status": "exists"
+    },
+    {
+      "path": "CODEX.md",
+      "status": "exists"
+    }
+  ],
+  "actions": [
+    {
+      "action": "verify",
+      "target": "README.md",
+      "reason": "Check alignment with intent and ontology"
+    },
+    {
+      "action": "verify",
+      "target": "AGENTS.md",
+      "reason": "Check alignment with intent and ontology"
+    },
+    {
+      "action": "verify",
+      "target": "CLAUDE.md",
+      "reason": "Check alignment with intent and ontology"
+    },
+    {
+      "action": "verify",
+      "target": "GLOSSARY.md",
+      "reason": "Check alignment with ontology"
+    },
+    {
+      "action": "verify",
+      "target": "SYSTEM_CONSTITUTION.md",
+      "reason": "Check alignment with invariants"
+    },
+    {
+      "action": "verify",
+      "target": "PURPOSE.md",
+      "reason": "Check alignment with intent"
+    }
+  ]
+}

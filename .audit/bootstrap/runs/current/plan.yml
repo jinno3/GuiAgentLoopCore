@@ -1,234 +1,96 @@
-# MD Bootstrap Execution Plan (v1.1)
-# Generated: 2026-02-04T04:29:00Z
-
-run_timestamp: "2026-02-04T04:29:00Z"
-version: "1.1"
-run_number: 79
-
+actions:
+- action: verify
+  reason: Check alignment with intent and ontology
+  target: README.md
+- action: verify
+  reason: Check alignment with intent and ontology
+  target: AGENTS.md
+- action: verify
+  reason: Check alignment with intent and ontology
+  target: CLAUDE.md
+- action: verify
+  reason: Check alignment with ontology
+  target: GLOSSARY.md
+- action: verify
+  reason: Check alignment with invariants
+  target: SYSTEM_CONSTITUTION.md
+- action: verify
+  reason: Check alignment with intent
+  target: PURPOSE.md
+existing_mds:
+- path: README.md
+  status: exists
+- path: AGENTS.md
+  status: exists
+- path: CLAUDE.md
+  status: exists
+- path: GLOSSARY.md
+  status: exists
+- path: ARCHITECTURE.md
+  status: exists
+- path: CONTRIBUTING.md
+  status: exists
+- path: SYSTEM_CONSTITUTION.md
+  status: exists
+- path: PURPOSE.md
+  status: exists
+- path: GEMINI.md
+  status: exists
+- path: CODEX.md
+  status: exists
+input_sources:
+  audit:
+    constraints_yml: .audit/config/constraints.yml
+    intent_yml: .audit/config/intent.yml
+  concept:
+    has_concept: true
+    invariants_yml: .concept/invariants.yml
+    ontology_yml: .concept/ontology.yml
+intent_summary:
+  core_value: Reliable, type-safe, and extensible foundation for...
+  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
+    LLM agents, managing conver...
+  target_user:
+    Application Developers: Building LLM-powered applications with GUI interfaces
+ontology_summary:
+  core_terms: 5
+  domain_terms: 5
+  total_terms: 11
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
-input_sources:
-  audit:
-    intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
-    intent_version: "1.0"
-    created_at: "2026-02-02T00:00:00Z"
-  concept:
-    ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
-    has_concept: true
-    ontology_version: "0.3"
-    ontology_updated: "2026-02-03T12:21:29Z"
-
-intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents (Claude, Gemini, Codex, etc.)"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  boundaries_defined: true
-
-ontology_summary:
-  total_terms: 11
-  core_terms: 5
-  domain_terms: 5
-  aux_terms: 1
-  invariants_count: 14
-  ambiguities_count: 9
-  active_auto_decisions: 16
-
-key_terms:
-  - canonical: "Interpreter"
-    layer: "core"
-    definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-    synonyms: ["GuiAgentInterpreter", "会話インタープリタ"]
-
-  - canonical: "Agent"
-    layer: "core"
-    definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"]
-
-  - canonical: "Session"
-    layer: "core"
-    definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-    synonyms: ["ChatSession", "会話セッション", "JWT"]
-
-  - canonical: "Message"
-    layer: "core"
-    definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    synonyms: ["メッセージ", "ChatMessage"]
-
-  - canonical: "State"
-    layer: "core"
-    definition: "インタープリタの実行状態を表す列挙型"
-    synonyms: ["InterpreterState", "インタープリタ状態"]
-
+run_timestamp: '2026-02-03T19:55:47.770998Z'
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-
-existing_mds:
-  - path: "README.md"
-    status: "exists_needs_review"
-    tier: 1
-    size: "5.3K"
-    issues:
-      - "需要确认是否与intent.yml一致"
-
-  - path: "AGENTS.md"
-    status: "exists_needs_review"
-    tier: 1
-    size: "9.5K"
-    issues:
-      - "需要验证术语规范化"
-
-  - path: "CLAUDE.md"
-    status: "exists_recent"
-    tier: 2
-    size: "13K"
-    last_updated: "2026-02-04T04:15:00Z"
-    issues:
-      - "最近已更新，仍需验证概念一致性"
-
-  - path: "GLOSSARY.md"
-    status: "exists_recent"
-    tier: 3
-    size: "15K"
-    last_updated: "2026-02-04T04:18:00Z"
-    issues:
-      - "需要验证是否与ontology.yml一致"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    size: "14K"
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-    size: "7.2K"
-
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-    size: "5.3K"
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-    size: "7.8K"
-
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-    size: "5.2K"
-
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-    size: "4.7K"
-
-  - path: "CHANGELOG.md"
-    status: "exists_minimal"
-    tier: 3
-    size: "61"
-
-actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "验证存在意義的反映、用語の正規化"
-
-  - action: "verify"
-    target: "AGENTS.md"
-    reason: "验证AIエージェント向け指示、用語規約、不変条件の反映"
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "验证Claude向け特化指示、AUTO決定の文書化"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "验证概念辞書からの自動生成、正規形の一貫性"
-
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "验证mappings.ymlの反映、用語の正規化"
-
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "验证存在意義に沿った貢献方法、用語ガイドライン"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "验证目的の詳細説明、概念の定義を引用"
-
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "验证存在意義の不変原則、invariantsの反映"
-
-verification_targets:
-  uniqueness_checks:
-    - id: "UC-001"
-      name: "存在意義の一貫性"
-      description: "全MDで同じmissionが表現されているか"
-
-    - id: "UC-002"
-      name: "対象ユーザーの一貫性"
-      description: "全MDで同じtarget_userを想定しているか"
-
-    - id: "UC-003"
-      name: "制約の一貫性"
-      description: "技術的制約が一致しているか"
-
-    - id: "UC-004"
-      name: "境界線の一貫性"
-      description: "out_of_scopeが矛盾なく定義されているか"
-
-    - id: "UC-005"
-      name: "intent.yml準拠"
-      description: "全MDがintent.ymlを正しく反映しているか"
-
-  concept_alignment_checks:
-    - id: "CA-001"
-      name: "用語の正規形使用"
-      description: "全MDでcanonical termを使用しているか"
-
-    - id: "CA-002"
-      name: "同義語の排除"
-      description: "synonymが本文で使用されていないか"
-
-    - id: "CA-003"
-      name: "不変条件の反映"
-      description: "hard invariantsがドキュメント化されているか"
-
-    - id: "CA-004"
-      name: "AUTO決定の注記"
-      description: "暫定仕様が明示されているか"
-
-    - id: "CA-005"
-      name: "用語境界の整合"
-      description: "boundaries.includes/excludesが矛盾していないか"
-
-expected_outcomes:
-  clarity_score_before: 85  # Estimated from recent updates
-  clarity_score_target: 95
-  uniqueness_score_before: 80  # Estimated
-  uniqueness_score_target: 90
-  concept_alignment_score_before: 75  # Estimated
-  concept_alignment_score_target: 95
+  AIエージェント: Agent
+  AgentDefinition: Agent
+  AgentImage: Agent
+  AgentType: Agent
+  ChatMessage: Message
+  ChatSession: Session
+  ConnectorImplCodeinterpreterApi: Connector
+  ConnectorImplOpenInterpreter: Connector
+  ConversationBuffer: Memory
+  GUIバックエンド: Backend
+  GuiAgentInterpreter: Interpreter
+  GuiAgentInterpreterABC: Connector
+  GuiAgentStreamWrapper: StreamWrapper
+  GuiBackend: Backend
+  GuiComponent: Backend
+  InterpreterState: State
+  JWT: Session
+  OpenGuiConnector: Connector
+  TaskAgent: Agent
+  UIフレームワーク: Backend
+  インタープリタ状態: State
+  コネクタ: Connector
+  ストリームラッパー: StreamWrapper
+  マッパー: Converter
+  メッセージ: Message
+  会話インタープリタ: Interpreter
+  会話セッション: Session
+  会話メモリ: Memory
+  変換器: Converter
+  専門エージェント: Agent
+  自動チャット: AutoChat
+  自動継続: AutoChat
+version: '1.1'
