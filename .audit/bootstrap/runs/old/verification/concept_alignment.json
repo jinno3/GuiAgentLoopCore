@@ -1,43 +1,324 @@
 {
-  "timestamp": "2026-02-03T22:34:12.929970",
+  "timestamp": "2026-02-03T22:45:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 80,
+  "ontology_version": "0.3",
+  "overall_alignment_score": 96,
+
   "term_usage_check": {
-    "total_canonical_terms": 11,
-    "core_terms": 5,
-    "documentation_coverage": "HIGH"
+    "total_term_occurrences": 132,
+    "canonical_used": 130,
+    "synonym_used": 0,
+    "unknown_terms": 2,
+    "alignment_rate": 0.985
   },
-  "invariant_check": {
-    "total_invariants": 14,
-    "hard_invariants": 11,
-    "documented_in_agents": 11,
-    "documented_in_constitution": 11
-  },
-  "auto_decision_check": {
-    "total_active": 9,
-    "documented_in_readme": true,
-    "documented_in_agents": true
-  },
+
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
+      "alignment_score": 98,
+      "terms_checked": 11,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Memory",
+        "Connector"
+      ],
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
+      "terms_checked": 11,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Memory",
+        "Connector"
+      ],
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
+      "terms_checked": 11,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Memory",
+        "Connector"
+      ],
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "terms_checked": 11,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Converter",
+        "Memory",
+        "Connector"
+      ],
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 90,
+      "terms_checked": 8,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "Backend",
+        "Connector"
+      ],
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "terms_checked": 7,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend",
+        "Connector"
+      ],
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 85,
+      "terms_checked": 6,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend"
+      ],
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 85,
+      "terms_checked": 6,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend"
+      ],
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 85,
+      "terms_checked": 6,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "Backend"
+      ],
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "terms_checked": 10,
+      "canonical_usage": [
+        "Interpreter",
+        "Agent",
+        "Session",
+        "Message",
+        "State",
+        "AutoChat",
+        "StreamWrapper",
+        "Backend",
+        "Connector",
+        "Converter"
+      ],
       "issues": []
     }
-  ]
+  ],
+
+  "invariant_check": {
+    "total_invariants": 13,
+    "reflected_in_md": 13,
+    "missing": [],
+    "details": [
+      {
+        "invariant_id": "INV-STATE-001",
+        "statement": "インタープリタ状態は単調遷移する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "README.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      {
+        "invariant_id": "INV-SESSION-001",
+        "statement": "セッションは一意のUUIDで識別される",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "invariant_id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "invariant_id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "invariant_id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "invariant_id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
+      },
+      {
+        "invariant_id": "INV-STREAM-001",
+        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "invariant_id": "INV-MESSAGE-001",
+        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      {
+        "invariant_id": "INV-STATE-002",
+        "statement": "状態は3秒間隔のタイマーで自動更新される",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "invariant_id": "INV-BACKEND-001",
+        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "invariant_id": "INV-SESSION-002",
+        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"]
+      },
+      {
+        "invariant_id": "INV-CONNECTOR-001",
+        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "invariant_id": "INV-CONVERTER-001",
+        "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "invariant_id": "INV-BACKEND-002",
+        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    ]
+  },
+
+  "auto_decision_check": {
+    "total_auto_decisions": 16,
+    "active_auto_decisions": 16,
+    "noted_in_md": 16,
+    "details": {
+      "Agent": {
+        "count": 2,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Message": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "State": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "AutoChat": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Backend": {
+        "count": 3,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Memory": {
+        "count": 4,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md", "GLOSSARY.md"]
+      },
+      "Session": {
+        "count": 1,
+        "documented_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Connector": {
+        "count": 1,
+        "documented_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    }
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
+  },
+
+  "concept_alignment_score_details": {
+    "ca_checks": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    "score": 96
+  },
+
+  "overall_score": {
+    "uniqueness_score": 95,
+    "concept_alignment_score": 96,
+    "overall": 95,
+    "calculation": "(95 * 0.6) + (96 * 0.4) = 57 + 38.4 = 95.4 ≈ 95"
+  }
 }

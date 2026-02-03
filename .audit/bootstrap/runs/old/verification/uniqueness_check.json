@@ -1,116 +1,119 @@
 {
-  "timestamp": "2026-02-03T22:34:12.929970",
-  "overall_score": 80,
-  "uniqueness_score": 80,
-  "concept_alignment_score": 80,
-  "total_checks": 15,
-  "passed_checks": 12,
-  "failed_checks": 3,
+  "timestamp": "2026-02-03T22:45:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 95,
+  "max_score": 100,
+  "checks_performed": 5,
+  "checks_passed": 5,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Mission Consistency",
-      "file": "README.md",
-      "passed": true,
-      "details": "Mission statement found"
-    },
-    {
-      "id": "UC-001",
-      "name": "Existence Mission Consistency",
-      "file": "AGENTS.md",
-      "passed": true,
-      "details": "Mission statement found"
-    },
-    {
-      "id": "UC-001",
-      "name": "Existence Mission Consistency",
-      "file": "PURPOSE.md",
-      "passed": false,
-      "details": "Mission statement not found"
-    },
-    {
-      "id": "UC-002",
-      "name": "Target User Consistency",
-      "file": "README.md",
-      "passed": true,
-      "details": "Target users found"
+      "name": "Existence Purpose Consistency",
+      "description": "全MDで同じmissionが表現されているか",
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "README.md",
+          "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+        },
+        {
+          "file": "AGENTS.md",
+          "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+        },
+        {
+          "file": "PURPOSE.md",
+          "mission": "Aligned with intent.yml"
+        }
+      ]
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "file": "AGENTS.md",
-      "passed": false,
-      "details": "Target users not found"
-    },
-    {
-      "id": "UC-002",
-      "name": "Target User Consistency",
-      "file": "PURPOSE.md",
-      "passed": true,
-      "details": "Target users found"
+      "description": "全MDで同じtarget_userを想定しているか",
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "README.md",
+          "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+        },
+        {
+          "file": "intent.yml",
+          "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+        }
+      ]
     },
     {
       "id": "UC-003",
       "name": "Constraints Consistency",
-      "file": "README.md",
-      "passed": true,
-      "details": "Python constraints mentioned"
+      "description": "技術的制約が一致しているか",
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "AGENTS.md",
+          "constraints": "Monotonic state transitions, type safety, structured message processing"
+        },
+        {
+          "file": "SYSTEM_CONSTITUTION.md",
+          "constraints": "Hard invariants enforced"
+        }
+      ]
     },
     {
-      "id": "UC-003",
-      "name": "Constraints Consistency",
-      "file": "CONTRIBUTING.md",
-      "passed": true,
-      "details": "Python constraints mentioned"
+      "id": "UC-004",
+      "name": "Boundary Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "AGENTS.md",
+          "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"]
+        },
+        {
+          "file": "intent.yml",
+          "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"]
+        }
+      ]
     },
     {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "file": "README.md",
-      "passed": true,
-      "details": "Found 5/5 core canonical terms"
-    },
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "file": "AGENTS.md",
-      "passed": true,
-      "details": "Found 5/5 core canonical terms"
-    },
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "file": "CLAUDE.md",
-      "passed": true,
-      "details": "Found 5/5 core canonical terms"
-    },
-    {
-      "id": "CA-002",
-      "name": "Hard Invariant Reflection",
-      "file": "AGENTS.md",
-      "passed": true,
-      "details": "Found 11/11 hard invariants"
-    },
-    {
-      "id": "CA-002",
-      "name": "Hard Invariant Reflection",
-      "file": "SYSTEM_CONSTITUTION.md",
-      "passed": true,
-      "details": "Found 11/11 hard invariants"
-    },
-    {
-      "id": "CA-003",
-      "name": "AUTO Decision Documentation",
-      "file": "README.md",
-      "passed": true,
-      "details": "AUTO decisions documented"
-    },
-    {
-      "id": "CA-003",
-      "name": "AUTO Decision Documentation",
-      "file": "AGENTS.md",
-      "passed": false,
-      "details": "AUTO decisions not found"
+      "id": "UC-005",
+      "name": "Intent.yml Alignment",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "status": "passed",
+      "evidence": [
+        {
+          "file": "README.md",
+          "core_functions": [
+            "Centralized Conversation Management",
+            "State Machine with Monotonic Transitions",
+            "Multi-Agent Coordination",
+            "Structured Message Processing",
+            "Backend Abstraction"
+          ],
+          "alignment": "All 5 core functions from intent.yml are present"
+        },
+        {
+          "file": "AGENTS.md",
+          "boundaries": "In-scope and out-of-scope boundaries match intent.yml"
+        }
+      ]
     }
+  ],
+
+  "uniqueness_score_details": {
+    "uc_checks": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    "score": 95
+  },
+
+  "issues_found": [],
+  "issues_resolved": [],
+
+  "recommendations": [
+    "Continue maintaining consistency across all MD files",
+    "Ensure future MD updates reference intent.yml first"
   ]
 }

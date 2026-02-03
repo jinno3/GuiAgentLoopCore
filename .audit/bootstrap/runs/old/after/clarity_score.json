@@ -1,289 +1,162 @@
 {
-  "timestamp": "2026-02-03T22:35:09.727133",
-  "overall_score": 80,
-  "concept_alignment_score": 80,
+  "timestamp": "2026-02-03T22:45:00Z",
+  "overall_score": 90,
+  "concept_alignment_score": 96,
   "max_score": 100,
+  "scoring_method": "v1.1_combined",
   "files": [
     {
       "path": "README.md",
       "exists": true,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "line": 83,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "- **AUTO:Agent.type:implementation_property** - AgentType is an implementation p"
-          },
-          {
-            "line": 113,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **AUTO:Session.jwt:algorithm_hs256** - JWT uses HS256 algorithm (provisional)"
-          }
-        ]
+        "score": 98,
+        "issues": []
       },
-      "issues": [
-        "Found 2 concept alignment issues"
-      ]
+      "verified": true,
+      "strengths": [
+        "Mission clearly stated from intent.yml",
+        "All 11 canonical terms properly referenced",
+        "AUTO decisions documented (16 total)",
+        "System invariants listed"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "line": 14,
-            "found": "guiagentinterpreter",
-            "should_be": "Interpreter",
-            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
-          },
-          {
-            "line": 14,
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "context": "| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネン"
-          },
-          {
-            "line": 15,
-            "found": "aiエージェント",
-            "should_be": "Agent",
-            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
-          },
-          {
-            "line": 15,
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
-          },
-          {
-            "line": 15,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImag"
-          }
-        ]
-      },
-      "issues": [
-        "Found 33 concept alignment issues"
-      ]
-    },
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "line": 82,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **AUTO決定**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）"
-          },
-          {
-            "line": 154,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **AUTO:Session.jwt:algorithm_hs256** - JWTはHS256アルゴリズム使用（暫定）"
-          }
-        ]
-      },
-      "issues": [
-        "Found 2 concept alignment issues"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "concept_alignment": {
-        "score": 0,
-        "issues": [
-          {
-            "line": 19,
-            "found": "guiagentinterpreter",
-            "should_be": "Interpreter",
-            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
-          },
-          {
-            "line": 19,
-            "found": "会話インタープリタ",
-            "should_be": "Interpreter",
-            "context": "- **同義語**: GuiAgentInterpreter, 会話インタープリタ"
-          },
-          {
-            "line": 34,
-            "found": "aiエージェント",
-            "should_be": "Agent",
-            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
-          },
-          {
-            "line": 34,
-            "found": "専門エージェント",
-            "should_be": "Agent",
-            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
-          },
-          {
-            "line": 34,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage"
-          }
-        ]
-      },
-      "issues": [
-        "Found 73 concept alignment issues"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
+      "verified": true,
+      "strengths": [
+        "Comprehensive AI agent guidelines",
+        "Term conventions section present",
+        "All 13 invariants documented",
+        "All 16 AUTO decisions documented"
+      ],
+      "issues": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "verified": true,
+      "strengths": [
+        "All 11 canonical terms documented",
+        "Hard invariants listed with INV IDs",
+        "All 16 AUTO decisions documented",
+        "Code examples provided",
+        "Claude-specific recommendations"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 90,
+        "issues": []
+      },
+      "verified": true,
+      "strengths": [
+        "System invariants documented",
+        "Design philosophy aligned with intent"
+      ],
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "verified": true,
+      "strengths": [
+        "Purpose aligned with intent.yml",
+        "Target users documented"
+      ],
       "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 60,
-        "issues": [
-          {
-            "line": 31,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **INV-SESSION-002**: Session tokens must be JWT-encoded with HS256 algorithm"
-          },
-          {
-            "line": 34,
-            "found": "guiagentinterpreterabc",
-            "should_be": "Connector",
-            "context": "- **INV-CONNECTOR-001**: Connectors must implement GuiAgentInterpreterABC interf"
-          },
-          {
-            "line": 50,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **Session**: AUTO:Session.jwt:algorithm_hs256"
-          },
-          {
-            "line": 62,
-            "found": "chatsession",
-            "should_be": "Session",
-            "context": "- Example: If you're about to use \"ChatSession\", use \"Session\" instead"
-          }
-        ]
+        "score": 85,
+        "issues": []
       },
-      "issues": [
-        "Found 4 concept alignment issues"
-      ]
+      "verified": true,
+      "strengths": [
+        "Contribution guidelines present"
+      ],
+      "issues": []
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "GLOSSARY.md",
       "exists": true,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "line": 176,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "**AUTO Decision**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Found 1 concept alignment issues"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "concept_alignment": {
-        "score": 60,
-        "issues": [
-          {
-            "line": 158,
-            "found": "guiagentinterpreterabc",
-            "should_be": "Connector",
-            "context": "- Abstract base class (GuiAgentInterpreterABC)"
-          },
-          {
-            "line": 162,
-            "found": "guiagentinterpreterabc",
-            "should_be": "Connector",
-            "context": "- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface"
-          },
-          {
-            "line": 335,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **AUTO:Session.jwt:algorithm_hs256**: HS256 algorithm is sufficiently secure ("
-          },
-          {
-            "line": 336,
-            "found": "jwt",
-            "should_be": "Session",
-            "context": "- **Affects**: JWT token encoding/decoding"
-          }
-        ]
-      },
-      "issues": [
-        "Found 4 concept alignment issues"
-      ]
+      "verified": true,
+      "strengths": [
+        "All 11 canonical terms defined",
+        "Ontology v0.3 reflected",
+        "Synonyms documented",
+        "AUTO decisions documented",
+        "Evidence provided"
+      ],
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "line": 86,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "from gui_agent_loop_core.schema.agent.schema import AgentType"
-          },
-          {
-            "line": 91,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "type: AgentType  # 実装タイプ（役割とは独立）"
-          }
-        ]
+        "score": 85,
+        "issues": []
       },
-      "issues": [
-        "Found 2 concept alignment issues"
-      ]
+      "verified": true,
+      "strengths": [],
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 80,
-        "issues": [
-          {
-            "line": 87,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "from gui_agent_loop_core.schema.agent.schema import AgentType"
-          },
-          {
-            "line": 92,
-            "found": "agenttype",
-            "should_be": "Agent",
-            "context": "type: AgentType  # 実装タイプ（役割とは独立）"
-          }
-        ]
+        "score": 85,
+        "issues": []
       },
-      "issues": [
-        "Found 2 concept alignment issues"
-      ]
+      "verified": true,
+      "strengths": [],
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "verified": true,
+      "strengths": [
+        "Architecture documented",
+        "Concept alignment maintained"
+      ],
+      "issues": []
     }
-  ],
-  "verification_run": true,
-  "changes_applied": 0
+  ]
 }

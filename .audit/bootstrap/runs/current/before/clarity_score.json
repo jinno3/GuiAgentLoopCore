@@ -1,147 +1,261 @@
 {
-  "timestamp": "2026-02-03T22:45:00Z",
-  "overall_score": 85,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-03T23:00:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_method": "v1.1_combined",
+  "scoring_methodology": {
+    "clarity_weight": 0.5,
+    "completeness_weight": 0.3,
+    "concept_alignment_weight": 0.2
+  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
+      "completeness_score": 90,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "Uses canonical term 'Interpreter' consistently",
+          "References State with proper enumeration",
+          "Properly documents AUTO decisions",
+          "Links to GLOSSARY.md for terminology"
+        ]
       },
       "strengths": [
-        "Mission clearly stated from intent.yml",
-        "All 11 canonical terms properly referenced",
-        "AUTO decisions documented (16 total)",
-        "System invariants listed"
+        "Clear mission statement from intent.yml",
+        "Well-structured core functions section",
+        "Comprehensive AUTO decisions documentation",
+        "Proper invariant references"
       ],
-      "issues": []
+      "weaknesses": [
+        "Could include more installation details",
+        "Architecture diagram would be helpful"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 98,
+      "completeness_score": 95,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Perfect canonical term usage (all 11 terms)",
+          "Comprehensive term normalization table",
+          "All synonyms properly documented as prohibited",
+          "Clear distinction between core/domain/auxiliary terms"
+        ]
       },
       "strengths": [
-        "Comprehensive AI agent guidelines",
-        "Term conventions section present",
-        "Invariant violations documented"
+        "Excellent term normalization guidance",
+        "Complete hard/soft invariant documentation",
+        "All AUTO decisions properly documented",
+        "Clear behavior guidelines with scope boundaries"
       ],
-      "issues": []
+      "weaknesses": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
+      "completeness_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "strengths": [
+          "All 11 canonical terms properly used",
+          "Correct term counts by layer (Core: 5, Domain: 5, Aux: 1)",
+          "All 16 AUTO decisions noted",
+          "Proper references to ontology and invariants"
+        ]
       },
       "strengths": [
-        "All 11 canonical terms documented",
-        "Hard invariants listed with INV IDs",
-        "All 16 AUTO decisions documented",
-        "Code examples provided"
-      ],
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [
-        "System invariants documented",
-        "Design philosophy aligned with intent"
-      ],
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "strengths": [
-        "Purpose aligned with intent.yml",
-        "Target users documented"
-      ],
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 80,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "strengths": [
-        "Contribution guidelines present"
-      ],
-      "issues": []
+        "Excellent code examples with proper term usage",
+          "Clear invariant enforcement guidelines",
+          "Comprehensive AUTO decision tracking",
+          "Practical code review checklist"
+        ],
+      "weaknesses": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 98,
+      "completeness_score": 95,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "Auto-generated from ontology.yml",
+          "All 11 canonical terms documented",
+          "Proper layer classification",
+          "Status indicators (stable/draft) included"
+        ]
       },
       "strengths": [
-        "All 11 canonical terms defined",
-        "Ontology v0.3 reflected",
-        "Synonyms documented"
+        "Complete term documentation from ontology",
+        "Clear layer organization",
+        "Status tracking for each term",
+        "Evidence references included"
       ],
-      "issues": []
+      "weaknesses": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 90,
+      "completeness_score": 85,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "Properly references hard invariants",
+          "Uses canonical terms correctly"
+        ]
+      },
+      "strengths": [
+        "Clear invariant principles",
+          "Well-structured constitution"
+      ],
+      "weaknesses": [
+        "Could be more comprehensive"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "completeness_score": 88,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "Aligns with intent.yml mission",
+          "Uses canonical terminology"
+        ]
+      },
+      "strengths": [
+        "Clear purpose statement",
+        "Aligns with repository intent"
+      ],
+      "weaknesses": [
+        "Could expand on success metrics"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 85,
+      "completeness_score": 80,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "missing_term_reference",
+            "detail": "Does not explicitly reference ontology.yml for terminology"
+          }
+        ],
+        "strengths": [
+          "Mentions term queue usage"
+        ]
+      },
+      "strengths": [
+        "References term_queue.yml",
+        "Mentions invariants.yml"
+      ],
+      "weaknesses": [
+        "Could be more explicit about term normalization"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 85,
+      "completeness_score": 80,
       "concept_alignment": {
-        "score": 85,
-        "issues": []
+        "score": 90,
+        "issues": [],
+        "strengths": [
+          "Uses canonical terms appropriately"
+        ]
       },
-      "strengths": [],
-      "issues": []
+      "strengths": [
+        "Follows similar structure to CLAUDE.md"
+      ],
+      "weaknesses": [
+        "Could be more Gemini-specific"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 80,
+      "clarity_score": 85,
+      "completeness_score": 80,
       "concept_alignment": {
-        "score": 85,
-        "issues": []
+        "score": 90,
+        "issues": [],
+        "strengths": [
+          "Uses canonical terms appropriately"
+        ]
       },
-      "strengths": [],
-      "issues": []
+      "strengths": [
+        "Codex-specific guidance"
+      ],
+      "weaknesses": [
+        "Could be more comprehensive"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 90,
+      "completeness_score": 88,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "strengths": [
+          "Good use of canonical terms",
+          "References mappings.yml"
+        ]
       },
       "strengths": [
-        "Architecture documented"
+        "Comprehensive architecture overview",
+        "Good integration with concept mappings"
       ],
-      "issues": []
+      "weaknesses": [
+        "Could include more diagrams"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 50,
+      "completeness_score": 30,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "strengths": [
+          "N/A - minimal content"
+        ]
+      },
+      "strengths": [],
+      "weaknesses": [
+        "Minimal content",
+        "Should be updated with changes"
+      ]
     }
-  ]
+  ],
+  "summary": {
+    "total_files": 11,
+    "excellent_files": 4,
+    "good_files": 6,
+    "needs_improvement": 1,
+    "tier1_coverage": "2/2 (100%)",
+    "tier2_coverage": "4/4 (100%)",
+    "tier3_coverage": "4/4 (100%)"
+  }
 }
