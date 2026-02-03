@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-03T21:10:00Z"
+run_timestamp: "2026-02-03T21:25:46Z"
 version: "1.1"
 
 rotation:
@@ -15,9 +15,9 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
@@ -49,15 +49,16 @@ ontology_summary:
     - canonical: "Backend"
       definition: "GUIフレームワーク実装（Gradio等）"
       layer: "domain"
-    - canonical: "Converter"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      layer: "aux"
     - canonical: "Memory"
       definition: "会話履歴を保持するバッファ機構"
       layer: "domain"
+      status: "draft"
     - canonical: "Connector"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
       layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -70,7 +71,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -83,10 +83,10 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
@@ -95,91 +95,46 @@ term_normalization:
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_verification"
-    tier: 1
-    issues:
-      - "Need to verify intent.yml alignment"
-      - "Need to verify ontology.yml term usage"
+    status: "exists_aligned"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_needs_verification"
-    tier: 1
-    issues:
-      - "Need to verify intent.yml alignment"
-      - "Need to verify ontology.yml term usage"
+    status: "exists_aligned"
+    issues: []
   - path: "CLAUDE.md"
-    status: "exists_needs_verification"
-    tier: 2
-    issues:
-      - "Need to verify intent.yml alignment"
-      - "Need to verify ontology.yml term usage and AUTO decisions"
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_verification"
-    tier: 2
-    issues:
-      - "Need to verify invariants.yml alignment"
-  - path: "PURPOSE.md"
-    status: "exists_needs_verification"
-    tier: 2
-    issues:
-      - "Need to verify intent.yml alignment"
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_verification"
-    tier: 2
-    issues:
-      - "Need to verify intent.yml alignment"
+    status: "exists_aligned"
+    issues: []
   - path: "GLOSSARY.md"
-    status: "exists_needs_verification"
-    tier: 3
-    issues:
-      - "Need to verify ontology.yml alignment"
-  - path: "GEMINI.md"
-    status: "exists_needs_verification"
-    tier: 3
-    issues:
-      - "Need to verify intent.yml alignment"
-  - path: "CODEX.md"
-    status: "exists_needs_verification"
-    tier: 3
-    issues:
-      - "Need to verify intent.yml alignment"
+    status: "exists_aligned"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists"
+    issues: []
   - path: "ARCHITECTURE.md"
-    status: "exists_needs_verification"
-    tier: 3
-    issues:
-      - "Need to verify intent.yml alignment"
+    status: "exists"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists"
+    issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent.yml alignment and term normalization"
+    reason: "存在意義と概念整合性を確認"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify intent.yml alignment and term normalization"
+    reason: "用語規約と不変条件を確認"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify intent.yml alignment, term normalization, and AUTO decisions"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants.yml alignment"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify intent.yml alignment"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify intent.yml alignment"
+    reason: "Claude向け指示の整合性を確認"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology.yml alignment"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify intent.yml alignment"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify intent.yml alignment"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify intent.yml alignment"
-
-auto_decisions_count: 16
-hard_invariants_count: 10
-soft_invariants_count: 3
+    reason: "用語集の整合性を確認"

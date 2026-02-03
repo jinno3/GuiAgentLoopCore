@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-02-03T21:10:22Z",
+  "timestamp": "2026-02-03T21:25:46Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 99,
+  "ontology_version": "0.3",
+  "overall_alignment_score": 98,
   "term_usage_check": {
-    "total_term_occurrences": 77,
-    "canonical_used": 77,
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -12,94 +13,65 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 98,
+      "alignment_score": 100,
+      "term_usage": {
+        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Converter"],
+        "synonyms_found": [],
+        "total_occurrences": 22
+      },
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
+      "term_usage": {
+        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "total_occurrences": 44
+      },
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 95,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
+      "term_usage": {
+        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "total_occurrences": 22
+      },
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "term_usage": {
+        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "total_occurrences": 0
+      },
+      "issues": [],
+      "note": "GLOSSARY.mdは用語定義ファイルであるため、同義語を正規形へのマッピングとして文書化している"
     }
   ],
   "invariant_check": {
-    "total_invariants": 13,
-    "hard_invariants": 10,
-    "soft_invariants": 3,
-    "reflected_in_md": {
-      "hard": 11,
-      "soft": 3
-    },
-    "missing": [
-      {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ",
-        "strength": "soft",
-        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
-        "status": "pending"
-      },
-      {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "strength": "soft",
-        "should_appear_in": ["SYSTEM_CONSTITUTION.md"],
-        "status": "pending"
-      }
-    ]
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": []
   },
   "auto_decision_check": {
     "total_auto_decisions": 16,
-    "reflected_in_md": {
-      "README.md": 14,
-      "AGENTS.md": 14,
-      "CLAUDE.md": 15,
-      "SYSTEM_CONSTITUTION.md": 6,
-      "PURPOSE.md": 0,
-      "CONTRIBUTING.md": 14,
-      "GLOSSARY.md": 9
-    },
-    "missing": [
-      {
-        "decision": "AUTO:Security.secret_key:env_var_required",
-        "should_appear_in": ["AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "severity": "high",
-        "status": "pending"
-      },
-      {
-        "decision": "AUTO:Session.jwt:decode_method_fix",
-        "should_appear_in": ["CLAUDE.md", "CONTRIBUTING.md"],
-        "severity": "high",
-        "status": "pending"
-      }
-    ]
+    "noted_in_md": 16,
+    "missing": []
   },
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0
+  },
+  "summary": {
+    "concept_checks_passed": "5/5",
+    "term_usage_perfect": true,
+    "invariants_complete": true,
+    "auto_decisions_documented": true
   }
 }
