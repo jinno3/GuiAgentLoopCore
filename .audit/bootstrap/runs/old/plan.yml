@@ -1,89 +1,196 @@
-run_timestamp: '2026-02-03T01:35:21.479039+00:00'
-version: '1.1'
+# MD Bootstrap Execution Plan (v1.1)
+# Generated: 2026-02-03T01:50:27Z
+
+run_timestamp: "2026-02-03T01:50:27Z"
+version: "1.1"
+run_number: 70
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
   created_new_current: true
+
 input_sources:
   audit:
-    intent_yml: .audit/config/intent.yml
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
+    intent_exists: true
+    constraints_exists: true
   concept:
-    ontology_yml: .concept/ontology.yml
-    invariants_yml: .concept/invariants.yml
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ontology_exists: true
+    invariants_exists: true
     has_concept: true
+
 intent_summary:
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
-  target_user:
-  - Application Developers: Building LLM-powered applications with GUI interfaces
-  - AI Agent Developers: Creating specialized agents for specific tasks
-  - Framework Developers: Building new GUI backend implementations
-  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
-    with predictable state manage...
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_users:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  total_core_functions: 6
+  total_boundaries_in_scope: 6
+  total_boundaries_out_of_scope: 5
+
 ontology_summary:
+  version: "0.3"
+  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 11
-  core_terms: 5
-  domain_terms: 5
+  by_layer:
+    core: 5
+    domain: 5
+    aux: 1
+  by_status:
+    stable: 10
+    draft: 1
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+      status: "stable"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+      status: "stable"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+      status: "stable"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
+      status: "stable"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+      status: "stable"
+
 term_normalization:
-  GuiAgentInterpreter: Interpreter
-  会話インタープリタ: Interpreter
-  AIエージェント: Agent
-  専門エージェント: Agent
-  AgentType: Agent
-  AgentDefinition: Agent
-  TaskAgent: Agent
-  AgentImage: Agent
-  ChatSession: Session
-  会話セッション: Session
-  JWT: Session
-  メッセージ: Message
-  ChatMessage: Message
-  InterpreterState: State
-  インタープリタ状態: State
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+
 existing_mds:
-- path: README.md
-  exists: true
-  size_bytes: 4236
-  line_count: 104
-- path: AGENTS.md
-  exists: true
-  size_bytes: 9524
-  line_count: 164
-- path: CLAUDE.md
-  exists: true
-  size_bytes: 12394
-  line_count: 272
-- path: SYSTEM_CONSTITUTION.md
-  exists: true
-  size_bytes: 7945
-  line_count: 244
-- path: PURPOSE.md
-  exists: true
-  size_bytes: 5379
-  line_count: 143
-- path: CONTRIBUTING.md
-  exists: true
-  size_bytes: 7364
-  line_count: 187
-- path: GLOSSARY.md
-  exists: true
-  size_bytes: 11215
-  line_count: 265
-- path: GEMINI.md
-  exists: true
-  size_bytes: 4744
-  line_count: 137
-- path: CODEX.md
-  exists: true
-  size_bytes: 5224
-  line_count: 157
-- path: ARCHITECTURE.md
-  exists: true
-  size_bytes: 13424
-  line_count: 347
-actions: []
-before_scores:
-  md_inventory: md_inventory.json
-  clarity_score: clarity_score.json
-  overall_clarity: 53
-  overall_alignment: 69
+  - path: "README.md"
+    status: "exists_needs_verification"
+    tier: 1
+    issues: []
+  - path: "AGENTS.md"
+    status: "exists_needs_verification"
+    tier: 1
+    issues: []
+  - path: "CLAUDE.md"
+    status: "exists_needs_verification"
+    tier: 2
+    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_needs_verification"
+    tier: 3
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_verification"
+    tier: 3
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_needs_verification"
+    tier: 3
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_needs_verification"
+    tier: 3
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_verification"
+    tier: 2
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists_needs_verification"
+    tier: 2
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_verification"
+    tier: 2
+    issues: []
+  - path: "CHANGELOG.md"
+    status: "exists_optional"
+    tier: 3
+    issues: []
+
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  stable_invariants: 13
+  draft_invariants: 1
+
+auto_decisions_summary:
+  total_auto_decisions: 16
+  by_category:
+    agent: 2
+    message: 3
+    state: 3
+    autochat: 3
+    backend: 3
+    memory: 4
+    session: 1
+    connector: 1
+    converter: 0
+
+actions:
+  - action: "verify"
+    target: "README.md"
+    reason: "Verify alignment with intent.yml and ontology.yml"
+    tier: 1
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Verify term normalization and invariant coverage"
+    tier: 1
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific instructions and AUTO decisions"
+    tier: 2
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology alignment and completeness"
+    tier: 3
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify hard invariants are documented"
+    tier: 2
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify purpose aligns with intent.yml"
+    tier: 2
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify contribution guidelines reflect invariants"
+    tier: 2
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify architecture reflects ontology mappings"
+    tier: 3
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific instructions"
+    tier: 3
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific instructions"
+    tier: 3
+
+target_score: 90
+max_iterations: 3
