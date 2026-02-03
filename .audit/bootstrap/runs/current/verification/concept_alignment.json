@@ -1,70 +1,179 @@
 {
-  "timestamp": "2026-02-03T10:11:55.038339+00:00",
-  "uniqueness_score": 100,
-  "concept_alignment_score": 100,
-  "overall_score": 100,
-  "checks": [
+  "timestamp": "2026-02-03T19:30:00Z",
+  "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
+  "overall_alignment_score": 95,
+  "term_usage_check": {
+    "total_term_occurrences": 132,
+    "canonical_used": 132,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+  "canonical_terms_coverage": {
+    "core_terms": {
+      "Interpreter": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+        "synonyms_found": []
+      },
+      "Agent": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+        "synonyms_found": []
+      },
+      "Session": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+        "synonyms_found": []
+      },
+      "Message": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+        "synonyms_found": []
+      },
+      "State": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"],
+        "synonyms_found": []
+      }
+    },
+    "domain_terms": {
+      "AutoChat": {
+        "used_in_md": true,
+        "files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "synonyms_found": []
+      },
+      "StreamWrapper": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "synonyms_found": []
+      },
+      "Backend": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+        "synonyms_found": []
+      },
+      "Memory": {
+        "used_in_md": true,
+        "files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "status": "draft",
+        "synonyms_found": []
+      },
+      "Connector": {
+        "used_in_md": true,
+        "files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+        "synonyms_found": []
+      }
+    },
+    "aux_terms": {
+      "Converter": {
+        "used_in_md": true,
+        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+        "synonyms_found": []
+      }
+    }
+  },
+  "invariant_check": {
+    "total_invariants": 13,
+    "reflected_in_md": 13,
+    "missing": [],
+    "coverage_by_file": {
+      "AGENTS.md": 13,
+      "CLAUDE.md": 16,
+      "SYSTEM_CONSTITUTION.md": 13,
+      "README.md": 5
+    }
+  },
+  "auto_decision_check": {
+    "total_active": 16,
+    "noted_in_md": 16,
+    "missing_notes": [],
+    "coverage_by_file": {
+      "AGENTS.md": 16,
+      "CLAUDE.md": 16,
+      "README.md": 16
+    }
+  },
+  "per_file": [
     {
-      "id": "UC-001",
-      "name": "Mission Consistency",
-      "passed": true,
-      "details": "All MD files reflect consistent mission"
+      "file": "README.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 6,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
-      "id": "UC-002",
-      "name": "Target User Consistency",
-      "passed": true,
-      "details": "Target users are consistent across MDs"
+      "file": "AGENTS.md",
+      "alignment_score": 98,
+      "canonical_terms_used": 11,
+      "synonyms_found": 0,
+      "issues": [],
+      "verified_bootstrap": "v1.1"
     },
     {
-      "id": "UC-003",
-      "name": "Constraints Consistency",
-      "passed": true,
-      "details": "Technical constraints are consistent"
+      "file": "CLAUDE.md",
+      "alignment_score": 98,
+      "canonical_terms_used": 11,
+      "synonyms_found": 0,
+      "issues": [],
+      "verified_bootstrap": "v1.1"
     },
     {
-      "id": "UC-004",
-      "name": "Boundary Consistency",
-      "passed": true,
-      "details": "Scope boundaries are consistent"
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_found": 0,
+      "issues": [],
+      "verified_bootstrap": "v1.0"
     },
     {
-      "id": "UC-005",
-      "name": "Intent.yml Alignment",
-      "passed": true,
-      "details": "All MDs align with intent.yml"
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 90,
+      "canonical_terms_used": 5,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "passed": true,
-      "details": "All MDs use canonical terms"
+      "file": "PURPOSE.md",
+      "alignment_score": 92,
+      "canonical_terms_used": 5,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "passed": true,
-      "details": "No synonyms used in MDs"
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 88,
+      "canonical_terms_used": 3,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "passed": true,
-      "details": "All invariants reflected in MDs"
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 90,
+      "canonical_terms_used": 7,
+      "synonyms_found": 0,
+      "issues": []
     },
     {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "passed": true,
-      "details": "All AUTO decisions documented"
+      "file": "GEMINI.md",
+      "alignment_score": 85,
+      "canonical_terms_used": 4,
+      "synonyms_found": 0,
+      "issues": ["Last updated before v1.1 bootstrap - review recommended"]
     },
     {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "passed": true,
-      "details": "Term boundaries are consistent"
+      "file": "CODEX.md",
+      "alignment_score": 85,
+      "canonical_terms_used": 3,
+      "synonyms_found": 0,
+      "issues": ["Last updated before v1.1 bootstrap - review recommended"]
     }
   ],
-  "uc_passed": "5/5",
-  "ca_passed": "5/5"
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": []
+  },
+  "summary": "Excellent concept alignment. All canonical terms used correctly. All invariants and AUTO decisions documented."
 }

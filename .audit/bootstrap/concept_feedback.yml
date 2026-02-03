@@ -1,20 +1,51 @@
-bootstrap_run_timestamp: '2026-02-03T10:11:55.038339+00:00'
-source_ontology_version: '0.3'
-term_usage_report:
-  canonical_used: 11
-  synonym_used_before_fix: 0
-  synonym_used_after_fix: 0
-  unknown_terms_found: []
-invariant_reflection:
-  total: 14
-  reflected: 14
-  missing: []
-auto_decision_handling:
-  total_active: 16
-  noted_in_md: 16
-  format: Documented in CLAUDE.md and AGENTS.md
-ambiguities_discovered: []
-ontology_suggestions:
-  new_terms: []
-  definition_updates: []
-  synonym_additions: []
+concept_feedback:
+  bootstrap_run_timestamp: "2026-02-03T19:30:00Z"
+  source_ontology_version: "0.3"
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-03T02:09:41Z"
+
+  # 1. 用語使用状況
+  term_usage_report:
+    total_canonical_terms: 11
+    canonical_used_in_md: 11
+    synonym_used_before_fix: 0
+    synonym_used_after_fix: 0
+    unknown_terms_found: 0
+    alignment_rate: 1.0
+
+  # 2. 不変条件の反映状況
+  invariant_reflection:
+    total: 13
+    reflected_in_md: 13
+    missing: []
+    coverage_by_file:
+      AGENTS.md: 13
+      CLAUDE.md: 16
+      SYSTEM_CONSTITUTION.md: 13
+      README.md: 5
+
+  # 3. AUTO決定の扱い
+  auto_decision_handling:
+    total_active: 16
+    noted_in_md: 16
+    format: "Documented in AGENTS.md, CLAUDE.md, and README.md"
+    missing_notes: []
+
+  # 4. 曖昧性の発見
+  ambiguities_discovered: []
+
+  # 5. ontologyへの更新提案
+  ontology_suggestions:
+    new_terms: []
+    definition_updates: []
+    synonym_additions: []
+
+  # 6. 総合評価
+  overall_assessment:
+    status: "EXCELLENT"
+    concept_alignment_score: 95
+    summary: "Perfect alignment between ontology and MD documentation. All canonical terms used correctly. All invariants and AUTO decisions properly documented. No action required."
+    recommendations:
+      - "Continue current ontology management practices"
+      - "No urgent updates needed to ontology.yml"
+      - "Consider reviewing Memory term status (draft) in future cycles"

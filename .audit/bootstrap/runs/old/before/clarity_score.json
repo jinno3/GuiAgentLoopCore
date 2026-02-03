@@ -1,231 +1,380 @@
 {
-  "timestamp": "2026-02-03T18:35:00Z",
-  "overall_score": 98,
-  "concept_alignment_score": 100,
+  "timestamp": "2026-02-03T10:11:55.038339+00:00",
+  "overall_score": 60,
+  "concept_alignment_score": 32,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integrated)",
-
-  "score_breakdown": {
-    "existence_clarity": 100,
-    "uniqueness": 100,
-    "concept_alignment": 100,
-    "completeness": 95,
-    "auto_decision_documentation": 100,
-    "invariant_documentation": 95
-  },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 60,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 83
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 113
+          }
+        ]
       },
-      "strengths": [
-        "Mission statement clearly matches intent.yml",
-        "All core functions documented",
-        "Target users well-defined",
-        "Terminology note references GLOSSARY.md",
-        "System invariants section with key invariants",
-        "AUTO decisions section documenting 11 key decisions",
-        "All 11 canonical terms used in normalized form"
-      ],
       "issues": [
-        "Could add more AUTO decisions (currently 11 of 16)"
-      ],
-      "recommendations": [
-        "Consider documenting all 16 AUTO decisions for completeness"
+        "Found 2 term normalization issues"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 14
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 28
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 73
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 14
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 1
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "line": 15
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "line": 15
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 15
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 90
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "line": 15
+          }
+        ]
       },
-      "strengths": [
-        "Excellent terminology section with all 11 canonical terms",
-        "Synonym prohibition clearly stated",
-        "All 14 invariants documented (11 hard, 3 soft)",
-        "All 16 AUTO decisions documented by category",
-        "Behavior rules aligned with intent.yml",
-        "Boundaries section matches intent.yml out_of_scope",
-        "Development guidelines with state transition monotonicity",
-        "Latest bootstrap timestamp verification"
-      ],
-      "issues": [],
-      "recommendations": []
+      "issues": [
+        "Found 49 term normalization issues"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 114
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 127
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 80
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 154
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 67
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 68
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 70
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 72
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 109
+          },
+          {
+            "found": "メッセージ",
+            "should_be": "Message",
+            "line": 130
+          }
+        ]
       },
-      "strengths": [
-        "All 11 canonical terms properly used",
-        "All 14 invariants documented with code examples",
-        "All 16 AUTO decisions noted",
-        "Excellent code examples showing DO/DON'T patterns",
-        "Stateful operation cautions well-documented",
-        "Claude-specific strengths highlighted",
-        "Code review checklist comprehensive",
-        "Latest bootstrap timestamp verification"
-      ],
-      "issues": [],
-      "recommendations": []
+      "issues": [
+        "Found 19 term normalization issues"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 19
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 188
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 189
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 199
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 200
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 201
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 230
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 257
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 19
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": 231
+          }
+        ]
       },
-      "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "All 11 canonical terms documented",
-        "Term normalization map complete",
-        "Evidence citations for each term",
-        "AUTO decisions documented per term",
-        "Status indicators (stable/draft)",
-        "Layer classification (core/domain/aux)",
-        "Bootstrap run metadata"
-      ],
-      "issues": [],
-      "recommendations": []
+      "issues": [
+        "Found 92 term normalization issues"
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 158
+          },
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 162
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 336
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "line": 158
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "line": 162
+          }
+        ]
       },
-      "strengths": [
-        "Architecture overview well-structured",
-        "Component boundaries clear"
-      ],
       "issues": [
-        "Could better integrate ontology terms"
-      ],
-      "recommendations": [
-        "Consider referencing canonical terms from ontology.yml"
+        "Found 5 term normalization issues"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "strengths": [
-        "Purpose aligned with intent.yml mission",
-        "Design philosophy documented"
-      ],
-      "issues": [],
-      "recommendations": []
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 20,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 34
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "line": 62
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 31
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "line": 34
+          }
+        ]
       },
-      "strengths": [
-        "Contribution guidelines clear"
-      ],
       "issues": [
-        "Could add terminology guidelines"
-      ],
-      "recommendations": [
-        "Add section on using canonical terms from ontology"
+        "Found 4 term normalization issues"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 20,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": 184
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "line": 168
+          },
+          {
+            "found": "コネクタ",
+            "should_be": "Connector",
+            "line": 184
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "line": 184
+          }
+        ]
       },
-      "strengths": [
-        "System constitution well-defined",
-        "Invariants properly documented"
-      ],
-      "issues": [],
-      "recommendations": []
+      "issues": [
+        "Found 4 term normalization issues"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 60,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 86
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 91
+          }
+        ]
       },
-      "strengths": [
-        "Gemini-specific instructions present"
-      ],
       "issues": [
-        "Could be more comprehensive like CLAUDE.md"
-      ],
-      "recommendations": [
-        "Consider expanding to match CLAUDE.md detail level"
+        "Found 2 term normalization issues"
       ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 60,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 87
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "line": 92
+          }
+        ]
       },
-      "strengths": [
-        "Codex-specific instructions present"
-      ],
       "issues": [
-        "Could be more comprehensive"
-      ],
-      "recommendations": [
-        "Consider expanding for better Codex support"
+        "Found 2 term normalization issues"
       ]
     }
-  ],
-
-  "overall_assessment": {
-    "status": "excellent",
-    "summary": "Documentation is already in excellent condition with perfect concept alignment",
-    "strengths": [
-      "All 11 canonical terms used consistently in normalized form",
-      "All 14 invariants (11 hard, 3 soft) properly documented",
-      "All 16 AUTO decisions documented",
-      "Tier 1 coverage: 100% (2/2)",
-      "Tier 2 coverage: 100% (4/4)",
-      "Tier 3 coverage: 100% (5/5)",
-      "No terminology inconsistencies detected",
-      "No synonym usage in MD files",
-      "Intent.yml alignment verified",
-      "Ontology.yml v0.3 integration confirmed"
-    ],
-    "recommendations": [
-      "Documentation is excellent - minimal improvements needed",
-      "Consider documenting all 16 AUTO decisions in README.md (currently 11)",
-      "Consider expanding GEMINI.md and CODEX.md to match CLAUDE.md detail level"
-    ]
-  }
+  ]
 }

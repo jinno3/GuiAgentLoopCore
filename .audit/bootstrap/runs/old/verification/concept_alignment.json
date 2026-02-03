@@ -1,178 +1,70 @@
 {
-  "timestamp": "2026-02-03T18:35:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "invariants_source": ".concept/invariants.yml",
-
-  "overall_alignment_score": 100,
-
-  "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
-
-  "per_file_term_alignment": [
+  "timestamp": "2026-02-03T10:11:55.038339+00:00",
+  "uniqueness_score": 100,
+  "concept_alignment_score": 100,
+  "overall_score": 100,
+  "checks": [
     {
-      "file": "README.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 8,
-      "synonyms_used": 0,
-      "issues": []
+      "id": "UC-001",
+      "name": "Mission Consistency",
+      "passed": true,
+      "details": "All MD files reflect consistent mission"
     },
     {
-      "file": "AGENTS.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "id": "UC-002",
+      "name": "Target User Consistency",
+      "passed": true,
+      "details": "Target users are consistent across MDs"
     },
     {
-      "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "passed": true,
+      "details": "Technical constraints are consistent"
     },
     {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_used": 0,
-      "issues": []
+      "id": "UC-004",
+      "name": "Boundary Consistency",
+      "passed": true,
+      "details": "Scope boundaries are consistent"
     },
     {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 7,
-      "synonyms_used": 0,
-      "issues": [
-        {
-          "severity": "info",
-          "message": "Could better integrate canonical terms from ontology"
-        }
-      ]
+      "id": "UC-005",
+      "name": "Intent.yml Alignment",
+      "passed": true,
+      "details": "All MDs align with intent.yml"
     },
     {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 6,
-      "synonyms_used": 0,
-      "issues": []
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "passed": true,
+      "details": "All MDs use canonical terms"
     },
     {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 5,
-      "synonyms_used": 0,
-      "issues": [
-        {
-          "severity": "info",
-          "message": "Could add terminology guidelines section"
-        }
-      ]
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "passed": true,
+      "details": "No synonyms used in MDs"
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 9,
-      "synonyms_used": 0,
-      "issues": []
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "passed": true,
+      "details": "All invariants reflected in MDs"
     },
     {
-      "file": "GEMINI.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 6,
-      "synonyms_used": 0,
-      "issues": [
-        {
-          "severity": "info",
-          "message": "Could expand to match CLAUDE.md detail level"
-        }
-      ]
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation",
+      "passed": true,
+      "details": "All AUTO decisions documented"
     },
     {
-      "file": "CODEX.md",
-      "alignment_score": 95,
-      "canonical_terms_used": 6,
-      "synonyms_used": 0,
-      "issues": [
-        {
-          "severity": "info",
-          "message": "Could expand for better Codex support"
-        }
-      ]
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "passed": true,
+      "details": "Term boundaries are consistent"
     }
   ],
-
-  "invariant_check": {
-    "total_invariants": 14,
-    "hard_invariants": 11,
-    "soft_invariants": 3,
-    "reflected_in_md": 14,
-    "missing": [],
-    "coverage": "100%",
-    "invariant_documentation_locations": {
-      "INV-STATE-001": ["AGENTS.md", "CLAUDE.md", "README.md", "SYSTEM_CONSTITUTION.md"],
-      "INV-STATE-002": ["AGENTS.md", "CLAUDE.md"],
-      "INV-SESSION-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "INV-SESSION-002": ["AGENTS.md", "CLAUDE.md"],
-      "INV-MSG-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "INV-MESSAGE-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "INV-AUTO-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "INV-STREAM-001": ["AGENTS.md", "CLAUDE.md"],
-      "INV-BACKEND-001": ["AGENTS.md", "CLAUDE.md"],
-      "INV-BACKEND-002": ["AGENTS.md", "CLAUDE.md"],
-      "INV-CONNECTOR-001": ["AGENTS.md", "CLAUDE.md"],
-      "INV-CONVERTER-001": ["AGENTS.md", "CLAUDE.md"],
-      "INV-AGENT-001": ["AGENTS.md", "CLAUDE.md"],
-      "INV-MEM-001": ["AGENTS.md", "CLAUDE.md", "README.md"]
-    }
-  },
-
-  "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "reflected_in_md": 16,
-    "missing": [],
-    "coverage": "100%",
-    "auto_decision_documentation_locations": {
-      "Agent-related (2)": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "Message-related (3)": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "State-related (3)": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "AutoChat-related (3)": ["AGENTS.md", "CLAUDE.md"],
-      "Backend-related (3)": ["AGENTS.md", "CLAUDE.md", "README.md"],
-      "Memory-related (4)": ["AGENTS.md", "CLAUDE.md"],
-      "Session-related (1)": ["AGENTS.md", "CLAUDE.md"],
-      "Connector-related (1)": ["AGENTS.md", "CLAUDE.md"]
-    }
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "note_coverage": "100%"
-  },
-
-  "ontology_integration_assessment": {
-    "status": "excellent",
-    "summary": "Perfect integration between ontology v0.3 and MD documentation",
-    "strengths": [
-      "All 11 canonical terms consistently used",
-      "Zero synonym usage detected",
-      "All 14 invariants (11 hard, 3 soft) properly documented",
-      "All 16 AUTO decisions documented",
-      "GLOSSARY.md auto-generated from ontology",
-      "Term normalization map correctly applied",
-      "Layer classification (core/domain/aux) respected",
-      "Status indicators (stable/draft) properly noted"
-    ],
-    "minor_improvements": [
-      "ARCHITECTURE.md could better integrate canonical terms",
-      "CONTRIBUTING.md could add terminology guidelines section",
-      "GEMINI.md and CODEX.md could be expanded to match CLAUDE.md detail"
-    ]
-  }
+  "uc_passed": "5/5",
+  "ca_passed": "5/5"
 }
