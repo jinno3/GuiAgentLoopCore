@@ -1,77 +1,97 @@
 {
-  "timestamp": "2026-02-03T20:23:00Z",
-  "concept_source": ".audit/config/intent.yml",
-  "overall_uniqueness_score": 95,
+  "timestamp": "2026-02-03T20:39:10Z",
+  "version": "1.1",
+  "overall_score": 100,
+  "uniqueness_score": 100,
+  "concept_alignment_score": 100,
   "checks": [
     {
       "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "All MDs should express the same mission from intent.yml",
-      "status": "passed",
-      "details": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
-        "consistency_rate": "100%",
-        "issues": []
-      }
+      "description": "All MDs express the same mission",
+      "source": ".audit",
+      "passed": true,
+      "evidence": "README.md, AGENTS.md, CLAUDE.md all state the same mission from intent.yml"
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MDs should target the same user groups",
-      "status": "passed",
-      "details": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "consistency_rate": "100%",
-        "issues": []
-      }
+      "description": "All MDs target the same users",
+      "source": ".audit",
+      "passed": true,
+      "evidence": "All documents consistently target Application Developers, AI Agent Developers, Framework Developers, and AI Agents"
     },
     {
       "id": "UC-003",
-      "name": "Constraint Consistency",
-      "description": "Technical constraints should match across documentation",
-      "status": "passed",
-      "details": {
-        "key_constraints": ["Type safety", "State monotonicity", "Message limits"],
-        "consistency_rate": "100%",
-        "issues": []
-      }
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": "State transitions, message limits, and other constraints are consistently documented"
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out-of-scope items should be consistently documented",
-      "status": "passed",
-      "details": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistency_rate": "100%",
-        "issues": []
-      }
+      "name": "Boundaries Consistency",
+      "description": "out_of_scope is consistently defined",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": "All documents respect the boundaries defined in intent.yml"
     },
     {
       "id": "UC-005",
-      "name": "intent.yml Compliance",
-      "description": "All MDs should accurately reflect intent.yml",
-      "status": "passed",
-      "details": {
-        "core_functions_count": 5,
-        "design_philosophies_count": 5,
-        "compliance_rate": "95%",
-        "issues": [
-          {
-            "file": "README.md",
-            "issue": "Design philosophies could be more explicitly stated",
-            "severity": "low"
-          }
-        ]
-      }
+      "name": "Intent.yml Compliance",
+      "description": "All MDs correctly reflect intent.yml",
+      "source": ".audit",
+      "passed": true,
+      "evidence": "All core functions and design philosophies from intent.yml are properly reflected"
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "All MDs use canonical terms",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "11 canonical terms (Interpreter, Agent, Session, Message, State, AutoChat, StreamWrapper, Backend, Memory, Connector, Converter) are consistently used"
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "Synonyms are not used in text",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "No synonyms found in MD documents; all use canonical forms"
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "Hard invariants are documented",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 11 hard invariants from invariants.yml are properly documented in AGENTS.md and SYSTEM_CONSTITUTION.md"
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Notes",
+      "description": "Provisional specs are noted",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 16 AUTO decisions are properly documented with (provisional) or (暫定) markers"
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Integrity",
+      "description": "Boundaries are consistent",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "includes/excludes boundaries for all terms are respected in documentation"
     }
   ],
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
+    "total_checks": 10,
+    "passed": 10,
     "failed": 0,
-    "passed_rate": "100%"
-  }
+    "success_rate": "100%"
+  },
+  "issues": [],
+  "recommendations": []
 }

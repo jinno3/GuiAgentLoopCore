@@ -1,55 +1,77 @@
 {
-  "timestamp": "2026-02-03T20:07:00Z",
-  "verification_type": "uniqueness_and_intent",
-  "overall_score": 95,
-  "checks_performed": [
+  "timestamp": "2026-02-03T20:23:00Z",
+  "concept_source": ".audit/config/intent.yml",
+  "overall_uniqueness_score": 95,
+  "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "README.md, AGENTS.md both correctly state mission from intent.yml"
+      "name": "Existence Purpose Consistency",
+      "description": "All MDs should express the same mission from intent.yml",
+      "status": "passed",
+      "details": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
+        "consistency_rate": "100%",
+        "issues": []
+      }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "All MDs target: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      "name": "Target User Consistency",
+      "description": "All MDs should target the same user groups",
+      "status": "passed",
+      "details": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
+        "consistency_rate": "100%",
+        "issues": []
+      }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "State transitions, message limits consistently documented"
+      "name": "Constraint Consistency",
+      "description": "Technical constraints should match across documentation",
+      "status": "passed",
+      "details": {
+        "key_constraints": ["Type safety", "State monotonicity", "Message limits"],
+        "consistency_rate": "100%",
+        "issues": []
+      }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "UI Rendering, LLM Execution consistently marked as out_of_scope"
+      "name": "Boundary Consistency",
+      "description": "Out-of-scope items should be consistently documented",
+      "status": "passed",
+      "details": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency_rate": "100%",
+        "issues": []
+      }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "All core functions from intent.yml reflected in MDs"
+      "name": "intent.yml Compliance",
+      "description": "All MDs should accurately reflect intent.yml",
+      "status": "passed",
+      "details": {
+        "core_functions_count": 5,
+        "design_philosophies_count": 5,
+        "compliance_rate": "95%",
+        "issues": [
+          {
+            "file": "README.md",
+            "issue": "Design philosophies could be more explicitly stated",
+            "severity": "low"
+          }
+        ]
+      }
     }
   ],
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score_percentage": 100
-  },
-  "issues_found": [],
-  "auto_resolutions": []
+    "passed_rate": "100%"
+  }
 }
