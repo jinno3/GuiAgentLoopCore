@@ -1,6 +1,6 @@
-run_timestamp: "2026-02-04T06:55:00Z"
+run_timestamp: "2026-02-04T07:01:00Z"
 version: "1.1"
-run_number: 86
+run_number: 87
 
 rotation:
   deleted_old: true
@@ -68,7 +68,7 @@ ontology_summary:
     - canonical: "Agent"
       layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"]
+      synonyms: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
     - canonical: "Session"
       layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
@@ -92,7 +92,7 @@ ontology_summary:
     - canonical: "Backend"
       layer: "domain"
       definition: "GUIフレームワーク実装（Gradio等）"
-      synonyms: ["GUIバックエンド", "UIフレームワーク", "GuiBackend"]
+      synonyms: ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"]
     - canonical: "Memory"
       layer: "domain"
       status: "draft"
@@ -101,7 +101,7 @@ ontology_summary:
     - canonical: "Connector"
       layer: "domain"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      synonyms: ["コネクタ", "GuiAgentInterpreterABC"]
+      synonyms: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
     - canonical: "Converter"
       layer: "aux"
       definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
@@ -196,80 +196,80 @@ auto_decisions_count: 16
 existing_mds:
   - path: "README.md"
     status: "exists_verified"
-    last_bootstrap_run: 85
-    last_update: "2026-02-04T06:30:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
   - path: "AGENTS.md"
     status: "exists_verified"
-    last_bootstrap_run: 85
+    last_bootstrap_run: 86
     last_update: "2026-02-04T06:30:00Z"
     issues: []
 
   - path: "CLAUDE.md"
     status: "exists_verified"
-    last_bootstrap_run: 85
+    last_bootstrap_run: 86
     last_update: "2026-02-04T06:30:00Z"
     issues: []
 
   - path: "GLOSSARY.md"
     status: "exists_verified"
-    last_bootstrap_run: 85
+    last_bootstrap_run: 86
     last_update: "2026-02-04T06:31:00Z"
     issues: []
 
   - path: "ARCHITECTURE.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
-    last_update: "2026-02-02T11:07:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
   - path: "PURPOSE.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
-    last_update: "2026-02-03T10:11:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
-    last_update: "2026-02-03T13:49:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
   - path: "CONTRIBUTING.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
-    last_update: "2026-02-03T06:27:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
   - path: "GEMINI.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
-    last_update: "2026-02-02T00:57:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
   - path: "CODEX.md"
     status: "exists_verified"
-    last_bootstrap_run: 84
-    last_update: "2026-02-02T00:57:00Z"
+    last_bootstrap_run: 86
+    last_update: "2026-02-04T06:55:00Z"
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Already verified in run #85, re-verifying concept alignment"
+    reason: "Already verified in run #86, re-verifying concept alignment and existence clarity"
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Already verified in run #85, re-verifying concept alignment"
+    reason: "Already verified in run #86, re-verifying term normalization and invariants"
 
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Already verified in run #85, re-verifying concept alignment"
+    reason: "Already verified in run #86, re-verifying Claude-specific instructions"
 
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Already verified in run #85, re-verifying ontology alignment"
+    reason: "Already verified in run #86, re-verifying ontology alignment"
 
   - action: "verify"
     target: "ARCHITECTURE.md"
@@ -307,7 +307,9 @@ assessment:
   tier2_coverage: "4/4 (100%)"
   tier3_coverage: "4/4 (100%)"
   notes:
-    - "All MD files are already well-maintained from bootstrap run #85"
+    - "All MD files are already well-maintained from bootstrap run #86"
     - "Concept alignment is already excellent"
     - "No updates needed, only verification required"
     - "This is a maintenance verification run"
+    - "Ontology v0.3 is stable and well-integrated"
+    - "Intent v1.0 is clear and consistent"

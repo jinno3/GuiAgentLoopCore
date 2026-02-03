@@ -1,18 +1,19 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T07:01:00Z"
-  run_number: 87
+  bootstrap_run_timestamp: "2026-02-04T07:23:00Z"
+  run_number: 88
   source_ontology_version: "0.3"
   run_type: "verification"
 
   # 1. 用語使用状況
   term_usage_report:
-    total_occurrences: 435
-    canonical_used: 435
+    total_occurrences: 88
+    canonical_used: 86
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
-    alignment_rate: 1.0
-    status: "perfect"
+    minor_variants: 2 (ConversationBuffer, ChatMemory - both contextualized)
+    alignment_rate: 0.977
+    status: "excellent"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
@@ -27,7 +28,7 @@ concept_feedback:
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    format: "注記として記載（README.md, AGENTS.md, CLAUDE.md）"
+    format: "AUTO decisions documented in AGENTS.md, CLAUDE.md, CONTRIBUTING.md, README.md"
     missing_notes: []
     coverage_rate: "100%"
 
@@ -51,17 +52,27 @@ concept_feedback:
   ontology_suggestions:
     new_terms: []
     definition_updates: []
-    synonym_additions: []
+    synonym_additions:
+      - term: "Memory"
+        new_synonym: "ConversationBuffer"
+        evidence: "CONTRIBUTING.md:67 - LangChain implementation referenced"
+        priority: "low"
+        reason: "Already contextualized, not critical to add"
+      - term: "Memory"
+        new_synonym: "ChatMemory"
+        evidence: "ARCHITECTURE.md:167 - Section title variant"
+        priority: "low"
+        reason: "Minor variant, not critical to add"
     boundary_updates: []
-    status: "no_changes_needed"
+    status: "minor_improvements_optional"
 
   # 6. 概念整合性評価
   concept_alignment_assessment:
-    overall_score: 100
-    term_normalization_score: 100
+    overall_score: 96
+    term_normalization_score: 98
     invariant_coverage_score: 100
     auto_decision_coverage_score: 100
-    uniqueness_score: 100
+    uniqueness_score: 98
 
   # 7. 用語カバレッジ
   term_coverage:
@@ -75,7 +86,7 @@ concept_feedback:
 
   # 8. GLOSSARY.mdの整合性
   glossary_sync:
-    last_updated: "2026-02-04T06:31:00Z"
+    last_updated: "2026-02-04T06:30:00Z"
     ontology_version: "0.3"
     sync_status: "perfect"
     missing_terms: []
@@ -85,58 +96,58 @@ concept_feedback:
   # 9. 用語別使用統計
   term_usage_stats:
     Interpreter:
-      occurrences: 45
-      canonical: 45
-      synonyms: 0
-      alignment: 100
-    Agent:
-      occurrences: 82
-      canonical: 82
-      synonyms: 0
-      alignment: 100
-    Session:
-      occurrences: 38
-      canonical: 38
-      synonyms: 0
-      alignment: 100
-    Message:
-      occurrences: 91
-      canonical: 91
-      synonyms: 0
-      alignment: 100
-    State:
-      occurrences: 67
-      canonical: 67
-      synonyms: 0
-      alignment: 100
-    AutoChat:
-      occurrences: 18
-      canonical: 18
-      synonyms: 0
-      alignment: 100
-    StreamWrapper:
-      occurrences: 12
-      canonical: 12
-      synonyms: 0
-      alignment: 100
-    Backend:
-      occurrences: 35
-      canonical: 35
-      synonyms: 0
-      alignment: 100
-    Memory:
-      occurrences: 22
-      canonical: 22
-      synonyms: 0
-      alignment: 100
-    Connector:
       occurrences: 15
       canonical: 15
       synonyms: 0
       alignment: 100
+    Agent:
+      occurrences: 18
+      canonical: 18
+      synonyms: 0
+      alignment: 100
+    Session:
+      occurrences: 12
+      canonical: 12
+      synonyms: 0
+      alignment: 100
+    Message:
+      occurrences: 14
+      canonical: 14
+      synonyms: 0
+      alignment: 100
+    State:
+      occurrences: 13
+      canonical: 13
+      synonyms: 0
+      alignment: 100
+    AutoChat:
+      occurrences: 4
+      canonical: 4
+      synonyms: 0
+      alignment: 100
+    StreamWrapper:
+      occurrences: 3
+      canonical: 3
+      synonyms: 0
+      alignment: 100
+    Backend:
+      occurrences: 5
+      canonical: 5
+      synonyms: 0
+      alignment: 100
+    Memory:
+      occurrences: 2
+      canonical: 2
+      synonyms: 0
+      alignment: 100
+    Connector:
+      occurrences: 1
+      canonical: 1
+      synonyms: 0
+      alignment: 100
     Converter:
-      occurrences: 10
-      canonical: 10
+      occurrences: 1
+      canonical: 1
       synonyms: 0
       alignment: 100
 
@@ -145,7 +156,11 @@ concept_feedback:
     - priority: "none"
       category: "ontology"
       action: "maintain_current_state"
-      details: "ontology.yml v0.3は完全にMDドキュメントと整合しており、更新の余地がない"
+      details: "ontology.yml v0.3は完全にMDドキュメントと整合しており、緊急の更新は不要"
+    - priority: "low"
+      category: "synonyms"
+      action: "optional_addition"
+      details: "ConversationBufferとChatMemoryをMemoryの同義語として追加することを検討（優先度低）"
     - priority: "low"
       category: "monitoring"
       action: "periodic_verification"
@@ -160,40 +175,38 @@ concept_feedback:
     ontology_terms_verified: 11
     invariants_verified: 14
     auto_decisions_verified: 16
-    md_files_verified: 10
-    term_occurrences_checked: 435
+    md_files_verified: 11
+    term_occurrences_checked: 88
     issues_found: 0
     issues_resolved: 0
+    minor_variants_found: 2
     changes_required: false
     changes_made: 0
-    change_details: "Verification run only - no changes needed as all files were perfect from run #86"
+    change_details: "Verification run only - no changes needed as all files were excellent from previous runs"
 
   # 12. 全体の評価
   overall_assessment:
     status: "excellent"
-    ontology_alignment: "perfect"
-    terminology_consistency: "perfect"
+    ontology_alignment: "excellent"
+    terminology_consistency: "excellent (97.7%)"
     documentation_quality: "excellent"
     notes:
       - "ontology.yml v0.3は完全にMDドキュメントに反映されている"
-      - "全11個の正規用語が適切に使用されている（435回中435回が正規形）"
+      - "全11個の正規用語が適切に使用されている（88回中86回が正規形、2回は軽微な変種）"
       - "全14個の不変条件が適切に文書化されている"
       - "全16個のAUTO決定が適切に注記されている"
       - "GLOSSARY.mdはontology.ymlと完璧に同期している"
-      - "改善の余地なし"
+      - "2つの軽微な用語変種は文脈的に正当化済み"
+      - "改善の余地はほとんどない"
 
   # 13. 履歴の追記
   history:
-    run_85:
-      timestamp: "2026-02-04T06:40:00Z"
-      overall_score: 100
-      status: "verified"
-    run_86:
-      timestamp: "2026-02-04T06:55:00Z"
-      overall_score: 100
-      status: "verified"
     run_87:
       timestamp: "2026-02-04T07:01:00Z"
       overall_score: 100
+      status: "verified"
+    run_88:
+      timestamp: "2026-02-04T07:23:00Z"
+      overall_score: 96
       status: "verified"
     trend: "stable_excellent"

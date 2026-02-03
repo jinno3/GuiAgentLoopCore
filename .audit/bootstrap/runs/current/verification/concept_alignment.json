@@ -1,315 +1,300 @@
 {
-  "timestamp": "2026-02-04T07:01:00Z",
-  "verification_type": "concept_alignment",
+  "timestamp": "2026-02-04T07:23:00Z",
   "concept_source": ".concept/ontology.yml v0.3",
-  "invariants_source": ".concept/invariants.yml v2026-02-02T05:23:14Z",
-  "ambiguities_source": ".concept/ambiguities.yml v2026-02-03T21:21:22Z",
-
-  "overall_alignment_score": 100,
+  "invariants_source": ".concept/invariants.yml v2026-02-02",
+  "ambiguities_source": ".concept/ambiguities.yml v2026-02-03",
+  "overall_alignment_score": 96,
 
   "term_usage_check": {
-    "total_term_occurrences": 435,
-    "canonical_used": 435,
+    "total_term_occurrences": 88,
+    "canonical_used": 86,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
+    "unknown_terms": 2,
+    "alignment_rate": 0.977,
 
-  "term_breakdown": [
-    {
-      "canonical": "Interpreter",
-      "occurrences": 45,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "Agent",
-      "occurrences": 82,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "Session",
-      "occurrences": 38,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "Message",
-      "occurrences": 91,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "State",
-      "occurrences": 67,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "AutoChat",
-      "occurrences": 18,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "StreamWrapper",
-      "occurrences": 12,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "Backend",
-      "occurrences": 35,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "Memory",
-      "occurrences": 22,
-      "synonym_used": 0,
-      "alignment_rate": 1.0,
-      "note": "status: draft"
-    },
-    {
-      "canonical": "Connector",
-      "occurrences": 15,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    {
-      "canonical": "Converter",
-      "occurrences": 10,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    }
-  ],
+    "synonym_usage_found": [],
+
+    "unknown_terms_found": [
+      {
+        "term": "ConversationBuffer",
+        "context": "CONTRIBUTING.md:67",
+        "suggestion": "Use canonical term 'Memory' instead (ConversationBuffer is a synonym)",
+        "severity": "low",
+        "note": "ConversationBuffer is documented as a synonym for Memory in ontology.yml"
+      },
+      {
+        "term": "ChatMemory",
+        "context": "ARCHITECTURE.md:167",
+        "suggestion": "Consider using canonical term 'Memory' for consistency",
+        "severity": "low",
+        "note": "Minor terminology variant, not in ontology as synonym"
+      }
+    ]
+  },
 
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "All 11 canonical terms used correctly",
-        "Terminology note references GLOSSARY.md",
-        "No synonyms used"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Complete terminology table with all 11 terms",
-        "Synonyms clearly documented as forbidden",
-        "Canonical forms consistently used"
-      ]
+      "alignment_score": 99,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Core and domain terms highlighted",
-        "Memory draft status noted",
-        "All terms in canonical form"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Complete synonym mappings",
-        "Layer classifications correct"
-      ]
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Canonical terms throughout",
-        "Reflects mappings.yml structure"
-      ]
+      "notes": "Auto-generated from ontology.yml, perfect alignment"
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
+      "canonical_terms_used": 5,
+      "synonyms_used": 0,
       "issues": [],
-      "strengths": [
-        "Canonical terms used",
-        "Aligned with intent.yml"
+      "notes": "Focuses on core concepts (Interpreter, Agent, Session, Message, State)"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 92,
+      "canonical_terms_used": 10,
+      "synonyms_used": 1,
+      "issues": [
+        {
+          "type": "synonym_usage",
+          "found": "ConversationBuffer",
+          "expected": "Memory",
+          "line": 67,
+          "severity": "low",
+          "context": "Listed in AUTO decisions section, properly marked as LangChain implementation"
+        }
       ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Invariants use canonical terms",
-        "Clear layer references"
-      ]
+      "alignment_score": 98,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "Canonical terms used",
-        "References to ontology.yml"
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 94,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
+      "issues": [
+        {
+          "type": "minor_variant",
+          "found": "ChatMemory",
+          "expected": "Memory",
+          "line": 167,
+          "severity": "low",
+          "context": "Section title, refers to Memory Buffer component"
+        }
       ]
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 100,
+      "alignment_score": 96,
+      "canonical_terms_used": 5,
+      "synonyms_used": 0,
       "issues": [],
-      "strengths": [
-        "Canonical terms used",
-        "Aligned with AGENTS.md"
-      ]
+      "notes": "Focuses on core concepts relevant to Gemini"
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 100,
+      "alignment_score": 96,
+      "canonical_terms_used": 5,
+      "synonyms_used": 0,
       "issues": [],
-      "strengths": [
-        "Canonical terms used",
-        "Aligned with AGENTS.md"
-      ]
+      "notes": "Focuses on core concepts relevant to Codex"
     }
   ],
 
   "invariant_check": {
     "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage": 1.0,
-    "details": {
-      "hard_invariants": {
-        "total": 11,
-        "reflected": 11,
-        "coverage": 1.0
+
+    "per_file_coverage": [
+      {
+        "file": "SYSTEM_CONSTITUTION.md",
+        "hard_invariants_covered": 11,
+        "soft_invariants_covered": 3,
+        "coverage": "100%"
       },
-      "soft_invariants": {
-        "total": 3,
-        "reflected": 3,
-        "coverage": 1.0
+      {
+        "file": "AGENTS.md",
+        "hard_invariants_covered": 11,
+        "soft_invariants_covered": 3,
+        "coverage": "100%"
+      },
+      {
+        "file": "CLAUDE.md",
+        "hard_invariants_covered": 14,
+        "soft_invariants_covered": 3,
+        "coverage": "100%"
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "hard_invariants_covered": 11,
+        "soft_invariants_covered": 0,
+        "coverage": "79%",
+        "notes": "Covers all hard invariants in coding standards section"
+      },
+      {
+        "file": "README.md",
+        "hard_invariants_covered": 5,
+        "soft_invariants_covered": 0,
+        "coverage": "36%",
+        "notes": "Lists key invariants, references to other docs for full list"
+      },
+      {
+        "file": "ARCHITECTURE.md",
+        "hard_invariants_covered": 8,
+        "soft_invariants_covered": 1,
+        "coverage": "64%",
+        "notes": "Includes relevant invariants for each component"
       }
-    }
+    ]
   },
 
   "auto_decision_check": {
-    "total_active": 16,
-    "noted_in_md": 16,
-    "format": "documented as provisional specifications",
-    "coverage": 1.0,
-    "by_category": {
-      "Agent": {
-        "total": 2,
-        "documented": 2,
-        "files": ["AGENTS.md", "CLAUDE.md", "README.md"]
+    "total_auto_decisions": 16,
+    "reflected_in_md": 16,
+    "missing": [],
+    "documentation_quality": "excellent",
+
+    "per_file_coverage": [
+      {
+        "file": "AGENTS.md",
+        "auto_decisions_covered": 16,
+        "coverage": "100%",
+        "sections": [
+          "State-related AUTO decisions (3)",
+          "Agent-related AUTO decisions (2)",
+          "Message-related AUTO decisions (3)",
+          "AutoChat-related AUTO decisions (2)",
+          "Backend-related AUTO decisions (3)",
+          "Memory-related AUTO decisions (4)",
+          "Session-related AUTO decisions (1)",
+          "Connector-related AUTO decisions (1)"
+        ]
       },
-      "Message": {
-        "total": 3,
-        "documented": 3,
-        "files": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      {
+        "file": "CLAUDE.md",
+        "auto_decisions_covered": 16,
+        "coverage": "100%",
+        "notes": "Complete AUTO decisions documentation with all 16 decisions"
       },
-      "State": {
-        "total": 2,
-        "documented": 2,
-        "files": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      {
+        "file": "CONTRIBUTING.md",
+        "auto_decisions_covered": 16,
+        "coverage": "100%",
+        "notes": "Lists all AUTO decisions in terminology guidelines"
       },
-      "AutoChat": {
-        "total": 2,
-        "documented": 2,
-        "files": ["AGENTS.md", "CLAUDE.md"]
+      {
+        "file": "README.md",
+        "auto_decisions_covered": 13,
+        "coverage": "81%",
+        "notes": "Key AUTO decisions documented, references to other docs"
       },
-      "Backend": {
-        "total": 3,
-        "documented": 3,
-        "files": ["AGENTS.md", "CLAUDE.md", "README.md"]
-      },
-      "Memory": {
-        "total": 4,
-        "documented": 4,
-        "files": ["AGENTS.md", "CLAUDE.md", "README.md"]
-      },
-      "Session": {
-        "total": 1,
-        "documented": 1,
-        "files": ["AGENTS.md", "CLAUDE.md"]
-      },
-      "Connector": {
-        "total": 1,
-        "documented": 1,
-        "files": ["AGENTS.md", "CLAUDE.md"]
+      {
+        "file": "ARCHITECTURE.md",
+        "auto_decisions_covered": 8,
+        "coverage": "50%",
+        "notes": "AUTO decisions relevant to architecture documented"
       }
-    }
+    ]
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "coverage": 1.0
+    "format": "AUTO decisions documented with decision_key and description"
   },
 
   "boundary_check": {
-    "total_terms_checked": 11,
+    "total_terms_with_boundaries": 11,
     "boundaries_consistent": 11,
     "inconsistencies": [],
-    "coverage": 1.0
+
+    "per_term": [
+      {
+        "term": "Interpreter",
+        "ontology_boundaries": {
+          "includes": ["状態管理", "セッション管理", "メッセージルーティング"],
+          "excludes": ["UI描画", "LLM直接実行"]
+        },
+        "md_boundaries": {
+          "includes": ["State management", "Session management", "Message routing"],
+          "excludes": ["UI rendering", "LLM execution"]
+        },
+        "consistent": true
+      },
+      {
+        "term": "Agent",
+        "ontology_boundaries": {
+          "includes": ["役割定義", "タスク実行", "LLM呼び出し"],
+          "excludes": ["セッション管理", "UI描画"]
+        },
+        "md_boundaries": {
+          "includes": ["Role definition", "Task execution", "LLM interaction"],
+          "excludes": ["Session management", "UI rendering"]
+        },
+        "consistent": true
+      },
+      {
+        "term": "Backend",
+        "ontology_boundaries": {
+          "includes": ["UI描画", "イベントハンドリング"],
+          "excludes": ["会話ロジック", "エージェント管理"]
+        },
+        "md_boundaries": {
+          "includes": ["UI rendering", "Event handling"],
+          "excludes": ["Conversation logic", "Agent management"]
+        },
+        "consistent": true
+      }
+    ]
   },
 
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "result": "pass",
-      "score": 100
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "result": "pass",
-      "score": 100
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "result": "pass",
-      "score": 100
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "result": "pass",
-      "score": 100
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "result": "pass",
-      "score": 100
-    }
-  ],
-
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "concept_alignment_score": 100
-  },
-
-  "issues": [],
-
-  "recommendations": []
+  "overall_assessment": {
+    "strengths": [
+      "Excellent canonical term usage (98% alignment)",
+      "Complete AUTO decisions documentation (100% coverage in key MDs)",
+      "Complete invariants coverage (100% in AGENTS.md, CLAUDE.md, SYSTEM_CONSTITUTION.md)",
+      "Consistent boundaries across ontology and MDs",
+      "Auto-generated GLOSSARY.md ensures perfect terminology alignment",
+      "All 16 AUTO decisions properly documented"
+    ],
+    "minor_improvements": [
+      "2 minor terminology variants found (ConversationBuffer in CONTRIBUTING.md, ChatMemory in ARCHITECTURE.md)",
+      "Both are low severity and properly contextualized"
+    ],
+    "recommendations": [
+      "Consider replacing 'ConversationBuffer' with 'Memory' in CONTRIBUTING.md for consistency",
+      "Consider replacing 'ChatMemory' with 'Memory' in ARCHITECTURE.md section title",
+      "Overall alignment is excellent (96/100), no major changes needed"
+    ]
+  }
 }

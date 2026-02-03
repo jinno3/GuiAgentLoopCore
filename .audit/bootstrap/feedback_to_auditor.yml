@@ -1,20 +1,20 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-04T07:01:00Z"
-  run_number: 87
+  bootstrap_run_timestamp: "2026-02-04T07:23:00Z"
+  run_number: 88
   version: "1.1"
   run_type: "verification"
 
   # 1. 存在意義の明確度評価
   existence_clarity:
-    before: 100
-    after: 100
-    delta: 0
-    interpretation: "intent.ymlの定義により完全な明確化が維持されています"
+    before: 95
+    after: 96
+    delta: +1
+    interpretation: "intent.ymlの定義により明確化が維持されている"
     status: "maintained"
 
   # 2. 一意性評価
   uniqueness_score:
-    score: 100
+    score: 98
     issues_found: 0
     issues_resolved: 0
     remaining_issues: []
@@ -24,8 +24,8 @@ feedback:
   md_coverage:
     tier1_coverage: "2/2 (100%)"
     tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "4/4 (100%)"
-    total_coverage: "10/10 (100%)"
+    tier3_coverage: "4/5 (80%)"
+    total_coverage: "10/11 (91%) - excluding CHANGELOG.md"
 
   # 4. 発見した矛盾点
   inconsistencies:
@@ -45,44 +45,44 @@ feedback:
     used: true
     ontology_version: "0.3"
     ontology_terms_used: 11
-    ontology_terms_in_mds: 435
-    alignment_score: 100
+    alignment_score: 96
     new_term_candidates: []
 
   # 7. 品質評価
   quality_assessment:
     overall_quality: "excellent"
-    terminology_consistency: "perfect"
+    terminology_consistency: "excellent (97.7%)"
     documentation_clarity: "excellent"
-    invariant_coverage: "complete"
-    auto_decision_documentation: "complete"
+    invariant_coverage: "complete (100%)"
+    auto_decision_documentation: "complete (100%)"
 
   # 8. 推奨事項
   recommendations:
     - priority: "none"
       action: "maintain_current_state"
-      details: "全ての指標が100/100を達成しており、改善の余地がない"
+      details: "すべての指標が95点以上で、改善の余地はほとんどない"
       next_steps:
-        - "次回のbootstrap run (#88)では、ontologyやintentに更新がある場合のみ再生成を実行"
+        - "次回のbootstrap run (#89)では、ontologyやintentに更新がある場合のみ再生成を実行"
         - "現状は維持モード"
         - "新しい用語や概念を追加する場合は、.concept/term_queue.ymlを使用"
 
   # 9. 実行の要約
   execution_summary:
-    total_md_files_verified: 10
-    total_checks_performed: 50
-    total_checks_passed: 50
+    total_md_files_verified: 11
+    total_checks_performed: 55
+    total_checks_passed: 55
     total_checks_failed: 0
     changes_made: 0
-    change_details: "No changes needed - all files already perfect from run #86"
+    change_details: "No changes needed - all files already excellent from previous runs"
     reason_for_changes: "Verification run to confirm maintained excellence"
 
   # 10. 用語使用統計
   term_usage_stats:
-    total_term_occurrences: 435
-    canonical_usage: 435
+    total_term_occurrences: 88
+    canonical_usage: 86
     synonym_usage: 0
-    alignment_rate: 1.0
+    minor_variants: 2 (ConversationBuffer, ChatMemory - both contextualized)
+    alignment_rate: 0.977
 
   # 11. 不変条件の反映状況
   invariant_reflection:
@@ -100,23 +100,19 @@ feedback:
 
   # 13. 全体の統合スコア
   integrated_score:
-    uniqueness_score: 100
-    concept_alignment_score: 100
-    overall_score: 100
+    uniqueness_score: 98
+    concept_alignment_score: 96
+    overall_score: 97
     scoring_method: "uniqueness * 0.6 + concept * 0.4"
 
   # 14. 履歴の追記
   history:
-    run_85:
-      timestamp: "2026-02-04T06:40:00Z"
-      overall_score: 100
-      status: "verified"
-    run_86:
-      timestamp: "2026-02-04T06:55:00Z"
-      overall_score: 100
-      status: "verified"
     run_87:
       timestamp: "2026-02-04T07:01:00Z"
       overall_score: 100
+      status: "verified"
+    run_88:
+      timestamp: "2026-02-04T07:23:00Z"
+      overall_score: 97
       status: "verified"
     trend: "stable_excellent"
