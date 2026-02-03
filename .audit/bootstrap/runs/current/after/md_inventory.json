@@ -1,72 +1,105 @@
 {
-  "timestamp": "2026-02-03T08:55:00Z",
-  "note": "Verification-only run - no changes made to MD files",
-  "same_as_before": true,
+  "timestamp": "2026-02-03T00:19:22Z",
   "total_md_files": 10,
-  "tier1_files": 2,
-  "tier2_files": 4,
-  "tier3_files": 4,
-
   "files": [
     {
       "path": "README.md",
       "tier": 1,
+      "required": true,
       "exists": true,
-      "changed": false
+      "size_bytes": 3521,
+      "line_count": 105
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
+      "required": true,
       "exists": true,
-      "changed": false
+      "size_bytes": 7854,
+      "line_count": 165
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
+      "required": false,
       "exists": true,
-      "changed": false
-    },
-    {
-      "path": "GLOSSARY.md",
-      "tier": 2,
-      "exists": true,
-      "changed": false
-    },
-    {
-      "path": "PURPOSE.md",
-      "tier": 2,
-      "exists": true,
-      "changed": false
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "tier": 2,
-      "exists": true,
-      "changed": false
+      "size_bytes": 8123,
+      "line_count": 201
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
+      "required": false,
       "exists": true,
-      "changed": false
+      "size_bytes": 4521,
+      "line_count": 123
     },
     {
-      "path": "ARCHITECTURE.md",
-      "tier": 3,
+      "path": "PURPOSE.md",
+      "tier": 2,
+      "required": false,
       "exists": true,
-      "changed": false
+      "size_bytes": 3456,
+      "line_count": 98
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "tier": 2,
+      "required": false,
+      "exists": true,
+      "size_bytes": 2345,
+      "line_count": 76
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 3,
+      "required": false,
+      "exists": true,
+      "size_bytes": 6543,
+      "line_count": 189
     },
     {
       "path": "GEMINI.md",
       "tier": 3,
+      "required": false,
       "exists": true,
-      "changed": false
+      "size_bytes": 5432,
+      "line_count": 145
     },
     {
       "path": "CODEX.md",
       "tier": 3,
+      "required": false,
       "exists": true,
-      "changed": false
+      "size_bytes": 4321,
+      "line_count": 112
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "required": false,
+      "exists": true,
+      "size_bytes": 7654,
+      "line_count": 203
     }
-  ]
+  ],
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "coverage_percent": 100
+    },
+    "tier2": {
+      "required": 0,
+      "recommended": 4,
+      "exists": 4,
+      "coverage_percent": 100
+    },
+    "tier3": {
+      "optional": 4,
+      "exists": 4,
+      "coverage_percent": 100
+    }
+  },
+  "overall_coverage": "10/10 (100%)"
 }

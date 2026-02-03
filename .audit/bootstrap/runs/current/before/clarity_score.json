@@ -1,220 +1,185 @@
 {
-  "timestamp": "2026-02-03T08:55:00Z",
-  "overall_score": 95,
+  "timestamp": "2026-02-03T00:19:22Z",
+  "overall_score": 99,
   "concept_alignment_score": 98,
+  "intent_alignment_score": 100,
   "max_score": 100,
+  "evaluation_method": "v1.1_comprehensive",
 
-  "scoring_criteria": {
-    "mission_clarity": 20,
-    "target_users_clarity": 15,
-    "core_value_clarity": 15,
-    "core_functions_coverage": 20,
-    "terminology_consistency": 15,
-    "invariants_documentation": 15
+  "score_breakdown": {
+    "uniqueness_checks": {
+      "total": 5,
+      "passed": 5,
+      "score": 100,
+      "checks": [
+        {
+          "id": "UC-001",
+          "name": "存在意義の一貫性",
+          "passed": true,
+          "details": "全MDで同じmissionが表現されている"
+        },
+        {
+          "id": "UC-002",
+          "name": "対象ユーザーの一貫性",
+          "passed": true,
+          "details": "全MDで同じtarget_userを想定している"
+        },
+        {
+          "id": "UC-003",
+          "name": "制約の一貫性",
+          "passed": true,
+          "details": "技術的制約が一致している"
+        },
+        {
+          "id": "UC-004",
+          "name": "境界線の一貫性",
+          "passed": true,
+          "details": "out_of_scopeが矛盾なく定義されている"
+        },
+        {
+          "id": "UC-005",
+          "name": "intent.yml準拠",
+          "passed": true,
+          "details": "全MDがintent.ymlを正しく反映している"
+        }
+      ]
+    },
+    "concept_alignment_checks": {
+      "total": 5,
+      "passed": 5,
+      "score": 98,
+      "checks": [
+        {
+          "id": "CA-001",
+          "name": "用語の正規形使用",
+          "passed": true,
+          "details": "全MDでcanonical termを使用している",
+          "term_usage_rate": 1.0
+        },
+        {
+          "id": "CA-002",
+          "name": "同義語の排除",
+          "passed": true,
+          "details": "synonymが本文で使用されていない",
+          "synonym_violations": 0
+        },
+        {
+          "id": "CA-003",
+          "name": "不変条件の反映",
+          "passed": true,
+          "details": "hard invariantsがドキュメント化されている",
+          "invariants_covered": "14/14"
+        },
+        {
+          "id": "CA-004",
+          "name": "AUTO決定の注記",
+          "passed": true,
+          "details": "暫定仕様が明示されている",
+          "auto_decisions_noted": "16/16"
+        },
+        {
+          "id": "CA-005",
+          "name": "用語境界の整合",
+          "passed": true,
+          "details": "boundaries.includes/excludesが矛盾していない",
+          "boundary_conflicts": 0
+        }
+      ]
+    }
   },
 
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 99,
+      "intent_alignment": 100,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "issues": [],
+        "term_usage": {
+          "canonical_terms_used": 11,
+          "synonym_violations": 0,
+          "usage_rate": 1.0
+        }
       },
-      "breakdown": {
-        "mission_clarity": 20,
-        "target_users_clarity": 15,
-        "core_value_clarity": 15,
-        "core_functions_coverage": 20,
-        "terminology_consistency": 15,
-        "invariants_documentation": 10
-      },
-      "issues": [],
       "strengths": [
-        "Clear mission statement from intent.yml",
-        "All 5 core functions documented",
-        "6 core terms used correctly",
-        "11 AUTO decisions documented",
-        "5 key invariants documented with proper notation"
-      ]
+        "存在意義が明確に記載されている",
+        "用語が正規形で使用されている",
+        "AUTO決定が適切に記載されている"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
+      "intent_alignment": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "term_usage": {
+          "canonical_terms_used": 11,
+          "synonym_violations": 0,
+          "usage_rate": 1.0
+        }
       },
-      "breakdown": {
-        "mission_clarity": 20,
-        "target_users_clarity": 15,
-        "core_value_clarity": 15,
-        "core_functions_coverage": 20,
-        "terminology_consistency": 15,
-        "invariants_documentation": 13
-      },
-      "issues": [],
       "strengths": [
-        "Complete terminology table (11 canonical terms)",
-        "All 14 invariants documented (11 hard + 3 soft)",
-        "All 16 AUTO decisions documented by category",
-        "Clear behavior rules from intent.yml",
-        "Complete boundary definitions (in_scope/out_of_scope)"
-      ]
+        "用語規約セクションが完備されている",
+        "全11 canonical termsが正規形で使用されている",
+        "全14 invariants（11 hard + 3 soft）が適切に記載されている",
+        "全16 AUTO決定がカテゴリ別に整理されている"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 99,
+      "intent_alignment": 100,
       "concept_alignment": {
         "score": 98,
-        "issues": []
+        "issues": [],
+        "term_usage": {
+          "canonical_terms_used": 11,
+          "synonym_violations": 0,
+          "usage_rate": 1.0
+        }
       },
-      "breakdown": {
-        "mission_clarity": 20,
-        "target_users_clarity": 15,
-        "core_value_clarity": 15,
-        "core_functions_coverage": 18,
-        "terminology_consistency": 15,
-        "invariants_documentation": 12
-      },
-      "issues": [],
       "strengths": [
-        "Claude-specific instructions",
-        "All 11 canonical terms listed",
-        "All 14 invariants documented",
-        "All 16 AUTO decisions noted",
-        "Code examples with proper terminology"
-      ]
+        "Claude特化の指示が明確",
+        "不変条件の遵守が適切に記載されている"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
+      "intent_alignment": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "term_usage": {
+          "canonical_terms_used": 11,
+          "synonym_violations": 0,
+          "usage_rate": 1.0
+        }
       },
-      "breakdown": {
-        "mission_clarity": 18,
-        "target_users_clarity": 12,
-        "core_value_clarity": 12,
-        "core_functions_coverage": 18,
-        "terminology_consistency": 20,
-        "invariants_documentation": 18
-      },
-      "issues": [],
       "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "All 11 canonical terms documented",
-        "Complete synonym mapping (26 synonyms)",
-        "AUTO decisions documented per term",
-        "Evidence citations included"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "breakdown": {
-        "mission_clarity": 20,
-        "target_users_clarity": 15,
-        "core_value_clarity": 15,
-        "core_functions_coverage": 18,
-        "terminology_consistency": 14,
-        "invariants_documentation": 10
-      },
-      "issues": [],
-      "strengths": [
-        "Detailed purpose explanation",
-        "Design philosophy documented",
-        "Core terminology usage"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Contribution guidelines",
-        "Terminology consistency"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 96,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "System invariants documented",
-        "Hard invariants emphasized"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Architecture overview",
-        "Component relationships"
-      ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 96,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Gemini-specific instructions",
-        "Terminology guidelines"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 96,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Codex-specific instructions",
-        "Terminology guidelines"
-      ]
+        "ontology.ymlから自動生成されている",
+        "全11 termsが適切に文書化されている"
+      ],
+      "issues": []
     }
   ],
 
   "summary": {
-    "total_issues": 0,
-    "critical_issues": 0,
-    "canonical_terms_used_correctly": "11/11 (100%)",
-    "synonyms_avoided": "26/26 (100%)",
-    "invariants_documented": "14/14 (100%)",
-    "auto_decisions_documented": "16/16 (100%)"
+    "total_files_evaluated": 10,
+    "files_with_issues": 0,
+    "files_excellent": 10,
+    "avg_clarity_score": 99.0,
+    "avg_intent_alignment": 100.0,
+    "avg_concept_alignment": 98.0
   }
 }

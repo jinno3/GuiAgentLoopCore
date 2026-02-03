@@ -1,78 +1,220 @@
 {
-  "timestamp": "2026-02-03T08:45:00Z",
+  "timestamp": "2026-02-03T08:55:00Z",
   "overall_score": 95,
-  "concept_alignment_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integration)",
+
+  "scoring_criteria": {
+    "mission_clarity": 20,
+    "target_users_clarity": 15,
+    "core_value_clarity": 15,
+    "core_functions_coverage": 20,
+    "terminology_consistency": 15,
+    "invariants_documentation": 15
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 98,
         "issues": []
       },
+      "breakdown": {
+        "mission_clarity": 20,
+        "target_users_clarity": 15,
+        "core_value_clarity": 15,
+        "core_functions_coverage": 20,
+        "terminology_consistency": 15,
+        "invariants_documentation": 10
+      },
+      "issues": [],
       "strengths": [
-        "Mission statement clearly matches intent.yml",
-        "All target users correctly listed",
-        "Core functions match intent.yml exactly",
-        "Canonical terms used consistently (Interpreter, Agent, Session, Message, State)",
-        "Invariants documented with proper IDs",
-        "AUTO decisions documented with proper keys"
-      ],
-      "issues": []
+        "Clear mission statement from intent.yml",
+        "All 5 core functions documented",
+        "6 core terms used correctly",
+        "11 AUTO decisions documented",
+        "5 key invariants documented with proper notation"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
       "clarity_score": 98,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
+      "breakdown": {
+        "mission_clarity": 20,
+        "target_users_clarity": 15,
+        "core_value_clarity": 15,
+        "core_functions_coverage": 20,
+        "terminology_consistency": 15,
+        "invariants_documentation": 13
+      },
+      "issues": [],
       "strengths": [
-        "Complete terminology table with all 11 canonical terms",
-        "All synonyms properly documented",
-        "Core, Domain, and Aux terms correctly categorized",
-        "All 14 invariants (11 hard + 3 soft) documented",
-        "All 16 AUTO decisions documented with proper categorization",
-        "Behavior norms match intent.yml boundaries"
-      ],
-      "issues": []
+        "Complete terminology table (11 canonical terms)",
+        "All 14 invariants documented (11 hard + 3 soft)",
+        "All 16 AUTO decisions documented by category",
+        "Clear behavior rules from intent.yml",
+        "Complete boundary definitions (in_scope/out_of_scope)"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
+        "score": 98,
         "issues": []
       },
+      "breakdown": {
+        "mission_clarity": 20,
+        "target_users_clarity": 15,
+        "core_value_clarity": 15,
+        "core_functions_coverage": 18,
+        "terminology_consistency": 15,
+        "invariants_documentation": 12
+      },
+      "issues": [],
       "strengths": [
-        "Claude-specific terminology guidance",
+        "Claude-specific instructions",
         "All 11 canonical terms listed",
-        "Invariant violations clearly documented",
-        "AUTO decisions properly noted",
-        "Code examples demonstrate correct usage"
-      ],
-      "issues": []
+        "All 14 invariants documented",
+        "All 16 AUTO decisions noted",
+        "Code examples with proper terminology"
+      ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 98,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
+      "breakdown": {
+        "mission_clarity": 18,
+        "target_users_clarity": 12,
+        "core_value_clarity": 12,
+        "core_functions_coverage": 18,
+        "terminology_consistency": 20,
+        "invariants_documentation": 18
+      },
+      "issues": [],
       "strengths": [
         "Auto-generated from ontology.yml v0.3",
-        "All 11 terms with complete definitions",
-        "Proper layer categorization (core/domain/aux)",
-        "Synonyms and boundaries documented"
-      ],
-      "issues": []
+        "All 11 canonical terms documented",
+        "Complete synonym mapping (26 synonyms)",
+        "AUTO decisions documented per term",
+        "Evidence citations included"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "breakdown": {
+        "mission_clarity": 20,
+        "target_users_clarity": 15,
+        "core_value_clarity": 15,
+        "core_functions_coverage": 18,
+        "terminology_consistency": 14,
+        "invariants_documentation": 10
+      },
+      "issues": [],
+      "strengths": [
+        "Detailed purpose explanation",
+        "Design philosophy documented",
+        "Core terminology usage"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Contribution guidelines",
+        "Terminology consistency"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 96,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "System invariants documented",
+        "Hard invariants emphasized"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Architecture overview",
+        "Component relationships"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 96,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Gemini-specific instructions",
+        "Terminology guidelines"
+      ]
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 96,
+        "issues": []
+      },
+      "issues": [],
+      "strengths": [
+        "Codex-specific instructions",
+        "Terminology guidelines"
+      ]
     }
-  ]
+  ],
+
+  "summary": {
+    "total_issues": 0,
+    "critical_issues": 0,
+    "canonical_terms_used_correctly": "11/11 (100%)",
+    "synonyms_avoided": "26/26 (100%)",
+    "invariants_documented": "14/14 (100%)",
+    "auto_decisions_documented": "16/16 (100%)"
+  }
 }

@@ -1,50 +1,81 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-03T08:55:00Z"
+  bootstrap_run_timestamp: "2026-02-03T00:19:22Z"
   version: "1.1"
-  run_number: 66
+  run_number: 67
+  run_type: "verification_only"
 
   # 1. 存在意義の明確度評価
   existence_clarity:
-    before: 95
-    after: 95
+    before: 99
+    after: 99
     delta: 0
-    interpretation: "Verification-only run - intent.ymlの定義は既にMDに完全に反映されている"
+    interpretation: "intent.yml v1.0の定義により、MDファイルは完全に明確化されている"
 
   # 2. 一意性評価
   uniqueness_score:
     score: 100
-    checks_passed: "5/5"
     issues_found: 0
     issues_resolved: 0
     remaining_issues: []
+    details:
+      UC-001: "passed - 存在意義の一貫性"
+      UC-002: "passed - 対象ユーザーの一貫性"
+      UC-003: "passed - 制約の一貫性"
+      UC-004: "passed - 境界線の一貫性"
+      UC-005: "passed - intent.yml準拠"
 
-  # 3. MD網羅度
+  # 3. 概念整合評価
+  concept_alignment:
+    score: 98
+    details:
+      CA-001: "passed - 用語の正規形使用（88/88, 100%）"
+      CA-002: "passed - 同義語の排除（0件違反）"
+      CA-003: "passed - 不変条件の反映（14/14）"
+      CA-004: "passed - AUTO決定の注記（16/16）"
+      CA-005: "passed - 用語境界の整合（0件矛盾）"
+
+  # 4. MD網羅度
   md_coverage:
     tier1_coverage: "2/2 (100%)"
     tier2_coverage: "4/4 (100%)"
     tier3_coverage: "4/4 (100%)"
-    total_coverage: "10/10 (100%)"
+    overall_coverage: "10/10 (100%)"
 
-  # 4. 発見した矛盾点
-  inconsistencies: []
+  # 5. 発見した矛盾点
+  inconsistencies:
+    - id: "NONE"
+      description: "矛盾点は発見されなかった"
+      status: "no_inconsistencies"
+      resolution: "N/A"
 
-  # 5. intent.ymlへの提案
+  # 6. intent.ymlへの提案
   intent_suggestions: []
 
-  # 6. 概念モデルとの連携状況
+  # 7. 概念モデルとの連携状況
   concept_integration:
     used: true
     ontology_version: "0.3"
     ontology_terms_used: 11
-    ontology_terms_usage_count: 88
+    ontology_term_occurrences: 88
     alignment_score: 98
     new_term_candidates: []
 
-  # 7. 全体的な評価
-  overall_assessment:
-    status: "excellent"
-    combined_score: 99
-    uniqueness_score: 100
-    concept_alignment_score: 98
-    clarity_score: 95
-    summary: "Run #66 (Verification-only): MDファイル群はintent.yml v1.0とontology.yml v0.3に完全に準拠しています。一意性スコア100点、概念整合スコア98点を達成しています。用語正規形使用率100%、同義語回避率100%、不変条件反映率100%、AUTO決定記載率100%。"
+  # 8. 統合スコア
+  overall_score:
+    uniqueness: 100
+    concept_alignment: 98
+    existence_clarity: 99
+    combined: 99
+    interpretation: "MDファイルは優れた状態にあり、intent.yml v1.0とontology.yml v0.3に対して完全に整合している"
+
+  # 9. 改善の余地
+  improvement_opportunities:
+    immediate: []
+    future: []
+    notes: "改善の余地はほとんどない。MD整備は成功裏に完了している。"
+
+  # 10. 次回runへの推奨
+  next_run_recommendations:
+    run_type: "verification_only"
+    frequency: "定期実行を推奨（新規MD追加時やontology更新時）"
+    focus: "現状維持"
