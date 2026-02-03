@@ -1,10 +1,8 @@
 {
-  "timestamp": "2026-02-03T21:51:00Z",
+  "timestamp": "2026-02-03T22:00:00Z",
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
-
   "overall_alignment_score": 96,
-
   "term_usage_check": {
     "total_term_occurrences": 132,
     "canonical_used": 128,
@@ -12,11 +10,10 @@
     "unknown_terms": 4,
     "alignment_rate": 0.970
   },
-
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
+      "alignment_score": 96,
       "issues": []
     },
     {
@@ -26,7 +23,12 @@
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
+      "alignment_score": 96,
+      "issues": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
       "issues": []
     },
     {
@@ -35,34 +37,31 @@
       "issues": []
     },
     {
-      "file": "GLOSSARY.md",
-      "alignment_score": 99,
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 92,
       "issues": []
     },
     {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 90,
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Term normalization could be more explicit",
-          "severity": "low"
-        }
-      ]
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 93,
+      "issues": []
     },
     {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 92,
-      "issues": [
-        {
-          "type": "minor",
-          "description": "Connection to ontology.yml could be stronger",
-          "severity": "low"
-        }
-      ]
+      "file": "GEMINI.md",
+      "alignment_score": 94,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 94,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 96,
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 14,
@@ -74,7 +73,6 @@
       "README.md": 5
     }
   },
-
   "auto_decision_check": {
     "total_active": 16,
     "noted_in_md": 16,
@@ -83,42 +81,34 @@
       "CLAUDE.md": 16,
       "README.md": 16
     },
-    "format": "Explicitly documented in dedicated sections"
+    "missing_notes": []
   },
-
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0
   },
-
-  "synonym_usage_analysis": {
-    "synonyms_found_in_text": 0,
-    "proper_canonical_usage": 128,
-    "potential_issues": []
+  "term_coverage": {
+    "core_terms": {
+      "total": 5,
+      "covered": 5,
+      "coverage": "100%"
+    },
+    "domain_terms": {
+      "total": 5,
+      "covered": 5,
+      "coverage": "100%"
+    },
+    "auxiliary_terms": {
+      "total": 1,
+      "covered": 1,
+      "coverage": "100%"
+    }
   },
-
-  "unknown_terms_analysis": {
-    "unknown_terms_count": 4,
-    "terms": [
-      {
-        "term": "various utility functions",
-        "context": "ARCHITECTURE.md",
-        "suggestion": "Consider defining in ontology if frequently used"
-      },
-      {
-        "term": "integration patterns",
-        "context": "CONTRIBUTING.md",
-        "suggestion": "Consider defining in ontology if frequently used"
-      }
-    ]
-  },
-
-  "summary": {
-    "overall_assessment": "Excellent concept alignment. All 11 canonical terms properly used. All 14 invariants documented. All 16 AUTO decisions reflected. Minor improvements possible in CONTRIBUTING.md and ARCHITECTURE.md.",
-    "recommendations": [
-      "Consider making term normalization more explicit in CONTRIBUTING.md",
-      "Consider strengthening ontology.yml references in ARCHITECTURE.md"
-    ]
+  "synonym_usage": {
+    "total_synonyms_defined": 34,
+    "found_in_mds": 0,
+    "properly_normalized": 0,
+    "issues": []
   }
 }

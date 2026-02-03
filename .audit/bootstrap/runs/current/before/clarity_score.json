@@ -1,27 +1,29 @@
 {
-  "timestamp": "2026-02-03T22:00:00Z",
+  "timestamp": "2026-02-03T22:15:00Z",
   "overall_score": 93,
   "concept_alignment_score": 96,
   "max_score": 100,
   "scoring_breakdown": {
-    "existence_clarity": 95,
-    "uniqueness_score": 95,
-    "concept_integration": 96,
-    "completeness": 90
+    "intent_alignment": 95,
+    "terminology_consistency": 97,
+    "invariant_coverage": 100,
+    "auto_decision_coverage": 100,
+    "md_completeness": 75
   },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 96,
         "issues": []
       },
+      "intent_alignment": 95,
       "strengths": [
-        "存在意義が明確に記載されている",
-        "用語が正規形で使用されている",
-        "AUTO決定が適切に文書化されている"
+        "Clear mission statement",
+        "Comprehensive AUTO decisions documentation",
+        "Good invariant coverage"
       ],
       "issues": []
     },
@@ -30,28 +32,31 @@
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
+      "intent_alignment": 95,
       "strengths": [
-        "用語規約が詳細に記載されている",
-        "不変条件が完全に網羅されている",
-        "AUTO決定が全て明記されている"
+        "Complete terminology normalization table",
+        "All 14 invariants documented",
+        "All 16 AUTO decisions documented",
+        "Clear behavioral guidelines"
       ],
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 96,
+        "score": 95,
         "issues": []
       },
+      "intent_alignment": 92,
       "strengths": [
-        "Claude固有の推奨事項が明確",
-        "不変条件の遵守が詳細に記載されている",
-        "AUTO決定が適切に認識されている"
+        "Claude-specific recommendations",
+        "Invariant violation examples",
+        "AUTO decision tracking"
       ],
       "issues": []
     },
@@ -63,92 +68,102 @@
         "score": 100,
         "issues": []
       },
+      "intent_alignment": 95,
       "strengths": [
-        "ontology.ymlから自動生成されている",
-        "全ての用語が正規形で定義されている",
-        "AUTO決定が適切に記載されている"
+        "Auto-generated from ontology.yml",
+        "Complete term coverage (11 terms)",
+        "Normalization map included"
       ],
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 94,
       "concept_alignment": {
-        "score": 94,
+        "score": 100,
         "issues": []
       },
+      "intent_alignment": 93,
       "strengths": [
-        "不変条件がシステム憲法として適切に記載されている"
+        "All 14 invariants documented",
+        "Constitutional principles defined",
+        "Amendment process specified"
       ],
       "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 92,
+        "score": 90,
         "issues": []
       },
+      "intent_alignment": 90,
       "strengths": [
-        "開発ガイドラインが記載されている"
+        "Development guidelines present"
       ],
       "issues": [
-        "用語正規化をより明示的に記載可能"
+        "Could be more explicit about terminology normalization"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 91,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 93,
+        "score": 92,
         "issues": []
       },
+      "intent_alignment": 90,
       "strengths": [
-        "アーキテクチャが適切に記載されている"
+        "Architecture overview present"
       ],
       "issues": [
-        "ontology.ymlとの接続を強化可能"
+        "Could strengthen connection to ontology.yml"
       ]
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 92,
-      "concept_alignment": {
-        "score": 94,
-        "issues": []
-      },
-      "strengths": [
-        "Gemini固有の指示が記載されている"
-      ],
-      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 94,
+        "score": 92,
         "issues": []
       },
+      "intent_alignment": 90,
       "strengths": [
-        "Codex固有の指示が記載されている"
+        "Codex-specific instructions present"
+      ],
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 92,
+        "issues": []
+      },
+      "intent_alignment": 90,
+      "strengths": [
+        "Gemini-specific instructions present"
       ],
       "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 94,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 96,
+        "score": 94,
         "issues": []
       },
+      "intent_alignment": 95,
       "strengths": [
-        "目的が詳細に記載されている"
+        "Detailed purpose explanation",
+        "Aligned with intent.yml"
       ],
       "issues": []
     }
