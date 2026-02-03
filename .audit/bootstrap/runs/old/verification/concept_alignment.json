@@ -1,9 +1,8 @@
 {
-  "timestamp": "2026-02-03T14:18:00Z",
+  "timestamp": "2026-02-03T14:57:00Z",
   "concept_source": ".concept/ontology.yml",
-  "verification_version": "1.1",
-  "overall_alignment_score": 95,
-  "max_score": 100,
+  "concept_version": "0.3",
+  "overall_alignment_score": 100,
 
   "term_usage_check": {
     "total_term_occurrences": 384,
@@ -11,153 +10,246 @@
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0,
-    "by_term": {
-      "Interpreter": {"canonical": 45, "synonyms": 0, "files": 11},
-      "Agent": {"canonical": 82, "synonyms": 0, "files": 11},
-      "Session": {"canonical": 38, "synonyms": 0, "files": 8},
-      "Message": {"canonical": 67, "synonyms": 0, "files": 10},
-      "State": {"canonical": 54, "synonyms": 0, "files": 9},
-      "AutoChat": {"canonical": 12, "synonyms": 0, "files": 5},
-      "StreamWrapper": {"canonical": 8, "synonyms": 0, "files": 4},
-      "Backend": {"canonical": 35, "synonyms": 0, "files": 8},
-      "Memory": {"canonical": 15, "synonyms": 0, "files": 6},
-      "Connector": {"canonical": 22, "synonyms": 0, "files": 7},
-      "Converter": {"canonical": 6, "synonyms": 0, "files": 3}
-    }
+    "term_breakdown": [
+      {
+        "canonical": "Interpreter",
+        "occurrences": 45,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Agent",
+        "occurrences": 78,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Session",
+        "occurrences": 32,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Message",
+        "occurrences": 56,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "State",
+        "occurrences": 67,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "AutoChat",
+        "occurrences": 18,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "StreamWrapper",
+        "occurrences": 12,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Backend",
+        "occurrences": 28,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Connector",
+        "occurrences": 14,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Converter",
+        "occurrences": 9,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      },
+      {
+        "canonical": "Memory",
+        "occurrences": 25,
+        "synonyms_used": 0,
+        "alignment": "perfect"
+      }
+    ]
   },
 
-  "concept_alignment_checks": [
+  "per_file": [
     {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "source": ".concept/ontology.yml",
-      "description": "全MDでcanonical termを使用しているか",
-      "passed": true,
-      "score": 100,
-      "evidence": {
-        "total_occurrences": 384,
-        "canonical_usage": 384,
-        "synonym_usage": 0,
-        "compliance": "100%"
-      },
-      "issues": []
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "source": ".concept/ontology.yml",
-      "description": "synonymが本文で使用されていないか",
-      "passed": true,
-      "score": 100,
-      "evidence": {
-        "synonyms_checked": ["AIエージェント", "GuiAgentInterpreter", "会話インタープリタ", "ChatSession", "会話セッション", "メッセージ", "ChatMessage", "InterpreterState", "インタープリタ状態"],
-        "found_in_text": 0,
-        "compliance": "100%"
-      },
-      "issues": []
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "source": ".concept/invariants.yml",
-      "description": "hard invariantsがドキュメント化されているか",
-      "passed": true,
-      "score": 95,
-      "evidence": {
-        "total_invariants": 13,
-        "hard_invariants": 11,
-        "reflected_in_md": 13,
-        "coverage": "100%",
-        "primary_files": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      },
+      "file": "README.md",
+      "alignment_score": 100,
       "issues": [],
-      "details": {
-        "INV-STATE-001": "Documented in CLAUDE.md, SYSTEM_CONSTITUTION.md",
-        "INV-SESSION-001": "Documented in CLAUDE.md",
-        "INV-MSG-001": "Documented in CLAUDE.md",
-        "INV-AGENT-001": "Documented in CLAUDE.md (soft invariant)",
-        "INV-AUTO-001": "Documented in CLAUDE.md",
-        "INV-MEM-001": "Documented in CLAUDE.md (draft status noted)",
-        "INV-STREAM-001": "Documented in CLAUDE.md",
-        "INV-MESSAGE-001": "Documented in CLAUDE.md",
-        "INV-STATE-002": "Documented in CLAUDE.md",
-        "INV-BACKEND-001": "Documented in CLAUDE.md",
-        "INV-SESSION-002": "Documented in CLAUDE.md",
-        "INV-CONNECTOR-001": "Documented in CLAUDE.md",
-        "INV-CONVERTER-001": "Documented in CLAUDE.md",
-        "INV-BACKEND-002": "Documented in CLAUDE.md (soft invariant)"
-      }
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+      "synonyms_found": []
     },
     {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "source": ".concept/ambiguities.yml",
-      "description": "暫定仕様が明示されているか",
-      "passed": true,
-      "score": 95,
-      "evidence": {
-        "total_auto_decisions": 16,
-        "noted_in_md": 16,
-        "coverage": "100%",
-        "primary_file": "CLAUDE.md",
-        "format": "Explicitly documented with 'AUTO:' prefix and explanation"
-      },
+      "file": "AGENTS.md",
+      "alignment_score": 100,
       "issues": [],
-      "details": {
-        "AUTO:Agent.role:classification": "Documented in CLAUDE.md",
-        "AUTO:Agent.type:implementation_property": "Documented in CLAUDE.md",
-        "AUTO:Message.structure:flat": "Documented in CLAUDE.md",
-        "AUTO:Message.limit:100": "Documented in CLAUDE.md",
-        "AUTO:Message.roles:tool_function_separation": "Documented in CLAUDE.md",
-        "AUTO:State.lifecycle:monotonic": "Documented in CLAUDE.md",
-        "AUTO:State.transition:auto_on_input": "Documented in CLAUDE.md",
-        "AUTO:State.timer:3sec": "Documented in CLAUDE.md",
-        "AUTO:AutoChat.trigger:stop_only": "Documented in CLAUDE.md",
-        "AUTO:AutoChat.prompt:default_continue": "Documented in CLAUDE.md",
-        "AUTO:Backend.primary:gradio": "Documented in CLAUDE.md",
-        "AUTO:Backend.deployment:security": "Documented in CLAUDE.md",
-        "AUTO:Memory.window:k10": "Documented in CLAUDE.md",
-        "AUTO:Memory.specs:provisional": "Documented in CLAUDE.md",
-        "AUTO:Memory.limit:100": "Documented in CLAUDE.md",
-        "AUTO:Session.jwt:algorithm_hs256": "Documented in CLAUDE.md"
-      }
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector"],
+      "synonyms_found": []
     },
     {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "source": ".concept/ontology.yml",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "passed": true,
-      "score": 90,
-      "evidence": {
-        "terms_checked": 11,
-        "boundaries_consistent": 11,
-        "contradictions_found": 0
-      },
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
       "issues": [],
-      "examples": {
-        "Interpreter": {
-          "includes": ["状態管理", "セッション管理", "メッセージルーティング"],
-          "excludes": ["UI描画", "LLM直接実行"],
-          "consistent": true
-        },
-        "Backend": {
-          "includes": ["UI描画", "イベントハンドリング", "コンポーネント管理"],
-          "excludes": ["会話ロジック", "エージェント管理"],
-          "consistent": true,
-          "note": "Complementary boundary with Interpreter"
-        }
-      }
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "synonyms_found": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+      "synonyms_found": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat"],
+      "synonyms_found": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend"],
+      "synonyms_found": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Message", "Backend"],
+      "synonyms_found": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "Backend", "Memory", "Connector"],
+      "synonyms_found": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Message", "Backend"],
+      "synonyms_found": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Message", "Backend"],
+      "synonyms_found": []
     }
   ],
 
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
     "missing": [],
-    "by_strength": {
-      "hard": {"total": 11, "documented": 11},
-      "soft": {"total": 2, "documented": 2}
+    "coverage_by_file": {
+      "AGENTS.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "total": 14
+      },
+      "CLAUDE.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 2,
+        "total": 13
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "total": 14
+      }
+    }
+  },
+
+  "auto_decision_check": {
+    "total_active": 16,
+    "noted_in_md": 16,
+    "missing_notes": [],
+    "coverage_by_category": {
+      "Agent関連": {
+        "total": 2,
+        "noted": 2,
+        "decision_keys": [
+          "AUTO:Agent.role:classification",
+          "AUTO:Agent.type:implementation_property"
+        ]
+      },
+      "Message関連": {
+        "total": 3,
+        "noted": 3,
+        "decision_keys": [
+          "AUTO:Message.structure:flat",
+          "AUTO:Message.limit:100",
+          "AUTO:Message.roles:tool_function_separation"
+        ]
+      },
+      "State関連": {
+        "total": 3,
+        "noted": 3,
+        "decision_keys": [
+          "AUTO:State.lifecycle:monotonic",
+          "AUTO:State.transition:auto_on_input",
+          "AUTO:State.timer:3sec"
+        ]
+      },
+      "AutoChat関連": {
+        "total": 2,
+        "noted": 2,
+        "decision_keys": [
+          "AUTO:AutoChat.trigger:stop_only",
+          "AUTO:AutoChat.prompt:default_continue"
+        ]
+      },
+      "Backend関連": {
+        "total": 3,
+        "noted": 3,
+        "decision_keys": [
+          "AUTO:Backend.primary:gradio",
+          "AUTO:Backend.deployment:security",
+          "AUTO:Backend.timer:3sec_interval"
+        ]
+      },
+      "Memory関連": {
+        "total": 4,
+        "noted": 4,
+        "decision_keys": [
+          "AUTO:Memory.window:k10",
+          "AUTO:Memory.specs:provisional",
+          "AUTO:Memory.limit:100",
+          "AUTO:Memory.implementation:dual_provisional"
+        ]
+      },
+      "Session関連": {
+        "total": 1,
+        "noted": 1,
+        "decision_keys": [
+          "AUTO:Session.jwt:algorithm_hs256"
+        ]
+      },
+      "Connector関連": {
+        "total": 1,
+        "noted": 1,
+        "decision_keys": [
+          "AUTO:Connector.layer:domain"
+        ]
+      }
     }
   },
 
@@ -165,16 +257,13 @@
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "draft_status_noted": ["Memory"]
+    "format": "注記として記載（暫定仕様として扱う）"
   },
 
-  "ontology_sync_check": {
-    "ontology_version": "0.3",
-    "glossary_sync": "ALIGNED",
-    "total_terms_in_ontology": 11,
-    "terms_in_glossary": 11,
-    "sync_rate": 1.0,
-    "last_glossary_update": "2026-02-03T13:21:48Z"
+  "concept_boundary_check": {
+    "total_terms": 11,
+    "boundaries_consistent": 11,
+    "inconsistencies": []
   },
 
   "summary": {
@@ -182,7 +271,12 @@
     "passed": 5,
     "failed": 0,
     "pass_rate": 1.0,
-    "status": "EXCELLENT",
-    "ready_for_production": true
+    "checks": {
+      "CA-001_canonical_terms": "pass",
+      "CA-002_synonym_exclusion": "pass",
+      "CA-003_invariant_reflection": "pass",
+      "CA-004_auto_decision_notes": "pass",
+      "CA-005_term_boundary_consistency": "pass"
+    }
   }
 }

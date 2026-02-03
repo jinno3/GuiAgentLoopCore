@@ -1,23 +1,34 @@
-run_timestamp: "2026-02-03T14:30:00Z"
+# MD Bootstrap Execution Plan v1.1
+# GuiAgentLoopCore Repository
+run_timestamp: "2026-02-03T13:50:00Z"
 version: "1.1"
+run_number: 77
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
+  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
+    ontology_version: "0.3"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
@@ -27,20 +38,29 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
-  "会話インタープリタ": "Interpreter"
   "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
   "メッセージ": "Message"
@@ -53,62 +73,101 @@ term_normalization:
   "ストリームラッパー": "StreamWrapper"
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 1
     issues: []
   - path: "AGENTS.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 1
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_verified"
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_verified"
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_verified"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_verified"
-    issues: []
-  - path: "GEMINI.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
   - path: "GLOSSARY.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
-  - path: "PURPOSE.md"
-    status: "exists_verified"
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
-  - path: "CHANGELOG.md"
-    status: "exists_no_action"
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "存在意義と概念の整合性を検証"
-
+    reason: "Verify intent.yml alignment and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "用語規約と不変条件の整合性を検証"
-
+    reason: "Verify ontology.yml alignment and AUTO decisions coverage"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Claude特化指示の整合性を検証"
-
+    reason: "Verify Claude-specific instructions with concept alignment"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "概念辞書との同期を検証"
-    condition: "ontology_exists"
+    reason: "Verify ontology.yml synchronization"
+  - action: "skip"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Already verified in previous run, no changes needed"
+  - action: "skip"
+    target: "ARCHITECTURE.md"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
+  - action: "skip"
+    target: "CONTRIBUTING.md"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
+  - action: "skip"
+    target: "PURPOSE.md"
+    reason: "Source document for intent.yml, no changes needed"
+  - action: "skip"
+    target: "GEMINI.md"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
+  - action: "skip"
+    target: "CODEX.md"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
 
-execution_mode: "verify_only"
-reason: "All MD files are already up-to-date with intent and ontology. Running verification phase only."
+verification_targets:
+  uniqueness_checks:
+    - "UC-001: Existence intent consistency"
+    - "UC-002: Target user consistency"
+    - "UC-003: Constraints consistency"
+    - "UC-004: Boundary consistency"
+    - "UC-005: Intent.yml compliance"
+  concept_alignment_checks:
+    - "CA-001: Canonical term usage"
+    - "CA-002: Synonym exclusion"
+    - "CA-003: Hard invariant reflection"
+    - "CA-004: AUTO decision notation"
+    - "CA-005: Term boundary integrity"

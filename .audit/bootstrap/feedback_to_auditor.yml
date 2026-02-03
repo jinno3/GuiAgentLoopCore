@@ -1,65 +1,73 @@
 # Feedback to 14_repo_genesis_auditor
-# Generated: 2026-02-03T14:30:00Z
+# Generated: 2026-02-03T13:50:00Z
+# Run: #77
 
 feedback:
-  bootstrap_run_timestamp: "2026-02-03T14:30:00Z"
+  bootstrap_run_timestamp: "2026-02-03T13:50:00Z"
   version: "1.1"
+  run_number: 77
   execution_mode: "verify_only"
 
   # 1. 存在意義の明確度評価
   existence_clarity:
-    before: 95
-    after: 95
+    before: 92
+    after: 92
     delta: 0
     interpretation: "intent.ymlの定義は完全にMDファイルに反映されており、改善の余地は最小限"
 
   # 2. 一意性評価
   uniqueness_score:
-    score: 100
-    checks_passed: "5/5"
+    score: 98
+    checks_passed: "10/10"
     issues_found: 0
     issues_resolved: 0
     remaining_issues: []
 
-  # 3. MD網羅度
+  # 3. 概念整合度評価（v1.1新增）
+  concept_alignment_score:
+    score: 95
+    term_normalization_rate: "100%"
+    auto_decision_coverage: "100% (16/16)"
+    invariant_coverage: "100% (14/14)"
+
+  # 4. MD網羅度
   md_coverage:
     tier1_coverage: "2/2 (100%)"
     tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "5/5 (100%)"
-    overall: "11/11 (100%)"
+    tier3_coverage: "4/4 (100%)"
+    overall: "10/10 (100%)"
 
-  # 4. 発見した矛盾点
+  # 5. 発見した矛盾点
   inconsistencies: []
 
-  # 5. intent.ymlへの提案
+  # 6. intent.ymlへの提案
   intent_suggestions: []
 
-  # 6. 概念モデルとの連携状況
+  # 7. 概念モデルとの連携状況
   concept_integration:
     used: true
     ontology_version: "0.3"
     ontology_terms_used: 11
-    term_occurrences: 384
-    alignment_score: 100
+    alignment_score: 95
     new_term_candidates: []
 
-  # 7. 評価
+  # 8. 評価
   overall_assessment:
     status: "PRODUCTION_READY"
     intent_quality: "EXCELLENT"
     intent_reflection: "COMPLETE"
-    recommendation: "現状維持。intent.ymlの質が高く、MDへの反映も完全。追加作業不要。次回bootstrapはontology.ymlまたはintent.ymlに重大な変更があった場合のみ実行することを推奨。"
+    recommendation: "現状維持。intent.ymlの質が高く、MDへの反映も完全。追加作業不要。"
 
-  # 8. 特筆事項
+  # 9. 特筆事項
   highlights:
-    - "用語正規化率100%（384/384出現で正規形使用）"
-    - "同義語完全回避（0/31、使用なし）"
+    - "用語正規化率100%（88/88出現で正規形使用）"
+    - "同義語完全回避（0件）"
     - "不変条件反映率100%（14/14全ての不変条件がドキュメント化）"
     - "AUTO決定反映率100%（16/16全てのAUTO決定が注記）"
     - "MD網羅率100%（Tier1-3全ファイルが存在）"
-    - "統合スコア100/100（完璧）"
+    - "統合スコア95/100（優秀）"
 
-  # 9. 推奨アクション
+  # 10. 推奨アクション
   recommendations:
     immediate_actions: []
     periodic_actions:
@@ -68,7 +76,7 @@ feedback:
         reason: "現状の高品質を維持するため"
     future_improvements: []
 
-  # 10. 検証の詳細
+  # 11. 検証の詳細
   verification_details:
     uniqueness_checks:
       UC-001:

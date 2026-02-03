@@ -1,65 +1,21 @@
 # Feedback to 12_concept_sync_system
-# Generated: 2026-02-03T14:30:00Z
+# Generated: 2026-02-03T13:50:00Z
+# Run: #77
 
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T14:30:00Z"
+  bootstrap_run_timestamp: "2026-02-03T13:50:00Z"
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-03T02:09:41Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    total_term_occurrences: 384
-    canonical_used: 384
+    total_term_occurrences: 88
+    canonical_used: 88
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
-    per_term_breakdown:
-      - term: "Interpreter"
-        occurrences: 45
-        canonical: 45
-        synonyms: 0
-      - term: "Agent"
-        occurrences: 78
-        canonical: 78
-        synonyms: 0
-      - term: "Session"
-        occurrences: 32
-        canonical: 32
-        synonyms: 0
-      - term: "Message"
-        occurrences: 56
-        canonical: 56
-        synonyms: 0
-      - term: "State"
-        occurrences: 67
-        canonical: 67
-        synonyms: 0
-      - term: "AutoChat"
-        occurrences: 18
-        canonical: 18
-        synonyms: 0
-      - term: "StreamWrapper"
-        occurrences: 12
-        canonical: 12
-        synonyms: 0
-      - term: "Backend"
-        occurrences: 28
-        canonical: 28
-        synonyms: 0
-      - term: "Connector"
-        occurrences: 14
-        canonical: 14
-        synonyms: 0
-      - term: "Converter"
-        occurrences: 9
-        canonical: 9
-        synonyms: 0
-      - term: "Memory"
-        occurrences: 25
-        canonical: 25
-        synonyms: 0
 
   # 2. 不変条件の反映状況
   invariant_reflection:
@@ -69,11 +25,6 @@ concept_feedback:
     by_strength:
       hard: {"total": 11, "reflected": 11}
       soft: {"total": 3, "reflected": 3}
-    coverage_by_file:
-      AGENTS.md: 14
-      CLAUDE.md: 14
-      SYSTEM_CONSTITUTION.md: 14
-      README.md: 5
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
@@ -81,10 +32,6 @@ concept_feedback:
     noted_in_md: 16
     format: "明示的な注記（AUTO:プレフィックス付き）"
     missing_notes: []
-    coverage_by_file:
-      AGENTS.md: 16
-      CLAUDE.md: 16
-      README.md: 11
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -98,7 +45,7 @@ concept_feedback:
 
   # 6. 概念整合性評価
   concept_alignment_evaluation:
-    overall_score: 100
+    overall_score: 95
     term_normalization_score: 100
     invariant_coverage_score: 100
     auto_decision_coverage_score: 100
@@ -107,7 +54,7 @@ concept_feedback:
   # 7. GLOSSARY.mdとの同期状態
   glossary_sync_status:
     ontology_version: "0.3"
-    glossary_version: "2026-02-03T13:21:48Z"
+    glossary_version: "2026-02-03T01:11:16Z"
     sync_status: "ALIGNED"
     total_terms_in_ontology: 11
     terms_in_glossary: 11
@@ -119,17 +66,17 @@ concept_feedback:
     status: "PRODUCTION_READY"
     ontology_quality: "EXCELLENT"
     ontology_reflection: "COMPLETE"
-    recommendation: "現状維持。ontology.ymlの質が高く、MDへの反映も完全。追加作業不要。次回bootstrapはontology.ymlまたはintent.ymlに重大な変更があった場合のみ実行することを推奨。"
+    recommendation: "現状維持。ontology.ymlの質が高く、MDへの反映も完全。追加作業不要。"
 
   # 9. 特筆事項
   highlights:
-    - "完全な用語正規化（100%整合率、384/384）"
-    - "完全な同義語回避（0/31、使用なし）"
+    - "完全な用語正規化（100%整合率、88/88）"
+    - "完全な同義語回避（0件）"
     - "完全な不変条件反映（100%カバー率、14/14）"
     - "完全なAUTO決定文書化（100%カバー率、16/16）"
     - "GLOSSARY.mdがontology.ymlと完全に同期（11/11用語）"
     - "draft status（Memory）が適切に注記されている"
-    - "統合スコア100/100（完璧）"
+    - "統合スコア95/100（優秀）"
 
   # 10. 推奨アクション
   recommendations:
@@ -138,4 +85,6 @@ concept_feedback:
       - action: "定期的な整合性チェック"
         frequency: "コードまたはontology変更時"
         reason: "現状の高品質を維持するため"
-    future_improvements: []
+    future_improvements:
+      - action: "CONTRIBUTING.md, GEMINI.md, CODEX.mdの概念整合性検証"
+        reason: "v1.1ではscope外だったが、将来的には検証推奨"
