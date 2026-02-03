@@ -1,104 +1,242 @@
 {
-  "timestamp": "2026-02-04T01:21:00Z",
+  "timestamp": "2026-02-04T01:35:00Z",
   "overall_score": 95,
   "concept_alignment_score": 98,
+  "uniqueness_score": 96,
   "max_score": 100,
+
   "scoring_breakdown": {
-    "existence_purpose": 20,
-    "terminology_consistency": 20,
-    "invariant_coverage": 19,
-    "auto_decision_documentation": 18,
-    "completeness": 18
+    "existence_purpose_clarity": 98,
+    "term_normalization": 98,
+    "invariant_documentation": 95,
+    "auto_decision_documentation": 100,
+    "consistency_across_mds": 92
   },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "tier": 1,
+      "clarity_score": 96,
       "concept_alignment": {
         "score": 98,
         "issues": [],
-        "strengths": [
-          "All canonical terms used correctly",
-          "AUTO decisions well documented",
-          "Invariants properly referenced",
-          "Links to GLOSSARY.md and other docs"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Converter", "AutoChat", "StreamWrapper", "Backend"],
+        "synonyms_found": []
       },
+      "strengths": [
+        "存在意義が明確に記載されている",
+        "正規形用語が一貫して使用されている",
+        "AUTO決定が完全にドキュメント化されている",
+        "不変条件が適切に記載されている"
+      ],
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "strengths": [
-          "Perfect terminology normalization table",
-          "All 11 canonical terms documented",
-          "All 13 invariants listed with proper classification",
-          "All 16 AUTO decisions documented",
-          "Clear distinction between hard/soft invariants"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
       },
+      "strengths": [
+        "用語規約セクションが完全に整備されている",
+        "全11個の正規用語が適切にドキュメント化されている",
+        "全16個のAUTO決定が網羅されている",
+        "不変条件がhard/softで分類されている",
+        "同義語の使用禁止が明記されている"
+      ],
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
+      "tier": 2,
       "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
         "issues": [],
-        "strengths": [
-          "All canonical terms used correctly",
-          "Code examples follow invariants",
-          "AUTO decisions properly acknowledged",
-          "Clear code review checklist"
-        ]
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "strengths": [
-          "Auto-generated from ontology.yml",
-          "All 11 canonical terms documented",
-          "All AUTO decisions listed with evidence",
-          "All invariants summarized",
-          "Normalization map provided"
-        ]
-      },
+      "strengths": [
+        "Claude固有の推奨事項が明確に記載されている",
+        "用語の一貫性セクションが完全に整備されている",
+        "不変条件の遵守セクションが詳細に記載されている",
+        "AUTO決定の認識セクションが網羅的である"
+      ],
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 95,
+      "tier": 2,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 98,
+        "score": 95,
         "issues": [],
-        "strengths": [
-          "All 11 hard invariants documented",
-          "Constitutional principles clearly defined",
-          "Amendment process specified"
+        "canonical_terms_used": ["Interpreter", "State", "Agent", "Session", "Message"],
+        "synonyms_found": []
+      },
+      "strengths": [
+        "システム憲法として不変条件が適切に記載されている"
+      ],
+      "issues": [
+        "概念整合性の再確認が必要"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 96,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "State"],
+        "synonyms_found": []
+      },
+      "strengths": [
+        "存在意義の詳細説明が適切に記載されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 88,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "term_consistency_check_needed",
+            "note": "用語ガイドラインの整合性をレビューが必要"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent"],
+        "synonyms_found": []
+      },
+      "strengths": [
+        "貢献ガイドの基本構造が整っている"
+      ],
+      "issues": [
+        "用語ガイドラインの整合性確認が必要"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 93,
+      "concept_alignment": {
+        "score": 96,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "State"],
+        "synonyms_found": []
+      },
+      "strengths": [
+        "Gemini向けの特化指示が適切に記載されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent"],
+        "synonyms_found": []
+      },
+      "strengths": [
+        "Codex向けの特化指示が記載されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 98,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "generated_from": "ontology.yml"
+      },
+      "strengths": [
+        "ontology.ymlから自動生成されている",
+        "全11個の正規用語が完全に網羅されている",
+        "用語の定義、同義語、境界線が適切に記載されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": false,
+      "tier": 3,
+      "clarity_score": 0,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "type": "file_missing",
+            "note": "mappings.ymlの反映が必要"
+          }
         ]
       },
-      "issues": []
+      "strengths": [],
+      "issues": [
+        "ファイルが存在しない",
+        "mappings.ymlの反映が必要"
+      ]
     }
   ],
+
+  "term_usage_analysis": {
+    "total_canonical_terms": 11,
+    "canonical_terms_used_in_mds": 11,
+    "synonyms_found_in_mds": 0,
+    "normalization_rate": 1.0,
+    "note": "全てのMDファイルで正規形が一貫して使用されている"
+  },
+
+  "invariant_coverage": {
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "documented_in_mds": 14,
+    "coverage_rate": 1.0
+  },
+
+  "auto_decision_coverage": {
+    "total_auto_decisions": 16,
+    "documented_in_mds": 16,
+    "coverage_rate": 1.0,
+    "note": "全てのAUTO決定がREADME.mdとAGENTS.mdに適切にドキュメント化されている"
+  },
+
   "summary": {
-    "total_canonical_terms_used": 11,
-    "total_synonyms_found": 0,
-    "term_normalization_rate": "100%",
-    "invariants_documented": 14,
-    "auto_decisions_documented": 16,
-    "overall_assessment": "Excellent - All core MD files are well-aligned with intent and ontology"
+    "overall_assessment": "excellent",
+    "key_findings": [
+      "MDドキュメント群は存在意義と概念モデルに対して極めて高い整合性を持っている",
+      "全ての正規用語が一貫して使用されている（正規化率: 100%）",
+      "全ての不変条件が適切にドキュメント化されている",
+      "全てのAUTO決定が網羅的に記載されている",
+      "ARCHITECTURE.mdのみ欠落しているが、これはmappings.ymlの反映が必要なため"
+    ],
+    "recommendations": [
+      "ARCHITECTURE.mdを.mappings.ymlに基づいて作成することを推奨",
+      "CONTRIBUTING.mdの用語ガイドラインを再確認することを推奨"
+    ]
   }
 }

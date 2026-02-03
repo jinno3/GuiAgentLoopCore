@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T01:21:00Z"
+run_timestamp: "2026-02-04T01:35:00Z"
 version: "1.1"
 
 rotation:
@@ -12,11 +12,16 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
@@ -27,14 +32,38 @@ ontology_summary:
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -47,53 +76,114 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
   "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
-    clarity_score: 95
-    concept_alignment: 98
+    status: "exists_good"
+    tier: 1
     issues: []
   - path: "AGENTS.md"
-    status: "exists_verified"
-    clarity_score: 98
-    concept_alignment: 100
+    status: "exists_good"
+    tier: 1
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_verified"
-    clarity_score: 95
-    concept_alignment: 98
-    issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_verified"
-    clarity_score: 98
-    concept_alignment: 100
+    status: "exists_good"
+    tier: 2
     issues: []
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
-    clarity_score: 95
-    concept_alignment: 98
+    status: "exists_good"
+    tier: 2
     issues: []
+  - path: "PURPOSE.md"
+    status: "exists_good"
+    tier: 2
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "概念整合性の確認が必要"
+  - path: "GEMINI.md"
+    status: "exists_good"
+    tier: 3
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_good"
+    tier: 3
+    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_good"
+    tier: 3
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "missing"
+    tier: 3
+    issues:
+      - "mappings.ymlの反映が必要"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent and ontology (already excellent)"
+    reason: "存在意義の反映、用語の正規化を確認"
+
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify all 11 terms and 16 AUTO decisions documented (already complete)"
+    reason: "AIエージェント向け指示の概念整合性を確認"
+
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions aligned (already excellent)"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify auto-generation from ontology (already current)"
+    reason: "Claude向け特化指示の整合性を確認"
+
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify all 11 hard invariants documented (already complete)"
+    reason: "不変条件の反映を確認"
 
-summary: "All MD files are already in excellent condition with 95% clarity score and 98% concept alignment. No updates needed, only verification."
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "目的の詳細説明の整合性を確認"
+
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "用語ガイドラインの整合性をレビュー"
+
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Gemini向け指示の整合性を確認"
+
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Codex向け指示の整合性を確認"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "用語集がontology.ymlから正しく生成されているか確認"
+
+metadata:
+  ontology_version: "0.3"
+  invariants_version: "2026-02-02T05:23:14Z"
+  ambiguities_version: "2026-02-03T21:21:22Z"
+  total_auto_decisions: 16
+  total_hard_invariants: 11
+  total_soft_invariants: 3

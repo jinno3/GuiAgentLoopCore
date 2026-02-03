@@ -1,55 +1,67 @@
 {
-  "timestamp": "2026-02-04T01:10:00Z",
-  "version": "1.1",
-  "overall_uniqueness_score": 95,
-
+  "timestamp": "2026-02-04T01:21:00Z",
+  "overall_score": 98,
   "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": "All MDs consistently state: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "mission_consistent": true,
+        "variations": []
+      }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": "All MDs reference the same 4 target user groups: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md"],
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "consistent": true
+      }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "evidence": "Python >=3.10, MAX_MESSAGE_LENGTH=100 consistently documented across MDs"
+      "evidence": {
+        "invariants_consistent": true,
+        "total_invariants": 14,
+        "hard_invariants": 11,
+        "soft_invariants": 3
+      }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
-      "evidence": "All MDs consistently list out_of_scope items: UI Rendering, LLM Execution, Session Storage, Authentication, Network Protocols"
+      "evidence": {
+        "consistent": true,
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"]
+      }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
-      "evidence": "README.md, AGENTS.md, and CLAUDE.md all accurately reflect the mission, core functions, and design philosophy from intent.yml"
+      "evidence": {
+        "mission_reflected": true,
+        "core_functions_all_documented": true,
+        "boundaries_respected": true
+      }
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "uniqueness_score": 100
   }
 }

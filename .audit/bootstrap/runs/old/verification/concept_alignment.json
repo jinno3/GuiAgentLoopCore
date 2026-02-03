@@ -1,12 +1,11 @@
 {
-  "timestamp": "2026-02-04T01:10:00Z",
+  "timestamp": "2026-02-04T01:21:00Z",
   "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
   "overall_alignment_score": 98,
 
   "term_usage_check": {
-    "total_term_occurrences": 145,
-    "canonical_used": 145,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -19,9 +18,8 @@
       "issues": [],
       "strengths": [
         "All canonical terms used correctly",
-        "Mission statement reflects intent.yml",
-        "References GLOSSARY.md for terminology",
-        "AUTO decisions documented in dedicated section"
+        "Proper links to GLOSSARY.md",
+        "AUTO decisions well documented"
       ]
     },
     {
@@ -29,21 +27,20 @@
       "alignment_score": 100,
       "issues": [],
       "strengths": [
-        "Perfect term normalization table",
-        "All 11 canonical terms documented",
-        "Synonyms clearly marked as forbidden",
-        "Term layers correctly identified (core/domain/aux)"
+        "Perfect terminology table",
+        "All 11 canonical terms listed with synonyms",
+        "All 13 invariants documented",
+        "All 16 AUTO decisions documented"
       ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
       "issues": [],
       "strengths": [
-        "Canonical terms used consistently",
-        "Code examples follow ontology definitions",
-        "AUTO decisions properly acknowledged",
-        "Invariants documented with evidence"
+        "All canonical terms used correctly",
+        "Code examples follow invariants",
+        "AUTO decisions acknowledged"
       ]
     },
     {
@@ -52,50 +49,48 @@
       "issues": [],
       "strengths": [
         "Auto-generated from ontology.yml",
-        "Complete term documentation",
-        "AUTO decisions cross-referenced",
-        "Normalization map comprehensive"
+        "Complete documentation of all 11 terms",
+        "Normalization map provided"
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "issues": [],
+      "strengths": [
+        "All 11 hard invariants documented",
+        "Constitutional principles clear"
       ]
     }
   ],
 
   "invariant_check": {
     "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage": "100%"
+    "coverage_rate": 1.0
   },
 
   "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "documented_in_md": 16,
-    "missing": [],
-    "coverage": "100%",
-    "by_category": {
-      "Agent": 2,
-      "Message": 3,
-      "State": 3,
-      "AutoChat": 2,
-      "Backend": 3,
-      "Memory": 4,
-      "Session": 1,
-      "Connector": 1
-    }
+    "total_active": 16,
+    "documented_in_agents_md": 16,
+    "documented_in_claude_md": 16,
+    "documented_in_readme_md": 16,
+    "coverage_rate": 1.0
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "coverage": "100%"
+    "properly_marked_as_provisional": true
   },
 
-  "issues": [],
-
   "summary": {
-    "concept_alignment": "EXCELLENT",
-    "term_normalization": "PERFECT",
-    "invariant_coverage": "COMPLETE",
-    "auto_decision_documentation": "COMPLETE"
+    "concept_alignment": "Excellent",
+    "issues_found": 0,
+    "recommendations": []
   }
 }
