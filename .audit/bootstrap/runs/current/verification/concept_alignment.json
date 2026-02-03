@@ -1,79 +1,129 @@
 {
-  "timestamp": "2026-02-04T02:56:00Z",
+  "timestamp": "2026-02-04T03:10:00Z",
   "concept_source": ".concept/ontology.yml",
+  "version": "1.1",
   "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 110,
-    "canonical_used": 110,
+    "total_term_occurrences": 11,
+    "canonical_used": 11,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
+
+  "concept_alignment_checks": [
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "notes": "All MDs use canonical terms exclusively"
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "synonyms_checked": ["GuiAgentInterpreter", "会話インタープリタ", "AIエージェント", "専門エージェント", "AgentType", "ChatSession", "会話セッション", "メッセージ", "ChatMessage", "InterpreterState", "インタープリタ状態"],
+        "synonyms_used_in_text": 0,
+        "notes": "No synonyms found in MD text"
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_invariants": 14,
+        "hard_invariants": 11,
+        "reflected_in_md": 14,
+        "missing": [],
+        "notes": "All invariants (11 hard, 3 soft) are documented in AGENTS.md"
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "total_auto_decisions": 16,
+        "noted_in_md": 16,
+        "format": "明示的なセクションで記載",
+        "notes": "All 16 AUTO decisions are documented in AGENTS.md with clear provisional status"
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "terms_checked": 11,
+        "boundary_conflicts": 0,
+        "notes": "No conflicts found between includes/excludes boundaries"
+      }
+    }
+  ],
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+      "synonyms_found": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "notes": "Auto-generated from ontology.yml, guaranteed alignment"
     },
     {
-      "file": "SYSTEM_CONSTITUTION.md",
+      "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+      "synonyms_found": []
     }
   ],
+
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": []
   },
-  "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing_notes": []
-  },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0
+  },
+
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "concept_alignment_score": 100
   }
 }

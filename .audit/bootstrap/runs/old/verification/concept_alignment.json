@@ -1,9 +1,7 @@
 {
-  "timestamp": "2026-02-04T02:45:00Z",
+  "timestamp": "2026-02-04T02:56:00Z",
   "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
   "overall_alignment_score": 100,
-
   "term_usage_check": {
     "total_term_occurrences": 110,
     "canonical_used": 110,
@@ -11,91 +9,71 @@
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": [],
-      "term_count": 22
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": [],
-      "term_count": 44
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": [],
-      "term_count": 33
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": [],
-      "term_count": 11
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 14,
-    "missing": [],
-    "by_file": {
-      "AGENTS.md": {
-        "documented": 14,
-        "hard_invariants": 11,
-        "soft_invariants": 3
-      },
-      "CLAUDE.md": {
-        "documented": 14,
-        "hard_invariants": 11,
-        "soft_invariants": 3
-      },
-      "README.md": {
-        "documented": 5,
-        "type": "summary_only"
-      }
-    }
+    "missing": []
   },
-
   "auto_decision_check": {
-    "total_active": 16,
+    "total_auto_decisions": 16,
     "noted_in_md": 16,
-    "format": "明示的な注記として記載（暫定仕様として扱う）",
-    "by_file": {
-      "AGENTS.md": 16,
-      "CLAUDE.md": 16,
-      "README.md": 16
-    }
+    "missing_notes": []
   },
-
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0
-  },
-
-  "summary": {
-    "overall_assessment": "Perfect concept alignment",
-    "strengths": [
-      "全ての正規形用語が一貫して使用されている",
-      "同義語の使用が完全に排除されている",
-      "全ての不変条件が適切にドキュメント化されている",
-      "全てのAUTO決定が明示的に注記されている"
-    ],
-    "improvement_opportunities": [
-      "CONTRIBUTING.mdに用語ガイドラインを追加でより完璧に"
-    ]
   }
 }

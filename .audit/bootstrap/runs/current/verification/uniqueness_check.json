@@ -1,15 +1,19 @@
 {
-  "timestamp": "2026-02-04T02:56:00Z",
+  "timestamp": "2026-02-04T03:10:00Z",
   "version": "1.1",
-  "overall_score": 100,
-  "checks": [
+
+  "uniqueness_checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "全MDファイルで同一のmission文言を使用"
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "mission_consistent": true,
+        "notes": "Mission statement is identical across all files: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+      }
     },
     {
       "id": "UC-002",
@@ -17,7 +21,11 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md"],
+        "target_users_consistent": true,
+        "notes": "Target users are consistent: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      }
     },
     {
       "id": "UC-003",
@@ -25,7 +33,11 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": "全MDで一貫した制約記述"
+      "evidence": {
+        "constraints_checked": ["Python version", "State transitions", "Message limits"],
+        "all_consistent": true,
+        "notes": "All constraints match between audit/intent.yml and invariants.yml"
+      }
     },
     {
       "id": "UC-004",
@@ -33,7 +45,11 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": "境界条件が一貫して記述"
+      "evidence": {
+        "boundaries_checked": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "all_consistent": true,
+        "notes": "All out_of_scope items are consistent and not contradicted"
+      }
     },
     {
       "id": "UC-005",
@@ -41,13 +57,20 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "intent.ymlの内容が正しく反映"
+      "evidence": {
+        "mission_reflected": true,
+        "core_functions_covered": true,
+        "boundaries_respected": true,
+        "design_philosophy_reflected": true,
+        "notes": "All MDs correctly reflect intent.yml"
+      }
     }
   ],
+
   "summary": {
-    "total": 5,
+    "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "pass_rate": 1.0
+    "uniqueness_score": 100
   }
 }

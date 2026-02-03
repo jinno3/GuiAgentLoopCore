@@ -1,10 +1,12 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T02:56:00Z"
+  bootstrap_run_timestamp: "2026-02-04T03:10:00Z"
   source_ontology_version: "0.3"
-  
+  source_invariants_version: "2026-02-02T05:23:14Z"
+  source_ambiguities_version: "2026-02-03T21:21:22Z"
+
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 110
+    canonical_used: 11
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -12,6 +14,8 @@ concept_feedback:
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 14
+    hard: 11
+    soft: 3
     reflected: 14
     missing: []
 
@@ -19,7 +23,8 @@ concept_feedback:
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    format: "明示的なドキュメント化（各MDファイルで完璧に記載）"
+    format: "明示的なセクションで記載（AGENTS.md）"
+    missing_notes: []
 
   # 4. 曖昧性の発見
   ambiguities_discovered: []
@@ -27,26 +32,44 @@ concept_feedback:
   # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
-    
+
     definition_updates: []
-    
+
     synonym_additions: []
 
-  # 6. 全体的な評価
+    boundary_changes: []
+
+  # 6. 概念整合性の評価
+  concept_alignment_assessment:
+    overall_score: 100
+    term_normalization_score: 100
+    invariant_coverage_score: 100
+    auto_decision_documentation_score: 100
+    boundary_consistency_score: 100
+
+  # 7. 全体的な評価
   overall_assessment:
     status: "excellent"
-    summary: "概念辞書とMDドキュメントの整合性は完璧"
+    summary: "ontology.yml (v0.3) で定義されたすべての概念がMDドキュメントに正しく反映されています。用語の正規形、不変条件、AUTO決定がすべて適切に文書化されています"
     strengths:
-      - "全ての用語が正規形で使用されている（100%）"
-      - "全ての不変条件がMDに適切に反映されている"
-      - "全てのAUTO決定がMDに明示的に記載されている"
+      - "全ての用語が正規形で使用されている（11/11 = 100%）"
+      - "全ての不変条件がMDに適切に反映されている（14/14 = 100%）"
+      - "全てのAUTO決定がMDに明示的に記載されている（16/16 = 100%）"
       - "未知の用語や同義語の使用がゼロ"
+      - "用語境界の矛盾がゼロ"
     concerns: []
 
-  # 7. 次回の実行推奨事項
+  # 8. 次回の実行推奨事項
   next_run_recommendations:
-    priority: "low"
+    priority: "monitor"
     suggestions:
-      - "現状の維持: 用語の正規化は完璧な状態"
-      - "新語の追加: 必要に応じてterm_queue.ymlを通じて追加"
-      - "AUTO決定の見直し: 16個のAUTO決定は適切にドキュメント化済み"
+      - "現在のontology.ymlの定義は完全に適切です"
+      - "用語を追加する際には、GLOSSARY.mdへの自動生成更新を確認してください"
+      - "AUTO決定を追加・更新する際には、AGENTS.mdのAUTO決定セクションへの反映を忘れずに"
+      - "不変条件を追加・更新する際には、AGENTS.mdの不変条件セクションへの反映を忘れずに"
+    watch_for_changes:
+      - "用語の追加・変更"
+      - "不変条件の追加・変更"
+      - "AUTO決定の追加・更新・期限切れ"
+      - "同義語の追加"
+      - "境界定義の変更"

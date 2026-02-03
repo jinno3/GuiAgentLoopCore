@@ -1,16 +1,55 @@
 {
-  "timestamp": "2026-02-04T02:56:00Z",
-  "overall_score": 99,
+  "timestamp": "2026-02-04T03:10:00Z",
+  "overall_score": 100,
   "concept_alignment_score": 100,
+  "uniqueness_score": 100,
   "max_score": 100,
+
+  "scoring_criteria": {
+    "intent_clarity": {
+      "weight": 0.3,
+      "score": 100,
+      "notes": "Mission statement is clear and consistent across all MDs"
+    },
+    "term_normalization": {
+      "weight": 0.3,
+      "score": 100,
+      "notes": "All terms use canonical forms from ontology.yml"
+    },
+    "invariant_coverage": {
+      "weight": 0.2,
+      "score": 100,
+      "notes": "All 14 invariants (11 hard, 3 soft) are documented"
+    },
+    "auto_decision_documentation": {
+      "weight": 0.1,
+      "score": 100,
+      "notes": "All 16 AUTO decisions are documented in AGENTS.md"
+    },
+    "consistency": {
+      "weight": 0.1,
+      "score": 100,
+      "notes": "No contradictions found between MDs"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 99,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true
       },
       "issues": []
     },
@@ -20,7 +59,39 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "issues": [],
+        "all_core_functions_covered": true,
+        "all_boundaries_respected": true
+      },
+      "invariant_coverage": {
+        "score": 100,
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "total_invariants": 14
+      },
+      "auto_decision_coverage": {
+        "score": 100,
+        "auto_decisions_documented": 16,
+        "total_auto_decisions": 16
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "auto_generated": true,
+        "ontology_version": "0.3",
+        "total_terms": 11
       },
       "issues": []
     },
@@ -30,12 +101,14 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
       },
       "issues": []
     },
     {
-      "path": "GLOSSARY.md",
+      "path": "PURPOSE.md",
       "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
@@ -47,62 +120,60 @@
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": ["一部の不変条件の更新が必要"]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": ["存在意義の詳細説明を更新"]
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": ["用語ガイドラインの追加で改善可能"]
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": ["mappings.ymlの反映が必要"]
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": ["CLAUDE.mdとの整合性を確認"]
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": ["CLAUDE.mdとの整合性を確認"]
+      "issues": []
     }
-  ]
+  ],
+
+  "summary": {
+    "total_files": 10,
+    "perfect_scores": 10,
+    "files_needing_update": 0,
+    "missing_critical_files": 0,
+    "overall_assessment": "All MD files are perfectly aligned with intent.yml and ontology.yml. No changes needed."
+  }
 }
