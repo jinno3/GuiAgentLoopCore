@@ -1,120 +1,546 @@
 {
-  "timestamp": "2026-02-04T04:42:00Z",
-  "note": "No changes were made - scores remain the same as before",
-  "overall_score": 98,
+  "timestamp": "2026-02-03T19:59:06.368887+00:00",
+  "overall_score": 100,
   "concept_alignment_score": 100,
-  "uniqueness_score": 98,
+  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_methodology": "Based on intent.yml alignment, ontology.yml term normalization, and invariants.yml coverage",
-
-  "score_breakdown": {
-    "intent_alignment": {
-      "weight": 0.4,
-      "score": 100,
-      "description": "Alignment with .audit/config/intent.yml"
-    },
-    "concept_normalization": {
-      "weight": 0.3,
-      "score": 100,
-      "description": "Use of canonical terms from .concept/ontology.yml"
-    },
-    "invariant_coverage": {
-      "weight": 0.2,
-      "score": 100,
-      "description": "Documentation of invariants from .concept/invariants.yml"
-    },
-    "auto_decision_documentation": {
-      "weight": 0.1,
-      "score": 100,
-      "description": "Documentation of AUTO decisions from .concept/ambiguities.yml"
-    }
-  },
-
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 98,
+      "exists": true,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "term_usage_accuracy": "100%"
+        "issues_count": 0,
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 100
-      },
-      "invariant_coverage": {
-        "score": 95,
-        "invariants_mentioned": 5
-      },
-      "auto_decision_coverage": {
-        "score": 100,
-        "auto_decisions_mentioned": 16
-      }
+      "intent_issues_count": 0,
+      "intent_issues": []
     },
     {
       "path": "AGENTS.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 45,
       "concept_alignment": {
-        "score": 100,
-        "term_usage_accuracy": "100%"
+        "score": 0,
+        "issues_count": 11,
+        "issues": [
+          {
+            "term": "Agent",
+            "line": 1,
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "context": "# AGENTS.md - AIエージェント向け指示"
+          },
+          {
+            "term": "Session",
+            "line": 72,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- 🔒 **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+          },
+          {
+            "term": "Message",
+            "line": 66,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- 🔒 **INV-MSG-001**: メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+          },
+          {
+            "term": "Message",
+            "line": 69,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- 🔒 **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+          },
+          {
+            "term": "Message",
+            "line": 80,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- ⚠️ **INV-MEM-001** [DRAFT]: 会話メモリは最大100メッセージまで保持する（Memory機能はdraft状態）"
+          },
+          {
+            "term": "Message",
+            "line": 142,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "2. **メッセージタイプ**: 定義された列挙型のみ使用する"
+          },
+          {
+            "term": "State",
+            "line": 64,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "- 🔒 **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+          },
+          {
+            "term": "State",
+            "line": 141,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "1. **状態遷移の単調性**: インタープリタ状態は常に単調遷移する (STATE_INIT → STATE_RUNNING → STATE_STOP)"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 68,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper",
+            "context": "- 🔒 **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする"
+          },
+          {
+            "term": "Connector",
+            "line": 73,
+            "found": "コネクタ",
+            "should_be": "Connector",
+            "context": "- 🔒 **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 100
-      },
-      "invariant_coverage": {
-        "score": 100,
-        "invariants_mentioned": 14
-      },
-      "auto_decision_coverage": {
-        "score": 100,
-        "auto_decisions_mentioned": 16
-      }
+      "intent_issues_count": 0,
+      "intent_issues": []
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 30,
       "concept_alignment": {
-        "score": 100
+        "score": 0,
+        "issues_count": 11,
+        "issues": [
+          {
+            "term": "Session",
+            "line": 80,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+          },
+          {
+            "term": "Message",
+            "line": 68,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ使用"
+          },
+          {
+            "term": "Message",
+            "line": 70,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- タイプ安全性を保証し、予期しないメッセージ処理を防ぐ"
+          },
+          {
+            "term": "Message",
+            "line": 72,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+          },
+          {
+            "term": "Message",
+            "line": 109,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する"
+          },
+          {
+            "term": "Message",
+            "line": 174,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- メッセージは再帰的にフラット化可能"
+          },
+          {
+            "term": "State",
+            "line": 45,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "- **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 96,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper",
+            "context": "- **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする"
+          },
+          {
+            "term": "Memory",
+            "line": 109,
+            "found": "会話メモリ",
+            "should_be": "Memory",
+            "context": "- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する"
+          },
+          {
+            "term": "Connector",
+            "line": 114,
+            "found": "コネクタ",
+            "should_be": "Connector",
+            "context": "- **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+          }
+        ]
       },
-      "intent_alignment": {
-        "score": 100
-      },
-      "invariant_coverage": {
-        "score": 100
-      },
-      "auto_decision_coverage": {
-        "score": 100
-      }
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
     },
     {
       "path": "GLOSSARY.md",
-      "clarity_score": 100,
+      "exists": true,
+      "clarity_score": 0,
       "concept_alignment": {
-        "score": 100
-      }
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "clarity_score": 95
-    },
-    {
-      "path": "PURPOSE.md",
-      "clarity_score": 98
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "clarity_score": 90
+        "score": 0,
+        "issues_count": 28,
+        "issues": [
+          {
+            "term": "Session",
+            "line": 55,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **定義**: 一意のIDで管理される会話コンテキスト（JWT認証使用）"
+          },
+          {
+            "term": "Session",
+            "line": 57,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）"
+          },
+          {
+            "term": "Session",
+            "line": 301,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+          },
+          {
+            "term": "Message",
+            "line": 22,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **含む**: 状態管理, セッション管理, メッセージルーティング"
+          },
+          {
+            "term": "Message",
+            "line": 57,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）"
+          },
+          {
+            "term": "Message",
+            "line": 142,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **含まない**: メッセージ変換, 状態管理"
+          },
+          {
+            "term": "Message",
+            "line": 178,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **含む**: メッセージ履歴, ウィンドウサイズ"
+          },
+          {
+            "term": "Message",
+            "line": 223,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **含まない**: メッセージ処理, 状態管理"
+          },
+          {
+            "term": "Message",
+            "line": 295,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ"
+          },
+          {
+            "term": "Message",
+            "line": 298,
+            "found": "メッセージ",
+            "should_be": "Message",
+            "context": "- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
+          }
+        ]
+      },
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
     },
     {
       "path": "ARCHITECTURE.md",
-      "clarity_score": 92
+      "exists": true,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 70,
+        "issues_count": 3,
+        "issues": [
+          {
+            "term": "Session",
+            "line": 336,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **Affects**: JWT token encoding/decoding"
+          },
+          {
+            "term": "Connector",
+            "line": 158,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- Abstract base class (GuiAgentInterpreterABC)"
+          },
+          {
+            "term": "Connector",
+            "line": 162,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface"
+          }
+        ]
+      },
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 100,
+        "issues_count": 0,
+        "issues": []
+      },
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 70,
+      "concept_alignment": {
+        "score": 70,
+        "issues_count": 3,
+        "issues": [
+          {
+            "term": "Session",
+            "line": 168,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "### INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+          },
+          {
+            "term": "Connector",
+            "line": 184,
+            "found": "コネクタ",
+            "should_be": "Connector",
+            "context": "### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+          },
+          {
+            "term": "Connector",
+            "line": 184,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+          }
+        ]
+      },
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 91,
+      "concept_alignment": {
+        "score": 100,
+        "issues_count": 0,
+        "issues": []
+      },
+      "intent_issues_count": 3,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        }
+      ]
     },
     {
       "path": "GEMINI.md",
-      "clarity_score": 95
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 100,
+        "issues_count": 0,
+        "issues": []
+      },
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
     },
     {
       "path": "CODEX.md",
-      "clarity_score": 95
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 100,
+        "issues_count": 0,
+        "issues": []
+      },
+      "intent_issues_count": 5,
+      "intent_issues": [
+        {
+          "type": "missing_core_function",
+          "expected": "Centralized Conversation Management"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "State Machine with Monotonic Transitions"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Multi-Agent Coordination"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Structured Message Processing"
+        },
+        {
+          "type": "missing_core_function",
+          "expected": "Backend Abstraction"
+        }
+      ]
     }
   ]
 }

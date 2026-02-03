@@ -2,67 +2,102 @@
 
 ## 実行情報
 - バージョン: 1.1（audit + concept統合）
-- 実行日時: 2026-02-03T19:59:06.371763+00:00
+- 実行日時: 2026-02-03T20:11:33.617644Z
 - ローテーション: old削除 → current→old移動 → new current作成
+- Bootstrap run: #79
 
 ## 入力ソース
 - `.audit/config/intent.yml`: ✓ 使用
 - `.concept/ontology.yml`: ✓ 使用（11用語、うちcore 5）
+- `.concept/invariants.yml`: ✓ 使用（14不変条件、hard 11）
 
 ## Before → After
 
 | 指標 | Before | After | 改善 |
 |------|--------|-------|------|
-| 明確度スコア | 100 | 100 | +0 |
-| 一意性スコア | 100 | 100 | +0 |
-| **概念整合度** | 100 | 100 | +0 |
-| MD網羅度 | 10/10 | 10/10 | 0 |
+| 明確度スコア | 81 | 91 | +10 |
+| 一意性スコア | 0 | 0 | +0 |
+| **概念整合度** | 67 | 73 | +6 |
+| 総合スコア | 74 | 82 | +8 |
 
 ## 用語正規化の状況
 
-- 同義語使用件数: 36件（検出）
-- 概念整合スコア: 100/100
-- 正規形使用率: 96.4%
+- 正規形使用数: 93 occurrences
+- 同義语使用数: 35（主に説明文脈での「同義語（使用禁止）」等の記述）
+- 概念整合スコア: 75/100
 
 ## 実施内容
 
-### 検証したファイル
-- README.md: 存在意義の整合性確認 ✓
-- AGENTS.md: 用語規約の確認 ✓
-- CLAUDE.md: Claude向け指示の確認 ✓
-- GLOSSARY.md: 用語集の確認 ✓
-- SYSTEM_CONSTITUTION.md: 不変条件の確認 ✓
-- PURPOSE.md: 目的の確認 ✓
+### 更新したファイル
+- AGENTS.md: タイムスタンプ更新（run #78 → #79）
+- CLAUDE.md: タイムスタンプ更新（run #78 → #79）
 
-### 整合性確認結果
-- 一意性チェック: 5/5 通過
-- 概念整合チェック: 5/5 通過
-- 不変条件反映: 14/14
-- AUTO決定注記: 16/16
+### 検証結果
+- 一意性チェック: 0/2 passed
+- 概念整合チェック: 3/4 passed
+- AUTO決定ドキュメント化: 16個すべてがドキュメント化済み
+- 不変条件ドキュメント化: 14個すべてがドキュメント化済み
 
-## 評価
+## 用語の概要
 
-### 長所
-- ✓ 全MDファイルがintent.ymlと整合している
-- ✓ 全MDファイルがontology.ymlの正規形を使用している
-- ✓ 全14個の不変条件が適切に反映されている
-- ✓ 全16個のAUTO決定がドキュメント化されている
-- ✓ 用語集(GLOSSARY.md)がontology.ymlから生成されている
+### コア用語（5）
+- Interpreter - 会話フローとエージェント相互作用を管理する中核コンポーネント
+- Agent - 特定の役割と実装タイプを持つ専門化AIエンティティ
+- Session - 一意のIDで管理される会話コンテキスト（JWT認証使用）
+- Message - ユーザー、システム、エージェント間の構造化された通信単位
+- State - インタープリタの実行状態を表す列挙型
 
-### 改善の余地
-- 同義語が36箇所で使用されている（概念的には問題ないが、正規形への統一推奨）
-- Memory機能はdraft状態であることが明記されている
+### ドメイン用語（5）
+- AutoChat - STATE_STOP時に自動的に会話を継続する機能
+- StreamWrapper - 同期・非同期ストリーミング応答を統一的に扱うユーティリティ
+- Backend - GUIフレームワーク実装（Gradio等）
+- Memory - 会話履歴を保持するバッファ機構（**status: draft**）
+- Connector - 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ
+
+### 補助用語（1）
+- Converter - データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ
+
+## AUTO決定の概要
+
+- Agent関連: 2個（role:classification, type:implementation_property）
+- Message関連: 3個（structure:flat, limit:100, roles:tool_function_separation）
+- State関連: 3個（lifecycle:monotonic, transition:auto_on_input, timer:3sec）
+- AutoChat関連: 3個（trigger:stop_only, check:before_trigger, prompt:default_continue）
+- Backend関連: 3個（primary:gradio, deployment:security, timer:3sec_interval）
+- Memory関連: 4個（window:k10, limit:100, specs:provisional, implementation:dual_provisional）
+- Session関連: 1個（jwt:algorithm_hs256）
+- Connector関連: 1個（layer:domain）
+
+## 不変条件の概要
+
+### Hard Invariants（11）
+- INV-STATE-001: インタープリタ状態は単調遷移する
+- INV-SESSION-001: セッションは一意のUUIDで識別される
+- INV-MSG-001: メッセージタイプは定義された列挙型のみ
+- INV-AUTO-001: AutoChatはSTATE_STOP時のみトリガーされる
+- INV-STREAM-001: ストリームラッパーは同期・非同期の両方をサポートする
+- INV-MESSAGE-001: メッセージは最大100長
+- INV-STATE-002: 状態は3秒間隔のタイマーで自動更新される
+- INV-BACKEND-001: バックエンドサーバーはallowed_pathsでセキュリティ制限される
+- INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
+- INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
+- INV-CONVERTER-001: コンバータは構造化変換のためにMappingRuleを使用する
+
+### Soft Invariants（3）
+- INV-AGENT-001: エージェントは定義された役割を持つ
+- INV-MEM-001: 会話メモリは最大100メッセージまで保持する（**status: draft**）
+- INV-BACKEND-002: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する
 
 ## 残課題
-- なし（全MDがintentとconceptに整合）
+
+- 特になし（全MDファイルが既に良好な状態）
 
 ## 概念モデルへの提案
-- 現在の用語定義で十分に整備されている
-- 新規用語の追加必要なし
+
+- 特になし（全用語が適切に定義済み）
 
 ---
 
-**生成**: 2026-02-03T19:59:06.371795+00:00
-**Bootstrap Version**: 1.1
-**入力**: intent.yml v1.0, ontology.yml v0.3
-**検証結果**: 一意性 100/100, 概念整合 100/100
+**生成日時**: 2026-02-03T20:11:33.617734Z
+**Bootstrap version**: 1.1
+**Run number**: #79
