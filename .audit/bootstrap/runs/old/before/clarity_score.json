@@ -1,189 +1,325 @@
 {
-  "timestamp": "2026-02-04T07:01:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
+  "timestamp": "2026-02-04T07:23:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 95,
+  "uniqueness_score": 95,
   "max_score": 100,
+
+  "scoring_breakdown": {
+    "existence_clarity": {
+      "score": 98,
+      "weight": 0.3,
+      "notes": "Mission statement is clear and consistent across MDs"
+    },
+    "term_consistency": {
+      "score": 95,
+      "weight": 0.3,
+      "notes": "Canonical terms used consistently, minor improvements possible"
+    },
+    "invariant_coverage": {
+      "score": 92,
+      "weight": 0.2,
+      "notes": "Hard invariants well documented, some soft invariants could be more explicit"
+    },
+    "boundary_clarity": {
+      "score": 95,
+      "weight": 0.2,
+      "notes": "Scope boundaries clearly defined"
+    }
+  },
 
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 96,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "issues": [],
+      "invariant_coverage": {
+        "hard_invariants_mentioned": 5,
+        "soft_invariants_mentioned": 1,
+        "missing_hard_invariants": []
+      },
       "strengths": [
-        "Clear mission statement from intent.yml",
-        "All terms use canonical forms",
-        "All 16 AUTO decisions documented",
-        "Proper terminology note with GLOSSARY.md reference"
+        "Clear mission statement aligned with intent.yml",
+        "All canonical terms used correctly",
+        "Good AUTO decisions documentation",
+        "Comprehensive system invariants section"
+      ],
+      "improvement_opportunities": [
+        "Could add more details on soft invariants",
+        "Could expand on design philosophy examples"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 97,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
       },
-      "issues": [],
+      "invariant_coverage": {
+        "hard_invariants_mentioned": 11,
+        "soft_invariants_mentioned": 3,
+        "missing_hard_invariants": []
+      },
       "strengths": [
-        "Complete terminology normalization table (core + domain + aux)",
-        "All 14 invariants documented (11 hard, 3 soft)",
-        "All 16 AUTO decisions documented by category",
-        "Clear behavior rules from intent.yml"
+        "Excellent term normalization table with synonyms",
+        "Complete hard invariants documentation",
+        "Clear AUTO decisions section",
+        "Good behavioral guidelines"
+      ],
+      "improvement_opportunities": [
+        "None significant - document is well-aligned"
       ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 96,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 96,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "issues": [],
+      "invariant_coverage": {
+        "hard_invariants_mentioned": 14,
+        "soft_invariants_mentioned": 3,
+        "missing_hard_invariants": []
+      },
       "strengths": [
-        "Claude-specific recommendations with canonical terms",
-        "All 14 invariants documented with code examples",
-        "All 16 AUTO decisions acknowledged",
-        "Stateful operation guidelines",
-        "Code review checklist aligned with invariants"
+        "Comprehensive AUTO decisions documentation (all 16)",
+        "Complete invariants documentation (all 14)",
+        "Good code examples following invariants",
+        "Clear Claude-specific recommendations"
+      ],
+      "improvement_opportunities": [
+        "Could expand on code review checklist"
       ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "notes": "Auto-generated from ontology.yml, perfect alignment"
       },
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "All 11 canonical terms documented",
-        "Clear layer classification (core/domain/aux)",
-        "Status indicators (stable/draft)",
-        "Complete synonym mappings"
-      ]
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
+      "invariant_coverage": {
+        "notes": "Not applicable - glossary focuses on terms, not invariants"
       },
-      "issues": [],
       "strengths": [
-        "Architecture reflects mappings.yml",
-        "Canonical terms used throughout",
-        "Component boundaries clearly defined"
+        "Auto-generated from ontology.yml ensures perfect alignment",
+        "Complete with all 11 canonical terms",
+        "Includes AUTO decisions for each term",
+        "Includes evidence references"
+      ],
+      "improvement_opportunities": [
+        "None - auto-generation ensures consistency"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 92,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "type": "term_review",
+            "notes": "Should verify all terms align with ontology v0.3"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
       },
-      "issues": [],
-      "strengths": [
-        "Detailed purpose aligned with intent.yml",
-        "Canonical terms used",
-        "Design philosophy reflected"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
+      "invariant_coverage": {
+        "notes": "Focuses on purpose, not invariants"
       },
-      "issues": [],
       "strengths": [
-        "All 14 invariants documented as constitutional principles",
-        "Hard vs soft invariants clearly distinguished",
-        "Canonical terms used"
+        "Detailed purpose explanation",
+        "Aligned with core mission"
+      ],
+      "improvement_opportunities": [
+        "Should verify term usage against latest ontology",
+        "Could add more domain terms"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 88,
+        "issues": [
+          {
+            "type": "term_review",
+            "notes": "Should verify term usage aligns with ontology"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "Message"],
+        "synonyms_found": []
       },
-      "issues": [],
+      "invariant_coverage": {
+        "notes": "Should reference key invariants for contributors"
+      },
       "strengths": [
-        "Contributing guidelines aligned with intent.yml",
-        "Terminology guidelines included",
-        "Reference to ontology.yml"
+        "Clear contribution guidelines"
+      ],
+      "improvement_opportunities": [
+        "Should add term normalization guidelines",
+        "Should reference hard invariants that contributors must follow",
+        "Could add AUTO decisions section"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 92,
+        "issues": [
+          {
+            "type": "verification",
+            "notes": "Should verify invariants match invariants.yml v2026-02-02"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
+      },
+      "invariant_coverage": {
+        "hard_invariants_mentioned": 11,
+        "soft_invariants_mentioned": 3,
+        "missing_hard_invariants": []
+      },
+      "strengths": [
+        "Good coverage of invariants"
+      ],
+      "improvement_opportunities": [
+        "Should verify against latest invariants.yml",
+        "Could add more detail on invariant enforcement"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 91,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "verification",
+            "notes": "Should verify component names match ontology"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "Backend", "Connector", "Converter"],
+        "synonyms_found": []
+      },
+      "invariant_coverage": {
+        "notes": "Should reference invariants in architecture description"
+      },
+      "strengths": [
+        "Good architecture overview"
+      ],
+      "improvement_opportunities": [
+        "Should verify component naming against ontology",
+        "Should add invariant constraints to architecture",
+        "Could add mappings.yml references"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 94,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 94,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
       },
-      "issues": [],
+      "invariant_coverage": {
+        "hard_invariants_mentioned": 8,
+        "soft_invariants_mentioned": 2,
+        "missing_hard_invariants": ["INV-CONNECTOR-001", "INV-CONVERTER-001"]
+      },
       "strengths": [
-        "Gemini-specific instructions",
-        "Canonical terms used",
-        "Aligned with AGENTS.md framework"
+        "Good term usage",
+        "Relevant invariants for Gemini"
+      ],
+      "improvement_opportunities": [
+        "Could add more complete invariants coverage"
       ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
+      "clarity_score": 94,
+      "concept_alignment": {
+        "score": 94,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": []
+      },
+      "invariant_coverage": {
+        "hard_invariants_mentioned": 8,
+        "soft_invariants_mentioned": 2,
+        "missing_hard_invariants": ["INV-CONNECTOR-001", "INV-CONVERTER-001"]
+      },
+      "strengths": [
+        "Good term usage",
+        "Relevant invariants for Codex"
+      ],
+      "improvement_opportunities": [
+        "Could add more complete invariants coverage"
+      ]
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "notes": "Not applicable - changelog is historical record"
       },
-      "issues": [],
+      "invariant_coverage": {
+        "notes": "Not applicable"
+      },
       "strengths": [
-        "Codex-specific instructions",
-        "Canonical terms used",
-        "Aligned with AGENTS.md framework"
-      ]
+        "Historical record, no bootstrap action needed"
+      ],
+      "improvement_opportunities": []
     }
   ],
 
-  "summary": {
-    "total_files": 10,
-    "perfect_scores": 10,
-    "files_needing_update": 0,
-    "term_usage": {
-      "total_occurrences": 435,
-      "canonical_used": 435,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    "invariant_coverage": {
-      "total_invariants": 14,
-      "documented": 14,
-      "coverage_rate": 1.0
-    },
-    "auto_decision_coverage": {
-      "total_auto_decisions": 16,
-      "documented": 16,
-      "coverage_rate": 1.0
-    }
-  },
-
-  "assessment": "All MD files are in perfect condition. No updates needed."
+  "overall_assessment": {
+    "strengths": [
+      "Excellent overall concept alignment (95/100)",
+      "All canonical terms used consistently",
+      "No synonym usage detected in core MDs",
+      "Comprehensive invariants documentation in AGENTS.md and CLAUDE.md",
+      "GLOSSARY.md auto-generated from ontology ensures perfect alignment",
+      "High clarity scores across all MD files (90-98)"
+    ],
+    "improvement_opportunities": [
+      "Some MDs could benefit from verification against latest ontology (PURPOSE.md, CONTRIBUTING.md, ARCHITECTURE.md)",
+      "Some MDs could add more complete invariants coverage (GEMINI.md, CODEX.md)",
+      "CONTRIBUTING.md should add term normalization guidelines and invariant references"
+    ],
+    "next_steps": [
+      "Verify and update PURPOSE.md for ontology v0.3 alignment",
+      "Verify and update CONTRIBUTING.md for ontology v0.3 and invariants",
+      "Verify and update SYSTEM_CONSTITUTION.md for invariants v2026-02-02",
+      "Verify and update ARCHITECTURE.md for ontology v0.3 alignment"
+    ]
+  }
 }

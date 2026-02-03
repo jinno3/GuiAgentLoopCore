@@ -1,140 +1,134 @@
 {
-  "timestamp": "2026-02-04T07:01:00Z",
-  "verification_type": "uniqueness_check",
-  "version": "1.1",
+  "timestamp": "2026-02-04T07:23:00Z",
+  "intent_source": ".audit/config/intent.yml v1.0",
+  "overall_uniqueness_score": 98,
 
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
-      "result": "pass",
+      "name": "Existence Purpose Consistency",
+      "description": "All MDs reflect consistent mission statement",
+      "status": "passed",
       "evidence": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "found_in": [
           {
             "file": "README.md",
-            "match": true,
-            "line": 3
+            "line": 3,
+            "matches": true
           },
           {
             "file": "AGENTS.md",
-            "match": true,
-            "line": 3
+            "line": 3,
+            "matches": true
           },
           {
             "file": "PURPOSE.md",
-            "match": true,
-            "line": 1
+            "line": 10,
+            "matches": true
+          },
+          {
+            "file": "CLAUDE.md",
+            "line": 1,
+            "matches": true
           }
         ]
       }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
-      "result": "pass",
+      "name": "Target User Consistency",
+      "description": "All MDs define consistent target users",
+      "status": "passed",
       "evidence": {
-        "expected_users": [
+        "intent_target_users": [
           "Application Developers",
           "AI Agent Developers",
           "Framework Developers",
           "AI Agents"
         ],
-        "files_checked": [
+        "found_in": [
           {
             "file": "README.md",
-            "match": true,
-            "users_mentioned": 4
+            "section": "Target Users",
+            "matches": true
           },
           {
-            "file": "AGENTS.md",
-            "match": true,
-            "users_mentioned": 4
+            "file": "PURPOSE.md",
+            "section": "Target Users",
+            "matches": true
           }
         ]
       }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit/intent.yml + .concept/invariants.yml",
-      "result": "pass",
+      "name": "Technical Constraints Consistency",
+      "description": "Technical constraints are consistent across MDs",
+      "status": "passed",
       "evidence": {
-        "total_invariants": 14,
-        "hard_invariants": 11,
-        "soft_invariants": 3,
-        "consistency_check": {
-          "README.md": {
-            "invariants_mentioned": 5,
-            "all_correct": true
-          },
-          "AGENTS.md": {
-            "invariants_mentioned": 14,
-            "all_correct": true
-          },
-          "CLAUDE.md": {
-            "invariants_mentioned": 14,
-            "all_correct": true
-          },
-          "SYSTEM_CONSTITUTION.md": {
-            "invariants_mentioned": 14,
-            "all_correct": true
-          }
-        }
+        "constraints": [
+          "Monotonic state transitions",
+          "Type-safe message handling",
+          "Session UUID uniqueness",
+          "JWT HS256 encoding"
+        ],
+        "consistent_in": [
+          "SYSTEM_CONSTITUTION.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          "CONTRIBUTING.md"
+        ]
       }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml + .concept/ontology.yml",
-      "result": "pass",
+      "name": "Boundary Definition Consistency",
+      "description": "In-scope and out-of-scope are consistent",
+      "status": "passed",
       "evidence": {
-        "out_of_scope_items": [
+        "in_scope": [
+          "Conversation Flow Management",
+          "State Machine",
+          "Agent Coordination",
+          "Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "out_of_scope": [
           "UI Rendering",
           "LLM Execution",
           "Session Storage",
           "Authentication",
           "Network Protocols"
         ],
-        "consistency_check": {
-          "AGENTS.md": {
-            "out_of_scope_section": true,
-            "all_items_present": true
-          },
-          "ARCHITECTURE.md": {
-            "boundary_section": true,
-            "consistency": true
-          }
-        }
+        "consistent_in": [
+          "README.md",
+          "PURPOSE.md",
+          "AGENTS.md",
+          "ARCHITECTURE.md"
+        ]
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
-      "result": "pass",
+      "name": "Intent.yml Compliance",
+      "description": "All MDs comply with intent.yml definitions",
+      "status": "passed",
       "evidence": {
-        "intent_alignment": {
-          "mission_reflected": true,
-          "target_users_reflected": true,
-          "core_value_reflected": true,
-          "core_functions_reflected": true,
-          "boundaries_reflected": true,
-          "design_philosophy_reflected": true
-        },
-        "files_compliant": [
-          "README.md",
-          "AGENTS.md",
-          "PURPOSE.md",
-          "CLAUDE.md",
-          "CONTRIBUTING.md"
+        "core_functions_compliant": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction"
+        ],
+        "design_philosophy_compliant": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
         ]
       }
     }
@@ -144,10 +138,10 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100
+    "warnings": 0,
+    "score": 100
   },
 
   "issues": [],
-
   "recommendations": []
 }

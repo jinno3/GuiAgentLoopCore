@@ -1,36 +1,30 @@
 {
-  "timestamp": "2026-02-04T07:23:00Z",
-  "intent_source": ".audit/config/intent.yml v1.0",
-  "overall_uniqueness_score": 98,
+  "timestamp": "2026-02-04T07:38:00Z",
+  "version": "1.1",
+
+  "uniqueness_score": 92,
+  "max_score": 100,
 
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "description": "All MDs reflect consistent mission statement",
-      "status": "passed",
+      "name": "Mission Consistency",
+      "description": "All MDs express the same mission",
+      "passed": true,
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
         "found_in": [
           {
             "file": "README.md",
-            "line": 3,
-            "matches": true
+            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
           },
           {
             "file": "AGENTS.md",
-            "line": 3,
-            "matches": true
+            "quote": "プロジェクト: GuiAgentLoopCore"
           },
           {
             "file": "PURPOSE.md",
-            "line": 10,
-            "matches": true
-          },
-          {
-            "file": "CLAUDE.md",
-            "line": 1,
-            "matches": true
+            "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
           }
         ]
       }
@@ -38,8 +32,8 @@
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MDs define consistent target users",
-      "status": "passed",
+      "description": "All MDs target the same users",
+      "passed": true,
       "evidence": {
         "intent_target_users": [
           "Application Developers",
@@ -51,79 +45,73 @@
           {
             "file": "README.md",
             "section": "Target Users",
-            "matches": true
+            "matches": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
           },
           {
-            "file": "PURPOSE.md",
-            "section": "Target Users",
-            "matches": true
+            "file": "AGENTS.md",
+            "section": "対象ユーザー",
+            "matches": ["AI Agents", "Application Developers"]
+          },
+          {
+            "file": "CONTRIBUTING.md",
+            "section": "Contribution Guidelines",
+            "matches": ["Application Developers", "Framework Developers"]
           }
         ]
       }
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "description": "Technical constraints are consistent across MDs",
-      "status": "passed",
+      "name": "Constraints Consistency",
+      "description": "Technical constraints are consistent",
+      "passed": true,
       "evidence": {
-        "constraints": [
-          "Monotonic state transitions",
-          "Type-safe message handling",
-          "Session UUID uniqueness",
-          "JWT HS256 encoding"
-        ],
-        "consistent_in": [
-          "SYSTEM_CONSTITUTION.md",
-          "AGENTS.md",
-          "CLAUDE.md",
-          "CONTRIBUTING.md"
+        "constraints_verified": [
+          {
+            "constraint": "State transitions are monotonic",
+            "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+          },
+          {
+            "constraint": "Message types use defined enums",
+            "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md"]
+          },
+          {
+            "constraint": "Sessions use UUID with JWT HS256",
+            "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md"]
+          }
         ]
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Definition Consistency",
-      "description": "In-scope and out-of-scope are consistent",
-      "status": "passed",
+      "name": "Boundary Consistency",
+      "description": "out_of_scope is consistently defined",
+      "passed": true,
       "evidence": {
-        "in_scope": [
-          "Conversation Flow Management",
-          "State Machine",
-          "Agent Coordination",
-          "Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
-        ],
-        "out_of_scope": [
+        "out_of_scope_items": [
           "UI Rendering",
           "LLM Execution",
           "Session Storage",
-          "Authentication",
+          "Authentication (user-level)",
           "Network Protocols"
         ],
-        "consistent_in": [
-          "README.md",
-          "PURPOSE.md",
-          "AGENTS.md",
-          "ARCHITECTURE.md"
-        ]
+        "consistent_across": ["README.md", "PURPOSE.md", "AGENTS.md"]
       }
     },
     {
       "id": "UC-005",
       "name": "Intent.yml Compliance",
-      "description": "All MDs comply with intent.yml definitions",
-      "status": "passed",
+      "description": "All MDs correctly reflect intent.yml",
+      "passed": true,
       "evidence": {
-        "core_functions_compliant": [
+        "core_functions_reflected": [
           "Centralized Conversation Management",
           "State Machine with Monotonic Transitions",
           "Multi-Agent Coordination",
           "Structured Message Processing",
           "Backend Abstraction"
         ],
-        "design_philosophy_compliant": [
+        "design_philosophy_reflected": [
           "Correctness Over Convenience",
           "Explicit Over Implicit",
           "Small, Focused Components",
@@ -138,10 +126,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "warnings": 0,
     "score": 100
-  },
-
-  "issues": [],
-  "recommendations": []
+  }
 }

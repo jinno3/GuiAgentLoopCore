@@ -1,231 +1,202 @@
 {
-  "timestamp": "2026-02-04T07:23:00Z",
-  "overall_score": 96,
-  "concept_alignment_score": 96,
-  "uniqueness_score": 98,
+  "timestamp": "2026-02-04T07:38:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
+  "uniqueness_score": 92,
   "max_score": 100,
 
   "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 99,
-      "weight": 0.3,
-      "notes": "Mission statement is crystal clear and perfectly consistent across all MDs"
-    },
-    "term_consistency": {
-      "score": 97,
-      "weight": 0.3,
-      "notes": "Canonical terms used consistently (98% alignment), only 2 minor variants found"
-    },
-    "invariant_coverage": {
+    "intent_alignment": {
       "score": 95,
-      "weight": 0.2,
-      "notes": "Complete hard invariants documentation, soft invariants well covered"
+      "weight": 0.4,
+      "details": "Mission and core value well-represented across MDs"
     },
-    "boundary_clarity": {
-      "score": 96,
-      "weight": 0.2,
-      "notes": "Scope boundaries clearly defined and consistent across MDs"
-    }
-  },
-
-  "improvements_from_before": {
-    "overall_score": {
-      "before": 95,
-      "after": 96,
-      "improvement": "+1"
-    },
-    "concept_alignment": {
-      "before": 95,
-      "after": 96,
-      "improvement": "+1"
-    },
-    "uniqueness": {
-      "before": 95,
-      "after": 98,
-      "improvement": "+3"
-    }
-  },
-
-  "verification_summary": {
-    "uniqueness_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 100
-    },
-    "concept_alignment_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 96
-    },
-    "term_usage": {
-      "canonical_term_rate": "97.7%",
-      "synonym_usage": "0 (inappropriate)",
-      "minor_variants": 2
+    "concept_normalization": {
+      "score": 98,
+      "weight": 0.3,
+      "details": "Canonical terms used consistently, minimal synonym usage"
     },
     "invariant_coverage": {
-      "hard_invariants_covered": "100%",
-      "soft_invariants_covered": "100%"
+      "score": 100,
+      "weight": 0.15,
+      "details": "All 14 invariants documented across MDs"
     },
     "auto_decision_documentation": {
-      "total_auto_decisions": 16,
-      "documented": 16,
-      "coverage": "100%"
+      "score": 95,
+      "weight": 0.15,
+      "details": "16 AUTO decisions documented with notes"
     }
   },
 
   "files": [
     {
       "path": "README.md",
-      "clarity_score": 97,
-      "concept_alignment": 98,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Perfect mission alignment",
-        "All canonical terms used correctly",
-        "Excellent AUTO decisions documentation",
-        "Comprehensive invariants section"
-      ]
+      "exists": true,
+      "clarity_score": 95,
+      "intent_alignment": 95,
+      "concept_alignment": {
+        "score": 98,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 5,
+      "auto_decision_documentation": 16,
+      "issues": []
     },
     {
       "path": "AGENTS.md",
-      "clarity_score": 98,
-      "concept_alignment": 99,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Perfect term normalization table",
-        "Complete invariants documentation (all 14)",
-        "Complete AUTO decisions (all 16)",
-        "Excellent behavioral guidelines"
-      ]
+      "exists": true,
+      "clarity_score": 95,
+      "intent_alignment": 95,
+      "concept_alignment": {
+        "score": 98,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 14,
+      "auto_decision_documentation": 16,
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
-      "clarity_score": 97,
-      "concept_alignment": 98,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Complete AUTO decisions documentation (all 16)",
-        "Complete invariants documentation (all 14)",
-        "Excellent code examples",
-        "Clear Claude-specific recommendations"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "clarity_score": 99,
-      "concept_alignment": 100,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "Perfect alignment with ontology v0.3",
-        "Complete with all 11 canonical terms",
-        "Includes AUTO decisions and evidence"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "clarity_score": 93,
-      "concept_alignment": 95,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Verified alignment with ontology v0.3",
-        "Consistent with intent.yml",
-        "Clear purpose and objectives"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "clarity_score": 91,
-      "concept_alignment": 92,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Excellent term normalization guidelines",
-        "Complete AUTO decisions documentation (all 16)",
-        "Complete hard invariants (all 11)",
-        "Clear contribution process"
-      ],
-      "minor_issues": [
-        "ConversationBuffer used (synonym for Memory), but properly contextualized"
-      ]
+      "exists": true,
+      "clarity_score": 98,
+      "intent_alignment": 95,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 14,
+      "auto_decision_documentation": 16,
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
       "clarity_score": 95,
-      "concept_alignment": 98,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Verified alignment with invariants.yml v2026-02-02",
-        "All 14 invariants documented",
-        "Clear constitutional principles"
-      ]
+      "intent_alignment": 90,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 14,
+      "auto_decision_documentation": 0,
+      "issues": ["Could benefit from AUTO decision documentation"]
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "PURPOSE.md",
+      "exists": true,
       "clarity_score": 92,
-      "concept_alignment": 94,
-      "improvement": "+0",
-      "verification_status": "verified",
-      "strengths": [
-        "Component naming aligned with ontology",
-        "Good AUTO decisions documentation",
-        "Clear architecture overview"
-      ],
-      "minor_issues": [
-        "ChatMemory used in section title (minor variant for Memory)"
-      ]
+      "intent_alignment": 98,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 0,
+      "auto_decision_documentation": 0,
+      "issues": ["Invariants and AUTO decisions not in scope for this file"]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 90,
+      "intent_alignment": 90,
+      "concept_alignment": {
+        "score": 92,
+        "canonical_terms_used": ["Interpreter", "Agent"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 3,
+      "auto_decision_documentation": 0,
+      "issues": ["Could benefit from more term guidelines"]
     },
     {
       "path": "GEMINI.md",
-      "clarity_score": 95,
-      "concept_alignment": 96,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Good term usage",
-        "Relevant invariants for Gemini"
-      ]
+      "exists": true,
+      "clarity_score": 92,
+      "intent_alignment": 92,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 5,
+      "auto_decision_documentation": 10,
+      "issues": []
     },
     {
       "path": "CODEX.md",
-      "clarity_score": 95,
-      "concept_alignment": 96,
-      "improvement": "+1",
-      "verification_status": "verified",
-      "strengths": [
-        "Good term usage",
-        "Relevant invariants for Codex"
-      ]
+      "exists": true,
+      "clarity_score": 92,
+      "intent_alignment": 92,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 5,
+      "auto_decision_documentation": 10,
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "intent_alignment": 95,
+      "concept_alignment": {
+        "score": 100,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 0,
+      "auto_decision_documentation": 0,
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "intent_alignment": 90,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "Backend", "Connector", "Converter"],
+        "synonyms_found": [],
+        "unknown_terms": [],
+        "issues": []
+      },
+      "invariant_coverage": 0,
+      "auto_decision_documentation": 0,
+      "issues": []
     }
   ],
 
-  "overall_assessment": {
-    "status": "excellent",
-    "all_verified": true,
-    "strengths": [
-      "Perfect uniqueness score (100/100 on all 5 UC checks)",
-      "Excellent concept alignment (96/100)",
-      "Complete invariants documentation (100% coverage)",
-      "Complete AUTO decisions documentation (100% coverage)",
-      "All canonical terms used consistently (97.7% rate)",
-      "Zero inappropriate synonym usage",
-      "Auto-generated GLOSSARY.md ensures perfect alignment"
-    ],
-    "minor_improvements_identified": [
-      "2 minor terminology variants found (ConversationBuffer, ChatMemory)",
-      "Both are low severity and properly contextualized",
-      "No changes needed - existing documentation is excellent"
-    ],
-    "recommendations": [
-      "Consider standardizing 'ConversationBuffer' to 'Memory' in future updates",
-      "Consider standardizing 'ChatMemory' to 'Memory' in future updates",
-      "Overall documentation quality is excellent - no major changes needed"
-    ]
+  "summary": {
+    "total_issues": 0,
+    "critical_issues": 0,
+    "minor_issues": 5,
+    "term_normalization_rate": 0.98,
+    "invariant_documentation_rate": 1.0,
+    "auto_decision_documentation_rate": 0.6
   }
 }
