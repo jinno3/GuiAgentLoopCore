@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-02-03T23:15:00Z",
+  "timestamp": "2026-02-03T23:30:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 98,
+  "ontology_version": "0.3",
+  "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_term_occurrences": 150,
-    "canonical_used": 150,
+    "total_term_occurrences": 44,
+    "canonical_used": 44,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
@@ -12,7 +13,7 @@
   "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 100,
+      "alignment_score": 98,
       "issues": []
     },
     {
@@ -22,88 +23,127 @@
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
-      "alignment_score": 95,
-      "issues": [
-        {
-          "type": "minor_update_suggested",
-          "description": "Could add more cross-references to ontology.yml"
-        }
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
       "issues": []
     },
     {
       "file": "PURPOSE.md",
-      "alignment_score": 98,
+      "alignment_score": 90,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 90,
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
-      "alignment_score": 98,
+      "alignment_score": 85,
       "issues": []
     },
     {
       "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
+      "alignment_score": 90,
       "issues": []
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 98,
+      "alignment_score": 90,
       "issues": []
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 98,
+      "alignment_score": 90,
       "issues": []
     }
   ],
   "invariant_check": {
-    "total_invariants": 12,
-    "reflected_in_md": 12,
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
     "missing": [],
-    "coverage": 100
+    "coverage_rate": 1.0
   },
   "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "documented_in_md": 16,
-    "missing_documentation": [],
-    "coverage": 100
-  },
-  "term_coverage": {
-    "core_terms": {
-      "total": 5,
-      "documented": 5,
-      "coverage": 100
-    },
-    "domain_terms": {
-      "total": 5,
-      "documented": 5,
-      "coverage": 100
-    },
-    "aux_terms": {
-      "total": 1,
-      "documented": 1,
-      "coverage": 100
+    "total_active": 16,
+    "noted_in_md": 16,
+    "missing_notes": [],
+    "coverage_rate": 1.0,
+    "by_file": {
+      "README.md": 16,
+      "AGENTS.md": 16,
+      "CLAUDE.md": 16
     }
   },
-  "strengths": [
-    "Perfect term normalization - all synonyms avoided",
-    "All 12 invariants properly documented",
-    "All 16 AUTO decisions documented",
-    "Consistent use of canonical forms across all MDs",
-    "Clear definitions provided on first use"
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
+  },
+  "checks": [
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "synonym_usage": 0,
+        "canonical_usage": 44
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "synonyms_found": 0
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "auto_decisions_documented": 16
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": {
+        "boundary_conflicts": 0
+      }
+    }
   ],
-  "improvement_suggestions": [
-    "Consider adding more cross-references to ontology.yml in GLOSSARY.md",
-    "Could add visual diagram of term relationships in ARCHITECTURE.md"
-  ]
+  "summary": {
+    "total_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "concept_alignment_score": 100
+  }
 }
