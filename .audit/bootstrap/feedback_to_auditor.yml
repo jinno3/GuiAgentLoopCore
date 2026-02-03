@@ -1,125 +1,24 @@
-feedback:
-  bootstrap_run_timestamp: "2026-02-04T07:53:00Z"
-  run_number: 90
-  version: "1.1"
-  run_type: "verification"
-
-  # 1. 存在意義の明確度評価
-  existence_clarity:
-    before: 100
-    after: 100
-    delta: 0
-    interpretation: "intent.ymlの定義がMDファイルに完璧に反映されている（改善なし＝既に最適）"
-    status: "excellent_maintained"
-
-  # 2. 一意性評価
-  uniqueness_score:
-    score: 100
-    issues_found: 0
-    issues_resolved: 0
-    remaining_issues: []
-    checks_passed: "5/5"
-
-  # 3. MD網羅度
-  md_coverage:
-    tier1_coverage: "2/2 (100%)"
-    tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "4/4 (100%)"
-    total_coverage: "10/10 (100%)"
-
-  # 4. 発見した矛盾点
-  inconsistencies: []
-
-  # 5. intent.ymlへの提案
-  intent_suggestions: []
-
-  # 6. 概念モデルとの連携状況
-  concept_integration:
-    used: true
-    ontology_version: "0.3"
-    ontology_terms_used: 11
-    ontology_occurrences: 88
-    alignment_score: 100
-    new_term_candidates: []
-
-  # 7. 品質評価
-  quality_assessment:
-    overall_quality: "excellent"
-    terminology_consistency: "perfect (100%)"
-    documentation_clarity: "excellent"
-    invariant_coverage: "complete (100%)"
-    auto_decision_documentation: "complete (100%)"
-
-  # 8. 推奨事項
-  recommendations:
-    - priority: "maintain"
-      action: "maintain_current_state"
-      details: "すべての指標が100点で、改善の余地はない"
-      next_steps:
-        - "現状の文書品質を維持"
-        - "intent.ymlやontology.ymlの更新時は、MDファイルへの反映を確実に実施"
-    - priority: "medium"
-      action: "add_architecture_content"
-      details: "ARCHITECTURE.mdが空のため、コンテンツの追加を推奨"
-      suggested_approach:
-        - ".concept/mappings.ymlが存在すればそれを反映"
-        - "コンポーネント間の関係を図示"
-        - "用語の正規形を使用して記述"
-
-  # 9. 実行の要約
-  execution_summary:
-    total_md_files_verified: 10
-    total_checks_performed: 10
-    total_checks_passed: 10
-    total_checks_failed: 0
-    changes_made: 0
-    change_details: "No changes needed - all files already excellent from previous runs"
-    reason_for_changes: "Verification run to confirm maintained excellence"
-
-  # 10. 用語使用統計
-  term_usage_stats:
-    total_term_occurrences: 88
-    canonical_usage: 88
-    synonym_usage: 0
-    alignment_rate: 1.0
-
-  # 11. 不変条件の反映状況
-  invariant_reflection:
-    total_invariants: 14
-    hard_invariants: 11
-    soft_invariants: 3
-    reflected_in_md: 14
-    coverage_rate: 1.0
-
-  # 12. AUTO決定の文書化状況
-  auto_decision_documentation:
-    total_auto_decisions: 16
-    documented_in_md: 16
-    coverage_rate: 1.0
-
-  # 13. 全体の統合スコア
-  integrated_score:
-    uniqueness_score: 100
-    concept_alignment_score: 100
-    overall_score: 100
-    scoring_method: "uniqueness * 0.6 + concept * 0.4"
-
-  # 14. 履歴の追記
-  history:
-    run_87:
-      timestamp: "2026-02-04T07:01:00Z"
-      overall_score: 100
-      status: "verified"
-    run_88:
-      timestamp: "2026-02-04T07:23:00Z"
-      overall_score: 97
-      status: "verified"
-    run_89:
-      timestamp: "2026-02-04T07:38:00Z"
-      overall_score: 95
-      status: "verified"
-    run_90:
-      timestamp: "2026-02-04T07:53:00Z"
-      overall_score: 100
-      status: "verified"
-    trend: "stable_excellent"
+bootstrap_run_timestamp: '2026-02-03T23:12:35.786790+00:00'
+concept_integration:
+  alignment_score: 100
+  new_term_candidates: []
+  ontology_terms_used: 11
+  used: true
+existence_clarity:
+  after: 100
+  before: 100
+  delta: 0
+  interpretation: 既に最適な状態
+inconsistencies: []
+intent_suggestions: []
+md_coverage:
+  tier1_coverage: 2/2 (100%)
+  tier2_coverage: 4/4 (100%)
+  tier3_coverage: 3/4 (75%) - ARCHITECTURE.mdが空
+run_number: 91
+uniqueness_score:
+  issues_found: 0
+  issues_resolved: 0
+  remaining_issues: []
+  score: 100
+version: '1.1'
