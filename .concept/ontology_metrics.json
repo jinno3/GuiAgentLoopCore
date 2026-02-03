@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-03T16:06:46Z",
+  "last_updated": "2026-02-04T01:18:37Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -24,11 +24,11 @@
   "queue_merged": 8,
   "queue_accepted": 1,
   "queue_rejected": 5,
-  "claims_count": 443,
+  "claims_count": 451,
   "mappings_count": 11,
-  "decisions_active": 9,
+  "decisions_active": 16,
   "decisions_expired": 0,
-  "decisions_md_lines": 166,
+  "decisions_md_lines": 165,
   "tombstones_count": 5,
   "budget_status": "within_limits",
   "budget_details": {
@@ -41,7 +41,7 @@
     "queue_pending_current": 0,
     "within_queue_limit": true,
     "decisions_md_lines_max": 200,
-    "decisions_md_lines_current": 166,
+    "decisions_md_lines_current": 165,
     "within_decisions_limit": true
   },
   "gc_actions": {
@@ -49,13 +49,13 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Run #170 - Concept sync monitoring run (health check)"
+    "reason": "Run #171 - Concept sync instruction execution from AI Hub"
   },
   "this_run_summary": {
-    "run_id": "2026-02-03T16:06:46Z",
-    "previous_run_id": "2026-02-04T00:54:45Z",
-    "run_count": 170,
-    "run_type": "monitoring",
+    "run_id": "2026-02-04T01:18:37Z",
+    "previous_run_id": "2026-02-03T16:06:46Z",
+    "run_count": 171,
+    "run_type": "instruction_execution",
     "claims_added": 8,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
@@ -67,36 +67,37 @@
     "files_analyzed": [
       ".concept/run_state.json",
       ".concept/ontology_metrics.json",
-      ".concept/ambiguities.yml",
-      ".concept/decisions.md",
-      ".concept/term_queue.yml",
-      ".concept/conflicts.yml",
-      ".concept/invariants.yml",
+      ".concept/claims.ndjson",
       ".concept/ontology.yml",
+      ".concept/invariants.yml",
+      ".concept/ambiguities.yml",
+      ".concept/conflicts.yml",
       ".concept/mappings.yml",
-      ".concept/tombstones.yml"
+      ".concept/term_queue.yml",
+      ".concept/tombstones.yml",
+      ".concept/decisions.md"
     ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #170 completed - Concept sync monitoring run (health check)",
-      "No new documentation or code changes since run #169",
+      "Run #171 completed - Concept sync instruction execution from AI Hub",
+      "No new code changes detected since run #170",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.30 limit)",
       "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted",
-      "decisions.md: 166 lines (within 200-line limit)",
+      "decisions.md: 165 lines (within 200-line limit)",
       "14 invariants maintained (11 hard, 3 soft)",
-      "9 AUTO decisions active (applied), 0 expired",
+      "16 AUTO decisions active (applied), 0 expired",
       "All budget limits within acceptable ranges",
       "No conflicts detected - semantic check PASSED",
       "Bloat control checks passed - no GC needed",
-      "Run state updated: run_count 169 -> 170",
+      "Run state updated: run_count 170 -> 171",
       "Claims added: 8 monitoring/health check claims",
-      "Security AUTO decisions remain active - implementation URGENT"
+      "Security AUTO decisions (AMB-SEC-001, AMB-SEC-002) remain URGENT - implementation required"
     ]
   },
   "health_check": {
     "ontology_health": "healthy",
-    "decisions_cache_health": "healthy (166/200 lines)",
+    "decisions_cache_health": "healthy (165/200 lines)",
     "queue_health": "healthy (0 pending, 8 merged, 5 rejected, 1 accepted)",
     "conflict_health": "healthy (0 conflicts)",
     "concept_alignment_score": "100/100 (perfect)",
