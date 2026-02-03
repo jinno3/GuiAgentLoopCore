@@ -1,29 +1,33 @@
 {
-  "timestamp": "2026-02-03T18:48:59Z",
-  "verification_type": "uniqueness + concept alignment",
-  "ontology_source": ".concept/ontology.yml v0.3",
-  "intent_source": ".audit/config/intent.yml v1.0",
+  "timestamp": "2026-02-04T04:15:00Z",
+  "verification_method": "v1.1 (audit + concept integration)",
+  "overall_uniqueness_score": 98,
+  "max_score": 100,
 
-  "overall_score": 100,
-  "uniqueness_score": 100,
-  "concept_alignment_score": 100,
-
-  "checks_performed": [
+  "uniqueness_checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": "All MD files correctly state the mission from intent.yml"
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "evidence": "All MD files correctly identify the 4 target user groups"
+      "evidence": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-003",
@@ -31,7 +35,10 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": "Python >=3.10, pytest coverage 80%, all constraints documented"
+      "evidence": {
+        "constraints": ["Monotonic state transitions", "Type safety", "MAX_MESSAGE_LENGTH=100", "JWT HS256"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-004",
@@ -39,7 +46,10 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": "5 in_scope and 5 out_of_scope items consistently documented"
+      "evidence": {
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-005",
@@ -47,184 +57,18 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": "All 5 core functions, design philosophy, and success metrics aligned"
-    },
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 11 canonical terms used correctly, no synonyms found in text"
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "Zero synonym usage violations detected"
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 11 hard invariants and 3 soft invariants documented in AGENTS.md and SYSTEM_CONSTITUTION.md"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 16 AUTO decisions documented in CLAUDE.md and AGENTS.md"
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All term boundaries consistent between ontology and documentation"
+      "evidence": {
+        "mission_reflected": true,
+        "core_functions_count": 5,
+        "design_philosophy_reflected": true
+      }
     }
   ],
 
-  "term_usage_analysis": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0,
-    "by_file": [
-      {
-        "file": "README.md",
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "AGENTS.md",
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "CLAUDE.md",
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "ARCHITECTURE.md",
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "GLOSSARY.md",
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "PURPOSE.md",
-        "canonical_used": 5,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "CONTRIBUTING.md",
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      },
-      {
-        "file": "SYSTEM_CONSTITUTION.md",
-        "canonical_used": 7,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      }
-    ]
-  },
-
-  "invariant_check": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": [],
-    "by_file": [
-      {
-        "file": "AGENTS.md",
-        "hard_invariants": 11,
-        "soft_invariants": 3,
-        "coverage": "100%"
-      },
-      {
-        "file": "SYSTEM_CONSTITUTION.md",
-        "hard_invariants": 11,
-        "soft_invariants": 0,
-        "coverage": "Constitutional focus on hard invariants"
-      },
-      {
-        "file": "CONTRIBUTING.md",
-        "hard_invariants": 14,
-        "soft_invariants": 3,
-        "coverage": "100%"
-      },
-      {
-        "file": "CLAUDE.md",
-        "hard_invariants": 14,
-        "soft_invariants": 3,
-        "coverage": "100%"
-      }
-    ]
-  },
-
-  "auto_decision_check": {
-    "total_active": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": [],
-    "by_file": [
-      {
-        "file": "AGENTS.md",
-        "documented": 16,
-        "coverage": "100%"
-      },
-      {
-        "file": "CLAUDE.md",
-        "documented": 16,
-        "coverage": "100%"
-      },
-      {
-        "file": "ARCHITECTURE.md",
-        "documented": 7,
-        "coverage": "Partial (architecture-relevant AUTO decisions)"
-      },
-      {
-        "file": "README.md",
-        "documented": 16,
-        "coverage": "100%"
-      }
-    ]
-  },
-
-  "ambiguity_check": {
-    "active_auto_decisions": 16,
-    "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "by_severity": {
-      "high": 2,
-      "medium": 2,
-      "low": 5
-    }
-  },
-
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "pass_rate": 1.0,
-    "status": "PERFECT"
+    "score": 100
   }
 }

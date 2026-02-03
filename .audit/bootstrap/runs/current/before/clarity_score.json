@@ -1,165 +1,187 @@
 {
-  "timestamp": "2026-02-03T18:48:59Z",
-  "overall_score": 100,
+  "timestamp": "2026-02-04T04:15:00Z",
+  "overall_score": 98,
   "concept_alignment_score": 100,
+  "uniqueness_score": 95,
   "max_score": 100,
-
-  "scores_by_category": {
-    "existence_clarity": 100,
-    "intent_alignment": 100,
-    "terminology_consistency": 100,
-    "invariant_coverage": 100,
-    "auto_decision_documentation": 100
-  },
-
+  "scoring_method": "v1.1 (audit + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage": []
       },
       "intent_alignment": {
-        "mission_stated": true,
-        "target_users_stated": true,
-        "core_value_stated": true,
-        "core_functions_covered": 5,
-        "boundaries_defined": true
+        "score": 100,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "core_functions_count": 5,
+        "in_scope_reflected": true,
+        "out_of_scope_reflected": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage": []
       },
-      "invariant_coverage": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total_invariants": 14,
-        "coverage": "100%"
-      },
+      "invariants_documented": 14,
+      "auto_decisions_documented": 16,
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
+      "tier": 2,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
-      },
-      "auto_decision_coverage": {
-        "documented": 16,
-        "total": 16,
-        "coverage": "100%"
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "invariant_coverage": {
-        "hard_invariants_documented": 11,
-        "soft_invariants_documented": 3,
-        "total_invariants": 14,
-        "coverage": "100%"
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
-        "synonyms_found": []
-      },
-      "intent_alignment": {
-        "mission_stated": true,
-        "vision_stated": true,
-        "objectives_covered": 5,
-        "boundaries_defined": true,
-        "design_philosophy_covered": 5
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "invariant_documentation": {
-        "all_hard_invariants_listed": true,
-        "all_soft_invariants_listed": true,
-        "auto_decisions_referenced": true
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage": []
       },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
+      "tier": 3,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "auto_generated": true,
-        "ontology_version": "0.3",
-        "total_terms": 11,
-        "all_core_terms": true,
-        "all_domain_terms": true,
-        "all_aux_terms": true
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage": []
       },
+      "ontology_aligned": true,
       "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
+      "tier": 3,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "severity": "low",
+            "description": "May need additional ontology alignment verification"
+          }
+        ]
+      },
+      "issues": [
+        "May need ontology alignment verification"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [
+          {
+            "severity": "low",
+            "description": "Should reflect all 14 invariants from .concept/invariants.yml"
+          }
+        ]
+      },
+      "issues": [
+        "Should reflect all 14 invariants from .concept/invariants.yml"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 90,
+      "intent_alignment": {
+        "score": 95,
+        "issues": [
+          {
+            "severity": "low",
+            "description": "Should align with intent.yml mission statement"
+          }
+        ]
+      },
+      "issues": [
+        "Should align with intent.yml mission statement"
+      ]
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "tier": 2,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 90,
+        "issues": [
+          {
+            "severity": "low",
+            "description": "Should include term usage guidelines"
+          }
+        ]
+      },
+      "issues": [
+        "Should include term usage guidelines"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "tier": 3,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "issues": []
       },
-      "invariant_mapping": {
-        "invariants_mapped_to_components": true,
-        "auto_decisions_documented": true
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
       },
       "issues": []
     }
   ],
-
   "summary": {
-    "total_issues": 0,
-    "critical_issues": 0,
-    "synonym_usage_violations": 0,
-    "missing_canonical_terms": 0,
-    "missing_invariants": 0,
-    "missing_auto_decisions": 0,
-    "intent_violations": 0
-  },
-
-  "verification_status": "EXCELLENT - All MD files are perfectly aligned with intent and ontology"
+    "total_files": 11,
+    "excellent_files": 8,
+    "good_files": 3,
+    "needs_improvement": 0,
+    "missing_critical": 0,
+    "overall_quality": "excellent"
+  }
 }

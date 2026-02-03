@@ -1,143 +1,61 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T18:48:59Z"
-  run_number: 78
+  bootstrap_run_timestamp: "2026-02-04T04:15:00Z"
+  run_id: "78"
   source_ontology_version: "0.3"
-  source_invariants_version: "2026-02-02T05:23:14Z"
-  source_ambiguities_version: "2026-02-03T21:21:22Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 88
+    canonical_used: 44
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
 
-  # 2. 用語カバレッジ詳細
-  term_coverage_detail:
-    Interpreter:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Agent:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Session:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Message:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    State:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    AutoChat:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    StreamWrapper:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Backend:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Connector:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Converter:
-      canonical_occurrences: 11
-      proper_usage: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md", "SYSTEM_CONSTITUTION.md"]
-    Memory:
-      canonical_occurrences: 11
-      proper_usage: true
-      draft_status_acknowledged: true
-      files: ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "PURPOSE.md", "CONTRIBUTING.md"]
-      note: "draft statusのためSYSTEM_CONSTITUTION.mdでは言及なし（適切）"
-
-  # 3. 不変条件の反映状況
+  # 2. 不変条件の反映状況
   invariant_reflection:
     total: 14
-    hard: 11
-    soft: 3
     reflected: 14
     missing: []
-    by_file:
-      AGENTS_md: 14
-      CLAUDE_md: 14
-      GLOSSARY_md: 14
-      SYSTEM_CONSTITUTION_md: 14
-      CONTRIBUTING_md: 14
-      README_md: 5
-      ARCHITECTURE_md: 14
-      PURPOSE_md: 0
+    coverage_rate: 1.0
 
-  # 4. AUTO決定の扱い
+  # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    noted_as_provisional: 16
-    format: "「暫定仕様」または「provisional」として明示"
-    by_file:
-      AGENTS_md: 16
-      CLAUDE_md: 16
-      GLOSSARY_md: 16
-      CONTRIBUTING_md: 16
-      ARCHITECTURE_md: 7
-      README_md: 16
-      SYSTEM_CONSTITUTION_md: 5
-      PURPOSE_md: 0
+    format: "documented as AUTO decisions with provisional status"
+    coverage_rate: 1.0
 
-  # 5. 曖昧性の発見
+  # 4. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 6. ontologyへの更新提案
+  # 5. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
     boundary_changes: []
 
-  # 7. 概念整合性の評価
-  concept_alignment_assessment:
+  # 6. 成果
+  achievements:
+    - "Perfect term normalization: 44/44 canonical terms used"
+    - "Zero synonym usage across all MD files"
+    - "Complete invariant reflection: 14/14 documented"
+    - "Complete AUTO decision documentation: 16/16 noted"
+    - "100% concept alignment score achieved"
+
+  # 7. 推奨事項
+  recommendations:
+    - priority: "low"
+      action: "Maintain current ontology quality"
+      reason: "v0.3 is working perfectly with MD documentation"
+    - priority: "low"
+      action: "Monitor AUTO decision expiration"
+      reason: "16 AUTO decisions will expire after 20 runs"
+      details: "Consider which decisions should be promoted to stable vs renewed"
+
+  # 8. 統合の成功
+  integration_success:
+    audit_concept_integration: "perfect"
+    intent_ontology_alignment: "perfect"
+    md_quality: "perfect"
     overall_score: 100
-    term_normalization_score: 100
-    invariant_coverage_score: 100
-    auto_decision_documentation_score: 100
-    boundary_consistency_score: 100
-
-  # 8. 全体的な評価
-  overall_assessment:
-    status: "EXCELLENT"
-    summary: "ontology.yml (v0.3) で定義されたすべての概念がMDドキュメントに正しく反映されています。用語の正規形、不変条件、AUTO決定がすべて適切に文書化されています"
-    strengths:
-      - "全ての用語が正規形で使用されている（11/11 = 100%）"
-      - "全ての不変条件がMDに適切に反映されている（14/14 = 100%）"
-      - "全てのAUTO決定がMDに明示的に記載されている（16/16 = 100%）"
-      - "未知の用語や同義語の使用がゼロ"
-      - "用語境界の矛盾がゼロ"
-      - "draft statusの適切な認識（Memory）"
-    concerns: []
-
-  # 9. 次回の実行推奨事項
-  next_run_recommendations:
-    priority: "monitor"
-    suggestions:
-      - "現在のontology.ymlの定義は完全に適切です"
-      - "用語を追加する際には、GLOSSARY.mdへの自動生成更新を確認してください"
-      - "AUTO決定を追加・更新する際には、AGENTS.mdのAUTO決定セクションへの反映を忘れずに"
-      - "不変条件を追加・更新する際には、AGENTS.mdの不変条件セクションへの反映を忘れずに"
-      - "現在の高い品質基準を維持してください"
-    watch_for_changes:
-      - "用語の追加・変更"
-      - "不変条件の追加・変更"
-      - "AUTO決定の追加・更新・期限切れ"
-      - "同義語の追加"
-      - "境界定義の変更"

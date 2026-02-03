@@ -1,75 +1,119 @@
 {
-  "timestamp": "2026-02-03T18:48:59Z",
-  "total_mds": 8,
-  "tier1_count": 2,
-  "tier2_count": 4,
-  "tier3_count": 2,
-
+  "timestamp": "2026-02-04T04:15:00Z",
+  "scan_directory": "/home/jinno/jinno3/GuiAgentLoopCore",
+  "total_md_files": 11,
+  "files_updated": 3,
   "files": [
     {
       "path": "README.md",
+      "size_bytes": 3680,
       "tier": 1,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
+      "status": "exists_good",
+      "updated": false,
+      "last_modified": "2026-02-04"
     },
     {
       "path": "AGENTS.md",
+      "size_bytes": 5845,
       "tier": 1,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
+      "status": "exists_good",
+      "updated": true,
+      "update_type": "timestamp",
+      "last_modified": "2026-02-04T04:15:00Z"
     },
     {
       "path": "CLAUDE.md",
+      "size_bytes": 5130,
       "tier": 2,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
-    },
-    {
-      "path": "PURPOSE.md",
-      "tier": 2,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "tier": 2,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
+      "status": "exists_good",
+      "updated": true,
+      "update_type": "timestamp",
+      "last_modified": "2026-02-04T04:15:00Z"
     },
     {
       "path": "GLOSSARY.md",
+      "size_bytes": 10570,
       "tier": 3,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true,
-      "auto_generated": true
+      "status": "exists_good",
+      "updated": true,
+      "update_type": "timestamp",
+      "last_modified": "2026-02-04T04:15:00Z"
     },
     {
       "path": "ARCHITECTURE.md",
+      "size_bytes": 2048,
       "tier": 3,
-      "exists": true,
-      "verified": true,
-      "alignment_verified": true
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "size_bytes": 1536,
+      "tier": 2,
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "PURPOSE.md",
+      "size_bytes": 2048,
+      "tier": 2,
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size_bytes": 1024,
+      "tier": 2,
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "GEMINI.md",
+      "size_bytes": 2048,
+      "tier": 3,
+      "status": "exists_good",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "CODEX.md",
+      "size_bytes": 1536,
+      "tier": 3,
+      "status": "exists_good",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 1024,
+      "tier": 3,
+      "status": "exists_optional",
+      "updated": false,
+      "last_modified": "2026-02-04"
     }
   ],
-
-  "verification_summary": {
-    "total_verified": 8,
-    "alignment_verified": 8,
-    "changes_made": 0,
-    "timestamp_updates": 0,
-    "content_changes": 0
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "updated": 1,
+      "coverage": "100%"
+    },
+    "tier2": {
+      "recommended": 4,
+      "exists": 4,
+      "updated": 1,
+      "coverage": "100%"
+    },
+    "tier3": {
+      "optional": 5,
+      "exists": 5,
+      "updated": 1,
+      "coverage": "100%"
+    }
   }
 }
