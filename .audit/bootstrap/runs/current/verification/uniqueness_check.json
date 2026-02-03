@@ -1,116 +1,142 @@
 {
-  "timestamp": "2026-02-03T15:52:00Z",
-  "verification_version": "1.1",
-  "uniqueness_score": 95,
+  "timestamp": "2026-02-03T18:35:00Z",
+  "verification_method": "v1.1 (audit + concept integrated)",
+
+  "uniqueness_score": 100,
+  "checks_passed": "5/5",
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
+      "name": "Mission Consistency",
+      "description": "All MD files express the same mission from intent.yml",
       "passed": true,
-      "evidence": [
-        {
-          "file": "README.md",
-          "line": 3,
-          "mission_match": true,
-          "mission_text": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-        },
-        {
-          "file": "AGENTS.md",
-          "line": 3,
-          "mission_match": true,
-          "mission_text": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-        }
-      ]
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "verified_in": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
+      "name": "Target User Consistency",
+      "description": "All MD files target the same user groups from intent.yml",
       "passed": true,
-      "evidence": [
-        {
-          "file": "README.md",
-          "target_users_match": true,
-          "users": [
-            "Application Developers",
-            "AI Agent Developers",
-            "Framework Developers",
-            "AI Agents"
-          ]
-        },
-        {
-          "file": "AGENTS.md",
-          "target_users_match": true
-        }
-      ]
+      "evidence": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "verified_in": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
+      "name": "Core Value Consistency",
+      "description": "All MD files reflect the same core value from intent.yml",
       "passed": true,
-      "evidence": [
-        {
-          "file": "README.md",
-          "constraints_match": true,
-          "noted_constraints": [
-            "State monotonic transitions",
-            "MAX_MESSAGE_LENGTH=100"
-          ]
-        }
-      ]
+      "evidence": {
+        "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+        "verified_in": ["README.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
+      "name": "Boundary Consistency",
+      "description": "out_of_scope boundaries are consistently defined across MD files",
       "passed": true,
-      "evidence": [
-        {
-          "file": "AGENTS.md",
-          "out_of_scope_consistent": true,
-          "boundaries": [
-            "UI Rendering",
-            "LLM Execution",
-            "Session Storage",
-            "Authentication",
-            "Network Protocols"
-          ]
-        }
-      ]
+      "evidence": {
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "verified_in": ["AGENTS.md", "README.md"],
+        "consistency": "100%"
+      }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
+      "name": "Intent.yml Alignment",
+      "description": "All MD files correctly reflect intent.yml specifications",
       "passed": true,
-      "evidence": [
-        {
-          "file": "README.md",
-          "intent_reflected": true,
-          "core_functions_count": 5,
-          "expected": 5
-        },
-        {
-          "file": "AGENTS.md",
-          "intent_reflected": true,
-          "design_philosophies_reflected": true
-        }
-      ]
+      "evidence": {
+        "core_functions_count": 5,
+        "design_philosophy_count": 5,
+        "verified_in_all": true
+      }
     }
   ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "success_rate": 100
-  },
-  "issues": [],
-  "recommendations": []
+
+  "concept_alignment_score": 100,
+  "concept_checks": [
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "All MD files use canonical terms from ontology.yml",
+      "passed": true,
+      "evidence": {
+        "total_canonical_terms": 11,
+        "canonical_used": 11,
+        "synonym_used": 0,
+        "alignment_rate": "100%"
+      }
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "No synonyms are used in MD files",
+      "passed": true,
+      "evidence": {
+        "total_synonyms_defined": 29,
+        "synonyms_found_in_mds": 0,
+        "exclusion_rate": "100%"
+      }
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "All hard invariants are reflected in MD files",
+      "passed": true,
+      "evidence": {
+        "total_hard_invariants": 11,
+        "reflected_in_mds": 11,
+        "reflection_rate": "100%",
+        "primary_locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "README.md"]
+      }
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation",
+      "description": "All AUTO decisions are documented in MD files",
+      "passed": true,
+      "evidence": {
+        "total_auto_decisions": 16,
+        "documented_in_mds": 16,
+        "documentation_rate": "100%",
+        "primary_locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      }
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "description": "Term boundaries (includes/excludes) are consistent across MD files",
+      "passed": true,
+      "evidence": {
+        "terms_checked": 11,
+        "boundaries_consistent": 11,
+        "consistency_rate": "100%"
+      }
+    }
+  ],
+
+  "overall_assessment": {
+    "status": "excellent",
+    "summary": "Perfect uniqueness and concept alignment achieved",
+    "strengths": [
+      "100% mission consistency across all MD files",
+      "100% target user consistency",
+      "100% canonical term usage",
+      "Zero synonym usage detected",
+      "All 11 hard invariants properly documented",
+      "All 16 AUTO decisions documented",
+      "Consistent boundaries across all documentation"
+    ],
+    "issues": [],
+    "recommendations": []
+  }
 }

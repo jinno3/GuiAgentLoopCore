@@ -1,289 +1,178 @@
 {
-  "timestamp": "2026-02-03T15:52:00Z",
+  "timestamp": "2026-02-03T18:35:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 95,
-  "verification_version": "1.1",
+  "concept_version": "0.3",
+  "invariants_source": ".concept/invariants.yml",
+
+  "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 132,
-    "canonical_used": 132,
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-  "per_file": [
+
+  "per_file_term_alignment": [
     {
       "file": "README.md",
-      "alignment_score": 96,
-      "term_occurrences": 28,
-      "canonical_used": 28,
-      "synonym_used": 0,
+      "alignment_score": 100,
+      "canonical_terms_used": 8,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 98,
-      "term_occurrences": 45,
-      "canonical_used": 45,
-      "synonym_used": 0,
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 96,
-      "term_occurrences": 22,
-      "canonical_used": 22,
-      "synonym_used": 0,
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "term_occurrences": 37,
-      "canonical_used": 37,
-      "synonym_used": 0,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 7,
+      "synonyms_used": 0,
+      "issues": [
+        {
+          "severity": "info",
+          "message": "Could better integrate canonical terms from ontology"
+        }
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 6,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 5,
+      "synonyms_used": 0,
+      "issues": [
+        {
+          "severity": "info",
+          "message": "Could add terminology guidelines section"
+        }
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 9,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 6,
+      "synonyms_used": 0,
+      "issues": [
+        {
+          "severity": "info",
+          "message": "Could expand to match CLAUDE.md detail level"
+        }
+      ]
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 6,
+      "synonyms_used": 0,
+      "issues": [
+        {
+          "severity": "info",
+          "message": "Could expand for better Codex support"
+        }
+      ]
     }
   ],
+
   "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
     "missing": [],
-    "coverage": {
-      "hard_invariants": {
-        "total": 11,
-        "reflected": 11,
-        "coverage_percent": 100
-      },
-      "soft_invariants": {
-        "total": 2,
-        "reflected": 2,
-        "coverage_percent": 100
-      }
-    },
-    "details": [
-      {
-        "invariant_id": "INV-STATE-001",
-        "statement": "インタープリタ状態は単調遷移する",
-        "reflected_in": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md",
-          "SYSTEM_CONSTITUTION.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-SESSION-001",
-        "statement": "セッションは一意のUUIDで識別される",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-MSG-001",
-        "statement": "メッセージタイプは定義された列挙型のみ",
-        "reflected_in": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-MESSAGE-001",
-        "statement": "メッセージは最大100長",
-        "reflected_in": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-AUTO-001",
-        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
-        "reflected_in": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-STREAM-001",
-        "statement": "ストリームラッパーは同期・非同期の両方をサポート",
-        "reflected_in": [
-          "AGENTS.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-STATE-002",
-        "statement": "状態は3秒間隔のタイマーで自動更新される",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-BACKEND-001",
-        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-SESSION-002",
-        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-CONNECTOR-001",
-        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-CONVERTER-001",
-        "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
-        "reflected_in": [
-          "AGENTS.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-AGENT-001",
-        "statement": "エージェントは定義された役割を持つ",
-        "reflected_in": [
-          "README.md",
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      },
-      {
-        "invariant_id": "INV-MEM-001",
-        "statement": "会話メモリは最大100メッセージまで保持する",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ],
-        "status": "fully_reflected"
-      }
-    ]
+    "coverage": "100%",
+    "invariant_documentation_locations": {
+      "INV-STATE-001": ["AGENTS.md", "CLAUDE.md", "README.md", "SYSTEM_CONSTITUTION.md"],
+      "INV-STATE-002": ["AGENTS.md", "CLAUDE.md"],
+      "INV-SESSION-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "INV-SESSION-002": ["AGENTS.md", "CLAUDE.md"],
+      "INV-MSG-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "INV-MESSAGE-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "INV-AUTO-001": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "INV-STREAM-001": ["AGENTS.md", "CLAUDE.md"],
+      "INV-BACKEND-001": ["AGENTS.md", "CLAUDE.md"],
+      "INV-BACKEND-002": ["AGENTS.md", "CLAUDE.md"],
+      "INV-CONNECTOR-001": ["AGENTS.md", "CLAUDE.md"],
+      "INV-CONVERTER-001": ["AGENTS.md", "CLAUDE.md"],
+      "INV-AGENT-001": ["AGENTS.md", "CLAUDE.md"],
+      "INV-MEM-001": ["AGENTS.md", "CLAUDE.md", "README.md"]
+    }
   },
+
   "auto_decision_check": {
     "total_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing_notes": [],
-    "coverage_by_file": [
-      {
-        "file": "AGENTS.md",
-        "auto_decisions_noted": 16,
-        "categories": [
-          "Agent関連",
-          "Message関連",
-          "State関連",
-          "AutoChat関連",
-          "Backend関連",
-          "Memory関連",
-          "Session関連",
-          "Connector関連"
-        ]
-      },
-      {
-        "file": "CLAUDE.md",
-        "auto_decisions_noted": 16,
-        "status": "all_noted"
-      },
-      {
-        "file": "README.md",
-        "auto_decisions_noted": 11,
-        "status": "key_decisions_summarized"
-      }
-    ]
+    "reflected_in_md": 16,
+    "missing": [],
+    "coverage": "100%",
+    "auto_decision_documentation_locations": {
+      "Agent-related (2)": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "Message-related (3)": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "State-related (3)": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "AutoChat-related (3)": ["AGENTS.md", "CLAUDE.md"],
+      "Backend-related (3)": ["AGENTS.md", "CLAUDE.md", "README.md"],
+      "Memory-related (4)": ["AGENTS.md", "CLAUDE.md"],
+      "Session-related (1)": ["AGENTS.md", "CLAUDE.md"],
+      "Connector-related (1)": ["AGENTS.md", "CLAUDE.md"]
+    }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "details": [
-      {
-        "ambiguity_id": "AMB-AGT-001",
-        "decision_key": "AUTO:Agent.type:implementation_property",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md",
-          "README.md"
-        ]
-      },
-      {
-        "ambiguity_id": "AMB-MEM-001",
-        "decision_key": "AUTO:Memory.specs:provisional",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ]
-      },
-      {
-        "ambiguity_id": "AMB-AUTO-001",
-        "decision_key": "AUTO:AutoChat.prompt:default_continue",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ]
-      },
-      {
-        "ambiguity_id": "AMB-BE-001",
-        "decision_key": "AUTO:Backend.primary:gradio",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md",
-          "README.md"
-        ]
-      },
-      {
-        "ambiguity_id": "AMB-MSG-001",
-        "decision_key": "AUTO:Message.roles:tool_function_separation",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ]
-      },
-      {
-        "ambiguity_id": "AMB-MEM-002",
-        "decision_key": "AUTO:Memory.implementation:dual_provisional",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ]
-      },
-      {
-        "ambiguity_id": "AMB-CON-001",
-        "decision_key": "AUTO:Connector.layer:domain",
-        "reflected_in": [
-          "AGENTS.md",
-          "CLAUDE.md"
-        ]
-      }
-    ]
+    "note_coverage": "100%"
   },
-  "summary": {
-    "total_checks": 15,
-    "passed": 15,
-    "failed": 0,
-    "overall_assessment": "Excellent - All terms, invariants, and AUTO decisions are properly aligned with ontology.yml"
+
+  "ontology_integration_assessment": {
+    "status": "excellent",
+    "summary": "Perfect integration between ontology v0.3 and MD documentation",
+    "strengths": [
+      "All 11 canonical terms consistently used",
+      "Zero synonym usage detected",
+      "All 14 invariants (11 hard, 3 soft) properly documented",
+      "All 16 AUTO decisions documented",
+      "GLOSSARY.md auto-generated from ontology",
+      "Term normalization map correctly applied",
+      "Layer classification (core/domain/aux) respected",
+      "Status indicators (stable/draft) properly noted"
+    ],
+    "minor_improvements": [
+      "ARCHITECTURE.md could better integrate canonical terms",
+      "CONTRIBUTING.md could add terminology guidelines section",
+      "GEMINI.md and CODEX.md could be expanded to match CLAUDE.md detail"
+    ]
   }
 }

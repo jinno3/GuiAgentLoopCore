@@ -1,24 +1,18 @@
-# MD Bootstrap Execution Plan v1.1
-# GuiAgentLoopCore Repository
-run_timestamp: "2026-02-03T13:50:00Z"
+run_timestamp: "2026-02-03T17:46:00Z"
 version: "1.1"
-run_number: 77
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
-  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
-    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
-    ontology_version: "0.3"
     has_concept: true
 
 intent_summary:
@@ -46,11 +40,30 @@ ontology_summary:
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
       layer: "core"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
       layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -63,6 +76,7 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -75,99 +89,90 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
   "変換器": "Converter"
   "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
-    tier: 1
-    issues: []
+    status: "exists_needs_update"
+    issues:
+      - "Does not clearly state mission in first paragraph"
+      - "Core terms not consistently used"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
-    tier: 1
-    issues: []
+    status: "exists_recently_updated"
+    issues:
+      - "Was updated in recent bootstrap run"
+      - "May need minor adjustments for v1.1 compliance"
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues: []
+    status: "exists_recently_updated"
+    issues:
+      - "Was updated in recent bootstrap run"
+      - "AUTO decisions need verification"
   - path: "SYSTEM_CONSTITUTION.md"
     status: "exists_needs_review"
-    tier: 2
-    issues: []
+    issues:
+      - "Needs verification against invariants.yml"
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues: []
+    status: "exists_recently_updated"
+    issues:
+      - "Was updated in recent bootstrap run"
   - path: "CONTRIBUTING.md"
     status: "exists_needs_review"
-    tier: 2
-    issues: []
-  - path: "GEMINI.md"
+    issues:
+      - "May need term normalization"
+  - path: "GLOSSARY.md"
+    status: "exists_recently_updated"
+    issues:
+      - "Was updated in recent bootstrap run"
+      - "Should be in sync with ontology.yml"
+  - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
-    tier: 3
-    issues: []
+    issues:
+      - "May need concept alignment verification"
   - path: "CODEX.md"
     status: "exists_needs_review"
-    tier: 3
-    issues: []
+    issues:
+      - "May need term normalization"
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    issues:
+      - "May need term normalization"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent.yml alignment and term normalization"
+    reason: "Verify mission statement and core term usage"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify ontology.yml alignment and AUTO decisions coverage"
+    reason: "Verify v1.1 compliance and term normalization"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions with concept alignment"
+    reason: "Verify AUTO decisions are current"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify invariants.yml reflection"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify intent.yml alignment"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Verify term normalization"
   - action: "verify"
     target: "GLOSSARY.md"
     reason: "Verify ontology.yml synchronization"
-  - action: "skip"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Already verified in previous run, no changes needed"
-  - action: "skip"
+  - action: "verify"
     target: "ARCHITECTURE.md"
-    reason: "No audit/concept dependencies, out of scope for v1.1"
-  - action: "skip"
-    target: "CONTRIBUTING.md"
-    reason: "No audit/concept dependencies, out of scope for v1.1"
-  - action: "skip"
-    target: "PURPOSE.md"
-    reason: "Source document for intent.yml, no changes needed"
-  - action: "skip"
-    target: "GEMINI.md"
-    reason: "No audit/concept dependencies, out of scope for v1.1"
-  - action: "skip"
+    reason: "Verify concept alignment"
+  - action: "verify"
     target: "CODEX.md"
-    reason: "No audit/concept dependencies, out of scope for v1.1"
-
-verification_targets:
-  uniqueness_checks:
-    - "UC-001: Existence intent consistency"
-    - "UC-002: Target user consistency"
-    - "UC-003: Constraints consistency"
-    - "UC-004: Boundary consistency"
-    - "UC-005: Intent.yml compliance"
-  concept_alignment_checks:
-    - "CA-001: Canonical term usage"
-    - "CA-002: Synonym exclusion"
-    - "CA-003: Hard invariant reflection"
-    - "CA-004: AUTO decision notation"
-    - "CA-005: Term boundary integrity"
+    reason: "Verify term normalization"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify term normalization"
