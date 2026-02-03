@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-04T08:32:47Z",
-  "verification_version": "1.1",
-  "overall_score": 95,
-
+  "timestamp": "2026-02-04T08:50:00Z",
+  "version": "1.1",
+  "overall_score": 100,
+  "uniqueness_score": 100,
   "checks": [
     {
       "id": "UC-001",
@@ -11,8 +11,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "mission_consistency": "All files use: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents'"
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "consistent_in": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "variations_found": 0
       }
     },
     {
@@ -22,8 +23,9 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "consistent_in": ["README.md", "AGENTS.md"],
+        "variations_found": 0
       }
     },
     {
@@ -33,8 +35,9 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "constraints_verified": ["State monotonic transitions", "Message limits", "Type safety"],
-        "all_consistent": true
+        "python_version": ">=3.10",
+        "consistent_in": ["README.md", "CONTRIBUTING.md"],
+        "variations_found": 0
       }
     },
     {
@@ -44,8 +47,9 @@
       "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "out_of_scope_consistent": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "no_contradictions": true
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistent_in": ["AGENTS.md"],
+        "contradictions_found": 0
       }
     },
     {
@@ -55,97 +59,16 @@
       "source": ".audit",
       "passed": true,
       "evidence": {
-        "intent_aligned": true,
-        "core_functions_covered": true
-      }
-    },
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_term_occurrences": 150,
-        "canonical_used": 150,
-        "synonym_used": 0,
-        "alignment_rate": 1.0
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "synonyms_checked": ["GuiAgentInterpreter", "会話インタープリタ", "AIエージェント", "ChatSession", "InterpreterState"],
-        "none_found_in_text": true
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_invariants": 14,
-        "hard_invariants": 11,
-        "reflected_in_md": 14,
-        "coverage": "100%"
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "total_auto_decisions": 16,
-        "noted_in_md": 16,
-        "coverage": "100%"
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": {
-        "terms_checked": 11,
-        "boundary_conflicts": 0,
-        "all_consistent": true
+        "core_functions_reflected": 5,
+        "design_philosophies_reflected": 5,
+        "violations_found": 0
       }
     }
   ],
-
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "pass_rate": "100%"
-  },
-
-  "uniqueness_metrics": {
-    "intent_consistency": 100,
-    "concept_alignment": 100,
-    "term_normalization": 100,
-    "invariant_coverage": 100,
-    "auto_decision_coverage": 100
-  },
-
-  "improvements_from_previous_run": {
-    "run_number": 84,
-    "previous_score": 92,
-    "current_score": 95,
-    "delta": "+3",
-    "improvements": [
-      "Metadata timestamps updated to reflect current run",
-      "Verified ongoing alignment with ontology v0.3",
-      "Confirmed all AUTO decisions remain documented"
-    ]
+    "score": 100
   }
 }

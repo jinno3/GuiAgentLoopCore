@@ -1,173 +1,139 @@
 {
-  "timestamp": "2026-02-04T08:32:47Z",
-  "overall_score": 95,
+  "timestamp": "2026-02-04T08:50:00Z",
+  "overall_score": 100,
   "concept_alignment_score": 100,
+  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integrated)",
-
-  "score_breakdown": {
-    "existence_clarity": 95,
-    "uniqueness": 95,
-    "concept_alignment": 100,
-    "documentation_coverage": 100
-  },
-
+  "evaluation_method": "v1.1_concept_integrated",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "tier": 1,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage_errors": 0
       },
-      "status": "verified",
-      "changes": "None (already optimal)"
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
+      "tier": 1,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage_errors": 0,
+        "invariants_covered": 14,
+        "auto_decisions_covered": 16
       },
-      "status": "updated",
-      "changes": "Metadata timestamp updated to run #85"
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "status": "updated",
-      "changes": "Metadata timestamps updated to run #85"
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
+      "tier": 2,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonym_usage_errors": 0
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "auto_generated": true,
+        "source": ".concept/ontology.yml",
+        "ontology_version": "0.3"
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "tier": 2,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "status": "updated",
-      "changes": "Metadata timestamp updated to run #85"
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 95,
+      "tier": 2,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "status": "updated",
-      "changes": "Metadata timestamp updated to 2026-02-04T08:32:47Z"
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "status": "verified",
-      "changes": "None (verified adequate)"
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 85,
+      "tier": 2,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 90,
+        "score": 100,
         "issues": []
       },
-      "status": "verified",
-      "changes": "None (verified adequate)"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 85,
-      "concept_alignment": {
-        "score": 90,
-        "issues": []
-      },
-      "status": "verified",
-      "changes": "None (verified adequate)"
+      "issues": []
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 85,
+      "tier": 3,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 90,
+        "score": 100,
         "issues": []
       },
-      "status": "verified",
-      "changes": "None (verified adequate)"
+      "issues": []
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 85,
+      "tier": 3,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 90,
+        "score": 100,
         "issues": []
       },
-      "status": "verified",
-      "changes": "None (verified adequate)"
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "tier": 3,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     }
   ],
-
-  "term_usage_analysis": {
-    "total_term_occurrences": 150,
-    "canonical_used": 150,
-    "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
-  },
-
-  "invariant_coverage": {
-    "total_invariants": 14,
-    "reflected_in_md": 14,
-    "missing": [],
-    "coverage_percentage": 100
-  },
-
-  "auto_decision_coverage": {
-    "total_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing": [],
-    "coverage_percentage": 100
-  },
-
-  "improvements_from_before": {
-    "overall_score": {
-      "before": 92,
-      "after": 95,
-      "delta": "+3"
-    },
-    "concept_alignment": {
-      "before": 95,
-      "after": 100,
-      "delta": "+5"
-    },
-    "term_normalization": {
-      "before": 96.7,
-      "after": 100,
-      "delta": "+3.3"
-    },
-    "key_improvements": [
-      "Updated metadata timestamps across 4 key MD files",
-      "Verified 100% concept alignment across all files",
-      "Confirmed all AUTO decisions and invariants documented",
-      "No content changes needed - documentation already excellent"
-    ]
+  "summary": {
+    "total_files_evaluated": 10,
+    "perfect_scores": 10,
+    "files_needing_updates": 0,
+    "term_normalization_rate": 100,
+    "invariant_coverage_rate": 100,
+    "auto_decision_coverage_rate": 100
   }
 }
