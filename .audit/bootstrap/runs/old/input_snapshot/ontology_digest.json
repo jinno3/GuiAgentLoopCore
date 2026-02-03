@@ -1,7 +1,9 @@
 {
-  "timestamp": "2026-02-03T17:46:00Z",
+  "timestamp": "2026-02-03T18:35:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
+  "updated_at": "2026-02-02T05:38:12Z",
+
   "statistics": {
     "total_terms": 11,
     "by_layer": {
@@ -14,73 +16,150 @@
       "draft": 1
     }
   },
-  "key_terms_for_md": [
+
+  "core_terms": [
     {
       "canonical": "Interpreter",
-      "layer": "core",
+      "id": "TERM-INTERPRETER",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
       "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "status": "stable",
+      "lifecycle": ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"],
+      "related_terms": ["Agent", "Session", "Message", "State"]
     },
     {
       "canonical": "Agent",
-      "layer": "core",
+      "id": "TERM-AGENT",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
+      "status": "stable",
+      "related_terms": ["Interpreter", "AgentName", "Message", "Backend"]
     },
     {
       "canonical": "Session",
-      "layer": "core",
+      "id": "TERM-SESSION",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
-      "synonyms": ["ChatSession", "会話セッション"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": ["ChatSession", "会話セッション", "JWT"],
+      "status": "stable",
+      "lifecycle": ["created", "active", "terminated"],
+      "related_terms": ["Interpreter", "Message", "Agent"]
     },
     {
       "canonical": "Message",
-      "layer": "core",
+      "id": "TERM-MESSAGE",
       "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
       "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "status": "stable",
+      "lifecycle": ["created", "processed", "streamed"],
+      "related_terms": ["Interpreter", "Agent", "Session"]
     },
     {
       "canonical": "State",
-      "layer": "core",
+      "id": "TERM-STATE",
       "definition": "インタープリタの実行状態を表す列挙型",
       "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"]
-    },
+      "status": "stable",
+      "lifecycle": ["STATE_INIT", "STATE_RUNNING", "STATE_STOP"],
+      "related_terms": ["Interpreter", "AutoChat", "Timer"]
+    }
+  ],
+
+  "domain_terms": [
     {
       "canonical": "AutoChat",
-      "layer": "domain",
+      "id": "TERM-AUTOCHAT",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "status": "stable",
+      "lifecycle": ["triggered", "executed", "completed"],
+      "related_terms": ["Interpreter", "State", "Message"]
+    },
+    {
+      "canonical": "StreamWrapper",
+      "id": "TERM-STREAMWRAPPER",
+      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
+      "status": "stable",
+      "lifecycle": ["created", "streaming", "completed"],
+      "related_terms": ["Message", "Interpreter"]
     },
     {
       "canonical": "Backend",
-      "layer": "domain",
+      "id": "TERM-BACKEND",
       "definition": "GUIフレームワーク実装（Gradio等）",
-      "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
+      "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
+      "status": "stable",
+      "related_terms": ["Interpreter", "Session", "GuiComponent"]
     },
     {
       "canonical": "Memory",
-      "layer": "domain",
+      "id": "TERM-MEMORY",
       "definition": "会話履歴を保持するバッファ機構",
       "synonyms": ["会話メモリ", "ConversationBuffer"],
       "status": "draft",
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "related_terms": ["Session", "Message"]
     },
     {
       "canonical": "Connector",
-      "layer": "domain",
+      "id": "TERM-CONNECTOR",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
-      "synonyms": ["コネクタ", "GuiAgentInterpreterABC"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
+      "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
+      "status": "stable",
+      "lifecycle": ["initialized", "connected", "executing", "disconnected"],
+      "related_terms": ["Interpreter", "Agent"]
     }
   ],
-  "total_synonyms": 45,
-  "total_assumptions": 16,
-  "auto_decisions_active": 16
+
+  "aux_terms": [
+    {
+      "canonical": "Converter",
+      "id": "TERM-CONVERTER",
+      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+      "synonyms": ["変換器", "マッパー"],
+      "status": "stable",
+      "lifecycle": ["created", "converting", "flattened"],
+      "related_terms": ["Message"]
+    }
+  ],
+
+  "auto_decisions_count": 16,
+
+  "invariants_count": {
+    "total": 14,
+    "hard": 11,
+    "soft": 3
+  },
+
+  "term_normalization_map": {
+    "GuiAgentInterpreter": "Interpreter",
+    "会話インタープリタ": "Interpreter",
+    "AIエージェント": "Agent",
+    "専門エージェント": "Agent",
+    "AgentType": "Agent",
+    "AgentDefinition": "Agent",
+    "TaskAgent": "Agent",
+    "AgentImage": "Agent",
+    "ChatSession": "Session",
+    "会話セッション": "Session",
+    "メッセージ": "Message",
+    "ChatMessage": "Message",
+    "InterpreterState": "State",
+    "インタープリタ状態": "State",
+    "自動チャット": "AutoChat",
+    "自動継続": "AutoChat",
+    "GuiAgentStreamWrapper": "StreamWrapper",
+    "ストリームラッパー": "StreamWrapper",
+    "GUIバックエンド": "Backend",
+    "UIフレームワーク": "Backend",
+    "GuiBackend": "Backend",
+    "GuiComponent": "Backend",
+    "会話メモリ": "Memory",
+    "ConversationBuffer": "Memory",
+    "変換器": "Converter",
+    "マッパー": "Converter",
+    "コネクタ": "Connector",
+    "GuiAgentInterpreterABC": "Connector",
+    "ConnectorImplCodeinterpreterApi": "Connector",
+    "ConnectorImplOpenInterpreter": "Connector"
+  }
 }
