@@ -1,79 +1,155 @@
 {
-  "timestamp": "2026-02-03T23:45:00Z",
-  "total_md_files": 10,
-  "tier1_count": 2,
-  "tier2_count": 4,
-  "tier3_count": 4,
+  "timestamp": "2026-02-04T00:00:00Z",
+  "scan_path": "/home/jinno/jinno3/GuiAgentLoopCore",
+  "total_md_files": 11,
+  "files_updated": 2,
+
   "files": [
     {
       "path": "README.md",
       "tier": 1,
       "exists": true,
-      "size_bytes": 3628,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 5316,
+      "last_modified": "2026-02-03",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": true
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
       "exists": true,
-      "size_bytes": 6782,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 9632,
+      "last_modified": "2026-02-04",
+      "status": "exists_aligned",
+      "updated": true,
+      "changes": ["timestamp updated to 2026-02-04T00:00:00Z"],
+      "required": true
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 9456,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 12488,
+      "last_modified": "2026-02-04",
+      "status": "exists_aligned",
+      "updated": true,
+      "changes": ["timestamp updated to 2026-02-04T00:00:00Z"],
+      "required": true
+    },
+    {
+      "path": "GLOSSARY.md",
+      "tier": 2,
+      "exists": true,
+      "size_bytes": 11215,
+      "last_modified": "2026-02-03",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": true
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 4521,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 7964,
+      "last_modified": "2026-02-03",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": true
     },
     {
       "path": "PURPOSE.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 3892,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 5379,
+      "last_modified": "2026-02-03",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": true
     },
     {
       "path": "CONTRIBUTING.md",
       "tier": 2,
       "exists": true,
-      "size_bytes": 2134,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 7364,
+      "last_modified": "2026-02-03",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": true
     },
     {
       "path": "ARCHITECTURE.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 5678,
-      "last_modified": "2026-02-03T23:30:00Z"
-    },
-    {
-      "path": "GLOSSARY.md",
-      "tier": 3,
-      "exists": true,
-      "size_bytes": 7845,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 13424,
+      "last_modified": "2026-02-02",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": false
     },
     {
       "path": "GEMINI.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 3123,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 4744,
+      "last_modified": "2026-02-02",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": false
     },
     {
       "path": "CODEX.md",
       "tier": 3,
       "exists": true,
-      "size_bytes": 2987,
-      "last_modified": "2026-02-03T23:30:00Z"
+      "size_bytes": 5224,
+      "last_modified": "2026-02-02",
+      "status": "exists_aligned",
+      "updated": false,
+      "required": false
+    },
+    {
+      "path": "CHANGELOG.md",
+      "tier": 3,
+      "exists": true,
+      "size_bytes": 61,
+      "last_modified": "2026-02-01",
+      "status": "exists_minimal",
+      "updated": false,
+      "required": false
     }
-  ]
+  ],
+
+  "coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "coverage_percent": 100
+    },
+    "tier2": {
+      "required": 5,
+      "exists": 5,
+      "coverage_percent": 100
+    },
+    "tier3": {
+      "optional": 4,
+      "exists": 4,
+      "coverage_percent": 100
+    },
+    "overall": {
+      "total": 11,
+      "exists": 11,
+      "coverage_percent": 100
+    }
+  },
+
+  "total_size_bytes": 82811,
+  "total_size_kb": 80.87,
+
+  "changes_summary": {
+    "files_updated": 2,
+    "files_created": 0,
+    "files_deleted": 0,
+    "total_changes": 2,
+    "change_type": "timestamp_updates"
+  }
 }
