@@ -1,0 +1,102 @@
+actions:
+- action: verify
+  reason: Required MD exists - verify alignment
+  target: README.md
+- action: verify
+  reason: Required MD exists - verify alignment
+  target: AGENTS.md
+existing_mds:
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/AGENTS.md
+  path: AGENTS.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/ARCHITECTURE.md
+  path: ARCHITECTURE.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CHANGELOG.md
+  path: CHANGELOG.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CLAUDE.md
+  path: CLAUDE.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CODEX.md
+  path: CODEX.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CONTRIBUTING.md
+  path: CONTRIBUTING.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/GEMINI.md
+  path: GEMINI.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/GLOSSARY.md
+  path: GLOSSARY.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/PURPOSE.md
+  path: PURPOSE.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/README.md
+  path: README.md
+- exists: true
+  full_path: /home/jinno/jinno3/GuiAgentLoopCore/SYSTEM_CONSTITUTION.md
+  path: SYSTEM_CONSTITUTION.md
+input_sources:
+  audit:
+    constraints_yml: .audit/config/constraints.yml
+    intent_yml: .audit/config/intent.yml
+  concept:
+    has_concept: true
+    invariants_yml: .concept/invariants.yml
+    ontology_yml: .concept/ontology.yml
+intent_summary:
+  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
+    with predictable state manage...
+  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
+    LLM agents, managing conver...
+  target_user:
+  - Application Developers: Building LLM-powered applications with GUI interfaces
+  - AI Agent Developers: Creating specialized agents for specific tasks
+  - Framework Developers: Building new GUI backend implementations
+  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
+ontology_summary:
+  core_terms: 5
+  domain_terms: 5
+  total_terms: 11
+rotation:
+  deleted_old: true
+  moved_current_to_old: true
+run_number: 82
+run_timestamp: '2026-02-03T21:05:12.352728+00:00'
+term_normalization:
+  AIエージェント: Agent
+  AgentDefinition: Agent
+  AgentImage: Agent
+  AgentType: Agent
+  ChatMessage: Message
+  ChatSession: Session
+  ConnectorImplCodeinterpreterApi: Connector
+  ConnectorImplOpenInterpreter: Connector
+  ConversationBuffer: Memory
+  GUIバックエンド: Backend
+  GuiAgentInterpreter: Interpreter
+  GuiAgentInterpreterABC: Connector
+  GuiAgentStreamWrapper: StreamWrapper
+  GuiBackend: Backend
+  GuiComponent: Backend
+  InterpreterState: State
+  JWT: Session
+  OpenGuiConnector: Connector
+  TaskAgent: Agent
+  UIフレームワーク: Backend
+  インタープリタ状態: State
+  コネクタ: Connector
+  ストリームラッパー: StreamWrapper
+  マッパー: Converter
+  メッセージ: Message
+  会話インタープリタ: Interpreter
+  会話セッション: Session
+  会話メモリ: Memory
+  変換器: Converter
+  専門エージェント: Agent
+  自動チャット: AutoChat
+  自動継続: AutoChat
+version: '1.1'

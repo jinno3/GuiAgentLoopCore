@@ -1,6 +1,8 @@
 {
-  "timestamp": "2026-02-04T05:30:00Z",
-  "concept_source": ".concept/ontology.yml",
+  "timestamp": "2026-02-04T05:47:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "invariants_source": ".concept/invariants.yml v2026-02-02T05:23:14Z",
+  "ambiguities_source": ".concept/ambiguities.yml v2026-02-03T21:21:22Z",
   "overall_alignment_score": 100,
   "term_usage_check": {
     "total_term_occurrences": 11,
@@ -13,42 +15,25 @@
     {
       "file": "README.md",
       "alignment_score": 100,
-      "term_usage_check": {
-        "canonical_terms_used": 5,
-        "synonyms_found": 0,
-        "alignment_rate": 1.0
-      },
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "term_usage_check": {
-        "canonical_terms_used": 11,
-        "synonyms_found": 0,
-        "alignment_rate": 1.0
-      },
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "term_usage_check": {
-        "canonical_terms_used": 11,
-        "synonyms_found": 0,
-        "alignment_rate": 1.0
-      },
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "ontology_sync": {
-        "ontology_version": "0.3",
-        "total_terms": 11,
-        "documented_terms": 11,
-        "sync_rate": 1.0
-      },
+      "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
       "issues": []
     }
   ],
@@ -56,18 +41,52 @@
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_rate": 1.0
+    "coverage_rate": 1.0,
+    "details": {
+      "hard_invariants": {
+        "total": 11,
+        "documented": 11,
+        "missing": []
+      },
+      "soft_invariants": {
+        "total": 3,
+        "documented": 3,
+        "missing": []
+      }
+    }
   },
   "auto_decision_check": {
     "total_auto_decisions": 16,
-    "documented_in_md": 16,
+    "reflected_in_md": 16,
     "missing": [],
-    "coverage_rate": 1.0
+    "coverage_rate": 1.0,
+    "by_category": {
+      "agent": 2,
+      "message": 3,
+      "state": 3,
+      "autochat": 3,
+      "backend": 3,
+      "memory": 4,
+      "session": 1,
+      "connector": 1,
+      "converter": 0
+    }
   },
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0,
-    "coverage_rate": 1.0
+    "missing_notes": 0
+  },
+  "synonym_usage_check": {
+    "total_synonyms_checked": 23,
+    "found_in_md": 0,
+    "properly_documented_as_prohibited": 23
+  },
+  "summary": {
+    "concept_alignment_score": 100,
+    "uniqueness_score": 100,
+    "overall_score": 100,
+    "total_issues": 0,
+    "critical_issues": 0
   }
 }
