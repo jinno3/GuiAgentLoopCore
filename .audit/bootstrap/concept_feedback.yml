@@ -1,30 +1,47 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T06:15:40Z"
+  bootstrap_run_timestamp: "2026-02-04T06:30:00Z"
+  run_number: 84
   source_ontology_version: "0.3"
-  run_type: "verification"
+  run_type: "maintenance"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 132
+    total_occurrences: 44
+    canonical_used: 44
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
+    alignment_rate: 1.0
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 14
     reflected: 14
     missing: []
+    coverage_rate: "100%"
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    format: "注記として記載（README.md, AGENTS.md, CLAUDE.md）"
+    format: "注記として記載（README.md, AGENTS.md, CLAUDE.md, GLOSSARY.md）"
     missing_notes: []
+    coverage_rate: "100%"
 
   # 4. 曖昧性の発見
-  ambiguities_discovered: []
+  ambiguities_discovered:
+    high_severity:
+      - id: "AMB-SEC-001"
+        topic: "ハードコードされたシークレットキー vs 環境変数"
+        status: "documented_in_ambiguities_yml"
+        recommendation: "コードベースでの対応が必要（bootstrapの範囲外）"
+      - id: "AMB-SEC-002"
+        topic: "JWTデコードメソッドの未定義変数バグ"
+        status: "documented_in_ambiguities_yml"
+        recommendation: "コードベースでの対応が必要（bootstrapの範囲外）"
+    medium_severity: 2
+    low_severity: 5
+    total: 9
 
   # 5. ontologyへの更新提案
   ontology_suggestions:
@@ -39,6 +56,7 @@ concept_feedback:
     term_normalization_score: 100
     invariant_coverage_score: 100
     auto_decision_coverage_score: 100
+    uniqueness_score: 100
 
   # 7. 用語カバレッジ
   term_coverage:
@@ -48,14 +66,16 @@ concept_feedback:
     domain_terms_in_ontology: 5
     aux_terms_documented: 1
     aux_terms_in_ontology: 1
+    total_coverage: "11/11 (100%)"
 
   # 8. GLOSSARY.mdの整合性
   glossary_sync:
-    last_updated: "2026-02-04T05:30:00Z"
+    last_updated: "2026-02-04T06:30:00Z"
     ontology_version: "0.3"
     sync_status: "perfect"
     missing_terms: []
     extra_terms: []
+    generated_from_ontology: true
 
   # 9. 推奨事項
   recommendations:
@@ -67,6 +87,10 @@ concept_feedback:
       category: "monitoring"
       action: "periodic_verification"
       details: "次回のbootstrap実行は、コードベースまたはontologyの更新時に行うことを推奨"
+    - priority: "high"
+      category: "security"
+      action: "address_ambiguities"
+      details: "AMB-SEC-001とAMB-SEC-002はコードベースの対応が必要"
 
   # 10. 実行の要約
   execution_summary:
@@ -77,3 +101,5 @@ concept_feedback:
     issues_found: 0
     issues_resolved: 0
     changes_required: false
+    changes_made: 4
+    change_details: "Timestamp and run number updates for maintenance"

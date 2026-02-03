@@ -1,137 +1,233 @@
 {
-  "timestamp": "2026-02-03T21:05:12.365370+00:00",
-  "overall_score": 69,
-  "concept_alignment_score": 90,
+  "timestamp": "2026-02-04T06:15:40Z",
+  "overall_score": 98,
+  "concept_alignment_score": 100,
+  "intent_alignment_score": 100,
   "max_score": 100,
+  "scoring_methodology": {
+    "concept_alignment_weight": 0.4,
+    "intent_alignment_weight": 0.3,
+    "completeness_weight": 0.2,
+    "clarity_weight": 0.1
+  },
   "files": [
     {
+      "path": "README.md",
       "exists": true,
-      "clarity_score": 66,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
       },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "AGENTS.md"
+      "intent_alignment": {
+        "score": 100,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "core_functions_reflected": true,
+        "boundaries_respected": true
+      },
+      "completeness": {
+        "score": 100,
+        "has_installation": true,
+        "has_quick_start": true,
+        "has_invariants_section": true,
+        "has_auto_decisions_section": true,
+        "has_terminology_note": true
+      },
+      "issues": []
     },
     {
+      "path": "AGENTS.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "mission_reflected": true,
+        "target_users_reflected": true,
+        "core_value_reflected": true,
+        "core_functions_reflected": true,
+        "boundaries_respected": true
+      },
+      "completeness": {
+        "score": 100,
+        "has_terminology_section": true,
+        "has_behavior_rules": true,
+        "has_invariants_section": true,
+        "has_auto_decisions_section": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
+      },
+      "intent_alignment": {
+        "score": 100,
+        "claude_specific_guidelines": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true
+      },
+      "completeness": {
+        "score": 100,
+        "has_terminology_section": true,
+        "has_invariants_section": true,
+        "has_auto_decisions_section": true,
+        "has_code_examples": true,
+        "has_checklist": true
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "invariants_aligned": true
+      },
+      "intent_alignment": {
+        "score": 100,
+        "design_philosophy_reflected": true
+      },
+      "completeness": {
+        "score": 100,
+        "has_all_invariants": true,
+        "has_design_principles": true
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
       "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": [],
-      "path": "ARCHITECTURE.md"
-    },
-    {
-      "exists": true,
-      "clarity_score": 33,
-      "concept_alignment": {
-        "score": 0,
-        "issues": []
-      },
-      "issues": [
-        "Content too short",
-        "Missing mission/purpose statement"
-      ],
-      "path": "CHANGELOG.md"
-    },
-    {
-      "exists": true,
-      "clarity_score": 66,
-      "concept_alignment": {
+      "intent_alignment": {
         "score": 100,
-        "issues": []
+        "mission_expanded": true
       },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "CLAUDE.md"
+      "completeness": {
+        "score": 100
+      },
+      "issues": []
     },
     {
+      "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 66,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "issues": [
+          {
+            "type": "minor_terminology_inconsistency",
+            "details": "Some sections could benefit from more explicit canonical term usage"
+          }
+        ]
       },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "CODEX.md"
+      "intent_alignment": {
+        "score": 95,
+        "contribution_guidelines_aligned": true
+      },
+      "completeness": {
+        "score": 95
+      },
+      "issues": []
     },
     {
-      "exists": true,
-      "clarity_score": 66,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "CONTRIBUTING.md"
-    },
-    {
-      "exists": true,
-      "clarity_score": 66,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "GEMINI.md"
-    },
-    {
-      "exists": true,
-      "clarity_score": 66,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "GLOSSARY.md"
-    },
-    {
+      "path": "GEMINI.md",
       "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": [],
-      "path": "PURPOSE.md"
+      "intent_alignment": {
+        "score": 100,
+        "gemini_specific_guidelines": true
+      },
+      "completeness": {
+        "score": 100
+      },
+      "issues": []
     },
     {
+      "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 66,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "README.md"
+      "intent_alignment": {
+        "score": 100,
+        "codex_specific_guidelines": true
+      },
+      "completeness": {
+        "score": 100
+      },
+      "issues": []
     },
     {
+      "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 66,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [
+          {
+            "type": "mapping_verification_needed",
+            "details": "Architecture should be verified against mappings.yml for consistency"
+          }
+        ]
+      },
+      "intent_alignment": {
+        "score": 95
+      },
+      "completeness": {
+        "score": 95
+      },
+      "issues": []
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "ontology_sync": true,
+        "all_11_terms_documented": true
       },
-      "issues": [
-        "Missing mission/purpose statement"
-      ],
-      "path": "SYSTEM_CONSTITUTION.md"
+      "intent_alignment": {
+        "score": 100
+      },
+      "completeness": {
+        "score": 100,
+        "has_all_core_terms": true,
+        "has_all_domain_terms": true,
+        "has_all_aux_terms": true,
+        "has_synonyms": true,
+        "has_status_indicators": true
+      },
+      "issues": []
     }
   ]
 }

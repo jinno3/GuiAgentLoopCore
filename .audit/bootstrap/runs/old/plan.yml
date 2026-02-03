@@ -1,102 +1,159 @@
-actions:
-- action: verify
-  reason: Required MD exists - verify alignment
-  target: README.md
-- action: verify
-  reason: Required MD exists - verify alignment
-  target: AGENTS.md
-existing_mds:
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/AGENTS.md
-  path: AGENTS.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/ARCHITECTURE.md
-  path: ARCHITECTURE.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CHANGELOG.md
-  path: CHANGELOG.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CLAUDE.md
-  path: CLAUDE.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CODEX.md
-  path: CODEX.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/CONTRIBUTING.md
-  path: CONTRIBUTING.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/GEMINI.md
-  path: GEMINI.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/GLOSSARY.md
-  path: GLOSSARY.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/PURPOSE.md
-  path: PURPOSE.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/README.md
-  path: README.md
-- exists: true
-  full_path: /home/jinno/jinno3/GuiAgentLoopCore/SYSTEM_CONSTITUTION.md
-  path: SYSTEM_CONSTITUTION.md
-input_sources:
-  audit:
-    constraints_yml: .audit/config/constraints.yml
-    intent_yml: .audit/config/intent.yml
-  concept:
-    has_concept: true
-    invariants_yml: .concept/invariants.yml
-    ontology_yml: .concept/ontology.yml
-intent_summary:
-  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
-    with predictable state manage...
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
-  target_user:
-  - Application Developers: Building LLM-powered applications with GUI interfaces
-  - AI Agent Developers: Creating specialized agents for specific tasks
-  - Framework Developers: Building new GUI backend implementations
-  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
-ontology_summary:
-  core_terms: 5
-  domain_terms: 5
-  total_terms: 11
+run_timestamp: "2026-02-04T06:15:40Z"
+version: "1.1"
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
-run_number: 82
-run_timestamp: '2026-02-03T21:05:12.352728+00:00'
+
+input_sources:
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    has_concept: true
+
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+
+ontology_summary:
+  total_terms: 11
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+
 term_normalization:
-  AIエージェント: Agent
-  AgentDefinition: Agent
-  AgentImage: Agent
-  AgentType: Agent
-  ChatMessage: Message
-  ChatSession: Session
-  ConnectorImplCodeinterpreterApi: Connector
-  ConnectorImplOpenInterpreter: Connector
-  ConversationBuffer: Memory
-  GUIバックエンド: Backend
-  GuiAgentInterpreter: Interpreter
-  GuiAgentInterpreterABC: Connector
-  GuiAgentStreamWrapper: StreamWrapper
-  GuiBackend: Backend
-  GuiComponent: Backend
-  InterpreterState: State
-  JWT: Session
-  OpenGuiConnector: Connector
-  TaskAgent: Agent
-  UIフレームワーク: Backend
-  インタープリタ状態: State
-  コネクタ: Connector
-  ストリームラッパー: StreamWrapper
-  マッパー: Converter
-  メッセージ: Message
-  会話インタープリタ: Interpreter
-  会話セッション: Session
-  会話メモリ: Memory
-  変換器: Converter
-  専門エージェント: Agent
-  自動チャット: AutoChat
-  自動継続: AutoChat
-version: '1.1'
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+
+existing_mds:
+  - path: "README.md"
+    status: "exists_needs_review"
+    tier: 1
+  - path: "AGENTS.md"
+    status: "exists_needs_review"
+    tier: 1
+  - path: "CLAUDE.md"
+    status: "exists_needs_review"
+    tier: 2
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    tier: 3
+
+actions:
+  - action: "verify"
+    target: "README.md"
+    reason: "Tier 1 file - verify concept alignment and intent consistency"
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "Tier 1 file - verify concept alignment and intent consistency"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Tier 2 file - verify Claude-specific instructions align with ontology"
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Tier 2 file - verify invariants are properly reflected"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Tier 2 file - verify purpose aligns with intent.yml"
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "Tier 2 file - verify contribution guidelines reflect ontology"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Tier 3 file - verify Gemini-specific instructions"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Tier 3 file - verify Codex-specific instructions"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Tier 3 file - verify architecture reflects mappings.yml"
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Tier 3 file - verify glossary matches ontology.yml"
