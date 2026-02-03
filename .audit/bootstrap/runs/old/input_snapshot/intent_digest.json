@@ -1,55 +1,40 @@
 {
-  "timestamp": "2026-02-04T04:00:00Z",
+  "timestamp": "2026-02-04T04:15:00Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
-
-  "mission": {
-    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "agent interactions", "state control"]
-  },
-
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
   "target_users": [
     "Application Developers",
     "AI Agent Developers",
     "Framework Developers",
     "AI Agents"
   ],
-
   "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-
   "core_functions": [
     {
-      "id": "CF-001",
       "description": "Centralized Conversation Management",
       "details": "Interpreter component centralizes conversation flow, state management, and agent coordination"
     },
     {
-      "id": "CF-002",
       "description": "State Machine with Monotonic Transitions",
       "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
     },
     {
-      "id": "CF-003",
       "description": "Multi-Agent Coordination",
       "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
     },
     {
-      "id": "CF-004",
       "description": "Structured Message Processing",
       "details": "Handle structured communication between users, systems, and agents"
     },
     {
-      "id": "CF-005",
       "description": "Backend Abstraction",
       "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
     }
   ],
-
   "boundaries": {
-    "in_scope_count": 6,
-    "out_of_scope_count": 5,
-    "key_in_scope": [
+    "in_scope": [
       "Conversation Flow Management",
       "State Machine",
       "Agent Coordination",
@@ -57,7 +42,7 @@
       "Backend Abstraction",
       "Streaming Support"
     ],
-    "key_out_of_scope": [
+    "out_of_scope": [
       "UI Rendering",
       "LLM Execution",
       "Session Storage",
@@ -65,21 +50,11 @@
       "Network Protocols"
     ]
   },
-
-  "design_philosophies": [
+  "design_philosophy": [
     "Correctness Over Convenience",
     "Explicit Over Implicit",
     "Small, Focused Components",
     "Testability",
     "Conceptual Integrity"
-  ],
-
-  "success_metrics_count": 5,
-
-  "md_relevance": {
-    "mission_usage": ["README.md", "PURPOSE.md", "AGENTS.md"],
-    "boundaries_usage": ["AGENTS.md", "CONTRIBUTING.md"],
-    "philosophies_usage": ["SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
-    "core_functions_usage": ["README.md", "ARCHITECTURE.md"]
-  }
+  ]
 }

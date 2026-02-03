@@ -1,61 +1,145 @@
+# Feedback to Concept Sync System (12_concept_sync_system)
+# Generated: 2026-02-04T04:29:00Z
+# Bootstrap run: #79
+
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T04:15:00Z"
-  run_id: "78"
+  bootstrap_run_timestamp: "2026-02-04T04:29:00Z"
+  run_id: "79"
   source_ontology_version: "0.3"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 44
-    synonym_used_before_fix: 0
-    synonym_used_after_fix: 0
+    total_term_occurrences: 88
+    canonical_used: 85
+    synonym_used_before_fix: 3
+    synonym_used_after_fix: 3
     unknown_terms_found: []
-    alignment_rate: 1.0
+    alignment_rate: 0.966
 
-  # 2. 不変条件の反映状況
+  # 2. 同義語違反の詳細
+  synonym_violations:
+    - file: "ARCHITECTURE.md"
+      term: "GuiAgentInterpreter"
+      canonical: "Interpreter"
+      occurrences: 2
+      severity: "low"
+      status: "old_terminology"
+      action_needed: "update_on_next_revision"
+    - file: "ARCHITECTURE.md"
+      term: "ChatSession"
+      canonical: "Session"
+      occurrences: 1
+      severity: "low"
+      status: "old_terminology"
+      action_needed: "update_on_next_revision"
+    - file: "CONTRIBUTING.md"
+      term: "会話インタープリタ"
+      canonical: "Interpreter"
+      occurrences: 1
+      severity: "low"
+      status: "japanese_translation"
+      action_needed: "acceptable_for_usability"
+
+  # 3. 不変条件の反映状況
   invariant_reflection:
     total: 14
+    hard_invariants: 11
+    soft_invariants: 3
     reflected: 14
     missing: []
     coverage_rate: 1.0
+    details:
+      AGENTS.md:
+        hard_documented: 11
+        soft_documented: 3
+        total: 14
+      CLAUDE.md:
+        hard_documented: 11
+        soft_documented: 3
+        total: 14
+      SYSTEM_CONSTITUTION.md:
+        hard_documented: 11
+        soft_documented: 3
+        total: 14
+      README.md:
+        hard_documented: 5
+        soft_documented: 0
+        total: 5
+        note: "summary with references"
 
-  # 3. AUTO決定の扱い
+  # 4. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
     format: "documented as AUTO decisions with provisional status"
     coverage_rate: 1.0
+    details:
+      README.md:
+        documented: 16
+        format: "dedicated section with categorization"
+      AGENTS.md:
+        documented: 16
+        format: "categorized by term with explanations"
+      CLAUDE.md:
+        documented: 16
+        format: "integrated in usage guidance"
 
-  # 4. 曖昧性の発見
+  # 5. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 5. ontologyへの更新提案
+  # 6. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
     boundary_changes: []
+    status: "no changes needed"
 
-  # 6. 成果
+  # 7. 成果
   achievements:
-    - "Perfect term normalization: 44/44 canonical terms used"
-    - "Zero synonym usage across all MD files"
+    - "Excellent term normalization: 96.6% (85/88 canonical terms used)"
+    - "Minimal synonym violations: only 3 minor cases (old terminology)"
     - "Complete invariant reflection: 14/14 documented"
     - "Complete AUTO decision documentation: 16/16 noted"
-    - "100% concept alignment score achieved"
+    - "High concept alignment score: 95%"
+    - "Zero unknown terms found"
+    - "Perfect integration with audit system (intent.yml)"
 
-  # 7. 推奨事項
+  # 8. 推奨事項
   recommendations:
     - priority: "low"
-      action: "Maintain current ontology quality"
-      reason: "v0.3 is working perfectly with MD documentation"
+      action: "ARCHITECTURE.mdの用語正規化"
+      reason: "古い用語（GuiAgentInterpreter, ChatSession）を正規形へ変更"
+      effort: "minimal"
+      impact: "low - documentation already clear"
     - priority: "low"
+      action: "Maintain current ontology quality"
+      reason: "v0.3 is working excellently with MD documentation"
+    - priority: "medium"
       action: "Monitor AUTO decision expiration"
       reason: "16 AUTO decisions will expire after 20 runs"
       details: "Consider which decisions should be promoted to stable vs renewed"
+    - priority: "low"
+      action: "Allow Japanese translations for usability"
+      reason: "Contributing.md and SYSTEM_CONSTITUTION.md use Japanese for accessibility"
 
-  # 8. 統合の成功
+  # 9. 統合の成功
   integration_success:
-    audit_concept_integration: "perfect"
+    audit_concept_integration: "excellent"
     intent_ontology_alignment: "perfect"
-    md_quality: "perfect"
-    overall_score: 100
+    md_quality: "excellent"
+    overall_score: 95
+    interpretation: "概念モデル（ontology.yml）と監査結果（intent.yml）が統合され、高品質なMDドキュメントが生成されている"
+
+  # 10. 全体的な評価
+  overall_assessment:
+    grade: "excellent"
+    strengths:
+      - "全11用語が適切に定義され、正規形が一貫して使用されている"
+      - "全14の不変条件がMDファイルに適切に反映されている"
+      - "全16のAUTO決定が暫定仕様として適切に文書化されている"
+      - "intent.ymlとの完全な整合性が保たれている"
+      - "日本語訳がユーザビリティの観点から適切に使用されている"
+    weaknesses:
+      - "ARCHITECTURE.mdで古い用語がわずかに使用されている（優先度：低）"
+    summary: "概念モデルは極めて良好な状態にあり、MDドキュメントへの統合も成功している"

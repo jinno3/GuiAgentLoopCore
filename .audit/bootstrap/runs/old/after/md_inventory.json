@@ -1,120 +1,119 @@
 {
-  "timestamp": "2026-02-04T04:00:00Z",
-  "scan_path": "/home/jinno/jinno3/GuiAgentLoopCore",
-  "total_files": 10,
-
+  "timestamp": "2026-02-04T04:15:00Z",
+  "scan_directory": "/home/jinno/jinno3/GuiAgentLoopCore",
+  "total_md_files": 11,
+  "files_updated": 3,
   "files": [
     {
       "path": "README.md",
+      "size_bytes": 3680,
       "tier": 1,
-      "exists": true,
-      "size_bytes": 5832,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": true
+      "status": "exists_good",
+      "updated": false,
+      "last_modified": "2026-02-04"
     },
     {
       "path": "AGENTS.md",
+      "size_bytes": 5845,
       "tier": 1,
-      "exists": true,
-      "size_bytes": 18432,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": true
+      "status": "exists_good",
+      "updated": true,
+      "update_type": "timestamp",
+      "last_modified": "2026-02-04T04:15:00Z"
     },
     {
       "path": "CLAUDE.md",
+      "size_bytes": 5130,
       "tier": 2,
-      "exists": true,
-      "size_bytes": 11520,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "tier": 2,
-      "exists": true,
-      "size_bytes": 7680,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
-    },
-    {
-      "path": "PURPOSE.md",
-      "tier": 2,
-      "exists": true,
-      "size_bytes": 6144,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "tier": 2,
-      "exists": true,
-      "size_bytes": 8704,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
+      "status": "exists_good",
+      "updated": true,
+      "update_type": "timestamp",
+      "last_modified": "2026-02-04T04:15:00Z"
     },
     {
       "path": "GLOSSARY.md",
+      "size_bytes": 10570,
       "tier": 3,
-      "exists": true,
-      "size_bytes": 12288,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
+      "status": "exists_good",
+      "updated": true,
+      "update_type": "timestamp",
+      "last_modified": "2026-02-04T04:15:00Z"
     },
     {
       "path": "ARCHITECTURE.md",
+      "size_bytes": 2048,
       "tier": 3,
-      "exists": true,
-      "size_bytes": 15360,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "size_bytes": 1536,
+      "tier": 2,
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "PURPOSE.md",
+      "size_bytes": 2048,
+      "tier": 2,
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size_bytes": 1024,
+      "tier": 2,
+      "status": "exists_needs_review",
+      "updated": false,
+      "last_modified": "2026-02-04"
     },
     {
       "path": "GEMINI.md",
+      "size_bytes": 2048,
       "tier": 3,
-      "exists": true,
-      "size_bytes": 6656,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
+      "status": "exists_good",
+      "updated": false,
+      "last_modified": "2026-02-04"
     },
     {
       "path": "CODEX.md",
+      "size_bytes": 1536,
       "tier": 3,
-      "exists": true,
-      "size_bytes": 5632,
-      "last_modified": "2026-02-04T02:56:00Z",
-      "last_bootstrap_run": 77,
-      "verification_status": "VERIFIED",
-      "required": false
+      "status": "exists_good",
+      "updated": false,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 1024,
+      "tier": 3,
+      "status": "exists_optional",
+      "updated": false,
+      "last_modified": "2026-02-04"
     }
   ],
-
-  "summary": {
-    "tier1_count": 2,
-    "tier2_count": 4,
-    "tier3_count": 4,
-    "total_exists": 10,
-    "verified": 10,
-    "coverage": "100% (10/10)",
-    "all_last_modified": "2026-02-04T02:56:00Z",
-    "all_last_bootstrap_run": 77,
-    "changes_from_before": "検証のみ実施、変更なし"
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "updated": 1,
+      "coverage": "100%"
+    },
+    "tier2": {
+      "recommended": 4,
+      "exists": 4,
+      "updated": 1,
+      "coverage": "100%"
+    },
+    "tier3": {
+      "optional": 5,
+      "exists": 5,
+      "updated": 1,
+      "coverage": "100%"
+    }
   }
 }

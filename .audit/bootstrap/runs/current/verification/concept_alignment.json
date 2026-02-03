@@ -1,57 +1,180 @@
 {
-  "timestamp": "2026-02-04T04:15:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "concept_version": "0.3",
-  "overall_alignment_score": 100,
+  "timestamp": "2026-02-04T04:29:00Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 95,
 
   "term_usage_check": {
-    "total_term_occurrences": 44,
-    "canonical_used": 44,
-    "synonym_used": 0,
+    "total_term_occurrences": 88,
+    "canonical_used": 85,
+    "synonym_used": 3,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 0.966
   },
+
+  "synonym_violations": [
+    {
+      "file": "ARCHITECTURE.md",
+      "found": "GuiAgentInterpreter",
+      "expected": "Interpreter",
+      "occurrences": 2,
+      "severity": "low",
+      "status": "documented"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "found": "ChatSession",
+      "expected": "Session",
+      "occurrences": 1,
+      "severity": "low",
+      "status": "documented"
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "found": "会話インタープリタ",
+      "expected": "Interpreter",
+      "occurrences": 1,
+      "severity": "low",
+      "status": "translation"
+    }
+  ],
 
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_found": 11,
-      "synonyms_found": 0,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_found": 11,
-      "synonyms_found": 0,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_found": 11,
-      "synonyms_found": 0,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_found": 11,
-      "synonyms_found": 0,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 85,
+      "canonical_terms_used": 9,
+      "synonyms_used": 3,
+      "issues": [
+        {
+          "line": null,
+          "found": "GuiAgentInterpreter",
+          "expected": "Interpreter",
+          "status": "old_terminology"
+        },
+        {
+          "line": null,
+          "found": "ChatSession",
+          "expected": "Session",
+          "status": "old_terminology"
+        }
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 90,
+      "canonical_terms_used": 8,
+      "synonyms_used": 1,
+      "issues": [
+        {
+          "line": null,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "japanese_translation"
+        }
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 10,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 10,
+      "synonyms_used": 1,
+      "issues": [
+        {
+          "line": null,
+          "found": "会話インタープリタ",
+          "expected": "Interpreter",
+          "status": "japanese_translation"
+        }
+      ]
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 9,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 9,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CHANGELOG.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 0,
+      "synonyms_used": 0,
       "issues": [],
-      "notes": "Auto-generated from ontology.yml"
+      "note": "Minimal content, no terminology usage"
     }
   ],
 
   "invariant_check": {
     "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 14,
-      "SYSTEM_CONSTITUTION.md": 14,
-      "CLAUDE.md": 14
+    "coverage_rate": 100,
+    "details": {
+      "AGENTS.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "missing": []
+      },
+      "CLAUDE.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "missing": []
+      },
+      "SYSTEM_CONSTITUTION.md": {
+        "hard_invariants_documented": 11,
+        "soft_invariants_documented": 3,
+        "missing": []
+      },
+      "README.md": {
+        "hard_invariants_documented": 5,
+        "soft_invariants_documented": 0,
+        "missing": [],
+        "note": "Summary with references to detailed docs"
+      }
     }
   },
 
@@ -59,84 +182,60 @@
     "total_active": 16,
     "reflected_in_md": 16,
     "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 16,
-      "CLAUDE.md": 16,
-      "README.md": 16
+    "coverage_rate": 100,
+    "details": {
+      "README.md": {
+        "documented": 16,
+        "format": "dedicated section",
+        "quality": "excellent"
+      },
+      "AGENTS.md": {
+        "documented": 16,
+        "format": "categorized by term",
+        "quality": "excellent"
+      },
+      "CLAUDE.md": {
+        "documented": 16,
+        "format": "integrated in guidance",
+        "quality": "excellent"
+      }
     }
   },
 
   "ambiguity_check": {
     "active_auto_decisions": 16,
-    "noted_in_md": 16,
+    "reflected_as_notes": 16,
     "missing_notes": 0,
-    "format": "documented as AUTO decisions with provisional status"
+    "properly_marked_as_provisional": 16,
+    "evidence_references": 11,
+    "summary": "全てのAUTO決定が適切に文書化され、暫定仕様であることが明記されている"
   },
 
-  "canonical_term_coverage": {
-    "Interpreter": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "status": "perfect"
-    },
-    "Agent": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"],
-      "status": "perfect"
-    },
-    "Session": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["ChatSession", "会話セッション"],
-      "status": "perfect"
-    },
-    "Message": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["メッセージ", "ChatMessage"],
-      "status": "perfect"
-    },
-    "State": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["InterpreterState", "インタープリタ状態"],
-      "status": "perfect"
-    },
-    "AutoChat": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["自動チャット", "自動継続"],
-      "status": "perfect"
-    },
-    "StreamWrapper": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["GuiAgentStreamWrapper", "ストリームラッパー"],
-      "status": "perfect"
-    },
-    "Backend": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["GUIバックエンド", "UIフレームワーク", "GuiBackend"],
-      "status": "perfect"
-    },
-    "Memory": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["会話メモリ", "ConversationBuffer"],
-      "status": "perfect",
-      "notes": "draft status properly noted"
-    },
-    "Connector": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["コネクタ", "GuiAgentInterpreterABC"],
-      "status": "perfect"
-    },
-    "Converter": {
-      "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-      "synonyms_avoided": ["変換器", "マッパー"],
-      "status": "perfect"
-    }
+  "boundary_check": {
+    "total_terms": 11,
+    "boundaries_defined": 11,
+    "boundary_conflicts": 0,
+    "includes_excludes_consistent": true,
+    "summary": "全ての用語の境界線（includes/excludes）が一貫して定義されている"
   },
 
   "summary": {
-    "concept_alignment": "perfect",
-    "term_normalization": "100%",
-    "invariant_coverage": "100%",
-    "auto_decision_coverage": "100%",
-    "overall_score": 100
+    "overall_score": 95,
+    "strengths": [
+      "全14の不変条件が適切に文書化されている",
+      "全16のAUTO決定が適切に文書化されている",
+      "主要なMDファイル（README, AGENTS, CLAUDE, GLOSSARY）で用語の正規形が100%使用されている",
+      "intent.ymlとの完全な整合性",
+      "概念定義の境界線が一貫している"
+    ],
+    "minor_issues": [
+      "ARCHITECTURE.mdで古い用語（GuiAgentInterpreter, ChatSession）が使用されている",
+      "CONTRIBUTING.mdとSYSTEM_CONSTITUTION.mdで日本語訳が使用されている"
+    ],
+    "recommendations": [
+      "ARCHITECTURE.mdの用語を正規形に更新することを推奨（優先度：低）",
+      "日本語訳は許容（ユーザビリティのため）"
+    ],
+    "overall_assessment": "概念整合性は極めて良好。全てのコアファイルで正規形が使用され、不変条件とAUTO決定が適切に文書化されている。"
   }
 }

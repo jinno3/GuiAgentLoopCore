@@ -1,35 +1,32 @@
 {
-  "timestamp": "2026-02-04T04:00:00Z",
-  "version": "1.1",
-
-  "overall_uniqueness_score": 100,
-  "checks_performed": 10,
+  "timestamp": "2026-02-04T04:15:00Z",
+  "verification_method": "v1.1 (audit + concept integration)",
+  "overall_uniqueness_score": 98,
+  "max_score": 100,
 
   "uniqueness_checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "score": 100,
-      "details": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
-        "consistent_across": ["README.md", "PURPOSE.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
-        "variations_found": 0
+      "evidence": {
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
+      "source": ".audit/intent.yml",
       "passed": true,
-      "score": 100,
-      "details": {
+      "evidence": {
         "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistent_across": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "variations_found": 0
+        "files_checked": ["README.md", "AGENTS.md"],
+        "consistency": "100%"
       }
     },
     {
@@ -38,15 +35,9 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "score": 100,
-      "details": {
-        "constraints_verified": [
-          "Monotonic state transitions",
-          "Type-safe message handling",
-          "Hard invariants enforcement"
-        ],
-        "consistent_across": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"],
-        "contradictions_found": 0
+      "evidence": {
+        "constraints": ["Monotonic state transitions", "Type safety", "MAX_MESSAGE_LENGTH=100", "JWT HS256"],
+        "consistency": "100%"
       }
     },
     {
@@ -55,11 +46,9 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "score": 100,
-      "details": {
-        "key_boundaries": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication"],
-        "consistent_across": ["AGENTS.md", "CONTRIBUTING.md", "PURPOSE.md"],
-        "contradictions_found": 0
+      "evidence": {
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistency": "100%"
       }
     },
     {
@@ -68,109 +57,18 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "score": 100,
-      "details": {
-        "core_functions_reflected": true,
-        "design_philosophies_reflected": true,
-        "success_metrics_reflected": true,
-        "files_checked": 10,
-        "compliant_files": 10
-      }
-    }
-  ],
-
-  "concept_alignment_checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "details": {
-        "total_term_occurrences": 111,
-        "canonical_used": 111,
-        "synonym_used": 0,
-        "unknown_terms": 0,
-        "alignment_rate": 1.0,
-        "files_checked": 10
-      }
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "details": {
-        "total_synonyms_defined": 35,
-        "synonyms_found_in_text": 0,
-        "exclusions": ["定義セクション", "同義語リスト"],
-        "files_checked": 10
-      }
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "details": {
-        "total_invariants": 14,
-        "hard_invariants": 11,
-        "reflected_in_md": 14,
-        "coverage_rate": 1.0,
-        "primary_locations": {
-          "SYSTEM_CONSTITUTION.md": 14,
-          "AGENTS.md": 14,
-          "CLAUDE.md": 14,
-          "CONTRIBUTING.md": 14
-        }
-      }
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "details": {
-        "total_auto_decisions": 16,
-        "active_auto_decisions": 16,
-        "noted_in_md": 16,
-        "documentation_rate": 1.0,
-        "primary_locations": {
-          "AGENTS.md": 16,
-          "CLAUDE.md": 16,
-          "CONTRIBUTING.md": 16
-        }
-      }
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "score": 100,
-      "details": {
-        "terms_checked": 11,
-        "boundary_contradictions": 0,
-        "ontology_md_alignment": true,
-        "glossary_sync": true
+      "evidence": {
+        "mission_reflected": true,
+        "core_functions_count": 5,
+        "design_philosophy_reflected": true
       }
     }
   ],
 
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "pass_rate": 1.0,
-    "overall_status": "PERFECT",
-    "note": "全ての一意性検証と概念整合検証に合格"
+    "score": 100
   }
 }

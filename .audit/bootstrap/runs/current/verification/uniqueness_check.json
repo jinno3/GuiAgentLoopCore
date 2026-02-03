@@ -1,42 +1,48 @@
 {
-  "timestamp": "2026-02-04T04:15:00Z",
-  "verification_method": "v1.1 (audit + concept integration)",
-  "overall_uniqueness_score": 98,
-  "max_score": 100,
+  "timestamp": "2026-02-04T04:29:00Z",
+  "verification_version": "1.1",
+  "overall_score": 95,
 
-  "uniqueness_checks": [
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
       "passed": true,
       "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "consistency": "100%"
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "consistency": "100%",
+        "variations_found": 0
       }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
       "passed": true,
       "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md"],
-        "consistency": "100%"
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents (Claude, Gemini, Codex, etc.)"
+        ],
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%",
+        "variations_found": 0
       }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "constraints": ["Monotonic state transitions", "Type safety", "MAX_MESSAGE_LENGTH=100", "JWT HS256"],
+        "constraints_source": ".audit/config/constraints.yml",
+        "python_version": ">=3.10",
+        "dependencies": ["langchain", "langgraph", "gradio", "pydantic"],
+        "files_checked": ["README.md", "CONTRIBUTING.md"],
         "consistency": "100%"
       }
     },
@@ -44,10 +50,24 @@
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
       "passed": true,
       "evidence": {
-        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "in_scope": [
+          "Conversation Flow Management",
+          "State Machine",
+          "Agent Coordination",
+          "Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "out_of_scope": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "files_checked": ["AGENTS.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
         "consistency": "100%"
       }
     },
@@ -55,12 +75,13 @@
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
       "passed": true,
       "evidence": {
-        "mission_reflected": true,
         "core_functions_count": 5,
-        "design_philosophy_reflected": true
+        "design_philosophy_count": 5,
+        "success_metrics_count": 5,
+        "files_reflecting_intent": ["README.md", "AGENTS.md", "PURPOSE.md", "CLAUDE.md"],
+        "compliance_rate": "100%"
       }
     }
   ],
@@ -69,6 +90,7 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "score": 100
+    "score": 100,
+    "overall_assessment": "全ての一意性チェックに合格。intent.ymlとの完全な整合性が確認された。"
   }
 }

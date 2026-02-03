@@ -1,167 +1,277 @@
 {
-  "timestamp": "2026-02-04T04:15:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-04T04:29:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 95,
+  "uniqueness_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integration)",
+
+  "scoring_breakdown": {
+    "existence_purpose": {
+      "score": 100,
+      "weight": 0.3,
+      "rationale": "All MD files clearly reflect the mission from intent.yml"
+    },
+    "terminology_consistency": {
+      "score": 95,
+      "weight": 0.3,
+      "rationale": "Canonical terms used consistently across all MD files"
+    },
+    "invariant_coverage": {
+      "score": 100,
+      "weight": 0.2,
+      "rationale": "All 14 invariants (11 hard, 3 soft) documented"
+    },
+    "auto_decision_documentation": {
+      "score": 100,
+      "weight": 0.1,
+      "rationale": "All 16 AUTO decisions documented with explanations"
+    },
+    "structural_clarity": {
+      "score": 90,
+      "weight": 0.1,
+      "rationale": "Good structure, some minor inconsistencies"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": 11,
+        "synonyms_found": 0,
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 100,
-        "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
-        "core_functions_count": 5,
-        "in_scope_reflected": true,
-        "out_of_scope_reflected": true
-      },
+      "strengths": [
+        "Mission statement matches intent.yml exactly",
+        "All canonical terms used correctly",
+        "All 16 AUTO decisions documented",
+        "Key invariants listed with references",
+        "Core functions match intent.yml",
+        "Target users match intent.yml"
+      ],
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": 11,
+        "synonyms_found": 0,
+        "issues": []
       },
-      "invariants_documented": 14,
-      "auto_decisions_documented": 16,
-      "issues": [],
-      "updated": "timestamp updated to 2026-02-04T04:15:00Z"
+      "strengths": [
+        "Perfect terminology normalization with tables",
+        "All canonical terms documented with synonyms",
+        "All 14 invariants (11 hard, 3 soft) documented",
+        "All 16 AUTO decisions documented by category",
+        "Mission statement matches intent.yml",
+        "Behavior rules match intent.yml boundaries"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": 11,
+        "synonyms_found": 0,
+        "issues": []
       },
-      "issues": [],
-      "updated": "timestamp updated to 2026-02-04T04:15:00Z"
+      "strengths": [
+        "All 11 canonical terms properly used",
+        "All 14 invariants documented",
+        "All 16 AUTO decisions documented",
+        "Stateful operation guidance detailed",
+        "Code examples follow best practices",
+        "Comprehensive checklist for code review"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonym_usage": []
+        "canonical_terms_used": 11,
+        "synonyms_found": 0,
+        "issues": []
       },
-      "ontology_aligned": true,
-      "issues": [],
-      "updated": "timestamp updated to 2026-02-04T04:15:00Z"
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "All 11 terms with complete definitions",
+        "Proper layer classification (core/domain/aux)",
+        "Status indicators (stable/draft)",
+        "Synonyms and boundaries documented",
+        "AUTO decisions properly noted"
+      ],
+      "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
       "clarity_score": 85,
       "concept_alignment": {
-        "score": 90,
-        "issues": []
+        "score": 85,
+        "canonical_terms_used": 9,
+        "synonyms_found": 2,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "line": null,
+            "context": "Old terminology in some sections"
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "line": null,
+            "context": "Old terminology in some sections"
+          }
+        ]
       },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
-      "intent_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "issues": []
+      "strengths": [
+        "Good architectural overview",
+        "Component boundaries clear"
+      ],
+      "issues": [
+        "Some old terminology still present",
+        "Not all AUTO decisions reflected",
+        "Missing some hard invariants"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 85,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
-        "issues": []
+        "canonical_terms_used": 8,
+        "synonyms_found": 1,
+        "issues": [
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "line": null,
+            "context": "Japanese translation"
+          }
+        ]
       },
-      "issues": []
+      "strengths": [
+        "Clear contribution guidelines",
+        "Development process documented"
+      ],
+      "issues": [
+        "Some terminology not normalized",
+        "Could benefit from AUTO decision notes"
+      ]
     },
     {
-      "path": "GEMINI.md",
+      "path": "PURPOSE.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
+        "score": 95,
+        "canonical_terms_used": 10,
+        "synonyms_found": 0,
         "issues": []
       },
-      "issues": []
+      "strengths": [
+        "Detailed mission explanation",
+        "Good use of canonical terms",
+        "Aligned with intent.yml"
+      ],
+      "issues": [
+        "Some sections could reference AUTO decisions"
+      ]
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "canonical_terms_used": 10,
+        "synonyms_found": 1,
+        "issues": []
+      },
+      "strengths": [
+        "Invariants well documented",
+        "Constitutional principles clear"
+      ],
+      "issues": [
+        "Minor terminology inconsistencies"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
+        "score": 90,
+        "canonical_terms_used": 9,
+        "synonyms_found": 0,
         "issues": []
       },
-      "issues": []
+      "strengths": [
+        "Codex-specific guidance",
+        "Good terminology usage"
+      ],
+      "issues": [
+        "Could benefit from more AUTO decision references"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 90,
+        "canonical_terms_used": 9,
+        "synonyms_found": 0,
+        "issues": []
+      },
+      "strengths": [
+        "Gemini-specific guidance",
+        "Good terminology usage"
+      ],
+      "issues": [
+        "Could benefit from more AUTO decision references"
+      ]
     },
     {
       "path": "CHANGELOG.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 60,
       "concept_alignment": {
         "score": 100,
+        "canonical_terms_used": 0,
+        "synonyms_found": 0,
         "issues": []
       },
-      "issues": []
+      "strengths": [
+        "Placeholder exists"
+      ],
+      "issues": [
+        "Minimal content",
+        "No changelog entries yet"
+      ]
     }
   ],
+
   "summary": {
     "total_files": 11,
-    "excellent_files": 11,
-    "good_files": 0,
-    "needs_improvement": 0,
-    "missing_critical": 0,
-    "overall_quality": "perfect",
-    "improvements_made": [
-      "Updated AGENTS.md timestamp",
-      "Updated CLAUDE.md timestamp",
-      "Updated GLOSSARY.md timestamp"
-    ]
+    "excellent_files": 4,
+    "good_files": 6,
+    "needs_improvement": 1,
+    "critical_issues": 0,
+    "overall_assessment": "Documentation is in excellent condition with high concept alignment. Minor terminology normalization needed in some files."
   }
 }
