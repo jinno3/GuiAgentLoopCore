@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-04T02:15:26Z",
+  "timestamp": "2026-02-04T02:30:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
   "updated_at": "2026-02-03T12:21:29Z",
@@ -14,6 +14,25 @@
       "stable": 10,
       "draft": 1
     }
+  },
+  "terms_by_layer": {
+    "core": [
+      "Interpreter",
+      "Agent",
+      "Session",
+      "Message",
+      "State"
+    ],
+    "domain": [
+      "AutoChat",
+      "StreamWrapper",
+      "Backend",
+      "Memory",
+      "Connector"
+    ],
+    "aux": [
+      "Converter"
+    ]
   },
   "key_terms_for_md": [
     {
@@ -40,9 +59,9 @@
     {
       "canonical": "Message",
       "layer": "core",
-      "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
+      "definition": "ユーザー、システム、エージェント間の構造化された通信単位",
       "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "State",
@@ -56,14 +75,21 @@
       "layer": "domain",
       "definition": "STATE_STOP時に自動的に会話を継続する機能",
       "synonyms": ["自動チャット", "自動継続"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"]
+    },
+    {
+      "canonical": "StreamWrapper",
+      "layer": "domain",
+      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
+      "should_use_in": ["README.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Backend",
       "layer": "domain",
       "definition": "GUIフレームワーク実装（Gradio等）",
       "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
+      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Memory",
@@ -71,16 +97,32 @@
       "definition": "会話履歴を保持するバッファ機構",
       "synonyms": ["会話メモリ", "ConversationBuffer"],
       "status": "draft",
-      "should_use_in": ["README.md", "ARCHITECTURE.md"]
+      "should_use_in": ["AGENTS.md", "ARCHITECTURE.md"]
     },
     {
       "canonical": "Connector",
       "layer": "domain",
       "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
       "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
-      "should_use_in": ["README.md", "ARCHITECTURE.md", "CONTRIBUTING.md"]
+      "should_use_in": ["ARCHITECTURE.md", "AGENTS.md"]
+    },
+    {
+      "canonical": "Converter",
+      "layer": "aux",
+      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+      "synonyms": ["変換器", "マッパー"],
+      "should_use_in": ["ARCHITECTURE.md"]
     }
   ],
-  "total_synonyms": 35,
-  "auto_decisions_count": 16
+  "auto_decisions_count": 16,
+  "auto_decision_categories": {
+    "Agent": 2,
+    "Message": 3,
+    "State": 3,
+    "AutoChat": 3,
+    "Backend": 3,
+    "Memory": 4,
+    "Session": 1,
+    "Connector": 1
+  }
 }

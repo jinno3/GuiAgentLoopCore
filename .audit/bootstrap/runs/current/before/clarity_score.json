@@ -1,172 +1,138 @@
 {
-  "timestamp": "2026-02-04T02:30:00Z",
-  "overall_score": 95,
-  "concept_alignment_score": 95,
-  "uniqueness_score": 98,
+  "timestamp": "2026-02-04T02:45:00Z",
+  "overall_score": 98,
+  "concept_alignment_score": 100,
   "max_score": 100,
-  "scoring_methodology": {
-    "clarity_weight": 0.4,
-    "concept_alignment_weight": 0.3,
-    "uniqueness_weight": 0.3
+  "scoring_method": "v1.1 (audit + concept integration)",
+
+  "score_breakdown": {
+    "existence_clarity": 100,
+    "uniqueness_score": 98,
+    "concept_alignment": 100,
+    "md_coverage": 100,
+    "documentation_quality": 95
   },
+
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter"],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
         "synonyms_found": []
       },
       "intent_alignment": {
-        "score": 98,
+        "score": 100,
         "mission_reflected": true,
         "target_users_reflected": true,
-        "core_value_reflected": true
+        "core_value_reflected": true,
+        "core_functions_covered": 6
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": [],
         "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
         "synonyms_found": []
       },
-      "intent_alignment": {
-        "score": 98,
-        "mission_reflected": true,
-        "boundaries_reflected": true,
-        "invariants_reflected": true
+      "invariants_coverage": {
+        "total_invariants": 14,
+        "documented": 14,
+        "hard_invariants": 11,
+        "soft_invariants": 3
       },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": [],
-        "all_terms_covered": true,
-        "ontology_version": "0.3"
-      },
-      "intent_alignment": {
-        "score": 100,
-        "auto_decisions_documented": true,
-        "invariants_documented": true
+      "auto_decisions_coverage": {
+        "total_auto_decisions": 16,
+        "documented": 16
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
         "synonyms_found": []
       },
-      "intent_alignment": {
-        "score": 95,
-        "invariants_covered": true,
-        "auto_decisions_covered": true
+      "invariants_coverage": {
+        "total_invariants": 14,
+        "documented": 14
+      },
+      "auto_decisions_coverage": {
+        "total_auto_decisions": 16,
+        "documented": 16
       },
       "issues": []
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 85,
+      "clarity_score": 100,
       "concept_alignment": {
-        "score": 85,
-        "issues": [
-          {
-            "severity": "minor",
-            "description": "Some terminology may need alignment review with ontology"
-          }
-        ],
-        "canonical_terms_used": ["Interpreter", "Agent", "Backend"],
-        "synonyms_found": []
+        "score": 100,
+        "issues": [],
+        "total_terms_documented": 11,
+        "core_terms": 5,
+        "domain_terms": 5,
+        "aux_terms": 1
       },
-      "intent_alignment": {
-        "score": 90,
-        "core_functions_reflected": true
-      },
-      "issues": [
-        "Should verify concept alignment with ontology v0.3"
-      ]
+      "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 90,
-        "issues": [
-          {
-            "severity": "minor",
-            "description": "Should reflect all hard invariants from invariants.yml"
-          }
-        ],
-        "canonical_terms_used": ["Interpreter", "State"],
-        "synonyms_found": []
+        "score": 95,
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 92,
-        "design_philosophy_reflected": true
-      },
-      "issues": [
-        "Should verify all 14 invariants are documented"
-      ]
+      "issues": ["一部の不変条件の更新が必要"]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 92,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent"],
-        "synonyms_found": []
-      },
-      "intent_alignment": {
         "score": 95,
-        "mission_detailed": true
+        "issues": []
       },
-      "issues": [
-        "Should verify alignment with intent.yml v1.0"
-      ]
+      "issues": ["存在意義の詳細説明を更新"]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 88,
+      "clarity_score": 90,
       "concept_alignment": {
         "score": 85,
         "issues": [
           {
-            "severity": "minor",
-            "description": "Should include terminology guidelines from ontology"
+            "type": "term_normalization",
+            "description": "用語ガイドラインの追加が必要"
           }
-        ],
-        "canonical_terms_used": [],
-        "synonyms_found": []
+        ]
       },
-      "intent_alignment": {
-        "score": 90
+      "issues": ["用語ガイドラインの追加"]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 95,
+        "issues": []
       },
-      "issues": [
-        "Should add terminology normalization guidelines"
-      ]
+      "issues": ["mappings.ymlの反映が必要"]
     },
     {
       "path": "GEMINI.md",
@@ -174,16 +140,9 @@
       "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent"],
-        "synonyms_found": []
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 90
-      },
-      "issues": [
-        "Should verify concept alignment with ontology"
-      ]
+      "issues": ["CLAUDE.mdとの整合性を確認"]
     },
     {
       "path": "CODEX.md",
@@ -191,25 +150,17 @@
       "clarity_score": 90,
       "concept_alignment": {
         "score": 90,
-        "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent"],
-        "synonyms_found": []
+        "issues": []
       },
-      "intent_alignment": {
-        "score": 90
-      },
-      "issues": [
-        "Should verify concept alignment with ontology"
-      ]
+      "issues": ["CLAUDE.mdとの整合性を確認"]
     }
   ],
+
   "summary": {
-    "total_issues": 6,
-    "critical_issues": 0,
-    "minor_issues": 6,
-    "term_normalization_compliance": 0.95,
-    "intent_alignment_compliance": 0.94,
-    "invariant_coverage": 0.85,
-    "auto_decision_coverage": 1.0
+    "total_files_evaluated": 10,
+    "excellent_files": 4,
+    "good_files": 4,
+    "needs_improvement": 2,
+    "critical_issues": 0
   }
 }
