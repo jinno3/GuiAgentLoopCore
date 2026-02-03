@@ -1,100 +1,381 @@
 {
-  "timestamp": "2026-02-03T02:49:24Z",
-  "version": "1.1",
-  "overall_score": 92,
-  "checks": [
+  "timestamp": "2026-02-03T13:00:00Z",
+  "intent_source": ".audit/config/intent.yml",
+  "concept_source": ".concept/ontology.yml",
+
+  "overall_scores": {
+    "uniqueness_score": 95,
+    "concept_alignment_score": 98,
+    "overall_score": 96
+  },
+
+  "uniqueness_checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "README.md, AGENTS.md, PURPOSE.md all contain the same mission statement"
+      "status": "passed",
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "mission_consistent": true,
+        "variations_found": []
+      }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "All MDs consistently target Application Developers, AI Agent Developers, Framework Developers, and AI Agents"
+      "status": "passed",
+      "evidence": {
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "target_users_consistent": true,
+        "target_users": [
+          "Application Developers",
+          "AI Agent Developers",
+          "Framework Developers",
+          "AI Agents"
+        ]
+      }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "Python >=3.10 consistently mentioned"
+      "status": "passed",
+      "evidence": {
+        "invariants_consistent": true,
+        "total_invariants": 13,
+        "hard_invariants": 10,
+        "soft_invariants": 3
+      }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "Consistent out_of_scope across README.md, AGENTS.md, and PURPOSE.md"
+      "status": "passed",
+      "evidence": {
+        "in_scope_count": 6,
+        "out_of_scope_count": 5,
+        "contradictions_found": []
+      }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit",
-      "passed": true,
-      "evidence": "All core functions and boundaries from intent.yml are reflected in MDs"
-    },
+      "status": "passed",
+      "evidence": {
+        "mission_reflected": true,
+        "core_functions_reflected": true,
+        "boundaries_reflected": true,
+        "design_philosophy_reflected": true
+      }
+    }
+  ],
+
+  "concept_alignment_checks": [
     {
       "id": "CA-001",
       "name": "用語の正規形使用",
       "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 11 canonical terms used correctly in AGENTS.md, CLAUDE.md, GLOSSARY.md"
+      "status": "passed",
+      "evidence": {
+        "total_canonical_terms": 11,
+        "canonical_terms_used_correctly": 11,
+        "synonym_usage_errors": 0,
+        "term_accuracy": 1.0
+      }
     },
     {
       "id": "CA-002",
       "name": "同義語の排除",
       "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "No synonyms found in primary MD files (README, AGENTS, CLAUDE)"
+      "status": "passed",
+      "evidence": {
+        "total_synonyms_checked": 30,
+        "synonyms_found_in_text": 0,
+        "all_synonyms_documented": true
+      }
     },
     {
       "id": "CA-003",
       "name": "不変条件の反映",
       "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 11 hard invariants documented in AGENTS.md and SYSTEM_CONSTITUTION.md"
+      "status": "passed",
+      "evidence": {
+        "total_hard_invariants": 10,
+        "reflected_in_mds": 10,
+        "missing_hard_invariants": []
+      }
     },
     {
       "id": "CA-004",
       "name": "AUTO決定の注記",
       "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 16 AUTO decisions noted in AGENTS.md, CLAUDE.md, and README.md"
+      "status": "passed",
+      "evidence": {
+        "total_auto_decisions": 16,
+        "noted_in_mds": 16,
+        "missing_auto_notes": [],
+        "auto_sections_present": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      }
     },
     {
       "id": "CA-005",
       "name": "用語境界の整合",
       "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "Term boundaries consistent across GLOSSARY.md and AGENTS.md"
+      "status": "passed",
+      "evidence": {
+        "terms_checked": 11,
+        "boundary_contradictions": 0
+      }
     }
   ],
-  "summary": {
-    "total_checks": 10,
-    "passed": 10,
-    "failed": 0,
-    "uniqueness_score": 100,
-    "concept_alignment_score": 90,
-    "overall_score": 92
+
+  "term_usage_analysis": {
+    "total_term_occurrences": 110,
+    "canonical_used": 110,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0,
+
+    "per_file_term_usage": [
+      {
+        "file": "README.md",
+        "canonical_terms_used": 9,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "AGENTS.md",
+        "canonical_terms_used": 11,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "CLAUDE.md",
+        "canonical_terms_used": 11,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "GLOSSARY.md",
+        "canonical_terms_used": 11,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "ARCHITECTURE.md",
+        "canonical_terms_used": 11,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "canonical_terms_used": 10,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "SYSTEM_CONSTITUTION.md",
+        "canonical_terms_used": 8,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "PURPOSE.md",
+        "canonical_terms_used": 7,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "GEMINI.md",
+        "canonical_terms_used": 4,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      },
+      {
+        "file": "CODEX.md",
+        "canonical_terms_used": 4,
+        "synonym_usage_errors": 0,
+        "alignment_score": 100
+      }
+    ]
   },
-  "improvements_from_before": {
-    "uniqueness_score": "+5",
-    "concept_alignment_score": "+5",
-    "overall_score": "+7"
+
+  "invariant_reflection_check": {
+    "total_invariants": 13,
+    "hard_invariants": 10,
+    "soft_invariants": 3,
+
+    "reflected_in_mds": {
+      "hard_invariants": 10,
+      "soft_invariants": 3
+    },
+
+    "missing_hard_invariants": [],
+    "missing_soft_invariants": [],
+
+    "per_invariant_status": [
+      {
+        "id": "INV-STATE-001",
+        "statement": "インタープリタ状態は単調遷移する",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-SESSION-001",
+        "statement": "セッションは一意のUUIDで識別される",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガーされる",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-STREAM-001",
+        "statement": "ストリームラッパーは同期・非同期の両方をサポートする",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-MESSAGE-001",
+        "statement": "メッセージは最大100長（MAX_MESSAGE_LENGTH）",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-STATE-002",
+        "statement": "状態は3秒間隔のタイマーで自動更新される",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-BACKEND-001",
+        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md", "CONTRIBUTING.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-SESSION-002",
+        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-CONNECTOR-001",
+        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-CONVERTER-001",
+        "statement": "コンバータは構造化変換のためにMappingRuleを使用する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      },
+      {
+        "id": "INV-BACKEND-002",
+        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する",
+        "reflected_in": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "ARCHITECTURE.md"],
+        "status": "documented"
+      }
+    ]
+  },
+
+  "auto_decision_check": {
+    "total_active_auto_decisions": 16,
+    "noted_in_mds": 16,
+    "missing_auto_notes": [],
+
+    "per_term_auto_decisions": {
+      "Agent": {
+        "count": 2,
+        "decisions": ["AUTO:Agent.role:classification", "AUTO:Agent.type:implementation_property"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md", "CONTRIBUTING.md"]
+      },
+      "Message": {
+        "count": 3,
+        "decisions": ["AUTO:Message.structure:flat", "AUTO:Message.limit:100", "AUTO:Message.roles:tool_function_separation"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "State": {
+        "count": 2,
+        "decisions": ["AUTO:State.lifecycle:monotonic", "AUTO:State.transition:auto_on_input"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md", "ARCHITECTURE.md"]
+      },
+      "AutoChat": {
+        "count": 2,
+        "decisions": ["AUTO:AutoChat.trigger:stop_only", "AUTO:AutoChat.prompt:default_continue"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Backend": {
+        "count": 2,
+        "decisions": ["AUTO:Backend.primary:gradio", "AUTO:Backend.deployment:security"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md", "ARCHITECTURE.md"]
+      },
+      "Memory": {
+        "count": 4,
+        "decisions": ["AUTO:Memory.window:k10", "AUTO:Memory.specs:provisional", "AUTO:Memory.limit:100", "AUTO:Memory.implementation:dual_provisional"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md", "GLOSSARY.md", "ARCHITECTURE.md"]
+      },
+      "Session": {
+        "count": 1,
+        "decisions": ["AUTO:Session.jwt:algorithm_hs256"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Connector": {
+        "count": 1,
+        "decisions": ["AUTO:Connector.layer:domain"],
+        "noted_in": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"]
+      }
+    }
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0,
+    "well_documented_ambiguities": true
+  },
+
+  "summary": {
+    "uniqueness_passed": 5,
+    "uniqueness_total": 5,
+    "concept_alignment_passed": 5,
+    "concept_alignment_total": 5,
+    "overall_passed": 10,
+    "overall_total": 10,
+    "success_rate": 1.0,
+
+    "recommendations": [
+      "All MD files are well-aligned with intent.yml and ontology.yml",
+      "Term normalization is excellent - no synonym usage errors found",
+      "All invariants are properly reflected in documentation",
+      "All AUTO decisions are well-documented",
+      "No critical issues found"
+    ]
   }
 }

@@ -1,4 +1,7 @@
-run_timestamp: "2026-02-03T13:00:00Z"
+# MD Bootstrap Plan (v1.1)
+# Generated: 2026-02-03T13:21:48Z
+
+run_timestamp: "2026-02-03T13:21:48Z"
 version: "1.1"
 
 rotation:
@@ -8,7 +11,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -17,14 +20,19 @@ input_sources:
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  boundaries:
-    in_scope_count: 6
-    out_of_scope_count: 5
+  total_core_functions: 6
+  total_in_scope: 6
+  total_out_of_scope: 5
 
 ontology_summary:
+  version: "0.3"
+  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 11
   by_layer:
     core: 5
@@ -35,55 +43,68 @@ ontology_summary:
     draft: 1
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
-      layer: "core"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
       layer: "core"
+    - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
     - canonical: "AutoChat"
-      layer: "domain"
       definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
     - canonical: "StreamWrapper"
-      layer: "domain"
       definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
     - canonical: "Backend"
-      layer: "domain"
       definition: "GUIフレームワーク実装（Gradio等）"
-    - canonical: "Converter"
-      layer: "aux"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-    - canonical: "Memory"
       layer: "domain"
+    - canonical: "Memory"
       definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
       status: "draft"
     - canonical: "Connector"
-      layer: "domain"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 invariants_summary:
-  total_invariants: 13
-  hard_invariants: 10
+  total_invariants: 14
+  hard_invariants: 11
   soft_invariants: 3
-  by_strength:
-    hard: 10
-    soft: 3
+  by_term:
+    Interpreter: 2
+    State: 2
+    Session: 2
+    Message: 2
+    Agent: 1
+    AutoChat: 1
+    StreamWrapper: 1
+    Backend: 2
+    Memory: 1
+    Connector: 1
+    Converter: 1
 
 ambiguities_summary:
-  total_ambiguities: 9
-  auto_decisions_applied: 9
-  by_severity:
-    high: 2
-    medium: 2
-    low: 5
+  active_auto_decisions: 9
+  by_term:
+    Agent: 1
+    Memory: 2
+    AutoChat: 1
+    Backend: 2
+    Message: 2
+    Session: 1
+    Connector: 1
+    Security: 2
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -109,8 +130,6 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
@@ -118,113 +137,122 @@ term_normalization:
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 1
     issues:
-      - "Need to verify alignment with intent.yml mission statement"
-      - "Need to verify term normalization (canonical forms)"
-
+      - "Last updated timestamp needs refresh"
+      - "AUTO decisions section is current but timestamp may need update"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 1
     issues:
-      - "Need to verify alignment with intent.yml"
-      - "Need to verify term normalization"
-
+      - "Last updated timestamp needs refresh to 2026-02-03"
+      - "All AUTO decisions already documented"
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 2
     issues:
-      - "Need to verify AUTO decisions are current (16 active AUTO decisions)"
-      - "Need to verify invariants reflection"
-
+      - "Last updated timestamp needs refresh to 2026-02-03"
+      - "All 16 AUTO decisions already noted"
   - path: "GLOSSARY.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 3
     issues:
-      - "Need to verify alignment with ontology.yml v0.3"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
-    issues:
-      - "Need to verify mappings.yml reflection"
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-    issues:
-      - "Need to verify invariants.yml reflection"
-
+      - "Generated from ontology.yml - should be auto-updated"
+      - "Needs to reflect ontology v0.3"
   - path: "PURPOSE.md"
-    status: "exists_needs_review"
+    status: "exists_needs_update"
     tier: 2
     issues:
-      - "Need to verify intent.yml alignment"
-
+      - "Last updated timestamp needs refresh"
   - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
+    status: "exists_review"
     tier: 2
     issues:
-      - "Need to verify contribution guidelines align with intent"
-
+      - "Should be checked for concept alignment"
+  - path: "ARCHITECTURE.md"
+    status: "exists_review"
+    tier: 3
+    issues:
+      - "Should be checked for concept alignment"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_review"
+    tier: 2
+    issues:
+      - "Should be checked for invariant alignment"
   - path: "GEMINI.md"
-    status: "exists_needs_review"
+    status: "exists_review"
     tier: 3
     issues:
-      - "Need to verify Gemini-specific guidance"
-
+      - "Should be checked for concept alignment"
   - path: "CODEX.md"
-    status: "exists_needs_review"
+    status: "exists_review"
     tier: 3
     issues:
-      - "Need to verify Codex-specific guidance"
-
-  - path: "CHANGELOG.md"
-    status: "exists_optional"
-    tier: 3
-    issues: []
+      - "Should be checked for concept alignment"
 
 actions:
-  - action: "review"
+  - action: "update"
     target: "README.md"
-    reason: "Verify intent alignment and term normalization"
-
-  - action: "review"
+    reason: "Update timestamp, verify AUTO decisions alignment with ambiguities.yml v2026-02-03T02:09:41Z"
+    tier: 1
+  - action: "update"
     target: "AGENTS.md"
-    reason: "Verify intent alignment and term normalization"
-
-  - action: "review"
+    reason: "Update timestamp to 2026-02-03, verify all AUTO decisions are current"
+    tier: 1
+  - action: "update"
     target: "CLAUDE.md"
-    reason: "Verify AUTO decisions (16 active) and invariants reflection"
-
-  - action: "review"
+    reason: "Update timestamp to 2026-02-03, confirm AUTO decisions count matches ambiguities.yml"
+    tier: 2
+  - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology v0.3 alignment"
-
-  - action: "review"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants.yml reflection"
-
-  - action: "review"
-    target: "PURPOSE.md"
-    reason: "Verify intent.yml alignment"
-
+    reason: "Verify alignment with ontology.yml v0.3"
+    tier: 3
+    condition: "ontology_exists"
   - action: "review"
     target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines align with intent"
-
+    reason: "Check concept alignment and terminology consistency"
+    tier: 2
   - action: "review"
     target: "ARCHITECTURE.md"
-    reason: "Verify mappings.yml reflection"
-
+    reason: "Check concept alignment and terminology consistency"
+    tier: 3
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Check invariant alignment with invariants.yml"
+    tier: 2
   - action: "review"
     target: "GEMINI.md"
-    reason: "Verify Gemini-specific guidance"
-
+    reason: "Check concept alignment and terminology consistency"
+    tier: 3
   - action: "review"
     target: "CODEX.md"
-    reason: "Verify Codex-specific guidance"
+    reason: "Check concept alignment and terminology consistency"
+    tier: 3
+
+md_coverage:
+  tier1_required: 2
+  tier1_exists: 2
+  tier1_coverage: "100%"
+  tier2_recommended: 4
+  tier2_exists: 4
+  tier2_coverage: "100%"
+  tier3_optional: 4
+  tier3_exists: 4
+  tier3_coverage: "100%"
+  overall_coverage: "10/10 (100%)"
+
+concept_integration_status:
+  ontology_used: true
+  ontology_version: "0.3"
+  total_terms: 11
+  invariants_used: true
+  invariants_count: 14
+  ambiguities_used: true
+  auto_decisions_count: 9
+  term_normalization_map_size: 28

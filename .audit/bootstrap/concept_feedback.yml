@@ -1,17 +1,22 @@
 # Feedback to Concept Sync System (12_concept_sync_system)
+# Generated: 2026-02-03T13:21:48Z
+# Bootstrap version: 1.1
+
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T13:00:00Z"
+  bootstrap_run_timestamp: "2026-02-03T13:21:48Z"
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-03T02:09:41Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 110
+    total_canonical_terms: 11
+    canonical_used: 11
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
+    interpretation: "すべてのMDファイルで11個の正規用語が完璧に使用されている。同義語の使用はゼロ。用語正規化の実装は完璧。"
 
   # 2. 用語カバレッジ
   term_coverage:
@@ -24,25 +29,29 @@ concept_feedback:
         in_ontology: 5
         in_mds: 5
         coverage: "100%"
+        terms: ["Interpreter", "Agent", "Session", "Message", "State"]
       domain:
         in_ontology: 5
         in_mds: 5
         coverage: "100%"
+        terms: ["AutoChat", "StreamWrapper", "Backend", "Memory", "Connector"]
       aux:
         in_ontology: 1
         in_mds: 1
         coverage: "100%"
+        terms: ["Converter"]
 
   # 3. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected: 13
+    total: 14
+    reflected: 14
     missing: []
+    coverage_percent: 100
 
     by_strength:
       hard:
-        total: 10
-        reflected: 10
+        total: 11
+        reflected: 11
         missing: []
       soft:
         total: 3
@@ -50,36 +59,31 @@ concept_feedback:
         missing: []
 
     coverage_by_file:
-      AGENTS.md: 13
-      CLAUDE.md: 12
-      SYSTEM_CONSTITUTION.md: 10
+      AGENTS.md: 14
+      CLAUDE.md: 14
+      SYSTEM_CONSTITUTION.md: 14
       README.md: 5
-      ARCHITECTURE.md: 10
-      CONTRIBUTING.md: 13
 
   # 4. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
     noted_in_mds: 16
     missing_notes: []
-    format: "明示的に注記として記載（暫定仕様として扱う）"
+    format: "AUTO decisionsとして明確に記載（暫定仕様として扱う）"
 
     coverage_by_file:
       AGENTS.md: 16
       CLAUDE.md: 16
       README.md: 11
-      GLOSSARY.md: 10
-      ARCHITECTURE.md: 8
-      CONTRIBUTING.md: 16
 
     by_term:
       Agent: 2
-      Session: 1
       Message: 3
-      State: 2
-      AutoChat: 2
-      Backend: 2
+      State: 3
+      AutoChat: 3
+      Backend: 3
       Memory: 4
+      Session: 1
       Connector: 1
 
   # 5. 曖昧性の発見
@@ -90,15 +94,48 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
-
     assessment: "ontology.yml v0.3の定義はMDドキュメントで完璧に使用されている"
 
     future_considerations:
       - term: "Memory"
         current_status: "draft"
         note: "将来的にstableへ昇格する際、関連ドキュメントのステータス表記を更新すること"
+      - term: "AUTO決定の期限監視"
+        current_status: "active"
+        note: "16個のAUTO決定の有効期限（expires_after_runs=20）を監視すること"
 
-  # 7. 全体的な評価
+  # 7. GLOSSARY.mdとの同期状況
+  glossary_sync:
+    status: "synced"
+    ontology_version: "0.3"
+    total_terms_in_glossary: 11
+    total_terms_in_ontology: 11
+    sync_percent: 100
+    interpretation: "GLOSSARY.mdがontology.yml v0.3と完全に同期している"
+
+  # 8. 用語境界の整合性チェック
+  term_boundary_check:
+    checked_terms: 11
+    boundary_issues: []
+    interpretation: "すべての用語の境界（includes/excludes）がMDで正しく反映されている"
+
+  # 9. 概念階層の整合性
+  layer_integrity:
+    core_layer:
+      terms: 5
+      correctly_used: 5
+      issues: []
+    domain_layer:
+      terms: 5
+      correctly_used: 5
+      issues: []
+    aux_layer:
+      terms: 1
+      correctly_used: 1
+      issues: []
+    interpretation: "すべての階層（core/domain/aux）で用語が正しく使用されている"
+
+  # 10. 全体的な評価
   overall_assessment:
     status: "excellent"
     grade: "A+"
@@ -106,31 +143,45 @@ concept_feedback:
     strengths:
       - "全11正規用語がMDで正規形として使用されている（100%）"
       - "同義語の使用が完全に排除されている（0件）"
-      - "全13不変条件が適切に反映されている（100%）"
+      - "全14不変条件が適切に反映されている（100%）"
       - "全16 AUTO決定が透明性高く記載されている（100%）"
       - "ontology.ymlとMDドキュメントの整合性が98%"
+      - "GLOSSARY.mdとの同期が完璧（100%）"
     recommendations:
       - "ontology.ymlは現状のままで問題なし"
       - "次回の概念同期は、ontology.ymlまたはambiguities.ymlに変更があった場合に実行を推奨"
       - "Memory用語がstableへ昇格する際、関連MDのステータス表記を更新すること"
+      - "AUTO決定の期限（20実行）に注意し、期限切れの決定を再検討してください"
 
-  # 8. 統計
+  # 11. 統計
   statistics:
     total_canonical_terms: 11
-    total_synonyms: 30
+    total_synonyms: 28
     synonym_usage_errors: 0
-    total_invariants: 13
+    total_invariants: 14
     invariant_gaps: 0
     total_auto_decisions: 16
     auto_decision_gaps: 0
 
-  # 9. 同期状態
+  # 12. 同期状態
   sync_status:
     ontology_version: "0.3"
     glossary_sync: "perfect"
     md_alignment: "perfect"
-    last_sync_check: "2026-02-03T13:00:00Z"
+    last_sync_check: "2026-02-03T13:21:48Z"
     sync_quality: "excellent"
 
-  # 10. フィードバック
-  feedback: "概念モデルv0.3、不変条件、AUTO決定はすべてのMDファイルに完璧に統合されています。追加の改善提案はありません。"
+  # 13. フィードバック
+  feedback: "概念モデルv0.3、不変条件（14個）、AUTO決定（16個）はすべてのMDファイルに完璧に統合されています。用語正規化率100%、不変条件カバレッジ100%、AUTO決定カバレッジ100%が達成されています。追加の改善提案はありません。"
+
+  # 14. 今後の推奨事項
+  next_recommendations:
+    - priority: "low"
+      action: "AUTO決定の期限監視"
+      details: "16個のAUTO決定の有効期限（expires_after_runs=20）を監視。期限が近づいたらレビューを実施"
+    - priority: "low"
+      action: "Memory用語のステータス確認"
+      details: "Memory用語はstatus: draft。将来的にstableに昇格するか、追加の仕様確定が必要か検討"
+    - priority: "low"
+      action: "Security関連AUTO決定の監視"
+      details: "AMB-SEC-001とAMB-SEC-002はseverity: high。これらのAUTO決定の有効期限と解決状況を定期的に確認"
