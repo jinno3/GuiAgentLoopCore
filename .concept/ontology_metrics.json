@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-03T15:40:32Z",
+  "last_updated": "2026-02-04T00:54:45Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -24,7 +24,7 @@
   "queue_merged": 8,
   "queue_accepted": 1,
   "queue_rejected": 5,
-  "claims_count": 420,
+  "claims_count": 435,
   "mappings_count": 11,
   "decisions_active": 9,
   "decisions_expired": 0,
@@ -49,12 +49,12 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Run #168 - Concept sync monitoring run (documentation updates only)"
+    "reason": "Run #169 - Concept sync monitoring run (health check)"
   },
   "this_run_summary": {
-    "run_id": "2026-02-03T15:40:32Z",
-    "previous_run_id": "2026-02-04T00:23:24Z",
-    "run_count": 168,
+    "run_id": "2026-02-04T00:54:45Z",
+    "previous_run_id": "2026-02-03T15:40:32Z",
+    "run_count": 169,
     "run_type": "monitoring",
     "claims_added": 15,
     "ambiguities_added": 0,
@@ -65,25 +65,22 @@
     "conflicts_resolved": 0,
     "ontology_updated": false,
     "files_analyzed": [
-      "AGENTS.md",
-      "CLAUDE.md",
-      "GLOSSARY.md",
-      "README.md",
-      ".concept/ontology.yml",
-      ".concept/invariants.yml",
+      ".concept/run_state.json",
+      ".concept/ontology_metrics.json",
       ".concept/ambiguities.yml",
-      ".concept/conflicts.yml",
-      ".concept/term_queue.yml",
       ".concept/decisions.md",
+      ".concept/term_queue.yml",
+      ".concept/conflicts.yml",
+      ".concept/invariants.yml",
+      ".concept/ontology.yml",
       ".concept/mappings.yml",
-      ".concept/ontology_budget.yml",
-      ".concept/tombstones.yml"
+      ".concept/tombstones.yml",
+      "CLAUDE.md"
     ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #168 completed - Concept sync monitoring run (documentation updates only)",
-      "Documentation changes detected: GLOSSARY.md, AGENTS.md, CLAUDE.md, README.md",
-      "No new source code changes since run #167",
+      "Run #169 completed - Concept sync monitoring run (health check)",
+      "No new documentation or code changes since run #168",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.3 limit)",
       "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted",
@@ -93,9 +90,10 @@
       "All budget limits within acceptable ranges",
       "No conflicts detected - semantic check PASSED",
       "Bloat control checks passed - no GC needed",
-      "Run state updated: run_count 167 -> 168",
-      "Claims added: 15 monitoring/documentation claims",
-      "Security AUTO decisions remain active - implementation URGENT"
+      "Run state updated: run_count 168 -> 169",
+      "Claims added: 15 monitoring/health check claims",
+      "Security AUTO decisions remain active - implementation URGENT",
+      "CLAUDE.md bootstrap v1.1 verification confirmed"
     ]
   },
   "health_check": {
