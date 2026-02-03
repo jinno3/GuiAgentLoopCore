@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-03T12:06:29Z",
+  "last_updated": "2026-02-03T12:21:29Z",
   "total_terms": 11,
   "terms_by_layer": {
     "core": 5,
@@ -49,17 +49,17 @@
     "deleted": 0,
     "deprecated": 0,
     "rejected": 0,
-    "reason": "Run #153 - Concept sync via AI Hub instruction execution (12_concept_sync_system.md)"
+    "reason": "Run #154 - Concept sync via AI Hub instruction execution (12_concept_sync_system.md)"
   },
   "this_run_summary": {
-    "run_id": "2026-02-03T12:06:29Z",
-    "previous_run_id": "2026-02-03T11:48:35Z",
-    "run_count": 153,
-    "run_type": "monitoring",
+    "run_id": "2026-02-03T12:21:29Z",
+    "previous_run_id": "2026-02-03T12:06:29Z",
+    "run_count": 154,
+    "run_type": "monitoring_with_critical_action",
     "claims_added": 0,
     "ambiguities_added": 0,
     "auto_decisions_added": 0,
-    "auto_decisions_renewed": 0,
+    "auto_decisions_renewed": 2,
     "auto_decisions_expired": 0,
     "queue_processed": 0,
     "conflicts_resolved": 0,
@@ -77,8 +77,10 @@
     ],
     "bloat_control_triggered": false,
     "actions_taken": [
-      "Run #153 completed - Concept sync via AI Hub instruction execution (12_concept_sync_system.md)",
-      "No new code or documentation changes detected since run #152",
+      "Run #154 completed - Concept sync via AI Hub instruction execution (12_concept_sync_system.md)",
+      "CRITICAL ACTION: Renewed 2 expiring security AUTO decisions (AMB-SEC-001, AMB-SEC-002)",
+      "Security AUTO decisions extended for another 20 runs (will expire at run #174)",
+      "No new code or documentation changes detected since run #153",
       "Ontology health verified: 11 terms (5 core, 5 domain, 1 aux)",
       "Draft ratio: 0.09 (within 0.3 limit)",
       "Queue status: 0 pending, 8 merged, 5 rejected, 1 accepted",
@@ -88,8 +90,8 @@
       "All budget limits within acceptable ranges",
       "No conflicts detected",
       "Bloat control checks passed - no GC needed",
-      "AUTO decision expiration warning: ~1 run remaining before security decisions expire (renewed at run #134, expires_after_runs=20)",
-      "Run state updated: run_count 152 -> 153"
+      "Security AUTO decisions successfully renewed",
+      "Run state updated: run_count 153 -> 154"
     ]
   },
   "health_check": {
@@ -102,15 +104,16 @@
     "semantic_check_status": "PASSED - no contradictions detected"
   },
   "expiration_warnings": [
-    "AUTO decisions renewed at run #134 will expire in ~1 run (around run #154)",
-    "Security AUTO decisions (AMB-SEC-001, AMB-SEC-002) require immediate attention before expiration"
+    "Security AUTO decisions have been renewed at run #154",
+    "Next expiration will occur at run #174 (20 runs from now)",
+    "Continue to monitor security AUTO decisions and implement fixes before expiration"
   ],
   "next_steps": [
+    "URGENT: Implement security fixes for AMB-SEC-001 (move secret key to environment variable)",
+    "URGENT: Fix or remove jwt_decode_session() method for AMB-SEC-002",
     "Continue regular ontology sync runs to monitor concept drift",
-    "URGENT: Review and renew security AUTO decisions before run #154 (AMB-SEC-001: hardcoded secret key, AMB-SEC-002: JWT decode method bug)",
-    "Address security ambiguities: implement environment variable for secret key, fix/remove jwt_decode_session() method",
     "Consider promoting draft terms (Memory) to stable when appropriate",
     "Monitor for new code changes that may introduce new concepts",
-    "Plan AUTO decision renewal for run #154"
+    "Plan AUTO decision renewal for run #174"
   ]
 }

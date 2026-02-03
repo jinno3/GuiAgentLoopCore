@@ -7,7 +7,7 @@
 - Expires After Runs: 20
 - Linked: AMB-SEC-001
 - Revert Triggers: primary_evidence_contradiction, security_risk_escalation
-- Note: AUTO decision renewed for run #134 (was expired)
+- Note: AUTO decision renewed for run #154 (was expiring at run #154)
 
 ## AUTO:Session.jwt:decode_method_fix
 - Status: ACTIVE (renewed)
@@ -16,7 +16,7 @@
 - Expires After Runs: 20
 - Linked: AMB-SEC-002
 - Revert Triggers: primary_evidence_contradiction, runtime_error
-- Note: AUTO decision renewed for run #134 (was expired)
+- Note: AUTO decision renewed for run #154 (was expiring at run #154)
 
 
 

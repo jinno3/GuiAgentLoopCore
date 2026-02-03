@@ -1,4 +1,4 @@
-updated_at: "2026-02-03T02:09:41Z"
+updated_at: "2026-02-03T12:21:29Z"
 ambiguities:
   - id: "AMB-AGT-001"
     term: "Agent"
@@ -198,10 +198,10 @@ ambiguities:
       revert_triggers:
         - "primary_evidence_contradiction"
         - "security_risk_escalation"
-    last_touched_run: "2026-02-03T02:09:41Z"
+    last_touched_run: "2026-02-03T12:21:29Z"
     evidence:
       - source: "gui_agent_loop_core/core/interpreter_manager.py:77"
-        quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern) - AUTO decision renewed for run #134"
+        quote: "self.secret_key = 'jwt_secret_key_2571' (hardcoded, security concern) - AUTO decision renewed for run #154"
 
   - id: "AMB-SEC-002"
     term: "Session"
@@ -227,10 +227,10 @@ ambiguities:
       revert_triggers:
         - "primary_evidence_contradiction"
         - "runtime_error"
-    last_touched_run: "2026-02-03T02:09:41Z"
+    last_touched_run: "2026-02-03T12:21:29Z"
     evidence:
       - source: "gui_agent_loop_core/core/interpreter_manager.py:56-60"
-        quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key - AUTO decision renewed for run #134"
+        quote: "def jwt_decode_session(self): token_data = jwt.decode(token, secret_key, algorithms=['HS256']) return token_data['session_id'] - undefined variables: token, secret_key - AUTO decision renewed for run #154"
 
   - id: "AMB-CON-001"
     term: "Connector"
