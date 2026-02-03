@@ -1,4 +1,5 @@
-run_timestamp: "2026-02-04T02:56:00Z"
+# MD Bootstrap Plan (v1.1)
+run_timestamp: "2026-02-04T03:10:00Z"
 version: "1.1"
 
 rotation:
@@ -8,102 +9,171 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
+  version: "0.3"
+  updated_at: "2026-02-03T12:21:29Z"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  total_auto_decisions: 16
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+    - canonical: "AutoChat"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+    - canonical: "StreamWrapper"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+      layer: "domain"
+    - canonical: "Backend"
+      definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+    - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
+      layer: "domain"
+      status: "draft"
+    - canonical: "Connector"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 term_normalization:
-  "会話インタープリタ": "Interpreter"
   "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
-  "会話セッション": "Session"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
+  "会話セッション": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "verified"
+    status: "exists_verified"
     issues: []
+    notes: "Already aligned with intent and ontology. All terms use canonical forms."
+
   - path: "AGENTS.md"
-    status: "verified"
+    status: "exists_verified"
     issues: []
-  - path: "CLAUDE.md"
-    status: "verified"
-    issues: []
+    notes: "Already aligned with intent and ontology. All 16 AUTO decisions documented."
+
   - path: "GLOSSARY.md"
-    status: "verified"
+    status: "exists_verified"
     issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "needs_review"
-    issues: ["一部の不変条件の更新が必要"]
+    notes: "Auto-generated from ontology.yml. Up to date with v0.3."
+
+  - path: "CLAUDE.md"
+    status: "exists_verified"
+    issues: []
+    notes: "Claude-specific instructions with term normalization."
+
   - path: "PURPOSE.md"
-    status: "needs_review"
-    issues: ["存在意義の詳細説明を更新"]
+    status: "exists"
+    notes: "Mission and purpose documentation."
+
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists"
+    notes: "System constitution and invariants."
+
   - path: "CONTRIBUTING.md"
-    status: "needs_review"
-    issues: ["用語ガイドラインの追加で改善可能"]
+    status: "exists"
+    notes: "Contribution guidelines."
+
   - path: "ARCHITECTURE.md"
-    status: "needs_review"
-    issues: ["mappings.ymlの反映が必要"]
+    status: "exists"
+    notes: "Architecture documentation."
+
   - path: "GEMINI.md"
-    status: "needs_review"
-    issues: ["CLAUDE.mdとの整合性を確認"]
+    status: "exists"
+    notes: "Gemini-specific instructions."
+
   - path: "CODEX.md"
-    status: "needs_review"
-    issues: ["CLAUDE.mdとの整合性を確認"]
+    status: "exists"
+    notes: "Codex-specific instructions."
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "存在意義の反映、用語の正規化を確認"
+    reason: "Verify alignment with intent.yml and ontology.yml (already aligned)"
+
   - action: "verify"
     target: "AGENTS.md"
-    reason: "用語規約、不変条件、AUTO決定のドキュメント化を確認"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Claude向け特化指示を確認"
+    reason: "Verify alignment with intent.yml and ontology.yml (already aligned)"
+
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "概念辞書から自動生成された内容を確認"
-  - action: "update_timestamp"
+    reason: "Verify alignment with ontology.yml (already aligned)"
+
+  - action: "verify"
     target: "CLAUDE.md"
-    reason: "タイムスタンプ更新"
-  - action: "skip"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "優先度低、次回対応"
-  - action: "skip"
+    reason: "Verify alignment with ontology.yml (already aligned)"
+
+  - action: "verify"
     target: "PURPOSE.md"
-    reason: "優先度低、次回対応"
-  - action: "skip"
-    target: "CONTRIBUTING.md"
-    reason: "優先度低、次回対応"
-  - action: "skip"
-    target: "ARCHITECTURE.md"
-    reason: "優先度低、次回対応"
-  - action: "skip"
-    target: "GEMINI.md"
-    reason: "優先度低、次回対応"
-  - action: "skip"
-    target: "CODEX.md"
-    reason: "優先度低、次回対応"
+    reason: "Verify alignment with intent.yml"
+
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify alignment with invariants.yml"
+
+expected_outcomes:
+  clarity_score_before: 100
+  clarity_score_after: 100
+  concept_alignment_before: 100
+  concept_alignment_after: 100
+  uniqueness_score_before: 100
+  uniqueness_score_after: 100

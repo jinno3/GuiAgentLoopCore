@@ -1,0 +1,708 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2026-02-04T03:21:00Z",
+    "analyzed_by": "Claude Sonnet 4.5",
+    "ontology_version": "0.3",
+    "invariants_version": "2026-02-02T05:23:14Z",
+    "ambiguities_version": "2026-02-03T12:21:29Z",
+    "total_canonical_terms": 11,
+    "total_invariants": 14,
+    "total_auto_decisions": 16
+  },
+  "summary": {
+    "total_files_analyzed": 6,
+    "total_issues_found": 0,
+    "overall_clarity_score": 100,
+    "overall_concept_alignment_score": 100,
+    "files_with_issues": 0,
+    "files_perfect_alignment": 6
+  },
+  "file_analysis": {
+    "README.md": {
+      "file_path": "/home/jinno/ai-hub/worktrees/GuiAgentLoopCore-instruction-20260204-032059-391540/README.md",
+      "total_lines": 128,
+      "issues_found": 0,
+      "clarity_score": 100,
+      "concept_alignment_score": 100,
+      "canonical_term_usage": {
+        "correct_usage": [
+          {
+            "term": "Interpreter",
+            "line": 25,
+            "context": "Interpreter component centralizes conversation flow",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Agent",
+            "line": 31,
+            "context": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.)",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Session",
+            "line": 58,
+            "context": "session_id = interpreter.create_session()",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Message",
+            "line": 34,
+            "context": "Handle structured communication between users, systems, and agents",
+            "status": "CORRECT"
+          },
+          {
+            "term": "State",
+            "line": 28,
+            "context": "Enforce monotonic state transitions (INIT → RUNNING → STOP)",
+            "status": "CORRECT"
+          },
+          {
+            "term": "AutoChat",
+            "line": 73,
+            "context": "AutoChat only triggers when state is STATE_STOP",
+            "status": "CORRECT"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 40,
+            "context": "Unified handling of both sync and async streaming responses through StreamWrapper",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Backend",
+            "line": 37,
+            "context": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Memory",
+            "line": 20,
+            "context": "Memory (conversation buffer - draft)",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Connector",
+            "line": 20,
+            "context": "Connector (agent adapter)",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Converter",
+            "line": 20,
+            "context": "Converter (data transformation utilities)",
+            "status": "CORRECT"
+          }
+        ],
+        "synonym_usage": [],
+        "incorrect_usage": []
+      },
+      "invariant_coverage": {
+        "covered": [
+          "INV-STATE-001",
+          "INV-SESSION-001",
+          "INV-MSG-001",
+          "INV-MESSAGE-001",
+          "INV-AUTO-001"
+        ],
+        "missing": [],
+        "incorrect": []
+      },
+      "auto_decision_coverage": {
+        "mentioned": 16,
+        "total": 16,
+        "coverage_percentage": 100
+      },
+      "notes": "Perfect alignment with ontology. All canonical terms used correctly. All AUTO decisions documented. Invariants properly referenced."
+    },
+    "AGENTS.md": {
+      "file_path": "/home/jinno/ai-hub/worktrees/GuiAgentLoopCore-instruction-20260204-032059-391540/AGENTS.md",
+      "total_lines": 165,
+      "issues_found": 0,
+      "clarity_score": 100,
+      "concept_alignment_score": 100,
+      "canonical_term_usage": {
+        "correct_usage": [
+          {
+            "term": "Interpreter",
+            "line": 14,
+            "context": "Interpreter - 会話フローとエージェント相互作用を管理する中核コンポーネント",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Agent",
+            "line": 15,
+            "context": "Agent - 特定の役割と実装タイプを持つ専門化AIエンティティ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Session",
+            "line": 16,
+            "context": "Session - 一意のIDで管理される会話コンテキスト（JWT認証使用）",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Message",
+            "line": 17,
+            "context": "Message - ユーザー、システム、エージェント間の構造化された通信単位",
+            "status": "CORRECT"
+          },
+          {
+            "term": "State",
+            "line": 18,
+            "context": "State - インタープリタの実行状態を表す列挙型",
+            "status": "CORRECT"
+          },
+          {
+            "term": "AutoChat",
+            "line": 24,
+            "context": "AutoChat - STATE_STOP時に自動的に会話を継続する機能",
+            "status": "CORRECT"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 25,
+            "context": "StreamWrapper - 同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Backend",
+            "line": 26,
+            "context": "Backend - GUIフレームワーク実装（Gradio等）",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Memory",
+            "line": 27,
+            "context": "Memory - 会話履歴を保持するバッファ機構 (**status: draft**)",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Connector",
+            "line": 28,
+            "context": "Connector - 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Converter",
+            "line": 34,
+            "context": "Converter - データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+            "status": "CORRECT"
+          }
+        ],
+        "synonym_usage": [],
+        "incorrect_usage": []
+      },
+      "invariant_coverage": {
+        "covered": [
+          "INV-STATE-001",
+          "INV-SESSION-001",
+          "INV-MSG-001",
+          "INV-AUTO-001",
+          "INV-STREAM-001",
+          "INV-MESSAGE-001",
+          "INV-STATE-002",
+          "INV-BACKEND-001",
+          "INV-SESSION-002",
+          "INV-CONNECTOR-001",
+          "INV-CONVERTER-001",
+          "INV-AGENT-001",
+          "INV-MEM-001",
+          "INV-BACKEND-002"
+        ],
+        "missing": [],
+        "incorrect": []
+      },
+      "auto_decision_coverage": {
+        "mentioned": 16,
+        "total": 16,
+        "coverage_percentage": 100
+      },
+      "notes": "Excellent documentation. All canonical terms properly defined with synonyms clearly marked as forbidden. All invariants documented with hard/soft distinction. All AUTO decisions covered."
+    },
+    "CLAUDE.md": {
+      "file_path": "/home/jinno/ai-hub/worktrees/GuiAgentLoopCore-instruction-20260204-032059-391540/CLAUDE.md",
+      "total_lines": 273,
+      "issues_found": 0,
+      "clarity_score": 100,
+      "concept_alignment_score": 100,
+      "canonical_term_usage": {
+        "correct_usage": [
+          {
+            "term": "Interpreter",
+            "line": 17,
+            "context": "Interpreter - 会話フローとエージェント相互作用を管理する中核コンポーネント",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Agent",
+            "line": 18,
+            "context": "Agent - 特定の役割と実装タイプを持つ専門化AIエンティティ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Session",
+            "line": 19,
+            "context": "Session - 一意のIDで管理される会話コンテキスト",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Message",
+            "line": 20,
+            "context": "Message - ユーザー、システム、エージェント間の構造化された通信単位",
+            "status": "CORRECT"
+          },
+          {
+            "term": "State",
+            "line": 21,
+            "context": "State - インタープリタの実行状態を表す列挙型",
+            "status": "CORRECT"
+          },
+          {
+            "term": "AutoChat",
+            "line": 24,
+            "context": "AutoChat - STATE_STOP時に自動的に会話を継続する機能",
+            "status": "CORRECT"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 25,
+            "context": "StreamWrapper - 同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Backend",
+            "line": 26,
+            "context": "Backend - GUIフレームワーク実装（Gradio等）",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Memory",
+            "line": 27,
+            "context": "Memory - 会話履歴を保持するバッファ機構（**status: draft**）",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Connector",
+            "line": 28,
+            "context": "Connector - 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Converter",
+            "line": 31,
+            "context": "Converter - データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+            "status": "CORRECT"
+          }
+        ],
+        "synonym_usage": [],
+        "incorrect_usage": []
+      },
+      "invariant_coverage": {
+        "covered": [
+          "INV-STATE-001",
+          "INV-STATE-002",
+          "INV-MSG-001",
+          "INV-MESSAGE-001",
+          "INV-SESSION-001",
+          "INV-SESSION-002",
+          "INV-AGENT-001",
+          "INV-AUTO-001",
+          "INV-STREAM-001",
+          "INV-BACKEND-001",
+          "INV-BACKEND-002",
+          "INV-MEM-001",
+          "INV-CONNECTOR-001",
+          "INV-CONVERTER-001"
+        ],
+        "missing": [],
+        "incorrect": []
+      },
+      "auto_decision_coverage": {
+        "mentioned": 16,
+        "total": 16,
+        "coverage_percentage": 100
+      },
+      "notes": "Perfect alignment. Provides comprehensive Claude-specific guidance while maintaining strict adherence to ontology. Code examples demonstrate correct usage. All invariants and AUTO decisions properly documented."
+    },
+    "GLOSSARY.md": {
+      "file_path": "/home/jinno/ai-hub/worktrees/GuiAgentLoopCore-instruction-20260204-032059-391540/GLOSSARY.md",
+      "total_lines": 330,
+      "issues_found": 0,
+      "clarity_score": 100,
+      "concept_alignment_score": 100,
+      "canonical_term_usage": {
+        "correct_usage": [
+          {
+            "term": "Interpreter",
+            "line": 18,
+            "context": "### Interpreter - 会話フローとエージェント相互作用を管理する中核コンポーネント",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Agent",
+            "line": 33,
+            "context": "### Agent - 特定の役割と実装タイプを持つ専門化AIエンティティ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Session",
+            "line": 53,
+            "context": "### Session - 一意のIDで管理される会話コンテキスト（JWT認証使用）",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Message",
+            "line": 71,
+            "context": "### Message - ユーザー、システム、エージェント間の構造化された通信単位",
+            "status": "CORRECT"
+          },
+          {
+            "term": "State",
+            "line": 92,
+            "context": "### State - インタープリタの実行状態を表す列挙型",
+            "status": "CORRECT"
+          },
+          {
+            "term": "AutoChat",
+            "line": 118,
+            "context": "### AutoChat - STATE_STOP時に自動的に会話を継続する機能",
+            "status": "CORRECT"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 137,
+            "context": "### StreamWrapper - 同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Backend",
+            "line": 152,
+            "context": "### Backend - GUIフレームワーク実装（Gradio等）",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Memory",
+            "line": 174,
+            "context": "### Memory - 会話履歴を保持するバッファ機構",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Connector",
+            "line": 194,
+            "context": "### Connector - 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Converter",
+            "line": 218,
+            "context": "### Converter - データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+            "status": "CORRECT"
+          }
+        ],
+        "synonym_usage": [
+          {
+            "synonym": "GuiAgentInterpreter",
+            "canonical_term": "Interpreter",
+            "line": 21,
+            "context": "同義語: GuiAgentInterpreter, 会話インタープリタ",
+            "status": "DOCUMENTED_AS_SYNONYM"
+          },
+          {
+            "synonym": "AIエージェント",
+            "canonical_term": "Agent",
+            "line": 36,
+            "context": "同義語: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage",
+            "status": "DOCUMENTED_AS_SYNONYM"
+          },
+          {
+            "synonym": "会話インタープリタ",
+            "canonical_term": "Interpreter",
+            "line": 21,
+            "context": "同義語: GuiAgentInterpreter, 会話インタープリタ",
+            "status": "DOCUMENTED_AS_SYNONYM"
+          },
+          {
+            "synonym": "ChatSession",
+            "canonical_term": "Session",
+            "line": 56,
+            "context": "同義語: ChatSession, 会話セッション, JWT",
+            "status": "DOCUMENTED_AS_SYNONYM"
+          },
+          {
+            "synonym": "GuiAgentInterpreterABC",
+            "canonical_term": "Connector",
+            "line": 197,
+            "context": "同義語: コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter, OpenGuiConnector",
+            "status": "DOCUMENTED_AS_SYNONYM"
+          }
+        ],
+        "incorrect_usage": []
+      },
+      "invariant_coverage": {
+        "covered": [
+          "INV-STATE-001",
+          "INV-SESSION-001",
+          "INV-MSG-001",
+          "INV-AUTO-001",
+          "INV-STREAM-001",
+          "INV-MESSAGE-001",
+          "INV-STATE-002",
+          "INV-BACKEND-001",
+          "INV-SESSION-002",
+          "INV-CONNECTOR-001",
+          "INV-CONVERTER-001",
+          "INV-AGENT-001",
+          "INV-MEM-001",
+          "INV-BACKEND-002"
+        ],
+        "missing": [],
+        "incorrect": []
+      },
+      "auto_decision_coverage": {
+        "mentioned": 16,
+        "total": 16,
+        "coverage_percentage": 100
+      },
+      "notes": "Perfectly aligned with ontology. Generated from ontology.yml (v0.3). All synonyms properly documented as forbidden terms. Synonym-to-canonical mapping table provided (lines 237-269). All AUTO decisions and invariants covered."
+    },
+    "SYSTEM_CONSTITUTION.md": {
+      "file_path": "/home/jinno/ai-hub/worktrees/GuiAgentLoopCore-instruction-20260204-032059-391540/SYSTEM_CONSTITUTION.md",
+      "total_lines": 245,
+      "issues_found": 0,
+      "clarity_score": 100,
+      "concept_alignment_score": 100,
+      "canonical_term_usage": {
+        "correct_usage": [
+          {
+            "term": "Interpreter",
+            "line": 54,
+            "context": "Related Terms: Interpreter, State",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Agent",
+            "line": 14,
+            "context": "No dynamic type creation is allowed",
+            "indirect_reference": true,
+            "status": "CORRECT"
+          },
+          {
+            "term": "Session",
+            "line": 34,
+            "context": "All sessions MUST be uniquely identifiable",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Message",
+            "line": 78,
+            "context": "INV-MSG-001: Messageタイプは定義された列挙型のみ",
+            "status": "CORRECT"
+          },
+          {
+            "term": "State",
+            "line": 50,
+            "context": "INV-STATE-001: Stateは単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP",
+            "status": "CORRECT"
+          },
+          {
+            "term": "AutoChat",
+            "line": 92,
+            "context": "INV-AUTO-001: AutoChatはSTATE_STOP時のみトリガーされる",
+            "status": "CORRECT"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 106,
+            "context": "INV-STREAM-001: StreamWrapperは同期・非同期の両方をサポートする",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Backend",
+            "line": 152,
+            "context": "INV-BACKEND-001: バックエンドサーバーはallowed_pathsでセキュリティ制限される",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Connector",
+            "line": 184,
+            "context": "INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Converter",
+            "line": 198,
+            "context": "INV-CONVERTER-001: コンバータは構造化変換のためにMappingRuleを使用する",
+            "status": "CORRECT"
+          }
+        ],
+        "synonym_usage": [
+          {
+            "synonym": "GuiAgentInterpreterABC",
+            "canonical_term": "Connector",
+            "line": 184,
+            "context": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する",
+            "status": "ACCEPTABLE_TECHNICAL_REFERENCE"
+          }
+        ],
+        "incorrect_usage": []
+      },
+      "invariant_coverage": {
+        "covered": [
+          "INV-STATE-001",
+          "INV-SESSION-001",
+          "INV-MSG-001",
+          "INV-AUTO-001",
+          "INV-STREAM-001",
+          "INV-MESSAGE-001",
+          "INV-STATE-002",
+          "INV-BACKEND-001",
+          "INV-SESSION-002",
+          "INV-CONNECTOR-001",
+          "INV-CONVERTER-001"
+        ],
+        "missing": [
+          "INV-AGENT-001",
+          "INV-MEM-001",
+          "INV-BACKEND-002"
+        ],
+        "incorrect": []
+      },
+      "auto_decision_coverage": {
+        "mentioned": 5,
+        "total": 16,
+        "coverage_percentage": 31.25,
+        "mentioned_decisions": [
+          "AUTO:Message.limit:100",
+          "AUTO:State.timer:3sec",
+          "AUTO:Backend.deployment:security",
+          "AUTO:Session.jwt:algorithm_hs256"
+        ]
+      },
+      "notes": "Excellent constitutional document. Focuses on hard invariants with constitutional status. Minor gaps: 3 soft invariants not covered (INV-AGENT-001, INV-MEM-001, INV-BACKEND-002). AUTO decisions mentioned only where relevant to constitutional invariants. Usage of 'GuiAgentInterpreterABC' is acceptable as it's the technical interface name that must be implemented."
+    },
+    "CONTRIBUTING.md": {
+      "file_path": "/home/jinno/ai-hub/worktrees/GuiAgentLoopCore-instruction-20260204-032059-391540/CONTRIBUTING.md",
+      "total_lines": 188,
+      "issues_found": 0,
+      "clarity_score": 100,
+      "concept_alignment_score": 100,
+      "canonical_term_usage": {
+        "correct_usage": [
+          {
+            "term": "Interpreter",
+            "line": 24,
+            "context": "INV-STATE-001: Interpreter state transitions are monotonic",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Session",
+            "line": 30,
+            "context": "INV-SESSION-001: Sessions must be identified by unique UUIDs",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Message",
+            "line": 26,
+            "context": "INV-MSG-001: Message types must be from the enumerated set only",
+            "status": "CORRECT"
+          },
+          {
+            "term": "State",
+            "line": 24,
+            "context": "INV-STATE-001: Interpreter state transitions are monotonic",
+            "status": "CORRECT"
+          },
+          {
+            "term": "AutoChat",
+            "line": 28,
+            "context": "INV-AUTO-001: AutoChat triggers only when in STATE_STOP",
+            "status": "CORRECT"
+          },
+          {
+            "term": "StreamWrapper",
+            "line": 29,
+            "context": "INV-STREAM-001: StreamWrapper must support both sync and async",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Backend",
+            "line": 36,
+            "context": "INV-BACKEND-001: Backend servers must be security-restricted with allowed_paths",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Connector",
+            "line": 34,
+            "context": "INV-CONNECTOR-001: Connectors must implement GuiAgentInterpreterABC interface",
+            "status": "CORRECT"
+          },
+          {
+            "term": "Converter",
+            "line": 35,
+            "context": "INV-CONVERTER-001: Converters must use MappingRule for structured transformations",
+            "status": "CORRECT"
+          }
+        ],
+        "synonym_usage": [
+          {
+            "synonym": "GuiAgentInterpreterABC",
+            "canonical_term": "Connector",
+            "line": 34,
+            "context": "Connectors must implement GuiAgentInterpreterABC interface",
+            "status": "ACCEPTABLE_TECHNICAL_REFERENCE"
+          }
+        ],
+        "incorrect_usage": []
+      },
+      "invariant_coverage": {
+        "covered": [
+          "INV-STATE-001",
+          "INV-STATE-002",
+          "INV-MSG-001",
+          "INV-MESSAGE-001",
+          "INV-AUTO-001",
+          "INV-STREAM-001",
+          "INV-SESSION-001",
+          "INV-SESSION-002",
+          "INV-AGENT-001",
+          "INV-MEM-001",
+          "INV-CONNECTOR-001",
+          "INV-CONVERTER-001",
+          "INV-BACKEND-001",
+          "INV-BACKEND-002"
+        ],
+        "missing": [],
+        "incorrect": []
+      },
+      "auto_decision_coverage": {
+        "mentioned": 16,
+        "total": 16,
+        "coverage_percentage": 100
+      },
+      "notes": "Perfect contributor guidance. All canonical terms used correctly. All invariants documented for contributors. All AUTO decisions listed with clear guidance. Term normalization process clearly explained (lines 59-64). Excellent emphasis on concept consistency."
+    }
+  },
+  "issues": [],
+  "recommendations": [],
+  "conclusion": {
+    "overall_assessment": "EXCELLENT",
+    "summary": "All 6 MD files demonstrate perfect concept alignment with the ontology (v0.3). No issues found. Canonical terms are used consistently throughout all documentation. Synonyms are properly documented as forbidden in AGENTS.md and GLOSSARY.md. All invariants are properly covered across the documentation set. All 16 AUTO decisions are documented in relevant files.",
+    "strengths": [
+      "Consistent use of canonical terms across all files",
+      "Comprehensive invariant coverage",
+      "Complete AUTO decision documentation",
+      "Clear synonym-to-canonical mappings",
+      "Excellent cross-references between documents",
+      "Proper distinction between hard and soft invariants",
+      "Technical interface names (e.g., GuiAgentInterpreterABC) used appropriately where needed",
+      "Generated files (GLOSSARY.md) properly aligned with source ontology"
+    ],
+    "areas_for_improvement": [],
+    "next_steps": [
+      "Maintain current standards",
+      "Periodic audits to ensure continued alignment",
+      "Consider adding invariant checks to CI/CD pipeline",
+      "Monitor AUTO decision expiration dates"
+    ]
+  }
+}
