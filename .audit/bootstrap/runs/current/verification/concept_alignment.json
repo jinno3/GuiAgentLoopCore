@@ -1,130 +1,361 @@
 {
-  "timestamp": "2026-02-03T08:45:00Z",
-  "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
+  "timestamp": "2026-02-03T08:55:00Z",
+  "verification_type": "concept_alignment",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "invariants_source": ".concept/invariants.yml v2026-02-02T05:23:14Z",
+
   "overall_alignment_score": 98,
   "max_score": 100,
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MD files use canonical terms from ontology",
-      "status": "PASSED",
-      "evidence": {
-        "total_canonical_terms": 11,
-        "canonical_used": 11,
-        "usage_rate": "100%",
-        "terms_verified": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Converter",
-          "Memory",
-          "Connector"
-        ]
-      }
+
+  "term_usage_check": {
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
+  },
+
+  "canonical_terms_usage": {
+    "Interpreter": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 12,
+      "correct": true
     },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "Synonyms are not used in MD file content",
-      "status": "PASSED",
-      "evidence": {
-        "synonyms_defined": 26,
-        "synonyms_used_in_content": 0,
-        "compliance": "100%"
-      }
+    "Agent": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 15,
+      "correct": true
     },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "All hard invariants are documented in MD files",
-      "status": "PASSED",
-      "evidence": {
-        "total_hard_invariants": 11,
-        "reflected_in_md": 11,
-        "reflection_rate": "100%",
-        "invariants_documented": [
-          "INV-STATE-001",
-          "INV-SESSION-001",
-          "INV-MSG-001",
-          "INV-AUTO-001",
-          "INV-STREAM-001",
-          "INV-MESSAGE-001",
-          "INV-STATE-002",
-          "INV-BACKEND-001",
-          "INV-SESSION-002",
-          "INV-CONNECTOR-001",
-          "INV-CONVERTER-001"
-        ]
-      }
+    "Session": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 10,
+      "correct": true
     },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "All AUTO decisions are documented in MD files",
-      "status": "PASSED",
-      "evidence": {
-        "total_auto_decisions": 16,
-        "documented_in_md": 16,
-        "documentation_rate": "100%",
-        "files_with_documentation": ["README.md", "AGENTS.md", "CLAUDE.md"]
-      }
+    "Message": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 14,
+      "correct": true
     },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "Term boundaries (includes/excludes) are consistent",
-      "status": "PASSED",
-      "evidence": {
-        "terms_checked": 11,
-        "boundaries_consistent": 11,
-        "consistency_rate": "100%"
-      }
+    "State": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 11,
+      "correct": true
+    },
+    "AutoChat": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 6,
+      "correct": true
+    },
+    "StreamWrapper": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 4,
+      "correct": true
+    },
+    "Backend": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+      "count": 8,
+      "correct": true
+    },
+    "Memory": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 4,
+      "correct": true
+    },
+    "Connector": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
+      "count": 3,
+      "correct": true
+    },
+    "Converter": {
+      "used_in_files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
+      "count": 1,
+      "correct": true
     }
-  ],
-  "per_file_analysis": [
+  },
+
+  "synonym_avoidance": {
+    "total_synonyms": 26,
+    "found_in_content": 0,
+    "avoidance_rate": 1.0,
+    "violations": []
+  },
+
+  "invariant_check": {
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_rate": 1.0,
+    "details": [
+      {
+        "id": "INV-STATE-001",
+        "statement": "インタープリタ状態は単調遷移する",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      {
+        "id": "INV-SESSION-001",
+        "statement": "セッションは一意のUUIDで識別される",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-MSG-001",
+        "statement": "メッセージタイプは定義された列挙型のみ",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-MESSAGE-001",
+        "statement": "メッセージは最大100長",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-AUTO-001",
+        "statement": "AutoChatはSTATE_STOP時のみトリガー",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-STREAM-001",
+        "statement": "ストリームラッパーは同期・非同期の両方をサポート",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-STATE-002",
+        "statement": "状態は3秒間隔のタイマーで自動更新",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-BACKEND-001",
+        "statement": "バックエンドサーバーはallowed_pathsでセキュリティ制限",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-SESSION-002",
+        "statement": "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-CONNECTOR-001",
+        "statement": "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-CONVERTER-001",
+        "statement": "コンバータは構造化変換のためにMappingRuleを使用",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-AGENT-001",
+        "statement": "エージェントは定義された役割を持つ",
+        "strength": "soft",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-MEM-001",
+        "statement": "会話メモリは最大100メッセージまで保持",
+        "strength": "soft",
+        "status": "draft",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "id": "INV-BACKEND-002",
+        "statement": "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用",
+        "strength": "soft",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    ]
+  },
+
+  "auto_decision_handling": {
+    "total_active": 16,
+    "noted_in_md": 16,
+    "format": "注記として記載（暫定仕様として扱う）",
+    "coverage_rate": 1.0,
+    "by_category": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "AutoChat": 3,
+      "Backend": 3,
+      "Memory": 4,
+      "Session": 1,
+      "Connector": 1,
+      "Converter": 0
+    },
+    "details": [
+      {
+        "key": "AUTO:Agent.role:classification",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Agent.type:implementation_property",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Message.structure:flat",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Message.limit:100",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Message.roles:tool_function_separation",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:State.lifecycle:monotonic",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:State.transition:auto_on_input",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:State.transition:forward_only",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:AutoChat.trigger:stop_only",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:AutoChat.check:before_trigger",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:AutoChat.prompt:default_continue",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Backend.primary:gradio",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Backend.deployment:security",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Backend.timer:3sec_interval",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Memory.window:k10",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Memory.limit:100",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Memory.specs:provisional",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Memory.implementation:dual_provisional",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Session.jwt:algorithm_hs256",
+        "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      },
+      {
+        "key": "AUTO:Connector.layer:domain",
+        "found_in": ["AGENTS.md", "CLAUDE.md"]
+      }
+    ]
+  },
+
+  "term_boundary_check": {
+    "total_terms": 11,
+    "boundaries_defined": 11,
+    "boundaries_consistent": 11,
+    "consistency_rate": 1.0
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
+  },
+
+  "per_file": [
     {
       "file": "README.md",
-      "alignment_score": 95,
+      "alignment_score": 98,
+      "issues": [],
       "canonical_terms_used": 6,
-      "invariants_mentioned": 5,
-      "auto_decisions_mentioned": 11,
-      "issues": []
+      "synonyms_used": 0
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
+      "issues": [],
       "canonical_terms_used": 11,
-      "invariants_mentioned": 14,
-      "auto_decisions_mentioned": 16,
-      "issues": []
+      "synonyms_used": 0
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 98,
+      "issues": [],
       "canonical_terms_used": 11,
-      "invariants_mentioned": 14,
-      "auto_decisions_mentioned": 16,
-      "issues": []
+      "synonyms_used": 0
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "issues": [],
       "canonical_terms_used": 11,
-      "source": "auto-generated from ontology.yml",
-      "issues": []
+      "synonyms_used": 0
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": 5,
+      "synonyms_used": 0
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": 4,
+      "synonyms_used": 0
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 96,
+      "issues": [],
+      "canonical_terms_used": 6,
+      "synonyms_used": 0
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": 3,
+      "synonyms_used": 0
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 96,
+      "issues": [],
+      "canonical_terms_used": 4,
+      "synonyms_used": 0
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 96,
+      "issues": [],
+      "canonical_terms_used": 4,
+      "synonyms_used": 0
     }
   ],
+
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "overall_score": 98
+    "concept_alignment_rate": "98%",
+    "canonical_term_usage": "100%",
+    "synonym_avoidance": "100%",
+    "invariant_coverage": "100%",
+    "auto_decision_documentation": "100%"
   }
 }

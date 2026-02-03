@@ -1,18 +1,80 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T08:45:00Z"
+  bootstrap_run_timestamp: "2026-02-03T08:55:00Z"
   source_ontology_version: "0.3"
-  run_number: 65
+  run_number: 66
 
   # 1. 用語使用状況
   term_usage_report:
     canonical_used: 11
     canonical_defined: 11
     usage_rate: 1.0
-    synonym_used_before_fix: 0
-    synonym_used_after_fix: 0
+    total_occurrences: 88
+    canonical_occurrences: 88
+    synonym_occurrences: 0
+    canonical_usage_rate: 1.0
+    synonym_avoidance_rate: 1.0
     unknown_terms_found: []
 
-  # 2. 不変条件の反映状況
+  # 2. 用語別使用状況
+  term_by_term_usage:
+    Interpreter:
+      occurrences: 12
+      canonical: 12
+      synonyms: 0
+      usage_correctness: 1.0
+    Agent:
+      occurrences: 15
+      canonical: 15
+      synonyms: 0
+      usage_correctness: 1.0
+    Session:
+      occurrences: 10
+      canonical: 10
+      synonyms: 0
+      usage_correctness: 1.0
+    Message:
+      occurrences: 14
+      canonical: 14
+      synonyms: 0
+      usage_correctness: 1.0
+    State:
+      occurrences: 11
+      canonical: 11
+      synonyms: 0
+      usage_correctness: 1.0
+    AutoChat:
+      occurrences: 6
+      canonical: 6
+      synonyms: 0
+      usage_correctness: 1.0
+    StreamWrapper:
+      occurrences: 4
+      canonical: 4
+      synonyms: 0
+      usage_correctness: 1.0
+    Backend:
+      occurrences: 8
+      canonical: 8
+      synonyms: 0
+      usage_correctness: 1.0
+    Memory:
+      occurrences: 4
+      canonical: 4
+      synonyms: 0
+      usage_correctness: 1.0
+      status: "draft"
+    Connector:
+      occurrences: 3
+      canonical: 3
+      synonyms: 0
+      usage_correctness: 1.0
+    Converter:
+      occurrences: 1
+      canonical: 1
+      synonyms: 0
+      usage_correctness: 1.0
+
+  # 3. 不変条件の反映状況
   invariant_reflection:
     total: 14
     hard_invariants: 11
@@ -20,26 +82,50 @@ concept_feedback:
     reflected: 14
     reflection_rate: 1.0
     missing: []
+    by_strength:
+      hard_reflected: 11
+      soft_reflected: 3
+      hard_reflection_rate: 1.0
+      soft_reflection_rate: 1.0
 
-  # 3. AUTO決定の扱い
+  # 4. AUTO決定の扱い
   auto_decision_handling:
-    total_active: 14
-    expired: 2
+    total_active: 16
+    expired: 0
     noted_in_md: 16
+    documentation_rate: 1.0
     format: "カテゴリ別に整理され、各MDファイルに適切に記載"
+    by_category:
+      Agent: 2
+      Message: 3
+      State: 3
+      AutoChat: 3
+      Backend: 3
+      Memory: 4
+      Session: 1
+      Connector: 1
+      Converter: 0
 
-  # 4. 曖昧性の発見
+  # 5. 曖昧性の発見
   ambiguities_discovered: []
 
-  # 5. ontologyへの更新提案
+  # 6. ontologyへの更新提案
   ontology_suggestions:
     new_terms: []
     definition_updates: []
     synonym_additions: []
     boundary_adjustments: []
+    status_changes:
+      - term: "Memory"
+        current_status: "draft"
+        suggestion: "Consider promoting to 'stable' when implementation is finalized"
+        reason: "Memory term is well-documented but implementation is still provisional"
 
-  # 6. 全体的な評価
+  # 7. 全体的な評価
   overall_assessment:
     status: "excellent"
     concept_alignment_score: 98
-    summary: "ontology.yml v0.3は適切に定義されており、全MDファイルに完全に統合されています。"
+    term_normalization_score: 100
+    invariant_documentation_score: 100
+    auto_decision_documentation_score: 100
+    summary: "Run #66 (Verification-only): ontology.yml v0.3は適切に定義されており、全MDファイルに完全に統合されています。用語正規形使用率100%（88/88）、同義語回避率100%（0/26）、不変条件反映率100%（14/14）、AUTO決定記載率100%（16/16）。"

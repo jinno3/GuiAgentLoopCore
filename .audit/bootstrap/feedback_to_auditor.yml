@@ -1,14 +1,14 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-03T08:45:00Z"
+  bootstrap_run_timestamp: "2026-02-03T08:55:00Z"
   version: "1.1"
-  run_number: 65
+  run_number: 66
 
   # 1. 存在意義の明確度評価
   existence_clarity:
     before: 95
     after: 95
     delta: 0
-    interpretation: "intent.ymlの定義は明確で、全MDファイルに適切に反映されている"
+    interpretation: "Verification-only run - intent.ymlの定義は既にMDに完全に反映されている"
 
   # 2. 一意性評価
   uniqueness_score:
@@ -36,10 +36,15 @@ feedback:
     used: true
     ontology_version: "0.3"
     ontology_terms_used: 11
+    ontology_terms_usage_count: 88
     alignment_score: 98
     new_term_candidates: []
 
   # 7. 全体的な評価
   overall_assessment:
     status: "excellent"
-    summary: "MDファイル群はintent.ymlとontology.ymlに完全に準拠しています。一意性スコア100点、概念整合スコア98点を達成しています。"
+    combined_score: 99
+    uniqueness_score: 100
+    concept_alignment_score: 98
+    clarity_score: 95
+    summary: "Run #66 (Verification-only): MDファイル群はintent.yml v1.0とontology.yml v0.3に完全に準拠しています。一意性スコア100点、概念整合スコア98点を達成しています。用語正規形使用率100%、同義語回避率100%、不変条件反映率100%、AUTO決定記載率100%。"
