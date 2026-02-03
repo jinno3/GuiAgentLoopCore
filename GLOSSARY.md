@@ -3,7 +3,7 @@
 > このドキュメントは`.concept/ontology.yml`から自動生成されています。
 > 用語の追加・変更は`.concept/term_queue.yml`を通じて行ってください。
 
-**最終更新**: 2026-02-03T15:12:33Z
+**最終更新**: 2026-02-04T00:45:00Z
 **Ontologyバージョン**: 0.3
 **総用語数**: 11 (Core: 5, Domain: 5, Aux: 1)
 **総AUTO決定数**: 16
@@ -270,8 +270,8 @@
 ---
 
 **生成元**: `.concept/ontology.yml` (v0.3, updated: 2026-02-03T12:21:29Z)
-**生成日時**: 2026-02-03T15:12:33Z
-**担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合 - run #70)
+**生成日時**: 2026-02-04T00:45:00Z
+**担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合 - run #71)
 
 ---
 

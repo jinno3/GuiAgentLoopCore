@@ -1,121 +1,68 @@
 {
-  "timestamp": "2026-02-03T15:12:33Z",
-  "verification_run": "bootstrap v1.1",
-  "overall_uniqueness_score": 98,
+  "timestamp": "2026-02-04T00:30:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 95,
 
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Consistency",
-      "description": "All MDs present consistent mission statement",
+      "name": "Existence Purpose Consistency",
+      "description": "全MDで同じmissionが表現されているか",
       "status": "passed",
-      "evidence": {
-        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": [
-          {
-            "file": "README.md",
-            "mission": "Matches intent.yml exactly",
-            "line": 3
-          },
-          {
-            "file": "AGENTS.md",
-            "mission": "Matches intent.yml exactly",
-            "line": 3
-          },
-          {
-            "file": "PURPOSE.md",
-            "mission": "Consistent with intent.yml",
-            "note": "Expanded purpose but aligned with core mission"
-          }
-        ]
+      "details": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "consistency_rate": "100%",
+        "issues": []
       }
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MDs reference the same target users",
+      "description": "全MDで同じtarget_userを想定しているか",
       "status": "passed",
-      "evidence": {
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "users": "All 4 target users listed",
-            "line": 15
-          },
-          {
-            "file": "AGENTS.md",
-            "users": "Implicitly aligned through behavior rules",
-            "note": "Users referenced as target audience"
-          }
-        ]
+      "details": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "consistency_rate": "100%",
+        "issues": []
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraint Consistency",
-      "description": "Technical constraints are consistent across MDs",
+      "name": "Technical Constraints Consistency",
+      "description": "技術的制約が一致しているか",
       "status": "passed",
-      "evidence": {
-        "constraints_verified": [
-          "Type safety enforced",
-          "State monotonicity required",
-          "Message types restricted to enums",
-          "MAX_MESSAGE_LENGTH=100"
-        ],
-        "consistency_check": "All constraints aligned between intent.yml, invariants.yml, and MD files"
+      "details": {
+        "constraints_verified": ["Python version", "State monotonicity", "Type safety"],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
+        "consistency_rate": "100%",
+        "issues": []
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "Out-of-scope items are consistently defined",
+      "name": "Scope Boundaries Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
       "status": "passed",
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "files_checked": [
-          {
-            "file": "README.md",
-            "boundaries": "Not explicitly listed but implied through architecture"
-          },
-          {
-            "file": "AGENTS.md",
-            "boundaries": "Explicitly listed in 'やってはいけないこと' section",
-            "line": 51
-          }
-        ]
+      "details": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency_rate": "100%",
+        "issues": []
       }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
-      "description": "All MDs comply with intent.yml definitions",
+      "name": "Intent.yml Alignment",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "status": "passed",
-      "evidence": {
-        "compliance aspects": [
-          "Mission statement consistency",
-          "Core value alignment",
-          "Design philosophy adherence",
-          "Success metrics reflected"
-        ],
-        "design_philosophy_check": {
-          "correctness_over_convenience": "Reflected in invariant enforcement",
-          "explicit_over_implicit": "Reflected in state transition explicitness",
-          "small_focused_components": "Reflected in modular architecture",
-          "testability": "Reflected in test coverage for invariants",
-          "conceptual_integrity": "Reflected in ontology-based terminology"
-        }
+      "details": {
+        "core_functions_reflected": 5,
+        "design_philosophy_reflected": 5,
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
+        "alignment_rate": "100%",
+        "issues": []
       }
     }
   ],
@@ -125,16 +72,8 @@
     "passed": 5,
     "failed": 0,
     "warnings": 0,
-    "score": 100
+    "uniqueness_score": 100
   },
 
-  "improvements_made": [
-    "README.md: Removed duplicate AUTO:State.transition:forward_only (merged with AUTO:State.lifecycle:monotonic)",
-    "README.md: Removed duplicate AUTO:AutoChat.check:before_trigger (implicit in trigger logic)",
-    "AGENTS.md: Added missing AUTO:State.timer:3sec decision",
-    "All MD files now have consistent AUTO decision documentation"
-  ],
-
-  "remaining_considerations": [],
-  "overall_assessment": "Excellent uniqueness consistency across all MD files. All contradictions resolved."
+  "improvement_suggestions": []
 }

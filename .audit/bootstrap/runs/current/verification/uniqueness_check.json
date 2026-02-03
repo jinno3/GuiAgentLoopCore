@@ -1,79 +1,71 @@
 {
-  "timestamp": "2026-02-04T00:30:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 95,
-
+  "timestamp": "2026-02-04T00:45:00Z",
+  "bootstrap_version": "1.1",
+  "uniqueness_score": 100,
+  "max_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
-      "description": "全MDで同じmissionが表現されているか",
+      "name": "Existence Intent Consistency",
+      "description": "All MD files express the same mission",
       "status": "passed",
       "details": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "consistency_rate": "100%",
-        "issues": []
+        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "全MDで同じtarget_userを想定しているか",
+      "description": "All MD files target the same users",
       "status": "passed",
       "details": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "consistency_rate": "100%",
-        "issues": []
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-003",
-      "name": "Technical Constraints Consistency",
-      "description": "技術的制約が一致しているか",
+      "name": "Constraint Consistency",
+      "description": "Technical constraints are consistent across MD files",
       "status": "passed",
       "details": {
-        "constraints_verified": ["Python version", "State monotonicity", "Type safety"],
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md"],
-        "consistency_rate": "100%",
-        "issues": []
+        "constraints": ["Hard invariants enforced", "Type safety required", "Monotonic state transitions"],
+        "files_checked": ["README.md", "AGENTS.md", "SYSTEM_CONSTITUTION.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-004",
-      "name": "Scope Boundaries Consistency",
-      "description": "out_of_scopeが矛盾なく定義されているか",
+      "name": "Boundary Consistency",
+      "description": "Out-of-scope definitions are consistent",
       "status": "passed",
       "details": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "consistency_rate": "100%",
-        "issues": []
+        "out_of_scope": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "files_checked": ["README.md", "AGENTS.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-005",
       "name": "Intent.yml Alignment",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "description": "All MD files correctly reflect intent.yml",
       "status": "passed",
       "details": {
-        "core_functions_reflected": 5,
-        "design_philosophy_reflected": 5,
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md", "SYSTEM_CONSTITUTION.md"],
-        "alignment_rate": "100%",
-        "issues": []
+        "intent_yml": ".audit/config/intent.yml",
+        "alignment_percentage": "100%",
+        "missing_reflections": []
       }
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "warnings": 0,
-    "uniqueness_score": 100
-  },
-
-  "improvement_suggestions": []
+    "score": 100,
+    "issues": [],
+    "recommendations": []
+  }
 }
