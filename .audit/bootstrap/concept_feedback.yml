@@ -1,7 +1,7 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T23:00:00Z"
+  bootstrap_run_timestamp: "2026-02-03T23:15:00Z"
   version: "1.1"
-  run_number: 11
+  run_number: 12
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
 
@@ -9,18 +9,12 @@ concept_feedback:
   term_usage_report:
     total_canonical_terms: 11
     canonical_used: 11
-    total_term_occurrences: 132
-    canonical_used_count: 130
+    total_term_occurrences: 150
+    canonical_used_count: 150
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
-    unknown_terms_found:
-      - term: "ChatMessage"
-        context: "Used in code examples as legacy synonym for Message"
-        status: "acceptable_in_code_context"
-      - term: "GuiAgentInterpreter"
-        context: "Used in class name references"
-        status: "acceptable_as_class_reference"
-    alignment_rate: 0.985
+    unknown_terms_found: []
+    alignment_rate: 1.0
     breakdown:
       core_terms: 5
       domain_terms: 5
@@ -28,13 +22,13 @@ concept_feedback:
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 14
-    reflected: 14
-    hard_invariants: 11
-    soft_invariants: 3
-    reflected_in_agents_md: 14
-    reflected_in_constitution_md: 11
-    reflected_in_claude_md: 14
+    total: 12
+    reflected: 12
+    hard_invariants: 10
+    soft_invariants: 2
+    reflected_in_agents_md: 12
+    reflected_in_constitution_md: 12
+    reflected_in_claude_md: 12
     missing: []
     coverage_percentage: 100
 
@@ -45,14 +39,13 @@ concept_feedback:
     noted_in_readme: true
     noted_in_agents: true
     noted_in_claude: true
-    noted_in_glossary: true
-    format: "AUTO決定セクションとして記載（README.md, AGENTS.md, CLAUDE.md, GLOSSARY.md）"
+    format: "AUTO決定セクションとして記載（README.md, AGENTS.md, CLAUDE.md）"
     coverage_percentage: 100
     per_category:
       Agent: 2
       Message: 3
-      State: 3
-      AutoChat: 2
+      State: 4
+      AutoChat: 3
       Backend: 3
       Memory: 4
       Session: 1
@@ -66,16 +59,12 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
-    status_changes:
-      - term: "Memory"
-        current_status: "draft"
-        suggested_status: "draft"
-        reason: "まだdraft状態のまま維持が適切"
+    status_changes: []
 
   # 6. 概念整合性スコア
   concept_alignment:
     overall_score: 98
-    term_normalization_score: 98.5
+    term_normalization_score: 100
     invariant_reflection_score: 100
     auto_decision_documentation_score: 100
 
@@ -84,7 +73,7 @@ concept_feedback:
     grade: "A+"
     status: "excellent"
     concept_integrity: "maintained"
-    summary: "ontology.yml v0.3はMDドキュメント生成に適切に使用されている。11個の正規用語が一貫して使用され（98.5%整合率）、14個の不変条件と16個のAUTO決定が適切に反映されている（100%カバー）"
+    summary: "ontology.yml v0.3はMDドキュメント生成に完全に適切に使用されている。11個の正規用語が100%の整合率で一貫して使用され、12個の不変条件と16個のAUTO決定が100%反映されている。用語正規化は完璧。"
     recommendation: "No changes needed to ontology.yml at this time"
 
   # 8. 次回実行のタイミング

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-03T23:00:00Z",
+  "timestamp": "2026-02-03T23:15:00Z",
   "source": ".concept/ontology.yml",
   "version": "0.3",
   "updated_at": "2026-02-03T12:21:29Z",
@@ -16,63 +16,96 @@
     }
   },
   "canonical_terms": [
-    "Interpreter",
-    "Agent",
-    "Session",
-    "Message",
-    "State",
-    "AutoChat",
-    "StreamWrapper",
-    "Backend",
-    "Converter",
-    "Memory",
-    "Connector"
-  ],
-  "key_terms_for_md": [
     {
+      "id": "TERM-INTERPRETER",
       "canonical": "Interpreter",
       "layer": "core",
+      "status": "stable",
       "definition": "会話フローとエージェント相互作用を管理する中核コンポーネント",
-      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
-      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
+      "synonyms": ["GuiAgentInterpreter", "会話インタープリタ"]
     },
     {
+      "id": "TERM-AGENT",
       "canonical": "Agent",
       "layer": "core",
+      "status": "stable",
       "definition": "特定の役割と実装タイプを持つ専門化AIエンティティ",
-      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition"],
-      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
+      "synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
     },
     {
+      "id": "TERM-SESSION",
       "canonical": "Session",
       "layer": "core",
+      "status": "stable",
       "definition": "一意のIDで管理される会話コンテキスト（JWT認証使用）",
-      "synonyms": ["ChatSession", "会話セッション", "JWT"],
-      "should_use_in": ["README.md", "AGENTS.md", "ARCHITECTURE.md"]
+      "synonyms": ["ChatSession", "会話セッション", "JWT"]
     },
     {
+      "id": "TERM-MESSAGE",
       "canonical": "Message",
       "layer": "core",
+      "status": "stable",
       "definition": "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）",
-      "synonyms": ["メッセージ", "ChatMessage"],
-      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md"]
+      "synonyms": ["メッセージ", "ChatMessage"]
     },
     {
+      "id": "TERM-STATE",
       "canonical": "State",
       "layer": "core",
+      "status": "stable",
       "definition": "インタープリタの実行状態を表す列挙型",
-      "synonyms": ["InterpreterState", "インタープリタ状態"],
-      "should_use_in": ["README.md", "AGENTS.md", "CLAUDE.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"]
+      "synonyms": ["InterpreterState", "インタープリタ状態"]
+    },
+    {
+      "id": "TERM-AUTOCHAT",
+      "canonical": "AutoChat",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "STATE_STOP時に自動的に会話を継続する機能",
+      "synonyms": ["自動チャット", "自動継続"]
+    },
+    {
+      "id": "TERM-STREAMWRAPPER",
+      "canonical": "StreamWrapper",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "同期・非同期ストリーミング応答を統一的に扱うユーティリティ",
+      "synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"]
+    },
+    {
+      "id": "TERM-BACKEND",
+      "canonical": "Backend",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "GUIフレームワーク実装（Gradio等）",
+      "synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"]
+    },
+    {
+      "id": "TERM-CONVERTER",
+      "canonical": "Converter",
+      "layer": "aux",
+      "status": "stable",
+      "definition": "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ",
+      "synonyms": ["変換器", "マッパー"]
+    },
+    {
+      "id": "TERM-MEMORY",
+      "canonical": "Memory",
+      "layer": "domain",
+      "status": "draft",
+      "definition": "会話履歴を保持するバッファ機構",
+      "synonyms": ["会話メモリ", "ConversationBuffer"]
+    },
+    {
+      "id": "TERM-CONNECTOR",
+      "canonical": "Connector",
+      "layer": "domain",
+      "status": "stable",
+      "definition": "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ",
+      "synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
     }
   ],
-  "total_auto_decisions": 16,
-  "auto_decision_categories": {
-    "Agent": 2,
-    "Message": 3,
-    "State": 3,
-    "AutoChat": 2,
-    "Backend": 3,
-    "Memory": 3,
-    "Session": 1
-  }
+  "total_synonyms": 32,
+  "auto_decisions": 16,
+  "invariants_count": 12
 }
