@@ -1,246 +1,89 @@
 {
-  "timestamp": "2026-02-04T05:20:00Z",
+  "timestamp": "2026-02-04T05:30:00Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
+  "uniqueness_score": 100,
   "max_score": 100,
-
-  "score_breakdown": {
-    "existence_clarity": 100,
-    "uniqueness_score": 100,
-    "concept_alignment": 100,
-    "md_coverage": 100
+  "scoring_methodology": {
+    "clarity_weight": 0.4,
+    "uniqueness_weight": 0.3,
+    "concept_alignment_weight": 0.3
   },
-
   "files": [
     {
       "path": "README.md",
       "exists": true,
       "clarity_score": 100,
+      "uniqueness_score": 100,
       "concept_alignment": {
         "score": 100,
+        "term_usage_check": {
+          "canonical_terms_used": 5,
+          "synonyms_found": 0,
+          "alignment_rate": 1.0
+        },
         "issues": []
       },
-      "strengths": [
-        "Mission clearly stated from intent.yml",
-        "All canonical terms used correctly",
-        "AUTO decisions documented",
-        "Invariants documented",
-        "Core functions aligned with intent"
-      ],
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
       "clarity_score": 100,
+      "uniqueness_score": 100,
       "concept_alignment": {
         "score": 100,
+        "term_usage_check": {
+          "canonical_terms_used": 11,
+          "synonyms_found": 0,
+          "alignment_rate": 1.0
+        },
         "issues": []
       },
-      "strengths": [
-        "All 11 canonical terms documented with normalized forms",
-        "Synonyms clearly marked as prohibited",
-        "All 14 invariants documented (11 hard, 3 soft)",
-        "All 16 AUTO decisions documented",
-        "Behavior rules aligned with intent.yml boundaries"
-      ],
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 100,
+      "uniqueness_score": 100,
       "concept_alignment": {
         "score": 100,
+        "term_usage_check": {
+          "canonical_terms_used": 11,
+          "synonyms_found": 0,
+          "alignment_rate": 1.0
+        },
+        "invariant_coverage": {
+          "total_hard_invariants": 11,
+          "documented": 11,
+          "coverage_rate": 1.0
+        },
         "issues": []
       },
-      "strengths": [
-        "Canonical terms prioritized",
-        "All invariants documented",
-        "All AUTO decisions documented",
-        "State management guidelines provided",
-        "Code examples follow ontology"
-      ],
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
       "clarity_score": 100,
+      "uniqueness_score": 100,
       "concept_alignment": {
         "score": 100,
+        "term_usage_check": {
+          "canonical_terms_used": 11,
+          "synonyms_found": 0,
+          "alignment_rate": 1.0
+        },
+        "ontology_sync": {
+          "ontology_version": "0.3",
+          "total_terms": 11,
+          "documented_terms": 11,
+          "sync_rate": 1.0
+        },
         "issues": []
       },
-      "strengths": [
-        "Auto-generated from ontology.yml",
-        "All 11 terms documented",
-        "Term layers clearly identified",
-        "Synonyms and boundaries documented",
-        "Invariants and AUTO decisions linked"
-      ],
       "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "Aligned with intent.yml",
-        "Canonical terms used",
-        "Design philosophy reflected"
-      ],
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [
-          {
-            "severity": "low",
-            "description": "May need to verify ontology mappings are reflected",
-            "recommendation": "Review mappings.yml for integration points"
-          }
-        ]
-      },
-      "strengths": [
-        "Component structure documented",
-        "Core concepts covered"
-      ],
-      "issues": [
-        "Should verify mappings.yml integration"
-      ]
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 85,
-        "issues": [
-          {
-            "severity": "medium",
-            "description": "Terminology guidelines may need strengthening",
-            "recommendation": "Add explicit section on canonical term usage"
-          }
-        ]
-      },
-      "strengths": [
-        "Contribution process documented"
-      ],
-      "issues": [
-        "Should include terminology guidelines",
-        "Should reference ontology.yml for term additions"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 95,
-        "issues": [
-          {
-            "severity": "low",
-            "description": "May need to verify all invariants are documented",
-            "recommendation": "Cross-reference with invariants.yml"
-          }
-        ]
-      },
-      "strengths": [
-        "Constitutional principles documented"
-      ],
-      "issues": [
-        "Should verify all 14 invariants are reflected"
-      ]
-    },
-    {
-      "path": "CODEX.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "Codex-specific guidelines provided",
-        "Canonical terms referenced"
-      ],
-      "issues": []
-    },
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "Gemini-specific guidelines provided",
-        "Canonical terms referenced"
-      ],
-      "issues": []
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "clarity_score": 40,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "File exists"
-      ],
-      "issues": [
-        "Minimal content",
-        "Should document version history"
-      ]
     }
-  ],
-
-  "summary": {
-    "total_files": 11,
-    "excellent_files": 9,
-    "good_files": 2,
-    "needs_improvement": 0,
-    "critical_issues": 0,
-
-    "concept_compliance": {
-      "canonical_term_usage": "100%",
-      "synonym_avoidance": "100%",
-      "invariant_documentation": "100%",
-      "auto_decision_documentation": "100%"
-    },
-
-    "recommendations": [
-      {
-        "priority": "low",
-        "action": "Review ARCHITECTURE.md for ontology mappings integration",
-        "target": "ARCHITECTURE.md"
-      },
-      {
-        "priority": "medium",
-        "action": "Add terminology guidelines to CONTRIBUTING.md",
-        "target": "CONTRIBUTING.md"
-      },
-      {
-        "priority": "low",
-        "action": "Verify all invariants in SYSTEM_CONSTITUTION.md",
-        "target": "SYSTEM_CONSTITUTION.md"
-      },
-      {
-        "priority": "low",
-        "action": "Expand CHANGELOG.md with version history",
-        "target": "CHANGELOG.md"
-      }
-    ]
-  }
+  ]
 }

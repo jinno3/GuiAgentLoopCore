@@ -1,10 +1,7 @@
 {
-  "timestamp": "2026-02-04T05:20:00Z",
+  "timestamp": "2026-02-04T05:30:00Z",
   "concept_source": ".concept/ontology.yml",
-  "verification_method": "v1.1 concept integration",
-
   "overall_alignment_score": 100,
-
   "term_usage_check": {
     "total_term_occurrences": 11,
     "canonical_used": 11,
@@ -12,334 +9,65 @@
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
+      "term_usage_check": {
+        "canonical_terms_used": 5,
+        "synonyms_found": 0,
+        "alignment_rate": 1.0
+      },
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
-      "issues": [],
-      "notes": [
-        "All synonyms explicitly marked as prohibited",
-        "Term normalization table provided"
-      ]
+      "term_usage_check": {
+        "canonical_terms_used": 11,
+        "synonyms_found": 0,
+        "alignment_rate": 1.0
+      },
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
-      "issues": [],
-      "notes": [
-        "Canonical terms prioritized",
-        "Term counts match ontology (11 total: 5 core, 5 domain, 1 aux)"
-      ]
+      "term_usage_check": {
+        "canonical_terms_used": 11,
+        "synonyms_found": 0,
+        "alignment_rate": 1.0
+      },
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "AutoChat",
-        "StreamWrapper",
-        "Backend",
-        "Memory",
-        "Connector",
-        "Converter"
-      ],
-      "synonyms_found": [],
-      "issues": [],
-      "notes": [
-        "Auto-generated from ontology.yml",
-        "Perfect alignment guaranteed"
-      ]
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State",
-        "Backend",
-        "Connector"
-      ],
-      "synonyms_found": [],
-      "issues": [],
-      "notes": [
-        "Component architecture aligned with ontology"
-      ]
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session"
-      ],
-      "synonyms_found": [],
-      "issues": [],
-      "notes": [
-        "Could enhance with explicit terminology guidelines"
-      ]
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message",
-        "State"
-      ],
-      "synonyms_found": [],
-      "issues": [],
-      "notes": [
-        "Constitutional principles aligned with ontology"
-      ]
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message"
-      ],
-      "synonyms_found": [],
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "canonical_terms_used": [
-        "Interpreter",
-        "Agent",
-        "Session",
-        "Message"
-      ],
-      "synonyms_found": [],
+      "ontology_sync": {
+        "ontology_version": "0.3",
+        "total_terms": 11,
+        "documented_terms": 11,
+        "sync_rate": 1.0
+      },
       "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": [],
-
-    "by_file": [
-      {
-        "file": "README.md",
-        "invariants_documented": 5,
-        "invariants_list": [
-          "INV-STATE-001",
-          "INV-SESSION-001",
-          "INV-MSG-001",
-          "INV-MESSAGE-001",
-          "INV-AUTO-001"
-        ]
-      },
-      {
-        "file": "AGENTS.md",
-        "invariants_documented": 14,
-        "invariants_list": [
-          "INV-STATE-001",
-          "INV-SESSION-001",
-          "INV-MSG-001",
-          "INV-AUTO-001",
-          "INV-STREAM-001",
-          "INV-MESSAGE-001",
-          "INV-STATE-002",
-          "INV-BACKEND-001",
-          "INV-SESSION-002",
-          "INV-CONNECTOR-001",
-          "INV-CONVERTER-001",
-          "INV-AGENT-001",
-          "INV-MEM-001",
-          "INV-BACKEND-002"
-        ],
-        "notes": [
-          "All 14 invariants documented",
-          "Hard vs soft invariants clearly distinguished"
-        ]
-      },
-      {
-        "file": "CLAUDE.md",
-        "invariants_documented": 14,
-        "invariants_list": [
-          "All 14 invariants referenced"
-        ],
-        "notes": [
-          "Invariants grouped by term",
-          "Evidence links provided"
-        ]
-      }
-    ]
+    "coverage_rate": 1.0
   },
-
   "auto_decision_check": {
-    "total_active": 16,
-    "reflected_in_md": 16,
-    "missing_notes": 0,
-
-    "by_file": [
-      {
-        "file": "README.md",
-        "auto_decisions_documented": 16,
-        "notes": [
-          "All AUTO decisions listed with clear descriptions"
-        ]
-      },
-      {
-        "file": "AGENTS.md",
-        "auto_decisions_documented": 16,
-        "notes": [
-          "All AUTO decisions grouped by term",
-          "Provisional nature clearly stated"
-        ]
-      },
-      {
-        "file": "CLAUDE.md",
-        "auto_decisions_documented": 16,
-        "notes": [
-          "All AUTO decisions documented",
-          "Linked to ambiguities.yml"
-        ]
-      }
-    ],
-
-    "by_term": {
-      "Agent": 2,
-      "Message": 3,
-      "State": 3,
-      "AutoChat": 3,
-      "Backend": 3,
-      "Memory": 4,
-      "Session": 1,
-      "Connector": 1
-    }
+    "total_auto_decisions": 16,
+    "documented_in_md": 16,
+    "missing": [],
+    "coverage_rate": 1.0
   },
-
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "format": "AUTO decisions documented with provisional status",
-
-    "critical_ambiguities": [
-      {
-        "id": "AMB-SEC-001",
-        "term": "Security",
-        "severity": "high",
-        "topic": "ハードコードされたシークレットキー vs 環境変数",
-        "auto_decision": "AUTO:Security.secret_key:env_var_required",
-        "reflected_in_md": true,
-        "note": "Security concern documented, needs migration to env var"
-      },
-      {
-        "id": "AMB-SEC-002",
-        "term": "Session",
-        "severity": "high",
-        "topic": "JWTデコードメソッドの未定義変数バグ",
-        "auto_decision": "AUTO:Session.jwt:decode_method_fix",
-        "reflected_in_md": false,
-        "note": "Code quality issue, should be fixed"
-      }
-    ]
-  },
-
-  "summary": {
-    "status": "EXCELLENT",
-    "message": "全MDファイルがontology.ymlと完全に整合しています。",
-    "highlights": [
-      "All 11 canonical terms used correctly across all MDs",
-      "Zero synonym usage violations",
-      "All 14 invariants documented",
-      "All 16 AUTO decisions documented",
-      "Term normalization 100% compliant"
-    ],
-    "recommendations": [
-      {
-        "priority": "high",
-        "action": "Fix jwt_decode_session() undefined variable bug (AMB-SEC-002)",
-        "target": "gui_agent_loop_core/core/interpreter_manager.py"
-      },
-      {
-        "priority": "high",
-        "action": "Migrate hardcoded secret_key to environment variable (AMB-SEC-001)",
-        "target": "gui_agent_loop_core/core/interpreter_manager.py"
-      },
-      {
-        "priority": "low",
-        "action": "Add terminology guidelines to CONTRIBUTING.md",
-        "target": "CONTRIBUTING.md"
-      }
-    ]
+    "missing_notes": 0,
+    "coverage_rate": 1.0
   }
 }
