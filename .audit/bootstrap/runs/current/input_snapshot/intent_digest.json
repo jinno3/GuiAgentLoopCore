@@ -1,72 +1,26 @@
 {
-  "timestamp": "2026-02-03T01:08:59Z",
+  "timestamp": "2026-02-03T01:35:21.400736+00:00",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
-  "created_at": "2026-02-02T00:00:00Z",
-  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+  "mission_summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.\n",
   "target_users": [
-    "Application Developers: Building LLM-powered applications with GUI interfaces",
-    "AI Agent Developers: Creating specialized agents for specific tasks",
-    "Framework Developers: Building new GUI backend implementations",
-    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
-  ],
-  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-  "core_functions": [
     {
-      "description": "Centralized Conversation Management",
-      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination",
-      "example": "interpreter_manager.py manages chat sessions and state transitions"
+      "Application Developers": "Building LLM-powered applications with GUI interfaces"
     },
     {
-      "description": "State Machine with Monotonic Transitions",
-      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants",
-      "example": "change_state_running() ensures state transitions are monotonic"
+      "AI Agent Developers": "Creating specialized agents for specific tasks"
     },
     {
-      "description": "Multi-Agent Coordination",
-      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries",
-      "example": "AgentName enum defines roles: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW"
+      "Framework Developers": "Building new GUI backend implementations"
     },
     {
-      "description": "Structured Message Processing",
-      "details": "Handle structured communication between users, systems, and agents",
-      "example": "MessageTypeEnum defines: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
-    },
-    {
-      "description": "Backend Abstraction",
-      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)",
-      "example": "GuiBackendType enum: GRADIO, STREAMSYNC"
+      "AI Agents": "Claude, Gemini, Codex, and other AI models working with this codebase"
     }
   ],
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.\n",
+  "core_functions_count": 5,
   "boundaries": {
-    "in_scope": [
-      "Conversation Flow Management: Centralize how conversations flow through the system",
-      "State Machine: Provide reliable state transitions with monotonic guarantees",
-      "Agent Coordination: Manage multiple specialized agents with clear roles",
-      "Message Processing: Handle structured communication between users, systems, and agents",
-      "Backend Abstraction: Enable multiple GUI framework implementations",
-      "Streaming Support: Unified handling of sync and async streaming responses"
-    ],
-    "out_of_scope": [
-      "UI Rendering: We don't handle UI component rendering (that's the backend's job)",
-      "LLM Execution: We don't directly execute LLM models (we delegate to agents)",
-      "Session Storage: We don't persist sessions to databases (that's application-level)",
-      "Authentication: We don't handle user authentication (we only ensure session uniqueness)",
-      "Network Protocols: We don't define network protocols (that's backend-specific)"
-    ]
-  },
-  "success_metrics": [
-    {"metric": "Integration Time", "target": "New applications can integrate GuiAgentLoopCore in < 1 hour"},
-    {"metric": "Bug-Free State Transitions", "target": "Zero state transition bugs in production"},
-    {"metric": "Agent Compatibility", "target": "New agents can be added without core modifications"},
-    {"metric": "Type Safety", "target": "Zero runtime type errors in message handling"},
-    {"metric": "Documentation Clarity", "target": "All concepts have unambiguous definitions"}
-  ],
-  "design_philosophy": [
-    {"philosophy": "Correctness Over Convenience", "description": "We prioritize system correctness over developer convenience. Hard invariants cannot be bypassed."},
-    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined. No magic behavior."},
-    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility. Clear boundaries between components."},
-    {"philosophy": "Testability", "description": "All behavior is testable. Hard invariants have automated tests."},
-    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology. No ambiguity."}
-  ]
+    "in_scope_count": 6,
+    "out_of_scope_count": 5
+  }
 }

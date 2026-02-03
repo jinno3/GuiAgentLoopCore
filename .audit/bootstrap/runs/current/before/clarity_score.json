@@ -1,190 +1,318 @@
 {
-  "timestamp": "2026-02-03T01:08:59Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
+  "timestamp": "2026-02-03T01:35:21.403617+00:00",
+  "overall_score": 53,
+  "concept_alignment_score": 69,
   "max_score": 100,
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 98,
-        "issues": []
+        "score": 80,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Clearly states mission from intent.yml",
-        "Uses normalized terminology (Interpreter, Agent, Session, Message, State)",
-        "References GLOSSARY.md for terminology",
-        "Lists all core functions from intent.yml",
-        "Documents invariants with proper IDs",
-        "Documents AUTO decisions with proper keys"
+      "issues": [
+        "対象ユーザーが明示されていない",
+        "用語が正規形でない（2箇所）"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 60,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 0,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "TaskAgent",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AgentImage",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Perfect term normalization table (core, domain, aux)",
-        "All invariants from invariants.yml documented",
-        "All 16 AUTO decisions documented with proper keys",
-        "Clear separation of hard vs soft invariants",
-        "References ontology.yml and GLOSSARY.md",
-        "Up-to-date timestamp from bootstrap run v1.1"
+      "issues": [
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（32箇所）"
       ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Uses all 11 canonical terms correctly",
-        "All invariants documented with code examples",
-        "All AUTO decisions noted with proper keys",
-        "Provides code patterns for Interpreter, Agent, Message",
-        "References ontology v0.3",
-        "Up-to-date timestamp from bootstrap run v1.1"
-      ]
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Auto-generated from ontology.yml v0.3",
-        "All 11 terms documented (5 core, 5 domain, 1 aux)",
-        "Includes AUTO decisions for each term",
-        "Includes evidence from codebase",
-        "Provides term normalization map",
-        "Clear separation of core/domain/aux terms"
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（1箇所）"
       ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "status": "needs_review",
-      "clarity_score": 90,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          }
+        ]
       },
       "issues": [
-        "Should verify all 12 invariants are documented"
-      ],
-      "strengths": [
-        "Likely reflects invariants from invariants.yml"
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（1箇所）"
       ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "status": "needs_review",
-      "clarity_score": 92,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
+        "score": 100,
         "issues": []
       },
-      "issues": [],
-      "strengths": [
-        "Should align with intent.yml mission"
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない"
       ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "status": "needs_review",
-      "clarity_score": 90,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 70,
+        "issues": [
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Should reference term normalization guidelines"
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（3箇所）"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 50,
+      "concept_alignment": {
+        "score": 0,
+        "issues": [
+          {
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AIエージェント",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "専門エージェント",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AgentDefinition",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "TaskAgent",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "AgentImage",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "ChatSession",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "会話セッション",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          }
+        ]
+      },
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（31箇所）"
       ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "status": "needs_review",
-      "clarity_score": 90,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Should follow similar pattern to CLAUDE.md"
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（1箇所）"
       ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "status": "needs_review",
-      "clarity_score": 90,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "found": "AgentType",
+            "should_be": "Agent",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Should follow similar pattern to CLAUDE.md"
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（1箇所）"
       ]
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "status": "needs_review",
-      "clarity_score": 92,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 95,
-        "issues": []
+        "score": 80,
+        "issues": [
+          {
+            "found": "JWT",
+            "should_be": "Session",
+            "type": "synonym_usage"
+          },
+          {
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "type": "synonym_usage"
+          }
+        ]
       },
-      "issues": [],
-      "strengths": [
-        "Should reflect mappings.yml if exists"
-      ]
-    },
-    {
-      "path": "CHANGELOG.md",
-      "exists": true,
-      "status": "not_managed",
-      "clarity_score": null,
-      "concept_alignment": {
-        "score": null,
-        "issues": []
-      },
-      "issues": [],
-      "strengths": [
-        "Not managed by bootstrap process"
+      "issues": [
+        "存在意義（mission）が明示されていない",
+        "対象ユーザーが明示されていない",
+        "提供価値が明示されていない",
+        "用語が正規形でない（2箇所）"
       ]
     }
-  ],
-  "summary": {
-    "total_md_files": 11,
-    "managed_files": 10,
-    "high_quality_files": 4,
-    "needs_review_files": 6,
-    "unmanaged_files": 1,
-    "term_normalization_compliance": "98%",
-    "invariant_coverage": "100%",
-    "auto_decision_coverage": "100%"
-  }
+  ]
 }
