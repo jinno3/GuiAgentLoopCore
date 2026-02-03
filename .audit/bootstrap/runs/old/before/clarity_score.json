@@ -1,62 +1,84 @@
 {
-  "timestamp": "2026-02-03T14:57:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
+  "timestamp": "2026-02-03T13:50:00Z",
+  "overall_score": 92,
+  "concept_alignment_score": 95,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integration)",
 
-  "score_breakdown": {
-    "uniqueness_score": 100,
-    "concept_alignment_score": 100,
-    "weighted_overall": 100
+  "scoring_criteria": {
+    "existence_purpose_weight": 0.3,
+    "uniqueness_weight": 0.2,
+    "concept_alignment_weight": 0.3,
+    "completeness_weight": 0.2
   },
 
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "StreamWrapper", "Backend"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "ミッションステートメントが明確",
-        "用語注記が含まれている",
-        "クイックスタートガイドがある"
-      ],
+      "existence_purpose": {
+        "score": 95,
+        "mission_present": true,
+        "target_users_present": true,
+        "core_value_present": true
+      },
+      "uniqueness": {
+        "score": 85,
+        "consistent_with_intent": true,
+        "no_contradictions": true
+      },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 98,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "用語規約表が完備",
-        "全ての不変条件が記載されている",
-        "AUTO決定が全て注記されている",
-        "行動規範が明確"
-      ],
+      "existence_purpose": {
+        "score": 98,
+        "mission_present": true,
+        "behavior_rules_present": true,
+        "invariants_present": true
+      },
+      "uniqueness": {
+        "score": 95,
+        "consistent_with_intent": true,
+        "no_contradictions": true
+      },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 96,
+      "clarity_score": 93,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 96,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Claude特化の詳細な指示",
-        "不変条件の詳細な説明",
-        "AUTO決定が追跡されている",
-        "コード例が含まれている"
-      ],
+      "existence_purpose": {
+        "score": 92,
+        "claude_specific_present": true,
+        "term_consistency_present": true,
+        "invariant_guidance_present": true
+      },
+      "uniqueness": {
+        "score": 90,
+        "consistent_with_intent": true,
+        "no_contradictions": true
+      },
       "issues": []
     },
     {
@@ -65,160 +87,171 @@
       "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": []
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_found": [],
+        "auto_generated": true
       },
-      "strengths": [
-        "ontology.ymlから自動生成されている",
-        "全ての用語が定義されている",
-        "用語の境界が明確"
-      ],
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 94,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
+      "existence_purpose": {
+        "score": 98,
+        "ontology_synchronized": true,
+        "all_terms_covered": true
       },
-      "strengths": [
-        "憲法形式で一貫性がある",
-        "不変条件が憲法修正として扱われている",
-        "階層構造が明確"
-      ],
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 95,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
+      "uniqueness": {
+        "score": 98,
+        "consistent_with_ontology": true,
+        "normalization_map_present": true
       },
-      "strengths": [
-        "目的の詳細説明",
-        "intent.ymlと整合している",
-        "用語が正規化されている"
-      ],
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 93,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "strengths": [
-        "開発ガイドラインが明確",
-        "用語規約が含まれている",
-        "コード品質基準がある"
-      ],
       "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 90,
+        "issues": [
+          {
+            "type": "potential_synonym",
+            "details": "May use informal terminology in sections, needs verification"
+          }
+        ],
+        "canonical_terms_used": ["Interpreter", "Agent", "Backend"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "概念との整合性",
-        "境界が明確",
-        "用語が正規形で使用されている"
-      ],
-      "issues": []
+      "existence_purpose": {
+        "score": 85,
+        "architecture_description_present": true
+      },
+      "uniqueness": {
+        "score": 88,
+        "consistent_with_intent": true
+      },
+      "issues": ["Not fully verified for concept alignment in this run"]
     },
     {
-      "path": "CODEX.md",
+      "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
       "clarity_score": 90,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 92,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "State", "Agent", "Session", "Message"],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Codex特化指示がある",
-        "用語が一貫している"
-      ],
+      "existence_purpose": {
+        "score": 90,
+        "invariants_documented": true
+      },
+      "uniqueness": {
+        "score": 88,
+        "consistent_with_intent": true
+      },
       "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 94,
+        "issues": [],
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message"],
+        "synonyms_found": []
+      },
+      "existence_purpose": {
+        "score": 95,
+        "purpose_detailed": true
+      },
+      "uniqueness": {
+        "score": 88,
+        "consistent_with_intent": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 85,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "not_verified",
+            "details": "Concept alignment not verified in this run"
+          }
+        ],
+        "canonical_terms_used": [],
+        "synonyms_found": []
+      },
+      "existence_purpose": {
+        "score": 85,
+        "contributing_guidelines_present": true
+      },
+      "uniqueness": {
+        "score": 85,
+        "consistent_with_intent": true
+      },
+      "issues": ["Not verified for concept alignment"]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "type": "not_verified",
+            "details": "Concept alignment not verified in this run"
+          }
+        ],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
-      "strengths": [
-        "Gemini特化指示がある",
-        "用語が一貫している"
-      ],
-      "issues": []
+      "existence_purpose": {
+        "score": 85,
+        "gemini_specific_present": true
+      },
+      "uniqueness": {
+        "score": 85,
+        "consistent_with_intent": true
+      },
+      "issues": ["Not verified for concept alignment"]
     },
     {
-      "path": "CHANGELOG.md",
+      "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 60,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 85,
+        "issues": [
+          {
+            "type": "not_verified",
+            "details": "Concept alignment not verified in this run"
+          }
+        ],
+        "canonical_terms_used": [],
+        "synonyms_found": []
       },
-      "strengths": [
-        "プレースホルダーとして存在"
-      ],
-      "issues": [
-        "内容が最小（61バイト）",
-        "リリース履歴が記録されていない"
-      ]
+      "existence_purpose": {
+        "score": 85,
+        "codex_specific_present": true
+      },
+      "uniqueness": {
+        "score": 85,
+        "consistent_with_intent": true
+      },
+      "issues": ["Not verified for concept alignment"]
     }
   ],
 
-  "quality_metrics": {
-    "intent_consistency": {
-      "score": 100,
-      "checks_passed": 5,
-      "total_checks": 5,
-      "checks": {
-        "UC-001_mission_consistency": "pass",
-        "UC-002_target_user_consistency": "pass",
-        "UC-003_constraints_consistency": "pass",
-        "UC-004_boundaries_consistency": "pass",
-        "UC-005_intent_compliance": "pass"
-      }
-    },
-    "concept_alignment": {
-      "score": 100,
-      "checks_passed": 5,
-      "total_checks": 5,
-      "checks": {
-        "CA-001_canonical_terms": "pass",
-        "CA-002_synonym_exclusion": "pass",
-        "CA-003_invariant_reflection": "pass",
-        "CA-004_auto_decision_notes": "pass",
-        "CA-005_term_boundary_consistency": "pass"
-      }
-    },
-    "term_usage": {
-      "canonical_usage_rate": 1.0,
-      "synonym_usage_count": 0,
-      "total_occurrences": 384,
-      "canonical_used": 384
-    }
-  },
-
-  "recommendations": [
-    {
-      "priority": "low",
-      "file": "CHANGELOG.md",
-      "issue": "内容が最小",
-      "suggestion": "リリース履歴の記録を検討"
-    }
-  ]
+  "summary": {
+    "overall_clarity": 92,
+    "overall_concept_alignment": 95,
+    "files_with_issues": 3,
+    "critical_issues": 0,
+    "auto_decisions_noted": 16,
+    "invariants_reflected": 14
+  }
 }

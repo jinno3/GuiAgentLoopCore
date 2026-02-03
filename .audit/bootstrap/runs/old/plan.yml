@@ -1,18 +1,24 @@
-run_timestamp: "2026-02-03T14:57:00Z"
+# MD Bootstrap Execution Plan v1.1
+# GuiAgentLoopCore Repository
+run_timestamp: "2026-02-03T13:50:00Z"
 version: "1.1"
+run_number: 77
 
 rotation:
   deleted_old: true
   moved_current_to_old: true
+  created_new_current: true
 
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
+    ontology_version: "0.3"
     has_concept: true
 
 intent_summary:
@@ -25,8 +31,6 @@ intent_summary:
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
-  version: "0.3"
-  updated_at: "2026-02-02T05:38:12Z"
   total_terms: 11
   core_terms: 5
   domain_terms: 5
@@ -35,53 +39,28 @@ ontology_summary:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
       layer: "core"
-      status: "stable"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
       layer: "core"
-      status: "stable"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
       layer: "core"
-      status: "stable"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
       layer: "core"
-      status: "stable"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
-      status: "stable"
-    - canonical: "AutoChat"
-      definition: "STATE_STOP時に自動的に会話を継続する機能"
-      layer: "domain"
-      status: "stable"
-    - canonical: "StreamWrapper"
-      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-      layer: "domain"
-      status: "stable"
-    - canonical: "Backend"
-      definition: "GUIフレームワーク実装（Gradio等）"
-      layer: "domain"
-      status: "stable"
-    - canonical: "Memory"
-      definition: "会話履歴を保持するバッファ機構"
-      layer: "domain"
-      status: "draft"
-    - canonical: "Connector"
-      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
-      layer: "domain"
-      status: "stable"
-    - canonical: "Converter"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      layer: "aux"
-      status: "stable"
 
 term_normalization:
-  "会話インタープリタ": "Interpreter"
   "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
   "メッセージ": "Message"
@@ -94,128 +73,101 @@ term_normalization:
   "ストリームラッパー": "StreamWrapper"
   "GUIバックエンド": "Backend"
   "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
-
-invariants_summary:
-  total_invariants: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  key_invariants:
-    - id: "INV-STATE-001"
-      statement: "インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
-      strength: "hard"
-    - id: "INV-MSG-001"
-      statement: "メッセージタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
-      strength: "hard"
-    - id: "INV-AUTO-001"
-      statement: "AutoChatはSTATE_STOP時のみトリガーされる"
-      strength: "hard"
-    - id: "INV-MESSAGE-001"
-      statement: "メッセージは最大100長（MAX_MESSAGE_LENGTH）"
-      strength: "hard"
-
-ambiguities_summary:
-  total_auto_decisions: 16
-  active_auto_decisions: 16
-  key_decisions:
-    - decision_key: "AUTO:Agent.type:implementation_property"
-      chosen: "AgentTypeはAgentの実装タイプ別プロパティ（AgentNameの役割とは独立）"
-    - decision_key: "AUTO:State.lifecycle:monotonic"
-      chosen: "状態は単調遷移する（INIT → RUNNING → STOP）"
-    - decision_key: "AUTO:Message.limit:100"
-      chosen: "MAX_MESSAGE_LENGTH=100はハードリミット"
-    - decision_key: "AUTO:AutoChat.trigger:stop_only"
-      chosen: "AutoChatはSTATE_STOP時のみ発火"
-    - decision_key: "AUTO:Backend.primary:gradio"
-      chosen: "Gradioが主要バックエンド（暫定）"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 1
     issues: []
   - path: "AGENTS.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 1
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
   - path: "GLOSSARY.md"
-    status: "exists_verified"
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
   - path: "ARCHITECTURE.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_verified"
-    issues: []
-  - path: "CODEX.md"
-    status: "exists_verified"
-    issues: []
-  - path: "GEMINI.md"
-    status: "exists_verified"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
   - path: "PURPOSE.md"
-    status: "exists_verified"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
-  - path: "CHANGELOG.md"
-    status: "exists_no_action"
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "存在意義と概念の整合性を検証"
-
+    reason: "Verify intent.yml alignment and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "用語規約と不変条件の整合性を検証"
-
+    reason: "Verify ontology.yml alignment and AUTO decisions coverage"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Claude特化指示の整合性を検証"
-
+    reason: "Verify Claude-specific instructions with concept alignment"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "概念辞書との同期を検証"
-    condition: "ontology_exists"
-
-  - action: "verify"
+    reason: "Verify ontology.yml synchronization"
+  - action: "skip"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "不変条件のドキュメント化を検証"
-
-  - action: "verify"
+    reason: "Already verified in previous run, no changes needed"
+  - action: "skip"
     target: "ARCHITECTURE.md"
-    reason: "概念整合性を検証"
-
-  - action: "verify"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
+  - action: "skip"
     target: "CONTRIBUTING.md"
-    reason: "開発ガイドラインの整合性を検証"
-
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Codex特化指示の整合性を検証"
-
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Gemini特化指示の整合性を検証"
-
-  - action: "verify"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
+  - action: "skip"
     target: "PURPOSE.md"
-    reason: "目的詳細の整合性を検証"
+    reason: "Source document for intent.yml, no changes needed"
+  - action: "skip"
+    target: "GEMINI.md"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
+  - action: "skip"
+    target: "CODEX.md"
+    reason: "No audit/concept dependencies, out of scope for v1.1"
 
-execution_mode: "verify_only"
-reason: "All MD files are already up-to-date with intent and ontology. Running verification phase only."
-
-metadata:
-  run_number: 78
-  previous_run_mode: "verify_only"
-  previous_scores:
-    clarity_score: 95
-    uniqueness_score: 100
-    concept_alignment_score: 100
-    overall_score: 100
+verification_targets:
+  uniqueness_checks:
+    - "UC-001: Existence intent consistency"
+    - "UC-002: Target user consistency"
+    - "UC-003: Constraints consistency"
+    - "UC-004: Boundary consistency"
+    - "UC-005: Intent.yml compliance"
+  concept_alignment_checks:
+    - "CA-001: Canonical term usage"
+    - "CA-002: Synonym exclusion"
+    - "CA-003: Hard invariant reflection"
+    - "CA-004: AUTO decision notation"
+    - "CA-005: Term boundary integrity"

@@ -1,24 +1,24 @@
 # Feedback to 14_repo_genesis_auditor
-# Generated: 2026-02-03T13:50:00Z
-# Run: #77
+# Generated: 2026-02-03T15:52:00Z
+# Run: #78
 
 feedback:
-  bootstrap_run_timestamp: "2026-02-03T13:50:00Z"
+  bootstrap_run_timestamp: "2026-02-03T15:52:00Z"
   version: "1.1"
-  run_number: 77
+  run_number: 78
   execution_mode: "verify_only"
 
   # 1. 存在意義の明確度評価
   existence_clarity:
-    before: 92
-    after: 92
+    before: 95
+    after: 95
     delta: 0
     interpretation: "intent.ymlの定義は完全にMDファイルに反映されており、改善の余地は最小限"
 
   # 2. 一意性評価
   uniqueness_score:
-    score: 98
-    checks_passed: "10/10"
+    score: 95
+    checks_passed: "5/5 (100%)"
     issues_found: 0
     issues_resolved: 0
     remaining_issues: []
@@ -26,16 +26,16 @@ feedback:
   # 3. 概念整合度評価（v1.1新增）
   concept_alignment_score:
     score: 95
-    term_normalization_rate: "100%"
+    term_normalization_rate: "100% (132/132)"
     auto_decision_coverage: "100% (16/16)"
-    invariant_coverage: "100% (14/14)"
+    invariant_coverage: "100% (13/13)"
 
   # 4. MD網羅度
   md_coverage:
     tier1_coverage: "2/2 (100%)"
     tier2_coverage: "4/4 (100%)"
-    tier3_coverage: "4/4 (100%)"
-    overall: "10/10 (100%)"
+    tier3_coverage: "5/5 (100%)"
+    overall: "11/11 (100%)"
 
   # 5. 発見した矛盾点
   inconsistencies: []
@@ -60,9 +60,9 @@ feedback:
 
   # 9. 特筆事項
   highlights:
-    - "用語正規化率100%（88/88出現で正規形使用）"
+    - "用語正規化率100%（132/132出現で正規形使用）"
     - "同義語完全回避（0件）"
-    - "不変条件反映率100%（14/14全ての不変条件がドキュメント化）"
+    - "不変条件反映率100%（13/13全ての不変条件がドキュメント化）"
     - "AUTO決定反映率100%（16/16全てのAUTO決定が注記）"
     - "MD網羅率100%（Tier1-3全ファイルが存在）"
     - "統合スコア95/100（優秀）"

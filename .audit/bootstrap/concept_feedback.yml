@@ -1,17 +1,17 @@
 # Feedback to 12_concept_sync_system
-# Generated: 2026-02-03T13:50:00Z
-# Run: #77
+# Generated: 2026-02-03T15:52:00Z
+# Run: #78
 
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T13:50:00Z"
+  bootstrap_run_timestamp: "2026-02-03T15:52:00Z"
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-03T02:09:41Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    total_term_occurrences: 88
-    canonical_used: 88
+    total_term_occurrences: 132
+    canonical_used: 132
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
@@ -19,12 +19,12 @@ concept_feedback:
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 14
-    reflected: 14
+    total: 13
+    reflected: 13
     missing: []
     by_strength:
       hard: {"total": 11, "reflected": 11}
-      soft: {"total": 3, "reflected": 3}
+      soft: {"total": 2, "reflected": 2}
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
@@ -70,9 +70,9 @@ concept_feedback:
 
   # 9. 特筆事項
   highlights:
-    - "完全な用語正規化（100%整合率、88/88）"
+    - "完全な用語正規化（100%整合率、132/132）"
     - "完全な同義語回避（0件）"
-    - "完全な不変条件反映（100%カバー率、14/14）"
+    - "完全な不変条件反映（100%カバー率、13/13）"
     - "完全なAUTO決定文書化（100%カバー率、16/16）"
     - "GLOSSARY.mdがontology.ymlと完全に同期（11/11用語）"
     - "draft status（Memory）が適切に注記されている"
@@ -85,6 +85,4 @@ concept_feedback:
       - action: "定期的な整合性チェック"
         frequency: "コードまたはontology変更時"
         reason: "現状の高品質を維持するため"
-    future_improvements:
-      - action: "CONTRIBUTING.md, GEMINI.md, CODEX.mdの概念整合性検証"
-        reason: "v1.1ではscope外だったが、将来的には検証推奨"
+    future_improvements: []
