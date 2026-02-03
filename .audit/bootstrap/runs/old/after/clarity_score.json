@@ -1,296 +1,161 @@
 {
-  "timestamp": "2026-02-04T02:10:00Z",
-  "overall_score": 98,
+  "timestamp": "2026-02-04T02:15:26Z",
+  "overall_score": 95,
   "concept_alignment_score": 98,
-  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_breakdown": {
-    "intent_alignment": {
-      "score": 100,
-      "weight": 0.4,
-      "details": "All MDs perfectly align with intent.yml mission and core values"
-    },
-    "term_normalization": {
-      "score": 98,
-      "weight": 0.3,
-      "details": "Canonical terms used consistently, minor improvements possible"
-    },
-    "invariant_coverage": {
-      "score": 95,
-      "weight": 0.2,
-      "details": "All hard invariants documented, some soft invariants could be more visible"
-    },
-    "auto_decision_documentation": {
-      "score": 100,
-      "weight": 0.1,
-      "details": "All 16 AUTO decisions properly documented with notes"
-    }
-  },
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 98,
-        "issues": [],
-        "strengths": [
-          "Mission statement matches intent.yml perfectly",
-          "All canonical terms used correctly",
-          "AUTO decisions documented comprehensively",
-          "Invariants listed with proper references"
-        ]
+        "issues": []
       },
-      "uniqueness_checks": {
-        "uc_001_mission_consistency": {
-          "passed": true,
-          "details": "Mission matches intent.yml exactly"
-        },
-        "uc_002_target_user_consistency": {
-          "passed": true,
-          "details": "All 4 target users correctly listed"
-        },
-        "uc_003_constraints_consistency": {
-          "passed": true,
-          "details": "Technical constraints implied through invariants"
-        },
-        "uc_004_boundary_consistency": {
-          "passed": true,
-          "details": "Scope boundaries clearly defined in invariants section"
-        },
-        "uc_005_intent_compliance": {
-          "passed": true,
-          "details": "All core functions from intent.yml are present"
-        }
-      },
-      "concept_alignment_checks": {
-        "ca_001_canonical_terms": {
-          "passed": true,
-          "details": "Interpreter, Agent, Session, Message, State, StreamWrapper used correctly"
-        },
-        "ca_002_synonym_exclusion": {
-          "passed": true,
-          "details": "No synonyms found in text"
-        },
-        "ca_003_invariant_reflection": {
-          "passed": true,
-          "details": "5 key invariants documented (INV-STATE-001, INV-SESSION-001, INV-MSG-001, INV-MESSAGE-001, INV-AUTO-001)"
-        },
-        "ca_004_auto_decision_notes": {
-          "passed": true,
-          "details": "All 16 AUTO decisions documented with provisional notes"
-        },
-        "ca_005_term_boundaries": {
-          "passed": true,
-          "details": "Term boundaries consistent with ontology.yml"
-        }
-      }
+      "strengths": [
+        "存在意義が明確に記載されている",
+        "用語の正規形が使用されている（Interpreter, Agent, Session, Message, State）",
+        "AUTO決定が適切に文書化されている",
+        "不変条件が正しく記載されている",
+        "用語規約が記載されている"
+      ],
+      "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "strengths": [
-          "Perfect terminology table with canonical forms and synonyms",
-          "All 11 canonical terms documented",
-          "Term layer classification (core/domain/aux) correct",
-          "All 13 invariants documented (11 hard, 2 soft)",
-          "All 16 AUTO decisions documented",
-          "Behavior rules match intent.yml core functions",
-          "Out of scope matches intent.yml boundaries exactly"
-        ]
+        "issues": []
       },
-      "uniqueness_checks": {
-        "uc_001_mission_consistency": {
-          "passed": true,
-          "details": "Mission statement in header matches intent.yml"
-        },
-        "uc_002_target_user_consistency": {
-          "passed": true,
-          "details": "Target users implied through agent guidelines"
-        },
-        "uc_003_constraints_consistency": {
-          "passed": true,
-          "details": "Constraints reflected in invariants section"
-        },
-        "uc_004_boundary_consistency": {
-          "passed": true,
-          "details": "Out of scope section matches intent.yml boundaries exactly"
-        },
-        "uc_005_intent_compliance": {
-          "passed": true,
-          "details": "All core functions reflected in behavior rules"
-        }
-      },
-      "concept_alignment_checks": {
-        "ca_001_canonical_terms": {
-          "passed": true,
-          "details": "Perfect terminology table with all canonical forms"
-        },
-        "ca_002_synonym_exclusion": {
-          "passed": true,
-          "details": "Synonyms listed in table for reference, not used in text"
-        },
-        "ca_003_invariant_reflection": {
-          "passed": true,
-          "details": "All 13 invariants documented (11 hard, 2 soft)"
-        },
-        "ca_004_auto_decision_notes": {
-          "passed": true,
-          "details": "All 16 AUTO decisions documented by category"
-        },
-        "ca_005_term_boundaries": {
-          "passed": true,
-          "details": "Term boundaries consistent with ontology.yml"
-        }
-      }
+      "strengths": [
+        "用語規約が完全に正規形を使用している",
+        "全ての正規用語（11個）が適切に記載されている",
+        "不変条件がハード/ソフトに分類されている",
+        "全16個のAUTO決定がカテゴリ別に記載されている",
+        "存在意義との整合性が取れている"
+      ],
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 98,
-        "issues": [],
-        "strengths": [
-          "All canonical terms listed correctly",
-          "11 canonical terms count is accurate",
-          "All hard invariants documented with code examples",
-          "All 16 AUTO decisions documented",
-          "Term layer classification correct",
-          "Code examples follow invariants properly"
-        ]
-      },
-      "uniqueness_checks": {
-        "uc_001_mission_consistency": {
-          "passed": true,
-          "details": "Project context aligns with intent.yml"
-        },
-        "uc_002_target_user_consistency": {
-          "passed": true,
-          "details": "Targeted at Claude as specified"
-        },
-        "uc_003_constraints_consistency": {
-          "passed": true,
-          "details": "Constraints reflected in invariants"
-        },
-        "uc_004_boundary_consistency": {
-          "passed": true,
-          "details": "Boundaries implied through best practices"
-        },
-        "uc_005_intent_compliance": {
-          "passed": true,
-          "details": "Core philosophy aligns with intent.yml"
-        }
-      },
-      "concept_alignment_checks": {
-        "ca_001_canonical_terms": {
-          "passed": true,
-          "details": "All 11 canonical terms used correctly"
-        },
-        "ca_002_synonym_exclusion": {
-          "passed": true,
-          "details": "No synonyms used in text"
-        },
-        "ca_003_invariant_reflection": {
-          "passed": true,
-          "details": "All invariants organized by category with examples"
-        },
-        "ca_004_auto_decision_notes": {
-          "passed": true,
-          "details": "All 16 AUTO decisions documented with references"
-        },
-        "ca_005_term_boundaries": {
-          "passed": true,
-          "details": "Boundaries consistent with ontology.yml"
-        }
-      }
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 95,
-        "issues": [
-          {
-            "type": "minor_improvement",
-            "details": "Could add more explicit references to invariants.yml"
-          }
-        ],
-        "strengths": [
-          "System principles align with design philosophy",
-          "Invariants reflected in constitution"
-        ]
-      }
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "strengths": [
-          "Purpose aligns perfectly with intent.yml mission",
-          "Core values match exactly"
-        ]
-      }
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
         "score": 98,
-        "issues": [],
-        "strengths": [
-          "Contribution guidelines align with intent.yml",
-          "References to ontology and invariants present"
-        ]
-      }
+        "issues": []
+      },
+      "strengths": [
+        "Claude固有の推奨事項が詳細に記載されている",
+        "全ての正規用語が適切に使用されている",
+        "不変条件が詳細に説明されている",
+        "AUTO決定がカテゴリ別に記載されている",
+        "コード例が適切に記載されている"
+      ],
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "strengths": [
-          "Auto-generated from ontology.yml",
-          "All 11 canonical terms documented",
-          "Term layer classification correct",
-          "Synonyms properly listed",
-          "Boundaries documented",
-          "AUTO decisions referenced",
-          "Status indicators correct (10 stable, 1 draft)"
-        ]
-      }
+        "issues": []
+      },
+      "strengths": [
+        "ontology.ymlから自動生成されている",
+        "全11個の正規用語が完全に記載されている",
+        "同義語が正規化マップとして提供されている",
+        "AUTO決定が各用語に紐付いて記載されている",
+        "不変条件の概要が記載されている"
+      ],
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
+    },
+    {
+      "path": "CODEX.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": null,
+      "concept_alignment": {
+        "score": null,
+        "issues": null
+      },
+      "strengths": null,
+      "issues": null
     }
   ],
   "summary": {
-    "total_issues": 0,
-    "critical_issues": 0,
-    "major_issues": 0,
-    "minor_improvements": 1,
-    "strengths": [
-      "Perfect alignment with intent.yml",
-      "Excellent concept alignment with ontology.yml",
-      "All canonical terms used consistently",
-      "All invariants properly documented",
-      "All AUTO decisions documented",
-      "Term layer classifications accurate",
-      "No synonym usage in body text",
-      "All MD files exist and are well-maintained"
-    ],
-    "recommendations": [
-      "Consider adding more explicit references to invariants.yml in SYSTEM_CONSTITUTION.md",
-      "Maintain current high standards",
-      "Continue using canonical terms consistently"
-    ]
+    "total_files_analyzed": 4,
+    "files_with_perfect_clarity": 2,
+    "files_with_high_clarity": 2,
+    "files_with_issues": 0,
+    "average_clarity_score": 96.5,
+    "concept_alignment_rate": 99.0
   }
 }

@@ -17,7 +17,7 @@ This project is designed for:
 - **Framework Developers**: Building new GUI backend implementations
 - **AI Agents**: Claude, Gemini, Codex, and other AI models working with this codebase
 
-> **Note**: This repository uses normalized terminology for consistency. Key terms include `Interpreter` (core conversation management), `Agent` (specialized AI entities), `Session` (unique conversation contexts), `Message` (structured communication), `State` (interpreter execution states), and `Converter` (data transformation utilities). See [GLOSSARY.md](GLOSSARY.md) for complete terminology.
+> **Note**: This repository uses normalized terminology for consistency. Key terms include `Interpreter` (core conversation management), `Agent` (specialized AI entities), `Session` (unique conversation contexts with JWT), `Message` (structured communication), `State` (interpreter execution states), `AutoChat` (automatic conversation continuation), `StreamWrapper` (sync/async streaming utility), `Backend` (GUI framework implementation), `Memory` (conversation buffer - draft), `Connector` (agent adapter), and `Converter` (data transformation utilities). See [GLOSSARY.md](GLOSSARY.md) for complete terminology.
 
 ## Core Functions
 

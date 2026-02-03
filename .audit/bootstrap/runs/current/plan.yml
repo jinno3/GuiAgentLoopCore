@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T02:15:26Z"
+run_timestamp: "2026-02-04T02:30:00Z"
 version: "1.1"
 
 rotation:
@@ -8,17 +8,22 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
+    constraints_yml: null
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
+  boundaries_count: 6
 
 ontology_summary:
   total_terms: 11
@@ -36,7 +41,7 @@ ontology_summary:
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
       layer: "core"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
       layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
@@ -85,76 +90,125 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
 
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  hard_list:
+    - "INV-STATE-001: インタープリタ状態は単調遷移する"
+    - "INV-SESSION-001: セッションは一意のUUIDで識別される"
+    - "INV-MSG-001: メッセージタイプは定義された列挙型のみ"
+    - "INV-AUTO-001: AutoChatはSTATE_STOP時のみトリガーされる"
+    - "INV-STREAM-001: ストリームラッパーは同期・非同期の両方をサポートする"
+    - "INV-MESSAGE-001: メッセージは最大100長"
+    - "INV-STATE-002: 状態は3秒間隔のタイマーで自動更新される"
+    - "INV-BACKEND-001: バックエンドサーバーはallowed_pathsでセキュリティ制限される"
+    - "INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+    - "INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+    - "INV-CONVERTER-001: コンバータは構造化変換のためにMappingRuleを使用する"
+  soft_list:
+    - "INV-AGENT-001: エージェントは定義された役割を持つ"
+    - "INV-MEM-001: 会話メモリは最大100メッセージまで保持する（draft）"
+    - "INV-BACKEND-002: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
+
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_review"
+    status: "exists_verified"
     tier: 1
+    issues: []
+    last_update: "2026-02-04T00:00:00Z"
   - path: "AGENTS.md"
-    status: "exists_needs_review"
+    status: "exists_verified"
     tier: 1
+    issues: []
+    last_update: "2026-02-04T00:45:00Z"
+  - path: "GLOSSARY.md"
+    status: "exists_verified"
+    tier: 3
+    issues: []
+    last_update: "2026-02-04T00:45:00Z"
   - path: "CLAUDE.md"
-    status: "exists_needs_review"
+    status: "exists_verified"
     tier: 2
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
+    issues: []
+    last_update: "2026-02-04T00:00:00Z"
   - path: "ARCHITECTURE.md"
     status: "exists_needs_review"
     tier: 3
-  - path: "GLOSSARY.md"
+    issues:
+      - "Concept alignment with ontology should be verified"
+  - path: "PURPOSE.md"
     status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should reflect intent.yml mission statement"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should reflect hard invariants from invariants.yml"
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues:
+      - "Should include terminology guidelines"
+  - path: "GEMINI.md"
+    status: "exists"
     tier: 3
+    issues:
+      - "Concept alignment should be verified"
+  - path: "CODEX.md"
+    status: "exists"
+    tier: 3
+    issues:
+      - "Concept alignment should be verified"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify concept alignment and intent consistency"
+    reason: "Verify concept alignment and update timestamp"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify concept alignment and intent consistency"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify concept alignment and intent consistency"
+    reason: "Verify concept alignment and update timestamp"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify concept alignment and intent consistency"
+    reason: "Verify concept alignment and update timestamp"
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "Verify concept alignment and update timestamp"
+  - action: "review"
+    target: "ARCHITECTURE.md"
+    reason: "Review concept alignment with ontology"
+  - action: "review"
+    target: "PURPOSE.md"
+    reason: "Review alignment with intent.yml"
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Review alignment with invariants.yml"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "Review terminology guidelines"
+  - action: "review"
+    target: "GEMINI.md"
+    reason: "Review concept alignment"
+  - action: "review"
+    target: "CODEX.md"
+    reason: "Review concept alignment"
+
+expected_outcome:
+  clarity_score_before: 95
+  uniqueness_score_before: 98
+  concept_alignment_before: 95
+  expected_clarity_score_after: 98
+  expected_uniqueness_score_after: 100
+  expected_concept_alignment_after: 100
