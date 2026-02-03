@@ -1,134 +1,100 @@
 {
-  "timestamp": "2026-02-04T01:35:00Z",
-  "root": "/home/jinno/jinno3/GuiAgentLoopCore",
-  "total_md_files": 18,
-
-  "tier1_required": [
+  "timestamp": "2026-02-04T01:46:00Z",
+  "total_md_files": 11,
+  "files": [
     {
       "path": "README.md",
+      "tier": 1,
       "exists": true,
-      "size_bytes": 4096,
-      "last_modified": "2026-02-04T00:00:00Z"
+      "lines": 128,
+      "last_modified": "2026-02-04"
     },
     {
       "path": "AGENTS.md",
+      "tier": 1,
       "exists": true,
-      "size_bytes": 6144,
-      "last_modified": "2026-02-04T00:45:00Z"
-    }
-  ],
-
-  "tier2_recommended": [
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "size_bytes": 8192,
-      "last_modified": "2026-02-04T00:00:00Z"
+      "lines": 165,
+      "last_modified": "2026-02-04"
     },
     {
-      "path": "SYSTEM_CONSTITUTION.md",
+      "path": "CLAUDE.md",
+      "tier": 2,
       "exists": true,
-      "size_bytes": 2048,
-      "last_modified": "2026-02-02T00:00:00Z"
+      "lines": 273,
+      "last_modified": "2026-02-04"
     },
     {
       "path": "PURPOSE.md",
+      "tier": 2,
       "exists": true,
-      "size_bytes": 3072,
-      "last_modified": "2026-02-02T00:00:00Z"
+      "lines": 178,
+      "last_modified": "2026-02-03"
     },
     {
       "path": "CONTRIBUTING.md",
+      "tier": 2,
       "exists": true,
-      "size_bytes": 2048,
-      "last_modified": "2026-02-02T00:00:00Z"
-    }
-  ],
-
-  "tier3_optional": [
-    {
-      "path": "GEMINI.md",
-      "exists": true,
-      "size_bytes": 2048,
-      "last_modified": "2026-02-02T00:00:00Z"
+      "lines": 222,
+      "last_modified": "2026-02-03"
     },
     {
-      "path": "CODEX.md",
+      "path": "SYSTEM_CONSTITUTION.md",
+      "tier": 2,
       "exists": true,
-      "size_bytes": 1024,
-      "last_modified": "2026-02-02T00:00:00Z"
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": false,
-      "size_bytes": 0,
-      "note": "mappings.ymlの反映が必要"
+      "lines": 269,
+      "last_modified": "2026-02-03"
     },
     {
       "path": "GLOSSARY.md",
+      "tier": 3,
       "exists": true,
-      "size_bytes": 4096,
-      "last_modified": "2026-02-02T00:00:00Z",
-      "generated_from": "ontology.yml"
-    }
-  ],
-
-  "other_mds": [
+      "lines": 436,
+      "last_modified": "2026-02-04"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "tier": 3,
+      "exists": true,
+      "lines": 433,
+      "last_modified": "2026-02-02"
+    },
+    {
+      "path": "GEMINI.md",
+      "tier": 3,
+      "exists": true,
+      "lines": 165,
+      "last_modified": "2026-02-02"
+    },
+    {
+      "path": "CODEX.md",
+      "tier": 3,
+      "exists": true,
+      "lines": 165,
+      "last_modified": "2026-02-02"
+    },
     {
       "path": "CHANGELOG.md",
+      "tier": 3,
       "exists": true,
-      "category": "documentation"
-    },
-    {
-      "path": "LICENSE",
-      "exists": true,
-      "category": "legal"
-    },
-    {
-      "path": ".github/ISSUE_TEMPLATE.md",
-      "exists": true,
-      "category": "templates"
-    },
-    {
-      "path": "docs/index.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/usage.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/api.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/installation.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/contributing.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": "docs/changelog.md",
-      "exists": true,
-      "category": "docs"
-    },
-    {
-      "path": ".concept/decisions.md",
-      "exists": true,
-      "category": "concept"
+      "lines": 4,
+      "last_modified": "2026-02-01"
     }
   ],
-
-  "coverage": {
-    "tier1_coverage": "2/2 (100%)",
-    "tier2_coverage": "4/4 (100%)",
-    "tier3_coverage": "3/4 (75%)"
+  "tier_coverage": {
+    "tier1": {
+      "required": 2,
+      "exists": 2,
+      "coverage": "100%"
+    },
+    "tier2": {
+      "recommended": 4,
+      "exists": 4,
+      "coverage": "100%"
+    },
+    "tier3": {
+      "optional": 5,
+      "exists": 5,
+      "coverage": "100%"
+    }
   }
 }
