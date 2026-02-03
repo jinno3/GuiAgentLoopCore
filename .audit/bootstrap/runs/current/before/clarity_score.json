@@ -1,105 +1,76 @@
 {
-  "timestamp": "2026-02-03T21:10:22Z",
-  "overall_score": 97,
-  "concept_alignment_score": 99,
+  "timestamp": "2026-02-03T21:25:46Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
+  "scoring_methodology": "v1.1 (intent + concept integration)",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
+        "score": 100,
         "issues": []
       },
-      "intent_alignment": 95,
-      "issues": [
-        "Missing 2 security AUTO decisions"
+      "issues": [],
+      "strengths": [
+        "存在意義が明確に記載されている",
+        "用語が正規形で統一されている",
+        "AUTO決定が適切に文書化されている"
       ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "intent_alignment": 98,
-      "issues": [
-        "Missing 2 security AUTO decisions"
+      "issues": [],
+      "strengths": [
+        "用語規約が完全に実装されている",
+        "全11個の正規用語が正規形で使用されている",
+        "不変条件が適切に記載されている",
+        "AUTO決定が網羅されている"
       ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "clarity_score": 98,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "intent_alignment": 98,
-      "issues": [
-        "Missing 2 security AUTO decisions"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "intent_alignment": 100,
-      "issues": [
-        "Missing 2 soft invariants",
-        "Missing 10 AUTO decisions"
-      ]
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "intent_alignment": 100,
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "tier": 2,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 95,
-        "issues": []
-      },
-      "intent_alignment": 90,
-      "issues": [
-        "Missing 2 security AUTO decisions"
+      "issues": [],
+      "strengths": [
+        "Claude向けの用語ガイドが完備",
+        "不変条件が詳細に説明されている",
+        "AUTO決定が適切に注記されている"
       ]
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "intent_alignment": 100,
-      "issues": [
-        "Missing 7 AUTO decisions"
+      "issues": [],
+      "strengths": [
+        "ontology.ymlから自動生成されている",
+        "全11用語が完全に文書化されている",
+        "正規化マップが提供されている"
       ]
     }
-  ]
+  ],
+  "summary": {
+    "total_files_checked": 10,
+    "files_with_perfect_alignment": 4,
+    "files_with_minor_issues": 0,
+    "files_needing_update": 0
+  }
 }
