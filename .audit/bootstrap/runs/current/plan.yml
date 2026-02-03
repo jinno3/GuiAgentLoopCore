@@ -1,7 +1,7 @@
-# MD Bootstrap Execution Plan v1.1
-# Generated: 2026-02-04T00:00:00Z
+# MD Bootstrap Execution Plan (v1.1)
+# Generated: 2026-02-03T15:12:33Z
 
-run_timestamp: "2026-02-04T00:00:00Z"
+run_timestamp: "2026-02-03T15:12:33Z"
 version: "1.1"
 
 rotation:
@@ -12,6 +12,8 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    analysis_yml: ".audit/analysis/as_is.yml"
+    gap_yml: ".audit/analysis/gap.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -19,75 +21,75 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_users:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
-    - "AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+    - "AI Agents (Claude, Gemini, Codex)"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
   core_functions_count: 5
+  design_philosophies_count: 5
 
 ontology_summary:
   version: "0.3"
   updated_at: "2026-02-03T12:21:29Z"
   total_terms: 11
   by_layer:
-    core: 5
-    domain: 5
-    aux: 1
+    core: 5  # Interpreter, Agent, Session, Message, State
+    domain: 5  # AutoChat, StreamWrapper, Backend, Memory, Connector
+    aux: 1  # Converter
   by_status:
     stable: 10
-    draft: 1
+    draft: 1  # Memory
   key_terms:
     - canonical: "Interpreter"
-      layer: "core"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+      status: "stable"
     - canonical: "Agent"
-      layer: "core"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+      status: "stable"
     - canonical: "Session"
-      layer: "core"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+      status: "stable"
     - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
       layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      status: "stable"
     - canonical: "State"
-      layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+      status: "stable"
     - canonical: "AutoChat"
-      layer: "domain"
       definition: "STATE_STOP時に自動的に会話を継続する機能"
+      layer: "domain"
+      status: "stable"
     - canonical: "StreamWrapper"
-      layer: "domain"
       definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
-    - canonical: "Backend"
       layer: "domain"
+      status: "stable"
+    - canonical: "Backend"
       definition: "GUIフレームワーク実装（Gradio等）"
+      layer: "domain"
+      status: "stable"
     - canonical: "Memory"
+      definition: "会話履歴を保持するバッファ機構"
       layer: "domain"
       status: "draft"
-      definition: "会話履歴を保持するバッファ機構"
     - canonical: "Connector"
-      layer: "domain"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+      layer: "domain"
+      status: "stable"
     - canonical: "Converter"
-      layer: "aux"
       definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-
-invariants_summary:
-  updated_at: "2026-02-02T05:23:14Z"
-  total_invariants: 13
-  by_strength:
-    hard: 10
-    soft: 3
-  by_status:
-    stable: 12
-    draft: 1
-
-auto_decisions_count: 16
+      layer: "aux"
+      status: "stable"
 
 term_normalization:
+  # Synonyms to normalize to canonical forms
   "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
   "AIエージェント": "Agent"
@@ -115,149 +117,143 @@ term_normalization:
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
   "変換器": "Converter"
   "マッパー": "Converter"
 
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  stable_invariants: 13
+  draft_invariants: 1  # INV-MEM-001 (Memory is draft)
+
+ambiguities_summary:
+  total_ambiguities: 9
+  active_auto_decisions: 9
+  high_severity: 2  # AMB-SEC-001, AMB-SEC-002
+  medium_severity: 2  # AMB-MSG-001, AMB-MEM-002
+  low_severity: 5
+
 existing_mds:
   - path: "README.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 1
-    size_kb: 5.2
-    last_modified: "2026-02-03"
-    issues: []
-    strengths:
-      - "存在意義が明確に記載"
-      - "用語が正規形で使用されている"
-      - "AUTO決定が適切に記載"
-      - "不変条件が適切に要約"
-
+    purpose: "Repository face sheet - existence and quick start"
   - path: "AGENTS.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 1
-    size_kb: 9.5
-    last_modified: "2026-02-03"
-    issues: []
-    strengths:
-      - "存在意義が先頭に記載"
-      - "用語規約セクションが完備"
-      - "正規形と同義語の表が完備"
-      - "不変条件がhard/softに分類されている"
-      - "AUTO決定がカテゴリ別に整理"
-      - "最終更新タイムスタンプが記載"
-
+    purpose: "AI agent-facing instructions"
   - path: "CLAUDE.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 2
-    size_kb: 13
-    last_modified: "2026-02-03"
-    issues: []
-    strengths:
-      - "Claude向けに特化された指示"
-      - "用語の一貫性セクションが完備"
-      - "不変条件がコード例付きで記載"
-      - "AUTO決定が追跡されている"
-      - "コードレビューチェックリストがある"
-
-  - path: "GLOSSARY.md"
-    status: "exists_aligned"
-    tier: 2
-    size_kb: 11
-    last_modified: "2026-02-03"
-    issues: []
-    strengths:
-      - "ontology.ymlから生成されている"
-      - "用語がレイヤー別に整理"
-      - "定義が明確"
-
+    purpose: "Claude-specific instructions"
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 2
-    size_kb: 7.8
-    last_modified: "2026-02-03"
-
+    purpose: "System constitution - invariants"
   - path: "PURPOSE.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 2
-    size_kb: 5.3
-    last_modified: "2026-02-03"
-
+    purpose: "Detailed purpose description"
   - path: "CONTRIBUTING.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
     tier: 2
-    size_kb: 7.2
-    last_modified: "2026-02-03"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_aligned"
-    tier: 3
-    size_kb: 14
-    last_modified: "2026-02-02"
-
+    purpose: "Contribution guidelines"
   - path: "GEMINI.md"
-    status: "exists_aligned"
+    status: "exists"
     tier: 3
-    size_kb: 4.7
-    last_modified: "2026-02-02"
-
+    purpose: "Gemini-specific instructions"
   - path: "CODEX.md"
-    status: "exists_aligned"
+    status: "exists"
     tier: 3
-    size_kb: 5.2
-    last_modified: "2026-02-02"
-
+    purpose: "Codex-specific instructions"
+  - path: "ARCHITECTURE.md"
+    status: "exists"
+    tier: 3
+    purpose: "Architecture documentation"
+  - path: "GLOSSARY.md"
+    status: "exists_needs_update"
+    tier: 3
+    purpose: "Glossary from ontology"
   - path: "CHANGELOG.md"
-    status: "exists_minimal"
+    status: "exists"
     tier: 3
-    size_kb: 0.061
-    last_modified: "2026-02-01"
-    issues:
-      - "内容がほとんど空"
+    purpose: "Change log"
 
 actions:
+  # Tier 1 (Must have)
   - action: "verify"
     target: "README.md"
-    reason: "既に存在意義と概念が統合されているため、検証のみ実施"
-
+    reason: "Ensure existence clarity and term normalization"
+    priority: "critical"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "既に用語規約とAUTO決定が適切に記載されているため、検証のみ実施"
+    reason: "Ensure existence clarity and term normalization"
+    priority: "critical"
 
+  # Tier 2 (Should have)
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "既にClaude向けの指示が完備されているため、検証のみ実施"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "既にontologyから生成されているため、検証のみ実施"
-
+    reason: "Verify Claude-specific instructions with concept alignment"
+    priority: "high"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "不変条件が適切に記載されているため、検証のみ実施"
-
+    reason: "Verify invariants are correctly reflected"
+    priority: "high"
   - action: "verify"
     target: "PURPOSE.md"
-    reason: "存在意義の詳細が記載されているため、検証のみ実施"
-
+    reason: "Verify purpose aligns with intent.yml"
+    priority: "high"
   - action: "verify"
     target: "CONTRIBUTING.md"
-    reason: "貢献ガイドが記載されているため、検証のみ実施"
+    reason: "Verify contribution guidelines align with intent"
+    priority: "medium"
 
-  - action: "update_timestamp"
-    target: "All MD files"
-    reason: "bootstrap実行タイムスタンプの更新"
+  # Tier 3 (Nice to have)
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "Regenerate from ontology.yml v0.3 (11 terms)"
+    priority: "medium"
+    condition: "ontology_exists"
 
+  # Skip (not in scope)
+  - action: "skip"
+    target: "GEMINI.md"
+    reason: "Tier 3, already exists"
+  - action: "skip"
+    target: "CODEX.md"
+    reason: "Tier 3, already exists"
+  - action: "skip"
+    target: "ARCHITECTURE.md"
+    reason: "Tier 3, already exists"
   - action: "skip"
     target: "CHANGELOG.md"
-    reason: "コンテンツが最小限であり、今回のスコープでは更新しない"
+    reason: "Tier 3, not part of bootstrap scope"
 
-coverage_assessment:
-  tier1_coverage: "2/2 (100%)"
-  tier2_coverage: "5/5 (100%)"
-  tier3_coverage: "3/4 (75%)"
-  overall_coverage: "10/11 (91%)"
+verification_targets:
+  uniqueness_checks:
+    - "UC-001: Existence consistency across all MDs"
+    - "UC-002: Target user consistency"
+    - "UC-003: Constraint consistency"
+    - "UC-004: Boundary consistency"
+    - "UC-005: Intent.yml compliance"
 
-expected_outcomes:
-  overall_clarity_score: 95
-  uniqueness_score: 95
-  concept_alignment_score: 98
-  improvements: "タイムスタンプ更新と検証実施"
+  concept_alignment_checks:
+    - "CA-001: Canonical term usage"
+    - "CA-002: Synonym exclusion"
+    - "CA-003: Invariant reflection (hard invariants)"
+    - "CA-004: AUTO decision notation"
+    - "CA-005: Term boundary consistency"
+
+target_scores:
+  overall_score: 90
+  uniqueness_score: 90
+  concept_alignment_score: 90
+
+expected_changes:
+  updated_files: 7  # README.md, AGENTS.md, CLAUDE.md, SYSTEM_CONSTITUTION.md, PURPOSE.md, CONTRIBUTING.md, GLOSSARY.md
+  created_files: 0
+  skipped_files: 4  # GEMINI.md, CODEX.md, ARCHITECTURE.md, CHANGELOG.md

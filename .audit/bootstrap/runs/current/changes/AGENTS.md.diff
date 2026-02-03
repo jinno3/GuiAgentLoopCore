@@ -1,0 +1,13 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index e49b750..a068a9d 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -99,7 +99,7 @@
+ 
+ - **AUTO:State.lifecycle:monotonic** - 状態は単調遷移する（INIT → RUNNING → STOP）
+ - **AUTO:State.transition:auto_on_input** - ユーザー入力時（textbox.submit）に自動的にRUNNINGに遷移
+-- **AUTO:State.transition:forward_only** - 状態遷移は前方のみ（逆行不可）
++- **AUTO:State.timer:3sec** - t3タイマーは3秒間隔
+ 
+ ### AutoChat関連のAUTO決定
+ 

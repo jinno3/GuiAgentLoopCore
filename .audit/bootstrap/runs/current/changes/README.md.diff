@@ -1,0 +1,17 @@
+diff --git a/README.md b/README.md
+index 6e25631..a8fe7f1 100644
+--- a/README.md
++++ b/README.md
+@@ -90,12 +90,10 @@ This project uses AUTO decisions (provisional specifications) to resolve ambigui
+ ### State-related
+ - **AUTO:State.lifecycle:monotonic** - State transitions are monotonic (INIT → RUNNING → STOP)
+ - **AUTO:State.transition:auto_on_input** - User input (textbox.submit) automatically transitions to RUNNING
+-- **AUTO:State.transition:forward_only** - State transitions are forward-only (no rollback)
+ - **AUTO:State.timer:3sec** - t3 timer is 3 second interval
+ 
+ ### AutoChat-related
+ - **AUTO:AutoChat.trigger:stop_only** - AutoChat only fires at STATE_STOP
+-- **AUTO:AutoChat.check:before_trigger** - State check is performed before trigger
+ - **AUTO:AutoChat.prompt:default_continue** - Default continue prompt used when unset (safety-first)
+ 
+ ### Backend-related

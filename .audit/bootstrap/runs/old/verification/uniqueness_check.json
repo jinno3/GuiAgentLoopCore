@@ -1,57 +1,204 @@
 {
-  "timestamp": "2026-02-03T23:45:00Z",
-  "verification_method": "v1.1 (audit + concept integrated)",
-  "overall_score": 100,
-  "target_score": 90,
-  "result": "PASS - Target achieved",
+  "timestamp": "2026-02-04T00:00:00Z",
+  "verification_type": "uniqueness_check",
+  "version": "1.1",
 
-  "uniqueness_checks": [
+  "overall_uniqueness_score": 95,
+  "checks_passed": "14/15",
+  "checks_failed": 0,
+  "checks_warnings": 1,
+
+  "checks": [
     {
       "id": "UC-001",
       "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "evidence": "All MD files consistently state the mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.'"
+      "evidence": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-002",
       "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "evidence": "All MD files consistently reference the same target users: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+      "evidence": {
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-003",
       "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "source": ".audit/constraints.yml",
+      "source": ".audit + .concept",
       "passed": true,
-      "evidence": "Python version constraint (>=3.10) consistently documented across all MD files"
+      "evidence": {
+        "python_version": ">=3.10",
+        "max_message_length": 100,
+        "consistent_across": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      }
     },
     {
       "id": "UC-004",
       "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit + .concept",
       "passed": true,
-      "evidence": "All MD files consistently define out_of_scope: UI Rendering, LLM Execution, Session Storage, Authentication, Network Protocols"
+      "evidence": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistent_in": ["README.md", "AGENTS.md"],
+        "no_contradictions": true
+      }
     },
     {
       "id": "UC-005",
       "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
+      "source": ".audit",
       "passed": true,
-      "evidence": "All core functions, boundaries, and design philosophy from intent.yml are accurately reflected in all MD files"
+      "evidence": {
+        "core_functions_count": 5,
+        "all_reflected": true,
+        "mission_stated": true
+      }
+    },
+    {
+      "id": "UC-006",
+      "name": "設計哲学の一貫性",
+      "description": "design_philosophyが一貫して反映されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "philosophies": ["Correctness Over Convenience", "Explicit Over Implicit", "Small, Focused Components", "Testability", "Conceptual Integrity"],
+        "reflected_in": ["README.md", "AGENTS.md", "CLAUDE.md"]
+      }
+    },
+    {
+      "id": "UC-007",
+      "name": "成功指標の追跡",
+      "description": "success_metricsがドキュメントに反映されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "metrics_documented": true,
+        "testable_metrics": ["Integration Time", "Bug-Free State Transitions", "Agent Compatibility", "Type Safety", "Documentation Clarity"]
+      }
+    },
+    {
+      "id": "UC-008",
+      "name": "ドキュメント階層の一貫性",
+      "description": "Tier 1/2/3の分類が適切であるか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "tier1_coverage": "2/2 (100%)",
+        "tier2_coverage": "5/5 (100%)",
+        "tier3_coverage": "4/4 (100%)",
+        "all_required_present": true
+      }
+    },
+    {
+      "id": "UC-009",
+      "name": "クロスリンクの一貫性",
+      "description": "MD間のリンクが正しく設定されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "links_verified": true,
+        "broken_links": 0,
+        "examples": ["README.md → AGENTS.md", "AGENTS.md → CLAUDE.md", "AGENTS.md → GLOSSARY.md"]
+      }
+    },
+    {
+      "id": "UC-010",
+      "name": "バージョン情報の一貫性",
+      "description": "バージョン情報が一貫しているか",
+      "source": ".audit + .concept",
+      "passed": true,
+      "evidence": {
+        "ontology_version": "0.3",
+        "invariants_version": "2026-02-02T05:23:14Z",
+        "ambiguities_version": "2026-02-03T21:21:22Z",
+        "consistent_across_mds": true
+      }
+    },
+    {
+      "id": "UC-011",
+      "name": "タイムスタンプの最新性",
+      "description": "タイムスタンプが最新のbootstrap runを反映しているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "latest_run": "2026-02-04T00:00:00Z",
+        "updated_files": ["AGENTS.md", "CLAUDE.md"],
+        "timestamps_current": true
+      }
+    },
+    {
+      "id": "UC-012",
+      "name": "成功指標の文書化",
+      "description": "success_metricsがドキュメントに記載されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "metrics_in_readme": true,
+        "metrics_in_agents": true,
+        "all_metrics_covered": true
+      }
+    },
+    {
+      "id": "UC-013",
+      "name": "コア機能の文書化",
+      "description": "core_functionsが全て記載されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "expected_functions": 5,
+        "documented_functions": 5,
+        "coverage": "100%"
+      }
+    },
+    {
+      "id": "UC-014",
+      "name": "設計哲学の文書化",
+      "description": "design_philosophyが記載されているか",
+      "source": ".audit",
+      "passed": true,
+      "evidence": {
+        "philosophy_count": 5,
+        "all_documented": true,
+        "reflected_in_code": true
+      }
+    },
+    {
+      "id": "UC-015",
+      "name": "CHANGELOG.mdの完全性",
+      "description": "CHANGELOG.mdが適切に維持されているか",
+      "source": ".audit",
+      "passed": false,
+      "severity": "warning",
+      "evidence": {
+        "file_size": 61,
+        "status": "minimal",
+        "recommendation": "CHANGELOG.mdの内容拡充を推奨（優先度：低）"
+      }
     }
   ],
 
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
+    "status": "excellent",
+    "overall_assessment": "MDドキュメントは存在意義に対して高い一意性を維持している。",
+    "critical_issues": 0,
+    "warnings": 1,
+    "recommendations": [
+      "CHANGELOG.mdへの変更履歴追加（優先度：低）"
+    ]
   }
 }

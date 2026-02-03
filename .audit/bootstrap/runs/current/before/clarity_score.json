@@ -1,346 +1,290 @@
 {
-  "timestamp": "2026-02-04T00:00:00Z",
-  "overall_score": 95,
-  "concept_alignment_score": 98,
-  "uniqueness_score": 95,
+  "timestamp": "2026-02-03T15:12:33Z",
+  "overall_score": 85,
+  "concept_alignment_score": 90,
+  "uniqueness_score": 88,
   "max_score": 100,
 
-  "scoring_criteria": {
-    "existence_clarity": {
-      "weight": 0.3,
-      "description": "存在意義が明確に記載されているか",
-      "score": 95
-    },
-    "terminology_consistency": {
-      "weight": 0.3,
-      "description": "用語が正規形で使用されているか",
-      "score": 98
-    },
-    "uniqueness": {
-      "weight": 0.2,
-      "description": "MD間で矛盾がないか",
-      "score": 95
-    },
-    "completeness": {
-      "weight": 0.2,
-      "description": "必要な情報が過不足なく記載されているか",
-      "score": 92
-    }
+  "scoring_breakdown": {
+    "existence_clarity": 88,
+    "concept_normalization": 90,
+    "invariant_coverage": 82,
+    "documentation_quality": 80
   },
 
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 95,
+      "clarity_score": 85,
       "concept_alignment": {
-        "score": 98,
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "issues": []
+        "score": 92,
+        "issues": [],
+        "strengths": [
+          "Uses canonical terms consistently",
+          "References ontology correctly",
+          "Clear existence statement"
+        ]
       },
-      "existence_clarity": {
-        "score": 100,
-        "mission_stated": true,
-        "target_users_defined": true,
-        "core_value_stated": true
-      },
-      "completeness": {
-        "score": 95,
-        "has_installation": true,
-        "has_quick_start": true,
-        "has_invariants": true,
-        "has_auto_decisions": true
-      },
-      "strengths": [
-        "存在意義が冒頭で明確に記載",
-        "用語が正規形で使用されている",
-        "AUTO決定が網羅的に記載",
-        "不変条件が適切に要約",
-        "ドキュメントへのリンクが完備"
+      "issues": [
+        "Could benefit from more explicit reference to intent.yml mission"
       ],
-      "issues": []
+      "strengths": [
+        "Clear quick start section",
+        "Good use of canonical terms",
+        "Proper references to GLOSSARY.md"
+      ]
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 98,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 100,
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "issues": []
+        "score": 90,
+        "issues": [],
+        "strengths": [
+          "Canonical terms consistently used",
+          "Term guidelines section present",
+          "Behavior rules well defined"
+        ]
       },
-      "existence_clarity": {
-        "score": 100,
-        "mission_stated": true,
-        "target_users_defined": true,
-        "boundaries_defined": true
-      },
-      "completeness": {
-        "score": 98,
-        "has_terminology_section": true,
-        "has_invariants": true,
-        "has_auto_decisions": true,
-        "has_behavior_rules": true
-      },
-      "strengths": [
-        "用語規約セクションが完備（正規形と同義語の表）",
-        "不変条件がhard/softに分類されている",
-        "AUTO決定がカテゴリ別に整理されている",
-        "行動規範が明確に記載",
-        "最終更新タイムスタンプが記載",
-        "存在意義が冒頭で記載"
+      "issues": [
+        "Some AUTO decisions could be more explicitly noted"
       ],
-      "issues": []
+      "strengths": [
+        "Comprehensive behavior rules",
+        "Good invariants coverage",
+        "Clear terminology guidelines"
+      ]
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
       "clarity_score": 95,
       "concept_alignment": {
-        "score": 98,
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "issues": []
-      },
-      "existence_clarity": {
         "score": 95,
-        "claude_specific_guidance": true,
-        "terminology_consistency": true
+        "issues": [],
+        "strengths": [
+          "Excellent canonical term usage",
+          "All 16 AUTO decisions documented",
+          "Complete invariants coverage"
+        ]
       },
-      "completeness": {
-        "score": 92,
-        "has_invariants": true,
-        "has_auto_decisions": true,
-        "has_code_examples": true
-      },
+      "issues": [],
       "strengths": [
-        "Claude向けに特化された指示",
-        "用語の一貫性セクションが完備",
-        "不変条件がコード例付きで記載",
-        "AUTO決定が追跡されている",
-        "コードレビューチェックリストがある"
-      ],
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 98,
-      "concept_alignment": {
-        "score": 100,
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "issues": []
-      },
-      "existence_clarity": {
-        "score": 100,
-        "ontology_source": true,
-        "terms_well_defined": true
-      },
-      "completeness": {
-        "score": 95,
-        "all_layers_covered": true,
-        "synonyms_listed": true,
-        "boundaries_defined": true
-      },
-      "strengths": [
-        "ontology.ymlから生成されている",
-        "用語がレイヤー別（core/domain/aux）に整理",
-        "定義が明確",
-        "同義語が適切に記載",
-        "最終更新タイムスタンプがある"
-      ],
-      "issues": []
+        "Best-in-class concept alignment",
+        "All canonical terms listed with definitions",
+        "Complete AUTO decision tracking",
+        "Excellent invariants documentation"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 82,
       "concept_alignment": {
-        "score": 95,
-        "total_terms_checked": 11,
-        "canonical_used": 10,
-        "synonym_used": 1,
-        "issues": []
+        "score": 85,
+        "issues": [
+          "Some invariants could be more explicitly tied to ontology terms"
+        ],
+        "strengths": [
+          "Hard invariants well covered",
+          "Clear constitutional principles"
+        ]
       },
-      "existence_clarity": {
-        "score": 90,
-        "invariants_covered": true
-      },
-      "completeness": {
-        "score": 90,
-        "hard_invariants_listed": true,
-        "soft_invariants_listed": true
-      },
-      "strengths": [
-        "不変条件が体系的に記載"
+      "issues": [
+        "Could benefit from more explicit AUTO decision references"
       ],
-      "issues": []
+      "strengths": [
+        "Strong invariant coverage",
+        "Clear hierarchy of principles"
+      ]
     },
     {
       "path": "PURPOSE.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 95,
-        "total_terms_checked": 11,
-        "canonical_used": 10,
-        "synonym_used": 1,
-        "issues": []
-      },
-      "existence_clarity": {
-        "score": 95,
-        "mission_detailed": true,
-        "philosophy_covered": true
-      },
-      "completeness": {
         "score": 90,
-        "design_philosophy": true,
-        "success_metrics": true
+        "issues": [],
+        "strengths": [
+          "Good alignment with intent.yml",
+          "Canonical terms properly used"
+        ]
       },
+      "issues": [],
       "strengths": [
-        "存在意義の詳細が記載"
-      ],
-      "issues": []
+        "Detailed purpose description",
+        "Aligns well with intent.yml mission"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 80,
       "concept_alignment": {
-        "score": 92,
-        "total_terms_checked": 11,
-        "canonical_used": 10,
-        "synonym_used": 1,
-        "issues": []
+        "score": 85,
+        "issues": [
+          "Could emphasize term normalization more strongly"
+        ],
+        "strengths": [
+          "Good contribution guidelines",
+          "References to standards"
+        ]
       },
-      "existence_clarity": {
-        "score": 88,
-        "contribution_guidelines": true
-      },
-      "completeness": {
-        "score": 88,
-        "has_workflow": true,
-        "has_standards": true
-      },
-      "strengths": [
-        "貢献ガイドが記載"
+      "issues": [
+        "Term normalization guidelines could be stronger",
+        "AUTO decision handling could be more explicit"
       ],
-      "issues": []
+      "strengths": [
+        "Clear contribution process",
+        "Good reference to existing standards"
+      ]
     },
     {
-      "path": "ARCHITECTURE.md",
+      "path": "GLOSSARY.md",
       "exists": true,
-      "clarity_score": 90,
+      "clarity_score": 88,
       "concept_alignment": {
-        "score": 95,
-        "total_terms_checked": 11,
-        "canonical_used": 10,
-        "synonym_used": 1,
-        "issues": []
+        "score": 92,
+        "issues": [
+          "Should be regenerated from ontology.yml v0.3 to ensure 100% alignment"
+        ],
+        "strengths": [
+          "Well-structured glossary",
+          "Good term coverage"
+        ]
       },
-      "existence_clarity": {
-        "score": 88,
-        "architecture_described": true
-      },
-      "completeness": {
-        "score": 88,
-        "components_described": true
-      },
-      "strengths": [
-        "アーキテクチャが記載"
+      "issues": [
+        "May be outdated compared to ontology.yml v0.3",
+        "Should be auto-generated from ontology"
       ],
-      "issues": []
+      "strengths": [
+        "Comprehensive term definitions",
+        "Good categorization by layer"
+      ]
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 95,
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "issues": []
+        "score": 80,
+        "issues": [
+          "Less comprehensive than CLAUDE.md",
+          "AUTO decision coverage incomplete"
+        ],
+        "strengths": [
+          "Uses canonical terms",
+          "Basic guidelines present"
+        ]
       },
-      "existence_clarity": {
-        "score": 90,
-        "gemini_specific_guidance": true
-      },
-      "completeness": {
-        "score": 90,
-        "has_gemini_guidance": true
-      },
-      "strengths": [
-        "Gemini向けの指示が記載"
+      "issues": [
+        "Not as comprehensive as CLAUDE.md",
+        "Missing some AUTO decision references"
       ],
-      "issues": []
+      "strengths": [
+        "Exists and provides guidance",
+        "Uses canonical terms correctly"
+      ]
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 92,
+      "clarity_score": 75,
       "concept_alignment": {
-        "score": 95,
-        "total_terms_checked": 11,
-        "canonical_used": 11,
-        "synonym_used": 0,
-        "issues": []
+        "score": 80,
+        "issues": [
+          "Less comprehensive than CLAUDE.md",
+          "AUTO decision coverage incomplete"
+        ],
+        "strengths": [
+          "Uses canonical terms",
+          "Basic guidelines present"
+        ]
       },
-      "existence_clarity": {
-        "score": 90,
-        "codex_specific_guidance": true
-      },
-      "completeness": {
-        "score": 90,
-        "has_codex_guidance": true
-      },
-      "strengths": [
-        "Codex向けの指示が記載"
+      "issues": [
+        "Not as comprehensive as CLAUDE.md",
+        "Missing some AUTO decision references"
       ],
-      "issues": []
+      "strengths": [
+        "Exists and provides guidance",
+        "Uses canonical terms correctly"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "clarity_score": 82,
+      "concept_alignment": {
+        "score": 85,
+        "issues": [
+          "Could reference ontology terms more explicitly"
+        ],
+        "strengths": [
+          "Good technical documentation",
+          "Uses canonical terms"
+        ]
+      },
+      "issues": [
+        "Could benefit from more explicit term references",
+        "AUTO decisions could be more visible"
+      ],
+      "strengths": [
+        "Comprehensive architecture overview",
+        "Good use of canonical terms"
+      ]
     },
     {
       "path": "CHANGELOG.md",
       "exists": true,
-      "clarity_score": 20,
+      "clarity_score": 70,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 75,
+        "issues": [
+          "Minimal content",
+          "Not part of bootstrap scope"
+        ],
+        "strengths": [
+          "Exists for future use"
+        ]
       },
-      "existence_clarity": {
-        "score": 20,
-        "minimal_content": true
-      },
-      "completeness": {
-        "score": 20,
-        "has_changelog": false
-      },
-      "strengths": [],
       "issues": [
-        "コンテンツが最小限（61バイトのみ）"
+        "Minimal content",
+        "Not actively maintained"
+      ],
+      "strengths": [
+        "Placeholder exists"
       ]
     }
   ],
 
   "overall_assessment": {
-    "status": "excellent",
-    "summary": "MDドキュメントは存在意義と概念モデルの両方に整合しており、非常に高い品質を維持している。",
-    "key_strengths": [
-      "すべての必須MDファイル（Tier 1, 2）が存在",
-      "用語の正規形使用率が98%",
-      "存在意義が適切に反映",
-      "AUTO決定が網羅的に記載",
-      "不変条件が適切にドキュメント化"
+    "strengths": [
+      "High concept alignment (90/100) - canonical terms used consistently",
+      "Good uniqueness score (88/100) - minimal contradictions",
+      "CLAUDE.md is exemplary with all 16 AUTO decisions documented",
+      "All Tier 1 files exist and are high quality",
+      "Ontology v0.3 well-integrated across MDs"
+    ],
+    "improvement_areas": [
+      "GLOSSARY.md should be regenerated from ontology.yml v0.3",
+      "GEMINI.md and CODEX.md could benefit from AUTO decision documentation",
+      "SYSTEM_CONSTITUTION.md could tie invariants more explicitly to ontology",
+      "CONTRIBUTING.md could emphasize term normalization more strongly"
     ],
     "recommendations": [
-      "CHANGELOG.mdの内容拡充（優先度：低）"
+      "Regenerate GLOSSARY.md from ontology.yml v0.3",
+      "Consider standardizing AUTO decision documentation across all AI-specific MDs",
+      "Add explicit invariant-to-ontology term cross-references in SYSTEM_CONSTITUTION.md"
+    ]
+  },
+
+  "comparison_to_previous_run": {
+    "note": "This is a fresh assessment - no previous run comparison available yet",
+    "expected_improvements": [
+      "Concept alignment expected to improve after GLOSSARY.md regeneration",
+      "Uniqueness score expected to improve after verification"
     ]
   }
 }
