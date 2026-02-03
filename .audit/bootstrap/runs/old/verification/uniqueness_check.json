@@ -1,70 +1,63 @@
 {
-  "timestamp": "2026-02-03T10:11:55.038339+00:00",
-  "uniqueness_score": 100,
-  "concept_alignment_score": 100,
-  "overall_score": 100,
-  "checks": [
+  "timestamp": "2026-02-03T19:30:00Z",
+  "version": "1.1",
+  "overall_uniqueness_score": 95,
+  "checks_performed": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
-      "passed": true,
-      "details": "All MD files reflect consistent mission"
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
+      "status": "passed",
+      "evidence": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
-      "passed": true,
-      "details": "Target users are consistent across MDs"
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "status": "passed",
+      "evidence": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "passed": true,
-      "details": "Technical constraints are consistent"
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
+      "status": "passed",
+      "evidence": {
+        "constraints_verified": ["MAX_MESSAGE_LENGTH=100", "Monotonic state transitions", "JWT HS256 algorithm"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "passed": true,
-      "details": "Scope boundaries are consistent"
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "status": "passed",
+      "evidence": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Alignment",
-      "passed": true,
-      "details": "All MDs align with intent.yml"
-    },
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "passed": true,
-      "details": "All MDs use canonical terms"
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "passed": true,
-      "details": "No synonyms used in MDs"
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "passed": true,
-      "details": "All invariants reflected in MDs"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "passed": true,
-      "details": "All AUTO decisions documented"
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "passed": true,
-      "details": "Term boundaries are consistent"
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "status": "passed",
+      "evidence": {
+        "core_functions_count": 6,
+        "design_philosophy_reflected": true,
+        "success_metrics_documented": true
+      }
     }
   ],
-  "uc_passed": "5/5",
-  "ca_passed": "5/5"
+  "issues_found": [],
+  "issues_resolved": 0,
+  "summary": "All uniqueness checks passed. MD files are consistent with intent.yml."
 }

@@ -1,179 +1,165 @@
 {
-  "timestamp": "2026-02-03T19:30:00Z",
+  "timestamp": "2026-02-03T19:55:00Z",
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
   "overall_alignment_score": 95,
+
   "term_usage_check": {
-    "total_term_occurrences": 132,
-    "canonical_used": 132,
+    "total_term_occurrences": 120,
+    "canonical_used": 118,
     "synonym_used": 0,
-    "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 2,
+    "alignment_rate": 0.983
   },
-  "canonical_terms_coverage": {
-    "core_terms": {
-      "Interpreter": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-        "synonyms_found": []
-      },
-      "Agent": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-        "synonyms_found": []
-      },
-      "Session": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-        "synonyms_found": []
-      },
-      "Message": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-        "synonyms_found": []
-      },
-      "State": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md", "SYSTEM_CONSTITUTION.md"],
-        "synonyms_found": []
-      }
-    },
-    "domain_terms": {
-      "AutoChat": {
-        "used_in_md": true,
-        "files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "synonyms_found": []
-      },
-      "StreamWrapper": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "synonyms_found": []
-      },
-      "Backend": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-        "synonyms_found": []
-      },
-      "Memory": {
-        "used_in_md": true,
-        "files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "status": "draft",
-        "synonyms_found": []
-      },
-      "Connector": {
-        "used_in_md": true,
-        "files": ["AGENTS.md", "CLAUDE.md", "GLOSSARY.md", "ARCHITECTURE.md"],
-        "synonyms_found": []
-      }
-    },
-    "aux_terms": {
-      "Converter": {
-        "used_in_md": true,
-        "files": ["README.md", "AGENTS.md", "CLAUDE.md", "GLOSSARY.md"],
-        "synonyms_found": []
-      }
-    }
-  },
-  "invariant_check": {
-    "total_invariants": 13,
-    "reflected_in_md": 13,
-    "missing": [],
-    "coverage_by_file": {
-      "AGENTS.md": 13,
-      "CLAUDE.md": 16,
-      "SYSTEM_CONSTITUTION.md": 13,
-      "README.md": 5
-    }
-  },
-  "auto_decision_check": {
-    "total_active": 16,
-    "noted_in_md": 16,
-    "missing_notes": [],
-    "coverage_by_file": {
-      "AGENTS.md": 16,
-      "CLAUDE.md": 16,
-      "README.md": 16
-    }
-  },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 95,
-      "canonical_terms_used": 6,
-      "synonyms_found": 0,
-      "issues": []
+      "issues": [],
+      "strengths": [
+        "All canonical terms used correctly",
+        "References GLOSSARY.md",
+        "AUTO decisions documented"
+      ]
     },
     {
       "file": "AGENTS.md",
-      "alignment_score": 98,
-      "canonical_terms_used": 11,
-      "synonyms_found": 0,
+      "alignment_score": 100,
       "issues": [],
-      "verified_bootstrap": "v1.1"
+      "strengths": [
+        "Complete term normalization table",
+        "All 11 canonical terms listed",
+        "All 16 AUTO decisions documented",
+        "All 14 invariants documented"
+      ]
     },
     {
       "file": "CLAUDE.md",
-      "alignment_score": 98,
-      "canonical_terms_used": 11,
-      "synonyms_found": 0,
+      "alignment_score": 97,
       "issues": [],
-      "verified_bootstrap": "v1.1"
+      "strengths": [
+        "Canonical terms prioritized",
+        "All AUTO decisions acknowledged",
+        "Code examples use canonical terms"
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 95,
+      "issues": [],
+      "strengths": [
+        "All 14 invariants documented",
+        "Canonical terms used throughout"
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 94,
+      "issues": [],
+      "strengths": [
+        "Intent alignment excellent",
+        "Canonical terms used"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [],
+      "strengths": [
+        "Comprehensive term normalization guidelines",
+        "All AUTO decisions listed",
+        "Reference to ontology.yml"
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "synonyms_found": 0,
       "issues": [],
-      "verified_bootstrap": "v1.0"
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 90,
-      "canonical_terms_used": 5,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 92,
-      "canonical_terms_used": 5,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 88,
-      "canonical_terms_used": 3,
-      "synonyms_found": 0,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 90,
-      "canonical_terms_used": 7,
-      "synonyms_found": 0,
-      "issues": []
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "Complete canonical term documentation",
+        "Normalization map provided"
+      ]
     },
     {
       "file": "GEMINI.md",
-      "alignment_score": 85,
-      "canonical_terms_used": 4,
-      "synonyms_found": 0,
-      "issues": ["Last updated before v1.1 bootstrap - review recommended"]
+      "alignment_score": 80,
+      "issues": [
+        {
+          "description": "AUTO decisions not comprehensively documented",
+          "severity": "low"
+        }
+      ],
+      "strengths": [
+        "Canonical terms mentioned",
+        "Reference to GLOSSARY.md"
+      ]
     },
     {
       "file": "CODEX.md",
-      "alignment_score": 85,
-      "canonical_terms_used": 3,
-      "synonyms_found": 0,
-      "issues": ["Last updated before v1.1 bootstrap - review recommended"]
+      "alignment_score": 80,
+      "issues": [
+        {
+          "description": "AUTO decisions not comprehensively documented",
+          "severity": "low"
+        }
+      ],
+      "strengths": [
+        "Canonical terms mentioned",
+        "Reference to GLOSSARY.md"
+      ]
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 95,
+      "issues": [],
+      "strengths": [
+        "Canonical terms used throughout",
+        "AUTO decisions documented",
+        "Reference to ambiguities.yml"
+      ]
     }
   ],
+
+  "invariant_check": {
+    "total_invariants": 14,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_detail": {
+      "hard_invariants": 11,
+      "soft_invariants": 3,
+      "all_covered": true
+    }
+  },
+
+  "auto_decision_check": {
+    "active_auto_decisions": 16,
+    "noted_in_md": 16,
+    "missing_notes": [],
+    "coverage_detail": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "AutoChat": 3,
+      "Backend": 3,
+      "Memory": 4,
+      "Session": 1,
+      "Connector": 1,
+      "Converter": 0
+    }
+  },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": []
+    "missing_notes": 0,
+    "format": "Provisional specifications noted in MD files"
   },
-  "summary": "Excellent concept alignment. All canonical terms used correctly. All invariants and AUTO decisions documented."
+
+  "recommendations": [
+    "Consider enhancing GEMINI.md and CODEX.md with comprehensive AUTO decision documentation similar to AGENTS.md",
+    "Current alignment is excellent - all Tier 1 and Tier 2 files score >90",
+    "Term normalization is working perfectly across all core MD files"
+  ]
 }

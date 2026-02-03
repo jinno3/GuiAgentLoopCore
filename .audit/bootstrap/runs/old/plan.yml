@@ -1,450 +1,175 @@
-run_timestamp: '2026-02-03T10:11:55.038339+00:00'
-version: '1.1'
-rotation: {}
+run_timestamp: "2026-02-03T19:30:00Z"
+version: "1.1"
+
+rotation:
+  deleted_old: true
+  moved_current_to_old: true
+
 input_sources:
   audit:
-    intent_yml: .audit/config/intent.yml
-    constraints_yml: .audit/config/constraints.yml
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
-    ontology_yml: .concept/ontology.yml
-    invariants_yml: .concept/invariants.yml
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
-intent_summary:
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
-  target_user:
-  - Application Developers: Building LLM-powered applications with GUI interfaces
-  - AI Agent Developers: Creating specialized agents for specific tasks
-  - Framework Developers: Building new GUI backend implementations
-  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
-  core_value: 'Reliable, type-safe, and extensible foundation for GUI-LLM integration
-    with predictable state management and clear component boundaries.
 
-    '
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
   core_functions_count: 5
-  boundaries_in_scope: 6
-  boundaries_out_of_scope: 5
+  boundaries_count: 11
+
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
   key_terms:
-  - canonical: Interpreter
-    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント...
-    layer: core
-  - canonical: Agent
-    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ...
-    layer: core
-  - canonical: Session
-    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）...
-    layer: core
-  - canonical: Message
-    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）...
-    layer: core
-  - canonical: State
-    definition: インタープリタの実行状態を表す列挙型...
-    layer: core
-existing_mds:
-- path: README.md
-  status: exists
-  size: 5316
-- path: AGENTS.md
-  status: exists
-  size: 9549
-- path: CLAUDE.md
-  status: exists
-  size: 12429
-- path: GLOSSARY.md
-  status: exists
-  size: 11215
-- path: ARCHITECTURE.md
-  status: exists
-  size: 13424
-- path: PURPOSE.md
-  status: exists
-  size: 5379
-- path: CONTRIBUTING.md
-  status: exists
-  size: 7364
-- path: SYSTEM_CONSTITUTION.md
-  status: exists
-  size: 7964
-- path: GEMINI.md
-  status: exists
-  size: 4744
-- path: CODEX.md
-  status: exists
-  size: 5224
-actions:
-- action: verify
-  target: README.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: AGENTS.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: CLAUDE.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: GLOSSARY.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: ARCHITECTURE.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: PURPOSE.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: CONTRIBUTING.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: SYSTEM_CONSTITUTION.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: GEMINI.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-- action: verify
-  target: CODEX.md
-  reason: Verify alignment with intent and ontology
-  result: verified
-before_scores:
-  timestamp: '2026-02-03T10:11:55.038339+00:00'
-  overall_score: 60
-  concept_alignment_score: 32
-  max_score: 100
-  files: &id001
-  - path: README.md
-    exists: true
-    clarity_score: 70
-    concept_alignment:
-      score: 60
-      issues:
-      - found: AgentType
-        should_be: Agent
-        line: 83
-      - found: JWT
-        should_be: Session
-        line: 113
-    issues:
-    - Found 2 term normalization issues
-  - path: AGENTS.md
-    exists: true
-    clarity_score: 50
-    concept_alignment:
-      score: 0
-      issues:
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 14
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 28
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 73
-      - found: 会話インタープリタ
-        should_be: Interpreter
-        line: 14
-      - found: AIエージェント
-        should_be: Agent
-        line: 1
-      - found: AIエージェント
-        should_be: Agent
-        line: 15
-      - found: 専門エージェント
-        should_be: Agent
-        line: 15
-      - found: AgentType
-        should_be: Agent
-        line: 15
-      - found: AgentType
-        should_be: Agent
-        line: 90
-      - found: AgentDefinition
-        should_be: Agent
-        line: 15
-    issues:
-    - Found 49 term normalization issues
-  - path: CLAUDE.md
-    exists: true
-    clarity_score: 50
-    concept_alignment:
-      score: 0
-      issues:
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 114
-      - found: AgentType
-        should_be: Agent
-        line: 127
-      - found: JWT
-        should_be: Session
-        line: 80
-      - found: JWT
-        should_be: Session
-        line: 154
-      - found: メッセージ
-        should_be: Message
-        line: 67
-      - found: メッセージ
-        should_be: Message
-        line: 68
-      - found: メッセージ
-        should_be: Message
-        line: 70
-      - found: メッセージ
-        should_be: Message
-        line: 72
-      - found: メッセージ
-        should_be: Message
-        line: 109
-      - found: メッセージ
-        should_be: Message
-        line: 130
-    issues:
-    - Found 19 term normalization issues
-  - path: GLOSSARY.md
-    exists: true
-    clarity_score: 50
-    concept_alignment:
-      score: 0
-      issues:
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 19
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 188
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 189
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 199
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 200
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 201
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 230
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 257
-      - found: 会話インタープリタ
-        should_be: Interpreter
-        line: 19
-      - found: 会話インタープリタ
-        should_be: Interpreter
-        line: 231
-    issues:
-    - Found 92 term normalization issues
-  - path: ARCHITECTURE.md
-    exists: true
-    clarity_score: 50
-    concept_alignment:
-      score: 0
-      issues:
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 158
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 162
-      - found: JWT
-        should_be: Session
-        line: 336
-      - found: GuiAgentInterpreterABC
-        should_be: Connector
-        line: 158
-      - found: GuiAgentInterpreterABC
-        should_be: Connector
-        line: 162
-    issues:
-    - Found 5 term normalization issues
-  - path: PURPOSE.md
-    exists: true
-    clarity_score: 90
-    concept_alignment:
-      score: 100
-      issues: []
-    issues: []
-  - path: CONTRIBUTING.md
-    exists: true
-    clarity_score: 50
-    concept_alignment:
-      score: 20
-      issues:
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 34
-      - found: ChatSession
-        should_be: Session
-        line: 62
-      - found: JWT
-        should_be: Session
-        line: 31
-      - found: GuiAgentInterpreterABC
-        should_be: Connector
-        line: 34
-    issues:
-    - Found 4 term normalization issues
-  - path: SYSTEM_CONSTITUTION.md
-    exists: true
-    clarity_score: 50
-    concept_alignment:
-      score: 20
-      issues:
-      - found: GuiAgentInterpreter
-        should_be: Interpreter
-        line: 184
-      - found: JWT
-        should_be: Session
-        line: 168
-      - found: コネクタ
-        should_be: Connector
-        line: 184
-      - found: GuiAgentInterpreterABC
-        should_be: Connector
-        line: 184
-    issues:
-    - Found 4 term normalization issues
-  - path: GEMINI.md
-    exists: true
-    clarity_score: 70
-    concept_alignment:
-      score: 60
-      issues:
-      - found: AgentType
-        should_be: Agent
-        line: 86
-      - found: AgentType
-        should_be: Agent
-        line: 91
-    issues:
-    - Found 2 term normalization issues
-  - path: CODEX.md
-    exists: true
-    clarity_score: 70
-    concept_alignment:
-      score: 60
-      issues:
-      - found: AgentType
-        should_be: Agent
-        line: 87
-      - found: AgentType
-        should_be: Agent
-        line: 92
-    issues:
-    - Found 2 term normalization issues
-after_scores:
-  timestamp: '2026-02-03T10:11:55.038339+00:00'
-  overall_score: 100
-  concept_alignment_score: 100
-  max_score: 100
-  files: *id001
-verification:
-  timestamp: '2026-02-03T10:11:55.038339+00:00'
-  uniqueness_score: 100
-  concept_alignment_score: 100
-  overall_score: 100
-  checks:
-  - id: UC-001
-    name: Mission Consistency
-    passed: true
-    details: All MD files reflect consistent mission
-  - id: UC-002
-    name: Target User Consistency
-    passed: true
-    details: Target users are consistent across MDs
-  - id: UC-003
-    name: Constraints Consistency
-    passed: true
-    details: Technical constraints are consistent
-  - id: UC-004
-    name: Boundary Consistency
-    passed: true
-    details: Scope boundaries are consistent
-  - id: UC-005
-    name: Intent.yml Alignment
-    passed: true
-    details: All MDs align with intent.yml
-  - id: CA-001
-    name: Canonical Term Usage
-    passed: true
-    details: All MDs use canonical terms
-  - id: CA-002
-    name: Synonym Exclusion
-    passed: true
-    details: No synonyms used in MDs
-  - id: CA-003
-    name: Invariant Reflection
-    passed: true
-    details: All invariants reflected in MDs
-  - id: CA-004
-    name: AUTO Decision Documentation
-    passed: true
-    details: All AUTO decisions documented
-  - id: CA-005
-    name: Term Boundary Consistency
-    passed: true
-    details: Term boundaries are consistent
-  uc_passed: 5/5
-  ca_passed: 5/5
-assessment:
-  overall_status: excellent
-  concept_alignment_score: 100
-  uniqueness_score: 100
-  md_coverage_tier1: 2/2 (100%)
-  md_coverage_tier2: 4/4 (100%)
-  md_coverage_tier3: 3/3 (100%)
-  notes:
-  - All MD files verified and aligned with ontology v0.3
-  - All canonical terms properly used
-  - All AUTO decisions documented
-  - All invariants documented
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      layer: "core"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
+
 term_normalization:
-  GuiAgentInterpreter: Interpreter
-  会話インタープリタ: Interpreter
-  AIエージェント: Agent
-  専門エージェント: Agent
-  AgentType: Agent
-  AgentDefinition: Agent
-  TaskAgent: Agent
-  AgentImage: Agent
-  ChatSession: Session
-  会話セッション: Session
-  JWT: Session
-  メッセージ: Message
-  ChatMessage: Message
-  InterpreterState: State
-  インタープリタ状態: State
-  自動チャット: AutoChat
-  自動継続: AutoChat
-  GuiAgentStreamWrapper: StreamWrapper
-  ストリームラッパー: StreamWrapper
-  GUIバックエンド: Backend
-  UIフレームワーク: Backend
-  GuiBackend: Backend
-  GuiComponent: Backend
-  変換器: Converter
-  マッパー: Converter
-  会話メモリ: Memory
-  ConversationBuffer: Memory
-  コネクタ: Connector
-  GuiAgentInterpreterABC: Connector
-  ConnectorImplCodeinterpreterApi: Connector
-  ConnectorImplOpenInterpreter: Connector
-  OpenGuiConnector: Connector
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+
+invariants_summary:
+  total_invariants: 13
+  hard_invariants: 10
+  soft_invariants: 3
+  hard_invariant_ids:
+    - "INV-STATE-001"
+    - "INV-SESSION-001"
+    - "INV-MSG-001"
+    - "INV-AUTO-001"
+    - "INV-STREAM-001"
+    - "INV-MESSAGE-001"
+    - "INV-STATE-002"
+    - "INV-BACKEND-001"
+    - "INV-SESSION-002"
+    - "INV-CONNECTOR-001"
+    - "INV-CONVERTER-001"
+
+ambiguities_summary:
+  total_ambiguities: 9
+  active_auto_decisions: 9
+  high_severity: 2
+  medium_severity: 2
+  low_severity: 5
+
+existing_mds:
+  - path: "README.md"
+    status: "exists_needs_review"
+    tier: 1
+    last_modified: "2026-02-03T18:34:00Z"
+  - path: "AGENTS.md"
+    status: "exists_needs_review"
+    tier: 1
+    last_modified: "2026-02-03T13:24:00Z"
+  - path: "CLAUDE.md"
+    status: "exists_verified"
+    tier: 2
+    last_modified: "2026-02-03T13:24:00Z"
+    verified_bootstrap: "v1.1"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+    last_modified: "2026-02-03T13:49:00Z"
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+    last_modified: "2026-02-03T10:11:00Z"
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
+    last_modified: "2026-02-03T06:27:00Z"
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_modified: "2026-02-02T00:57:00Z"
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_modified: "2026-02-02T00:57:00Z"
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+    tier: 3
+    last_modified: "2026-02-02T11:07:00Z"
+  - path: "GLOSSARY.md"
+    status: "exists_verified"
+    tier: 3
+    last_modified: "2026-02-03T10:11:00Z"
+    verified_bootstrap: "v1.0"
+
+actions:
+  - action: "review"
+    target: "README.md"
+    reason: "Tier 1 file - verify intent reflection and term normalization"
+    priority: "high"
+  - action: "review"
+    target: "AGENTS.md"
+    reason: "Tier 1 file - verify intent reflection and term normalization"
+    priority: "high"
+  - action: "skip"
+    target: "CLAUDE.md"
+    reason: "Already verified in v1.1 bootstrap run"
+  - action: "review"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Tier 2 file - verify hard invariants reflection"
+    priority: "medium"
+  - action: "review"
+    target: "PURPOSE.md"
+    reason: "Tier 2 file - verify mission details"
+    priority: "medium"
+  - action: "review"
+    target: "CONTRIBUTING.md"
+    reason: "Tier 2 file - verify contribution guidelines align with intent"
+    priority: "medium"
+  - action: "skip"
+    target: "GLOSSARY.md"
+    reason: "Already generated from ontology.yml"

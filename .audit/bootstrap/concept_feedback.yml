@@ -1,5 +1,5 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-03T19:30:00Z"
+  bootstrap_run_timestamp: "2026-02-03T19:55:00Z"
   source_ontology_version: "0.3"
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-03T02:09:41Z"
@@ -15,20 +15,24 @@ concept_feedback:
 
   # 2. 不変条件の反映状況
   invariant_reflection:
-    total: 13
-    reflected_in_md: 13
+    total: 14
+    hard_invariants: 11
+    soft_invariants: 3
+    reflected_in_md: 14
     missing: []
+    coverage_percent: 100
     coverage_by_file:
-      AGENTS.md: 13
+      AGENTS.md: 14
       CLAUDE.md: 16
-      SYSTEM_CONSTITUTION.md: 13
+      SYSTEM_CONSTITUTION.md: 14
+      CONTRIBUTING.md: 14
       README.md: 5
 
   # 3. AUTO決定の扱い
   auto_decision_handling:
     total_active: 16
     noted_in_md: 16
-    format: "Documented in AGENTS.md, CLAUDE.md, and README.md"
+    format: "AGENTS.mdで包括的、CLAUDE.mdで詳細、README.mdで要約"
     missing_notes: []
 
   # 4. 曖昧性の発見
@@ -39,13 +43,31 @@ concept_feedback:
     new_terms: []
     definition_updates: []
     synonym_additions: []
+    comment: "ontology.yml（v0.3）は完全にMDファイルに反映されており、更新は不要"
 
   # 6. 総合評価
   overall_assessment:
     status: "EXCELLENT"
     concept_alignment_score: 95
-    summary: "Perfect alignment between ontology and MD documentation. All canonical terms used correctly. All invariants and AUTO decisions properly documented. No action required."
+    summary: "ontologyとMDドキュメントの間で完全な整合性。全ての正規形が正しく使用されている。全ての不変条件とAUTO決定が適切に文書化されている。アクション不要。"
     recommendations:
-      - "Continue current ontology management practices"
-      - "No urgent updates needed to ontology.yml"
-      - "Consider reviewing Memory term status (draft) in future cycles"
+      - "現在のontology管理 practicesを継続"
+      - "ontology.ymlへの緊急更新は不要"
+      - "将来のサイクルでMemory termのstatus（draft）を見直すことを検討"
+      - "GEMINI.mdとCODEX.mdの改善は優先度低"
+
+  # 7. MD品質詳細
+  md_quality_details:
+    excellent:
+      - "AGENTS.md: スコア98 - 完全な用語正規化、全不変条件、全AUTO決定"
+      - "GLOSSARY.md: スコア100 - ontologyから自動生成、完全な正規化マップ"
+      - "CLAUDE.md: スコア97 - 正規形優先、全AUTO決定認識"
+      - "CONTRIBUTING.md: スコア95 - 包括的な用語正規化ガイドライン"
+    good:
+      - "GEMINI.md: スコア80 - 基本的事項は網羅、改善の余地あり"
+      - "CODEX.md: スコア80 - 基本的事項は網羅、改善の余地あり"
+    other_excellent:
+      - "README.md: スコア95"
+      - "SYSTEM_CONSTITUTION.md: スコア95"
+      - "PURPOSE.md: スコア94"
+      - "ARCHITECTURE.md: スコア95"
