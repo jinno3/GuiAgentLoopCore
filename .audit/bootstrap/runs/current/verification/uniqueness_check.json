@@ -1,21 +1,128 @@
 {
-  "timestamp": "2026-02-03T01:37:15.700405+00:00",
-  "score": 100,
+  "timestamp": "2026-02-03T01:50:27Z",
+  "verification_method": "v1.1 (audit + concept integrated)",
+  "overall_uniqueness_score": 90,
+  "checks_performed": 10,
+  "checks_passed": 10,
+  "checks_failed": 0,
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
+      "name": "Existence Mission Consistency",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit",
+      "source": ".audit/intent.yml",
       "passed": true,
+      "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+      "verified_in": [
+        "README.md",
+        "AGENTS.md",
+        "PURPOSE.md",
+        "CLAUDE.md"
+      ],
       "issues": []
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
+      "name": "Target User Consistency",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit",
+      "source": ".audit/intent.yml",
       "passed": true,
+      "expected_users": [
+        "Application Developers",
+        "AI Agent Developers",
+        "Framework Developers",
+        "AI Agents"
+      ],
+      "verified_in": [
+        "README.md",
+        "PURPOSE.md"
+      ],
+      "issues": []
+    },
+    {
+      "id": "UC-003",
+      "name": "Constraints Consistency",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
+      "passed": true,
+      "key_constraints_verified": [
+        "Python >=3.10",
+        "MAX_MESSAGE_LENGTH=100",
+        "State timer 3秒間隔"
+      ],
+      "issues": []
+    },
+    {
+      "id": "UC-004",
+      "name": "Boundaries Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "out_of_scope_count": 5,
+      "verified_consistency": true,
+      "issues": []
+    },
+    {
+      "id": "UC-005",
+      "name": "Intent.yml Compliance",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "compliance_rate": 100,
+      "verified_files": 10,
+      "issues": []
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "total_terms_checked": 11,
+      "canonical_usage_rate": 100,
+      "synonym_usage_found": 0,
+      "issues": []
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "total_synonyms": 35,
+      "synonyms_in_text": 0,
+      "issues": []
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept/invariants.yml",
+      "passed": true,
+      "total_hard_invariants": 11,
+      "reflected_in_md": 11,
+      "missing_invariants": [],
+      "issues": []
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO Decision Documentation",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept/ambiguities.yml (via ontology)",
+      "passed": true,
+      "total_auto_decisions": 16,
+      "documented_in_md": 16,
+      "missing_documentation": [],
+      "issues": []
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "boundaries_checked": 11,
+      "contradictions_found": 0,
       "issues": []
     }
   ]

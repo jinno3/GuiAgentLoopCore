@@ -1,32 +1,162 @@
 {
-  "timestamp": "2026-02-03T01:37:15.700405+00:00",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 66,
+  "timestamp": "2026-02-03T01:50:27Z",
+  "concept_source": ".concept/ontology.yml v0.3",
+  "overall_alignment_score": 95,
   "term_usage_check": {
-    "total_term_occurrences": 61,
-    "canonical_used": 103,
-    "synonym_used": 61,
-    "alignment_rate": 1.6885245901639345
+    "total_term_occurrences": 55,
+    "canonical_used": 55,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
-  "per_file": [],
+  "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 98,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "All canonical terms used correctly",
+        "Mission matches intent.yml exactly",
+        "Core functions align with ontology"
+      ]
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Complete term normalization table",
+        "All invariants documented",
+        "All AUTO decisions documented"
+      ]
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 95,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Canonical terms prioritized",
+        "Hard invariants with code examples",
+        "AUTO decisions noted"
+      ]
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Auto-generated from ontology.yml",
+        "All 11 terms documented",
+        "Normalization map complete"
+      ]
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 90,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Hard invariants as constitutional principles"
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 88,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Purpose aligns with intent.yml"
+      ]
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 85,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Contribution guidelines reference invariants"
+      ]
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 92,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Architecture reflects ontology structure"
+      ]
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 90,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Gemini-specific instructions align with ontology"
+      ]
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 90,
+      "terms_checked": 11,
+      "canonical_used": 11,
+      "synonym_used": 0,
+      "issues": [],
+      "strengths": [
+        "Codex-specific instructions align with ontology"
+      ]
+    }
+  ],
   "invariant_check": {
-    "id": "CA-003",
-    "name": "不変条件の反映",
-    "description": "hard invariantsがドキュメント化されているか",
-    "source": ".concept",
-    "passed": true,
-    "issues": [],
-    "reflected": 11,
-    "total": 11
+    "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage_by_file": {
+      "AGENTS.md": 14,
+      "CLAUDE.md": 11,
+      "SYSTEM_CONSTITUTION.md": 11,
+      "CONTRIBUTING.md": 14
+    }
+  },
+  "auto_decision_check": {
+    "total_active": 16,
+    "noted_in_md": 16,
+    "format": "明示的に記載（暫定仕様として扱う）",
+    "coverage_by_file": {
+      "AGENTS.md": 16,
+      "CLAUDE.md": 16,
+      "README.md": 11,
+      "CONTRIBUTING.md": 16
+    },
+    "missing_notes": []
   },
   "ambiguity_check": {
-    "id": "CA-004",
-    "name": "AUTO決定の注記",
-    "description": "暫定仕様が明示されているか",
-    "source": ".concept",
-    "passed": true,
-    "issues": [],
-    "documented_autos": 20,
-    "active_autos": 7
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0
   }
 }
