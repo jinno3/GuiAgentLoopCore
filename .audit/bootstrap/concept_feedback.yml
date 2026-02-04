@@ -1,6 +1,8 @@
-bootstrap_run_timestamp: '2026-02-04T13:19:40Z'
+bootstrap_run_timestamp: '2026-02-04T13:30:00Z'
 source_ontology_version: '0.3'
-run_number: 91
+source_invariants_version: '2026-02-02T05:23:14Z'
+source_ambiguities_version: '2026-02-03T21:21:22Z'
+run_number: 92
 run_mode: verification
 
 term_usage_report:
@@ -62,6 +64,7 @@ per_term_usage:
     synonym_occurrences: 0
     alignment: perfect
     status: draft
+    properly_noted: true
   Connector:
     canonical_occurrences: 1
     synonym_occurrences: 0
@@ -76,12 +79,102 @@ invariant_reflection:
   reflection_rate: 1.0
   missing: []
 
+  hard_invariants_detail:
+    INV-STATE-001:
+      statement: "Stateは単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-SESSION-001:
+      statement: "セッションは一意のUUIDで識別される"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-MSG-001:
+      statement: "Messageタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-AUTO-001:
+      statement: "AutoChatはSTATE_STOP時のみトリガーされる"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-STREAM-001:
+      statement: "StreamWrapperは同期・非同期の両方をサポートする"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-MESSAGE-001:
+      statement: "Messageは最大100長（MAX_MESSAGE_LENGTH）"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-STATE-002:
+      statement: "状態は3秒間隔のタイマーで自動更新される"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-BACKEND-001:
+      statement: "バックエンドサーバーはallowed_pathsでセキュリティ制限される"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-SESSION-002:
+      statement: "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-CONNECTOR-001:
+      statement: "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-CONVERTER-001:
+      statement: "コンバータは構造化変換のためにMappingRuleを使用する"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+
+  soft_invariants_detail:
+    INV-AGENT-001:
+      statement: "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+    INV-MEM-001:
+      statement: "会話メモリは最大100メッセージまで保持する"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      draft_status_properly_noted: true
+      properly_documented: true
+    INV-BACKEND-002:
+      statement: "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
+      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      properly_documented: true
+
 auto_decision_handling:
   total_active: 16
   noted_in_md: 16
   format: 注記として記載（暫定仕様として扱う）
   properly_marked_as_provisional: 16
-  documentation_location: AGENTS.md, CLAUDE.md, README.md
+  documentation_location: "AGENTS.md, CLAUDE.md, README.md"
+  transparency_rating: excellent
+
+  by_category:
+    Agent:
+      count: 2
+      all_documented: true
+    Message:
+      count: 3
+      all_documented: true
+    State:
+      count: 3
+      all_documented: true
+    AutoChat:
+      count: 3
+      all_documented: true
+    Backend:
+      count: 3
+      all_documented: true
+    Memory:
+      count: 4
+      all_documented: true
+    Session:
+      count: 1
+      all_documented: true
+    Connector:
+      count: 1
+      all_documented: true
+    Converter:
+      count: 0
 
 ambiguities_discovered: []
 
@@ -94,6 +187,7 @@ ontology_suggestions:
       current_status: draft
       suggestion: draftのまま維持
       reason: 仕様がまだ不安定
+      trigger_for_review: "Memory機能の実装が完了したらstableへの昇格を検討"
 
 overall_assessment:
   quality_level: excellent
@@ -119,3 +213,5 @@ next_steps:
     timeline: as_needed
   - action: Memory用語の安定化を検討
     timeline: when_spec_stabilizes
+  - action: AUTO決定の有効期限管理
+    timeline: ongoing

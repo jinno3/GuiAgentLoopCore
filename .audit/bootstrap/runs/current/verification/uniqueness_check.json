@@ -1,95 +1,95 @@
 {
-  "timestamp": "2026-02-04T13:19:40Z",
+  "timestamp": "2026-02-04T13:30:00Z",
   "version": "1.1",
-  "overall_score": 100,
-  "checks": [
+  "uniqueness_score": 100,
+  "max_score": 100,
+  "checks_performed": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
+      "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
-      "passed": true,
-      "evidence": "All MD files consistently reference the mission from intent.yml",
-      "source": ".audit"
+      "status": "passed",
+      "evidence": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
+      "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
-      "passed": true,
-      "evidence": "All MD files consistently target Application Developers, AI Agent Developers, Framework Developers, and AI Agents",
-      "source": ".audit"
+      "status": "passed",
+      "evidence": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
+      "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
-      "passed": true,
-      "evidence": "Technical constraints are consistently applied across all MD files",
-      "source": ".audit + .concept"
+      "status": "passed",
+      "evidence": {
+        "key_constraints_verified": [
+          "State monotonic transitions enforced",
+          "Message types restricted to enum values",
+          "Message history limited to MAX_MESSAGE_LENGTH=100",
+          "Sessions use UUID with JWT HS256 encoding"
+        ],
+        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
+      "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "passed": true,
-      "evidence": "Boundaries are consistently defined - no contradictions found",
-      "source": ".audit + .concept"
+      "status": "passed",
+      "evidence": {
+        "out_of_scope_items": [
+          "UI Rendering",
+          "LLM Execution",
+          "Session Storage",
+          "Authentication",
+          "Network Protocols"
+        ],
+        "files_checked": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
+        "all_consistent": true
+      }
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "passed": true,
-      "evidence": "All MD files correctly reflect intent.yml mission, values, and boundaries",
-      "source": ".audit"
-    },
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "全MDでcanonical termを使用しているか",
-      "passed": true,
-      "evidence": "All 11 canonical terms are used correctly across MD files",
-      "source": ".concept"
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "synonymが本文で使用されていないか",
-      "passed": true,
-      "evidence": "No synonyms found in MD text - all terms use canonical form",
-      "source": ".concept"
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "hard invariantsがドキュメント化されているか",
-      "passed": true,
-      "evidence": "All 14 invariants (11 hard, 3 soft) are documented in AGENTS.md and SYSTEM_CONSTITUTION.md",
-      "source": ".concept"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "暫定仕様が明示されているか",
-      "passed": true,
-      "evidence": "All 16 AUTO decisions are documented across AGENTS.md, CLAUDE.md, and GLOSSARY.md",
-      "source": ".concept"
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "passed": true,
-      "evidence": "Term boundaries are consistent across ontology and documentation",
-      "source": ".concept"
+      "status": "passed",
+      "evidence": {
+        "core_functions_covered": [
+          "Centralized Conversation Management",
+          "State Machine with Monotonic Transitions",
+          "Multi-Agent Coordination",
+          "Structured Message Processing",
+          "Backend Abstraction",
+          "Streaming Support"
+        ],
+        "design_philosophy_covered": [
+          "Correctness Over Convenience",
+          "Explicit Over Implicit",
+          "Small, Focused Components",
+          "Testability",
+          "Conceptual Integrity"
+        ],
+        "all_consistent": true
+      }
     }
   ],
   "summary": {
-    "total_checks": 10,
-    "passed": 10,
+    "total_checks": 5,
+    "passed": 5,
     "failed": 0,
-    "uniqueness_score": 100,
-    "concept_alignment_score": 100,
-    "overall_score": 100
-  }
+    "warnings": 0,
+    "overall_uniqueness_score": 100
+  },
+  "recommendations": []
 }

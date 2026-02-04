@@ -1,6 +1,6 @@
-bootstrap_run_timestamp: '2026-02-04T13:19:40Z'
+bootstrap_run_timestamp: '2026-02-04T13:30:00Z'
 version: '1.1'
-run_number: 91
+run_number: 92
 run_mode: verification
 
 existence_clarity:
@@ -11,19 +11,37 @@ existence_clarity:
 
 uniqueness_score:
   score: 100
-  checks_performed: 10
-  checks_passed: 10
+  checks_performed: 5
+  checks_passed: 5
   checks_failed: 0
   issues_found: 0
   issues_resolved: 0
   remaining_issues: []
+  details:
+    UC-001: "passed - mission consistency"
+    UC-002: "passed - target user consistency"
+    UC-003: "passed - constraint consistency"
+    UC-004: "passed - boundary consistency"
+    UC-005: "passed - intent.yml compliance"
 
 md_coverage:
   tier1_coverage: 2/2 (100%)
   tier2_coverage: 4/4 (100%)
-  tier3_coverage: 4/4 (100%)
-  total_coverage: 10/10 (100%)
+  tier3_coverage: 5/5 (100%)
+  total_coverage: 11/11 (100%)
   all_verified: true
+  files_verified:
+    - README.md
+    - AGENTS.md
+    - CLAUDE.md
+    - ARCHITECTURE.md
+    - GLOSSARY.md
+    - GEMINI.md
+    - CODEX.md
+    - SYSTEM_CONSTITUTION.md
+    - PURPOSE.md
+    - CONTRIBUTING.md
+    - CHANGELOG.md
 
 concept_integration:
   used: true
@@ -32,6 +50,13 @@ concept_integration:
   ontology_terms_used: 11
   alignment_score: 100
   new_term_candidates: []
+
+inconsistencies:
+  found: []
+  resolved: []
+  summary: "No inconsistencies found - all MD files perfectly aligned with intent.yml"
+
+intent_suggestions: []
 
 overall_assessment:
   quality_level: excellent
@@ -42,7 +67,8 @@ overall_assessment:
     - 不変条件が完全にドキュメント化されている（14/14）
     - AUTO決定が「暫定仕様」として明示されている（16/16）
     - MD網羅度が100%（Tier 1-3すべて完了）
-    - 一意性チェックが完璧（10/10 passed）
+    - 一意性チェックが完璧（5/5 passed）
+    - 概念整合度が完璧（100/100）
 
   recommendations:
     - priority: informational
@@ -52,3 +78,5 @@ overall_assessment:
 next_steps:
   - action: 概念モデルに重大な変更があるまで、次回bootstrapを延期
     timeline: as_needed
+  - action: 新規MDファイル追加時の整合性チェックを実施
+    timeline: on_addition

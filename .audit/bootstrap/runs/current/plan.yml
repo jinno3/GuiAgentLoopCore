@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T13:19:40Z"
+run_timestamp: "2026-02-04T13:30:00Z"
 version: "1.1"
 
 rotation:
@@ -12,15 +12,12 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-  target_user:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
@@ -45,84 +42,116 @@ ontology_summary:
       definition: "インタープリタの実行状態を表す列挙型"
       layer: "core"
 
+invariants_summary:
+  total_invariants: 14
+  hard_invariants: 11
+  soft_invariants: 3
+  hard_list:
+    - "INV-STATE-001: State monotonic transitions"
+    - "INV-SESSION-001: Session UUID uniqueness"
+    - "INV-MSG-001: Message type enum only"
+    - "INV-AUTO-001: AutoChat STATE_STOP trigger only"
+    - "INV-STREAM-001: StreamWrapper sync/async support"
+    - "INV-MESSAGE-001: Message max 100 length"
+    - "INV-STATE-002: State 3-second timer update"
+    - "INV-BACKEND-001: Backend allowed_paths security"
+    - "INV-SESSION-002: JWT HS256 algorithm"
+    - "INV-CONNECTOR-001: Connector GuiAgentInterpreterABC interface"
+    - "INV-CONVERTER-001: Converter MappingRule usage"
+  soft_list:
+    - "INV-AGENT-001: Agent role definitions"
+    - "INV-MEM-001: Memory 100 message limit (draft)"
+    - "INV-BACKEND-002: Gradio Timer component"
+
+ambiguities_summary:
+  total_ambiguities: 9
+  active_auto_decisions: 16
+  high_severity: 2
+  medium_severity: 2
+  low_severity: 5
+
 term_normalization:
-  "Interpreter": "Interpreter"
-  "Agent": "Agent"
-  "Session": "Session"
-  "Message": "Message"
-  "State": "State"
-  "AutoChat": "AutoChat"
-  "StreamWrapper": "StreamWrapper"
-  "Backend": "Backend"
-  "Memory": "Memory"
-  "Connector": "Connector"
-  "Converter": "Converter"
+  "GuiAgentInterpreter": "Interpreter"
+  "AIエージェント": "Agent"
+  "ChatSession": "Session"
+  "メッセージ": "Message"
+  "InterpreterState": "State"
+  "自動チャット": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "会話メモリ": "Memory"
+  "コネクタ": "Connector"
+  "変換器": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
+    tier: 1
     issues: []
   - path: "AGENTS.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
+    tier: 1
     issues: []
   - path: "CLAUDE.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "CONTRIBUTING.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_aligned"
-    issues: []
-  - path: "PURPOSE.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
   - path: "ARCHITECTURE.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
-  - path: "CODEX.md"
-    status: "exists_aligned"
+  - path: "GLOSSARY.md"
+    status: "exists_needs_review"
+    tier: 3
     issues: []
   - path: "GEMINI.md"
-    status: "exists_aligned"
+    status: "exists_needs_review"
+    tier: 3
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+    tier: 3
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+    tier: 2
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+    tier: 2
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify intent.yml reflection and term normalization"
+    reason: "Verify intent alignment and concept terminology usage"
+    tier: 1
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify ontology term usage and invariant documentation"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology.yml alignment"
+    reason: "Verify intent alignment, invariant documentation, and AUTO decisions"
+    tier: 1
   - action: "verify"
     target: "CLAUDE.md"
     reason: "Verify Claude-specific instructions and concept alignment"
+    tier: 2
   - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines align with intent"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology alignment and term definitions"
+    tier: 3
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants reflection"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify mission alignment"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify technical implementation alignment"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify Codex-specific instructions"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify Gemini-specific instructions"
+    reason: "Verify invariants documentation"
+    tier: 2
 
-metadata:
-  run_number: 91
-  previous_run_score: 100
-  expected_improvements: "Verification run to confirm ongoing alignment"
+expected_outcomes:
+  clarity_score_before: 100
+  clarity_score_after: 100
+  concept_alignment_before: 100
+  concept_alignment_after: 100
+  uniqueness_score_before: 100
+  uniqueness_score_after: 100
+  overall_improvement: "Verification run - all MDs already aligned with intent and ontology"
