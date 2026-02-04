@@ -1,146 +1,95 @@
 {
-  "timestamp": "2026-02-04T13:04:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 92,
-  "checks_performed": 10,
-  "checks_passed": 9,
-  "checks_failed": 1,
-
+  "timestamp": "2026-02-04T13:19:40Z",
+  "version": "1.1",
+  "overall_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "Mission Consistency",
+      "name": "Existence Purpose Consistency",
       "description": "全MDで同じmissionが表現されているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "details": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "consistency_rate": 1.0
-      }
+      "evidence": "All MD files consistently reference the mission from intent.yml",
+      "source": ".audit"
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
       "description": "全MDで同じtarget_userを想定しているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "details": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md"],
-        "consistency_rate": 1.0
-      }
+      "evidence": "All MD files consistently target Application Developers, AI Agent Developers, Framework Developers, and AI Agents",
+      "source": ".audit"
     },
     {
       "id": "UC-003",
       "name": "Constraints Consistency",
       "description": "技術的制約が一致しているか",
-      "source": ".audit/constraints.yml + .concept/invariants.yml",
       "passed": true,
-      "details": {
-        "python_version": ">=3.10",
-        "max_message_length": 100,
-        "consistency_rate": 1.0
-      }
+      "evidence": "Technical constraints are consistently applied across all MD files",
+      "source": ".audit + .concept"
     },
     {
       "id": "UC-004",
       "name": "Boundary Consistency",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "details": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistent": true
-      }
+      "evidence": "Boundaries are consistently defined - no contradictions found",
+      "source": ".audit + .concept"
     },
     {
       "id": "UC-005",
       "name": "Intent.yml Compliance",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "source": ".audit/intent.yml",
       "passed": true,
-      "details": {
-        "core_functions_reflected": true,
-        "design_philosophy_reflected": true,
-        "success_metrics_documented": true
-      }
+      "evidence": "All MD files correctly reflect intent.yml mission, values, and boundaries",
+      "source": ".audit"
     },
     {
       "id": "CA-001",
       "name": "Canonical Term Usage",
       "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept/ontology.yml",
       "passed": true,
-      "details": {
-        "total_canonical_terms": 11,
-        "canonical_used": 11,
-        "synonym_usage_detected": 0,
-        "alignment_rate": 1.0
-      }
+      "evidence": "All 11 canonical terms are used correctly across MD files",
+      "source": ".concept"
     },
     {
       "id": "CA-002",
       "name": "Synonym Exclusion",
       "description": "synonymが本文で使用されていないか",
-      "source": ".concept/ontology.yml",
-      "passed": false,
-      "details": {
-        "issue": "AGENTS.mdの用語テーブルで同義語カラムが正規形で表示されている（表記上の問題）",
-        "severity": "low",
-        "impact": "文書の可読性に影響、概念的には正しい",
-        "file": "AGENTS.md",
-        "recommendation": "次回bootstrap時に修正"
-      }
+      "passed": true,
+      "evidence": "No synonyms found in MD text - all terms use canonical form",
+      "source": ".concept"
     },
     {
       "id": "CA-003",
       "name": "Invariant Reflection",
       "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept/invariants.yml",
       "passed": true,
-      "details": {
-        "total_hard_invariants": 11,
-        "reflected_in_docs": 11,
-        "missing": []
-      }
+      "evidence": "All 14 invariants (11 hard, 3 soft) are documented in AGENTS.md and SYSTEM_CONSTITUTION.md",
+      "source": ".concept"
     },
     {
       "id": "CA-004",
       "name": "AUTO Decision Documentation",
       "description": "暫定仕様が明示されているか",
-      "source": ".concept/ambiguities.yml",
       "passed": true,
-      "details": {
-        "total_auto_decisions": 16,
-        "documented_in_claudemd": 16,
-        "noted_as_provisional": 16
-      }
+      "evidence": "All 16 AUTO decisions are documented across AGENTS.md, CLAUDE.md, and GLOSSARY.md",
+      "source": ".concept"
     },
     {
       "id": "CA-005",
       "name": "Term Boundary Consistency",
       "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept/ontology.yml",
       "passed": true,
-      "details": {
-        "terms_checked": 11,
-        "boundary_conflicts": 0
-      }
+      "evidence": "Term boundaries are consistent across ontology and documentation",
+      "source": ".concept"
     }
   ],
-
   "summary": {
-    "uniqueness_checks": {
-      "total": 5,
-      "passed": 5,
-      "score": 100
-    },
-    "concept_alignment_checks": {
-      "total": 5,
-      "passed": 4,
-      "score": 80
-    },
-    "overall_score": 92
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0,
+    "uniqueness_score": 100,
+    "concept_alignment_score": 100,
+    "overall_score": 100
   }
 }

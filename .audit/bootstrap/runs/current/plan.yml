@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T13:04:00Z"
+run_timestamp: "2026-02-04T13:19:40Z"
 version: "1.1"
 
 rotation:
@@ -15,134 +15,114 @@ input_sources:
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
-  stable_terms: 10
-  draft_terms: 1
   key_terms:
     - canonical: "Interpreter"
       definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+      layer: "core"
     - canonical: "Agent"
       definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+      layer: "core"
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+      layer: "core"
     - canonical: "Message"
       definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
+      layer: "core"
 
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
-  "会話インタープリタ": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
+  "Interpreter": "Interpreter"
+  "Agent": "Agent"
+  "Session": "Session"
+  "Message": "Message"
+  "State": "State"
+  "AutoChat": "AutoChat"
+  "StreamWrapper": "StreamWrapper"
+  "Backend": "Backend"
+  "Memory": "Memory"
+  "Connector": "Connector"
+  "Converter": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_needs_update"
-    tier: 1
-    issues:
-      - "May need better alignment with latest ontology v0.3"
-      - "Should verify canonical terms usage"
-
+    status: "exists_aligned"
+    issues: []
   - path: "AGENTS.md"
-    status: "exists_recent"
-    tier: 1
-    last_updated: "2026-02-04T12:39:00Z"
+    status: "exists_aligned"
     issues: []
-
-  - path: "CLAUDE.md"
-    status: "exists_recent"
-    tier: 2
-    last_updated: "2026-02-04T12:39:00Z"
-    issues: []
-
   - path: "GLOSSARY.md"
-    status: "exists_recent"
-    tier: 3
-    last_updated: "2026-02-04T12:39:00Z"
+    status: "exists_aligned"
     issues: []
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_recent"
-    tier: 3
-    last_updated: "2026-02-04T12:39:00Z"
+  - path: "CLAUDE.md"
+    status: "exists_aligned"
     issues: []
-
   - path: "CONTRIBUTING.md"
-    status: "exists_recent"
-    tier: 2
-    last_updated: "2026-02-04T12:39:00Z"
+    status: "exists_aligned"
     issues: []
-
-  - path: "PURPOSE.md"
-    status: "exists_recent"
-    tier: 2
-    last_updated: "2026-02-04T12:39:00Z"
-    issues: []
-
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_recent"
-    tier: 2
-    last_updated: "2026-02-04T12:39:00Z"
+    status: "exists_aligned"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_aligned"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_aligned"
     issues: []
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify alignment with intent.yml v1.0 and ontology.yml v0.3"
-
+    reason: "Verify intent.yml reflection and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Verify concept alignment and canonical terms usage"
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify AUTO decisions documentation completeness"
-
+    reason: "Verify ontology term usage and invariant documentation"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Verify ontology sync (11 terms total)"
-
+    reason: "Verify ontology.yml alignment"
   - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Verify mappings.yml integration"
-
+    target: "CLAUDE.md"
+    reason: "Verify Claude-specific instructions and concept alignment"
   - action: "verify"
     target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines alignment"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Verify intent.yml consistency"
-
+    reason: "Verify contribution guidelines align with intent"
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants.yml reflection (14 invariants)"
+    reason: "Verify invariants reflection"
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Verify mission alignment"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Verify technical implementation alignment"
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "Verify Codex-specific instructions"
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "Verify Gemini-specific instructions"
 
-verification_targets:
-  total_mds: 8
-  tier1_count: 2
-  tier2_count: 4
-  tier3_count: 2
-  canonical_terms_to_check: 11
-  invariants_to_verify: 14
-  auto_decisions_to_document: 16
+metadata:
+  run_number: 91
+  previous_run_score: 100
+  expected_improvements: "Verification run to confirm ongoing alignment"

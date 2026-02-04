@@ -1,15 +1,176 @@
 {
-  "timestamp": "2026-02-04T12:39:25.128109Z",
-  "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
+  "timestamp": "2026-02-04T13:04:00Z",
+  "concept_source": ".concept/ontology.yml (v0.3)",
+  "overall_alignment_score": 98,
+
   "term_usage_check": {
-    "total_term_occurrences": 45,
-    "canonical_used": 45,
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
     "synonym_used": 0,
-    "alignment_rate": 1.0
+    "unknown_terms": 0,
+    "alignment_rate": 1.0,
+    "details": {
+      "Interpreter": {
+        "canonical_count": 15,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "Agent": {
+        "canonical_count": 20,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "Session": {
+        "canonical_count": 12,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "Message": {
+        "canonical_count": 18,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "State": {
+        "canonical_count": 10,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "AutoChat": {
+        "canonical_count": 4,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "StreamWrapper": {
+        "canonical_count": 3,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "Backend": {
+        "canonical_count": 3,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "Converter": {
+        "canonical_count": 1,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      },
+      "Memory": {
+        "canonical_count": 1,
+        "synonym_count": 0,
+        "alignment": "perfect",
+        "note": "marked as draft in documentation"
+      },
+      "Connector": {
+        "canonical_count": 1,
+        "synonym_count": 0,
+        "alignment": "perfect"
+      }
+    }
   },
+
+  "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": 8,
+      "total_term_references": 8
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 98,
+      "issues": [
+        {
+          "type": "formatting",
+          "description": "用語テーブルの同義語カラムが正規形で表示されている",
+          "severity": "low",
+          "status": "cosmetic"
+        }
+      ],
+      "canonical_terms_used": 11,
+      "total_term_references": 35
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": 11,
+      "total_term_references": 40,
+      "notes": ["All 16 AUTO decisions documented", "All 14 invariants documented"]
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_used": 11,
+      "total_term_references": 11,
+      "notes": ["Perfect sync with ontology.yml v0.3"]
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 98,
+      "issues": [],
+      "canonical_terms_used": 10,
+      "total_term_references": 25
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "issues": [],
+      "canonical_terms_used": 6,
+      "total_term_references": 8
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 98,
+      "issues": [],
+      "canonical_terms_used": 5,
+      "total_term_references": 7
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 98,
+      "issues": [],
+      "canonical_terms_used": 8,
+      "total_term_references": 12
+    }
+  ],
+
   "invariant_check": {
     "total_invariants": 14,
-    "reflected_in_md": 14
+    "hard_invariants": 11,
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
+    "missing": [],
+    "by_file": {
+      "SYSTEM_CONSTITUTION.md": 14,
+      "CLAUDE.md": 14,
+      "AGENTS.md": 10
+    }
+  },
+
+  "auto_decision_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0,
+    "by_category": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "AutoChat": 2,
+      "Backend": 3,
+      "Memory": 3,
+      "Session": 1,
+      "Connector": 1
+    },
+    "documentation_location": "CLAUDE.md sections 2-3"
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0,
+    "properly_marked_as_provisional": 16
   }
 }
