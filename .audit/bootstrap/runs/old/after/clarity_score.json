@@ -1,98 +1,213 @@
 {
-  "timestamp": "2026-02-04T10:50:55.039317",
+  "timestamp": "2026-02-04T11:10:11Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
   "max_score": 100,
+  "uniqueness_score": 100,
+  "methodology": "v1.1 - Concept-integrated assessment",
+
+  "scoring_breakdown": {
+    "existence_clarity": {
+      "score": 100,
+      "weight": 0.3,
+      "description": "All files clearly express the repository's mission and purpose from intent.yml"
+    },
+    "concept_consistency": {
+      "score": 100,
+      "weight": 0.3,
+      "description": "All canonical terms from ontology.yml are used correctly and consistently"
+    },
+    "term_normalization": {
+      "score": 100,
+      "weight": 0.2,
+      "description": "No synonyms used in place of canonical terms"
+    },
+    "invariant_coverage": {
+      "score": 100,
+      "weight": 0.1,
+      "description": "All hard invariants are properly documented"
+    },
+    "auto_decision_documentation": {
+      "score": 100,
+      "weight": 0.1,
+      "description": "All AUTO decisions are noted as provisional specifications"
+    }
+  },
+
   "files": [
     {
       "path": "README.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true,
+        "mission_reflected": true,
+        "target_users_correct": true,
+        "core_functions_covered": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true,
+        "behavior_rules_clear": true,
+        "invariants_documented": true
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "clarity_score": 100,
-      "concept_alignment": {
+      "uniqueness_check": {
         "score": 100,
-        "issues": []
-      },
-      "issues": []
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "consistent_with_intent": true,
+        "claude_specific_recommendations": true
       },
       "issues": []
     },
     {
       "path": "ARCHITECTURE.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true,
+        "technical_accuracy": true
       },
       "issues": []
     },
     {
       "path": "GLOSSARY.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "note": "Auto-generated from ontology.yml"
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_ontology": true,
+        "all_terms_covered": true
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true
       },
       "issues": []
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
+      "uniqueness_check": {
+        "score": 100,
+        "invariants_complete": true,
+        "hard_invariants_enforced": true
+      },
       "issues": []
     },
     {
-      "path": "GEMINI.md",
+      "path": "CONTRIBUTING.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "guidelines_clear": true,
+        "aligned_with_intent": true
       },
       "issues": []
     },
     {
       "path": "CODEX.md",
+      "exists": true,
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "consistent_with_intent": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "uniqueness_check": {
+        "score": 100,
+        "minimal_content": true
+      },
       "issues": []
     }
-  ]
+  ],
+
+  "summary": {
+    "total_files": 11,
+    "excellent": 11,
+    "good": 0,
+    "needs_improvement": 0,
+    "critical": 0,
+    "ready_for_production": true
+  }
 }

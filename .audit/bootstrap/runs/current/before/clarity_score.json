@@ -1,213 +1,1115 @@
 {
-  "timestamp": "2026-02-04T11:10:11Z",
+  "timestamp": "2026-02-04T02:39:16.227367+00:00",
   "overall_score": 100,
-  "concept_alignment_score": 100,
+  "concept_alignment_score": 78,
   "max_score": 100,
-  "uniqueness_score": 100,
-  "methodology": "v1.1 - Concept-integrated assessment",
-
-  "scoring_breakdown": {
-    "existence_clarity": {
-      "score": 100,
-      "weight": 0.3,
-      "description": "All files clearly express the repository's mission and purpose from intent.yml"
-    },
-    "concept_consistency": {
-      "score": 100,
-      "weight": 0.3,
-      "description": "All canonical terms from ontology.yml are used correctly and consistently"
-    },
-    "term_normalization": {
-      "score": 100,
-      "weight": 0.2,
-      "description": "No synonyms used in place of canonical terms"
-    },
-    "invariant_coverage": {
-      "score": 100,
-      "weight": 0.1,
-      "description": "All hard invariants are properly documented"
-    },
-    "auto_decision_documentation": {
-      "score": 100,
-      "weight": 0.1,
-      "description": "All AUTO decisions are noted as provisional specifications"
-    }
-  },
-
   "files": [
     {
-      "path": "README.md",
+      "path": "CODEX.md",
       "exists": true,
-      "clarity_score": 100,
+      "size": 3240,
+      "line_count": 158,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 94,
+        "issues": [
+          {
+            "line": 87,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 92,
+            "found": "AgentType",
+            "should_be": "Agent"
+          }
+        ]
       },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true,
-        "mission_reflected": true,
-        "target_users_correct": true,
-        "core_functions_covered": true
-      },
-      "issues": []
-    },
-    {
-      "path": "AGENTS.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true,
-        "behavior_rules_clear": true,
-        "invariants_documented": true
-      },
-      "issues": []
-    },
-    {
-      "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true,
-        "claude_specific_recommendations": true
-      },
-      "issues": []
-    },
-    {
-      "path": "ARCHITECTURE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true,
-        "technical_accuracy": true
-      },
-      "issues": []
-    },
-    {
-      "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "note": "Auto-generated from ontology.yml"
-      },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_ontology": true,
-        "all_terms_covered": true
-      },
-      "issues": []
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": []
-      },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true
-      },
-      "issues": []
+      "issues": [
+        "No issues detected"
+      ]
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "exists": true,
-      "clarity_score": 100,
+      "size": 7102,
+      "line_count": 245,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 87,
+        "issues": [
+          {
+            "line": 168,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 184,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 184,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 184,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          }
+        ]
       },
-      "uniqueness_check": {
-        "score": 100,
-        "invariants_complete": true,
-        "hard_invariants_enforced": true
-      },
-      "issues": []
+      "issues": [
+        "No issues detected"
+      ]
     },
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "clarity_score": 100,
+      "size": 7356,
+      "line_count": 188,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 92,
+        "issues": [
+          {
+            "line": 31,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 34,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 34,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 62,
+            "found": "ChatSession",
+            "should_be": "Session"
+          }
+        ]
       },
-      "uniqueness_check": {
-        "score": 100,
-        "guidelines_clear": true,
-        "aligned_with_intent": true
-      },
-      "issues": []
+      "issues": [
+        "No issues detected"
+      ]
     },
     {
-      "path": "CODEX.md",
+      "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "size": 5347,
+      "line_count": 128,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 95,
+        "issues": [
+          {
+            "line": 20,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 83,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 111,
+            "found": "JWT",
+            "should_be": "Session"
+          }
+        ]
       },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true
-      },
-      "issues": []
+      "issues": [
+        "No issues detected"
+      ]
     },
     {
-      "path": "GEMINI.md",
+      "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "size": 6332,
+      "line_count": 165,
       "concept_alignment": {
-        "score": 100,
-        "issues": []
+        "score": 59,
+        "issues": [
+          {
+            "line": 1,
+            "found": "AIエージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 14,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 14,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 15,
+            "found": "AgentImage",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "TaskAgent",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "AIエージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "AgentDefinition",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "専門エージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 15,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 16,
+            "found": "会話セッション",
+            "should_be": "Session"
+          },
+          {
+            "line": 16,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 16,
+            "found": "ChatSession",
+            "should_be": "Session"
+          },
+          {
+            "line": 17,
+            "found": "ChatMessage",
+            "should_be": "Message"
+          },
+          {
+            "line": 17,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 18,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 18,
+            "found": "InterpreterState",
+            "should_be": "State"
+          },
+          {
+            "line": 24,
+            "found": "自動チャット",
+            "should_be": "AutoChat"
+          },
+          {
+            "line": 24,
+            "found": "自動継続",
+            "should_be": "AutoChat"
+          },
+          {
+            "line": 25,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 25,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 26,
+            "found": "GUIバックエンド",
+            "should_be": "Backend"
+          },
+          {
+            "line": 26,
+            "found": "GuiBackend",
+            "should_be": "Backend"
+          },
+          {
+            "line": 26,
+            "found": "GuiComponent",
+            "should_be": "Backend"
+          },
+          {
+            "line": 26,
+            "found": "UIフレームワーク",
+            "should_be": "Backend"
+          },
+          {
+            "line": 27,
+            "found": "ConversationBuffer",
+            "should_be": "Memory"
+          },
+          {
+            "line": 27,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          },
+          {
+            "line": 28,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector"
+          },
+          {
+            "line": 28,
+            "found": "OpenGuiConnector",
+            "should_be": "Connector"
+          },
+          {
+            "line": 28,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 28,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 28,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector"
+          },
+          {
+            "line": 28,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 34,
+            "found": "変換器",
+            "should_be": "Converter"
+          },
+          {
+            "line": 34,
+            "found": "マッパー",
+            "should_be": "Converter"
+          },
+          {
+            "line": 64,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 66,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 68,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 69,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 72,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 73,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 73,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 73,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 80,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          },
+          {
+            "line": 80,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 90,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 94,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 125,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 141,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 142,
+            "found": "メッセージ",
+            "should_be": "Message"
+          }
+        ]
       },
-      "uniqueness_check": {
-        "score": 100,
-        "consistent_with_intent": true
-      },
-      "issues": []
+      "issues": [
+        "No issues detected"
+      ]
     },
     {
       "path": "CHANGELOG.md",
       "exists": true,
-      "clarity_score": 100,
+      "size": 61,
+      "line_count": 6,
+      "concept_alignment": {
+        "score": 0,
+        "issues": []
+      },
+      "issues": [
+        "No issues detected"
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "exists": true,
+      "size": 3014,
+      "line_count": 138,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [
+          {
+            "line": 86,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 91,
+            "found": "AgentType",
+            "should_be": "Agent"
+          }
+        ]
+      },
+      "issues": [
+        "No issues detected"
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "exists": true,
+      "size": 7954,
+      "line_count": 273,
+      "concept_alignment": {
+        "score": 86,
+        "issues": [
+          {
+            "line": 26,
+            "found": "UIフレームワーク",
+            "should_be": "Backend"
+          },
+          {
+            "line": 45,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 67,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 68,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 70,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 72,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 80,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 96,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 109,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          },
+          {
+            "line": 109,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 113,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 114,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 114,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 114,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 127,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 130,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 154,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 174,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 176,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          }
+        ]
+      },
+      "issues": [
+        "No issues detected"
+      ]
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "size": 5384,
+      "line_count": 144,
       "concept_alignment": {
         "score": 100,
         "issues": []
       },
-      "uniqueness_check": {
-        "score": 100,
-        "minimal_content": true
+      "issues": [
+        "No issues detected"
+      ]
+    },
+    {
+      "path": "GLOSSARY.md",
+      "exists": true,
+      "size": 10727,
+      "line_count": 330,
+      "concept_alignment": {
+        "score": 63,
+        "issues": [
+          {
+            "line": 21,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 21,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 22,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 36,
+            "found": "AgentImage",
+            "should_be": "Agent"
+          },
+          {
+            "line": 36,
+            "found": "TaskAgent",
+            "should_be": "Agent"
+          },
+          {
+            "line": 36,
+            "found": "AIエージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 36,
+            "found": "AgentDefinition",
+            "should_be": "Agent"
+          },
+          {
+            "line": 36,
+            "found": "専門エージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 36,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 55,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 56,
+            "found": "会話セッション",
+            "should_be": "Session"
+          },
+          {
+            "line": 56,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 56,
+            "found": "ChatSession",
+            "should_be": "Session"
+          },
+          {
+            "line": 57,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 57,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 58,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 64,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 67,
+            "found": "ChatSession",
+            "should_be": "Session"
+          },
+          {
+            "line": 74,
+            "found": "ChatMessage",
+            "should_be": "Message"
+          },
+          {
+            "line": 74,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 82,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 95,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 95,
+            "found": "InterpreterState",
+            "should_be": "State"
+          },
+          {
+            "line": 108,
+            "found": "InterpreterState",
+            "should_be": "State"
+          },
+          {
+            "line": 121,
+            "found": "自動チャット",
+            "should_be": "AutoChat"
+          },
+          {
+            "line": 121,
+            "found": "自動継続",
+            "should_be": "AutoChat"
+          },
+          {
+            "line": 140,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 140,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 142,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 148,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 154,
+            "found": "UIフレームワーク",
+            "should_be": "Backend"
+          },
+          {
+            "line": 155,
+            "found": "GUIバックエンド",
+            "should_be": "Backend"
+          },
+          {
+            "line": 155,
+            "found": "GuiBackend",
+            "should_be": "Backend"
+          },
+          {
+            "line": 155,
+            "found": "GuiComponent",
+            "should_be": "Backend"
+          },
+          {
+            "line": 155,
+            "found": "UIフレームワーク",
+            "should_be": "Backend"
+          },
+          {
+            "line": 156,
+            "found": "GuiBackend",
+            "should_be": "Backend"
+          },
+          {
+            "line": 156,
+            "found": "GuiComponent",
+            "should_be": "Backend"
+          },
+          {
+            "line": 158,
+            "found": "GuiComponent",
+            "should_be": "Backend"
+          },
+          {
+            "line": 168,
+            "found": "GuiBackend",
+            "should_be": "Backend"
+          },
+          {
+            "line": 169,
+            "found": "GuiComponent",
+            "should_be": "Backend"
+          },
+          {
+            "line": 177,
+            "found": "ConversationBuffer",
+            "should_be": "Memory"
+          },
+          {
+            "line": 177,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          },
+          {
+            "line": 178,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 197,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector"
+          },
+          {
+            "line": 197,
+            "found": "OpenGuiConnector",
+            "should_be": "Connector"
+          },
+          {
+            "line": 197,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 197,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 197,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector"
+          },
+          {
+            "line": 197,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 198,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 198,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 208,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 208,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector"
+          },
+          {
+            "line": 208,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 209,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector"
+          },
+          {
+            "line": 209,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 209,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 210,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 210,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 221,
+            "found": "変換器",
+            "should_be": "Converter"
+          },
+          {
+            "line": 221,
+            "found": "マッパー",
+            "should_be": "Converter"
+          },
+          {
+            "line": 223,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 239,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 240,
+            "found": "会話インタープリタ",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 241,
+            "found": "AIエージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 242,
+            "found": "専門エージェント",
+            "should_be": "Agent"
+          },
+          {
+            "line": 243,
+            "found": "AgentType",
+            "should_be": "Agent"
+          },
+          {
+            "line": 244,
+            "found": "AgentDefinition",
+            "should_be": "Agent"
+          },
+          {
+            "line": 245,
+            "found": "TaskAgent",
+            "should_be": "Agent"
+          },
+          {
+            "line": 246,
+            "found": "AgentImage",
+            "should_be": "Agent"
+          },
+          {
+            "line": 247,
+            "found": "ChatSession",
+            "should_be": "Session"
+          },
+          {
+            "line": 248,
+            "found": "会話セッション",
+            "should_be": "Session"
+          },
+          {
+            "line": 249,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 250,
+            "found": "ChatMessage",
+            "should_be": "Message"
+          },
+          {
+            "line": 251,
+            "found": "InterpreterState",
+            "should_be": "State"
+          },
+          {
+            "line": 252,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 253,
+            "found": "自動チャット",
+            "should_be": "AutoChat"
+          },
+          {
+            "line": 254,
+            "found": "自動継続",
+            "should_be": "AutoChat"
+          },
+          {
+            "line": 255,
+            "found": "GuiAgentStreamWrapper",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 256,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 257,
+            "found": "GUIバックエンド",
+            "should_be": "Backend"
+          },
+          {
+            "line": 258,
+            "found": "UIフレームワーク",
+            "should_be": "Backend"
+          },
+          {
+            "line": 259,
+            "found": "GuiBackend",
+            "should_be": "Backend"
+          },
+          {
+            "line": 260,
+            "found": "GuiComponent",
+            "should_be": "Backend"
+          },
+          {
+            "line": 261,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          },
+          {
+            "line": 262,
+            "found": "ConversationBuffer",
+            "should_be": "Memory"
+          },
+          {
+            "line": 263,
+            "found": "変換器",
+            "should_be": "Converter"
+          },
+          {
+            "line": 264,
+            "found": "マッパー",
+            "should_be": "Converter"
+          },
+          {
+            "line": 265,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 266,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 266,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 267,
+            "found": "ConnectorImplCodeinterpreterApi",
+            "should_be": "Connector"
+          },
+          {
+            "line": 268,
+            "found": "ConnectorImplOpenInterpreter",
+            "should_be": "Connector"
+          },
+          {
+            "line": 293,
+            "found": "インタープリタ状態",
+            "should_be": "State"
+          },
+          {
+            "line": 295,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 297,
+            "found": "ストリームラッパー",
+            "should_be": "StreamWrapper"
+          },
+          {
+            "line": 298,
+            "found": "メッセージ",
+            "should_be": "Message"
+          },
+          {
+            "line": 301,
+            "found": "JWT",
+            "should_be": "Session"
+          },
+          {
+            "line": 302,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 302,
+            "found": "コネクタ",
+            "should_be": "Connector"
+          },
+          {
+            "line": 302,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 308,
+            "found": "会話メモリ",
+            "should_be": "Memory"
+          },
+          {
+            "line": 308,
+            "found": "メッセージ",
+            "should_be": "Message"
+          }
+        ]
       },
-      "issues": []
+      "issues": [
+        "No issues detected"
+      ]
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "exists": true,
+      "size": 10976,
+      "line_count": 348,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [
+          {
+            "line": 158,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 158,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 162,
+            "found": "GuiAgentInterpreter",
+            "should_be": "Interpreter"
+          },
+          {
+            "line": 162,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector"
+          },
+          {
+            "line": 336,
+            "found": "JWT",
+            "should_be": "Session"
+          }
+        ]
+      },
+      "issues": [
+        "No issues detected"
+      ]
     }
-  ],
-
-  "summary": {
-    "total_files": 11,
-    "excellent": 11,
-    "good": 0,
-    "needs_improvement": 0,
-    "critical": 0,
-    "ready_for_production": true
-  }
+  ]
 }
