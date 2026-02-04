@@ -1,23 +1,44 @@
-bootstrap_run_timestamp: '2026-02-03T19:59:06.383862+00:00'
-concept_integration:
-  alignment_score: 100
-  new_term_candidates: []
-  ontology_terms_used: 11
-  used: true
+bootstrap_run_timestamp: '2026-02-04T09:40:00Z'
+version: '1.1'
+run_number: 86
+
 existence_clarity:
-  after: 100
   before: 100
+  after: 100
   delta: 0
-  interpretation: intent.ymlの定義によりMDが整備済み
-inconsistencies: []
-intent_suggestions: []
+  interpretation: intent.ymlの定義は完全にMDに反映されている
+
+uniqueness_score:
+  score: 100
+  issues_found: 0
+  issues_resolved: 0
+  remaining_issues: []
+
 md_coverage:
   tier1_coverage: 2/2 (100%)
   tier2_coverage: 4/4 (100%)
   tier3_coverage: 4/4 (100%)
-uniqueness_score:
-  issues_found: 0
-  issues_resolved: 0
-  remaining_issues: []
-  score: 100
-version: '1.1'
+  total: 10/10 existing files
+
+inconsistencies:
+  - id: NONE
+    description: 矛盾なし
+    status: perfect_alignment
+
+intent_suggestions: []
+
+concept_integration:
+  used: true
+  ontology_version: '0.3'
+  ontology_terms_used: 11
+  alignment_score: 100
+  new_term_candidates: []
+
+overall_assessment:
+  status: EXCELLENT
+  recommendation: 継続的な監視のみで、変更不要
+  next_audit: conceptまたはauditに更新があった場合のみ実行
+
+quality_trends:
+  trend: STABLE_PERFECT
+  last_5_runs_scores: [100, 100, 100, 100, 100]

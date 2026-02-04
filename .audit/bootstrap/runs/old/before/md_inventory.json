@@ -1,66 +1,191 @@
 {
-  "timestamp": "2026-02-04T09:05:00Z",
-  "total_mds": 10,
+  "timestamp": "2026-02-04T00:27:51.009009+00:00",
   "files": [
+    "README.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GLOSSARY.md",
+    "ARCHITECTURE.md",
+    "PURPOSE.md",
+    "SYSTEM_CONSTITUTION.md",
+    "CONTRIBUTING.md",
+    "GEMINI.md",
+    "CODEX.md"
+  ],
+  "inventory": [
     {
       "path": "README.md",
       "exists": true,
-      "tier": 1,
-      "size_bytes": 5359
+      "size_bytes": 5359,
+      "line_count": 128,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "tier": 1,
-      "size_bytes": 9689
+      "size_bytes": 9689,
+      "line_count": 165,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "tier": 2,
-      "size_bytes": 12558
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "tier": 2,
-      "size_bytes": 7964
-    },
-    {
-      "path": "PURPOSE.md",
-      "exists": true,
-      "tier": 2,
-      "size_bytes": 5388
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "exists": true,
-      "tier": 2,
-      "size_bytes": 7364
+      "size_bytes": 12558,
+      "line_count": 273,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
     },
     {
       "path": "GLOSSARY.md",
       "exists": true,
-      "tier": 3,
-      "size_bytes": 15009
+      "size_bytes": 15009,
+      "line_count": 330,
+      "concept_alignment": {
+        "score": 50,
+        "issues": [
+          {
+            "line": 58,
+            "found": "インタープリタ状態",
+            "should_be": "State",
+            "context": "- **含まない**: UI状態, インタープリタ状態"
+          },
+          {
+            "line": 121,
+            "found": "自動チャット",
+            "should_be": "AutoChat",
+            "context": "- **同義語**: 自動チャット, 自動継続"
+          },
+          {
+            "line": 121,
+            "found": "自動継続",
+            "should_be": "AutoChat",
+            "context": "- **同義語**: 自動チャット, 自動継続"
+          },
+          {
+            "line": 158,
+            "found": "GuiComponent",
+            "should_be": "Backend",
+            "context": "- **関連用語**: Interpreter, Session, GuiComponent"
+          },
+          {
+            "line": 177,
+            "found": "会話メモリ",
+            "should_be": "Memory",
+            "context": "- **同義語**: 会話メモリ, ConversationBuffer"
+          },
+          {
+            "line": 177,
+            "found": "ConversationBuffer",
+            "should_be": "Memory",
+            "context": "- **同義語**: 会話メモリ, ConversationBuffer"
+          },
+          {
+            "line": 210,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- `gui_agent_loop_core/schema/core/schema.py`: \"class GuiAgentInterpreterABC(ABC"
+          },
+          {
+            "line": 221,
+            "found": "変換器",
+            "should_be": "Converter",
+            "context": "- **同義語**: 変換器, マッパー"
+          },
+          {
+            "line": 221,
+            "found": "マッパー",
+            "should_be": "Converter",
+            "context": "- **同義語**: 変換器, マッパー"
+          }
+        ]
+      }
     },
     {
       "path": "ARCHITECTURE.md",
       "exists": true,
-      "tier": 3,
-      "size_bytes": 13424
+      "size_bytes": 13424,
+      "line_count": 348,
+      "concept_alignment": {
+        "score": 50,
+        "issues": [
+          {
+            "line": 158,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- Abstract base class (GuiAgentInterpreterABC)"
+          },
+          {
+            "line": 162,
+            "found": "GuiAgentInterpreterABC",
+            "should_be": "Connector",
+            "context": "- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface"
+          },
+          {
+            "line": 336,
+            "found": "JWT",
+            "should_be": "Session",
+            "context": "- **Affects**: JWT token encoding/decoding"
+          }
+        ]
+      }
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "size_bytes": 5388,
+      "line_count": 144,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "size_bytes": 7964,
+      "line_count": 245,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "size_bytes": 7364,
+      "line_count": 188,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
     },
     {
       "path": "GEMINI.md",
       "exists": true,
-      "tier": 3,
-      "size_bytes": 4744
+      "size_bytes": 4744,
+      "line_count": 138,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
     },
     {
       "path": "CODEX.md",
       "exists": true,
-      "tier": 3,
-      "size_bytes": 5224
+      "size_bytes": 5224,
+      "line_count": 158,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      }
     }
   ]
 }
