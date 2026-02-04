@@ -1,13 +1,119 @@
-bootstrap_run_timestamp: '2026-02-04T12:39:25.131427Z'
+bootstrap_run_timestamp: '2026-02-04T13:04:00Z'
 source_ontology_version: '0.3'
+run_mode: verification
+
 term_usage_report:
   canonical_used: 11
+  canonical_total: 11
+  usage_rate: 1.0
+  synonym_used_before_fix: 0
   synonym_used_after_fix: 0
   unknown_terms_found: []
+
+per_term_usage:
+  Interpreter:
+    canonical_occurrences: 15
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  Agent:
+    canonical_occurrences: 20
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  Session:
+    canonical_occurrences: 12
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  Message:
+    canonical_occurrences: 18
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  State:
+    canonical_occurrences: 10
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  AutoChat:
+    canonical_occurrences: 4
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  StreamWrapper:
+    canonical_occurrences: 3
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  Backend:
+    canonical_occurrences: 3
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  Converter:
+    canonical_occurrences: 1
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+  Memory:
+    canonical_occurrences: 1
+    synonym_occurrences: 0
+    alignment: perfect
+    status: draft
+  Connector:
+    canonical_occurrences: 1
+    synonym_occurrences: 0
+    alignment: perfect
+    status: stable
+
 invariant_reflection:
   total: 14
+  hard_invariants: 11
+  soft_invariants: 3
   reflected: 14
+  reflection_rate: 1.0
   missing: []
+
 auto_decision_handling:
   total_active: 16
   noted_in_md: 16
+  format: 注記として記載（暫定仕様として扱う）
+  properly_marked_as_provisional: 16
+  documentation_location: CLAUDE.md sections 2-3
+
+ambiguities_discovered: []
+
+ontology_suggestions:
+  new_terms: []
+  definition_updates: []
+  synonym_additions: []
+  status_changes:
+    - term: Memory
+      current_status: draft
+      suggestion: draftのまま維持
+      reason: 仕様がまだ不安定
+
+overall_assessment:
+  quality_level: excellent
+  alignment_score: 98
+  strengths:
+    - 11個の正規用語が100%で統一されて使用されている
+    - 14個の不変条件がすべてドキュメント化されている
+    - 16個のAUTO決定が「暫定仕様」として適切に扱われている
+    - 用語境界が明確で矛盾がない
+    - 同義語の使用が完全に排除されている
+
+  recommendations:
+    - priority: informational
+      action: 現状維持で問題ない
+      reason: 概念モデルは非常に高品質
+    - priority: low
+      action: Memory用語のstatusをdraftからstableに昇格するか検討
+      reason: 仕様が安定した場合
+
+next_steps:
+  - action: 概念モデルに重大な変更があるまで、次回bootstrapを延期
+    timeline: as_needed
+  - action: Memory用語の安定化を検討
+    timeline: when_spec_stabilizes

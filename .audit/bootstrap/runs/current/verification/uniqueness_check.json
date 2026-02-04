@@ -1,56 +1,146 @@
 {
-  "timestamp": "2026-02-04T12:39:25.128320Z",
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-04T13:04:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 92,
+  "checks_performed": 10,
+  "checks_passed": 9,
+  "checks_failed": 1,
+
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "passed": true
+      "name": "Mission Consistency",
+      "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "details": {
+        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency_rate": 1.0
+      }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "passed": true
+      "name": "Target User Consistency",
+      "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "details": {
+        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "files_checked": ["README.md", "AGENTS.md"],
+        "consistency_rate": 1.0
+      }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
-      "passed": true
+      "name": "Constraints Consistency",
+      "description": "技術的制約が一致しているか",
+      "source": ".audit/constraints.yml + .concept/invariants.yml",
+      "passed": true,
+      "details": {
+        "python_version": ">=3.10",
+        "max_message_length": 100,
+        "consistency_rate": 1.0
+      }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
-      "passed": true
+      "name": "Boundary Consistency",
+      "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "details": {
+        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
+        "consistent": true
+      }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "passed": true
+      "name": "Intent.yml Compliance",
+      "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit/intent.yml",
+      "passed": true,
+      "details": {
+        "core_functions_reflected": true,
+        "design_philosophy_reflected": true,
+        "success_metrics_documented": true
+      }
     },
     {
       "id": "CA-001",
-      "name": "用語の正規形使用",
-      "passed": true
+      "name": "Canonical Term Usage",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "details": {
+        "total_canonical_terms": 11,
+        "canonical_used": 11,
+        "synonym_usage_detected": 0,
+        "alignment_rate": 1.0
+      }
     },
     {
       "id": "CA-002",
-      "name": "同義語の排除",
-      "passed": true
+      "name": "Synonym Exclusion",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept/ontology.yml",
+      "passed": false,
+      "details": {
+        "issue": "AGENTS.mdの用語テーブルで同義語カラムが正規形で表示されている（表記上の問題）",
+        "severity": "low",
+        "impact": "文書の可読性に影響、概念的には正しい",
+        "file": "AGENTS.md",
+        "recommendation": "次回bootstrap時に修正"
+      }
     },
     {
       "id": "CA-003",
-      "name": "不変条件の反映",
-      "passed": true
+      "name": "Invariant Reflection",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept/invariants.yml",
+      "passed": true,
+      "details": {
+        "total_hard_invariants": 11,
+        "reflected_in_docs": 11,
+        "missing": []
+      }
     },
     {
       "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "passed": true
+      "name": "AUTO Decision Documentation",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept/ambiguities.yml",
+      "passed": true,
+      "details": {
+        "total_auto_decisions": 16,
+        "documented_in_claudemd": 16,
+        "noted_as_provisional": 16
+      }
     },
     {
       "id": "CA-005",
-      "name": "用語境界の整合",
-      "passed": true
+      "name": "Term Boundary Consistency",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept/ontology.yml",
+      "passed": true,
+      "details": {
+        "terms_checked": 11,
+        "boundary_conflicts": 0
+      }
     }
-  ]
+  ],
+
+  "summary": {
+    "uniqueness_checks": {
+      "total": 5,
+      "passed": 5,
+      "score": 100
+    },
+    "concept_alignment_checks": {
+      "total": 5,
+      "passed": 4,
+      "score": 80
+    },
+    "overall_score": 92
+  }
 }

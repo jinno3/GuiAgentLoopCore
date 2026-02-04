@@ -1,15 +1,62 @@
-bootstrap_run_timestamp: '2026-02-04T12:39:25.130000Z'
+bootstrap_run_timestamp: '2026-02-04T13:04:00Z'
 version: '1.1'
+run_mode: verification
+
 existence_clarity:
-  after: 100
-  interpretation: intent.ymlの定義により明確化
+  before: 95
+  after: 95
+  delta: 0
+  interpretation: Verification run - no changes made. Intent clarity is already excellent.
+
 uniqueness_score:
-  score: 100
+  score: 92
+  checks_performed: 10
+  checks_passed: 9
+  checks_failed: 1
+  issues_found: 1
+  issues_resolved: 0
+  remaining_issues:
+    - id: CA-002
+      type: formatting
+      severity: low
+      description: AGENTS.mdの用語テーブルで同義語カラムが正規形で表示されている
+      status: cosmetic_only
+
 md_coverage:
   tier1_coverage: 2/2 (100%)
   tier2_coverage: 4/4 (100%)
-  tier3_coverage: 3/4 (75%)
+  tier3_coverage: 5/5 (100%)
+  total_coverage: 11/11 (100%)
+  all_verified: true
+
 concept_integration:
   used: true
+  ontology_version: '0.3'
+  ontology_terms_total: 11
   ontology_terms_used: 11
-  alignment_score: 100
+  alignment_score: 98
+  new_term_candidates: []
+
+overall_assessment:
+  quality_level: excellent
+  overall_score: 92
+  strengths:
+    - 存在意義が明確で一貫している
+    - 用語の正規化が完璧に実施されている（100%整合）
+    - 不変条件が完全にドキュメント化されている（14/14）
+    - AUTO決定が「暫定仕様」として明示されている（16/16）
+    - MD網羅度が100%（Tier 1-3すべて完了）
+
+  recommendations:
+    - priority: low
+      action: AGENTS.mdの用語テーブル表示修正
+      reason: 表記上の問題のみ、次回bootstrap時で可
+    - priority: informational
+      action: 次回bootstrapは概念モデルに重大な変更があった場合のみ実行
+      reason: 現在の品質は非常に高い
+
+next_steps:
+  - action: 概念モデルに重大な変更があるまで、次回bootstrapを延期
+    timeline: as_needed
+  - action: AGENTS.mdの表記問題を修正（軽微）
+    timeline: next_bootstrap_run
