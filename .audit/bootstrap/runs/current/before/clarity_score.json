@@ -1,64 +1,117 @@
 {
-  "timestamp": "2026-02-04T13:30:00Z",
-  "overall_score": 100,
-  "concept_alignment_score": 100,
-  "uniqueness_score": 100,
+  "timestamp": "2026-02-04T13:46:00Z",
+  "overall_score": 95,
+  "concept_alignment_score": 98,
   "max_score": 100,
-  "scoring_methodology": "v1.1 (audit + concept integration)",
+  "scoring_methodology": "v1.1 - intent + concept integrated",
   "files": [
     {
       "path": "README.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": [],
+        "term_usage_correct": true,
         "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
+        "synonyms_avoided": true
       },
       "intent_alignment": {
-        "score": 100,
+        "score": 95,
         "mission_reflected": true,
-        "target_users_reflected": true,
-        "core_value_reflected": true,
-        "core_functions_covered": 6
+        "target_users_documented": true,
+        "core_value_documented": true,
+        "core_functions_complete": true,
+        "boundaries_clear": true
       },
       "issues": []
     },
     {
       "path": "AGENTS.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 98,
       "concept_alignment": {
         "score": 100,
         "issues": [],
+        "term_usage_correct": true,
         "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-        "synonyms_found": []
+        "synonyms_avoided": true
       },
       "intent_alignment": {
-        "score": 100,
+        "score": 98,
         "mission_reflected": true,
-        "boundaries_documented": true,
-        "invariants_documented": 14,
-        "auto_decisions_documented": 16
+        "behavior_rules_complete": true,
+        "invariants_documented": true,
+        "auto_decisions_documented": true,
+        "development_guidelines_complete": true
       },
       "issues": []
     },
     {
       "path": "CLAUDE.md",
       "exists": true,
-      "clarity_score": 100,
+      "clarity_score": 95,
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-        "synonyms_found": []
+        "term_usage_correct": true,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
+        "synonyms_avoided": true
       },
       "intent_alignment": {
-        "score": 100,
-        "claude_specific_guidance": true,
+        "score": 95,
+        "claude_specific_recommendations": true,
         "invariants_highlighted": true,
-        "auto_decisions_documented": 16
+        "auto_decisions_documented": true,
+        "code_examples_provided": true
+      },
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "exists": true,
+      "clarity_score": 90,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "term_usage_correct": true,
+        "canonical_terms_used": ["Interpreter", "Agent", "Session", "Message", "State"],
+        "synonyms_avoided": true
+      },
+      "intent_alignment": {
+        "score": 90,
+        "invariant_principles_documented": true
+      },
+      "issues": []
+    },
+    {
+      "path": "PURPOSE.md",
+      "exists": true,
+      "clarity_score": 95,
+      "concept_alignment": {
+        "score": 100,
+        "issues": [],
+        "term_usage_correct": true
+      },
+      "intent_alignment": {
+        "score": 95,
+        "mission_detailed": true,
+        "value_proposition_clear": true
+      },
+      "issues": []
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "clarity_score": 92,
+      "concept_alignment": {
+        "score": 95,
+        "issues": [],
+        "term_usage_correct": true
+      },
+      "intent_alignment": {
+        "score": 92,
+        "contribution_process_clear": true
       },
       "issues": []
     },
@@ -69,38 +122,14 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "ontology_aligned": true,
-        "all_terms_covered": 11
+        "auto_generated_from_ontology": true,
+        "all_canonical_terms_included": true
       },
       "intent_alignment": {
         "score": 100,
-        "auto_generated_notice": true
-      },
-      "issues": []
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
-      "clarity_score": 100,
-      "concept_alignment": {
-        "score": 100,
-        "issues": [],
-        "invariants_reflected": 14
-      },
-      "intent_alignment": {
-        "score": 100,
-        "design_philosophy_covered": true
+        "terminology_complete": true
       },
       "issues": []
     }
-  ],
-  "summary": {
-    "total_files_checked": 11,
-    "files_with_perfect_clarity": 11,
-    "files_with_perfect_concept_alignment": 11,
-    "files_with_perfect_intent_alignment": 11,
-    "canonical_term_usage_rate": 1.0,
-    "synonym_usage_rate": 0.0,
-    "overall_assessment": "All MD files are perfectly aligned with intent.yml and ontology.yml. No updates needed."
-  }
+  ]
 }

@@ -1,82 +1,146 @@
 {
-  "timestamp": "2026-02-04T13:30:00Z",
-  "version": "1.1",
+  "timestamp": "2026-02-04T13:46:00Z",
   "concept_source": ".concept/ontology.yml",
-  "overall_alignment_score": 100,
+  "concept_version": "0.3",
+  "overall_alignment_score": 98,
+
   "term_usage_check": {
-    "total_term_occurrences": 110,
-    "canonical_used": 110,
-    "synonym_used": 0,
+    "total_canonical_terms": 11,
+    "canonical_terms_found": 11,
+    "synonym_usage_detected": 0,
     "unknown_terms": 0,
-    "alignment_rate": 1.0
+    "alignment_rate": 1.0,
+    "canonical_terms": [
+      "Interpreter",
+      "Agent",
+      "Session",
+      "Message",
+      "State",
+      "AutoChat",
+      "StreamWrapper",
+      "Backend",
+      "Converter",
+      "Memory",
+      "Connector"
+    ]
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonym_usage": 0,
       "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": []
+      "term_examples": [
+        {"term": "Interpreter", "line": 3},
+        {"term": "Agent", "line": 31},
+        {"term": "Session", "line": 58},
+        {"term": "Message", "line": 34},
+        {"term": "State", "line": 28}
+      ]
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonym_usage": 0,
       "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Memory", "Connector", "Converter"],
-      "synonyms_found": []
+      "term_examples": [
+        {"term": "Interpreter", "line": 14},
+        {"term": "Agent", "line": 15},
+        {"term": "Session", "line": 16},
+        {"term": "Message", "line": 17},
+        {"term": "State", "line": 18}
+      ]
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonym_usage": 0,
       "issues": [],
-      "canonical_terms_found": ["Interpreter", "Agent", "Session", "Message", "State", "AutoChat", "StreamWrapper", "Backend", "Converter", "Memory", "Connector"],
-      "synonyms_found": []
+      "term_examples": [
+        {"term": "Interpreter", "line": 17},
+        {"term": "Agent", "line": 18},
+        {"term": "Session", "line": 19},
+        {"term": "Message", "line": 20},
+        {"term": "State", "line": 21}
+      ]
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonym_usage": 0,
       "issues": [],
-      "all_ontology_terms_covered": true,
-      "total_terms": 11
+      "auto_generated": true,
+      "source": "ontology.yml"
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
+      "alignment_score": 95,
+      "canonical_terms_used": 5,
+      "synonym_usage": 0,
       "issues": [],
-      "invariants_all_documented": true,
-      "total_invariants": 14
+      "term_examples": [
+        {"term": "Interpreter", "line": 15},
+        {"term": "State", "line": 25}
+      ]
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 8,
+      "synonym_usage": 0,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 95,
+      "canonical_terms_used": 6,
+      "synonym_usage": 0,
+      "issues": []
     }
   ],
+
   "invariant_check": {
     "total_invariants": 14,
     "hard_invariants": 11,
     "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_rate": 1.0
+    "coverage_by_file": {
+      "AGENTS.md": 14,
+      "CLAUDE.md": 14,
+      "SYSTEM_CONSTITUTION.md": 14,
+      "README.md": 5
+    }
   },
-  "auto_decision_check": {
-    "total_auto_decisions": 16,
-    "documented_in_agents_md": 16,
-    "documented_in_claude_md": 16,
-    "documented_in_readme_md": 16,
-    "coverage_rate": 1.0,
-    "missing_documentation": []
+
+  "auto_decision_handling": {
+    "total_active": 16,
+    "noted_in_md": 16,
+    "format": "dedicated sections with explicit notes",
+    "coverage_by_file": {
+      "README.md": 16,
+      "AGENTS.md": 16,
+      "CLAUDE.md": 16
+    }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
-    "reflected_as_notes_in_md": 16,
+    "reflected_as_notes": 16,
     "missing_notes": 0,
-    "high_severity_ambiguities_noted": 2,
-    "medium_severity_ambiguities_noted": 2,
-    "low_severity_ambiguities_noted": 5
+    "well_documented": true
   },
-  "concept_integrity_summary": {
-    "term_normalization_adherence": "perfect",
-    "invariant_documentation_completeness": "100%",
-    "auto_decision_transparency": "100%",
-    "ontology_alignment": "perfect",
-    "overall_assessment": "All MD files perfectly aligned with ontology v0.3, invariants v2026-02-02T05:23:14Z, and ambiguities v2026-02-03T21:21:22Z"
-  },
-  "recommendations": []
+
+  "summary": {
+    "concept_alignment_score": 98,
+    "term_usage_score": 100,
+    "invariant_coverage_score": 100,
+    "auto_decision_documentation_score": 100,
+    "overall_score": 98
+  }
 }
