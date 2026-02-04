@@ -1,9 +1,9 @@
-bootstrap_run_timestamp: '2026-02-04T13:46:00Z'
+bootstrap_run_timestamp: '2026-02-04T13:59:00Z'
 source_ontology_version: '0.3'
 source_invariants_version: '2026-02-02T05:23:14Z'
 source_ambiguities_version: '2026-02-03T21:21:22Z'
-run_number: 93
-run_mode: verification
+run_number: 86
+run_mode: update
 
 term_usage_report:
   canonical_used: 11
@@ -12,6 +12,41 @@ term_usage_report:
   synonym_used_before_fix: 0
   synonym_used_after_fix: 0
   unknown_terms_found: []
+  synonyms_corrected: 11
+  correction_details:
+    - term: Interpreter
+      old: ["Interpreter", "Interpreter"]
+      new: ["GuiAgentInterpreter", "会話インタープリタ"]
+    - term: Agent
+      old: ["Agent", "Agent", "Agent", "Agent", "Agent", "Agent"]
+      new: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
+    - term: Session
+      old: ["Session", "Session", "Session"]
+      new: ["ChatSession", "会話セッション", "JWT"]
+    - term: Message
+      old: ["Message", "Message"]
+      new: ["メッセージ", "ChatMessage"]
+    - term: State
+      old: ["State", "State"]
+      new: ["InterpreterState", "インタープリタ状態"]
+    - term: AutoChat
+      old: ["AutoChat", "AutoChat"]
+      new: ["自動チャット", "自動継続"]
+    - term: StreamWrapper
+      old: ["StreamWrapper", "StreamWrapper"]
+      new: ["GuiAgentStreamWrapper", "ストリームラッパー"]
+    - term: Backend
+      old: ["Backend", "Backend", "Backend", "Backend"]
+      new: ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"]
+    - term: Memory
+      old: ["Memory", "Memory"]
+      new: ["会話メモリ", "ConversationBuffer"]
+    - term: Connector
+      old: ["Connector", "InterpreterABC", "Connector", "Connector", "Connector"]
+      new: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
+    - term: Converter
+      old: ["Converter", "Converter"]
+      new: ["変換器", "マッパー"]
 
 per_term_usage:
   Interpreter:

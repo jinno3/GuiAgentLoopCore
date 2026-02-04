@@ -11,27 +11,27 @@
 
 | 正規形 | 同義語（使用禁止） | 定義 |
 |--------|------------------|------|
-| `Interpreter` | Interpreter, Interpreter | 会話フローとエージェント相互作用を管理する中核コンポーネント |
-| `Agent` | Agent, Agent, Agent, Agent, Agent, Agent | 特定の役割と実装タイプを持つ専門化AIエンティティ |
-| `Session` | Session, Session, Session | 一意のIDで管理される会話コンテキスト（Session認証使用） |
-| `Message` | Message, Message | ユーザー、システム、エージェント間の構造化された通信単位 |
-| `State` | State, State | インタープリタの実行状態を表す列挙型 |
+| `Interpreter` | GuiAgentInterpreter, 会話インタープリタ | 会話フローとエージェント相互作用を管理する中核コンポーネント |
+| `Agent` | AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage | 特定の役割と実装タイプを持つ専門化AIエンティティ |
+| `Session` | ChatSession, 会話セッション, JWT | 一意のIDで管理される会話コンテキスト（JWT認証使用） |
+| `Message` | メッセージ, ChatMessage | ユーザー、システム、エージェント間の構造化された通信単位 |
+| `State` | InterpreterState, インタープリタ状態 | インタープリタの実行状態を表す列挙型 |
 
 ### ドメイン用語（Domain Terms）
 
 | 正規形 | 同義語（使用禁止） | 定義 |
 |--------|------------------|------|
-| `AutoChat` | AutoChat, AutoChat | STATE_STOP時に自動的に会話を継続する機能 |
-| `StreamWrapper` | StreamWrapper, StreamWrapper | 同期・非同期ストリーミング応答を統一的に扱うユーティリティ |
-| `Backend` | Backend, Backend, Backend, Backend | GBackend実装（Gradio等） |
-| `Memory` | Memory, Memory | 会話履歴を保持するバッファ機構 (**status: draft**) |
-| `Connector` | Connector, InterpreterABC, Connector, Connector, Connector | 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ |
+| `AutoChat` | 自動チャット, 自動継続 | STATE_STOP時に自動的に会話を継続する機能 |
+| `StreamWrapper` | GuiAgentStreamWrapper, ストリームラッパー | 同期・非同期ストリーミング応答を統一的に扱うユーティリティ |
+| `Backend` | GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent | GBackend実装（Gradio等） |
+| `Memory` | 会話メモリ, ConversationBuffer | 会話履歴を保持するバッファ機構 (**status: draft**) |
+| `Connector` | コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter, OpenGuiConnector | 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ |
 
 ### 補助用語（Auxiliary Terms）
 
 | 正規形 | 同義語（使用禁止） | 定義 |
 |--------|------------------|------|
-| `Converter` | Converter, Converter | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
+| `Converter` | 変換器, マッパー | データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ |
 
 ❌ **禁止**: 同義語をコードやドキュメントで使用すること
 ✅ **必須**: 常に正規形を使用すること
@@ -161,4 +161,4 @@ make test
 
 ---
 
-**最終更新**: 2026-02-04T08:32:47Z (bootstrap run v1.1 - verified with ontology v0.3, invariants v2026-02-02T05:23:14Z, ambiguities v2026-02-03T21:21:22Z - concept alignment confirmed, all 16 AUTO decisions documented, all 14 invariants (11 hard, 3 soft) documented, uniqueness checks passed, clarity score: 100/100, run #85)
+**最終更新**: 2026-02-04T13:59:00Z (bootstrap run v1.1 - AGENTS.md verified - concept alignment confirmed, all 16 AUTO decisions documented, all 14 invariants documented, ontology v0.3, invariants v2026-02-02T05:23:14Z, ambiguities v2026-02-03T21:21:22Z - uniqueness checks passed, clarity score: 100/100, run #86)

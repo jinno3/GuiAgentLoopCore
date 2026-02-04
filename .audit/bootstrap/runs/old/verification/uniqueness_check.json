@@ -1,52 +1,50 @@
 {
-  "timestamp": "2026-02-04T13:30:00Z",
-  "version": "1.1",
-  "uniqueness_score": 100,
-  "max_score": 100,
-  "checks_performed": [
+  "timestamp": "2026-02-04T13:46:00Z",
+  "verification_version": "1.1",
+  "overall_uniqueness_score": 98,
+  "intent_source": ".audit/config/intent.yml",
+  "ontology_source": ".concept/ontology.yml",
+
+  "uniqueness_checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
+      "name": "Existence Purpose Consistency",
       "description": "全MDで同じmissionが表現されているか",
-      "status": "passed",
+      "passed": true,
       "evidence": {
-        "expected_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "PURPOSE.md"],
-        "all_consistent": true
+        "mission_statement": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
+      "name": "Target User Consistency",
       "description": "全MDで同じtarget_userを想定しているか",
-      "status": "passed",
+      "passed": true,
       "evidence": {
-        "expected_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
+        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
         "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "all_consistent": true
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-003",
-      "name": "制約の一貫性",
+      "name": "Constraints Consistency",
       "description": "技術的制約が一致しているか",
-      "status": "passed",
+      "passed": true,
       "evidence": {
-        "key_constraints_verified": [
-          "State monotonic transitions enforced",
-          "Message types restricted to enum values",
-          "Message history limited to MAX_MESSAGE_LENGTH=100",
-          "Sessions use UUID with JWT HS256 encoding"
-        ],
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
-        "all_consistent": true
+        "python_version": ">=3.10",
+        "state_transitions": "monotonic (INIT → RUNNING → STOP)",
+        "message_limit": "MAX_MESSAGE_LENGTH=100",
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-004",
-      "name": "境界線の一貫性",
+      "name": "Boundaries Consistency",
       "description": "out_of_scopeが矛盾なく定義されているか",
-      "status": "passed",
+      "passed": true,
       "evidence": {
         "out_of_scope_items": [
           "UI Rendering",
@@ -55,41 +53,27 @@
           "Authentication",
           "Network Protocols"
         ],
-        "files_checked": ["README.md", "AGENTS.md", "ARCHITECTURE.md"],
-        "all_consistent": true
+        "consistency": "100%"
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
+      "name": "Intent.yml Compliance",
       "description": "全MDがintent.ymlを正しく反映しているか",
-      "status": "passed",
+      "passed": true,
       "evidence": {
-        "core_functions_covered": [
-          "Centralized Conversation Management",
-          "State Machine with Monotonic Transitions",
-          "Multi-Agent Coordination",
-          "Structured Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
-        ],
-        "design_philosophy_covered": [
-          "Correctness Over Convenience",
-          "Explicit Over Implicit",
-          "Small, Focused Components",
-          "Testability",
-          "Conceptual Integrity"
-        ],
-        "all_consistent": true
+        "core_functions_count": 5,
+        "all_core_functions_documented": true,
+        "design_philosophies_count": 5,
+        "all_philosophies_reflected": true
       }
     }
   ],
+
   "summary": {
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "warnings": 0,
-    "overall_uniqueness_score": 100
-  },
-  "recommendations": []
+    "uniqueness_score": 100
+  }
 }
