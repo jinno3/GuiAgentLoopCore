@@ -1,78 +1,157 @@
 {
-  "timestamp": "2026-02-04T14:07:00Z",
+  "timestamp": "2026-02-04T05:29:17Z",
+  "verification_version": "1.1",
   "overall_uniqueness_score": 100,
-  "max_score": 100,
-  "checks": [
+  "checks_performed": [
     {
       "id": "UC-001",
-      "name": "Existence Consistency (mission)",
-      "description": "All MDs express the same mission",
+      "name": "存在意義の一貫性",
+      "description": "全MDで同じmissionが表現されているか",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "mission_consistent": true,
-        "mission_text": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+        "intent_mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+        "files_checked": [
+          {
+            "file": "README.md",
+            "mission_match": true,
+            "line": 3
+          },
+          {
+            "file": "AGENTS.md",
+            "mission_match": true,
+            "line": 3
+          },
+          {
+            "file": "PURPOSE.md",
+            "mission_match": true,
+            "consistent": true
+          }
+        ]
       }
     },
     {
       "id": "UC-002",
-      "name": "Target Users Consistency",
-      "description": "All MDs target the same users",
+      "name": "対象ユーザーの一貫性",
+      "description": "全MDで同じtarget_userを想定しているか",
       "passed": true,
       "evidence": {
-        "files_checked": ["README.md", "AGENTS.md", "CLAUDE.md"],
-        "target_users": [
-          "Application Developers",
-          "AI Agent Developers",
-          "Framework Developers",
-          "AI Agents"
+        "intent_target_users": [
+          "Application Developers: Building LLM-powered applications with GUI interfaces",
+          "AI Agent Developers: Creating specialized agents for specific tasks",
+          "Framework Developers: Building new GUI backend implementations",
+          "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
         ],
-        "consistent": true
+        "files_checked": [
+          {
+            "file": "README.md",
+            "users_match": true,
+            "lines": "13-18"
+          },
+          {
+            "file": "AGENTS.md",
+            "users_match": true,
+            "consistent": true
+          }
+        ]
       }
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
-      "description": "Technical constraints are consistent across MDs",
+      "name": "制約の一貫性",
+      "description": "技術的制約が一致しているか",
       "passed": true,
       "evidence": {
-        "constraints_consistent": true,
-        "hard_invariants_count": 11,
-        "soft_invariants_count": 3
+        "constraints_verified": [
+          "State monotonic transitions enforced across all docs",
+          "MAX_MESSAGE_LENGTH=100 consistently documented",
+          "JWT HS256 algorithm consistently documented",
+          "Timer 3-second interval consistently documented"
+        ],
+        "files_checked": [
+          "README.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          "SYSTEM_CONSTITUTION.md"
+        ]
       }
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
-      "description": "Scope boundaries are consistently defined",
+      "name": "境界線の一貫性",
+      "description": "out_of_scopeが矛盾なく定義されているか",
       "passed": true,
       "evidence": {
-        "in_scope": [
-          "Conversation Flow Management",
-          "State Machine",
-          "Agent Coordination",
-          "Message Processing",
-          "Backend Abstraction",
-          "Streaming Support"
+        "intent_out_of_scope": [
+          "UI Rendering: We don't handle UI component rendering (that's the backend's job)",
+          "LLM Execution: We don't directly execute LLM models (we delegate to agents)",
+          "Session Storage: We don't persist sessions to databases (that's application-level)",
+          "Authentication: We don't handle user authentication (we only ensure session uniqueness)",
+          "Network Protocols: We don't define network protocols (that's backend-specific)"
         ],
-        "out_of_scope": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistent": true
+        "files_checked": [
+          {
+            "file": "AGENTS.md",
+            "out_of_scope_match": true,
+            "lines": "51-57"
+          },
+          {
+            "file": "CONTRIBUTING.md",
+            "out_of_scope_match": true,
+            "consistent": true
+          }
+        ]
       }
     },
     {
       "id": "UC-005",
-      "name": "intent.yml Compliance",
-      "description": "All MDs comply with intent.yml",
+      "name": "intent.yml準拠",
+      "description": "全MDがintent.ymlを正しく反映しているか",
       "passed": true,
       "evidence": {
-        "intent_version": "1.0",
-        "all_compliant": true
+        "core_functions_mapped": [
+          {
+            "function": "Centralized Conversation Management",
+            "found_in": ["README.md", "AGENTS.md"],
+            "consistent": true
+          },
+          {
+            "function": "State Machine with Monotonic Transitions",
+            "found_in": ["README.md", "AGENTS.md", "CLAUDE.md"],
+            "consistent": true
+          },
+          {
+            "function": "Multi-Agent Coordination",
+            "found_in": ["README.md", "AGENTS.md"],
+            "consistent": true
+          },
+          {
+            "function": "Structured Message Processing",
+            "found_in": ["README.md", "AGENTS.md"],
+            "consistent": true
+          },
+          {
+            "function": "Backend Abstraction",
+            "found_in": ["README.md", "AGENTS.md"],
+            "consistent": true
+          }
+        ],
+        "design_philosophy_mapped": [
+          {
+            "philosophy": "Correctness Over Convenience",
+            "found_in": ["SYSTEM_CONSTITUTION.md"],
+            "consistent": true
+          },
+          {
+            "philosophy": "Explicit Over Implicit",
+            "found_in": ["CLAUDE.md"],
+            "consistent": true
+          },
+          {
+            "philosophy": "Conceptual Integrity",
+            "found_in": ["AGENTS.md"],
+            "consistent": true
+          }
+        ]
       }
     }
   ],
@@ -80,6 +159,6 @@
     "total_checks": 5,
     "passed": 5,
     "failed": 0,
-    "pass_rate": "100%"
+    "uniqueness_score": 100
   }
 }

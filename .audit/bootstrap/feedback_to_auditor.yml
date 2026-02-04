@@ -1,9 +1,9 @@
 # Feedback to Auditor (14_repo_genesis_auditor)
-# Generated: 2026-02-04T14:07:00Z
+# Generated: 2026-02-04T05:29:17Z
 
-bootstrap_run_timestamp: '2026-02-04T14:07:00Z'
+bootstrap_run_timestamp: '2026-02-04T05:29:17Z'
 version: '1.1'
-run_number: 87
+run_number: 94
 run_mode: verification
 
 existence_clarity:
@@ -90,6 +90,8 @@ next_steps:
     timeline: as_needed
   - action: 新規MDファイル追加時の整合性チェックを実施
     timeline: on_addition
+  - action: 次回bootstrap実行はontology.ymlまたはinvariants.ymlに変更があった場合のみ
+    timeline: when_concept_changes
 
 # Verification Results
 verification_summary:

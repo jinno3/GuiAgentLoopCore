@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-04T14:07:00Z",
+  "timestamp": "2026-02-04T05:29:17Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
@@ -7,10 +7,10 @@
   "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
 
   "target_users": [
-    "Application Developers",
-    "AI Agent Developers",
-    "Framework Developers",
-    "AI Agents"
+    "Application Developers: Building LLM-powered applications with GUI interfaces",
+    "AI Agent Developers: Creating specialized agents for specific tasks",
+    "Framework Developers: Building new GUI backend implementations",
+    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
   ],
 
   "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
@@ -45,19 +45,19 @@
 
   "boundaries": {
     "in_scope": [
-      "Conversation Flow Management",
-      "State Machine",
-      "Agent Coordination",
-      "Message Processing",
-      "Backend Abstraction",
-      "Streaming Support"
+      "Conversation Flow Management: Centralize how conversations flow through the system",
+      "State Machine: Provide reliable state transitions with monotonic guarantees",
+      "Agent Coordination: Manage multiple specialized agents with clear roles",
+      "Message Processing: Handle structured communication between users, systems, and agents",
+      "Backend Abstraction: Enable multiple GUI framework implementations",
+      "Streaming Support: Unified handling of sync and async streaming responses"
     ],
     "out_of_scope": [
-      "UI Rendering",
-      "LLM Execution",
-      "Session Storage",
-      "Authentication",
-      "Network Protocols"
+      "UI Rendering: We don't handle UI component rendering (that's the backend's job)",
+      "LLM Execution: We don't directly execute LLM models (we delegate to agents)",
+      "Session Storage: We don't persist sessions to databases (that's application-level)",
+      "Authentication: We don't handle user authentication (we only ensure session uniqueness)",
+      "Network Protocols: We don't define network protocols (that's backend-specific)"
     ]
   },
 
@@ -70,10 +70,10 @@
   ],
 
   "design_philosophy": [
-    {"philosophy": "Correctness Over Convenience", "description": "Prioritize system correctness over developer convenience"},
-    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined"},
-    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility"},
-    {"philosophy": "Testability", "description": "All behavior is testable. Hard invariants have automated tests"},
-    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology"}
+    {"philosophy": "Correctness Over Convenience", "description": "We prioritize system correctness over developer convenience. Hard invariants cannot be bypassed."},
+    {"philosophy": "Explicit Over Implicit", "description": "All state transitions, message types, and agent roles are explicitly defined. No magic behavior."},
+    {"philosophy": "Small, Focused Components", "description": "Each component has a single, well-defined responsibility. Clear boundaries between components."},
+    {"philosophy": "Testability", "description": "All behavior is testable. Hard invariants have automated tests."},
+    {"philosophy": "Conceptual Integrity", "description": "All terminology is normalized and defined in a formal ontology. No ambiguity."}
   ]
 }
