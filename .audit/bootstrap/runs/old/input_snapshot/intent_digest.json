@@ -1,107 +1,58 @@
 {
-  "timestamp": "2026-02-04T09:53:00Z",
+  "timestamp": "2026-02-04T01:14:02Z",
   "source": ".audit/config/intent.yml",
   "version": "1.0",
   "created_at": "2026-02-02T00:00:00Z",
-
-  "mission": {
-    "summary": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-    "keywords": ["GUI frameworks", "LLM agents", "conversation flow", "state control", "agent interactions"]
-  },
-
-  "target_users": {
-    "count": 4,
-    "users": [
-      "Application Developers",
-      "AI Agent Developers",
-      "Framework Developers",
-      "AI Agents"
-    ]
-  },
-
-  "core_value": {
-    "summary": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
-    "keywords": ["type-safe", "extensible", "state management", "component boundaries"]
-  },
-
-  "core_functions": {
-    "count": 5,
-    "functions": [
-      {
-        "id": "CF-001",
-        "description": "Centralized Conversation Management",
-        "details": "Interpreter component centralizes conversation flow, state management, and agent coordination"
-      },
-      {
-        "id": "CF-002",
-        "description": "State Machine with Monotonic Transitions",
-        "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
-      },
-      {
-        "id": "CF-003",
-        "description": "Multi-Agent Coordination",
-        "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
-      },
-      {
-        "id": "CF-004",
-        "description": "Structured Message Processing",
-        "details": "Handle structured communication between users, systems, and agents"
-      },
-      {
-        "id": "CF-005",
-        "description": "Backend Abstraction",
-        "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
-      }
-    ]
-  },
-
-  "boundaries": {
-    "in_scope_count": 6,
-    "out_of_scope_count": 5,
-    "key_in_scope": [
-      "Conversation Flow Management",
-      "State Machine",
-      "Agent Coordination",
-      "Message Processing",
-      "Backend Abstraction",
-      "Streaming Support"
-    ],
-    "key_out_of_scope": [
-      "UI Rendering",
-      "LLM Execution",
-      "Session Storage",
-      "Authentication",
-      "Network Protocols"
-    ]
-  },
-
-  "success_metrics": {
-    "count": 5,
-    "metrics": [
-      "Integration Time",
-      "Bug-Free State Transitions",
-      "Agent Compatibility",
-      "Type Safety",
-      "Documentation Clarity"
-    ]
-  },
-
-  "design_philosophy": {
-    "count": 5,
-    "philosophies": [
-      "Correctness Over Convenience",
-      "Explicit Over Implicit",
-      "Small, Focused Components",
-      "Testability",
-      "Conceptual Integrity"
-    ]
-  },
-
-  "constraints": {
-    "python_version": ">=3.10",
-    "testing_framework": "pytest",
-    "coverage_target": 80,
-    "type_checking": true,
-    "max_message_length": 100
-  }
+  "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
+  "target_users": [
+    "Application Developers: Building LLM-powered applications with GUI interfaces",
+    "AI Agent Developers: Creating specialized agents for specific tasks",
+    "Framework Developers: Building new GUI backend implementations",
+    "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
+  ],
+  "core_value": "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries.",
+  "core_functions": [
+    {
+      "description": "Centralized Conversation Management",
+      "details": "Interpreter component centralizes conversation flow, state management, and agent coordination"
+    },
+    {
+      "description": "State Machine with Monotonic Transitions",
+      "details": "Enforce monotonic state transitions (INIT → RUNNING → STOP) through hard invariants"
+    },
+    {
+      "description": "Multi-Agent Coordination",
+      "details": "Role-based agent system (AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, etc.) with clear boundaries"
+    },
+    {
+      "description": "Structured Message Processing",
+      "details": "Handle structured communication between users, systems, and agents"
+    },
+    {
+      "description": "Backend Abstraction",
+      "details": "Enable multiple GUI framework implementations (Gradio, extensible to others)"
+    }
+  ],
+  "in_scope": [
+    "Conversation Flow Management: Centralize how conversations flow through the system",
+    "State Machine: Provide reliable state transitions with monotonic guarantees",
+    "Agent Coordination: Manage multiple specialized agents with clear roles",
+    "Message Processing: Handle structured communication between users, systems, and agents",
+    "Backend Abstraction: Enable multiple GUI framework implementations",
+    "Streaming Support: Unified handling of sync and async streaming responses"
+  ],
+  "out_of_scope": [
+    "UI Rendering: We don't handle UI component rendering (that's the backend's job)",
+    "LLM Execution: We don't directly execute LLM models (we delegate to agents)",
+    "Session Storage: We don't persist sessions to databases (that's application-level)",
+    "Authentication: We don't handle user authentication (we only ensure session uniqueness)",
+    "Network Protocols: We don't define network protocols (that's backend-specific)"
+  ],
+  "design_philosophy": [
+    "Correctness Over Convenience: We prioritize system correctness over developer convenience",
+    "Explicit Over Implicit: All state transitions, message types, and agent roles are explicitly defined",
+    "Small, Focused Components: Each component has a single, well-defined responsibility",
+    "Testability: All behavior is testable. Hard invariants have automated tests",
+    "Conceptual Integrity: All terminology is normalized and defined in a formal ontology"
+  ]
 }

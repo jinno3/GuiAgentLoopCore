@@ -1,10 +1,8 @@
 {
-  "timestamp": "2026-02-04T09:53:00Z",
+  "timestamp": "2026-02-04T01:14:02Z",
   "overall_score": 100,
   "concept_alignment_score": 100,
-  "uniqueness_score": 100,
   "max_score": 100,
-  "scoring_method": "v1.1 (audit + concept integrated)",
   "files": [
     {
       "path": "README.md",
@@ -21,14 +19,12 @@
           "State",
           "AutoChat",
           "StreamWrapper",
-          "Backend"
+          "Backend",
+          "Memory",
+          "Connector",
+          "Converter"
         ],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass",
-        "uc_005_intent_compliance": "pass"
+        "synonyms_found": []
       },
       "issues": []
     },
@@ -38,29 +34,7 @@
       "clarity_score": 100,
       "concept_alignment": {
         "score": 100,
-        "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Connector",
-          "Converter"
-        ],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass",
-        "uc_002_target_user_consistency": "pass",
-        "uc_003_constraint_consistency": "pass",
-        "uc_004_boundary_consistency": "pass",
-        "uc_005_intent_compliance": "pass"
+        "issues": []
       },
       "issues": []
     },
@@ -71,35 +45,8 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "canonical_terms_used": [
-          "Interpreter",
-          "Agent",
-          "Session",
-          "Message",
-          "State",
-          "AutoChat",
-          "StreamWrapper",
-          "Backend",
-          "Memory",
-          "Connector",
-          "Converter"
-        ],
-        "synonyms_found": [],
-        "unknown_terms": []
-      },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass",
-        "uc_005_intent_compliance": "pass"
-      },
-      "invariant_coverage": {
-        "total_hard_invariants": 11,
-        "documented": 11,
-        "coverage_percent": 100
-      },
-      "auto_decision_coverage": {
-        "total_auto_decisions": 16,
-        "documented": 16,
-        "coverage_percent": 100
+        "auto_decisions_documented": 16,
+        "invariants_documented": 14
       },
       "issues": []
     },
@@ -111,15 +58,6 @@
         "score": 100,
         "issues": []
       },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass",
-        "uc_004_boundary_consistency": "pass"
-      },
-      "invariant_coverage": {
-        "total_hard_invariants": 11,
-        "documented": 11,
-        "coverage_percent": 100
-      },
       "issues": []
     },
     {
@@ -129,10 +67,6 @@
       "concept_alignment": {
         "score": 100,
         "issues": []
-      },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass",
-        "uc_005_intent_compliance": "pass"
       },
       "issues": []
     },
@@ -144,9 +78,6 @@
         "score": 100,
         "issues": []
       },
-      "uniqueness_checks": {
-        "uc_003_constraint_consistency": "pass"
-      },
       "issues": []
     },
     {
@@ -156,9 +87,6 @@
       "concept_alignment": {
         "score": 100,
         "issues": []
-      },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass"
       },
       "issues": []
     },
@@ -170,9 +98,6 @@
         "score": 100,
         "issues": []
       },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass"
-      },
       "issues": []
     },
     {
@@ -183,9 +108,6 @@
         "score": 100,
         "issues": []
       },
-      "uniqueness_checks": {
-        "uc_001_existence_consistency": "pass"
-      },
       "issues": []
     },
     {
@@ -195,36 +117,31 @@
       "concept_alignment": {
         "score": 100,
         "issues": [],
-        "ontology_match": true,
         "total_terms": 11,
-        "documented_terms": 11
+        "core_terms": 5,
+        "domain_terms": 5,
+        "aux_terms": 1
       },
-      "uniqueness_checks": {
-        "ca_001_term_normalization": "pass",
-        "ca_005_term_boundary_consistency": "pass"
+      "issues": []
+    },
+    {
+      "path": "CHANGELOG.md",
+      "exists": true,
+      "clarity_score": 100,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
       },
       "issues": []
     }
   ],
   "summary": {
-    "total_files": 10,
+    "total_files": 11,
+    "perfect_scores": 11,
     "files_with_issues": 0,
     "total_issues": 0,
-    "canonical_term_usage": {
-      "total_occurrences": 110,
-      "canonical_used": 110,
-      "synonym_used": 0,
-      "alignment_rate": 1.0
-    },
-    "invariant_reflection": {
-      "total_invariants": 14,
-      "reflected_in_md": 14,
-      "coverage_percent": 100
-    },
-    "auto_decision_documentation": {
-      "total_auto_decisions": 16,
-      "documented_in_md": 16,
-      "coverage_percent": 100
-    }
+    "term_normalization_rate": 100,
+    "invariant_coverage_rate": 100,
+    "auto_decision_coverage_rate": 100
   }
 }

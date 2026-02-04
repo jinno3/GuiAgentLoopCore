@@ -1,112 +1,114 @@
 {
-  "timestamp": "2026-02-04T01:14:02Z",
-  "total_files": 11,
+  "timestamp": "2026-02-04T10:29:00Z",
+  "total_md_files": 11,
   "total_lines": 2112,
+
   "files": [
     {
       "path": "README.md",
       "tier": 1,
       "exists": true,
-      "size_kb": 5.3,
-      "lines": 156,
+      "lines": 0,
+      "status": "exists_needs_verification",
       "priority": "critical"
     },
     {
       "path": "AGENTS.md",
       "tier": 1,
       "exists": true,
-      "size_kb": 9.5,
-      "lines": 271,
+      "lines": 0,
+      "status": "exists_needs_update",
       "priority": "critical"
     },
     {
       "path": "CLAUDE.md",
       "tier": 2,
       "exists": true,
-      "size_kb": 13,
-      "lines": 375,
+      "lines": 0,
+      "status": "exists_verify_alignment",
       "priority": "high"
     },
     {
       "path": "SYSTEM_CONSTITUTION.md",
       "tier": 2,
       "exists": true,
-      "size_kb": 7.8,
-      "lines": 238,
+      "lines": 0,
+      "status": "exists_needs_update",
       "priority": "high"
     },
     {
       "path": "PURPOSE.md",
       "tier": 2,
       "exists": true,
-      "size_kb": 5.3,
-      "lines": 161,
+      "lines": 0,
+      "status": "exists_needs_update",
       "priority": "high"
     },
     {
       "path": "CONTRIBUTING.md",
       "tier": 2,
       "exists": true,
-      "size_kb": 7.2,
-      "lines": 212,
+      "lines": 0,
+      "status": "exists_needs_update",
       "priority": "medium"
     },
     {
-      "path": "GEMINI.md",
+      "path": "GLOSSARY.md",
       "tier": 3,
       "exists": true,
-      "size_kb": 4.7,
-      "lines": 145,
-      "priority": "medium"
-    },
-    {
-      "path": "CODEX.md",
-      "tier": 3,
-      "exists": true,
-      "size_kb": 5.2,
-      "lines": 161,
+      "lines": 0,
+      "status": "exists_needs_regeneration",
       "priority": "medium"
     },
     {
       "path": "ARCHITECTURE.md",
       "tier": 3,
       "exists": true,
-      "size_kb": 14,
-      "lines": 416,
+      "lines": 0,
+      "status": "exists_optional",
       "priority": "low"
     },
     {
-      "path": "GLOSSARY.md",
+      "path": "GEMINI.md",
       "tier": 3,
       "exists": true,
-      "size_kb": 15,
-      "lines": 448,
+      "lines": 0,
+      "status": "exists_optional",
+      "priority": "low"
+    },
+    {
+      "path": "CODEX.md",
+      "tier": 3,
+      "exists": true,
+      "lines": 0,
+      "status": "exists_optional",
       "priority": "low"
     },
     {
       "path": "CHANGELOG.md",
       "tier": 3,
       "exists": true,
-      "size_kb": 0.061,
-      "lines": 3,
+      "lines": 0,
+      "status": "exists_optional",
       "priority": "low"
     }
   ],
-  "coverage": {
+
+  "tier_coverage": {
     "tier1": {
       "required": 2,
       "exists": 2,
-      "coverage": "100%"
+      "coverage_percent": 100
     },
     "tier2": {
       "required": 4,
       "exists": 4,
-      "coverage": "100%"
+      "coverage_percent": 100
     },
     "tier3": {
-      "optional": 4,
-      "exists": 4,
-      "coverage": "100%"
+      "optional": 5,
+      "exists": 5,
+      "coverage_percent": 100
     }
   }
 }

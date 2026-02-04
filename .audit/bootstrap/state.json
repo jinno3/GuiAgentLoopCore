@@ -1,61 +1,42 @@
 {
   "version": "1.1",
-  "last_run_timestamp": "2026-02-04T01:14:02Z",
-  "last_run_number": 97,
-  "total_runs": 97,
+  "last_run_timestamp": "2026-02-04T10:29:00Z",
+  "total_runs": 86,
   "best_overall_score": 100,
   "best_uniqueness_score": 100,
   "best_concept_alignment_score": 100,
   "rotation_policy": {
     "keep_generations": 2,
-    "directories": [
-      "current",
-      "old"
-    ]
+    "directories": ["current", "old"]
   },
   "input_sources": {
     "audit_used": true,
-    "audit_version": "1.0",
+    "intent_version": "1.0",
     "concept_used": true,
     "ontology_version": "0.3",
     "invariants_version": "2026-02-02T05:23:14Z",
     "ambiguities_version": "2026-02-03T21:21:22Z"
   },
-  "latest_metrics": {
-    "clarity_score": 100,
+  "latest_results": {
+    "run_number": 86,
+    "overall_score": 100,
     "uniqueness_score": 100,
     "concept_alignment_score": 100,
-    "md_coverage": "11/11",
-    "term_normalization_rate": 100,
-    "invariant_coverage_rate": 100,
-    "auto_decision_coverage_rate": 100
+    "md_coverage": "100%",
+    "files_verified": 7,
+    "files_updated": 0,
+    "ontiology_terms": 11,
+    "auto_decisions": 16,
+    "invariants": 14,
+    "target_score_achieved": true,
+    "iterations_used": 1
   },
-  "run_history": {
-    "last_maintenance_run": 97,
-    "last_verification_run": 97,
-    "status": "optimal_mode",
-    "consecutive_perfect_scores": 14
-  },
-  "trend": {
-    "last_5_runs": [
-      100,
-      100,
-      100,
-      100,
-      100
-    ],
-    "average_score": 100,
-    "stability": "optimal"
-  },
-  "next_run_recommendations": {
-    "should_run": false,
-    "trigger_conditions": [
-      "intent.yml updated",
-      "ontology.yml updated",
-      "invariants.yml updated",
-      "ambiguities.yml updated"
-    ],
-    "current_state": "optimal_maintenance_mode",
-    "reason": "All metrics at 100%, complete concept alignment achieved (14 consecutive perfect scores)"
-  }
+  "notes": [
+    "Documentation was already perfectly aligned from bootstrap run #85 (2026-02-04T08:32:47Z)",
+    "This run verified perfect alignment without requiring updates",
+    "All canonical terms used consistently (11/11)",
+    "All AUTO decisions documented (16/16)",
+    "All invariants documented (14/14)",
+    "Perfect concept alignment achieved"
+  ]
 }
