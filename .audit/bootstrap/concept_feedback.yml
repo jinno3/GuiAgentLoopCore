@@ -1,9 +1,12 @@
-bootstrap_run_timestamp: '2026-02-04T13:59:00Z'
+# Feedback to Concept Sync System (12_concept_sync_system)
+# Generated: 2026-02-04T14:07:00Z
+
+bootstrap_run_timestamp: '2026-02-04T14:07:00Z'
 source_ontology_version: '0.3'
 source_invariants_version: '2026-02-02T05:23:14Z'
 source_ambiguities_version: '2026-02-03T21:21:22Z'
-run_number: 86
-run_mode: update
+run_number: 87
+run_mode: verification
 
 term_usage_report:
   canonical_used: 11
@@ -12,41 +15,8 @@ term_usage_report:
   synonym_used_before_fix: 0
   synonym_used_after_fix: 0
   unknown_terms_found: []
-  synonyms_corrected: 11
-  correction_details:
-    - term: Interpreter
-      old: ["Interpreter", "Interpreter"]
-      new: ["GuiAgentInterpreter", "会話インタープリタ"]
-    - term: Agent
-      old: ["Agent", "Agent", "Agent", "Agent", "Agent", "Agent"]
-      new: ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"]
-    - term: Session
-      old: ["Session", "Session", "Session"]
-      new: ["ChatSession", "会話セッション", "JWT"]
-    - term: Message
-      old: ["Message", "Message"]
-      new: ["メッセージ", "ChatMessage"]
-    - term: State
-      old: ["State", "State"]
-      new: ["InterpreterState", "インタープリタ状態"]
-    - term: AutoChat
-      old: ["AutoChat", "AutoChat"]
-      new: ["自動チャット", "自動継続"]
-    - term: StreamWrapper
-      old: ["StreamWrapper", "StreamWrapper"]
-      new: ["GuiAgentStreamWrapper", "ストリームラッパー"]
-    - term: Backend
-      old: ["Backend", "Backend", "Backend", "Backend"]
-      new: ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"]
-    - term: Memory
-      old: ["Memory", "Memory"]
-      new: ["会話メモリ", "ConversationBuffer"]
-    - term: Connector
-      old: ["Connector", "InterpreterABC", "Connector", "Connector", "Connector"]
-      new: ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"]
-    - term: Converter
-      old: ["Converter", "Converter"]
-      new: ["変換器", "マッパー"]
+  total_occurrences: 88
+  alignment_perfect: true
 
 per_term_usage:
   Interpreter:
@@ -114,71 +84,13 @@ invariant_reflection:
   reflection_rate: 1.0
   missing: []
 
-  hard_invariants_detail:
-    INV-STATE-001:
-      statement: "Stateは単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-SESSION-001:
-      statement: "セッションは一意のUUIDで識別される"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-MSG-001:
-      statement: "Messageタイプは定義された列挙型のみ：MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-AUTO-001:
-      statement: "AutoChatはSTATE_STOP時のみトリガーされる"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-STREAM-001:
-      statement: "StreamWrapperは同期・非同期の両方をサポートする"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-MESSAGE-001:
-      statement: "Messageは最大100長（MAX_MESSAGE_LENGTH）"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-STATE-002:
-      statement: "状態は3秒間隔のタイマーで自動更新される"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-BACKEND-001:
-      statement: "バックエンドサーバーはallowed_pathsでセキュリティ制限される"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-SESSION-002:
-      statement: "セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-CONNECTOR-001:
-      statement: "コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-CONVERTER-001:
-      statement: "コンバータは構造化変換のためにMappingRuleを使用する"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-
-  soft_invariants_detail:
-    INV-AGENT-001:
-      statement: "エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
-    INV-MEM-001:
-      statement: "会話メモリは最大100メッセージまで保持する"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      draft_status_properly_noted: true
-      properly_documented: true
-    INV-BACKEND-002:
-      statement: "Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する"
-      reflected_in: ["README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
-      properly_documented: true
+  all_invariants_documented: true
+  documentation_quality: excellent
 
 auto_decision_handling:
   total_active: 16
   noted_in_md: 16
-  format: 注記として記載（暫定仕様として扱う）
+  format: "注記として記載（暫定仕様として扱う）"
   properly_marked_as_provisional: 16
   documentation_location: "AGENTS.md, CLAUDE.md, README.md"
   transparency_rating: excellent
@@ -232,8 +144,9 @@ overall_assessment:
     - 14個の不変条件がすべてドキュメント化されている
     - 16個のAUTO決定が「暫定仕様」として適切に扱われている
     - 用語境界が明確で矛盾がない
-    - 同義語の使用が完全に排除されている
+    - 同義語の使用が完全に排除されている（0件）
     - 概念整合度が完璧（100/100）
+    - 未知の用語が0件
 
   recommendations:
     - priority: informational
@@ -250,3 +163,18 @@ next_steps:
     timeline: when_spec_stabilizes
   - action: AUTO決定の有効期限管理
     timeline: ongoing
+
+# Summary Statistics
+summary_statistics:
+  total_canonical_terms: 11
+  terms_perfectly_aligned: 11
+  alignment_rate: "100%"
+  total_invariants: 14
+  invariants_documented: 14
+  invariant_documentation_rate: "100%"
+  total_auto_decisions: 16
+  auto_decisions_documented: 16
+  auto_decision_documentation_rate: "100%"
+  synonym_usage_count: 0
+  unknown_terms_count: 0
+  ambiguities_discovered: 0

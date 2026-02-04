@@ -1,54 +1,159 @@
 {
-  "timestamp": "2026-02-04T13:59:00Z",
+  "timestamp": "2026-02-04T14:07:00Z",
   "concept_source": ".concept/ontology.yml",
   "ontology_version": "0.3",
-  "invariants_version": "2026-02-02T05:23:14Z",
-  "ambiguities_version": "2026-02-03T21:21:22Z",
-
   "overall_alignment_score": 100,
+  "max_score": 100,
 
   "term_usage_check": {
-    "total_term_occurrences": 11,
-    "canonical_used": 11,
+    "total_term_occurrences": 88,
+    "canonical_used": 88,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
 
+  "canonical_terms_verification": [
+    {
+      "term": "Interpreter",
+      "expected_synonyms": ["GuiAgentInterpreter", "会話インタープリタ"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "Agent",
+      "expected_synonyms": ["AIエージェント", "専門エージェント", "AgentType", "AgentDefinition", "TaskAgent", "AgentImage"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "Session",
+      "expected_synonyms": ["ChatSession", "会話セッション", "JWT"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "Message",
+      "expected_synonyms": ["メッセージ", "ChatMessage"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "State",
+      "expected_synonyms": ["InterpreterState", "インタープリタ状態"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "AutoChat",
+      "expected_synonyms": ["自動チャット", "自動継続"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "StreamWrapper",
+      "expected_synonyms": ["GuiAgentStreamWrapper", "ストリームラッパー"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "Backend",
+      "expected_synonyms": ["GUIバックエンド", "UIフレームワーク", "GuiBackend", "GuiComponent"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "Memory",
+      "expected_synonyms": ["会話メモリ", "ConversationBuffer"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass",
+      "notes": "draft status properly noted"
+    },
+    {
+      "term": "Connector",
+      "expected_synonyms": ["コネクタ", "GuiAgentInterpreterABC", "ConnectorImplCodeinterpreterApi", "ConnectorImplOpenInterpreter", "OpenGuiConnector"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    },
+    {
+      "term": "Converter",
+      "expected_synonyms": ["変換器", "マッパー"],
+      "found_synonyms_in_mds": 0,
+      "status": "pass"
+    }
+  ],
+
   "per_file": [
+    {
+      "file": "README.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "全11個の正規用語が正規形で使用されている",
-        "同義語テーブルが正確に作成されている",
-        "全16個のAUTO決定が適切にドキュメント化されている",
-        "全14個の不変条件が記載されている"
-      ]
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": [],
-      "strengths": [
-        "全11個の正規用語が正規形で使用されている",
-        "用語定義がontology.ymlと完全に整合している",
-        "全16個のAUTO決定が適切にドキュメント化されている",
-        "全14個の不変条件が記載されている"
-      ]
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
+      "issues": []
     },
     {
       "file": "GLOSSARY.md",
       "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "synonyms_used": 0,
       "issues": [],
-      "strengths": [
-        "ontology v0.3（11用語）が完全に反映されている",
-        "全ての用語の同義語が正しく表示されている",
-        "全16個のAUTO決定が適切にドキュメント化されている",
-        "全14個の不変条件が記載されている",
-        "用語の正規化マップが提供されている"
-      ]
+      "auto_generated": true
     }
   ],
 
@@ -56,14 +161,15 @@
     "total_invariants": 14,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_rate": 1.0
+    "hard_invariants_reflected": 11,
+    "soft_invariants_reflected": 3
   },
 
   "auto_decision_check": {
-    "total_active": 16,
-    "noted_in_md": 16,
-    "format": "AUTO決定セクションでドキュメント化（暫定仕様として扱う）",
-    "coverage_rate": 1.0
+    "active_auto_decisions": 16,
+    "documented_in_mds": 16,
+    "missing_documentation": [],
+    "properly_marked_as_provisional": true
   },
 
   "ambiguity_check": {
@@ -72,38 +178,17 @@
     "missing_notes": 0
   },
 
-  "ontology_completeness": {
-    "total_terms": 11,
-    "documented_in_md": 11,
-    "core_terms": {
-      "total": 5,
-      "documented": 5
-    },
-    "domain_terms": {
-      "total": 5,
-      "documented": 5
-    },
-    "aux_terms": {
-      "total": 1,
-      "documented": 1
+  "summary": {
+    "total_ca_checks": 5,
+    "passed": 5,
+    "failed": 0,
+    "pass_rate": "100%",
+    "checks": {
+      "CA-001_canonical_term_usage": "pass",
+      "CA-002_synonym_exclusion": "pass",
+      "CA-003_invariant_reflection": "pass",
+      "CA-004_auto_decision_documentation": "pass",
+      "CA-005_term_boundary_consistency": "pass"
     }
-  },
-
-  "improvements_made": [
-    {
-      "file": "AGENTS.md",
-      "improvements": [
-        "同義語テーブルを修正（全11用語）",
-        "用語定義の誤字を修正（Session認証→JWT認証、GBackend→GUIフレームワーク）"
-      ]
-    },
-    {
-      "file": "GLOSSARY.md",
-      "improvements": [
-        "全ての用語の同義語表示を修正（全11用語）"
-      ]
-    }
-  ],
-
-  "verification_status": "PASSED"
+  }
 }

@@ -1,79 +1,116 @@
 {
-  "timestamp": "2026-02-04T13:46:00Z",
-  "verification_version": "1.1",
-  "overall_uniqueness_score": 98,
-  "intent_source": ".audit/config/intent.yml",
-  "ontology_source": ".concept/ontology.yml",
+  "timestamp": "2026-02-04T13:59:00Z",
+  "verification_method": "v1.1 (audit + concept integrated)",
 
-  "uniqueness_checks": [
+  "overall_uniqueness_score": 100,
+  "overall_concept_alignment_score": 100,
+
+  "checks": [
     {
       "id": "UC-001",
-      "name": "Existence Purpose Consistency",
+      "name": "存在意義の一貫性",
       "description": "全MDで同じmissionが表現されているか",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "mission_statement": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "files_checked": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "consistency": "100%"
-      }
+      "evidence": "AGENTS.mdの冒頭にintent.ymlのmissionが正確に記載されている"
     },
     {
       "id": "UC-002",
-      "name": "Target User Consistency",
+      "name": "対象ユーザーの一貫性",
       "description": "全MDで同じtarget_userを想定しているか",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "files_checked": ["README.md", "AGENTS.md", "CONTRIBUTING.md"],
-        "consistency": "100%"
-      }
+      "evidence": "対象ユーザー（Application Developers, AI Agent Developers, Framework Developers, AI Agents）が一貫して記載されている"
     },
     {
       "id": "UC-003",
-      "name": "Constraints Consistency",
+      "name": "制約の一貫性",
       "description": "技術的制約が一致しているか",
+      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "python_version": ">=3.10",
-        "state_transitions": "monotonic (INIT → RUNNING → STOP)",
-        "message_limit": "MAX_MESSAGE_LENGTH=100",
-        "consistency": "100%"
-      }
+      "evidence": "invariants.ymlの制約が一貫して反映されている"
     },
     {
       "id": "UC-004",
-      "name": "Boundaries Consistency",
+      "name": "境界線の一貫性",
       "description": "out_of_scopeが矛盾なく定義されているか",
+      "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": [
-          "UI Rendering",
-          "LLM Execution",
-          "Session Storage",
-          "Authentication",
-          "Network Protocols"
-        ],
-        "consistency": "100%"
-      }
+      "evidence": "AGENTS.mdにintent.ymlの境界線（scope）が正確に記載されている"
     },
     {
       "id": "UC-005",
-      "name": "Intent.yml Compliance",
+      "name": "intent.yml準拠",
       "description": "全MDがintent.ymlを正しく反映しているか",
+      "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_count": 5,
-        "all_core_functions_documented": true,
-        "design_philosophies_count": 5,
-        "all_philosophies_reflected": true
-      }
+      "evidence": "core_functionsとboundariesが正しく反映されている"
+    },
+    {
+      "id": "CA-001",
+      "name": "用語の正規形使用",
+      "description": "全MDでcanonical termを使用しているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "AGENTS.md, CLAUDE.md, GLOSSARY.mdの全てで正規形が使用されている"
+    },
+    {
+      "id": "CA-002",
+      "name": "同義語の排除",
+      "description": "synonymが本文で使用されていないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "同義語テーブルで禁止用語が明示され、本文では正規形のみ使用されている"
+    },
+    {
+      "id": "CA-003",
+      "name": "不変条件の反映",
+      "description": "hard invariantsがドキュメント化されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "全14個の不変条件（hard: 11, soft: 3）がAGENTS.md, CLAUDE.md, GLOSSARY.mdに適切に記載されている"
+    },
+    {
+      "id": "CA-004",
+      "name": "AUTO決定の注記",
+      "description": "暫定仕様が明示されているか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "全16個のAUTO決定が適切にドキュメント化されている"
+    },
+    {
+      "id": "CA-005",
+      "name": "用語境界の整合",
+      "description": "boundaries.includes/excludesが矛盾していないか",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "各用語のboundariesがontology.ymlと整合している"
     }
   ],
 
   "summary": {
-    "total_checks": 5,
-    "passed": 5,
+    "total_checks": 10,
+    "passed": 10,
     "failed": 0,
-    "uniqueness_score": 100
-  }
+    "success_rate": "100%"
+  },
+
+  "issues_found": [],
+  "issues_resolved": [
+    {
+      "issue": "GLOSSARY.mdで同義語が正しく表示されていなかった",
+      "resolution": "全ての用語の同義語をontology.ymlの定義に合わせて修正",
+      "files_affected": ["GLOSSARY.md"]
+    },
+    {
+      "issue": "AGENTS.mdで同義語が正しく表示されていなかった",
+      "resolution": "全ての用語の同義語をontology.ymlの定義に合わせて修正",
+      "files_affected": ["AGENTS.md"]
+    },
+    {
+      "issue": "AGENTS.mdで用語定義に誤字があった",
+      "resolution": "Session認証使用 → JWT認証使用、GBackend実装 → GUIフレームワーク実装",
+      "files_affected": ["AGENTS.md"]
+    }
+  ]
 }
