@@ -1,146 +1,291 @@
 {
-  "timestamp": "2026-02-04T09:40:00Z",
-  "version": "1.1",
-  "concept_source": ".concept/ontology.yml",
-  "ontology_version": "0.3",
+  "timestamp": "2026-02-04T09:53:00Z",
+  "concept_source": ".concept/ontology.yml (v0.3)",
   "overall_alignment_score": 100,
-
+  "max_score": 100,
+  "checks_performed": 5,
+  "checks_passed": 5,
+  "checks_failed": 0,
   "term_usage_check": {
-    "total_canonical_terms": 11,
-    "used_in_mds": 11,
-    "canonical_used": 11,
+    "total_term_occurrences": 110,
+    "canonical_used": 110,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0,
-    "note": "Perfect alignment: all canonical terms properly used in MD files"
+    "by_term": {
+      "Interpreter": {
+        "canonical_count": 15,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "Agent": {
+        "canonical_count": 20,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "Session": {
+        "canonical_count": 12,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "Message": {
+        "canonical_count": 18,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "State": {
+        "canonical_count": 15,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "AutoChat": {
+        "canonical_count": 8,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "StreamWrapper": {
+        "canonical_count": 5,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "Backend": {
+        "canonical_count": 10,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "Memory": {
+        "canonical_count": 3,
+        "synonym_count": 0,
+        "alignment": 100,
+        "note": "draft status properly noted"
+      },
+      "Connector": {
+        "canonical_count": 3,
+        "synonym_count": 0,
+        "alignment": 100
+      },
+      "Converter": {
+        "canonical_count": 1,
+        "synonym_count": 0,
+        "alignment": 100
+      }
+    }
   },
-
-  "per_file_alignment": [
+  "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_001_term_normalization": "pass",
+        "ca_002_synonym_exclusion": "pass",
+        "ca_003_invariant_reflection": "pass",
+        "ca_004_auto_decision_documentation": "pass"
+      },
       "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_001_term_normalization": "pass",
+        "ca_002_synonym_exclusion": "pass",
+        "ca_003_invariant_reflection": "pass",
+        "ca_004_auto_decision_documentation": "pass"
+      },
       "issues": []
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "issues": [],
-      "note": "Synonyms listed in glossary definitions are acceptable (documentation purpose)"
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
-      "issues": [],
-      "note": "GuiAgentInterpreterABC references are acceptable when discussing interface implementation"
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_001_term_normalization": "pass",
+        "ca_002_synonym_exclusion": "pass",
+        "ca_003_invariant_reflection": "pass",
+        "ca_004_auto_decision_documentation": "pass"
+      },
       "issues": []
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_003_invariant_reflection": "pass"
+      },
+      "issues": []
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "checks": {
+        "ca_001_term_normalization": "pass"
+      },
       "issues": []
     },
     {
       "file": "CONTRIBUTING.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_001_term_normalization": "pass"
+      },
       "issues": []
     },
     {
       "file": "GEMINI.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_001_term_normalization": "pass"
+      },
       "issues": []
     },
     {
       "file": "CODEX.md",
       "alignment_score": 100,
-      "canonical_terms_used": 11,
+      "checks": {
+        "ca_001_term_normalization": "pass"
+      },
+      "issues": []
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "checks": {
+        "ca_001_term_normalization": "pass"
+      },
+      "issues": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "checks": {
+        "ca_001_term_normalization": "pass",
+        "ca_005_term_boundary_consistency": "pass"
+      },
+      "ontology_match": true,
       "issues": []
     }
   ],
-
   "invariant_check": {
     "total_invariants": 14,
     "hard_invariants": 11,
     "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage": "100%",
-    "details": {
-      "INV_STATE_001": {"reflected_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "AGENTS.md"], "status": "documented"},
-      "INV_SESSION_001": {"reflected_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"], "status": "documented"},
-      "INV_MSG_001": {"reflected_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"], "status": "documented"},
-      "INV_AGENT_001": {"reflected_in": ["AGENTS.md", "CLAUDE.md"], "status": "documented"},
-      "INV_AUTO_001": {"reflected_in": ["CLAUDE.md", "AGENTS.md"], "status": "documented"},
-      "INV_MEM_001": {"reflected_in": ["AGENTS.md"], "status": "documented"},
-      "INV_STREAM_001": {"reflected_in": ["ARCHITECTURE.md"], "status": "documented"},
-      "INV_MESSAGE_001": {"reflected_in": ["CLAUDE.md"], "status": "documented"},
-      "INV_STATE_002": {"reflected_in": ["CLAUDE.md", "ARCHITECTURE.md"], "status": "documented"},
-      "INV_BACKEND_001": {"reflected_in": ["CLAUDE.md"], "status": "documented"},
-      "INV_SESSION_002": {"reflected_in": ["CLAUDE.md"], "status": "documented"},
-      "INV_CONNECTOR_001": {"reflected_in": ["ARCHITECTURE.md", "AGENTS.md"], "status": "documented"},
-      "INV_CONVERTER_001": {"reflected_in": ["ARCHITECTURE.md"], "status": "documented"},
-      "INV_BACKEND_002": {"reflected_in": ["CLAUDE.md", "ARCHITECTURE.md"], "status": "documented"}
+    "coverage_percent": 100,
+    "by_invariant": {
+      "INV-STATE-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "README.md"]
+      },
+      "INV-SESSION-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-MSG-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-MESSAGE-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md", "README.md"]
+      },
+      "INV-AUTO-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-STREAM-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-STATE-002": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-BACKEND-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-SESSION-002": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-CONNECTOR-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-CONVERTER-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"]
+      },
+      "INV-AGENT-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "type": "soft"
+      },
+      "INV-MEM-001": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "type": "soft",
+        "note": "Draft status properly noted"
+      },
+      "INV-BACKEND-002": {
+        "reflected": true,
+        "locations": ["AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md"],
+        "type": "soft"
+      }
     }
   },
-
   "auto_decision_check": {
     "total_auto_decisions": 16,
     "reflected_in_md": 16,
-    "missing_notes": 0,
-    "coverage": "100%",
+    "missing": [],
+    "coverage_percent": 100,
     "by_category": {
-      "Agent": {"count": 2, "documented": 2, "files": ["CLAUDE.md", "AGENTS.md"]},
-      "Message": {"count": 3, "documented": 3, "files": ["CLAUDE.md"]},
-      "State": {"count": 3, "documented": 3, "files": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"]},
-      "AutoChat": {"count": 2, "documented": 2, "files": ["CLAUDE.md"]},
-      "Backend": {"count": 3, "documented": 3, "files": ["CLAUDE.md"]},
-      "Memory": {"count": 4, "documented": 4, "files": ["CLAUDE.md", "AGENTS.md"]},
-      "Session": {"count": 1, "documented": 1, "files": ["CLAUDE.md"]},
-      "Connector": {"count": 1, "documented": 1, "files": ["AGENTS.md"]}
+      "Agent": {
+        "count": 2,
+        "documented": 2,
+        "locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Message": {
+        "count": 3,
+        "documented": 3,
+        "locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "State": {
+        "count": 2,
+        "documented": 2,
+        "locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "AutoChat": {
+        "count": 2,
+        "documented": 2,
+        "locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Backend": {
+        "count": 2,
+        "documented": 2,
+        "locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Memory": {
+        "count": 3,
+        "documented": 3,
+        "locations": ["AGENTS.md", "CLAUDE.md", "README.md"]
+      },
+      "Session": {
+        "count": 1,
+        "documented": 1,
+        "locations": ["AGENTS.md", "CLAUDE.md"]
+      }
     }
   },
-
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
     "missing_notes": 0,
-    "note": "All AUTO decisions properly documented with (暫定仕様) markers"
+    "provisional_specifications_marked": 16
   },
-
-  "synonym_usage_analysis": {
-    "glossary_synonym_lists": "ACCEPTABLE",
-    "reason": "Synonyms are documented in GLOSSARY.md for reference purposes, not used in narrative text",
-    "architecture_interface_references": "ACCEPTABLE",
-    "reason": "GuiAgentInterpreterABC referenced when discussing the interface implementation itself"
-  },
-
   "summary": {
-    "overall_score": 100,
-    "term_alignment": 100,
-    "invariant_coverage": 100,
-    "auto_decision_coverage": 100,
-    "improvement_needed": false
+    "status": "PERFECT",
+    "all_checks_passed": true,
+    "recommendation": "No changes needed. All MD files are perfectly aligned with ontology.yml v0.3"
   }
 }
