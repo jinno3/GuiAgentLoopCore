@@ -1,23 +1,24 @@
 concept_feedback:
-  bootstrap_run_timestamp: "2026-02-04T08:50:00Z"
+  bootstrap_run_timestamp: "2026-02-04T09:05:00Z"
   source_ontology_version: "0.3"
-  run_number: 93
+  run_number: 94
   source_invariants_version: "2026-02-02T05:23:14Z"
   source_ambiguities_version: "2026-02-03T21:21:22Z"
 
   # 1. 用語使用状況
   term_usage_report:
-    canonical_used: 150
+    canonical_used: 55
     synonym_used_before_fix: 0
     synonym_used_after_fix: 0
     unknown_terms_found: []
     alignment_rate: 1.0
+    interpretation: "全55回の用語出現が正規形を使用。同義語の使用なし。"
 
   # 2. 不変条件の反映状況
   invariant_reflection:
     total: 14
-    hard: 11
-    soft: 3
+    hard: 10
+    soft: 4
     reflected: 14
     missing: []
     interpretation: "全ての不変条件がMDファイルに適切に記述されている。"
@@ -109,7 +110,14 @@ concept_feedback:
       - "同義語の追加（不要）"
       - "境界の調整（不要）"
 
-  # 9. 結論
+  # 9. トレンド情報
+  trend:
+    consecutive_perfect_scores: 11
+    last_5_runs: [100, 100, 100, 100, 100]
+    average_score: 100
+    stability: "optimal"
+
+  # 10. 結論
   conclusion: |
     ontology.yml（v0.3）とMDファイル間の概念整合性は完璧である。
     全11用語が正規形で適切に使用され、全14件の不変条件と全16件のAUTO決定がMDファイルに適切に記述されている。

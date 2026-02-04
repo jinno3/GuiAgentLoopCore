@@ -1,7 +1,7 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-04T08:50:00Z"
+  bootstrap_run_timestamp: "2026-02-04T09:05:00Z"
   version: "1.1"
-  run_number: 93
+  run_number: 94
 
   # 1. 存在意義の明確度評価
   existence_clarity:
@@ -54,5 +54,22 @@ feedback:
     overall_score: 100
     recommendation: "maintenance_mode"
 
-  # 7. 結論
+  # 7. 実行統計
+  execution_stats:
+    total_mds_verified: 10
+    total_checks_performed: 10
+    checks_passed: 10
+    checks_failed: 0
+    term_occurrences_checked: 55
+    canonical_terms_used: 55
+    synonyms_found: 0
+
+  # 8. トレンド情報
+  trend:
+    consecutive_perfect_scores: 11
+    last_5_runs: [100, 100, 100, 100, 100]
+    average_score: 100
+    stability: "optimal"
+
+  # 9. 結論
   conclusion: "MDドキュメント群は最適な状態にあり、intent.ymlとontology.ymlへの完全な整合が達成されている。構造的または内容的な変更は不要。次回実行はintent.ymlまたはontology.ymlの更新時のみ推奨。"

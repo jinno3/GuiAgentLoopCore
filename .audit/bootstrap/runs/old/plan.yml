@@ -1,5 +1,6 @@
-run_timestamp: "2026-02-04T08:32:47Z"
+run_timestamp: "2026-02-04T08:50:00Z"
 version: "1.1"
+run_number: 93
 
 rotation:
   deleted_old: true
@@ -9,47 +10,42 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    audit_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
+    ontology_version: "0.3"
+    invariants_version: "2026-02-02T05:23:14Z"
+    ambiguities_version: "2026-02-03T21:21:22Z"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  target_user: ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
+  core_value: "Reliable, type-safe, and extensible foundation"
+  core_functions_count: 5
 
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
-  key_terms:
-    - canonical: "Interpreter"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-      layer: "core"
-    - canonical: "Agent"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-      layer: "core"
-    - canonical: "Session"
-      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-      layer: "core"
-    - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-      layer: "core"
-    - canonical: "State"
-      definition: "インタープリタの実行状態を表す列挙型"
-      layer: "core"
+  stable_terms: 10
+  draft_terms: 1
+  invariants_count: 14
+  auto_decisions_count: 16
 
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
+  "GuiAgentInterpreter": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
+  "AgentDefinition": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
+  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -57,112 +53,59 @@ term_normalization:
 
 existing_mds:
   - path: "README.md"
-    status: "exists_aligned"
-    clarity_score: 95
-    concept_alignment: 100
-    issues: []
-
+    tier: 1
+    status: "exists_needs_verification"
+    last_verified: "2026-02-04T08:35:00Z"
   - path: "AGENTS.md"
-    status: "exists_aligned"
-    clarity_score: 100
-    concept_alignment: 100
-    issues: []
-
-  - path: "GLOSSARY.md"
-    status: "exists_aligned"
-    clarity_score: 100
-    concept_alignment: 100
-    issues: []
-
+    tier: 1
+    status: "exists_needs_verification"
+    last_verified: "2026-02-04T08:35:00Z"
   - path: "CLAUDE.md"
-    status: "exists_aligned"
-    clarity_score: 100
-    concept_alignment: 100
-    issues: []
-
-  - path: "PURPOSE.md"
-    status: "exists_aligned"
-    clarity_score: 95
-    concept_alignment: 100
-    issues: []
-
+    tier: 2
+    status: "exists_needs_verification"
+    last_verified: "2026-02-04T08:32:00Z"
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists"
-    clarity_score: 90
-    concept_alignment: 95
-    issues: []
-
+    tier: 2
+    status: "exists_needs_verification"
+    last_verified: "2026-02-03T13:49:00Z"
+  - path: "PURPOSE.md"
+    tier: 2
+    status: "exists_needs_verification"
+    last_verified: "2026-02-04T08:36:00Z"
   - path: "CONTRIBUTING.md"
-    status: "exists"
-    clarity_score: 85
-    concept_alignment: 90
-    issues: []
-
-  - path: "ARCHITECTURE.md"
-    status: "exists"
-    clarity_score: 85
-    concept_alignment: 90
-    issues:
-      - "用語の正規形を使用しているが、再検証が必要"
-
+    tier: 2
+    status: "exists_needs_verification"
+    last_verified: "2026-02-03T06:27:00Z"
   - path: "GEMINI.md"
-    status: "exists"
-    clarity_score: 85
-    concept_alignment: 90
-    issues: []
-
+    tier: 3
+    status: "exists_needs_verification"
+    last_verified: "2026-02-02T00:57:00Z"
   - path: "CODEX.md"
-    status: "exists"
-    clarity_score: 85
-    concept_alignment: 90
-    issues: []
+    tier: 3
+    status: "exists_needs_verification"
+    last_verified: "2026-02-02T00:57:00Z"
+  - path: "ARCHITECTURE.md"
+    tier: 3
+    status: "exists_needs_verification"
+    last_verified: "2026-02-02T11:07:00Z"
+  - path: "GLOSSARY.md"
+    tier: 3
+    status: "exists_needs_verification"
+    last_verified: "2026-02-04T08:35:00Z"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "既に高品質、concept整合性100%"
-
+    reason: "Verify concept alignment and term normalization"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "既に高品質、concept整合性100%"
-
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "既に高品質、ontologyから生成済み"
-
+    reason: "Verify concept alignment and term normalization"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "既に高品質、concept整合性100%"
-
+    reason: "Verify concept alignment and AUTO decisions coverage"
   - action: "verify"
-    target: "PURPOSE.md"
-    reason: "既に高品質、concept整合性100%"
+    target: "GLOSSARY.md"
+    reason: "Verify ontology synchronization"
 
-  - action: "review"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "不変条件の整合性を確認"
-
-  - action: "review"
-    target: "CONTRIBUTING.md"
-    reason: "用語の正規形の使用を確認"
-
-  - action: "review"
-    target: "ARCHITECTURE.md"
-    reason: "用語の正規形と概念整合性を再確認"
-
-  - action: "review"
-    target: "GEMINI.md"
-    reason: "Claude.mdと同様の品質か確認"
-
-  - action: "review"
-    target: "CODEX.md"
-    reason: "Claude.mdと同様の品質か確認"
-
-overall_assessment:
-  status: "excellent"
-  clarity_score_average: 92
-  concept_alignment_average: 95
-  tier1_coverage: "2/2 (100%)"
-  tier2_coverage: "3/4 (75%)"
-  tier3_coverage: "3/4 (75%)"
-  note: "MDドキュメント群は既に高品質で整備されている。この実行では検証と確認を主に行う。"
+mode: "verification"
+expected_outcome: "All MD files verified for concept alignment, no updates needed unless issues found"
