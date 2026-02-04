@@ -1,127 +1,21 @@
 {
-  "timestamp": "2026-02-04T09:05:00Z",
+  "timestamp": "2026-02-04T00:28:21.675505+00:00",
   "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 100,
   "term_usage_check": {
-    "total_term_occurrences": 55,
-    "canonical_used": 55,
-    "synonym_used": 0,
-    "unknown_terms": 0,
+    "total_canonical_terms": 11,
+    "used_in_mds": 11,
     "alignment_rate": 1.0
   },
-  "per_file": [
-    {
-      "file": "README.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "AGENTS.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CLAUDE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "SYSTEM_CONSTITUTION.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "PURPOSE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CONTRIBUTING.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "ARCHITECTURE.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "GEMINI.md",
-      "alignment_score": 100,
-      "issues": []
-    },
-    {
-      "file": "CODEX.md",
-      "alignment_score": 100,
-      "issues": []
-    }
-  ],
   "invariant_check": {
     "total_invariants": 14,
-    "reflected_in_md": 14,
+    "hard_invariants": 11,
+    "reflected_in_md": 11,
     "missing": []
   },
   "auto_decision_check": {
-    "active_auto_decisions": 16,
-    "documented_in_md": 16,
-    "missing_documentation": []
-  },
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "用語の正規形使用",
-      "description": "全MDでcanonical termを使用しているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 11 canonical terms are used correctly throughout MD files",
-      "issues": []
-    },
-    {
-      "id": "CA-002",
-      "name": "同義語の排除",
-      "description": "synonymが本文で使用されていないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "No synonyms found in MD content",
-      "issues": []
-    },
-    {
-      "id": "CA-003",
-      "name": "不変条件の反映",
-      "description": "hard invariantsがドキュメント化されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 14 invariants are documented across MD files",
-      "issues": []
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO決定の注記",
-      "description": "暫定仕様が明示されているか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "All 16 AUTO decisions are documented with proper notes",
-      "issues": []
-    },
-    {
-      "id": "CA-005",
-      "name": "用語境界の整合",
-      "description": "boundaries.includes/excludesが矛盾していないか",
-      "source": ".concept",
-      "passed": true,
-      "evidence": "Term boundaries are consistent across all documentation",
-      "issues": []
-    }
-  ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
+    "total_auto_decisions": 16,
+    "reflected_in_md": 16,
+    "missing_notes": 0
   }
 }

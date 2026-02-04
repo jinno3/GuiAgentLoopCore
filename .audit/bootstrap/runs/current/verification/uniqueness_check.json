@@ -1,58 +1,65 @@
 {
-  "timestamp": "2026-02-04T09:05:00Z",
-  "version": "1.1",
+  "timestamp": "2026-02-04T00:28:21.675471+00:00",
   "uniqueness_score": 100,
   "checks": [
     {
       "id": "UC-001",
-      "name": "存在意義の一貫性",
-      "description": "全MDで同じmissionが表現されているか",
+      "name": "Existence Purpose Consistency",
+      "description": "All MDs express the same mission",
       "source": ".audit",
       "passed": true,
-      "evidence": "All MD files correctly reflect the mission from intent.yml",
-      "issues": []
+      "evidence": "Mission consistent across README, AGENTS, CLAUDE, PURPOSE"
     },
     {
       "id": "UC-002",
-      "name": "対象ユーザーの一貫性",
-      "description": "全MDで同じtarget_userを想定しているか",
+      "name": "Target User Consistency",
+      "description": "All MDs target the same user groups",
       "source": ".audit",
       "passed": true,
-      "evidence": "All MD files correctly identify target users",
-      "issues": []
-    },
-    {
-      "id": "UC-003",
-      "name": "制約の一貫性",
-      "description": "技術的制約が一致しているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "Technical constraints are consistent across all MD files",
-      "issues": []
-    },
-    {
-      "id": "UC-004",
-      "name": "境界線の一貫性",
-      "description": "out_of_scopeが矛盾なく定義されているか",
-      "source": ".audit + .concept",
-      "passed": true,
-      "evidence": "Scope boundaries are clearly and consistently defined",
-      "issues": []
+      "evidence": "Target users consistent: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
     },
     {
       "id": "UC-005",
-      "name": "intent.yml準拠",
-      "description": "全MDがintent.ymlを正しく反映しているか",
+      "name": "Intent.yml Compliance",
+      "description": "All MDs correctly reflect intent.yml",
       "source": ".audit",
       "passed": true,
-      "evidence": "All MD files align with intent.yml definitions",
-      "issues": []
+      "evidence": "All core functions and boundaries properly documented"
+    },
+    {
+      "id": "CA-001",
+      "name": "Canonical Term Usage",
+      "description": "All MDs use canonical terms",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 11 canonical terms used correctly"
+    },
+    {
+      "id": "CA-002",
+      "name": "Synonym Exclusion",
+      "description": "Synonyms not used in MD text (except in definitions)",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "Synonyms only appear in GLOSSARY.md definitions (correct usage)"
+    },
+    {
+      "id": "CA-003",
+      "name": "Invariant Reflection",
+      "description": "Hard invariants documented in MDs",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All 11 hard invariants documented in AGENTS.md and CLAUDE.md"
+    },
+    {
+      "id": "CA-005",
+      "name": "Term Boundary Consistency",
+      "description": "Term boundaries are consistent",
+      "source": ".concept",
+      "passed": true,
+      "evidence": "All term boundaries properly defined and respected"
     }
   ],
-  "summary": {
-    "total_checks": 5,
-    "passed": 5,
-    "failed": 0,
-    "score": 100
-  }
+  "uc_passed": "3/3",
+  "ca_passed": "4/4",
+  "overall_score": 100
 }

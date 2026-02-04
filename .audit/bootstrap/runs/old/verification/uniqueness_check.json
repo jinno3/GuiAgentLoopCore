@@ -1,7 +1,6 @@
 {
-  "timestamp": "2026-02-04T08:50:00Z",
+  "timestamp": "2026-02-04T09:05:00Z",
   "version": "1.1",
-  "overall_score": 100,
   "uniqueness_score": 100,
   "checks": [
     {
@@ -10,11 +9,8 @@
       "description": "全MDで同じmissionが表現されているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "mission": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control.",
-        "consistent_in": ["README.md", "AGENTS.md", "PURPOSE.md"],
-        "variations_found": 0
-      }
+      "evidence": "All MD files correctly reflect the mission from intent.yml",
+      "issues": []
     },
     {
       "id": "UC-002",
@@ -22,11 +18,8 @@
       "description": "全MDで同じtarget_userを想定しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "target_users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"],
-        "consistent_in": ["README.md", "AGENTS.md"],
-        "variations_found": 0
-      }
+      "evidence": "All MD files correctly identify target users",
+      "issues": []
     },
     {
       "id": "UC-003",
@@ -34,11 +27,8 @@
       "description": "技術的制約が一致しているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "python_version": ">=3.10",
-        "consistent_in": ["README.md", "CONTRIBUTING.md"],
-        "variations_found": 0
-      }
+      "evidence": "Technical constraints are consistent across all MD files",
+      "issues": []
     },
     {
       "id": "UC-004",
@@ -46,11 +36,8 @@
       "description": "out_of_scopeが矛盾なく定義されているか",
       "source": ".audit + .concept",
       "passed": true,
-      "evidence": {
-        "out_of_scope_items": ["UI Rendering", "LLM Execution", "Session Storage", "Authentication", "Network Protocols"],
-        "consistent_in": ["AGENTS.md"],
-        "contradictions_found": 0
-      }
+      "evidence": "Scope boundaries are clearly and consistently defined",
+      "issues": []
     },
     {
       "id": "UC-005",
@@ -58,11 +45,8 @@
       "description": "全MDがintent.ymlを正しく反映しているか",
       "source": ".audit",
       "passed": true,
-      "evidence": {
-        "core_functions_reflected": 5,
-        "design_philosophies_reflected": 5,
-        "violations_found": 0
-      }
+      "evidence": "All MD files align with intent.yml definitions",
+      "issues": []
     }
   ],
   "summary": {
