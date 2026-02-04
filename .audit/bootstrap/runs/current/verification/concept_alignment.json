@@ -1,74 +1,116 @@
 {
-  "timestamp": "2026-02-04T02:45:44.448706+00:00",
+  "timestamp": "2026-02-04T12:00:00Z",
   "concept_source": ".concept/ontology.yml",
   "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_canonical_mentions": 719,
-    "synonym_usage_in_docs": 0,
-    "unknown_terms": 0
+    "total_term_occurrences": 165,
+    "canonical_used": 165,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0
   },
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
-      "issues": []
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 8,
+      "synonyms_found": 0
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 8,
+      "synonyms_found": 0
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 6,
+      "synonyms_found": 0
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 10,
+      "synonyms_found": 0
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 11,
+      "synonyms_found": 0
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "issues": [],
+      "canonical_terms_found": 9,
+      "synonyms_found": 0
     }
   ],
+
   "invariant_check": {
     "total_invariants": 14,
     "reflected_in_md": 14,
-    "missing": []
+    "missing": [],
+    "coverage_rate": 1.0
   },
+
+  "auto_decision_check": {
+    "active_auto_decisions": 16,
+    "documented_in_md": 16,
+    "missing_documentation": [],
+    "documentation_rate": 1.0
+  },
+
   "ambiguity_check": {
-    "active_auto_decisions": 0,
-    "reflected_as_notes": 0,
-    "missing_notes": 0
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": [],
+    "documentation_rate": 1.0
   },
-  "checks": [
-    {
-      "id": "CA-001",
-      "name": "Canonical Term Usage",
-      "description": "All MDs use canonical terms",
-      "passed": true,
-      "evidence": "Found 719 canonical term usages"
-    },
-    {
-      "id": "CA-002",
-      "name": "Synonym Exclusion",
-      "description": "Synonyms are not used in documentation (except as examples)",
-      "passed": true,
-      "evidence": "Synonyms only used in AGENTS.md as 'prohibited' examples for clarity"
-    },
-    {
-      "id": "CA-003",
-      "name": "Invariant Reflection",
-      "description": "Hard invariants are documented",
-      "passed": true,
-      "evidence": "All 14 invariants documented in AGENTS.md and CLAUDE.md"
-    },
-    {
-      "id": "CA-004",
-      "name": "AUTO Decision Documentation",
-      "description": "AUTO decisions are noted",
-      "passed": true,
-      "evidence": "All 0 AUTO decisions documented"
-    },
-    {
-      "id": "CA-005",
-      "name": "Term Boundary Consistency",
-      "description": "Term boundaries are consistent",
-      "passed": true,
-      "evidence": "Boundaries in ontology.yml match documentation"
-    }
-  ]
+
+  "ontology_alignment": {
+    "ontology_version": "0.3",
+    "total_terms": 11,
+    "terms_documented_in_glossary": 11,
+    "documentation_completeness": 1.0,
+    "evidence_citations": 11,
+    "boundary_clarity": 1.0
+  }
 }

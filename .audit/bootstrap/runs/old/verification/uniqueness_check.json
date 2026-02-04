@@ -1,129 +1,46 @@
 {
-  "timestamp": "2026-02-04T11:10:11Z",
-  "verification_version": "1.1",
-  "overall_score": 100,
-  "max_score": 100,
-
+  "timestamp": "2026-02-04T02:45:44.448706+00:00",
+  "uniqueness_score": 100,
   "checks": [
     {
       "id": "UC-001",
       "name": "Existence Purpose Consistency",
-      "description": "All MD files express the same mission from intent.yml",
-      "severity": "critical",
-      "status": "passed",
-      "source": ".audit/intent.yml",
-      "evidence": [
-        {
-          "file": "README.md",
-          "line": 3,
-          "quote": "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
-        },
-        {
-          "file": "AGENTS.md",
-          "line": 7,
-          "quote": "Mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-        },
-        {
-          "file": "PURPOSE.md",
-          "line": 1,
-          "quote": "# Purpose - GuiAgentLoopCoreの存在意義"
-        }
-      ]
+      "description": "All MDs express the same mission",
+      "passed": true,
+      "evidence": "Mission statement consistent across README.md, AGENTS.md, PURPOSE.md"
     },
     {
       "id": "UC-002",
       "name": "Target User Consistency",
-      "description": "All MD files target the same user groups from intent.yml",
-      "severity": "high",
-      "status": "passed",
-      "source": ".audit/intent.yml",
-      "evidence": [
-        {
-          "file": "README.md",
-          "section": "Target Users",
-          "users": ["Application Developers", "AI Agent Developers", "Framework Developers", "AI Agents"]
-        },
-        {
-          "file": "AGENTS.md",
-          "section": "Target Audience",
-          "users": ["AI Agents", "Application Developers", "Framework Developers"]
-        }
-      ]
+      "description": "All MDs target the same users",
+      "passed": true,
+      "evidence": "Target users consistent: Application Developers, AI Agent Developers, Framework Developers, AI Agents"
     },
     {
       "id": "UC-003",
       "name": "Constraints Consistency",
-      "description": "Technical constraints match across all MD files",
-      "severity": "high",
-      "status": "passed",
-      "source": ".audit/constraints.yml + .concept/invariants.yml",
-      "evidence": [
-        {
-          "file": "README.md",
-          "section": "System Invariants",
-          "constraint": "MAX_MESSAGE_LENGTH=100"
-        },
-        {
-          "file": "CLAUDE.md",
-          "section": "不変条件の遵守",
-          "constraint": "INV-MESSAGE-001: メッセージは最大100長（MAX_MESSAGE_LENGTH）"
-        }
-      ]
+      "description": "Technical constraints are consistent",
+      "passed": true,
+      "evidence": "Type safety, state management, component boundaries consistently mentioned"
     },
     {
       "id": "UC-004",
-      "name": "Boundary Consistency",
-      "description": "out_of_scope boundaries are consistently defined",
-      "severity": "medium",
-      "status": "passed",
-      "source": ".audit/intent.yml",
-      "evidence": [
-        {
-          "file": "README.md",
-          "section": "System Invariants",
-          "note": "Clear distinction between in-scope and out-of-scope"
-        },
-        {
-          "file": "AGENTS.md",
-          "section": "Scope Boundaries",
-          "boundaries": ["UI Rendering: Out of scope", "LLM Execution: Out of scope"]
-        }
-      ]
+      "name": "Boundaries Consistency",
+      "description": "Out-of-scope definitions are consistent",
+      "passed": true,
+      "evidence": "Boundaries (no UI rendering, no LLM execution, etc.) consistently documented"
     },
     {
       "id": "UC-005",
       "name": "Intent.yml Compliance",
-      "description": "All MD files correctly reflect intent.yml",
-      "severity": "critical",
-      "status": "passed",
-      "source": ".audit/intent.yml",
-      "compliance_rate": "100%",
-      "evidence": [
-        {
-          "check": "Mission statement present",
-          "status": "passed",
-          "files": ["README.md", "AGENTS.md", "PURPOSE.md"]
-        },
-        {
-          "check": "Core functions covered",
-          "status": "passed",
-          "files": ["README.md", "ARCHITECTURE.md"]
-        },
-        {
-          "check": "Design philosophy reflected",
-          "status": "passed",
-          "files": ["SYSTEM_CONSTITUTION.md", "CONTRIBUTING.md"]
-        }
-      ]
+      "description": "All MDs comply with intent.yml",
+      "passed": true,
+      "evidence": "All core functions from intent.yml are reflected in MDs"
     }
   ],
-
   "summary": {
     "total_checks": 5,
     "passed": 5,
-    "failed": 0,
-    "warnings": 0,
-    "uniqueness_score": 100,
-    "interpretation": "All MD files maintain perfect uniqueness and consistency with intent.yml"
+    "failed": 0
   }
 }
