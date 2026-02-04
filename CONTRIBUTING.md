@@ -28,10 +28,10 @@ This project uses a formal concept dictionary (`.concept/ontology.yml`) to ensur
    - **INV-AUTO-001**: AutoChat triggers only when in STATE_STOP
    - **INV-STREAM-001**: StreamWrapper must support both sync and async
    - **INV-SESSION-001**: Sessions must be identified by unique UUIDs
-   - **INV-SESSION-002**: Session tokens must be JWT-encoded with HS256 algorithm
+   - **INV-SESSION-002**: Session tokens must be Session-encoded with HS256 algorithm
    - **INV-AGENT-001**: Agents must have defined roles from the enumerated set
    - **INV-MEM-001**: Conversation memory must maintain maximum 100 messages
-   - **INV-CONNECTOR-001**: Connectors must implement GuiAgentInterpreterABC interface
+   - **INV-CONNECTOR-001**: Connectors must implement InterpreterABC interface
    - **INV-CONVERTER-001**: Converters must use MappingRule for structured transformations
    - **INV-BACKEND-001**: Backend servers must be security-restricted with allowed_paths
    - **INV-BACKEND-002**: Gradio backend must use Timer component for periodic state updates
@@ -59,7 +59,7 @@ This project uses a formal concept dictionary (`.concept/ontology.yml`) to ensur
 5. **Term Normalization Process**
    - Before contributing, check [GLOSSARY.md](GLOSSARY.md) for canonical terms
    - Use the synonym-to-canonical mapping in GLOSSARY.md
-   - Example: If you're about to use "ChatSession", use "Session" instead
+   - Example: If you're about to use "Session", use "Session" instead
    - All terminology is centrally managed in `.concept/ontology.yml`
    - Questions about terms? Check `.concept/ambiguities.yml` for pending decisions
 

@@ -18,8 +18,8 @@
 ### Interpreter
 
 - **定義**: 会話フローとエージェント相互作用を管理する中核コンポーネント
-- **同義語**: GuiAgentInterpreter, 会話インタープリタ
-- **含む**: 状態管理, セッション管理, メッセージルーティング
+- **同義語**: Interpreter, Interpreter
+- **含む**: 状態管理, セッション管理, Messageルーティング
 - **含まない**: UI描画, LLM直接実行
 - **ライフサイクル**: STATE_INIT, STATE_RUNNING, STATE_STOP
 - **関連用語**: Agent, Session, Message, State
@@ -33,7 +33,7 @@
 ### Agent
 
 - **定義**: 特定の役割と実装タイプを持つ専門化AIエンティティ
-- **同義語**: AIエージェント, 専門エージェント, AgentType, AgentDefinition, TaskAgent, AgentImage
+- **同義語**: Agent, Agent, Agent, Agent, Agent, Agent
 - **役割**: AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
 - **含む**: 役割定義, タスク実行, LLM呼び出し, 実装タイプ（TOOL_CALLING/STRUCTURED_CHAT）
 - **含まない**: セッション管理, UI描画
@@ -52,26 +52,26 @@
 
 ### Session
 
-- **定義**: 一意のIDで管理される会話コンテキスト（JWT認証使用）
-- **同義語**: ChatSession, 会話セッション, JWT
-- **含む**: メッセージ履歴, セッションID（UUID）, JWTトークン（HS256アルゴリズム）
-- **含まない**: UI状態, インタープリタ状態
+- **定義**: 一意のIDで管理される会話コンテキスト（Session認証使用）
+- **同義語**: Session, Session, Session
+- **含む**: Message履歴, セッションID（UUID）, Sessionトークン（HS256アルゴリズム）
+- **含まない**: UI状態, State
 - **ライフサイクル**: created, active, terminated
 - **関連用語**: Interpreter, Message, Agent
 - **ステータス**: stable
 
 **AUTO決定**:
-- AUTO:Session.jwt:algorithm_hs256 - JWTはHS256アルゴリズム使用（暫定）
+- AUTO:Session.jwt:algorithm_hs256 - SessionはHS256アルゴリズム使用（暫定）
 
 **証拠**:
-- `gui_agent_loop_core/core/interpreter_manager.py`: "ChatSession: Individual conversation session with message history; jwt.encode(session_id, self.secret_key, algorithm='HS256')"
+- `gui_agent_loop_core/core/interpreter_manager.py`: "Session: Individual conversation session with message history; jwt.encode(session_id, self.secret_key, algorithm='HS256')"
 
 ---
 
 ### Message
 
 - **定義**: ユーザー、システム、エージェント間の構造化された通信単位
-- **同義語**: メッセージ, ChatMessage
+- **同義語**: Message, Message
 - **含む**: コンテンツ, 役割, タイプ, メタデータ, 最大長制限（MAX_MESSAGE_LENGTH=100）
 - **含まない**: セッション状態, UIイベント
 - **ライフサイクル**: created, processed, streamed
@@ -79,7 +79,7 @@
 - **ステータス**: stable
 
 **AUTO決定**:
-- AUTO:Message.structure:flat - メッセージは再帰的にフラット化可能
+- AUTO:Message.structure:flat - Messageは再帰的にフラット化可能
 - AUTO:Message.limit:100 - MAX_MESSAGE_LENGTH=100はハードリミット
 - AUTO:Message.roles:tool_function_separation - TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）
 
@@ -92,7 +92,7 @@
 ### State
 
 - **定義**: インタープリタの実行状態を表す列挙型
-- **同義語**: InterpreterState, インタープリタ状態
+- **同義語**: State, State
 - **含む**: 状態遷移, 状態チェック, 状態変更イベント, タイマーベースの定期更新（3秒間隔）
 - **含まない**: セッションライフサイクル, UI状態
 - **ライフサイクル**: STATE_INIT, STATE_RUNNING, STATE_STOP
@@ -105,7 +105,7 @@
 - AUTO:State.timer:3sec - t3タイマーは3秒間隔
 
 **証拠**:
-- `gui_agent_loop_core/schema/core/schema.py`: "class InterpreterState(str, Enum): STATE_INIT, STATE_RUNNING, STATE_STOP"
+- `gui_agent_loop_core/schema/core/schema.py`: "class State(str, Enum): STATE_INIT, STATE_RUNNING, STATE_STOP"
 - `gui_agent_loop_core/backend/server_impl_gradio.py`: "t3.tick(interpreter_manager.update_state_view, outputs=[agent_state])"
 - `gui_agent_loop_core/backend/server_impl_gradio.py`: "chat_iface.textbox.submit(fn=interpreter_manager.change_state_running, outputs=[agent_state])"
 
@@ -118,7 +118,7 @@
 ### AutoChat
 
 - **定義**: STATE_STOP時に自動的に会話を継続する機能
-- **同義語**: 自動チャット, 自動継続
+- **同義語**: AutoChat, AutoChat
 - **含む**: 自動入力生成, 状態チェック, 継続トリガー
 - **含まない**: 手動チャット, UIイベントハンドリング
 - **ライフサイクル**: triggered, executed, completed
@@ -137,25 +137,25 @@
 ### StreamWrapper
 
 - **定義**: 同期・非同期ストリーミング応答を統一的に扱うユーティリティ
-- **同義語**: GuiAgentStreamWrapper, ストリームラッパー
+- **同義語**: StreamWrapper, StreamWrapper
 - **含む**: ストリーム処理, 同期/非同期変換
-- **含まない**: メッセージ変換, 状態管理
+- **含まない**: Message変換, 状態管理
 - **ライフサイクル**: created, streaming, completed
 - **関連用語**: Message, Interpreter
 - **ステータス**: stable
 
 **証拠**:
-- `gui_agent_loop_core/util/gui_agent_stream_wrapper.py`: "GuiAgentStreamWrapper: Utility for handling both sync and async streaming responses"
+- `gui_agent_loop_core/util/gui_agent_stream_wrapper.py`: "StreamWrapper: Utility for handling both sync and async streaming responses"
 
 ---
 
 ### Backend
 
-- **定義**: GUIフレームワーク実装（Gradio等）
-- **同義語**: GUIバックエンド, UIフレームワーク, GuiBackend, GuiComponent
-- **含む**: UI描画, イベントハンドリング, コンポーネント管理, GuiComponent列挙, GuiBackendType列挙（GRADIO/STREAMSYNC）
+- **定義**: GBackend実装（Gradio等）
+- **同義語**: Backend, Backend, Backend, Backend
+- **含む**: UI描画, イベントハンドリング, コンポーネント管理, Backend列挙, BackendType列挙（GRADIO/STREAMSYNC）
 - **含まない**: 会話ロジック, エージェント管理
-- **関連用語**: Interpreter, Session, GuiComponent
+- **関連用語**: Interpreter, Session, Backend
 - **ステータス**: stable
 
 **AUTO決定**:
@@ -165,8 +165,8 @@
 
 **証拠**:
 - `gui_agent_loop_core/backend/server_impl_gradio.py`: "Gradio implementation of the server interface"
-- `gui_agent_loop_core/schema/backend/schema.py`: "class GuiBackendType(str, enum.Enum): GRADIO, STREAMSYNC"
-- `gui_agent_loop_core/schema/backend/schema.py`: "class GuiComponentName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK"
+- `gui_agent_loop_core/schema/backend/schema.py`: "class BackendType(str, enum.Enum): GRADIO, STREAMSYNC"
+- `gui_agent_loop_core/schema/backend/schema.py`: "class BackendName(str, enum.Enum): AGENT_NAME, AGENT_NAME_RADIO, AGENT_IMAGE, AGENT_STATE, AGENT_SESSION, CHATBOT, INPUT_TEXTBOX, CHAT_IFACE, OUTPUT_BLOCK"
 - `gui_agent_loop_core/backend/server_impl_gradio.py`: "app.launch(server_name='0.0.0.0', debug=True, allowed_paths=['/tmp', '/app/work', '/home', '/app/GuiAgentLoopCore'])"
 
 ---
@@ -174,8 +174,8 @@
 ### Memory
 
 - **定義**: 会話履歴を保持するバッファ機構
-- **同義語**: 会話メモリ, ConversationBuffer
-- **含む**: メッセージ履歴, ウィンドウサイズ
+- **同義語**: Memory, Memory
+- **含む**: Message履歴, ウィンドウサイズ
 - **含まない**: セッション管理, 状態保持
 - **関連用語**: Session, Message
 - **ステータス**: draft
@@ -194,8 +194,8 @@
 ### Connector
 
 - **定義**: 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ
-- **同義語**: コネクタ, GuiAgentInterpreterABC, ConnectorImplCodeinterpreterApi, ConnectorImplOpenInterpreter, OpenGuiConnector
-- **含む**: GuiAgentInterpreterABCインターフェースの実装, エージェント固有のブリッジロジック, I/O変換
+- **同義語**: Connector, InterpreterABC, Connector, Connector, Connector
+- **含む**: InterpreterABCインターフェースの実装, エージェント固有のブリッジロジック, I/O変換
 - **含まない**: UI描画, LLM直接実行, セッション管理
 - **ライフサイクル**: initialized, connected, executing, disconnected
 - **関連用語**: Interpreter, Agent
@@ -205,9 +205,9 @@
 - AUTO:Connector.layer:domain - Connectorは正規概念（domain層）
 
 **証拠**:
-- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py`: "class ConnectorImplCodeinterpreterApi(GuiAgentInterpreterABC)"
-- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py`: "class ConnectorImplOpenInterpreter(GuiAgentInterpreterABC)"
-- `gui_agent_loop_core/schema/core/schema.py`: "class GuiAgentInterpreterABC(ABC): Abstract interface for agent connectors"
+- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_codeinterpreter_api.py`: "class Connector(InterpreterABC)"
+- `gui_agent_loop_core/connector_impl/core_to_agent/connector_impl_open_interpreter.py`: "class Connector(InterpreterABC)"
+- `gui_agent_loop_core/schema/core/schema.py`: "class InterpreterABC(ABC): Abstract interface for agent connectors"
 
 ---
 
@@ -218,9 +218,9 @@
 ### Converter
 
 - **定義**: データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ
-- **同義語**: 変換器, マッパー
+- **同義語**: Converter, Converter
 - **含む**: リクエスト変換, 辞書フラット化, コードコンテンツ処理, format/languageフィールド抽出
-- **含まない**: メッセージ処理, 状態管理
+- **含まない**: Message処理, 状態管理
 - **ライフサイクル**: created, converting, flattened
 - **関連用語**: Message
 - **ステータス**: stable
@@ -236,36 +236,36 @@
 
 | 同義語 | 正規形 |
 |--------|--------|
-| GuiAgentInterpreter | Interpreter |
-| 会話インタープリタ | Interpreter |
-| AIエージェント | Agent |
-| 専門エージェント | Agent |
-| AgentType | Agent |
-| AgentDefinition | Agent |
-| TaskAgent | Agent |
-| AgentImage | Agent |
-| ChatSession | Session |
-| 会話セッション | Session |
-| メッセージ | Message |
-| ChatMessage | Message |
-| InterpreterState | State |
-| インタープリタ状態 | State |
-| 自動チャット | AutoChat |
-| 自動継続 | AutoChat |
-| GuiAgentStreamWrapper | StreamWrapper |
-| ストリームラッパー | StreamWrapper |
-| GUIバックエンド | Backend |
-| UIフレームワーク | Backend |
-| GuiBackend | Backend |
-| GuiComponent | Backend |
-| 会話メモリ | Memory |
-| ConversationBuffer | Memory |
-| 変換器 | Converter |
-| マッパー | Converter |
-| コネクタ | Connector |
-| GuiAgentInterpreterABC | Connector |
-| ConnectorImplCodeinterpreterApi | Connector |
-| ConnectorImplOpenInterpreter | Connector |
+| Interpreter | Interpreter |
+| Interpreter | Interpreter |
+| Agent | Agent |
+| Agent | Agent |
+| Agent | Agent |
+| Agent | Agent |
+| Agent | Agent |
+| Agent | Agent |
+| Session | Session |
+| Session | Session |
+| Message | Message |
+| Message | Message |
+| State | State |
+| State | State |
+| AutoChat | AutoChat |
+| AutoChat | AutoChat |
+| StreamWrapper | StreamWrapper |
+| StreamWrapper | StreamWrapper |
+| Backend | Backend |
+| Backend | Backend |
+| Backend | Backend |
+| Backend | Backend |
+| Memory | Memory |
+| Memory | Memory |
+| Converter | Converter |
+| Converter | Converter |
+| Connector | Connector |
+| InterpreterABC | Connector |
+| Connector | Connector |
+| Connector | Connector |
 
 ---
 
@@ -290,22 +290,22 @@
 
 ### Hard Invariants (11件) - 違反が厳密に禁止される条件
 
-- **INV-STATE-001**: インタープリタ状態は単調遷移する（STATE_INIT → STATE_RUNNING → STATE_STOP）
+- **INV-STATE-001**: Stateは単調遷移する（STATE_INIT → STATE_RUNNING → STATE_STOP）
 - **INV-SESSION-001**: セッションは一意のUUIDで識別される
-- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ
+- **INV-MSG-001**: Messageタイプは定義された列挙型のみ
 - **INV-AUTO-001**: AutoChatはSTATE_STOP時のみトリガーされる
-- **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする
-- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）
+- **INV-STREAM-001**: StreamWrapperは同期・非同期の両方をサポートする
+- **INV-MESSAGE-001**: Messageは最大100長（MAX_MESSAGE_LENGTH）
 - **INV-STATE-002**: 状態は3秒間隔のタイマーで自動更新される
 - **INV-BACKEND-001**: バックエンドサーバーはallowed_pathsでセキュリティ制限される
-- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
-- **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
+- **INV-SESSION-002**: セッショントークンはSessionでエンコードされ、HS256アルゴリズムを使用する
+- **INV-CONNECTOR-001**: Connectorは必ずInterpreterABCインターフェースを実装する
 - **INV-CONVERTER-001**: コンバータは構造化変換のためにMappingRuleを使用する
 
 ### Soft Invariants (3件) - 推奨されるが例外的な状況があり得る条件
 
 - **INV-AGENT-001**: エージェントは定義された役割を持つ
-- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する（draft）
+- **INV-MEM-001**: Memoryは最大100Messageまで保持する（draft）
 - **INV-BACKEND-002**: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する
 
 詳細は `.concept/invariants.yml` を参照してください。

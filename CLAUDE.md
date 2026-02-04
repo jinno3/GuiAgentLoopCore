@@ -23,7 +23,7 @@ Claudeは、このリポジトリの`.concept/ontology.yml`で定義された正
 #### ドメイン用語（Domain Terms）
 - `AutoChat` - STATE_STOP時に自動的に会話を継続する機能
 - `StreamWrapper` - 同期・非同期ストリーミング応答を統一的に扱うユーティリティ
-- `Backend` - GUIフレームワーク実装（Gradio等）
+- `Backend` - GBackend実装（Gradio等）
 - `Memory` - 会話履歴を保持するバッファ機構（**status: draft**）
 - `Connector` - 中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ
 
@@ -42,7 +42,7 @@ Claudeは、このリポジトリの`.concept/ontology.yml`で定義された正
 Claudeは、以下のhard invariantsを絶対に違反しません：
 
 #### 状態管理（State Management）
-- **INV-STATE-001**: インタープリタ状態は単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP
+- **INV-STATE-001**: Stateは単調遷移する：STATE_INIT → STATE_RUNNING → STATE_STOP
   - 状態の逆行は禁止（例：STATE_RUNNING → STATE_INIT）
   - 専用メソッド（`change_state_running()`等）を使用する
 
@@ -64,12 +64,12 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
 - **INV-STATE-002**: 状態は3秒間隔のタイマーで自動更新される
   - UI同期と監視を実現するための仕様
 
-#### メッセージ処理（Message Processing）
-- **INV-MSG-001**: メッセージタイプは定義された列挙型のみ使用
+#### Message処理（Message Processing）
+- **INV-MSG-001**: Messageタイプは定義された列挙型のみ使用
   - 許可されるタイプ: MESSAGE, CODE, CONFIRMATION, CONSOLE, IMAGE, FUNCTION
-  - タイプ安全性を保証し、予期しないメッセージ処理を防ぐ
+  - タイプ安全性を保証し、予期しないMessage処理を防ぐ
 
-- **INV-MESSAGE-001**: メッセージは最大100長（MAX_MESSAGE_LENGTH）
+- **INV-MESSAGE-001**: Messageは最大100長（MAX_MESSAGE_LENGTH）
   - メモリ使用量を制限し、パフォーマンスを維持する
   - **AUTO決定**: AUTO:Message.limit:100（暫定仕様）
 
@@ -77,7 +77,7 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
 - **INV-SESSION-001**: セッションは一意のUUIDで識別される
   - セッションの衝突を防ぎ、正しい認証を実現する
 
-- **INV-SESSION-002**: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
+- **INV-SESSION-002**: セッショントークンはSessionでエンコードされ、HS256アルゴリズムを使用する
   - セキュアなセッション識別と検証を保証する
   - **AUTO決定**: AUTO:Session.jwt:algorithm_hs256（暫定仕様）
 
@@ -93,7 +93,7 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
   - **AUTO決定**: AUTO:AutoChat.trigger:stop_only（暫定仕様）
 
 #### ストリーミング（Streaming）
-- **INV-STREAM-001**: ストリームラッパーは同期・非同期の両方をサポートする
+- **INV-STREAM-001**: StreamWrapperは同期・非同期の両方をサポートする
   - 柔軟な統合を可能にする
 
 #### バックエンド（Backend）
@@ -106,12 +106,12 @@ def revert_to_init(interpreter: Interpreter):  # ❌ 違反
   - **AUTO決定**: AUTO:Backend.timer:3sec_interval（暫定仕様）
 
 #### メモリ管理（Memory Management）
-- **INV-MEM-001**: 会話メモリは最大100メッセージまで保持する
+- **INV-MEM-001**: Memoryは最大100Messageまで保持する
   - メモリ使用量を制限し、パフォーマンスを維持する
   - **AUTO決定**: AUTO:Memory.limit:100（暫定仕様）
 
-#### コネクタ管理（Connector Management）
-- **INV-CONNECTOR-001**: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
+#### Connector管理（Connector Management）
+- **INV-CONNECTOR-001**: Connectorは必ずInterpreterABCインターフェースを実装する
   - 異なる実装間でのインターフェースの一貫性を保証する
 
 #### コンバータ管理（Converter Management）
@@ -124,10 +124,10 @@ Claudeは、AUTO決定（`.concept/ambiguities.yml`に記録）を暫定仕様�
 
 #### Agent関連のAUTO決定
 - **AUTO:Agent.role:classification** - Agentはロールベースで分類される
-- **AUTO:Agent.type:implementation_property** - AgentTypeは実装タイプ別プロパティ（AgentNameの役割とは独立）
+- **AUTO:Agent.type:implementation_property** - Agentは実装タイプ別プロパティ（AgentNameの役割とは独立）
 
 #### Message関連のAUTO決定
-- **AUTO:Message.structure:flat** - メッセージは再帰的にフラット化可能
+- **AUTO:Message.structure:flat** - Messageは再帰的にフラット化可能
 - **AUTO:Message.limit:100** - MAX_MESSAGE_LENGTH=100はハードリミット
 - **AUTO:Message.roles:tool_function_separation** - TOOLとFUNCTIONは異なるセマンティクスを持つ（暫定）
 
@@ -151,7 +151,7 @@ Claudeは、AUTO決定（`.concept/ambiguities.yml`に記録）を暫定仕様�
 - **AUTO:Memory.implementation:dual_provisional** - 両者は暫定的に共存（移行期間中とみなす）
 
 #### Session関連のAUTO決定
-- **AUTO:Session.jwt:algorithm_hs256** - JWTはHS256アルゴリズム使用（暫定）
+- **AUTO:Session.jwt:algorithm_hs256** - SessionはHS256アルゴリズム使用（暫定）
 
 #### Connector関連のAUTO決定
 - **AUTO:Connector.layer:domain** - Connectorは正規概念（domain層）
@@ -171,9 +171,9 @@ Claudeは、以下のステートフルな操作で特に注意を払います�
 
 - **Message処理**: Messageタイプは列挙型のみ使用
   - 最大長制限（MAX_MESSAGE_LENGTH=100）を尊重する
-  - メッセージは再帰的にフラット化可能
+  - Messageは再帰的にフラット化可能
 
-- **Memory管理**: 会話メモリはdraft状態
+- **Memory管理**: Memoryはdraft状態
   - ウィンドウサイズk=10（rolling）
   - 最大長100（hard limit）
   - 仕様は変更される可能性があるため、注意深く扱う

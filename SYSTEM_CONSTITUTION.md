@@ -165,7 +165,7 @@ The following invariants have constitutional status and CANNOT be violated:
 - Tests MUST verify this invariant is maintained
 
 
-### INV-SESSION-002: セッショントークンはJWTでエンコードされ、HS256アルゴリズムを使用する
+### INV-SESSION-002: セッショントークンはSessionでエンコードされ、HS256アルゴリズムを使用する
 
 **Strength**: HARD (Constitutional)
 **Status**: stable
@@ -181,7 +181,7 @@ The following invariants have constitutional status and CANNOT be violated:
 - Tests MUST verify this invariant is maintained
 
 
-### INV-CONNECTOR-001: コネクタは必ずGuiAgentInterpreterABCインターフェースを実装する
+### INV-CONNECTOR-001: Connectorは必ずInterpreterABCインターフェースを実装する
 
 **Strength**: HARD (Constitutional)
 **Status**: stable

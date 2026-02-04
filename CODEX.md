@@ -84,12 +84,12 @@ class InterpreterManager:
 ```python
 # 推奨されるパターン
 from gui_agent_loop_core.schema.core.schema import AgentName
-from gui_agent_loop_core.schema.agent.schema import AgentType
+from gui_agent_loop_core.schema.agent.schema import Agent
 
 @dataclass
 class Agent:
     name: AgentName  # 役割
-    type: AgentType  # 実装タイプ（役割とは独立）
+    type: Agent  # 実装タイプ（役割とは独立）
 
     # AUTO:Agent.type:implementation_property を尊重
 ```

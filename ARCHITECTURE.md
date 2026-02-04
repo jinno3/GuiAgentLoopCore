@@ -155,11 +155,11 @@ GuiAgentLoopCore is organized into distinct layers with clear responsibilities:
 
 **Responsibilities**:
 - Interface implementation for agent connections
-- Abstract base class (GuiAgentInterpreterABC)
+- Abstract base class (InterpreterABC)
 - Concrete implementations for different agent types
 
 **Invariants**:
-- INV-CONNECTOR-001: Must implement GuiAgentInterpreterABC interface
+- INV-CONNECTOR-001: Must implement InterpreterABC interface
 
 #### Memory Buffer
 **Location**: `gui_agent_loop_core/memory/` (planned)
@@ -333,7 +333,7 @@ This architecture incorporates several AUTO decisions that reflect provisional s
 
 ### Session Management
 - **AUTO:Session.jwt:algorithm_hs256**: HS256 algorithm is sufficiently secure (provisional)
-  - **Affects**: JWT token encoding/decoding
+  - **Affects**: Session token encoding/decoding
   - **Related Invariant**: INV-SESSION-002
 
 > **Note**: These AUTO decisions are marked as "provisional" and may be refined. See [AGENTS.md](AGENTS.md) for complete AUTO decision documentation.
