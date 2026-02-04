@@ -1,146 +1,145 @@
 {
-  "timestamp": "2026-02-04T01:14:02Z",
+  "timestamp": "2026-02-04T10:29:00Z",
   "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
+
   "overall_alignment_score": 100,
+
   "term_usage_check": {
-    "total_term_occurrences": 88,
-    "canonical_used": 88,
+    "total_term_occurrences": 11,
+    "canonical_used": 11,
     "synonym_used": 0,
     "unknown_terms": 0,
     "alignment_rate": 1.0
   },
-  "per_term_alignment": [
-    {
-      "term": "Interpreter",
-      "canonical_occurrences": 12,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Agent",
-      "canonical_occurrences": 18,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Session",
-      "canonical_occurrences": 8,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Message",
-      "canonical_occurrences": 15,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "State",
-      "canonical_occurrences": 14,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "AutoChat",
-      "canonical_occurrences": 6,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "StreamWrapper",
-      "canonical_occurrences": 4,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Backend",
-      "canonical_occurrences": 6,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Converter",
-      "canonical_occurrences": 2,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Memory",
-      "canonical_occurrences": 2,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    },
-    {
-      "term": "Connector",
-      "canonical_occurrences": 1,
-      "synonym_occurrences": 0,
-      "alignment": 100
-    }
+
+  "canonical_terms_used": [
+    "Interpreter",
+    "Agent",
+    "Session",
+    "Message",
+    "State",
+    "AutoChat",
+    "StreamWrapper",
+    "Backend",
+    "Converter",
+    "Memory",
+    "Connector"
   ],
+
   "per_file": [
     {
       "file": "README.md",
       "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_used": 11,
-      "synonyms_found": 0
+      "issues": []
     },
     {
       "file": "AGENTS.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_used": 11,
-      "synonyms_found": 0
+      "notes": [
+        "All 11 canonical terms documented with proper definitions",
+        "All 16 AUTO decisions documented",
+        "All 14 invariants documented"
+      ]
     },
     {
       "file": "CLAUDE.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_used": 11,
-      "synonyms_found": 0
-    },
-    {
-      "file": "GLOSSARY.md",
-      "alignment_score": 100,
-      "issues": [],
-      "canonical_terms_used": 11,
-      "synonyms_found": 0
+      "notes": [
+        "All 16 AUTO decisions documented",
+        "All 14 invariants documented"
+      ]
     },
     {
       "file": "SYSTEM_CONSTITUTION.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_used": 9,
-      "synonyms_found": 0
+      "notes": [
+        "All 11 hard invariants documented with constitutional impact"
+      ]
     },
     {
-      "file": "ARCHITECTURE.md",
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
       "alignment_score": 100,
       "issues": [],
-      "canonical_terms_used": 11,
-      "synonyms_found": 0
+      "notes": [
+        "Comprehensive terminology guidelines",
+        "All invariants listed",
+        "AUTO decisions referenced"
+      ]
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "issues": [],
+      "notes": [
+        "Regenerated from ontology.yml v0.3",
+        "All 11 terms with full definitions",
+        "All 16 AUTO decisions documented",
+        "All 14 invariants summarized",
+        "Synonym normalization map provided"
+      ]
     }
   ],
+
   "invariant_check": {
     "total_invariants": 14,
+    "hard_invariants": 11,
+    "soft_invariants": 3,
     "reflected_in_md": 14,
     "missing": [],
-    "coverage_rate": 100
+    "coverage": {
+      "hard_invariants_documented": 11,
+      "soft_invariants_documented": 3
+    }
   },
+
   "auto_decision_check": {
     "total_auto_decisions": 16,
-    "noted_in_md": 16,
-    "missing_notes": [],
-    "coverage_rate": 100
+    "reflected_in_md": 16,
+    "missing": [],
+    "by_category": {
+      "Agent": 2,
+      "Message": 3,
+      "State": 3,
+      "AutoChat": 2,
+      "Backend": 3,
+      "Memory": 4,
+      "Session": 1,
+      "Connector": 1
+    }
   },
+
   "ambiguity_check": {
     "active_auto_decisions": 16,
     "reflected_as_notes": 16,
-    "missing_notes": 0
+    "missing_notes": 0,
+    "properly_marked_as_provisional": true
   },
+
+  "term_boundary_check": {
+    "total_terms_checked": 11,
+    "boundaries_consistent": 11,
+    "inconsistencies": []
+  },
+
   "summary": {
-    "concept_alignment_score": 100,
-    "total_checks": 9,
-    "passed": 9
+    "strengths": [
+      "Perfect canonical term usage (11/11)",
+      "All AUTO decisions documented (16/16)",
+      "All invariants documented (14/14)",
+      "No synonym usage detected",
+      "Comprehensive GLOSSARY.md regenerated from ontology v0.3",
+      "Terminology guidelines in CONTRIBUTING.md are excellent"
+    ],
+    "weaknesses": [],
+    "recommendations": []
   }
 }

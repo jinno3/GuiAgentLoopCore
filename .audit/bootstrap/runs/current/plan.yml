@@ -1,204 +1,56 @@
-run_timestamp: "2026-02-04T10:29:00Z"
-version: "1.1"
+actions:
+- action: verify
+  reason: Verify concept alignment and completeness
+  target: README.md
+- action: verify
+  reason: Verify term normalization and completeness
+  target: AGENTS.md
+- action: verify
+  reason: Verify all 16 AUTO decisions documented
+  target: CLAUDE.md
+- action: verify
+  reason: Verify alignment with ontology.yml
+  target: GLOSSARY.md
+existing_mds:
+- last_updated: '2026-02-04T08:32:47Z'
+  needs_update: true
+  path: README.md
+  reason: 'Previous bootstrap run #85 - should verify concept alignment'
+  status: exists_needs_update
+- last_updated: '2026-02-04T08:32:47Z'
+  path: AGENTS.md
+  status: exists_current
+- last_updated: '2026-02-04T08:32:47Z'
+  path: CLAUDE.md
+  status: exists_current
+- last_updated: '2026-02-04T08:32:47Z'
+  path: GLOSSARY.md
+  status: exists_current
+input_sources:
+  audit:
+    constraints_yml: .audit/config/constraints.yml
+    intent_yml: .audit/config/intent.yml
+  concept:
+    has_concept: true
+    invariants_yml: .concept/invariants.yml
+    ontology_yml: .concept/ontology.yml
+intent_summary:
+  core_value: 'Reliable, type-safe, and extensible foundation for GUI-LLM integration
+    with predictable state management and clear component boundaries.
 
+    '
+  mission: 'GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
+    LLM agents, managing conversation flow, agent interactions, and state control.
+
+    '
+  target_user_count: 4
+ontology_summary:
+  aux_terms: 1
+  core_terms: 5
+  domain_terms: 5
+  total_terms: 11
 rotation:
   deleted_old: true
   moved_current_to_old: true
-
-input_sources:
-  audit:
-    intent_yml: ".audit/config/intent.yml"
-    constraints_yml: ".audit/config/constraints.yml"
-  concept:
-    ontology_yml: ".concept/ontology.yml"
-    invariants_yml: ".concept/invariants.yml"
-    ambiguities_yml: ".concept/ambiguities.yml"
-    has_concept: true
-
-intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
-  core_functions_count: 5
-  design_principles_count: 5
-
-ontology_summary:
-  total_terms: 11
-  core_terms: 5
-  domain_terms: 5
-  aux_terms: 1
-  ontology_version: "0.3"
-  key_terms:
-    - canonical: "Interpreter"
-      layer: "core"
-      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
-    - canonical: "Agent"
-      layer: "core"
-      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
-    - canonical: "Session"
-      layer: "core"
-      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
-    - canonical: "Message"
-      layer: "core"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
-    - canonical: "State"
-      layer: "core"
-      definition: "インタープリタの実行状態を表す列挙型"
-
-invariants_summary:
-  total_invariants: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  stable_count: 13
-  draft_count: 1
-
-ambiguities_summary:
-  total_ambiguities: 10
-  with_auto_decisions: 10
-  high_severity: 2
-  medium_severity: 2
-  low_severity: 6
-
-term_normalization:
-  "会話インタープリタ": "Interpreter"
-  "GuiAgentInterpreter": "Interpreter"
-  "AIエージェント": "Agent"
-  "専門エージェント": "Agent"
-  "AgentType": "Agent"
-  "AgentDefinition": "Agent"
-  "TaskAgent": "Agent"
-  "AgentImage": "Agent"
-  "ChatSession": "Session"
-  "会話セッション": "Session"
-  "JWT": "Session"
-  "メッセージ": "Message"
-  "ChatMessage": "Message"
-  "InterpreterState": "State"
-  "インタープリタ状態": "State"
-  "自動チャット": "AutoChat"
-  "自動継続": "AutoChat"
-  "GuiAgentStreamWrapper": "StreamWrapper"
-  "ストリームラッパー": "StreamWrapper"
-  "GUIバックエンド": "Backend"
-  "UIフレームワーク": "Backend"
-  "GuiBackend": "Backend"
-  "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
-  "会話メモリ": "Memory"
-  "ConversationBuffer": "Memory"
-  "コネクタ": "Connector"
-  "GuiAgentInterpreterABC": "Connector"
-  "ConnectorImplCodeinterpreterApi": "Connector"
-  "ConnectorImplOpenInterpreter": "Connector"
-  "OpenGuiConnector": "Connector"
-
-existing_mds:
-  - path: "README.md"
-    status: "exists_needs_update"
-    tier: 1
-    issues:
-      - "Need to ensure concept alignment with ontology.yml"
-      - "Need to verify all terms use canonical forms"
-
-  - path: "AGENTS.md"
-    status: "exists_needs_update"
-    tier: 1
-    issues:
-      - "Need to update with latest ontology v0.3"
-      - "Need to include all 16 AUTO decisions"
-      - "Need to document all 14 invariants"
-
-  - path: "CLAUDE.md"
-    status: "exists_needs_update"
-    tier: 2
-    issues:
-      - "Already has good structure but needs verification"
-      - "AUTO decisions documented: 16"
-      - "Invariants documented: 14"
-
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_update"
-    tier: 2
-    issues:
-      - "Need to reflect latest invariants.yml"
-
-  - path: "PURPOSE.md"
-    status: "exists_needs_update"
-    tier: 2
-    issues:
-      - "Need to align with intent.yml mission statement"
-
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_update"
-    tier: 2
-    issues:
-      - "Need to add term usage guidelines"
-
-  - path: "GLOSSARY.md"
-    status: "exists_needs_update"
-    tier: 3
-    issues:
-      - "Need to regenerate from ontology v0.3"
-
-  - path: "ARCHITECTURE.md"
-    status: "exists_optional"
-    tier: 3
-    issues:
-      - "Optional update from mappings.yml"
-
-  - path: "GEMINI.md"
-    status: "exists_optional"
-    tier: 3
-    issues:
-      - "Optional, similar to CLAUDE.md"
-
-  - path: "CODEX.md"
-    status: "exists_optional"
-    tier: 3
-    issues:
-      - "Optional, similar to CLAUDE.md"
-
-actions:
-  - action: "verify"
-    target: "README.md"
-    reason: "Verify concept alignment and term normalization"
-
-  - action: "update"
-    target: "AGENTS.md"
-    reason: "Update with ontology v0.3, all AUTO decisions, all invariants"
-
-  - action: "verify"
-    target: "CLAUDE.md"
-    reason: "Verify existing documentation is current"
-
-  - action: "update"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Reflect latest invariants.yml (14 invariants)"
-
-  - action: "update"
-    target: "PURPOSE.md"
-    reason: "Align with intent.yml mission statement"
-
-  - action: "update"
-    target: "CONTRIBUTING.md"
-    reason: "Add term usage guidelines from ontology"
-
-  - action: "regenerate"
-    target: "GLOSSARY.md"
-    reason: "Regenerate from ontology v0.3 (11 terms)"
-
-  - action: "skip"
-    target: "ARCHITECTURE.md"
-    reason: "Optional, defer to later update"
-
-  - action: "skip"
-    target: "GEMINI.md"
-    reason: "Optional, similar structure to CLAUDE.md"
-
-  - action: "skip"
-    target: "CODEX.md"
-    reason: "Optional, similar structure to CLAUDE.md"
-
-target_score: 90
-max_iterations: 3
+run_timestamp: '2026-02-04T10:50:01.021783'
+version: '1.1'

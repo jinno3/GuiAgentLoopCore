@@ -1,5 +1,4 @@
-run_timestamp: "2026-02-04T01:14:02Z"
-run_number: 97
+run_timestamp: "2026-02-04T10:29:00Z"
 version: "1.1"
 
 rotation:
@@ -10,31 +9,25 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
-    intent_version: "1.0"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
     ambiguities_yml: ".concept/ambiguities.yml"
-    ontology_version: "0.3"
-    invariants_version: "2026-02-02T05:23:14Z"
-    ambiguities_version: "2026-02-03T21:21:22Z"
     has_concept: true
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_users:
-    - "Application Developers"
-    - "AI Agent Developers"
-    - "Framework Developers"
-    - "AI Agents"
+  target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
   core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
   core_functions_count: 5
+  design_principles_count: 5
 
 ontology_summary:
   total_terms: 11
   core_terms: 5
   domain_terms: 5
   aux_terms: 1
+  ontology_version: "0.3"
   key_terms:
     - canonical: "Interpreter"
       layer: "core"
@@ -51,14 +44,24 @@ ontology_summary:
     - canonical: "State"
       layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-  invariants_count: 14
+
+invariants_summary:
+  total_invariants: 14
   hard_invariants: 11
   soft_invariants: 3
-  auto_decisions_count: 16
+  stable_count: 13
+  draft_count: 1
+
+ambiguities_summary:
+  total_ambiguities: 10
+  with_auto_decisions: 10
+  high_severity: 2
+  medium_severity: 2
+  low_severity: 6
 
 term_normalization:
-  "GuiAgentInterpreter": "Interpreter"
   "会話インタープリタ": "Interpreter"
+  "GuiAgentInterpreter": "Interpreter"
   "AIエージェント": "Agent"
   "専門エージェント": "Agent"
   "AgentType": "Agent"
@@ -86,86 +89,116 @@ term_normalization:
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
 
 existing_mds:
   - path: "README.md"
+    status: "exists_needs_update"
     tier: 1
-    status: "exists"
-    priority: "critical"
+    issues:
+      - "Need to ensure concept alignment with ontology.yml"
+      - "Need to verify all terms use canonical forms"
+
   - path: "AGENTS.md"
+    status: "exists_needs_update"
     tier: 1
-    status: "exists"
-    priority: "critical"
+    issues:
+      - "Need to update with latest ontology v0.3"
+      - "Need to include all 16 AUTO decisions"
+      - "Need to document all 14 invariants"
+
   - path: "CLAUDE.md"
+    status: "exists_needs_update"
     tier: 2
-    status: "exists"
-    priority: "high"
+    issues:
+      - "Already has good structure but needs verification"
+      - "AUTO decisions documented: 16"
+      - "Invariants documented: 14"
+
   - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_update"
     tier: 2
-    status: "exists"
-    priority: "high"
+    issues:
+      - "Need to reflect latest invariants.yml"
+
   - path: "PURPOSE.md"
+    status: "exists_needs_update"
     tier: 2
-    status: "exists"
-    priority: "high"
+    issues:
+      - "Need to align with intent.yml mission statement"
+
   - path: "CONTRIBUTING.md"
+    status: "exists_needs_update"
     tier: 2
-    status: "exists"
-    priority: "medium"
-  - path: "GEMINI.md"
-    tier: 3
-    status: "exists"
-    priority: "medium"
-  - path: "CODEX.md"
-    tier: 3
-    status: "exists"
-    priority: "medium"
-  - path: "ARCHITECTURE.md"
-    tier: 3
-    status: "exists"
-    priority: "low"
+    issues:
+      - "Need to add term usage guidelines"
+
   - path: "GLOSSARY.md"
+    status: "exists_needs_update"
     tier: 3
-    status: "exists"
-    priority: "low"
-  - path: "CHANGELOG.md"
+    issues:
+      - "Need to regenerate from ontology v0.3"
+
+  - path: "ARCHITECTURE.md"
+    status: "exists_optional"
     tier: 3
-    status: "exists"
-    priority: "low"
+    issues:
+      - "Optional update from mappings.yml"
+
+  - path: "GEMINI.md"
+    status: "exists_optional"
+    tier: 3
+    issues:
+      - "Optional, similar to CLAUDE.md"
+
+  - path: "CODEX.md"
+    status: "exists_optional"
+    tier: 3
+    issues:
+      - "Optional, similar to CLAUDE.md"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Verify existence clarity and concept alignment"
-  - action: "verify"
+    reason: "Verify concept alignment and term normalization"
+
+  - action: "update"
     target: "AGENTS.md"
-    reason: "Verify agent instructions and terminology consistency"
+    reason: "Update with ontology v0.3, all AUTO decisions, all invariants"
+
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Verify Claude-specific instructions and AUTO decision documentation"
-  - action: "verify"
-    target: "GLOSSARY.md"
-    reason: "Verify ontology alignment and term accuracy"
-  - action: "verify"
+    reason: "Verify existing documentation is current"
+
+  - action: "update"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify invariants documentation"
-  - action: "verify"
+    reason: "Reflect latest invariants.yml (14 invariants)"
+
+  - action: "update"
     target: "PURPOSE.md"
-    reason: "Verify mission statement consistency"
-  - action: "verify"
+    reason: "Align with intent.yml mission statement"
+
+  - action: "update"
     target: "CONTRIBUTING.md"
-    reason: "Verify contribution guidelines"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Verify Gemini-specific instructions"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Verify Codex-specific instructions"
-  - action: "verify"
+    reason: "Add term usage guidelines from ontology"
+
+  - action: "regenerate"
+    target: "GLOSSARY.md"
+    reason: "Regenerate from ontology v0.3 (11 terms)"
+
+  - action: "skip"
     target: "ARCHITECTURE.md"
-    reason: "Verify architecture documentation"
+    reason: "Optional, defer to later update"
 
-mode: "verification_run"
-reason: "All MD files exist with 100% scores from previous run. This run will verify continued alignment."
+  - action: "skip"
+    target: "GEMINI.md"
+    reason: "Optional, similar structure to CLAUDE.md"
 
-expected_outcome: "Maintain 100% scores across all metrics"
+  - action: "skip"
+    target: "CODEX.md"
+    reason: "Optional, similar structure to CLAUDE.md"
+
+target_score: 90
+max_iterations: 3
