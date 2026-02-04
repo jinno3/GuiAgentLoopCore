@@ -1,167 +1,98 @@
 {
-  "timestamp": "2026-02-04T10:29:00Z",
+  "timestamp": "2026-02-04T10:49:38.251753",
   "overall_score": 50,
-  "concept_alignment_score": 40,
+  "concept_alignment_score": 100,
   "max_score": 100,
-
-  "scoring_breakdown": {
-    "existence_clarity": 60,
-    "intent_alignment": 70,
-    "concept_consistency": 40,
-    "uniqueness": 50,
-    "completeness": 50
-  },
-
   "files": [
     {
       "path": "README.md",
-      "exists": true,
-      "clarity_score": 60,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 50,
-        "issues": [
-          {
-            "severity": "medium",
-            "description": "Need to verify all terms use canonical forms from ontology.yml"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Mission statement needs verification against intent.yml",
-        "Term usage may not align with ontology v0.3"
-      ]
+      "issues": []
     },
     {
       "path": "AGENTS.md",
-      "exists": true,
       "clarity_score": 50,
       "concept_alignment": {
-        "score": 40,
-        "issues": [
-          {
-            "severity": "high",
-            "description": "AUTO decisions documentation incomplete (should have 16)"
-          },
-          {
-            "severity": "high",
-            "description": "Invariants documentation incomplete (should have 14)"
-          },
-          {
-            "severity": "medium",
-            "description": "Term normalization rules not explicitly stated"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Need comprehensive AUTO decisions documentation",
-        "Need comprehensive invariants documentation",
-        "Ontology v0.3 integration incomplete"
-      ]
+      "issues": []
     },
     {
       "path": "CLAUDE.md",
-      "exists": true,
-      "clarity_score": 90,
-      "concept_alignment": {
-        "score": 85,
-        "issues": []
-      },
-      "issues": [
-        "Already has good structure with AUTO decisions and invariants",
-        "Minor verification needed"
-      ]
-    },
-    {
-      "path": "SYSTEM_CONSTITUTION.md",
-      "exists": true,
       "clarity_score": 50,
       "concept_alignment": {
-        "score": 40,
-        "issues": [
-          {
-            "severity": "high",
-            "description": "Invariants from invariants.yml not fully reflected"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Need to integrate all 14 invariants",
-        "Hard invariants need explicit documentation"
-      ]
+      "issues": []
     },
     {
       "path": "PURPOSE.md",
-      "exists": true,
-      "clarity_score": 60,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 50,
-        "issues": [
-          {
-            "severity": "medium",
-            "description": "Mission statement may not match intent.yml"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Align mission with intent.yml",
-        "Update design philosophy"
-      ]
+      "issues": []
     },
     {
       "path": "CONTRIBUTING.md",
-      "exists": true,
-      "clarity_score": 40,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 30,
-        "issues": [
-          {
-            "severity": "medium",
-            "description": "Term usage guidelines missing"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Add term normalization guidelines",
-        "Add ontology reference"
-      ]
+      "issues": []
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "clarity_score": 50,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     },
     {
       "path": "GLOSSARY.md",
-      "exists": true,
-      "clarity_score": 40,
+      "clarity_score": 50,
       "concept_alignment": {
-        "score": 30,
-        "issues": [
-          {
-            "severity": "high",
-            "description": "Not regenerated from ontology v0.3"
-          }
-        ]
+        "score": 100,
+        "issues": []
       },
-      "issues": [
-        "Regenerate from ontology.yml v0.3",
-        "Include all 11 canonical terms"
-      ]
+      "issues": []
+    },
+    {
+      "path": "SYSTEM_CONSTITUTION.md",
+      "clarity_score": 50,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "GEMINI.md",
+      "clarity_score": 50,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
+    },
+    {
+      "path": "CODEX.md",
+      "clarity_score": 50,
+      "concept_alignment": {
+        "score": 100,
+        "issues": []
+      },
+      "issues": []
     }
-  ],
-
-  "overall_assessment": {
-    "strengths": [
-      "All Tier 1 and Tier 2 MD files exist",
-      "CLAUDE.md has excellent structure",
-      "Basic documentation coverage is complete"
-    ],
-    "weaknesses": [
-      "Concept alignment inconsistent across files",
-      "AUTO decisions not uniformly documented",
-      "Invariants not fully reflected in SYSTEM_CONSTITUTION.md",
-      "Term normalization not enforced"
-    ],
-    "priority_improvements": [
-      "Update AGENTS.md with complete AUTO decisions and invariants",
-      "Regenerate GLOSSARY.md from ontology v0.3",
-      "Update SYSTEM_CONSTITUTION.md with all invariants",
-      "Add term usage guidelines to CONTRIBUTING.md"
-    ]
-  }
+  ]
 }

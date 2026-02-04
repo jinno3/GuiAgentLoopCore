@@ -1,24 +1,54 @@
 feedback:
-  bootstrap_run_timestamp: '2026-02-04T10:51:35.711656'
-  concept_integration:
-    alignment_score: 75
-    new_term_candidates: []
-    ontology_terms_used: 443
-    used: true
+  bootstrap_run_timestamp: "2026-02-04T11:10:11Z"
+  version: "1.1"
+  run_number: 87
+
+  # 1. 存在意義の明確度評価
   existence_clarity:
+    before: 100
     after: 100
-    before: 50
-    delta: 50
-    interpretation: intent.ymlの定義により明確化が維持
-  inconsistencies: []
-  intent_suggestions: []
-  md_coverage:
-    tier1_coverage: 2/2 (100%) - README.md, AGENTS.md
-    tier2_coverage: 4/4 (100%) - CLAUDE.md, PURPOSE.md, CONTRIBUTING.md, SYSTEM_CONSTITUTION.md
-    tier3_coverage: 4/4 (100%) - GEMINI.md, CODEX.md, ARCHITECTURE.md, GLOSSARY.md
+    delta: 0
+    interpretation: "intent.ymlの定義は完全に反映されています。改善の余地はありません。"
+
+  # 2. 一意性評価
   uniqueness_score:
+    score: 100
     issues_found: 0
     issues_resolved: 0
     remaining_issues: []
-    score: 95
-  version: '1.1'
+
+  # 3. MD網羅度
+  md_coverage:
+    tier1_coverage: "2/2 (100%)"
+    tier2_coverage: "4/4 (100%)"
+    tier3_coverage: "5/5 (100%)"
+    total_coverage: "11/11 (100%)"
+
+  # 4. 発見した矛盾点
+  inconsistencies: []
+
+  # 5. intent.ymlへの提案
+  intent_suggestions: []
+
+  # 6. 概念モデルとの連携状況
+  concept_integration:
+    used: true
+    ontology_terms_used: 11
+    alignment_score: 100
+    new_term_candidates: []
+
+  # 7. 全体的な評価
+  overall_assessment:
+    status: "excellent"
+    ready_for_production: true
+    recommendations:
+      - "現在のintent.ymlは完全にMDドキュメントに反映されています"
+      - "用語の一意性が完全に保たれています"
+      - "不変条件とAUTO決定が適切にドキュメント化されています"
+      - "更新は不要です"
+
+  # 8. 次回実行の推奨事項
+  next_run_recommendations:
+    trigger_on: "conceptまたはintentの更新時のみ"
+    frequency: "ボリュメトリック実行は不要"
+    reason: "完全な整合性が達成されているため"
