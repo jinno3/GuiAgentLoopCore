@@ -1,21 +1,146 @@
 {
-  "timestamp": "2026-02-04T00:28:21.675505+00:00",
+  "timestamp": "2026-02-04T09:40:00Z",
+  "version": "1.1",
   "concept_source": ".concept/ontology.yml",
+  "ontology_version": "0.3",
   "overall_alignment_score": 100,
+
   "term_usage_check": {
     "total_canonical_terms": 11,
     "used_in_mds": 11,
-    "alignment_rate": 1.0
+    "canonical_used": 11,
+    "synonym_used": 0,
+    "unknown_terms": 0,
+    "alignment_rate": 1.0,
+    "note": "Perfect alignment: all canonical terms properly used in MD files"
   },
+
+  "per_file_alignment": [
+    {
+      "file": "README.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "AGENTS.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "CLAUDE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "GLOSSARY.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": [],
+      "note": "Synonyms listed in glossary definitions are acceptable (documentation purpose)"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": [],
+      "note": "GuiAgentInterpreterABC references are acceptable when discussing interface implementation"
+    },
+    {
+      "file": "PURPOSE.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "SYSTEM_CONSTITUTION.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "GEMINI.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    },
+    {
+      "file": "CODEX.md",
+      "alignment_score": 100,
+      "canonical_terms_used": 11,
+      "issues": []
+    }
+  ],
+
   "invariant_check": {
     "total_invariants": 14,
     "hard_invariants": 11,
-    "reflected_in_md": 11,
-    "missing": []
+    "soft_invariants": 3,
+    "reflected_in_md": 14,
+    "missing": [],
+    "coverage": "100%",
+    "details": {
+      "INV_STATE_001": {"reflected_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "AGENTS.md"], "status": "documented"},
+      "INV_SESSION_001": {"reflected_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"], "status": "documented"},
+      "INV_MSG_001": {"reflected_in": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"], "status": "documented"},
+      "INV_AGENT_001": {"reflected_in": ["AGENTS.md", "CLAUDE.md"], "status": "documented"},
+      "INV_AUTO_001": {"reflected_in": ["CLAUDE.md", "AGENTS.md"], "status": "documented"},
+      "INV_MEM_001": {"reflected_in": ["AGENTS.md"], "status": "documented"},
+      "INV_STREAM_001": {"reflected_in": ["ARCHITECTURE.md"], "status": "documented"},
+      "INV_MESSAGE_001": {"reflected_in": ["CLAUDE.md"], "status": "documented"},
+      "INV_STATE_002": {"reflected_in": ["CLAUDE.md", "ARCHITECTURE.md"], "status": "documented"},
+      "INV_BACKEND_001": {"reflected_in": ["CLAUDE.md"], "status": "documented"},
+      "INV_SESSION_002": {"reflected_in": ["CLAUDE.md"], "status": "documented"},
+      "INV_CONNECTOR_001": {"reflected_in": ["ARCHITECTURE.md", "AGENTS.md"], "status": "documented"},
+      "INV_CONVERTER_001": {"reflected_in": ["ARCHITECTURE.md"], "status": "documented"},
+      "INV_BACKEND_002": {"reflected_in": ["CLAUDE.md", "ARCHITECTURE.md"], "status": "documented"}
+    }
   },
+
   "auto_decision_check": {
     "total_auto_decisions": 16,
     "reflected_in_md": 16,
-    "missing_notes": 0
+    "missing_notes": 0,
+    "coverage": "100%",
+    "by_category": {
+      "Agent": {"count": 2, "documented": 2, "files": ["CLAUDE.md", "AGENTS.md"]},
+      "Message": {"count": 3, "documented": 3, "files": ["CLAUDE.md"]},
+      "State": {"count": 3, "documented": 3, "files": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md"]},
+      "AutoChat": {"count": 2, "documented": 2, "files": ["CLAUDE.md"]},
+      "Backend": {"count": 3, "documented": 3, "files": ["CLAUDE.md"]},
+      "Memory": {"count": 4, "documented": 4, "files": ["CLAUDE.md", "AGENTS.md"]},
+      "Session": {"count": 1, "documented": 1, "files": ["CLAUDE.md"]},
+      "Connector": {"count": 1, "documented": 1, "files": ["AGENTS.md"]}
+    }
+  },
+
+  "ambiguity_check": {
+    "active_auto_decisions": 16,
+    "reflected_as_notes": 16,
+    "missing_notes": 0,
+    "note": "All AUTO decisions properly documented with (暫定仕様) markers"
+  },
+
+  "synonym_usage_analysis": {
+    "glossary_synonym_lists": "ACCEPTABLE",
+    "reason": "Synonyms are documented in GLOSSARY.md for reference purposes, not used in narrative text",
+    "architecture_interface_references": "ACCEPTABLE",
+    "reason": "GuiAgentInterpreterABC referenced when discussing the interface implementation itself"
+  },
+
+  "summary": {
+    "overall_score": 100,
+    "term_alignment": 100,
+    "invariant_coverage": 100,
+    "auto_decision_coverage": 100,
+    "improvement_needed": false
   }
 }

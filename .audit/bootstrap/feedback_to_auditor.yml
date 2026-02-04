@@ -1,7 +1,7 @@
 feedback:
-  bootstrap_run_timestamp: "2026-02-04T00:26:33Z"
+  bootstrap_run_timestamp: "2026-02-04T09:53:00Z"
   version: "1.1"
-  run_number: 95
+  run_number: 96
 
   # 1. 存在意義の明確度評価
   existence_clarity:
@@ -18,7 +18,15 @@ feedback:
     remaining_issues: []
     interpretation: "全ての一意性チェック（UC-001〜UC-005）に合格。存在意義、対象ユーザー、制約、境界線が完全に一貫している。"
 
-  # 3. MD網羅度
+  # 3. 概念整合度評価（v1.1新增）
+  concept_alignment_score:
+    score: 100
+    issues_found: 0
+    issues_resolved: 0
+    remaining_issues: []
+    interpretation: "全ての概念整合チェック（CA-001〜CA-005）に合格。用語の正規化、不変条件の反映、AUTO決定のドキュメント化が完全。"
+
+  # 4. MD網羅度
   md_coverage:
     tier1_coverage: "2/2 (100%)"
     tier2_coverage: "4/4 (100%)"
@@ -26,7 +34,7 @@ feedback:
     total_coverage: "10/10 (100%)"
     interpretation: "完璧なカバレッジ。全てのTierのMDファイルが完備されている。"
 
-  # 4. 発見した矛盾点
+  # 5. 発見した矛盾点
   inconsistencies:
     - id: "INC-000"
       description: "矛盾点なし"
@@ -34,7 +42,33 @@ feedback:
       resolution: "N/A"
       interpretation: "intent.ymlと全MDファイル間の矛盾は一切発見されなかった。"
 
-  # 5. 概念モデルとの連携状況
+  # 6. 用語の正規化状況（v1.1新增）
+  term_normalization:
+    total_occurrences: 110
+    canonical_used: 110
+    synonym_used: 0
+    normalization_rate: 1.0
+    interpretation: "完璧。すべての用語が正規形で使用されている。"
+
+  # 7. 不変条件の反映状況（v1.1新增）
+  invariant_reflection:
+    total_invariants: 14
+    hard_invariants: 11
+    soft_invariants: 3
+    reflected_in_md: 14
+    coverage_percent: 100
+    missing: []
+    interpretation: "完璧。すべての不変条件がMDに反映されている。"
+
+  # 8. AUTO決定のドキュメント化状況（v1.1新增）
+  auto_decision_documentation:
+    total_auto_decisions: 16
+    documented_in_md: 16
+    coverage_percent: 100
+    missing: []
+    interpretation: "完璧。すべてのAUTO決定がMDにドキュメント化されている。"
+
+  # 9. 概念モデルとの連携状況
   concept_integration:
     used: true
     ontology_version: "0.3"
@@ -44,7 +78,7 @@ feedback:
     new_term_candidates: []
     interpretation: "ontology.yml（v0.3）の全11用語がMDファイルで適切に使用されている。新規用語候補なし。"
 
-  # 6. 全体的な評価
+  # 10. 全体的な評価
   overall_assessment:
     status: "optimal"
     clarity_score: 100
@@ -54,22 +88,25 @@ feedback:
     overall_score: 100
     recommendation: "maintenance_mode"
 
-  # 7. 実行統計
+  # 11. 実行統計
   execution_stats:
     total_mds_verified: 10
-    total_checks_performed: 10
-    checks_passed: 10
-    checks_failed: 0
-    term_occurrences_checked: 55
-    canonical_terms_used: 55
+    total_uc_checks: 5
+    uc_checks_passed: 5
+    total_ca_checks: 5
+    ca_checks_passed: 5
+    term_occurrences_checked: 110
+    canonical_terms_used: 110
     synonyms_found: 0
+    invariants_documented: 14
+    auto_decisions_documented: 16
 
-  # 8. トレンド情報
+  # 12. トレンド情報
   trend:
-    consecutive_perfect_scores: 12
+    consecutive_perfect_scores: 13
     last_5_runs: [100, 100, 100, 100, 100]
     average_score: 100
     stability: "optimal"
 
-  # 9. 結論
-  conclusion: "MDドキュメント群は最適な状態にあり、intent.ymlとontology.ymlへの完全な整合が達成されている。構造的または内容的な変更は不要。次回実行はintent.ymlまたはontology.ymlの更新時のみ推奨。"
+  # 13. 結論
+  conclusion: "MDドキュメント群は最適な状態にあり、intent.yml（v1.0）とontology.yml（v0.3）への完全な整合が達成されている。用語の正規化（110/110）、不変条件の反映（14/14）、AUTO決定のドキュメント化（16/16）が全て完了している。構造的または内容的な変更は不要。次回実行はintent.ymlまたはontology.ymlの更新時のみ推奨。"

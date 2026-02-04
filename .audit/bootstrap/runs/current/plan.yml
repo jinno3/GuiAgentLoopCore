@@ -1,4 +1,8 @@
-run_timestamp: "2026-02-04T09:39:00Z"
+# MD Bootstrap Execution Plan
+# Version: 1.1 (audit + concept integrated)
+# Generated: 2026-02-04T09:53:00Z
+
+run_timestamp: "2026-02-04T09:53:00Z"
 version: "1.1"
 
 rotation:
@@ -9,14 +13,17 @@ input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
     constraints_yml: ".audit/config/constraints.yml"
+    exists: true
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
-    has_concept: true
+    ambiguities_yml: ".concept/ambiguities.yml"
+    exists: true
+    version: "0.3"
 
 intent_summary:
   mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
-  target_user:
+  target_users:
     - "Application Developers"
     - "AI Agent Developers"
     - "Framework Developers"
@@ -26,10 +33,13 @@ intent_summary:
 
 ontology_summary:
   total_terms: 11
-  core_terms: 5
-  domain_terms: 5
-  aux_terms: 1
-  version: "0.3"
+  by_layer:
+    core: 5
+    domain: 5
+    aux: 1
+  by_status:
+    stable: 10
+    draft: 1
   key_terms:
     - canonical: "Interpreter"
       layer: "core"
@@ -46,12 +56,25 @@ ontology_summary:
     - canonical: "State"
       layer: "core"
       definition: "インタープリタの実行状態を表す列挙型"
-
-invariants_summary:
-  total_invariants: 14
-  hard_invariants: 11
-  soft_invariants: 3
-  version: "2026-02-02T05:23:14Z"
+    - canonical: "AutoChat"
+      layer: "domain"
+      definition: "STATE_STOP時に自動的に会話を継続する機能"
+    - canonical: "StreamWrapper"
+      layer: "domain"
+      definition: "同期・非同期ストリーミング応答を統一的に扱うユーティリティ"
+    - canonical: "Backend"
+      layer: "domain"
+      definition: "GUIフレームワーク実装（Gradio等）"
+    - canonical: "Memory"
+      layer: "domain"
+      definition: "会話履歴を保持するバッファ機構"
+      status: "draft"
+    - canonical: "Connector"
+      layer: "domain"
+      definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
+    - canonical: "Converter"
+      layer: "aux"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -77,8 +100,6 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
@@ -86,83 +107,151 @@ term_normalization:
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
-    status: "exists_verified"
     tier: 1
+    status: "exists_needs_verification"
+    priority: "high"
   - path: "AGENTS.md"
-    status: "exists_verified"
     tier: 1
+    status: "exists_needs_verification"
+    priority: "high"
   - path: "CLAUDE.md"
-    status: "exists_verified"
     tier: 2
-  - path: "GLOSSARY.md"
-    status: "needs_minor_fix"
-    tier: 3
-    issues:
-      - "synonyms used in synonym list (acceptable for glossary definition)"
-  - path: "ARCHITECTURE.md"
-    status: "needs_minor_fix"
-    tier: 3
-    issues:
-      - "GuiAgentInterpreterABC should be referenced as Connector"
-  - path: "PURPOSE.md"
-    status: "exists_verified"
-    tier: 2
+    status: "exists_needs_verification"
+    priority: "medium"
   - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_verified"
     tier: 2
+    status: "exists_needs_verification"
+    priority: "medium"
+  - path: "PURPOSE.md"
+    tier: 2
+    status: "exists_needs_verification"
+    priority: "medium"
   - path: "CONTRIBUTING.md"
-    status: "exists_verified"
     tier: 2
+    status: "exists_needs_verification"
+    priority: "medium"
   - path: "GEMINI.md"
-    status: "exists_verified"
     tier: 3
+    status: "exists_needs_verification"
+    priority: "low"
   - path: "CODEX.md"
-    status: "exists_verified"
     tier: 3
+    status: "exists_needs_verification"
+    priority: "low"
+  - path: "ARCHITECTURE.md"
+    tier: 3
+    status: "exists_needs_verification"
+    priority: "low"
+  - path: "GLOSSARY.md"
+    tier: 3
+    status: "exists_needs_verification"
+    priority: "low"
+  - path: "CHANGELOG.md"
+    tier: 3
+    status: "skip"
+    priority: "none"
+    reason: "Not in scope for bootstrap"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "already properly aligned with intent.yml and ontology.yml"
+    reason: "Tier 1: Verify concept alignment and intent consistency"
+    checks:
+      - "UC-001: Existence consistency"
+      - "CA-001: Term normalization"
+      - "CA-005: Term boundary consistency"
 
   - action: "verify"
     target: "AGENTS.md"
-    reason: "already properly aligned with intent.yml and ontology.yml"
-
-  - action: "minor_fix"
-    target: "GLOSSARY.md"
-    reason: "synonyms in synonym lists are acceptable (documentation purpose)"
-
-  - action: "minor_fix"
-    target: "ARCHITECTURE.md"
-    reason: "replace GuiAgentInterpreterABC references with Connector where appropriate"
+    reason: "Tier 1: Verify concept alignment and intent consistency"
+    checks:
+      - "UC-001: Existence consistency"
+      - "CA-001: Term normalization"
+      - "CA-002: Synonym exclusion"
+      - "CA-003: Invariant reflection"
 
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "already properly aligned"
-
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "already properly aligned"
+    reason: "Tier 2: Verify Claude-specific instructions align with ontology"
+    checks:
+      - "UC-001: Existence consistency"
+      - "CA-001: Term normalization"
+      - "CA-003: Invariant reflection"
+      - "CA-004: AUTO decision documentation"
 
   - action: "verify"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "already properly aligned"
+    reason: "Tier 2: Verify invariants are properly documented"
+    checks:
+      - "CA-003: Invariant reflection"
+      - "UC-004: Boundary consistency"
+
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "Tier 2: Verify purpose aligns with intent.yml"
+    checks:
+      - "UC-001: Existence consistency"
+      - "UC-005: Intent compliance"
 
   - action: "verify"
     target: "CONTRIBUTING.md"
-    reason: "already properly aligned"
+    reason: "Tier 2: Verify contributing guidelines reflect constraints"
+    checks:
+      - "UC-003: Constraint consistency"
+      - "CA-001: Term normalization"
 
   - action: "verify"
     target: "GEMINI.md"
-    reason: "already properly aligned"
+    reason: "Tier 3: Verify Gemini-specific instructions"
+    checks:
+      - "UC-001: Existence consistency"
+      - "CA-001: Term normalization"
 
   - action: "verify"
     target: "CODEX.md"
-    reason: "already properly aligned"
+    reason: "Tier 3: Verify Codex-specific instructions"
+    checks:
+      - "UC-001: Existence consistency"
+      - "CA-001: Term normalization"
 
-run_type: "verification_with_minor_fixes"
-expected_outcome: "Maintain 100/100 scores while addressing minor terminology issues"
+  - action: "verify"
+    target: "ARCHITECTURE.md"
+    reason: "Tier 3: Verify architecture reflects mappings"
+    checks:
+      - "UC-001: Existence consistency"
+      - "CA-001: Term normalization"
+
+  - action: "verify"
+    target: "GLOSSARY.md"
+    reason: "Tier 3: Verify glossary matches ontology.yml"
+    checks:
+      - "CA-001: Term normalization"
+      - "CA-005: Term boundary consistency"
+
+verification_targets:
+  uniqueness_checks:
+    - "UC-001: Existence consistency"
+    - "UC-002: Target user consistency"
+    - "UC-003: Constraint consistency"
+    - "UC-004: Boundary consistency"
+    - "UC-005: Intent compliance"
+
+  concept_alignment_checks:
+    - "CA-001: Term normalization (canonical usage)"
+    - "CA-002: Synonym exclusion"
+    - "CA-003: Invariant reflection"
+    - "CA-004: AUTO decision documentation"
+    - "CA-005: Term boundary consistency"
+
+target_scores:
+  overall_score: 90
+  uniqueness_score: 90
+  concept_alignment_score: 90
+
+iteration_limit: 3
+auto_fix_enabled: true

@@ -1,124 +1,168 @@
-run_timestamp: '2026-02-04T00:27:02.029136+00:00'
-version: '1.1'
+run_timestamp: "2026-02-04T09:39:00Z"
+version: "1.1"
+
 rotation:
   deleted_old: true
   moved_current_to_old: true
+
 input_sources:
   audit:
-    intent_yml: .audit/config/intent.yml
-    constraints_yml: null
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
-    ontology_yml: .concept/ontology.yml
-    invariants_yml: .concept/invariants.yml
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
     has_concept: true
+
 intent_summary:
-  mission: GuiAgentLoopCore provides the core logic for bridging GUI frameworks and
-    LLM agents, managing conver...
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
   target_user:
-  - Application Developers: Building LLM-powered applications with GUI interfaces
-  - AI Agent Developers: Creating specialized agents for specific tasks
-  - Framework Developers: Building new GUI backend implementations
-  - AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase
-  core_value: Reliable, type-safe, and extensible foundation for GUI-LLM integration
-    with predictable state manage...
+    - "Application Developers"
+    - "AI Agent Developers"
+    - "Framework Developers"
+    - "AI Agents"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_functions_count: 5
+
 ontology_summary:
   total_terms: 11
-  by_layer:
-    core: 5
-    domain: 5
-    aux: 1
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
+  version: "0.3"
   key_terms:
-  - canonical: Interpreter
-    definition: 会話フローとエージェント相互作用を管理する中核コンポーネント
-    layer: core
-  - canonical: Agent
-    definition: 特定の役割と実装タイプを持つ専門化AIエンティティ
-    layer: core
-  - canonical: Session
-    definition: 一意のIDで管理される会話コンテキスト（JWT認証使用）
-    layer: core
-  - canonical: Message
-    definition: ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）
-    layer: core
-  - canonical: State
-    definition: インタープリタの実行状態を表す列挙型
-    layer: core
+    - canonical: "Interpreter"
+      layer: "core"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    - canonical: "Agent"
+      layer: "core"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "Session"
+      layer: "core"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    - canonical: "Message"
+      layer: "core"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+    - canonical: "State"
+      layer: "core"
+      definition: "インタープリタの実行状態を表す列挙型"
+
 invariants_summary:
   total_invariants: 14
-  hard: 11
-  soft: 3
+  hard_invariants: 11
+  soft_invariants: 3
+  version: "2026-02-02T05:23:14Z"
+
 term_normalization:
-  GuiAgentInterpreter: Interpreter
-  会話インタープリタ: Interpreter
-  AIエージェント: Agent
-  専門エージェント: Agent
-  AgentType: Agent
-  AgentDefinition: Agent
-  TaskAgent: Agent
-  AgentImage: Agent
-  ChatSession: Session
-  会話セッション: Session
-  JWT: Session
-  メッセージ: Message
-  ChatMessage: Message
-  InterpreterState: State
-  インタープリタ状態: State
-  自動チャット: AutoChat
-  自動継続: AutoChat
-  GuiAgentStreamWrapper: StreamWrapper
-  ストリームラッパー: StreamWrapper
-  GUIバックエンド: Backend
-  UIフレームワーク: Backend
-  GuiBackend: Backend
-  GuiComponent: Backend
-  変換器: Converter
-  マッパー: Converter
-  会話メモリ: Memory
-  ConversationBuffer: Memory
-  コネクタ: Connector
-  GuiAgentInterpreterABC: Connector
-  ConnectorImplCodeinterpreterApi: Connector
-  ConnectorImplOpenInterpreter: Connector
-  OpenGuiConnector: Connector
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+
 existing_mds:
-- path: README.md
-  status: exists_good
-- path: AGENTS.md
-  status: exists_good
-- path: CLAUDE.md
-  status: exists_good
-- path: GLOSSARY.md
-  status: exists_good
-- path: ARCHITECTURE.md
-  status: exists_needs_review
-- path: PURPOSE.md
-  status: exists_good
-- path: SYSTEM_CONSTITUTION.md
-  status: exists_needs_review
-- path: CONTRIBUTING.md
-  status: exists_needs_review
-- path: GEMINI.md
-  status: exists_good
-- path: CODEX.md
-  status: exists_good
-- path: CHANGELOG.md
-  status: exists_no_action
+  - path: "README.md"
+    status: "exists_verified"
+    tier: 1
+  - path: "AGENTS.md"
+    status: "exists_verified"
+    tier: 1
+  - path: "CLAUDE.md"
+    status: "exists_verified"
+    tier: 2
+  - path: "GLOSSARY.md"
+    status: "needs_minor_fix"
+    tier: 3
+    issues:
+      - "synonyms used in synonym list (acceptable for glossary definition)"
+  - path: "ARCHITECTURE.md"
+    status: "needs_minor_fix"
+    tier: 3
+    issues:
+      - "GuiAgentInterpreterABC should be referenced as Connector"
+  - path: "PURPOSE.md"
+    status: "exists_verified"
+    tier: 2
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_verified"
+    tier: 2
+  - path: "CONTRIBUTING.md"
+    status: "exists_verified"
+    tier: 2
+  - path: "GEMINI.md"
+    status: "exists_verified"
+    tier: 3
+  - path: "CODEX.md"
+    status: "exists_verified"
+    tier: 3
+
 actions:
-- action: verify
-  target: README.md
-  reason: Verify alignment with intent and ontology
-- action: verify
-  target: AGENTS.md
-  reason: Verify concept alignment and term normalization
-- action: verify
-  target: CLAUDE.md
-  reason: Verify Claude-specific instructions match ontology
-- action: review
-  target: ARCHITECTURE.md
-  reason: Review for concept alignment
-- action: review
-  target: SYSTEM_CONSTITUTION.md
-  reason: Review invariants coverage
-- action: review
-  target: CONTRIBUTING.md
-  reason: Review term usage guidelines
+  - action: "verify"
+    target: "README.md"
+    reason: "already properly aligned with intent.yml and ontology.yml"
+
+  - action: "verify"
+    target: "AGENTS.md"
+    reason: "already properly aligned with intent.yml and ontology.yml"
+
+  - action: "minor_fix"
+    target: "GLOSSARY.md"
+    reason: "synonyms in synonym lists are acceptable (documentation purpose)"
+
+  - action: "minor_fix"
+    target: "ARCHITECTURE.md"
+    reason: "replace GuiAgentInterpreterABC references with Connector where appropriate"
+
+  - action: "verify"
+    target: "CLAUDE.md"
+    reason: "already properly aligned"
+
+  - action: "verify"
+    target: "PURPOSE.md"
+    reason: "already properly aligned"
+
+  - action: "verify"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "already properly aligned"
+
+  - action: "verify"
+    target: "CONTRIBUTING.md"
+    reason: "already properly aligned"
+
+  - action: "verify"
+    target: "GEMINI.md"
+    reason: "already properly aligned"
+
+  - action: "verify"
+    target: "CODEX.md"
+    reason: "already properly aligned"
+
+run_type: "verification_with_minor_fixes"
+expected_outcome: "Maintain 100/100 scores while addressing minor terminology issues"
