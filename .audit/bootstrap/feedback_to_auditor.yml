@@ -1,24 +1,24 @@
 # Feedback to Auditor (14_repo_genesis_auditor)
-# Generated: 2026-05-01T19:27:00Z
+# Generated: 2026-05-02T00:30:00Z
 
-bootstrap_run_timestamp: '2026-05-01T19:27:00Z'
+bootstrap_run_timestamp: '2026-05-02T00:30:00Z'
 version: '1.1'
-run_number: 95
+run_number: 96
 run_mode: update
 
 existence_clarity:
-  before: 95
+  before: 100
   after: 100
-  delta: 5
-  interpretation: "Fixed self-referencing normalization map in GLOSSARY.md, removed duplicate AUTO entry in ARCHITECTURE.md, fixed backtick mismatch in SYSTEM_CONSTITUTION.md, expanded term lists in GEMINI.md and CODEX.md from 4 to 11 canonical terms"
+  delta: 0
+  interpretation: "Maintained perfect score. Added missing AUTO decision to README.md and soft invariants to SYSTEM_CONSTITUTION.md."
 
 uniqueness_score:
   score: 100
   checks_performed: 10
   checks_passed: 10
   checks_failed: 0
-  issues_found: 4
-  issues_resolved: 4
+  issues_found: 2
+  issues_resolved: 2
   remaining_issues: []
   details:
     UC-001: "passed - mission consistency across all MDs"
@@ -39,16 +39,16 @@ md_coverage:
   total_coverage: "10/10 (100%)"
   all_verified: true
   files_verified:
-    - README.md (verified, no changes needed)
-    - AGENTS.md (verified, no changes needed)
-    - CLAUDE.md (verified, no changes needed)
-    - SYSTEM_CONSTITUTION.md (updated: fixed backtick mismatch)
-    - PURPOSE.md (verified, no changes needed)
+    - README.md (updated: added missing AUTO:AutoChat.check:before_trigger)
+    - AGENTS.md (updated: run metadata refreshed to run #96)
+    - CLAUDE.md (updated: run metadata refreshed to run #96)
+    - SYSTEM_CONSTITUTION.md (updated: added 3 soft invariants)
+    - PURPOSE.md (updated: run metadata refreshed to run #96)
     - CONTRIBUTING.md (verified, no changes needed)
-    - GEMINI.md (updated: expanded term list from 4 to 11)
-    - CODEX.md (updated: expanded term list from 4 to 11)
-    - ARCHITECTURE.md (updated: removed duplicate AUTO:State.timer:3sec)
-    - GLOSSARY.md (updated: fixed self-referencing normalization map)
+    - GEMINI.md (verified, no changes needed)
+    - CODEX.md (verified, no changes needed)
+    - ARCHITECTURE.md (verified, no changes needed)
+    - GLOSSARY.md (updated: run metadata refreshed to run #96)
   files_skipped:
     - CHANGELOG.md (out of scope - placeholder)
 
@@ -63,27 +63,17 @@ concept_integration:
 inconsistencies:
   found:
     - id: "INC-001"
-      description: "ARCHITECTURE.md had duplicate AUTO:State.timer:3sec entry (lines 322-326)"
+      description: "README.md was missing AUTO:AutoChat.check:before_trigger AUTO decision in AutoChat-related section"
       status: "resolved"
-      resolution: "Removed duplicate entry"
+      resolution: "Added missing AUTO decision to README.md"
     - id: "INC-002"
-      description: "SYSTEM_CONSTITUTION.md had mismatched backtick in Periodic Audits (line 233)"
+      description: "SYSTEM_CONSTITUTION.md was missing 3 soft invariants (INV-AGENT-001, INV-MEM-001, INV-BACKEND-002)"
       status: "resolved"
-      resolution: "Fixed backtick to proper markdown bold formatting"
-    - id: "INC-003"
-      description: "GLOSSARY.md normalization map had self-referencing entries (synonym=canonical)"
-      status: "resolved"
-      resolution: "Replaced with actual synonym-to-canonical mappings from ontology.yml"
-    - id: "INC-004"
-      description: "GEMINI.md and CODEX.md only listed 4 core terms instead of all 11"
-      status: "resolved"
-      resolution: "Extended term lists to include all 11 canonical terms (5 core + 5 domain + 1 aux)"
+      resolution: "Added soft invariants section with all 3 missing invariants"
   resolved:
     - INC-001
     - INC-002
-    - INC-003
-    - INC-004
-  summary: "4 inconsistencies found and resolved. All MD files now fully aligned with intent.yml."
+  summary: "2 inconsistencies found and resolved. All MD files now fully aligned with intent.yml."
 
 intent_suggestions: []
 
@@ -99,7 +89,7 @@ overall_assessment:
     - 一意性チェックが完璧（5/5 passed）
     - 概念整合度が完璧（100/100）
     - 同義語の混入が0件
-    - 正規化マップが適切に機能している
+    - Soft invariantsもSYSTEM_CONSTITUTION.mdに完全反映
 
   recommendations:
     - priority: informational

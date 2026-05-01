@@ -94,6 +94,7 @@ This project uses AUTO decisions (provisional specifications) to resolve ambigui
 
 ### AutoChat-related
 - **AUTO:AutoChat.trigger:stop_only** - AutoChat only fires at STATE_STOP
+- **AUTO:AutoChat.check:before_trigger** - State check is performed before trigger
 - **AUTO:AutoChat.prompt:default_continue** - Default continue prompt used when unset (safety-first)
 
 ### Backend-related

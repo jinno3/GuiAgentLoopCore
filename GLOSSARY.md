@@ -271,8 +271,8 @@
 ---
 
 **生成元**: `.concept/ontology.yml` (v0.3, updated: 2026-02-03T12:21:29Z)
-**生成日時**: 2026-02-04T08:32:47Z
-**担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合 - run #86)
+**生成日時**: 2026-05-02T00:30:00Z
+**担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合 - run #96)
 
 ---
 

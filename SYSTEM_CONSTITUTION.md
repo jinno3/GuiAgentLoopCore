@@ -2,7 +2,7 @@
 
 > **GuiAgentLoopCore System Constitution**
 > **Version**: 1.1
-> **Last Updated**: 2026-02-03T13:47:39Z (bootstrap run v1.1 - all 14 invariants verified with ontology v0.3)
+> **Last Updated**: 2026-05-02T00:30:00Z (bootstrap run v1.1 - all 14 invariants verified with ontology v0.3)
 
 This document defines the constitutional principles and invariants that govern the GuiAgentLoopCore system. These principles MUST NEVER be violated.
 
@@ -208,6 +208,47 @@ The following invariants have constitutional status and CANNOT be violated:
 - Changes require constitutional amendment (consensus from maintainers)
 - Tests MUST verify this invariant is maintained
 
+
+
+
+### INV-AGENT-001: エージェントは定義された役割を持つ：AGENT_EXECUTOR, LLM_PLANNER, SUPERVISOR, THOUGHT, CREW, OTHER
+
+**Strength**: SOFT (Recommended)
+**Status**: stable
+**Related Terms**: Agent
+
+**Rationale**: 役割ベースのアクセス制御と責任分離
+
+**AUTO Decision**: AUTO:Agent.role:other_default（暫定仕様）
+
+
+### INV-MEM-001: 会話メモリは最大100メッセージまで保持する
+
+**Strength**: SOFT (Recommended)
+**Status**: draft
+**Related Terms**: Memory, Session
+
+**Rationale**: メモリ使用量を制限し、パフォーマンスを維持する
+
+**AUTO Decision**: AUTO:Memory.limit:100（暫定仕様）
+
+
+### INV-BACKEND-002: Gradioバックエンドは定期的な状態更新にTimerコンポーネントを使用する
+
+**Strength**: SOFT (Recommended)
+**Status**: stable
+**Related Terms**: Backend, State
+
+**Rationale**: UIと状態の同期メカニズムを保証する
+
+**AUTO Decision**: AUTO:Backend.timer:3sec_interval（暫定仕様）
+
+
+---
+
+## Soft Invariants (Recommended)
+
+The following invariants are recommended best practices. Exceptions may be allowed under specific circumstances with documented justification.
 
 ---
 

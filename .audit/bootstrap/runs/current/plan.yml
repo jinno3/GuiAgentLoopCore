@@ -1,4 +1,4 @@
-run_timestamp: "2026-05-01T19:23:00Z"
+run_timestamp: "2026-05-02T00:30:00Z"
 
 rotation:
   deleted_old: true
@@ -7,7 +7,7 @@ rotation:
 input_sources:
   audit:
     intent_yml: ".audit/config/intent.yml"
-    constraints_yml: null
+    constraints_yml: ".audit/config/constraints.yml"
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
@@ -35,7 +35,7 @@ ontology_summary:
     - canonical: "Session"
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
 
@@ -50,7 +50,6 @@ term_normalization:
   "AgentImage": "Agent"
   "ChatSession": "Session"
   "会話セッション": "Session"
-  "JWT": "Session"
   "メッセージ": "Message"
   "ChatMessage": "Message"
   "InterpreterState": "State"
@@ -65,13 +64,13 @@ term_normalization:
   "GuiComponent": "Backend"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
+  "変換器": "Converter"
+  "マッパー": "Converter"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
   "ConnectorImplCodeinterpreterApi": "Connector"
   "ConnectorImplOpenInterpreter": "Connector"
   "OpenGuiConnector": "Connector"
-  "変換器": "Converter"
-  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
@@ -92,60 +91,57 @@ existing_mds:
   - path: "CONTRIBUTING.md"
     status: "exists_ok"
     issues: []
-  - path: "GLOSSARY.md"
-    status: "exists_ok"
-    issues: []
-  - path: "ARCHITECTURE.md"
-    status: "exists_ok"
-    issues: []
   - path: "GEMINI.md"
     status: "exists_ok"
     issues: []
   - path: "CODEX.md"
     status: "exists_ok"
     issues: []
-  - path: "CHANGELOG.md"
+  - path: "ARCHITECTURE.md"
     status: "exists_ok"
-    issues: ["Minimal content - placeholder only"]
+    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_ok"
+    issues: []
 
 actions:
   - action: "update"
     target: "README.md"
-    reason: "Verify concept alignment and update timestamp to current run"
+    reason: "Refresh to ensure latest ontology alignment and run metadata update"
     condition: null
   - action: "update"
     target: "AGENTS.md"
-    reason: "Verify all 14 invariants and 16 AUTO decisions documented, update timestamp"
+    reason: "Refresh to ensure latest run metadata and invariant documentation"
     condition: null
   - action: "update"
     target: "CLAUDE.md"
-    reason: "Verify concept alignment, update timestamp"
+    reason: "Refresh to ensure latest run metadata"
     condition: null
   - action: "update"
     target: "SYSTEM_CONSTITUTION.md"
-    reason: "Verify all hard invariants reflected, update timestamp"
+    reason: "Refresh to ensure latest run metadata"
     condition: null
   - action: "update"
     target: "PURPOSE.md"
-    reason: "Verify mission alignment with intent.yml, update timestamp"
+    reason: "Refresh to ensure latest run metadata"
     condition: null
   - action: "update"
     target: "CONTRIBUTING.md"
-    reason: "Verify all invariants and AUTO decisions listed, update timestamp"
-    condition: null
-  - action: "update"
-    target: "GLOSSARY.md"
-    reason: "Verify all 11 terms reflected with correct ontology v0.3 data, update timestamp"
-    condition: null
-  - action: "update"
-    target: "ARCHITECTURE.md"
-    reason: "Verify architecture matches current ontology, update timestamp"
+    reason: "Refresh to ensure latest run metadata"
     condition: null
   - action: "update"
     target: "GEMINI.md"
-    reason: "Verify concept alignment, update timestamp"
+    reason: "Refresh to ensure latest run metadata"
     condition: null
   - action: "update"
     target: "CODEX.md"
-    reason: "Verify concept alignment, update timestamp"
+    reason: "Refresh to ensure latest run metadata"
+    condition: null
+  - action: "update"
+    target: "ARCHITECTURE.md"
+    reason: "Refresh to ensure latest run metadata"
+    condition: null
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "Refresh to ensure latest run metadata"
     condition: null

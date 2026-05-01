@@ -134,8 +134,8 @@ All terminology is normalized and defined in a formal ontology. No ambiguity.
 
 ---
 
-**Last Updated**: 2026-02-04T08:32:47Z (bootstrap run v1.1 - verified ontology alignment v0.3, run #85)
-**Next Review**: 2026-02-04
+**Last Updated**: 2026-05-02T00:30:00Z (bootstrap run v1.1 - verified ontology alignment v0.3, run #96)
+**Next Review**: 2026-05-09
 **Synced With**: `.audit/config/intent.yml` v1.0, `.concept/ontology.yml` v0.3
 
 ---

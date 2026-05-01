@@ -1,63 +1,15 @@
-239,268c239,269
-< | Interpreter | Interpreter |
-< | Interpreter | Interpreter |
-< | Agent | Agent |
-< | Agent | Agent |
-< | Agent | Agent |
-< | Agent | Agent |
-< | Agent | Agent |
-< | Agent | Agent |
-< | Session | Session |
-< | Session | Session |
-< | Message | Message |
-< | Message | Message |
-< | State | State |
-< | State | State |
-< | AutoChat | AutoChat |
-< | AutoChat | AutoChat |
-< | StreamWrapper | StreamWrapper |
-< | StreamWrapper | StreamWrapper |
-< | Backend | Backend |
-< | Backend | Backend |
-< | Backend | Backend |
-< | Backend | Backend |
-< | Memory | Memory |
-< | Memory | Memory |
-< | Converter | Converter |
-< | Converter | Converter |
-< | Connector | Connector |
-< | InterpreterABC | Connector |
-< | Connector | Connector |
-< | Connector | Connector |
----
-> | GuiAgentInterpreter | Interpreter |
-> | 会話インタープリタ | Interpreter |
-> | AIエージェント | Agent |
-> | 専門エージェント | Agent |
-> | AgentType | Agent |
-> | AgentDefinition | Agent |
-> | TaskAgent | Agent |
-> | AgentImage | Agent |
-> | ChatSession | Session |
-> | 会話セッション | Session |
-> | メッセージ | Message |
-> | ChatMessage | Message |
-> | InterpreterState | State |
-> | インタープリタ状態 | State |
-> | 自動チャット | AutoChat |
-> | 自動継続 | AutoChat |
-> | GuiAgentStreamWrapper | StreamWrapper |
-> | ストリームラッパー | StreamWrapper |
-> | GUIバックエンド | Backend |
-> | UIフレームワーク | Backend |
-> | GuiBackend | Backend |
-> | GuiComponent | Backend |
-> | 会話メモリ | Memory |
-> | ConversationBuffer | Memory |
-> | 変換器 | Converter |
-> | マッパー | Converter |
-> | コネクタ | Connector |
-> | GuiAgentInterpreterABC | Connector |
-> | ConnectorImplCodeinterpreterApi | Connector |
-> | ConnectorImplOpenInterpreter | Connector |
-> | OpenGuiConnector | Connector |
+diff --git a/GLOSSARY.md b/GLOSSARY.md
+index 6cf3f76..a37580c 100644
+--- a/GLOSSARY.md
++++ b/GLOSSARY.md
+@@ -271,8 +271,8 @@
+ ---
+ 
+ **生成元**: `.concept/ontology.yml` (v0.3, updated: 2026-02-03T12:21:29Z)
+-**生成日時**: 2026-02-04T08:32:47Z
+-**担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合 - run #86)
++**生成日時**: 2026-05-02T00:30:00Z
++**担当**: 16_repo_md_bootstrapper v1.1 (audit + concept統合 - run #96)
+ 
+ ---
+ 
