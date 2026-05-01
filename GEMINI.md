@@ -17,6 +17,13 @@ Geminiは、このリポジトリの`.concept/ontology.yml`で定義された正
 - `Agent` - 常に英単語の`Agent`を使用（日本語訳不使用）
 - `Session` - 常に英単語の`Session`を使用（日本語訳不使用）
 - `Message` - 常に英単語の`Message`を使用（日本語訳不使用）
+- `State` - 常に英単語の`State`を使用（日本語訳不使用）
+- `AutoChat` - 常に英単語の`AutoChat`を使用
+- `StreamWrapper` - 常に英単語の`StreamWrapper`を使用
+- `Backend` - 常に英単語の`Backend`を使用
+- `Memory` - 常に英単語の`Memory`を使用（draft status）
+- `Connector` - 常に英単語の`Connector`を使用
+- `Converter` - 常に英単語の`Converter`を使用
 
 用語の完全なリストは[GLOSSARY.md](GLOSSARY.md)を参照してください。
 

@@ -17,6 +17,13 @@ Codexは、このリポジトリの`.concept/ontology.yml`で定義された正�
 - `Agent` - 常に`Agent`を使用
 - `Session` - 常に`Session`を使用
 - `Message` - 常に`Message`を使用
+- `State` - 常に`State`を使用
+- `AutoChat` - 常に`AutoChat`を使用
+- `StreamWrapper` - 常に`StreamWrapper`を使用
+- `Backend` - 常に`Backend`を使用
+- `Memory` - 常に`Memory`を使用（draft status）
+- `Connector` - 常に`Connector`を使用
+- `Converter` - 常に`Converter`を使用
 
 用語の完全なリストは[GLOSSARY.md](GLOSSARY.md)を参照してください。
 

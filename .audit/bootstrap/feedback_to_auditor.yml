@@ -1,35 +1,35 @@
 # Feedback to Auditor (14_repo_genesis_auditor)
-# Generated: 2026-02-04T05:29:17Z
+# Generated: 2026-05-01T19:27:00Z
 
-bootstrap_run_timestamp: '2026-02-04T05:29:17Z'
+bootstrap_run_timestamp: '2026-05-01T19:27:00Z'
 version: '1.1'
-run_number: 94
-run_mode: verification
+run_number: 95
+run_mode: update
 
 existence_clarity:
-  before: 100
+  before: 95
   after: 100
-  delta: 0
-  interpretation: "intent.ymlの定義が完璧で、既に全MDに正確に反映されている。変更は不要。"
+  delta: 5
+  interpretation: "Fixed self-referencing normalization map in GLOSSARY.md, removed duplicate AUTO entry in ARCHITECTURE.md, fixed backtick mismatch in SYSTEM_CONSTITUTION.md, expanded term lists in GEMINI.md and CODEX.md from 4 to 11 canonical terms"
 
 uniqueness_score:
   score: 100
   checks_performed: 10
   checks_passed: 10
   checks_failed: 0
-  issues_found: 0
-  issues_resolved: 0
+  issues_found: 4
+  issues_resolved: 4
   remaining_issues: []
   details:
-    UC-001: "passed - mission consistency"
-    UC-002: "passed - target user consistency"
+    UC-001: "passed - mission consistency across all MDs"
+    UC-002: "passed - target user consistency across all MDs"
     UC-003: "passed - constraint consistency"
     UC-004: "passed - boundary consistency"
     UC-005: "passed - intent.yml compliance"
-    CA-001: "passed - term normalization"
-    CA-002: "passed - synonym exclusion"
-    CA-003: "passed - invariant reflection"
-    CA-004: "passed - AUTO decision documentation"
+    CA-001: "passed - term normalization (alignment_rate=1.0)"
+    CA-002: "passed - synonym exclusion (0 violations)"
+    CA-003: "passed - invariant reflection (14/14)"
+    CA-004: "passed - AUTO decision documentation (16/16)"
     CA-005: "passed - term boundary alignment"
 
 md_coverage:
@@ -39,18 +39,18 @@ md_coverage:
   total_coverage: "10/10 (100%)"
   all_verified: true
   files_verified:
-    - README.md (verified no changes)
-    - AGENTS.md (verified no changes)
-    - CLAUDE.md (verified no changes)
-    - SYSTEM_CONSTITUTION.md (verified no changes)
-    - PURPOSE.md (verified no changes)
-    - CONTRIBUTING.md (verified no changes)
-    - GEMINI.md (verified no changes)
-    - CODEX.md (verified no changes)
-    - ARCHITECTURE.md (verified no changes)
-    - GLOSSARY.md (verified no changes)
+    - README.md (verified, no changes needed)
+    - AGENTS.md (verified, no changes needed)
+    - CLAUDE.md (verified, no changes needed)
+    - SYSTEM_CONSTITUTION.md (updated: fixed backtick mismatch)
+    - PURPOSE.md (verified, no changes needed)
+    - CONTRIBUTING.md (verified, no changes needed)
+    - GEMINI.md (updated: expanded term list from 4 to 11)
+    - CODEX.md (updated: expanded term list from 4 to 11)
+    - ARCHITECTURE.md (updated: removed duplicate AUTO:State.timer:3sec)
+    - GLOSSARY.md (updated: fixed self-referencing normalization map)
   files_skipped:
-    - CHANGELOG.md (out of scope)
+    - CHANGELOG.md (out of scope - placeholder)
 
 concept_integration:
   used: true
@@ -61,9 +61,29 @@ concept_integration:
   new_term_candidates: []
 
 inconsistencies:
-  found: []
-  resolved: []
-  summary: "矛盾は発見されなかった。全MDファイルがintent.ymlと完全に整合。"
+  found:
+    - id: "INC-001"
+      description: "ARCHITECTURE.md had duplicate AUTO:State.timer:3sec entry (lines 322-326)"
+      status: "resolved"
+      resolution: "Removed duplicate entry"
+    - id: "INC-002"
+      description: "SYSTEM_CONSTITUTION.md had mismatched backtick in Periodic Audits (line 233)"
+      status: "resolved"
+      resolution: "Fixed backtick to proper markdown bold formatting"
+    - id: "INC-003"
+      description: "GLOSSARY.md normalization map had self-referencing entries (synonym=canonical)"
+      status: "resolved"
+      resolution: "Replaced with actual synonym-to-canonical mappings from ontology.yml"
+    - id: "INC-004"
+      description: "GEMINI.md and CODEX.md only listed 4 core terms instead of all 11"
+      status: "resolved"
+      resolution: "Extended term lists to include all 11 canonical terms (5 core + 5 domain + 1 aux)"
+  resolved:
+    - INC-001
+    - INC-002
+    - INC-003
+    - INC-004
+  summary: "4 inconsistencies found and resolved. All MD files now fully aligned with intent.yml."
 
 intent_suggestions: []
 
@@ -79,6 +99,7 @@ overall_assessment:
     - 一意性チェックが完璧（5/5 passed）
     - 概念整合度が完璧（100/100）
     - 同義語の混入が0件
+    - 正規化マップが適切に機能している
 
   recommendations:
     - priority: informational
@@ -102,8 +123,8 @@ verification_summary:
 
 # Term Usage Statistics
 term_usage:
-  total_occurrences: 88
-  canonical_used: 88
+  total_occurrences: 250
+  canonical_used: 250
   synonym_used: 0
   unknown_terms: 0
   alignment_rate: 1.0

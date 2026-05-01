@@ -1,0 +1,162 @@
+{
+  "timestamp": "2026-05-01T19:28:00Z",
+  "version": "1.0",
+  "source_bootstrap_run": 95,
+  "input_sources": {
+    "intent_yml": ".audit/config/intent.yml",
+    "ontology_yml": ".concept/ontology.yml",
+    "invariants_yml": ".concept/invariants.yml",
+    "ambiguities_yml": ".concept/ambiguities.yml",
+    "md_files": [
+      "README.md", "AGENTS.md", "CLAUDE.md", "SYSTEM_CONSTITUTION.md",
+      "PURPOSE.md", "CONTRIBUTING.md", "GLOSSARY.md", "ARCHITECTURE.md",
+      "GEMINI.md", "CODEX.md"
+    ]
+  },
+  "axes": [
+    {
+      "id": "Q-001",
+      "name": "存在確認（MD File Existence）",
+      "description": "All required MD files exist",
+      "score": 100,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "tier1_required": ["README.md", "AGENTS.md"],
+        "tier1_found": ["README.md", "AGENTS.md"],
+        "tier1_coverage": "2/2 (100%)",
+        "tier2_recommended": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+        "tier2_found": ["CLAUDE.md", "SYSTEM_CONSTITUTION.md", "PURPOSE.md", "CONTRIBUTING.md"],
+        "tier2_coverage": "4/4 (100%)",
+        "tier3_conditional": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+        "tier3_found": ["GEMINI.md", "CODEX.md", "ARCHITECTURE.md", "GLOSSARY.md"],
+        "tier3_coverage": "4/4 (100%)"
+      }
+    },
+    {
+      "id": "Q-002",
+      "name": "存在意義明確度（Intent Clarity）",
+      "description": "Mission, target users, core value clearly expressed",
+      "score": 100,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "mission_in_readme": true,
+        "mission_in_agents": true,
+        "mission_in_purpose": true,
+        "target_users_listed": true,
+        "core_value_expressed": true,
+        "mission_consistency": "All MDs express the same mission"
+      }
+    },
+    {
+      "id": "Q-003",
+      "name": "一意性（Uniqueness）",
+      "description": "Repository differentiates itself from similar projects",
+      "score": 100,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "differentiation_points": [
+          "GUI-LLM bridge (not just LLM framework)",
+          "Monotonic state machine (not generic state)",
+          "Role-based multi-agent (not single agent)",
+          "Backend abstraction (not tied to one UI)"
+        ],
+        "boundaries_clearly_defined": true,
+        "out_of_scope_listed": true
+      }
+    },
+    {
+      "id": "Q-004",
+      "name": "概念整合性（Concept Alignment）",
+      "description": "All terminology normalized to ontology canonical forms",
+      "score": 100,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "ontology_version": "0.3",
+        "total_canonical_terms": 11,
+        "alignment_rate": 1.0,
+        "synonym_violations": 0,
+        "unknown_terms": 0,
+        "invariants_reflected": "14/14",
+        "auto_decisions_documented": "16/16"
+      }
+    },
+    {
+      "id": "Q-005",
+      "name": "構造完全性（Structural Completeness）",
+      "description": "Required sections present in all MD files",
+      "score": 100,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "readme_sections": {
+          "title": true,
+          "description": true,
+          "terminology_note": true,
+          "quick_start": true,
+          "installation": true,
+          "usage": true,
+          "invariants": true,
+          "auto_decisions": true,
+          "documentation_links": true,
+          "license": true
+        },
+        "agents_sections": {
+          "header_with_mission": true,
+          "terminology_table": true,
+          "behavior_guidelines": true,
+          "hard_invariants": true,
+          "soft_invariants": true,
+          "auto_decisions": true
+        },
+        "all_files_complete": true
+      }
+    },
+    {
+      "id": "Q-006",
+      "name": "内部一貫性（Internal Consistency）",
+      "description": "No contradictions between MD files",
+      "score": 100,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "cross_file_checks": {
+          "mission_consistent": true,
+          "target_users_consistent": true,
+          "boundaries_consistent": true,
+          "invariants_consistent": true,
+          "terminology_consistent": true
+        },
+        "contradictions_found": 0,
+        "contradictions_resolved": 0
+      }
+    },
+    {
+      "id": "Q-007",
+      "name": "実用性（Practicality）",
+      "description": "Actionable examples and commands provided",
+      "score": 95,
+      "max_score": 100,
+      "status": "PASS",
+      "details": {
+        "quick_start_example": true,
+        "installation_command": true,
+        "test_command": true,
+        "code_examples_in_claude_md": true,
+        "code_examples_in_gemini_md": true,
+        "code_examples_in_codex_md": true,
+        "contribution_workflow": true,
+        "deployment_instructions": true,
+        "note": "CHANGELOG.md is placeholder but this is expected for initial state"
+      }
+    }
+  ],
+  "overall_score": 99.3,
+  "overall_pass": true,
+  "pass_threshold": 82,
+  "verdict": "PASS",
+  "summary": "All 7 quality axes pass. MD documentation is in excellent state with perfect concept alignment, complete invariant documentation, and consistent terminology usage."
+}

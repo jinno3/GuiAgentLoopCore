@@ -1,0 +1,151 @@
+run_timestamp: "2026-05-01T19:23:00Z"
+
+rotation:
+  deleted_old: true
+  moved_current_to_old: true
+
+input_sources:
+  audit:
+    intent_yml: ".audit/config/intent.yml"
+    constraints_yml: null
+  concept:
+    ontology_yml: ".concept/ontology.yml"
+    invariants_yml: ".concept/invariants.yml"
+    has_concept: true
+
+intent_summary:
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
+  target_user:
+    - "Application Developers: Building LLM-powered applications with GUI interfaces"
+    - "AI Agent Developers: Creating specialized agents for specific tasks"
+    - "Framework Developers: Building new GUI backend implementations"
+    - "AI Agents: Claude, Gemini, Codex, and other AI models working with this codebase"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
+
+ontology_summary:
+  total_terms: 11
+  core_terms: 5
+  domain_terms: 5
+  aux_terms: 1
+  key_terms:
+    - canonical: "Interpreter"
+      definition: "会話フローとエージェント相互作用を管理する中核コンポーネント"
+    - canonical: "Agent"
+      definition: "特定の役割と実装タイプを持つ専門化AIエンティティ"
+    - canonical: "Session"
+      definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
+    - canonical: "Message"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
+    - canonical: "State"
+      definition: "インタープリタの実行状態を表す列挙型"
+
+term_normalization:
+  "GuiAgentInterpreter": "Interpreter"
+  "会話インタープリタ": "Interpreter"
+  "AIエージェント": "Agent"
+  "専門エージェント": "Agent"
+  "AgentType": "Agent"
+  "AgentDefinition": "Agent"
+  "TaskAgent": "Agent"
+  "AgentImage": "Agent"
+  "ChatSession": "Session"
+  "会話セッション": "Session"
+  "JWT": "Session"
+  "メッセージ": "Message"
+  "ChatMessage": "Message"
+  "InterpreterState": "State"
+  "インタープリタ状態": "State"
+  "自動チャット": "AutoChat"
+  "自動継続": "AutoChat"
+  "GuiAgentStreamWrapper": "StreamWrapper"
+  "ストリームラッパー": "StreamWrapper"
+  "GUIバックエンド": "Backend"
+  "UIフレームワーク": "Backend"
+  "GuiBackend": "Backend"
+  "GuiComponent": "Backend"
+  "会話メモリ": "Memory"
+  "ConversationBuffer": "Memory"
+  "コネクタ": "Connector"
+  "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
+
+existing_mds:
+  - path: "README.md"
+    status: "exists_ok"
+    issues: []
+  - path: "AGENTS.md"
+    status: "exists_ok"
+    issues: []
+  - path: "CLAUDE.md"
+    status: "exists_ok"
+    issues: []
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_ok"
+    issues: []
+  - path: "PURPOSE.md"
+    status: "exists_ok"
+    issues: []
+  - path: "CONTRIBUTING.md"
+    status: "exists_ok"
+    issues: []
+  - path: "GLOSSARY.md"
+    status: "exists_ok"
+    issues: []
+  - path: "ARCHITECTURE.md"
+    status: "exists_ok"
+    issues: []
+  - path: "GEMINI.md"
+    status: "exists_ok"
+    issues: []
+  - path: "CODEX.md"
+    status: "exists_ok"
+    issues: []
+  - path: "CHANGELOG.md"
+    status: "exists_ok"
+    issues: ["Minimal content - placeholder only"]
+
+actions:
+  - action: "update"
+    target: "README.md"
+    reason: "Verify concept alignment and update timestamp to current run"
+    condition: null
+  - action: "update"
+    target: "AGENTS.md"
+    reason: "Verify all 14 invariants and 16 AUTO decisions documented, update timestamp"
+    condition: null
+  - action: "update"
+    target: "CLAUDE.md"
+    reason: "Verify concept alignment, update timestamp"
+    condition: null
+  - action: "update"
+    target: "SYSTEM_CONSTITUTION.md"
+    reason: "Verify all hard invariants reflected, update timestamp"
+    condition: null
+  - action: "update"
+    target: "PURPOSE.md"
+    reason: "Verify mission alignment with intent.yml, update timestamp"
+    condition: null
+  - action: "update"
+    target: "CONTRIBUTING.md"
+    reason: "Verify all invariants and AUTO decisions listed, update timestamp"
+    condition: null
+  - action: "update"
+    target: "GLOSSARY.md"
+    reason: "Verify all 11 terms reflected with correct ontology v0.3 data, update timestamp"
+    condition: null
+  - action: "update"
+    target: "ARCHITECTURE.md"
+    reason: "Verify architecture matches current ontology, update timestamp"
+    condition: null
+  - action: "update"
+    target: "GEMINI.md"
+    reason: "Verify concept alignment, update timestamp"
+    condition: null
+  - action: "update"
+    target: "CODEX.md"
+    reason: "Verify concept alignment, update timestamp"
+    condition: null

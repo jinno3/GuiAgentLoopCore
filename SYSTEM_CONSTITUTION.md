@@ -230,7 +230,7 @@ Constitutional invariants are enforced through:
 1. **Code Review**: All PRs MUST pass constitutional review
 2. **Automated Tests**: Tests MUST verify all hard invariants
 3. **CI/CD**: Automated checks run on every commit
-4. **Periodic Audits`: Regular audits of codebase compliance
+4. **Periodic Audits**: Regular audits of codebase compliance
 
 ---
 

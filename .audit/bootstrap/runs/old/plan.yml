@@ -1,4 +1,4 @@
-run_timestamp: "2026-02-04T16:16:00Z"
+run_timestamp: "2026-02-04T17:52:00Z"
 version: "1.1"
 
 rotation:
@@ -12,12 +12,13 @@ input_sources:
   concept:
     ontology_yml: ".concept/ontology.yml"
     invariants_yml: ".concept/invariants.yml"
+    ambiguities_yml: ".concept/ambiguities.yml"
     has_concept: true
 
 intent_summary:
-  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents"
+  mission: "GuiAgentLoopCore provides the core logic for bridging GUI frameworks and LLM agents, managing conversation flow, agent interactions, and state control."
   target_user: "Application Developers, AI Agent Developers, Framework Developers, AI Agents"
-  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration"
+  core_value: "Reliable, type-safe, and extensible foundation for GUI-LLM integration with predictable state management and clear component boundaries."
 
 ontology_summary:
   total_terms: 11
@@ -35,7 +36,7 @@ ontology_summary:
       definition: "一意のIDで管理される会話コンテキスト（JWT認証使用）"
       layer: "core"
     - canonical: "Message"
-      definition: "ユーザー、システム、エージェント間の構造化された通信単位"
+      definition: "ユーザー、システム、エージェント間の構造化された通信単位（TOOL/FUNCTION役割含む）"
       layer: "core"
     - canonical: "State"
       definition: "インタープリタの実行状態を表す列挙型"
@@ -49,9 +50,6 @@ ontology_summary:
     - canonical: "Backend"
       definition: "GUIフレームワーク実装（Gradio等）"
       layer: "domain"
-    - canonical: "Converter"
-      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
-      layer: "aux"
     - canonical: "Memory"
       definition: "会話履歴を保持するバッファ機構"
       layer: "domain"
@@ -59,6 +57,9 @@ ontology_summary:
     - canonical: "Connector"
       definition: "中核インタープリタと異なるエージェント実装をブリッジする実装固有のアダプタ"
       layer: "domain"
+    - canonical: "Converter"
+      definition: "データ構造変換・辞書フラット化・コードフォーマット抽出を行うユーティリティ"
+      layer: "aux"
 
 term_normalization:
   "GuiAgentInterpreter": "Interpreter"
@@ -84,73 +85,75 @@ term_normalization:
   "UIフレームワーク": "Backend"
   "GuiBackend": "Backend"
   "GuiComponent": "Backend"
-  "変換器": "Converter"
-  "マッパー": "Converter"
   "会話メモリ": "Memory"
   "ConversationBuffer": "Memory"
   "コネクタ": "Connector"
   "GuiAgentInterpreterABC": "Connector"
+  "ConnectorImplCodeinterpreterApi": "Connector"
+  "ConnectorImplOpenInterpreter": "Connector"
+  "OpenGuiConnector": "Connector"
+  "変換器": "Converter"
+  "マッパー": "Converter"
 
 existing_mds:
   - path: "README.md"
     status: "exists_needs_review"
-    tier: 1
+    issues:
+      - "Already reflects intent.yml and ontology.yml well"
+      - "All 11 canonical terms documented"
+      - "All 16 AUTO decisions documented"
   - path: "AGENTS.md"
     status: "exists_needs_review"
-    tier: 1
+    issues:
+      - "Already reflects intent.yml and ontology.yml well"
+      - "Term normalization table present"
+      - "All invariants documented"
   - path: "CLAUDE.md"
     status: "exists_needs_review"
-    tier: 2
-  - path: "SYSTEM_CONSTITUTION.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "PURPOSE.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "CONTRIBUTING.md"
-    status: "exists_needs_review"
-    tier: 2
-  - path: "GEMINI.md"
-    status: "exists_needs_review"
-    tier: 3
-  - path: "CODEX.md"
-    status: "exists_needs_review"
-    tier: 3
-  - path: "ARCHITECTURE.md"
-    status: "exists_needs_review"
-    tier: 3
+    issues:
+      - "Already reflects intent.yml and ontology.yml well"
+      - "Claude-specific recommendations present"
   - path: "GLOSSARY.md"
     status: "exists_needs_review"
-    tier: 3
+    issues:
+      - "Already generated from ontology.yml"
+  - path: "ARCHITECTURE.md"
+    status: "exists_needs_review"
+  - path: "SYSTEM_CONSTITUTION.md"
+    status: "exists_needs_review"
+  - path: "PURPOSE.md"
+    status: "exists_needs_review"
+  - path: "CONTRIBUTING.md"
+    status: "exists_needs_review"
+  - path: "GEMINI.md"
+    status: "exists_needs_review"
+  - path: "CODEX.md"
+    status: "exists_needs_review"
+  - path: "CHANGELOG.md"
+    status: "exists_no_action"
 
 actions:
   - action: "verify"
     target: "README.md"
-    reason: "Tier 1: Verify intent reflection and term normalization"
+    reason: "Verify concept alignment and completeness"
   - action: "verify"
     target: "AGENTS.md"
-    reason: "Tier 1: Verify term normalization and behavior rules"
+    reason: "Verify concept alignment and completeness"
   - action: "verify"
     target: "CLAUDE.md"
-    reason: "Tier 2: Verify Claude-specific instructions and term normalization"
+    reason: "Verify concept alignment and completeness"
   - action: "verify"
     target: "GLOSSARY.md"
-    reason: "Tier 3: Verify ontology.yml alignment"
-  - action: "verify"
-    target: "SYSTEM_CONSTITUTION.md"
-    reason: "Tier 2: Verify invariants reflection"
-  - action: "verify"
-    target: "PURPOSE.md"
-    reason: "Tier 2: Verify intent consistency"
-  - action: "verify"
-    target: "CONTRIBUTING.md"
-    reason: "Tier 2: Verify contribution guidelines"
-  - action: "verify"
-    target: "GEMINI.md"
-    reason: "Tier 3: Verify Gemini-specific instructions"
-  - action: "verify"
-    target: "CODEX.md"
-    reason: "Tier 3: Verify Codex-specific instructions"
-  - action: "verify"
-    target: "ARCHITECTURE.md"
-    reason: "Tier 3: Verify mappings.yml reflection"
+    reason: "Verify concept alignment and completeness"
+  - action: "review"
+    target: "All Tier 1 and Tier 2 MD files"
+    reason: "Ensure all files properly reflect intent.yml and ontology.yml"
+
+metadata:
+  ontology_version: "0.3"
+  ontology_updated_at: "2026-02-03T12:21:29Z"
+  invariants_version: "2026-02-02T05:23:14Z"
+  ambiguities_version: "2026-02-03T21:21:22Z"
+  total_auto_decisions: 16
+  total_invariants: 14
+  total_canonical_terms: 11

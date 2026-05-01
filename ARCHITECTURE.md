@@ -322,8 +322,6 @@ This architecture incorporates several AUTO decisions that reflect provisional s
 - **AUTO:State.timer:3sec**: State is auto-updated every 3 seconds via Gradio timer
   - **Affects**: Timer-based polling mechanism in Backend layer
   - **Related Invariant**: INV-STATE-002, INV-BACKEND-002
-- **AUTO:State.timer:3sec**: State is auto-updated every 3 seconds via Gradio timer
-  - **Affects**: Timer-based polling mechanism in Backend layer
 - **AUTO:State.transition:auto_on_input**: User input automatically transitions to RUNNING
 
 ### Connector Architecture
